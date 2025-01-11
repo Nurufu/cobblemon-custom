@@ -94,7 +94,6 @@ object CobblemonFabric : CobblemonImplementation {
     fun initialize() {
         Cobblemon.preInitialize(this)
         this.networkManager.registerServerBound()
-
         Cobblemon.initialize()
         //This has to be registered elsewhere on forge so we cant do it in common
         CobblemonSherds.registerSherds()
