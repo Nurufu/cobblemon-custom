@@ -21,5 +21,4 @@ object CobblemonParticles : PlatformRegistry<Registry<ParticleType<*>>, Registry
     override val registryKey: RegistryKey<Registry<ParticleType<*>>> = RegistryKeys.PARTICLE_TYPE
 
     val SNOWSTORM_PARTICLE_TYPE = this.create("snowstorm", SnowstormParticleType())
-
 }

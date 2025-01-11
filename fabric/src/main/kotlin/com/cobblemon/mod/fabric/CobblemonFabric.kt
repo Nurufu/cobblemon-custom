@@ -10,7 +10,6 @@ package com.cobblemon.mod.fabric
 
 import com.cobblemon.mod.common.*
 import com.cobblemon.mod.common.api.data.JsonDataRegistry
-import com.cobblemon.mod.common.integration.adorn.AdornCompatibility
 import com.cobblemon.mod.common.item.group.CobblemonItemGroups
 import com.cobblemon.mod.common.loot.LootInjector
 import com.cobblemon.mod.common.particle.CobblemonParticles
@@ -31,6 +30,7 @@ import com.mojang.brigadier.arguments.ArgumentType
 import net.fabricmc.api.EnvType
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents
@@ -48,6 +48,7 @@ import net.fabricmc.fabric.api.loot.v2.LootTableEvents
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
 import net.fabricmc.fabric.api.`object`.builder.v1.trade.TradeOfferHelper
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener
@@ -59,6 +60,7 @@ import net.minecraft.advancement.criterion.Criterion
 import net.minecraft.client.MinecraftClient
 import net.minecraft.command.argument.serialize.ArgumentSerializer
 import net.minecraft.item.ItemConvertible
+import net.minecraft.particle.DefaultParticleType
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
 import net.minecraft.registry.RegistryKey
@@ -81,16 +83,14 @@ import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ExecutionException
 import java.util.concurrent.Executor
 import kotlin.reflect.KClass
-import net.minecraft.entity.ai.brain.Activity
+
 
 object CobblemonFabric : CobblemonImplementation {
 
     override val modAPI = ModAPI.FABRIC
-
     private var server: MinecraftServer? = null
 
     override val networkManager: NetworkManager = CobblemonFabricNetworkManager
-
     fun initialize() {
         Cobblemon.preInitialize(this)
         this.networkManager.registerServerBound()
@@ -98,7 +98,6 @@ object CobblemonFabric : CobblemonImplementation {
         Cobblemon.initialize()
         //This has to be registered elsewhere on forge so we cant do it in common
         CobblemonSherds.registerSherds()
-
         CobblemonBlockPredicates.touch()
         CobblemonPlacementModifierTypes.touch()
         CobblemonProcessorTypes.touch()

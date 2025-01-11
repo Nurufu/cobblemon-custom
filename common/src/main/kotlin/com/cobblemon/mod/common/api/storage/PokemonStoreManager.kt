@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.api.storage.party.PlayerPartyStore
 import com.cobblemon.mod.common.api.storage.pc.PCStore
 import com.cobblemon.mod.common.block.entity.PCBlockEntity
 import com.cobblemon.mod.common.net.messages.client.storage.party.SetPartyReferencePacket
+import net.minecraft.command.CommandRegistryAccess
 import java.util.UUID
 import net.minecraft.server.network.ServerPlayerEntity
 
@@ -47,13 +48,13 @@ open class PokemonStoreManager {
 
     open fun getParty(player: ServerPlayerEntity) = getParty(player.uuid)
 
-    @Throws(NoPokemonStoreException::class)
     open fun getParty(playerID: UUID): PlayerPartyStore {
         return factories.firstNotNullOfOrNull { it.getPlayerParty(playerID) }
             ?: throw NoPokemonStoreException(
                 "No factory was able to provide a party for $playerID - this should not be possible unless someone has removed the default provider!"
             )
     }
+
 
     @Throws(NoPokemonStoreException::class)
     open fun getPC(playerID: UUID): PCStore {

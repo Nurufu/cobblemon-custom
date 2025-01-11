@@ -18,6 +18,7 @@ import com.cobblemon.mod.common.api.dialogue.DialogueManager
 import com.cobblemon.mod.common.api.reactive.Observable.Companion.filter
 import com.cobblemon.mod.common.api.reactive.Observable.Companion.takeFirst
 import com.cobblemon.mod.common.battles.BattleRegistry
+import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.platform.events.PlatformEvents
 import com.cobblemon.mod.common.pokemon.Pokemon
 import net.minecraft.block.BlockState
@@ -367,3 +368,10 @@ fun PlayerEntity.giveOrDropItemStack(stack: ItemStack, playSound: Boolean = true
 
 /** Retrieves the battle theme associated with this player, or the default PVP theme if null. */
 fun ServerPlayerEntity.getBattleTheme() = Cobblemon.playerData.get(this).battleTheme?.let { Registries.SOUND_EVENT.get(it) } ?: CobblemonSounds.PVP_BATTLE
+
+/** Checks if any [PokemonEntity]s belonging to a player's party has any busy locks. */
+fun PlayerEntity.isPartyBusy() =
+    if (this.world.isClient())
+        CobblemonClient.storage.myParty.find { it?.entity?.isBusy == true } != null
+    else
+        Cobblemon.storage.getParty(this.uuid).find { it.entity?.isBusy == false} != null

@@ -143,8 +143,10 @@ open class PokemonEntity(
         @JvmStatic val COUNTS_TOWARDS_SPAWN_CAP = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
         @JvmStatic val SPAWN_DIRECTION = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.FLOAT)
         @JvmStatic val FRIENDSHIP = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+        @JvmStatic val EVOLUTION_STARTED = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
 
         const val BATTLE_LOCK = "battle"
+        const val EVOLUTION_LOCK = "evolving"
 
         fun createAttributes(): DefaultAttributeContainer.Builder = LivingEntity.createLivingAttributes()
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE)
@@ -175,6 +177,8 @@ open class PokemonEntity(
     /** The player that caused this Pokémon to faint. */
     var killer: ServerPlayerEntity? = null
 
+    val isEvolving: Boolean
+        get() = dataTracker.get(EVOLUTION_STARTED)
     var evolutionEntity: GenericBedrockEntity? = null
 
     var ticksLived = 0
@@ -258,6 +262,7 @@ open class PokemonEntity(
         dataTracker.startTracking(COUNTS_TOWARDS_SPAWN_CAP, true)
         dataTracker.startTracking(SPAWN_DIRECTION, world.random.nextFloat() * 360F)
         dataTracker.startTracking(FRIENDSHIP, 0)
+        dataTracker.startTracking(EVOLUTION_STARTED, false)
     }
 
     override fun onTrackedDataSet(data: TrackedData<*>) {
@@ -283,6 +288,14 @@ open class PokemonEntity(
                     busyLocks.add(BATTLE_LOCK)
                 } else {
                     busyLocks.remove(BATTLE_LOCK)
+                }
+            }
+            EVOLUTION_STARTED -> {
+                if(isEvolving) {
+                    busyLocks.remove(EVOLUTION_LOCK)
+                    busyLocks.add(EVOLUTION_LOCK)
+                } else {
+                    busyLocks.remove(EVOLUTION_LOCK)
                 }
             }
         }
@@ -838,6 +851,8 @@ open class PokemonEntity(
         } else if (ownerUuid != null) {
             return false
         } else if (health <= 0F || isDead) {
+            return false
+        } else if (player.isPartyBusy()) {
             return false
         }
 

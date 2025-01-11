@@ -8,9 +8,19 @@
 
 package com.cobblemon.mod.fabric
 
+import com.cobblemon.mod.common.Cobblemon
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes
+import net.minecraft.particle.DefaultParticleType
+import net.minecraft.registry.Registries
+import net.minecraft.registry.Registry
+import net.minecraft.util.Identifier
+
+
 class FabricBootstrap : ModInitializer {
+
     override fun onInitialize() {
         CobblemonFabric.initialize()
     }
+
 }

@@ -70,7 +70,6 @@ class EvolutionSelectScreen(
             buttonHeight = 10,
             clickAction = {
                 MinecraftClient.getInstance().player?.closeScreen()
-                MinecraftClient.getInstance().player?.sendMessage(lang("ui.evolve.into", pokemon.getDisplayName(), evolution.species.translatedName))
                 pokemon.evolutionProxy.client().start(this.evolution)
             },
             text = lang("ui.evolve"),
