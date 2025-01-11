@@ -19,8 +19,14 @@ import net.minecraft.util.Identifier
 
 class FabricBootstrap : ModInitializer {
 
+
+
     override fun onInitialize() {
+        Registry.register(Registries.PARTICLE_TYPE, Identifier("cobblemon", "sparkle_particle"), SPARKLE)
         CobblemonFabric.initialize()
     }
 
+    companion object {
+        val SPARKLE: DefaultParticleType = FabricParticleTypes.simple(true)
+    }
 }
