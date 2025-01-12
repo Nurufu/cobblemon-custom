@@ -40,6 +40,7 @@ class PrimaryAnimation<T : Entity>(
 ): StatefulAnimation<T, ModelFrame> {
     var started = -1F
     override val duration: Float = animation.duration
+    override val enduresPrimaryAnimations = false
     var afterAction: Consumer<Unit> = Consumer { }
 
     override fun run(

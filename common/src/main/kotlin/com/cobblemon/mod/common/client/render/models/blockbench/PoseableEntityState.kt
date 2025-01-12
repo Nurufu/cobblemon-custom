@@ -228,7 +228,13 @@ abstract class PoseableEntityState<T : Entity> : Schedulable {
         val model = currentModel
         if (model != null) {
             val poseImpl = model.getPose(pose) ?: return
-            poseParticles.removeIf { particle -> poseImpl.idleAnimations.filterIsInstance<BedrockStatelessAnimation<*>>().flatMap { it.particleKeyFrames }.none(particle::isSameAs) }
+            poseParticles.removeIf { particle ->
+                poseImpl.idleAnimations.filterIsInstance<BedrockStatelessAnimation<*>>()
+                    .flatMap { it.particleKeyFrames }.none(particle::isSameAs)
+                        && statefulAnimations.filterIsInstance<BedrockStatefulAnimation<*>>()
+                    .flatMap { it.animation.effects.filterIsInstance<BedrockParticleKeyframe>() }
+                    .none(particle::isSameAs)
+            }
             poseImpl.onTransitionedInto(this)
             val entity = getEntity()
             if (entity != null) {
@@ -262,7 +268,7 @@ abstract class PoseableEntityState<T : Entity> : Schedulable {
 
     fun addPrimaryAnimation(primaryAnimation: PrimaryAnimation<T>) {
         this.primaryAnimation = primaryAnimation
-        this.statefulAnimations.clear()
+        this.statefulAnimations.removeIf { !it.enduresPrimaryAnimations }
         this.quirks.clear()
         this.primaryOverridePortion = 1F
         primaryAnimation.started = animationSeconds

@@ -26,12 +26,11 @@ open class BedrockStatefulAnimation<T : Entity>(
     val animation: BedrockAnimation,
 ) : StatefulAnimation<T, ModelFrame> {
     var startedSeconds = -1F
-    var isTransformAnimation = false
     override val duration = animation.animationLength.toFloat()
+    override var enduresPrimaryAnimations = false
     private var afterAction: (T, PoseableEntityState<T>) -> Unit = { _, _ -> }
 
-    override val isTransform: Boolean
-        get() = isTransformAnimation
+    override val isTransform = false
 
     fun andThen(action: (entity: T, PoseableEntityState<T>) -> Unit) = this.also {
         it.afterAction = action

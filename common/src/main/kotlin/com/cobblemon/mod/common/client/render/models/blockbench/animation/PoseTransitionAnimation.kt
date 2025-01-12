@@ -30,7 +30,7 @@ class PoseTransitionAnimation<T : Entity>(
     val curve: WaveFunction = sineFunction(amplitude = 0.5F, period = 2F, phaseShift = 0.5F, verticalShift = 0.5F)
 ) : StatefulAnimation<T, ModelFrame> {
     override val isTransform = true
-
+    override val enduresPrimaryAnimations = false
     override val duration: Float = durationTicks / 20F
 
     var initialized = false
