@@ -74,7 +74,7 @@ open class Ability internal constructor(var template: AbilityTemplate, forced: B
 
     open fun loadFromNBT(nbt: NbtCompound): Ability {
         this.template = Abilities.getOrException(nbt.getString(DataKeys.POKEMON_ABILITY_NAME))
-        this.forced = false
+        this.forced = nbt.getBoolean(DataKeys.POKEMON_ABILITY_FORCED)
         if (nbt.contains(DataKeys.POKEMON_ABILITY_INDEX) && nbt.contains(DataKeys.POKEMON_ABILITY_PRIORITY)) {
             this.index = nbt.getInt(DataKeys.POKEMON_ABILITY_INDEX)
             this.priority = Priority.valueOf(nbt.getString(DataKeys.POKEMON_ABILITY_PRIORITY))
