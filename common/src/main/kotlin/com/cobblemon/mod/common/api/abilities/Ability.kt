@@ -22,7 +22,7 @@ import net.minecraft.nbt.NbtCompound
  * @author Qu
  * @since January 9th, 2022
  */
-open class Ability internal constructor(var template: AbilityTemplate, forced: Boolean) {
+open class Ability internal constructor(var template: AbilityTemplate, forced: Boolean, priority: Priority) {
 
     val name: String
         get() = template.name
