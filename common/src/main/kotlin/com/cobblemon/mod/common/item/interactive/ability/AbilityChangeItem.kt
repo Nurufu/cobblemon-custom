@@ -33,7 +33,7 @@ open class AbilityChangeItem<T : PotentialAbility>(val changer: AbilityChanger<T
             player.sendMessage(feedback)
             return true
         }
-        return false
+        return true
     }
 
 }

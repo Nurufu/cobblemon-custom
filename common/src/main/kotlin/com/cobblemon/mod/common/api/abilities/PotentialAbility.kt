@@ -52,4 +52,3 @@ open class CommonAbility(override val template: AbilityTemplate) : PotentialAbil
     override val type = CommonAbilityType
     override fun isSatisfiedBy(aspects: Set<String>) = true
 }
-

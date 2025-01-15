@@ -64,22 +64,23 @@ object TestCommand {
             return Command.SINGLE_SUCCESS
         }
 
-        try {
-            val player = context.source.entity as ServerPlayerEntity
-            val evolutionEntity = GenericBedrockEntity(world = player.world)
-            evolutionEntity?.apply {
-                category = cobblemonResource("evolution")
-                colliderHeight = 1.5F
-                colliderWidth = 1.5F
-                scale = 1F
-                syncAge = true // Otherwise particle animation will be starting from zero even if you come along partway through
-                setPosition(player.x, player.y, player.z + 4)
-            }
-            player.world.spawnEntity(evolutionEntity)
-            after(seconds = 0.5F) {
-                player.sendPacket(PlayPoseableAnimationPacket(evolutionEntity.id, setOf("evolution:animation.evolution.evolution"), emptySet()))
-            }
-
+//        try {
+//            val player = context.source.entity as ServerPlayerEntity
+//            val evolutionEntity = GenericBedrockEntity(world = player.world)
+//            evolutionEntity?.apply {
+//                category = cobblemonResource("evolution")
+//                colliderHeight = 1.5F
+//                colliderWidth = 1.5F
+//                scale = 1F
+//                syncAge = true // Otherwise particle animation will be starting from zero even if you come along partway through
+//                setPosition(player.x, player.y, player.z + 4)
+//            }
+//            player.world.spawnEntity(evolutionEntity)
+//            after(seconds = 0.5F) {
+//                player.sendPacket(PlayPoseableAnimationPacket(evolutionEntity.id, setOf("evolution:animation.evolution.evolution"), emptySet()))
+//            }
+            testAbilityCapsule()
+            testAbilityPatch()
 
 //            readBerryDataFromCSV()
 
@@ -119,11 +120,12 @@ object TestCommand {
 
 //            val player = context.source.entity as ServerPlayerEntity
 //            player.giveItemStack(PokemonItem.from(PokemonSpecies.random(), "alolan"))
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
+//        return Command.SINGLE_SUCCESS
         return Command.SINGLE_SUCCESS
-    }
+}
 
     var trade: ActiveTrade? = null
     var lastDebugId = 0

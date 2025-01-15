@@ -22,7 +22,7 @@ import net.minecraft.nbt.NbtCompound
  * @author Qu
  * @since January 9th, 2022
  */
-open class Ability internal constructor(var template: AbilityTemplate, forced: Boolean) {
+open class Ability internal constructor(var template: AbilityTemplate, forced: Boolean, priority: Priority) {
 
     val name: String
         get() = template.name
@@ -74,7 +74,7 @@ open class Ability internal constructor(var template: AbilityTemplate, forced: B
 
     open fun loadFromNBT(nbt: NbtCompound): Ability {
         this.template = Abilities.getOrException(nbt.getString(DataKeys.POKEMON_ABILITY_NAME))
-        this.forced = nbt.getBoolean(DataKeys.POKEMON_ABILITY_FORCED)
+        this.forced = false
         if (nbt.contains(DataKeys.POKEMON_ABILITY_INDEX) && nbt.contains(DataKeys.POKEMON_ABILITY_PRIORITY)) {
             this.index = nbt.getInt(DataKeys.POKEMON_ABILITY_INDEX)
             this.priority = Priority.valueOf(nbt.getString(DataKeys.POKEMON_ABILITY_PRIORITY))
