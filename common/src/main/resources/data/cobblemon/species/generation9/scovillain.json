@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Scovillain",
   "nationalPokedexNumber": 952,
   "primaryType": "grass",
@@ -15,6 +16,14 @@
     "special_attack": 108,
     "special_defence": 65,
     "speed": 75
+  },
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": false,
+      "depth": "normal",
+      "light": "0-4"
+    }
   },
   "catchRate": 75,
   "maleRatio": 0.5,
@@ -37,8 +46,6 @@
     "1:firefang",
     "1:leafage",
     "1:leer",
-    "1:spicyextract",
-    "1:flamethrower",
     "4:bite",
     "10:growth",
     "13:razorleaf",
@@ -52,9 +59,7 @@
     "48:overheat",
     "48:solarbeam",
     "tm:bulletseed",
-    "tm:burningjealousy",
     "tm:crunch",
-    "tm:endeavor",
     "tm:endure",
     "tm:energyball",
     "tm:facade",
@@ -64,11 +69,9 @@
     "tm:gigadrain",
     "tm:gigaimpact",
     "tm:grassknot",
-    "tm:grassyglide",
     "tm:grassyterrain",
     "tm:helpinghand",
     "tm:hyperbeam",
-    "tm:lashout",
     "tm:leafstorm",
     "tm:magicalleaf",
     "tm:overheat",
@@ -82,9 +85,7 @@
     "tm:stompingtantrum",
     "tm:substitute",
     "tm:sunnyday",
-    "tm:superfang",
     "tm:takedown",
-    "tm:temperflare",
     "tm:terablast",
     "tm:thief",
     "tm:trailblaze",
@@ -94,6 +95,12 @@
   "labels": [
     "gen9"
   ],
+   "baseScale": 1,
+  "hitbox": {
+    "width": 0.9,
+    "height": 1.4,
+    "fixed": false
+  },
   "aspects": [],
   "height": 9,
   "weight": 150,
@@ -102,18 +109,5 @@
   "cannotDynamax": false,
   "pokedex": [
     "cobblemon.species.scovillain.desc"
-  ],
-  "drops": {
-    "amount": 3,
-    "entries": [
-      {
-        "item": "cobblemon:roasted_leek",
-        "quantityRange": "0-2"
-      },
-      {
-        "item": "cobblemon:rawst_berry",
-        "percentage": 5.0
-      }
-    ]
-  }
+  ]
 }

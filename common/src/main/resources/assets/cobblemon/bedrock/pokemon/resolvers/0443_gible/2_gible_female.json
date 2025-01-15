@@ -1,0 +1,10 @@
+{
+  "species": "cobblemon:gible",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": ["female"],
+      "model": "cobblemon:gible_female2.geo"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "portraitScale": 2,
+  "portraitTranslation": [0.1, -0.7, 0.0],
+  "profileScale": 1,
+  "profileTranslation": [0.0, 0.25, 0.0],
+  "rootBone": "cubone",
+  "animations": {
+    "cry": "q.bedrock_stateful('cubone', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": ["q.bedrock('cubone', 'idle')"],
+      "quirks": ["q.bedrock_quirk('cubone', 'blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": ["q.bedrock('cubone', 'idle')"],
+      "quirks": ["q.bedrock_quirk('cubone', 'blink')"]
+    }
+  }
+}

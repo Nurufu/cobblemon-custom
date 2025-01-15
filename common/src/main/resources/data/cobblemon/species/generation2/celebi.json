@@ -1,11 +1,10 @@
 {
+  "implemented": true,
   "name": "Celebi",
   "nationalPokedexNumber": 251,
   "primaryType": "psychic",
   "secondaryType": "grass",
-  "abilities": [
-    "naturalcure"
-  ],
+  "abilities": ["naturalcure"],
   "baseStats": {
     "hp": 100,
     "attack": 100,
@@ -24,13 +23,11 @@
   },
   "catchRate": 45,
   "maleRatio": -1,
-  "shoulderMountable": false,
+  "shoulderMountable": true,
   "baseExperienceYield": 300,
   "experienceGroup": "medium_slow",
   "eggCycles": 120,
-  "eggGroups": [
-    "undiscovered"
-  ],
+  "eggGroups": ["undiscovered"],
   "moves": [
     "1:confusion",
     "1:healbell",
@@ -197,14 +194,8 @@
     "tutor:worryseed",
     "tutor:zenheadbutt"
   ],
-  "labels": [
-    "gen2",
-    "mythical",
-    "legendary"
-  ],
-  "pokedex": [
-    "cobblemon.species.celebi.desc"
-  ],
+  "labels": ["gen2", "mythical", "legendary"],
+  "pokedex": ["cobblemon.species.celebi.desc"],
   "evolutions": [],
   "baseScale": 1,
   "hitbox": {

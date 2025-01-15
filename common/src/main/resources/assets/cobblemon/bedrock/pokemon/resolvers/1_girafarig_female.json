@@ -1,0 +1,12 @@
+{
+    "species": "cobblemon:girafarig",
+    "order": 1,
+    "variations": [
+      {
+        "aspects": [
+          "female"
+        ],
+        "model": "cobblemon:girafarig_female.geo"
+      }
+    ]
+   }

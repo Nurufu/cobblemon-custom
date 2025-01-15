@@ -24,7 +24,7 @@
       "aspects": ["shiny", "east-sea"],
       "texture": "cobblemon:textures/pokemon/0422_shellos/shellos_east_shiny.png"
     },
-    {
+        {
       "aspects": ["west-sea"],
       "poser": "cobblemon:shellos_west",
       "model": "cobblemon:shellos_west.geo",
@@ -32,7 +32,7 @@
       "layers": []
     },
     {
-      "aspects": ["shiny", "west-sea"],
+      "aspects": ["west-sea", "shiny"],
       "texture": "cobblemon:textures/pokemon/0422_shellos/shellos_west_shiny.png"
     }
   ]

@@ -1,0 +1,18 @@
+{
+  "portraitScale": 2.4,
+  "portraitTranslation": [-0.1, 0.0, 0.0],
+  "profileScale": 0.9,
+  "profileTranslation": [0, 0.6, 0.0],
+  "rootBone": "skrelp",
+  "animations": {
+    "cry": "q.bedrock_stateful('skrelp', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK", "SWIM"],
+      "animations": ["q.look('head')", "q.bedrock('skrelp', 'water_idle')"],
+      "quirks": ["q.bedrock_quirk('skrelp', 'blink')"]
+    }
+  }
+}

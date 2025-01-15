@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Araquanid",
   "nationalPokedexNumber": 752,
   "primaryType": "water",
@@ -7,19 +8,6 @@
     "waterbubble",
     "h:waterabsorb"
   ],
-  "drops": {
-    "amount": 2,
-    "entries": [
-      {
-        "item": "cobblemon:mystic_water",
-        "percentage": 5.0
-      },
-      {
-        "item": "cobblemon:wepear_berry",
-        "percentage": 5.0
-      }
-    ]
-  },
   "baseStats": {
     "hp": 68,
     "attack": 70,
@@ -28,6 +16,14 @@
     "special_defence": 132,
     "speed": 42
   },
+   "behaviour": {
+        "moving": {
+            "swim": {
+                "canSwimInWater": true,
+                "canBreatheUnderwater": true
+            }
+        }
+    },
   "catchRate": 100,
   "maleRatio": 0.5,
   "shoulderMountable": false,
@@ -111,6 +107,7 @@
         "tutor:bite",
         "tutor:bubblebeam",
         "tutor:bugbite",
+        "tutor:bugbite",
         "tutor:gigadrain",
         "tutor:icywind",
         "tutor:irondefense",
@@ -133,6 +130,7 @@
       ],
       "height": 31,
       "weight": 2175,
+      "evolutions": [],
       "cannotDynamax": false,
       "battleOnly": false
     }
@@ -164,34 +162,25 @@
     "62:mirrorcoat",
     "tm:attract",
     "tm:blizzard",
-    "tm:bodyslam",
-    "tm:bugbite",
     "tm:bugbuzz",
     "tm:confide",
-    "tm:chillingwater",
     "tm:crunch",
     "tm:dive",
     "tm:doubleteam",
-    "tm:endeavor",
     "tm:endure",
     "tm:facade",
     "tm:frostbreath",
     "tm:frustration",
     "tm:gigadrain",
-    "tm:gigaimpact",
     "tm:hiddenpower",
     "tm:hydropump",
-    "tm:hyperbeam",
     "tm:icebeam",
     "tm:icywind",
-    "tm:infestation",
     "tm:irondefense",
     "tm:leechlife",
     "tm:liquidation",
-    "tm:lunge",
     "tm:magicroom",
     "tm:poisonjab",
-    "tm:pounce",
     "tm:protect",
     "tm:raindance",
     "tm:reflect",
@@ -200,33 +189,20 @@
     "tm:round",
     "tm:safeguard",
     "tm:scald",
-    "tm:scaryface",
-    "tm:skittersmack",
     "tm:sleeptalk",
     "tm:snore",
     "tm:substitute",
     "tm:surf",
     "tm:swagger",
-    "tm:terablast",
     "tm:toxic",
-    "tm:trailblaze",
     "tm:waterfall",
-    "tm:waterpulse",
     "tm:wonderroom",
     "tm:xscissor",
-    "tutor:bugbite",
-    "tutor:gigadrain",
-    "tutor:icywind",
-    "tutor:irondefense",
     "tutor:laserfocus",
-    "tutor:liquidation",
     "tutor:magiccoat",
-    "tutor:magicroom",
     "tutor:signalbeam",
     "tutor:skittersmack",
-    "tutor:snore",
-    "tutor:waterpulse",
-    "tutor:wonderroom"
+    "tutor:waterpulse"
   ],
   "labels": [
     "gen7"
@@ -236,10 +212,10 @@
   ],
   "preEvolution": "dewpider",
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 1.4,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 1.95,
+    "height": 1.1,
     "fixed": false
   },
   "baseFriendship": 50,

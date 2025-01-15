@@ -1,0 +1,17 @@
+{
+  "portraitScale": 1.82,
+  "portraitTranslation": [-0.58, 0.16, 0.0],
+  "profileScale": 0.66,
+  "profileTranslation": [0.0, 0.73, 0.0],
+  "rootBone": "deino",
+  "animations": {
+    "cry": "q.bedrock_stateful('deino', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK", "SWIM"],
+      "animations": ["q.look('head')", "q.bedrock('deino', 'ground_idle')"]
+    }
+  }
+}

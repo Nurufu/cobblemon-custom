@@ -1,0 +1,29 @@
+{
+  "portraitScale": 3,
+  "portraitTranslation": [-0.34, -0.8, 0.0],
+  "profileScale": 0.8,
+  "profileTranslation": [0.0, 0.6, 0.0],
+  "rootBone": "beheeyem",
+  "animations": {
+    "cry": "q.bedrock_stateful('beheeyem', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": ["q.look('head')", "q.bedrock('beheeyem', 'ground_idle')"]
+    },
+    "walking": {
+      "poseName": "walking",
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('beheeyem', 'ground_walk')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('beheeyem', 'sleep')"]
+    }
+  }
+}

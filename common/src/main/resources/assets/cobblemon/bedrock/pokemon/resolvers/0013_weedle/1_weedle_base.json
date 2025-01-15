@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:weedle",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:weedle2",
+      "model": "cobblemon:weedle2.geo",
+      "texture": "cobblemon:textures/pokemon/0013_weedle/weedle.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0013_weedle/weedle_shiny.png"
+    }
+  ]
+}

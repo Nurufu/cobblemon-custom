@@ -1,11 +1,10 @@
 {
+  "implemented": true,
   "name": "Roaring Moon",
   "nationalPokedexNumber": 1005,
   "primaryType": "dragon",
   "secondaryType": "dark",
-  "abilities": [
-    "protosynthesis"
-  ],
+  "abilities": ["protosynthesis"],
   "baseStats": {
     "hp": 105,
     "attack": 139,
@@ -28,9 +27,28 @@
   },
   "experienceGroup": "slow",
   "eggCycles": 50,
-  "eggGroups": [
-    "undiscovered"
-  ],
+  "eggGroups": ["undiscovered"],
+  "behaviour": {
+    "moving": {
+      "fly": {
+        "canFly": true,
+        "flySpeedHorizontal": 0.6
+      },
+      "walk": {
+        "walkSpeed": 0.2
+      }
+    },
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": false,
+      "depth": "normal",
+      "light": "0-4"
+    },
+    "canLook": true,
+    "looksAtEntities": true,
+    "wanderChance": 120,
+    "wanderSpeed": 0.2
+  },
   "moves": [
     "1:bite",
     "1:breakingswipe",
@@ -112,16 +130,16 @@
     "tm:xscissor",
     "tm:zenheadbutt"
   ],
-  "labels": [
-    "gen9",
-    "paradox"
-  ],
+  "hitbox": {
+    "width": 3,
+    "height": 4,
+    "fixed": false
+  },
+  "labels": ["gen9", "paradox"],
   "aspects": [],
   "height": 20,
   "weight": 3800,
   "evolutions": [],
   "cannotDynamax": false,
-  "pokedex": [
-    "cobblemon.species.roaringmoon.desc"
-  ]
+  "pokedex": ["cobblemon.species.roaringmoon.desc"]
 }

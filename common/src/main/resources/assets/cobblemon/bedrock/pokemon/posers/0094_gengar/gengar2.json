@@ -1,0 +1,60 @@
+{
+  "portraitScale": 1.9,
+  "portraitTranslation": [0.05, 0.0, 0.0],
+  "profileScale": 0.8,
+  "profileTranslation": [-0.1, 0.45, 0.0],
+  "rootBone": "gengar",
+  "animations": {
+    "cry": "q.bedrock_stateful('gengar', 'cry')"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('gengar', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('gengar', 'blink')"
+      ]
+    },
+    "battle-flying": {
+      "poseTypes": ["HOVER"],
+      "isBattle": true,
+      "animations": [
+        "q.look('head_ai')",
+        "q.bedrock('gengar', 'air_idle')"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_primary('gengar', 'cry', q.curve('symmetrical_wide'))"
+      },
+      "quirks": [
+        "q.bedrock_quirk('gengar', 'blink')"
+      ]
+    },
+    "hover": {
+      "poseTypes": ["HOVER"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('gengar', 'air_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('gengar', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('gengar', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('gengar', 'blink')"
+      ]
+    },
+    "fly": {
+      "poseTypes": ["WALK", "FLY"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('gengar', 'air_fly')"],
+      "quirks": [
+        "q.bedrock_quirk('gengar', 'blink')"
+      ]
+    }
+  }
+}

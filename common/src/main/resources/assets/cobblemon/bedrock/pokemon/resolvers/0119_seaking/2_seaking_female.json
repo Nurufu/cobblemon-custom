@@ -1,0 +1,10 @@
+{
+  "species": "cobblemon:seaking",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": ["female"],
+      "model": "cobblemon:seaking_female2.geo"
+    }
+  ]
+}

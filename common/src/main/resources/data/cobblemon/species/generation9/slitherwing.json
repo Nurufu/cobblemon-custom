@@ -1,11 +1,10 @@
 {
+  "implemented": true,
   "name": "Slither Wing",
   "nationalPokedexNumber": 988,
   "primaryType": "bug",
   "secondaryType": "fighting",
-  "abilities": [
-    "protosynthesis"
-  ],
+  "abilities": ["protosynthesis"],
   "baseStats": {
     "hp": 85,
     "attack": 135,
@@ -28,9 +27,7 @@
   },
   "experienceGroup": "slow",
   "eggCycles": 50,
-  "eggGroups": [
-    "undiscovered"
-  ],
+  "eggGroups": ["undiscovered"],
   "moves": [
     "1:bugbite",
     "1:ember",
@@ -98,16 +95,11 @@
     "tm:willowisp",
     "tm:zenheadbutt"
   ],
-  "labels": [
-    "gen9",
-    "paradox"
-  ],
+  "labels": ["gen9", "paradox"],
   "aspects": [],
   "height": 32,
   "weight": 920,
   "evolutions": [],
   "cannotDynamax": false,
-  "pokedex": [
-    "cobblemon.species.slitherwing.desc"
-  ]
+  "pokedex": ["cobblemon.species.slitherwing.desc"]
 }

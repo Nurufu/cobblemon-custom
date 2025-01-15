@@ -1,0 +1,10 @@
+{
+  "species": "cobblemon:goldeen",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": ["female"],
+      "model": "cobblemon:goldeen_female2.geo"
+    }
+  ]
+}

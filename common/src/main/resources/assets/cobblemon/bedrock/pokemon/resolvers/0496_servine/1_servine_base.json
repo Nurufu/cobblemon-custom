@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:servine",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:servine2",
+      "model": "cobblemon:servine2.geo",
+      "texture": "cobblemon:textures/pokemon/0496_servine/servine.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0496_servine/servine_shiny.png"
+    }
+  ]
+}

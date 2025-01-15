@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:kingler",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:kingler2",
+      "model": "cobblemon:kingler2.geo",
+      "texture": "cobblemon:textures/pokemon/0099_kingler/kingler.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0099_kingler/kingler_shiny.png"
+    }
+  ]
+}

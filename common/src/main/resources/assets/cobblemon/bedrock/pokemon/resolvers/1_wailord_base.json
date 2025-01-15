@@ -1,0 +1,19 @@
+{
+	"species": "cobblemon:wailord",
+	"order": 1,
+	"variations": [
+		{
+			"aspects": [],
+			"poser": "cobblemon:wailord2",
+			"model": "cobblemon:wailord2.geo",
+			"texture": "cobblemon:textures/pokemon/wailord/wailord.png",
+			"layers": [
+				
+			]
+		},
+		{
+			"aspects": [ "shiny" ],
+			"texture": "cobblemon:textures/pokemon/wailord/wailord_shiny.png"
+		}
+	]
+}

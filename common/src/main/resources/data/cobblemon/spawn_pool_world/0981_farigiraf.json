@@ -1,0 +1,21 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+      {
+        "id": "farigiraf-1",
+        "pokemon": "farigiraf",
+        "presets": [ "natural" ],
+        "type": "pokemon",
+        "context": "grounded",
+        "bucket": "rare",
+        "level": "40-60",
+        "weight": 2.0,
+        "condition": {
+          "canSeeSky": true,
+          "biomes": [ "#cobblemon:is_savanna" ]
+        }
+      }
+    ]
+   }

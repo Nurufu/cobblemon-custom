@@ -1,0 +1,27 @@
+{
+  "portraitScale": 2.14,
+  "portraitTranslation": [0.18, -0.64, 0.0],
+  "profileScale": 1.05,
+  "profileTranslation": [0.04, 0.22, 0.0],
+  "rootBone": "larvitar",
+  "animations": {
+    "cry": "q.bedrock_stateful('larvitar', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "FLOAT", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": ["q.look('head')", "q.bedrock('larvitar', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('larvitar', 'blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "SWIM"],
+      "animations": [
+        "q.look('head')",
+        "q.biped_walk(0.66, 0.6, 'leg_left', 'leg_right')",
+        "q.bimanual_swing(0.66, 0.6, 'arm_left', 'arm_right')",
+        "q.bedrock('larvitar', 'ground_idle')"
+      ],
+      "quirks": ["q.bedrock_quirk('larvitar', 'blink')"]
+    }
+  }
+}

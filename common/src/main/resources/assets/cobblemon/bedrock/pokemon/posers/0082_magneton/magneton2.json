@@ -1,0 +1,32 @@
+{
+    "portraitScale": 1.2,
+    "portraitTranslation": [0.0, 0.2, 0.0],
+    "profileScale": 0.84,
+    "profileTranslation": [0.0, 0.5, 0.0],
+    "rootBone": "magneton",
+    "animations": {
+      "cry": "q.bedrock_stateful('magneton', 'cry')",
+      "faint": "q.bedrock_primary('magneton', 'faint', q.curve('one'))"
+    },
+    "poses": {
+      "standing": {
+        "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "HOVER"],
+        "isBattle": false,
+        "isTouchingWater": false,
+        "animations": ["q.look('head_ai')", "q.bedrock('magneton', 'air_idle')"],
+        "quirks": [
+          "q.bedrock_quirk('magneton', 'blink')"
+        ]
+      },
+      "walking": {
+        "poseTypes": ["WALK", "FLY"],
+        "animations":["q.look('head')", "q.bedrock('magneton', 'air_fly')"],
+        "quirks":["q.bedrock_quirk('magneton', 'blink')"]
+      },
+      "sleep": {
+        "poseTypes":["SLEEP"],
+        "animations":["q.bedrock('magneton', 'sleep')"]
+      }
+    }
+  }
+  

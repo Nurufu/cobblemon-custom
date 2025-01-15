@@ -1,0 +1,18 @@
+{
+  "portraitScale": 2.8,
+  "portraitTranslation": [-0.25, -1.65, 0.0],
+  "profileScale": 1.2,
+  "profileTranslation": [0, 0.01, 0.0],
+  "rootBone": "fletchling",
+  "animations": {
+    "cry": "q.bedrock_stateful('fletchling', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK", "SWIM"],
+      "animations": ["q.look('head')", "q.bedrock('fletchling', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('fletchling', 'blink')"]
+    }
+  }
+}

@@ -1,11 +1,10 @@
 {
+  "implemented": true,
   "name": "Chien-Pao",
   "nationalPokedexNumber": 1002,
   "primaryType": "dark",
   "secondaryType": "ice",
-  "abilities": [
-    "swordofruin"
-  ],
+  "abilities": ["swordofruin"],
   "baseStats": {
     "hp": 80,
     "attack": 120,
@@ -28,9 +27,7 @@
   },
   "experienceGroup": "slow",
   "eggCycles": 50,
-  "eggGroups": [
-    "undiscovered"
-  ],
+  "eggGroups": ["undiscovered"],
   "moves": [
     "1:meanlook",
     "1:powdersnow",
@@ -85,16 +82,11 @@
     "tm:terablast",
     "tm:throatchop"
   ],
-  "labels": [
-    "gen9",
-    "legendary"
-  ],
+  "labels": ["gen9", "legendary"],
   "aspects": [],
   "height": 19,
   "weight": 1522,
   "evolutions": [],
   "cannotDynamax": false,
-  "pokedex": [
-    "cobblemon.species.chienpao.desc"
-  ]
+  "pokedex": ["cobblemon.species.chienpao.desc"]
 }

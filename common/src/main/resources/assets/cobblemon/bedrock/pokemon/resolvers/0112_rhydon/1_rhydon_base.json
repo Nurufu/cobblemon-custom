@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:rhydon",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:rhydon2",
+      "model": "cobblemon:rhydon_male2.geo",
+      "texture": "cobblemon:textures/pokemon/0112_rhydon/rhydon.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0112_rhydon/rhydon_shiny.png"
+    }
+  ]
+}

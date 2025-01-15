@@ -1,0 +1,27 @@
+{
+  "species": "cobblemon:dudunsparce",
+  "order": 1,
+  "baseScale": 0.75,
+  "hitbox": {
+    "width": 0.5,
+    "height": 2,
+    "fixed": false
+  },
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:dudunsparce",
+      "model": "cobblemon:dudunsparce.geo",
+      "texture": "cobblemon:textures/pokemon/dudunsparce/dudunsparce.png",
+      "layers": [
+      ] 
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/dudunsparce/dudunsparce_shiny.png",
+      "layers": [
+       
+      ]
+    }
+  ]
+}

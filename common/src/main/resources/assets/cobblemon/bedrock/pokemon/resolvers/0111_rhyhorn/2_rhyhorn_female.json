@@ -1,0 +1,10 @@
+{
+  "species": "cobblemon:rhyhorn",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": ["female"],
+      "model": "cobblemon:rhyhorn_female2.geo"
+    }
+  ]
+}

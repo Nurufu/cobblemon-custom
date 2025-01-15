@@ -1,0 +1,29 @@
+{
+  "portraitScale": 2.3,
+  "portraitTranslation": [-0.2, -1.1, 0.0],
+  "profileScale": 0.8,
+  "profileTranslation": [0.0, 0.55, 0.0],
+  "rootBone": "pachirisu",
+  "animations": {
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('pachirisu', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('pachirisu', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "WALK", "SWIM"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('pachirisu', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('pachirisu', 'blink')"
+      ]
+    }
+  }
+}

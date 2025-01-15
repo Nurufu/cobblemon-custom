@@ -1,0 +1,16 @@
+{
+  "species": "cobblemon:meditite",
+  "order": 2,
+  "baseScale": 0.75,
+  "hitbox": {
+    "width": 0.5,
+    "height": 2,
+    "fixed": false
+  },
+  "variations": [
+    {
+      "aspects": ["female"],
+      "model": "cobblemon:meditite_female.geo"
+    }
+  ]
+}

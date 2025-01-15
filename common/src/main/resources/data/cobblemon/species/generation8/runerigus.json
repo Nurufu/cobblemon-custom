@@ -1,11 +1,10 @@
 {
+  "implemented": true,
   "name": "Runerigus",
   "nationalPokedexNumber": 867,
   "primaryType": "ground",
   "secondaryType": "ghost",
-  "abilities": [
-    "wanderingspirit"
-  ],
+  "abilities": ["wanderingspirit"],
   "baseStats": {
     "hp": 58,
     "attack": 95,
@@ -20,10 +19,7 @@
   "baseExperienceYield": 169,
   "experienceGroup": "medium_fast",
   "eggCycles": 25,
-  "eggGroups": [
-    "mineral",
-    "amorphous"
-  ],
+  "eggGroups": ["mineral", "amorphous"],
   "moves": [
     "1:astonish",
     "1:haze",
@@ -99,18 +95,14 @@
     "tm:zenheadbutt",
     "tutor:poltergeist"
   ],
-  "labels": [
-    "gen8"
-  ],
-  "pokedex": [
-    "cobblemon.species.runerigus.desc"
-  ],
-  "preEvolution": "yamask galarian",
+  "labels": ["gen8"],
+  "pokedex": ["cobblemon.species.runerigus.desc"],
+  "preEvolution": "yamask form=galar",
   "evolutions": [],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 2,
+    "height": 3,
     "fixed": false
   },
   "baseFriendship": 50,
@@ -125,14 +117,5 @@
   "height": 16,
   "weight": 666,
   "aspects": [],
-  "cannotDynamax": false,
-  "drops": {
-    "amount": 1,
-    "entries": [
-      {
-        "item": "cobblemon:kasib_berry",
-        "percentage": 5.0
-      }
-    ]
-  }
+  "cannotDynamax": false
 }

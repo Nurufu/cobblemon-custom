@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:bulbasaur",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:bulbasaur2",
+      "model": "cobblemon:bulbasaur2.geo",
+      "texture": "cobblemon:textures/pokemon/0001_bulbasaur/bulbasaur_m.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0001_bulbasaur/bulbasaur_m_shiny.png"
+    }
+  ]
+}

@@ -1,13 +1,10 @@
 {
+  "implemented": true,
   "name": "Hawlucha",
   "nationalPokedexNumber": 701,
   "primaryType": "fighting",
   "secondaryType": "flying",
-  "abilities": [
-    "limber",
-    "unburden",
-    "h:moldbreaker"
-  ],
+  "abilities": ["limber", "unburden", "h:moldbreaker"],
   "baseStats": {
     "hp": 78,
     "attack": 92,
@@ -22,10 +19,7 @@
   "baseExperienceYield": 175,
   "experienceGroup": "medium_fast",
   "eggCycles": 20,
-  "eggGroups": [
-    "flying",
-    "human_like"
-  ],
+  "eggGroups": ["flying", "human_like"],
   "moves": [
     "1:honeclaws",
     "1:tackle",
@@ -169,14 +163,10 @@
     "tutor:thunderpunch",
     "tutor:zenheadbutt"
   ],
-  "labels": [
-    "gen6"
-  ],
-  "pokedex": [
-    "cobblemon.species.hawlucha.desc"
-  ],
+  "labels": ["gen6"],
+  "pokedex": ["cobblemon.species.hawlucha.desc"],
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.8,
   "hitbox": {
     "width": 1,
     "height": 1,
@@ -200,15 +190,15 @@
     "entries": [
       {
         "item": "cobblemon:kings_rock",
-        "percentage": 5.0
+        "percentage": 5
       },
       {
         "item": "cobblemon:coba_berry",
-        "percentage": 5.0
+        "percentage": 5
       },
       {
         "item": "cobblemon:expert_belt",
-        "percentage": 5.0
+        "percentage": 5
       }
     ]
   }

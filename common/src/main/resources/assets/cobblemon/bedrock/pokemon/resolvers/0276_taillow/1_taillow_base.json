@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:taillow",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:taillow2",
+      "model": "cobblemon:taillow2.geo",
+      "texture": "cobblemon:textures/pokemon/0276_taillow/taillow.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0276_taillow/taillow_shiny.png"
+    }
+  ]
+}

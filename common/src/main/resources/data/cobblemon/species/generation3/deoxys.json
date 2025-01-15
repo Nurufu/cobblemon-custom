@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Deoxys",
   "nationalPokedexNumber": 386,
   "primaryType": "psychic",
@@ -13,11 +14,39 @@
     "special_defence": 50,
     "speed": 150
   },
+  "features": [
+    "deoxysattack",
+    "deoxysdefense",
+    "deoxysspeed"
+  ],
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": false,
+     "depth": "normal",
+      "light": "0-4"
+},
+   "moving": {
+"fly": {
+      "canFly": true,
+      "flySpeedHorizontal": 0.4
+        },
+        "walk": { 
+            "walkSpeed": 0.4
+      }
+}
+    },
   "catchRate": 3,
   "maleRatio": -1,
   "shoulderMountable": false,
   "baseExperienceYield": 270,
   "baseFriendship": 0,
+  "baseScale": 0.6,
+  "hitbox": {
+    "width": 2,
+    "height": 3.7,
+    "fixed": false
+    },
   "evYield": {
     "hp": 0,
     "attack": 1,
@@ -25,7 +54,7 @@
     "special_attack": 1,
     "special_defence": 0,
     "speed": 1
-  },
+    },
   "experienceGroup": "slow",
   "eggCycles": 120,
   "eggGroups": [
@@ -237,12 +266,53 @@
   "pokedex": [
     "cobblemon.species.deoxys.desc"
   ],
+  
   "height": 17,
   "weight": 608,
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "deoxys_deoxysspeed",
+      "variant": "level_up",
+      "result": "deoxys deoxysspeed=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+      {
+        "variant": "held_item",
+        "itemCondition": "minecraft:chorus_fruit"
+      }
+    ]
+  },
+  {
+    "id": "deoxys_deoxysattack",
+    "variant": "level_up",
+    "result": "deoxys deoxysattack=true",
+    "consumeHeldItem": false,
+    "learnableMoves": [],
+    "requirements": [
+    {
+      "variant": "held_item",
+      "itemCondition": "minecraft:end_crystal"
+    }
+  ]
+},
+{
+  "id": "deoxys_deoxysdefense",
+  "variant": "level_up",
+  "result": "deoxys deoxysdefense=true",
+  "consumeHeldItem": false,
+  "learnableMoves": [],
+  "requirements": [
+  {
+    "variant": "held_item",
+    "itemCondition": "minecraft:shulker_shell"
+  }
+]
+}
+  ],
   "forms": [
     {
-      "name": "Attack",
+      "name": "Deoxys-Attack",
       "primaryType": "psychic",
       "abilities": [
         "pressure"
@@ -255,6 +325,23 @@
         "special_defence": 20,
         "speed": 150
       },
+      "behaviour": {
+        "resting": {
+          "canSleep": true,
+          "willSleepOnBed": false,
+         "depth": "normal",
+          "light": "0-4"
+    },
+       "moving": {
+    "fly": {
+          "canFly": true,
+          "flySpeedHorizontal": 0.4
+            },
+            "walk": { 
+                "walkSpeed": 0.4
+          }
+    }
+        },
       "catchRate": 3,
       "maleRatio": -1,
       "baseExperienceYield": 270,
@@ -277,8 +364,24 @@
         "mythical",
         "legendary"
       ],
+      "evolutions": [
+        {
+          "id": "deoxysattack_deoxys",
+          "variant": "level_up",
+          "result": "deoxys deoxysattack=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+          {
+            "variant": "held_item",
+            "itemCondition": "minecraft:end_stone"
+          }
+        ]
+      }
+    ],
       "aspects": [
-        "attack"
+        "deoxysattack"
+        
       ],
       "height": 17,
       "weight": 608,
@@ -295,7 +398,7 @@
       }
     },
     {
-      "name": "Defense",
+      "name": "Deoxys-Defense",
       "primaryType": "psychic",
       "abilities": [
         "pressure"
@@ -308,6 +411,23 @@
         "special_defence": 160,
         "speed": 90
       },
+      "behaviour": {
+        "resting": {
+          "canSleep": true,
+          "willSleepOnBed": false,
+         "depth": "normal",
+          "light": "0-4"
+    },
+       "moving": {
+        "fly": {
+          "canFly": true,
+          "flySpeedHorizontal": 0.3
+            },
+            "walk": { 
+                "walkSpeed": 0.3
+          }
+    }
+        },
       "catchRate": 3,
       "maleRatio": -1,
       "baseExperienceYield": 270,
@@ -330,8 +450,23 @@
         "mythical",
         "legendary"
       ],
+      "evolutions": [
+        {
+          "id": "deoxysdefense_deoxys",
+          "variant": "level_up",
+          "result": "deoxys deoxys deoxysdefense=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+          {
+            "variant": "held_item",
+            "itemCondition": "minecraft:end_stone"
+          }
+        ]
+      }
+    ],
       "aspects": [
-        "defense"
+        "deoxysdefense"
       ],
       "height": 17,
       "weight": 608,
@@ -348,7 +483,7 @@
       }
     },
     {
-      "name": "Speed",
+      "name": "Deoxys-Speed",
       "primaryType": "psychic",
       "abilities": [
         "pressure"
@@ -361,6 +496,23 @@
         "special_defence": 90,
         "speed": 180
       },
+      "behaviour": {
+        "resting": {
+          "canSleep": true,
+          "willSleepOnBed": false,
+         "depth": "normal",
+          "light": "0-4"
+    },
+       "moving": {
+          "fly": {
+           "canFly": true,
+           "flySpeedHorizontal": 0.6
+          },
+        "walk": { 
+            "walkSpeed": 0.9
+      }
+    }
+        },
       "catchRate": 3,
       "maleRatio": -1,
       "baseExperienceYield": 270,
@@ -383,8 +535,23 @@
         "mythical",
         "legendary"
       ],
+      "evolutions": [
+        {
+          "id": "deoxysspeed_deoxys",
+          "variant": "level_up",
+          "result": "deoxys deoxysspeed=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+          {
+            "variant": "held_item",
+            "itemCondition": "minecraft:end_stone"
+          }
+        ]
+      }
+    ],
       "aspects": [
-        "speed"
+        "deoxysspeed"
       ],
       "height": 17,
       "weight": 608,

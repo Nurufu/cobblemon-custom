@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:kakuna",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:kakuna2",
+      "model": "cobblemon:kakuna2.geo",
+      "texture": "cobblemon:textures/pokemon/0014_kakuna/kakuna.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0014_kakuna/kakuna_shiny.png"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "portraitScale": 1.4,
+  "portraitTranslation": [-0.2, 0.4, 0],
+  "profileScale": 0.7,
+  "profileTranslation": [-0.1, 0.7, 0],
+  "animations": {
+    "physical": "q.bedrock_primary('binacle', 'physical', q.curve('symmetrical_wide'))",
+    "faint": "q.bedrock_primary('binacle', 'faint', q.curve('symmetrical_wide'))",
+    "special": "q.bedrock_primary('binacle', 'special', q.curve('symmetrical_wide'))",
+    "status": "q.bedrock_primary('binacle', 'special', q.curve('symmetrical_wide'))",
+    "recoil": "q.bedrock_primary('binacle', 'recoil', q.curve('symmetrical_wide'))",
+    "blink" : "q.bedrock_stateful('binacle', 'blink')"
+  },
+  "poses": {
+    "battle-standing": {
+      "transformTicks": 10,
+      "poseTypes": ["STAND", "WALK"],
+      "isBattle": true,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('binacle', 'ground_idle')"
+      ]
+    },
+    "standing": {
+      "transformTicks": 10,
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('binacle', 'ground_idle')"
+      ]
+    },
+    "walking": {
+      "transformTicks": 8,
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('binacle', 'ground_walk')"
+      ]
+    },
+    "hover": {
+      "transformTicks": 5,
+      "poseTypes": [ "FLY", "HOVER", "FLOAT" ],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('binacle', 'ground_walk')"
+       ]
+    },
+    "float": {
+      "transformTicks": 5,
+      "poseTypes": ["FLOAT"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('binacle', 'ground_walk')"
+      ]
+    },
+    "swim": {
+      "transformTicks": 8,
+      "poseTypes": ["SWIM"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('binacle', 'ground_walk')"
+      ]
+    }
+  }
+}

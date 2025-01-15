@@ -1,13 +1,10 @@
 {
+  "implemented": true,
   "name": "Noivern",
   "nationalPokedexNumber": 715,
   "primaryType": "flying",
   "secondaryType": "dragon",
-  "abilities": [
-    "frisk",
-    "infiltrator",
-    "h:telepathy"
-  ],
+  "abilities": ["frisk", "infiltrator", "h:telepathy"],
   "baseStats": {
     "hp": 85,
     "attack": 70,
@@ -16,16 +13,30 @@
     "special_defence": 80,
     "speed": 123
   },
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": false,
+      "depth": "normal",
+      "light": "0-4"
+    },
+    "moving": {
+      "fly": {
+        "canFly": true,
+        "flySpeedHorizontal": 0.4
+      },
+      "walk": {
+        "walkSpeed": 0.35
+      }
+    }
+  },
   "catchRate": 45,
   "maleRatio": 0.5,
   "shoulderMountable": false,
   "baseExperienceYield": 187,
   "experienceGroup": "medium_fast",
   "eggCycles": 20,
-  "eggGroups": [
-    "flying",
-    "dragon"
-  ],
+  "eggGroups": ["flying", "dragon"],
   "moves": [
     "1:absorb",
     "1:dragonpulse",
@@ -137,18 +148,14 @@
     "tutor:uproar",
     "tutor:waterpulse"
   ],
-  "labels": [
-    "gen6"
-  ],
-  "pokedex": [
-    "cobblemon.species.noivern.desc"
-  ],
+  "labels": ["gen6"],
+  "pokedex": ["cobblemon.species.noivern.desc"],
   "preEvolution": "noibat",
   "evolutions": [],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 2,
+    "height": 2,
     "fixed": false
   },
   "baseFriendship": 50,

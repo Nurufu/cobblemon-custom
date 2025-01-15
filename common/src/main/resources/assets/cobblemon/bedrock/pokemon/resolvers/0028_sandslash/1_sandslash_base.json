@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:sandslash",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:sandslash2",
+      "model": "cobblemon:sandslash2.geo",
+      "texture": "cobblemon:textures/pokemon/0028_sandslash/sandslash.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0028_sandslash/sandslash_shiny.png"
+    }
+  ]
+}

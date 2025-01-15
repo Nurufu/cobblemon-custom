@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:wimpod",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:wimpod2",
+      "model": "cobblemon:wimpod2.geo",
+      "texture": "cobblemon:textures/pokemon/0767_wimpod/wimpod.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0767_wimpod/wimpod_shiny.png"
+    }
+  ]
+}

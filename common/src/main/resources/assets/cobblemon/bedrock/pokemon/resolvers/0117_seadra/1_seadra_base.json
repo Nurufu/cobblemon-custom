@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:seadra",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:seadra2",
+      "model": "cobblemon:seadra2.geo",
+      "texture": "cobblemon:textures/pokemon/0117_seadra/seadra.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0117_seadra/seadra_shiny.png"
+    }
+  ]
+}

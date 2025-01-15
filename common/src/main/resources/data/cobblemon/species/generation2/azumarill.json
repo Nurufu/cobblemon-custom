@@ -1,19 +1,16 @@
 {
+  "implemented": true,
   "name": "Azumarill",
   "nationalPokedexNumber": 184,
   "primaryType": "water",
   "secondaryType": "fairy",
-  "abilities": [
-    "thickfat",
-    "hugepower",
-    "h:sapsipper"
-  ],
+  "abilities": ["thickfat", "hugepower", "h:sapsipper"],
   "drops": {
     "amount": 1,
     "entries": [
       {
         "item": "cobblemon:kebia_berry",
-        "percentage": 10.0
+        "percentage": 10
       }
     ]
   },
@@ -31,10 +28,7 @@
   "baseExperienceYield": 210,
   "experienceGroup": "fast",
   "eggCycles": 10,
-  "eggGroups": [
-    "water_1",
-    "fairy"
-  ],
+  "eggGroups": ["water_1", "fairy"],
   "moves": [
     "1:defensecurl",
     "1:helpinghand",
@@ -191,12 +185,8 @@
     "tutor:waterpulse",
     "tutor:whirlpool"
   ],
-  "labels": [
-    "gen2"
-  ],
-  "pokedex": [
-    "cobblemon.species.azumarill.desc"
-  ],
+  "labels": ["gen2"],
+  "pokedex": ["cobblemon.species.azumarill.desc"],
   "preEvolution": "marill",
   "evolutions": [],
   "baseScale": 1,

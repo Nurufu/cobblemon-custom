@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Kyogre",
   "nationalPokedexNumber": 382,
   "primaryType": "water",
@@ -16,6 +17,7 @@
   "catchRate": 3,
   "maleRatio": -1,
   "shoulderMountable": false,
+  "features": ["primal"],
   "forms": [
     {
       "name": "Primal",
@@ -59,7 +61,23 @@
       "height": 98,
       "weight": 4300,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": false,
+      "baseScale":1.5,
+      "evolutions": [
+        {
+          "id": "kyogre_normal",
+          "variant": "level_up",
+          "result": "kyogre primal=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "minecraft:heart_of_the_sea"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 335,
@@ -185,13 +203,45 @@
   "pokedex": [
     "cobblemon.species.kyogre.desc"
   ],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "kyogre_primal",
+      "variant": "level_up",
+      "result": "kyogre primal",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "minecraft:heart_of_the_sea"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 10,
+    "height": 2.1,
     "fixed": false
   },
+  "behaviour": {
+    "moving": {
+      "canLook": true,
+      "walk": {
+        "walkSpeed": 0.2,
+        "canWalk": true,
+        "avoidsLand": false
+      },
+    "fly": {
+      "canFly": false
+    },
+    "swim": {
+      "swimSpeed": 0.5,
+      "canSwimInWater": true,
+      "canBreatheUnderwater": true
+    }
+  }
+},
   "baseFriendship": 0,
   "evYield": {
     "hp": 0,

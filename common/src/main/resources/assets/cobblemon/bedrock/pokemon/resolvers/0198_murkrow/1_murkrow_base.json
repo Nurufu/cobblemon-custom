@@ -1,0 +1,21 @@
+{
+  "species": "cobblemon:murkrow",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:murkrow2",
+      "model": "cobblemon:murkrow_male2.geo",
+      "texture": "cobblemon:textures/pokemon/0198_murkrow/murkrow.png",
+      "layers": []
+    },
+    {
+      "aspects": ["female"],
+      "model": "cobblemon:murkrow_female2.geo"
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0198_murkrow/murkrow_shiny.png"
+    }
+  ]
+}

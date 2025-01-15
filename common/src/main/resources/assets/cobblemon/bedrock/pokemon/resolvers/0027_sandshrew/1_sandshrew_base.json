@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:sandshrew",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:sandshrew2",
+      "model": "cobblemon:sandshrew2.geo",
+      "texture": "cobblemon:textures/pokemon/0027_sandshrew/sandshrew.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0027_sandshrew/sandshrew_shiny.png"
+    }
+  ]
+}

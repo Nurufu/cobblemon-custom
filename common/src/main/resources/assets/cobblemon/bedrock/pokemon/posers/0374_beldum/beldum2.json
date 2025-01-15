@@ -1,0 +1,78 @@
+{
+  "portraitScale": 2.3,
+  "portraitTranslation": [-0.3, -1.2, 0.0],
+  "profileScale": 0.9,
+  "profileTranslation": [0.0, 0.5, 0.0],
+  "rootBone": "beldum",
+  "animations": {
+    "cry": "q.bedrock_stateful('beldum', 'cry')"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('beldum', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('beldum', 'blink')"
+      ]
+    },
+    "battle-flying": {
+      "poseTypes": ["HOVER"],
+      "isBattle": true,
+      "animations": [
+        "q.look('head_ai')",
+        "q.bedrock('beldum', 'air_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('beldum', 'blink')",
+        "q.bedrock_quirk('beldum', 'quirk_spin')"
+      ]
+    },
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('beldum', 'battle_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('beldum', 'blink')",
+        "q.bedrock_quirk('beldum', 'quirk_spin')"
+      ]
+    },
+    "hover": {
+      "poseTypes": ["HOVER"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('beldum', 'air_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('beldum', 'blink')",
+        "q.bedrock_quirk('beldum', 'quirk_spin')"
+      ]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('beldum', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('beldum', 'blink')",
+        "q.bedrock_quirk('beldum', 'quirk_spin')"
+      ]
+    },
+    "fly": {
+      "poseTypes": ["FLY"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('beldum', 'air_fly')"],
+      "quirks": [
+        "q.bedrock_quirk('beldum', 'blink')",
+        "q.bedrock_quirk('beldum', 'quirk_spin')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "SWIM"],
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('beldum', 'ground_walk')"],
+      "quirks": ["q.bedrock_quirk('beldum', 'blink')",
+      "q.bedrock_quirk('beldum', 'quirk_spin')"]
+    }
+  }
+}

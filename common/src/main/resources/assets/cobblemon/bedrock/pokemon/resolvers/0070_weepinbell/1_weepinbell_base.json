@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:weepinbell",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:weepinbell2",
+      "model": "cobblemon:weepinbell2.geo",
+      "texture": "cobblemon:textures/pokemon/0070_weepinbell/weepinbell.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0070_weepinbell/weepinbell_shiny.png"
+    }
+  ]
+}

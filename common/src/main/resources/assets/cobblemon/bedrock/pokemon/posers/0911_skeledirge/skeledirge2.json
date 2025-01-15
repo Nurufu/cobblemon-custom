@@ -1,0 +1,51 @@
+{
+  "portraitScale": 1,
+  "portraitTranslation": [-1.2, 0.4, 0.0],
+  "profileScale": 0.4,
+  "profileTranslation": [0.0, 1, 0.0],
+  "rootBone": "skeledirge",
+  "animations": {
+    "cry": "q.bedrock_stateful('skeledirge', 'cry')"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('skeledirge', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('skeledirge', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('skeledirge', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('skeledirge', 'blink')"
+      ]
+    },
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('skeledirge', 'battle_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('skeledirge', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('skeledirge', 'ground_walk')"
+      ],
+      "quirks": ["q.bedrock_quirk('skeledirge', 'blink')"]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('skeledirge', 'sleep')"]
+    }
+  }
+}

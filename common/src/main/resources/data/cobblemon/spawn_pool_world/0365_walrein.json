@@ -1,0 +1,25 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+      {
+        "id": "walrein-1",
+        "pokemon": "walrein",
+        "presets": [ "natural" ],
+        "type": "pokemon",
+        "context": "grounded",
+        "bucket": "rare",
+        "level": "44-60",
+        "weight": 1.0,
+        "condition": {
+          "canSeeSky": true,
+          "fluid": "#minecraft:water",
+          "biomes": [ "#cobblemon:is_glacial",
+                      "minecraft:frozen_peaks",
+                      "minecraft:ice_spikes",
+                      "#cobblemon:is_frozen_ocean"]
+        }
+      }
+    ]
+   }

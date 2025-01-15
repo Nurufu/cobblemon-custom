@@ -1,0 +1,27 @@
+{
+  "species": "cobblemon:drapion",
+  "order": 1,
+  "baseScale": 0.75,
+  "hitbox": {
+    "width": 0.5,
+    "height": 2,
+    "fixed": false
+  },
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:drapion",
+      "model": "cobblemon:drapion.geo",
+      "texture": "cobblemon:textures/pokemon/drapion/drapion.png",
+      "layers": [
+      ] 
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/drapion/drapion_shiny.png",
+      "layers": [
+       
+      ]
+    }
+  ]
+}

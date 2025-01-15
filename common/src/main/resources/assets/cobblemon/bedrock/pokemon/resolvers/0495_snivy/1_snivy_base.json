@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:snivy",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:snivy2",
+      "model": "cobblemon:snivy2.geo",
+      "texture": "cobblemon:textures/pokemon/0495_snivy/snivy.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0495_snivy/snivy_shiny.png"
+    }
+  ]
+}

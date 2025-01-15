@@ -1,12 +1,9 @@
 {
+  "implemented": true,
   "name": "Gothitelle",
   "nationalPokedexNumber": 576,
   "primaryType": "psychic",
-  "abilities": [
-    "frisk",
-    "competitive",
-    "h:shadowtag"
-  ],
+  "abilities": ["frisk", "competitive", "h:shadowtag"],
   "drops": {
     "amount": 5,
     "entries": [
@@ -16,11 +13,11 @@
       },
       {
         "item": "cobblemon:twisted_spoon",
-        "percentage": 10.0
+        "percentage": 10
       },
       {
         "item": "cobblemon:persim_berry",
-        "percentage": 10.0
+        "percentage": 10
       }
     ]
   },
@@ -38,9 +35,7 @@
   "baseExperienceYield": 245,
   "experienceGroup": "medium_slow",
   "eggCycles": 20,
-  "eggGroups": [
-    "human_like"
-  ],
+  "eggGroups": ["human_like"],
   "moves": [
     "1:confusion",
     "1:playnice",
@@ -159,12 +154,8 @@
     "tutor:uproar",
     "tutor:zenheadbutt"
   ],
-  "labels": [
-    "gen5"
-  ],
-  "pokedex": [
-    "cobblemon.species.gothitelle.desc"
-  ],
+  "labels": ["gen5"],
+  "pokedex": ["cobblemon.species.gothitelle.desc"],
   "preEvolution": "gothorita",
   "evolutions": [],
   "baseScale": 1,

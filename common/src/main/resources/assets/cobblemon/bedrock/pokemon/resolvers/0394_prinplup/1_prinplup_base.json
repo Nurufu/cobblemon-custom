@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:prinplup",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:prinplup2",
+      "model": "cobblemon:prinplup2.geo",
+      "texture": "cobblemon:textures/pokemon/0394_prinplup/prinplup.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0394_prinplup/prinplup_shiny.png"
+    }
+  ]
+}

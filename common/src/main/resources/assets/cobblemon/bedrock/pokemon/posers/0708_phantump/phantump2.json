@@ -1,0 +1,73 @@
+{
+  "portraitScale": 2,
+  "portraitTranslation": [-0.1, -0.2, 0.0],
+  "profileScale": 0.9,
+  "profileTranslation": [0.0, 0.5, 0.0],
+  "rootBone": "phantump",
+  "animations": {
+    "faint": "q.bedrock_primary('phantump', 'faint', q.curve('one'))",
+    "cry": "q.bedrock_stateful('phantump', 'cry')"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('phantump', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('phantump', 'blink')"
+      ]
+    },
+    "battle-flying": {
+      "poseTypes": ["HOVER"],
+      "isBattle": true,
+      "animations": [
+        "q.look('head_ai')",
+        "q.bedrock('phantump', 'air_idle')"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_primary('phantump', 'cry', q.curve('symmetrical_wide'))"
+      },
+      "quirks": [
+        "q.bedrock_quirk('phantump', 'blink')"
+      ]
+    },
+    "hover": {
+      "poseTypes": ["HOVER"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('phantump', 'air_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('phantump', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('phantump', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('phantump', 'blink')"
+      ]
+    },
+    "fly": {
+      "poseTypes": ["FLY"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('phantump', 'air_fly')"],
+      "quirks": [
+        "q.bedrock_quirk('phantump', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('phantump', 'ground_walk')"],
+      "quirks": [
+        "q.bedrock_quirk('phantump', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('phantump', 'sleep')"]
+    }
+  }
+}

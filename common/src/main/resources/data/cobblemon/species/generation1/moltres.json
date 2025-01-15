@@ -318,7 +318,7 @@
     "cobblemon.species.moltres.desc"
   ],
   "evolutions": [],
-  "baseScale": 1.6,
+  "baseScale": 1,
   "hitbox": {
     "width": 0.8,
     "height": 1.7,

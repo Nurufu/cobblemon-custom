@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:furret",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:furret2",
+      "model": "cobblemon:furret2.geo",
+      "texture": "cobblemon:textures/pokemon/0162_furret/furret.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0162_furret/furret_shiny.png"
+    }
+  ]
+}

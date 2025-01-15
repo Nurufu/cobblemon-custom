@@ -1,0 +1,27 @@
+{
+  "species": "cobblemon:druddigon",
+  "order": 1,
+  "baseScale": 0.75,
+  "hitbox": {
+    "width": 0.5,
+    "height": 2,
+    "fixed": false
+  },
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:druddigon",
+      "model": "cobblemon:druddigon.geo",
+      "texture": "cobblemon:textures/pokemon/druddigon/druddigon.png",
+      "layers": [
+      ] 
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/druddigon/druddigon_shiny.png",
+      "layers": [
+       
+      ]
+    }
+  ]
+}

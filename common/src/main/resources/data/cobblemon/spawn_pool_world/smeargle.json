@@ -1,0 +1,35 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+      {
+        "id": "smeargle-1",
+        "pokemon": "smeargle",
+        "presets": [ "natural" ],
+        "type": "pokemon",
+        "context": "grounded",
+        "bucket": "rare",
+        "level": "10-30",
+        "weight": 3.0,
+        "condition": {
+          "canSeeSky": true,
+          "biomes": [ "#cobblemon:is_savanna" ]
+        }
+      },
+      {
+        "id": "smeargle-2",
+        "pokemon": "smeargle",
+        "presets": [ "natural" ],
+        "type": "pokemon",
+        "context": "grounded",
+        "bucket": "uncommon",
+        "level": "10-30",
+        "weight": 3.0,
+        "condition": {
+          "canSeeSky": false,
+          "biomes": [ "#cobblemon:is_cave" ]
+        }
+      }
+    ]
+   }

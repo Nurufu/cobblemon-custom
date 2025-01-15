@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:pachirisu",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:pachirisu2",
+      "model": "cobblemon:pachirisu2.geo",
+      "texture": "cobblemon:textures/pokemon/0417_pachirisu/pachirisu.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0417_pachirisu/pachirisu_shiny.png"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Capsakid",
   "nationalPokedexNumber": 951,
   "primaryType": "grass",
@@ -17,6 +18,7 @@
   },
   "catchRate": 190,
   "maleRatio": 0.5,
+  "shoulderMountable": true,
   "baseExperienceYield": 61,
   "baseFriendship": 50,
   "evYield": {
@@ -32,6 +34,14 @@
   "eggGroups": [
     "grass"
   ],
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": true,
+      "depth": "normal",
+      "light": "0-4"
+    }
+  },
   "moves": [
     "1:leafage",
     "1:leer",
@@ -52,13 +62,11 @@
     "egg:worryseed",
     "tm:bulletseed",
     "tm:crunch",
-    "tm:endeavor",
     "tm:endure",
     "tm:energyball",
     "tm:facade",
     "tm:gigadrain",
     "tm:grassknot",
-    "tm:grassyglide",
     "tm:grassyterrain",
     "tm:helpinghand",
     "tm:leafstorm",
@@ -72,7 +80,6 @@
     "tm:stompingtantrum",
     "tm:substitute",
     "tm:sunnyday",
-    "tm:superfang",
     "tm:takedown",
     "tm:terablast",
     "tm:thief",
@@ -99,21 +106,14 @@
       "requiredContext": "cobblemon:fire_stone"
     }
   ],
+   "baseScale": 1,
+  "hitbox": {
+    "width": 0.5,
+    "height": 0.65,
+    "fixed": false
+  },
   "cannotDynamax": false,
   "pokedex": [
     "cobblemon.species.capsakid.desc"
-  ],
-  "drops": {
-    "amount": 2,
-    "entries": [
-      {
-        "item": "cobblemon:roasted_leek",
-        "quantityRange": "0-1"
-      },
-      {
-        "item": "cobblemon:rawst_berry",
-        "percentage": 2.5
-      }
-    ]
-  }
+  ]
 }

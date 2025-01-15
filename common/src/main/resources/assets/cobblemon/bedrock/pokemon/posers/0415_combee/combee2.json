@@ -1,0 +1,48 @@
+{
+  "portraitScale": 1.8,
+  "portraitTranslation": [-0.11, -0.77, 0.0],
+  "profileScale": 0.9,
+  "profileTranslation": [0.0, 0.35, 0.0],
+  "rootBone": "combee",
+  "animations": {
+    "cry": "q.bedrock_stateful('combee', 'cry')",
+    "faint": "q.bedrock_primary('combee', 'faint', q.curve('one'))"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('combee', 'air_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('combee', 'blink_right')",
+        "q.bedrock_quirk('combee', 'blink_gender')",
+        "q.bedrock_quirk('combee', 'blink_left')"
+      ]
+    },
+    "hover": {
+      "poseTypes": ["HOVER", "STAND", "NONE"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('combee', 'air_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('combee', 'blink_right')",
+        "q.bedrock_quirk('combee', 'blink_gender')",
+        "q.bedrock_quirk('combee', 'blink_left')"
+      ]
+    },
+    "fly": {
+      "poseTypes": ["FLY", "WALK"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('combee', 'air_fly')"],
+      "quirks": [
+        "q.bedrock_quirk('combee', 'blink_right')",
+        "q.bedrock_quirk('combee', 'blink_gender')",
+        "q.bedrock_quirk('combee', 'blink_left')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('combee', 'sleep')"]
+    }
+  }
+}

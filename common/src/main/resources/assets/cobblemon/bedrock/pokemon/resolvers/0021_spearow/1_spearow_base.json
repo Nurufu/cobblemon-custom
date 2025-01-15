@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:spearow",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:spearow2",
+      "model": "cobblemon:spearow2.geo",
+      "texture": "cobblemon:textures/pokemon/0021_spearow/spearow.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0021_spearow/spearow_shiny.png"
+    }
+  ]
+}

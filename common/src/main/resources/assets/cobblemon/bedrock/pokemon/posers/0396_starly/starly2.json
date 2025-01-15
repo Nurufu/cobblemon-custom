@@ -1,0 +1,30 @@
+{
+  "portraitScale": 2.8,
+  "portraitTranslation": [-0.4, -1.65, 0.0],
+  "profileScale": 1.2,
+  "profileTranslation": [0.0, -0.01, 0.0],
+  "rootBone": "starly",
+  "animations": {
+    "cry": "q.bedrock_stateful('starly', 'cry')"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('starly', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('starly', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "WALK", "SWIM"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('starly', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('starly', 'blink')"
+      ]
+    }
+  }
+}

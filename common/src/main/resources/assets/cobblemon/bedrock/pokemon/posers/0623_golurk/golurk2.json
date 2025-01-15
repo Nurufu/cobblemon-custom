@@ -1,0 +1,32 @@
+{
+  "portraitScale": 3,
+  "portraitTranslation": [-0.3, 5.4, 0.0],
+  "profileScale": 0.4,
+  "profileTranslation": [0.0, 1.15, 0.0],
+  "rootBone": "golurk",
+  "animations": {
+    "cry": "q.bedrock_stateful('golurk', 'cry')",
+    "faint": "q.bedrock_primary('golurk', 'faint', q.curve('one'))"
+  },
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": ["q.look('head')", "q.bedrock('golurk', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('golurk', 'blink')"]
+    },
+    "walking": {
+      "poseName": "walking",
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('golurk', 'ground_walk')"
+      ],
+      "quirks": ["q.bedrock_quirk('golurk', 'blink')"]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('golurk', 'sleep')"]
+    }
+  }
+}

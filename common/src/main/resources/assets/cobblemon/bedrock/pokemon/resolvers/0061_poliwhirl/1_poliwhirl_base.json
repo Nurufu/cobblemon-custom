@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:poliwhirl",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:poliwhirl2",
+      "model": "cobblemon:poliwhirl2.geo",
+      "texture": "cobblemon:textures/pokemon/0061_poliwhirl/poliwhirl.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0061_poliwhirl/poliwhirl_shiny.png"
+    }
+  ]
+}

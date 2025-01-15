@@ -1,0 +1,25 @@
+{
+  "portraitScale": 1.65,
+  "portraitTranslation": [0.06, 1.35, 0.0],
+  "profileScale": 0.59,
+  "profileTranslation": [0.0, 0.95, 0.0],
+  "rootBone": "klefki",
+  "animations": {
+    "cry": "q.bedrock_stateful('klefki', 'cry')"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseName": "battle-standing",
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": ["q.look('head')", "q.bedrock('klefki', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('klefki', 'blink')"]
+    },
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK"],
+      "animations": ["q.look('head')", "q.bedrock('klefki', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('klefki', 'blink')"]
+    }
+  }
+}

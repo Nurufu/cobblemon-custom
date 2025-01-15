@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:ninjask",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:ninjask2",
+      "model": "cobblemon:ninjask2.geo",
+      "texture": "cobblemon:textures/pokemon/0291_ninjask/ninjask.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0291_ninjask/ninjask_shiny.png"
+    }
+  ]
+}

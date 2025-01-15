@@ -1,0 +1,20 @@
+{
+  "portraitScale": 1.44,
+  "portraitTranslation": [-0.4, -0.6, 0.0],
+  "profileScale": 0.9,
+  "profileTranslation": [0.12, 0.33, 0.0],
+    "rootBone": "trapinch",
+    "animations": {
+      "cry": "q.bedrock_stateful('trapinch', 'cry')"
+    },
+    "poses": {
+      "standing": {
+        "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK", "SWIM"],
+        "isBattle": false,
+        "isTouchingWater": false,
+        "animations": ["q.look('head_ai')", "q.bedrock('trapinch', 'ground_idle')"],
+        "quirks": ["q.bedrock_quirk('trapinch', 'blink')"]
+      }
+    }
+  }
+  

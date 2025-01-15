@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Dewpider",
   "nationalPokedexNumber": 751,
   "primaryType": "water",
@@ -7,19 +8,6 @@
     "waterbubble",
     "h:waterabsorb"
   ],
-  "drops": {
-    "amount": 2,
-    "entries": [
-      {
-        "item": "cobblemon:mystic_water",
-        "percentage": 2.5
-      },
-      {
-        "item": "cobblemon:wepear_berry",
-        "percentage": 2.5
-      }
-    ]
-  },
   "baseStats": {
     "hp": 38,
     "attack": 40,
@@ -30,7 +18,7 @@
   },
   "catchRate": 200,
   "maleRatio": 0.5,
-  "shoulderMountable": false,
+  "shoulderMountable": true,
   "baseExperienceYield": 54,
   "experienceGroup": "medium_fast",
   "eggCycles": 15,
@@ -38,6 +26,14 @@
     "water_1",
     "bug"
   ],
+  "behaviour": {
+        "moving": {
+            "swim": {
+                "canSwimInWater": true,
+                "canBreatheUnderwater": true
+            }
+        }
+    },
   "moves": [
     "1:bubble",
     "1:infestation",
@@ -63,61 +59,42 @@
     "egg:stockpile",
     "tm:attract",
     "tm:blizzard",
-    "tm:bugbite",
     "tm:bugbuzz",
-    "tm:chillingwater",
     "tm:confide",
     "tm:crunch",
     "tm:doubleteam",
-    "tm:endeavor",
     "tm:endure",
     "tm:facade",
     "tm:frostbreath",
     "tm:frustration",
     "tm:gigadrain",
     "tm:hiddenpower",
-    "tm:hydropump",
     "tm:icebeam",
     "tm:icywind",
-    "tm:infestation",
     "tm:irondefense",
     "tm:leechlife",
     "tm:liquidation",
-    "tm:lunge",
     "tm:magicroom",
     "tm:poisonjab",
-    "tm:pounce",
     "tm:protect",
     "tm:raindance",
     "tm:rest",
     "tm:return",
     "tm:round",
     "tm:scald",
-    "tm:skittersmack",
     "tm:sleeptalk",
     "tm:snore",
     "tm:substitute",
     "tm:surf",
     "tm:swagger",
-    "tm:terablast",
     "tm:toxic",
-    "tm:trailblaze",
     "tm:waterfall",
-    "tm:waterpulse",
     "tm:wonderroom",
     "tm:xscissor",
-    "tutor:bugbite",
-    "tutor:gigadrain",
-    "tutor:icywind",
-    "tutor:irondefense",
-    "tutor:liquidation",
     "tutor:magiccoat",
-    "tutor:magicroom",
     "tutor:signalbeam",
     "tutor:skittersmack",
-    "tutor:snore",
-    "tutor:waterpulse",
-    "tutor:wonderroom"
+    "tutor:waterpulse"
   ],
   "labels": [
     "gen7"
@@ -142,8 +119,8 @@
   ],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 0.7,
+    "height": 0.9,
     "fixed": false
   },
   "baseFriendship": 50,

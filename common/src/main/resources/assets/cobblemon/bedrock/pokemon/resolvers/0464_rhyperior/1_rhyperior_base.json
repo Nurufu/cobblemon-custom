@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:rhyperior",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:rhyperior2",
+      "model": "cobblemon:rhyperior_male2.geo",
+      "texture": "cobblemon:textures/pokemon/0464_rhyperior/rhyperior_brown.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0464_rhyperior/rhyperior_shiny.png"
+    }
+  ]
+}

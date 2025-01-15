@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Toxicroak",
   "nationalPokedexNumber": 454,
   "primaryType": "poison",
@@ -8,19 +9,6 @@
     "dryskin",
     "h:poisontouch"
   ],
-  "drops": {
-    "amount": 2,
-    "entries": [
-      {
-        "item": "cobblemon:black_sludge",
-        "percentage": 5.0
-      },
-      {
-        "item": "cobblemon:payapa_berry",
-        "percentage": 5.0
-      }
-    ]
-  },
   "baseStats": {
     "hp": 83,
     "attack": 106,
@@ -28,6 +16,14 @@
     "special_attack": 86,
     "special_defence": 65,
     "speed": 85
+  },
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": false,
+      "depth": "normal",
+      "light": "0-4"
+    }
   },
   "catchRate": 75,
   "maleRatio": 0.5,
@@ -42,35 +38,21 @@
     "1:astonish",
     "1:mudslap",
     "1:poisonsting",
-    "1:taunt",
     "10:taunt",
-    "12:flatter",
     "15:pursuit",
     "16:lowkick",
-    "16:revenge",
     "17:feintattack",
-    "20:venoshock",
     "22:revenge",
-    "24:suckerpunch",
     "24:swagger",
-    "28:swagger",
     "29:mudbomb",
     "31:suckerpunch",
-    "32:poisonjab",
     "36:nastyplot",
     "36:toxic",
     "36:venoshock",
-    "41:nastyplot",
     "41:poisonjab",
-    "42:nastyplot",
-    "48:sludgebomb",
-    "49:poisonjab",
     "49:sludgebomb",
-    "54:belch",
     "54:flatter",
-    "54:sludgebomb",
     "58:belch",
-    "62:flatter",
     "tm:acidspray",
     "tm:aerialace",
     "tm:assurance",
@@ -83,7 +65,6 @@
     "tm:captivate",
     "tm:chillingwater",
     "tm:closecombat",
-    "tm:coaching",
     "tm:confide",
     "tm:crosspoison",
     "tm:cut",
@@ -108,8 +89,6 @@
     "tm:hyperbeam",
     "tm:icepunch",
     "tm:icywind",
-    "tm:knockoff",
-    "tm:lashout",
     "tm:lowkick",
     "tm:lowsweep",
     "tm:megakick",
@@ -143,12 +122,10 @@
     "tm:sludgewave",
     "tm:snatch",
     "tm:snore",
-    "tm:spite",
     "tm:stoneedge",
     "tm:strength",
     "tm:substitute",
     "tm:sunnyday",
-    "tm:superfang",
     "tm:swagger",
     "tm:swordsdance",
     "tm:takedown",
@@ -159,8 +136,6 @@
     "tm:thunderpunch",
     "tm:torment",
     "tm:toxic",
-    "tm:upperhand",
-    "tm:vacuumwave",
     "tm:venomdrench",
     "tm:venoshock",
     "tm:workup",
@@ -204,8 +179,8 @@
   "evolutions": [],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 0.88,
+    "height": 1.8,
     "fixed": false
   },
   "baseFriendship": 50,

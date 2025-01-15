@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:kingdra",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:kingdra2",
+      "model": "cobblemon:kingdra2.geo",
+      "texture": "cobblemon:textures/pokemon/0230_kingdra/kingdra.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0230_kingdra/kingdra_shiny.png"
+    }
+  ]
+}

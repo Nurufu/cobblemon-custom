@@ -1,13 +1,10 @@
 {
+  "implemented": true,
   "name": "Toxel",
   "nationalPokedexNumber": 848,
   "primaryType": "electric",
   "secondaryType": "poison",
-  "abilities": [
-    "rattled",
-    "static",
-    "h:klutz"
-  ],
+  "abilities": ["rattled", "static", "h:klutz"],
   "baseStats": {
     "hp": 40,
     "attack": 38,
@@ -22,9 +19,7 @@
   "baseExperienceYield": 48,
   "experienceGroup": "medium_slow",
   "eggCycles": 25,
-  "eggGroups": [
-    "undiscovered"
-  ],
+  "eggGroups": ["undiscovered"],
   "moves": [
     "1:acid",
     "1:belch",
@@ -54,22 +49,15 @@
     "tutor:growl",
     "tutor:nuzzle"
   ],
-  "labels": [
-    "gen8",
-    "baby"
-  ],
-  "pokedex": [
-    "cobblemon.species.toxel.desc"
-  ],
+  "labels": ["gen8", "baby"],
+  "pokedex": ["cobblemon.species.toxel.desc"],
   "evolutions": [
     {
       "id": "toxel_toxtricity",
       "variant": "level_up",
       "result": "toxtricity",
       "consumeHeldItem": false,
-      "learnableMoves": [
-        "spark"
-      ],
+      "learnableMoves": ["spark"],
       "requirements": [
         {
           "variant": "level",
@@ -82,9 +70,7 @@
       "variant": "level_up",
       "result": "toxtricity lowkey",
       "consumeHeldItem": false,
-      "learnableMoves": [
-        "spark"
-      ],
+      "learnableMoves": ["spark"],
       "requirements": [
         {
           "variant": "level",

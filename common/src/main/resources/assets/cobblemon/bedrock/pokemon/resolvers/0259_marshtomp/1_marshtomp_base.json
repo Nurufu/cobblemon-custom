@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:marshtomp",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:marshtomp2",
+      "model": "cobblemon:marshtomp2.geo",
+      "texture": "cobblemon:textures/pokemon/0259_marshtomp/marshtomp.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0259_marshtomp/marshtomp_shiny.png"
+    }
+  ]
+}

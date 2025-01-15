@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:morelull",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:morelull2",
+      "model": "cobblemon:morelull2.geo",
+      "texture": "cobblemon:textures/pokemon/0755_morelull/morelull.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0755_morelull/morelull_shiny.png"
+    }
+  ]
+}

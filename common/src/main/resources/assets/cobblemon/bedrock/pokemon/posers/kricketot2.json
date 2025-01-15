@@ -1,0 +1,112 @@
+{
+    "head": "head",
+    "portraitScale": 3.3,
+    "portraitTranslation": [ -0.1, -2.2, 0 ],
+    "profileScale": 1,
+    "profileTranslation": [ 0, 0.25, 0 ],
+    "faint": "bedrock(kricketot, faint, true)",
+    "cry": "bedrock(kricketot, cry)",
+    "poses": {
+      "battle-idle": {
+        "poseName": "battle-idle",
+        "transformTicks": 10,
+        "poseTypes": ["STAND"],
+        "isBattle": true,
+        "animations": ["bedrock(kricketot, battle_idle)"],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": ["bedrock(kricketot, blink)"]
+          }
+        ]
+      },
+      "standing": {
+        "poseName": "standing",
+        "transformTicks": 10,
+        "poseTypes": [
+          "STAND",
+          "NONE",
+          "PORTRAIT",
+          "PROFILE"
+        ],
+        "isBattle": false,
+        "animations": [
+          "bedrock(kricketot, ground_idle)"
+        ],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": [
+              "bedrock(kricketot, blink)"
+            ]
+          }
+        ]
+      },
+      "walking": {
+        "poseName": "walking",
+        "transformTicks": 10,
+        "poseTypes": [
+          "WALK"
+        ],
+        "animations": [
+          "bedrock(kricketot, ground_walk)"
+        ],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": [
+              "bedrock(kricketot, blink)"
+            ]
+          }
+        ]
+      },
+      "sleeping": {
+        "poseName": "sleeping",
+        "transformTicks": 10,
+        "poseTypes": [
+          "SLEEP"
+        ],
+        "animations": [
+          "bedrock(kricketot, sleep)"
+        ]
+      },
+      "leftshoulder": {
+        "poseName": "leftshoulder",
+        "transformTicks": 10,
+        "poseTypes": [
+          "SHOULDER_LEFT"
+        ],
+        "animations": [
+          "bedrock(kricketot, shoulder_left)",
+          "look"
+        ],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": [
+              "bedrock(kricketot, blink)"
+            ]
+          }
+        ]
+      },
+      "rightshoulder": {
+        "poseName": "rightshoulder",
+        "transformTicks": 10,
+        "poseTypes": [
+          "SHOULDER_RIGHT"
+        ],
+        "animations": [
+          "bedrock(kricketot, shoulder_right)",
+          "look"
+        ],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": [
+              "bedrock(kricketot, blink)"
+            ]
+          }
+        ]
+      }
+    }
+   }

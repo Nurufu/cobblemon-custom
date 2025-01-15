@@ -1,0 +1,25 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+      {
+        "id": "sealeo-1",
+        "pokemon": "sealeo",
+        "presets": [ "natural" ],
+        "type": "pokemon",
+        "context": "grounded",
+        "bucket": "uncommon",
+        "level": "32-42",
+        "weight": 3.0,
+        "condition": {
+          "canSeeSky": true,
+          "fluid": "#minecraft:water",
+          "biomes": [ "#cobblemon:is_glacial",
+                      "minecraft:frozen_peaks",
+                      "minecraft:ice_spikes",
+                      "#cobblemon:is_frozen_ocean"]
+        }
+      }
+    ]
+   }

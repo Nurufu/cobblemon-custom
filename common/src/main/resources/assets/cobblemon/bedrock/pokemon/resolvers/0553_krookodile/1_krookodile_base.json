@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:krookodile",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:krookodile2",
+      "model": "cobblemon:krookodile2.geo",
+      "texture": "cobblemon:textures/pokemon/0553_krookodile/krookodile.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0553_krookodile/krookodile_shiny.png"
+    }
+  ]
+}

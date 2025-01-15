@@ -1,11 +1,10 @@
 {
+  "implemented": true,
   "name": "Diancie",
   "nationalPokedexNumber": 719,
   "primaryType": "rock",
   "secondaryType": "fairy",
-  "abilities": [
-    "clearbody"
-  ],
+  "abilities": ["clearbody"],
   "baseStats": {
     "hp": 50,
     "attack": 100,
@@ -17,60 +16,23 @@
   "catchRate": 3,
   "maleRatio": -1,
   "shoulderMountable": false,
-  "forms": [
-    {
-      "name": "Mega",
-      "primaryType": "rock",
-      "secondaryType": "fairy",
-      "abilities": [
-        "magicbounce"
-      ],
-      "baseStats": {
-        "hp": 50,
-        "attack": 160,
-        "defence": 110,
-        "special_attack": 160,
-        "special_defence": 110,
-        "speed": 110
-      },
-      "catchRate": 3,
-      "maleRatio": -1,
-      "baseExperienceYield": 300,
-      "baseFriendship": 50,
-      "evYield": {
-        "hp": 0,
-        "attack": 0,
-        "defence": 1,
-        "special_attack": 0,
-        "special_defence": 2,
-        "speed": 0
-      },
-      "experienceGroup": "slow",
-      "eggCycles": 25,
-      "eggGroups": [
-        "undiscovered"
-      ],
-      "labels": [
-        "gen6",
-        "mega",
-        "mythical",
-        "legendary"
-      ],
-      "aspects": [
-        "mega"
-      ],
-      "height": 11,
-      "weight": 278,
-      "cannotDynamax": false,
-      "battleOnly": true
-    }
-  ],
   "baseExperienceYield": 300,
   "experienceGroup": "slow",
   "eggCycles": 25,
-  "eggGroups": [
-    "undiscovered"
-  ],
+  "eggGroups": ["undiscovered"],
+  "behaviour": {
+    "moving": {
+      "walk": {
+        "walkSpeed": 0.33
+      }
+    },
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": false,
+      "depth": "normal",
+      "light": "0-7"
+    }
+  },
   "moves": [
     "1:diamondstorm",
     "1:harden",
@@ -106,7 +68,6 @@
     "tm:drainingkiss",
     "tm:earthpower",
     "tm:encore",
-    "tm:endeavor",
     "tm:endure",
     "tm:explosion",
     "tm:facade",
@@ -115,7 +76,6 @@
     "tm:flashcannon",
     "tm:frustration",
     "tm:gigaimpact",
-    "tm:gravity",
     "tm:guardswap",
     "tm:gyroball",
     "tm:hail",
@@ -124,11 +84,10 @@
     "tm:hyperbeam",
     "tm:irondefense",
     "tm:lightscreen",
-    "tm:meteorbeam",
     "tm:metronome",
-    "tm:mistyexplosion",
     "tm:mysticalfire",
     "tm:naturepower",
+    "tm:nastyplot",
     "tm:playrough",
     "tm:powergem",
     "tm:protect",
@@ -146,7 +105,6 @@
     "tm:safeguard",
     "tm:sandstorm",
     "tm:sandtomb",
-    "tm:scorchingsands",
     "tm:secretpower",
     "tm:skillswap",
     "tm:sleeptalk",
@@ -189,19 +147,12 @@
     "tutor:terrainpulse",
     "tutor:wonderroom"
   ],
-  "labels": [
-    "gen6",
-    "mythical",
-    "legendary"
-  ],
-  "pokedex": [
-    "cobblemon.species.diancie.desc"
-  ],
-  "evolutions": [],
-  "baseScale": 1,
+  "labels": ["gen6", "mythical", "legendary"],
+  "pokedex": ["cobblemon.species.diancie.desc"],
+  "baseScale": 0.8,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 0.8,
+    "height": 1.6,
     "fixed": false
   },
   "baseFriendship": 50,

@@ -1,0 +1,12 @@
+{
+  "species": "cobblemon:kricketot",
+  "order": 3,
+  "variations": [
+    {
+      "aspects": [
+        "female"
+      ],
+      "model": "cobblemon:kricketot_female2.geo"
+    }
+  ]
+}

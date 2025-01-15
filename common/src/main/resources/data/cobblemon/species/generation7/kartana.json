@@ -1,11 +1,10 @@
 {
+  "implemented": true,
   "name": "Kartana",
   "nationalPokedexNumber": 798,
   "primaryType": "grass",
   "secondaryType": "steel",
-  "abilities": [
-    "beastboost"
-  ],
+  "abilities": ["beastboost"],
   "baseStats": {
     "hp": 59,
     "attack": 181,
@@ -20,9 +19,7 @@
   "baseExperienceYield": 285,
   "experienceGroup": "slow",
   "eggCycles": 120,
-  "eggGroups": [
-    "undiscovered"
-  ],
+  "eggGroups": ["undiscovered"],
   "moves": [
     "1:furycutter",
     "1:vacuumwave",
@@ -90,18 +87,13 @@
     "tutor:vacuumwave",
     "tutor:xscissor"
   ],
-  "labels": [
-    "gen7",
-    "ultra_beast"
-  ],
-  "pokedex": [
-    "cobblemon.species.kartana.desc"
-  ],
+  "labels": ["gen7", "ultra_beast"],
+  "pokedex": ["cobblemon.species.kartana.desc"],
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.75,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 0.75,
+    "height": 1.25,
     "fixed": false
   },
   "baseFriendship": 0,
@@ -116,14 +108,5 @@
   "height": 3,
   "weight": 1,
   "aspects": [],
-  "cannotDynamax": false,
-  "drops": {
-    "amount": 3,
-    "entries": [
-      {
-        "item": "minecraft:echo_shard",
-        "quantityRange": "1-3"
-      }
-    ]
-  }
+  "cannotDynamax": false
 }

@@ -1,0 +1,10 @@
+{
+  "species": "cobblemon:gyarados",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": ["female"],
+      "model": "cobblemon:gyarados_female2.geo"
+    }
+  ]
+}

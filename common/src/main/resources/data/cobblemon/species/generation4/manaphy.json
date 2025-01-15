@@ -1,10 +1,9 @@
 {
+  "implemented": true,
   "name": "Manaphy",
   "nationalPokedexNumber": 490,
   "primaryType": "water",
-  "abilities": [
-    "hydration"
-  ],
+  "abilities": ["hydration"],
   "baseStats": {
     "hp": 100,
     "attack": 100,
@@ -19,10 +18,7 @@
   "baseExperienceYield": 270,
   "experienceGroup": "slow",
   "eggCycles": 10,
-  "eggGroups": [
-    "water_1",
-    "fairy"
-  ],
+  "eggGroups": ["water_1", "fairy"],
   "moves": [
     "1:bubble",
     "1:heartswap",
@@ -129,16 +125,10 @@
     "tutor:watersport",
     "tutor:whirlpool"
   ],
-  "labels": [
-    "gen4",
-    "mythical",
-    "legendary"
-  ],
-  "pokedex": [
-    "cobblemon.species.manaphy.desc"
-  ],
+  "labels": ["gen4", "mythical", "legendary"],
+  "pokedex": ["cobblemon.species.manaphy.desc"],
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.6,
   "hitbox": {
     "width": 1,
     "height": 1,

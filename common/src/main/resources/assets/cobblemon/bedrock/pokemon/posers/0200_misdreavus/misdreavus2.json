@@ -1,0 +1,35 @@
+{
+    "portraitScale": 1.8,
+    "portraitTranslation": [-0.2, -0.32, 0.0],
+    "profileScale": 0.7,
+    "profileTranslation": [0.0, 0.7, 0.0],
+    "rootBone": "misdreavus",
+    "animations": {
+          "cry": "q.bedrock_stateful('misdreavus', 'cry')"
+    },
+    "poses": {
+      "portrait": {
+        "poseTypes": ["PORTRAIT", "PROFILE"],
+        "isBattle": false,
+        "isTouchingWater": false,
+        "animations": ["q.look('head_ai')", "q.bedrock('misdreavus', 'ground_idle')"],
+        "quirks": ["q.bedrock_quirk('misdreavus', 'blink')"]
+      },
+      "standing": {
+        "poseTypes": ["STAND", "NONE", "HOVER"],
+        "isBattle": false,
+        "isTouchingWater": false,
+        "animations": ["q.look('head_ai')", "q.bedrock('misdreavus', 'ground_idle')"],
+        "quirks": [
+          "q.bedrock_quirk('misdreavus', 'blink')"
+        ]
+      },
+      "walking": {
+        "poseTypes": ["WALK", "SWIM", "FLY"],
+        "isTouchingWater": false,
+        "animations": ["q.look('head_ai')", "q.bedrock('misdreavus', 'ground_walk')"],
+        "quirks": ["q.bedrock_quirk('misdreavus', 'blink')"]
+      }
+    }
+  }
+  

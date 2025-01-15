@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:glimmet",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:glimmet2",
+      "model": "cobblemon:glimmet2.geo",
+      "texture": "cobblemon:textures/pokemon/0969_glimmet/glimmet.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0969_glimmet/glimmet_shiny.png"
+    }
+  ]
+}

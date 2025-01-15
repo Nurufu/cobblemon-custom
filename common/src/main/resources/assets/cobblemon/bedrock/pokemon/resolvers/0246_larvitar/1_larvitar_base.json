@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:larvitar",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:larvitar2",
+      "model": "cobblemon:larvitar2.geo",
+      "texture": "cobblemon:textures/pokemon/0246_larvitar/larvitar.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0246_larvitar/larvitar_shiny.png"
+    }
+  ]
+}

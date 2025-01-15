@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:torracat",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:torracat2",
+      "model": "cobblemon:torracat2.geo",
+      "texture": "cobblemon:textures/pokemon/0726_torracat/torracat.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0726_torracat/torracat_shiny.png"
+    }
+  ]
+}

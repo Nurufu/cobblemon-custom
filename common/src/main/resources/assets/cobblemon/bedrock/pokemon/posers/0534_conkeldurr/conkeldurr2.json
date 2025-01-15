@@ -1,0 +1,38 @@
+{
+  "portraitScale": 1.7,
+  "portraitTranslation": [-0.36, 1.1, 0.0],
+  "profileScale": 0.47,
+  "profileTranslation": [0.0, 0.98, 0.0],
+  "rootBone": "conkeldurr",
+  "animations": {
+    "cry": "q.bedrock_stateful('conkeldurr', 'cry')"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseName": "battle-standing",
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": ["q.look('head')", "q.bedrock('conkeldurr', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('conkeldurr', 'blink')"]
+    },
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": ["q.look('head')", "q.bedrock('conkeldurr', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('conkeldurr', 'blink')"]
+    },
+    "walking": {
+      "poseName": "walking",
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('conkeldurr', 'ground_walk')"
+      ],
+      "quirks": ["q.bedrock_quirk('conkeldurr', 'blink')"]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('conkeldurr', 'sleep')"]
+    }
+  }
+}

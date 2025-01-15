@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:delphox",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:delphox2",
+      "model": "cobblemon:delphox2.geo",
+      "texture": "cobblemon:textures/pokemon/0655_delphox/delphox.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0655_delphox/delphox_shiny.png"
+    }
+  ]
+}

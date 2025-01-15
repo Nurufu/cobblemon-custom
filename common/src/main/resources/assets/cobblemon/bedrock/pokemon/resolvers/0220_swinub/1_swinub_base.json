@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:swinub",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:swinub2",
+      "model": "cobblemon:swinub2.geo",
+      "texture": "cobblemon:textures/pokemon/0220_swinub/swinub.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0220_swinub/swinub_shiny.png"
+    }
+  ]
+}

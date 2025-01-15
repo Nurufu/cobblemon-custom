@@ -1,0 +1,27 @@
+{
+  "species": "cobblemon:dudunsparce",
+  "order": 1,
+  "baseScale": 0.75,
+  "hitbox": {
+    "width": 0.5,
+    "height": 2,
+    "fixed": false
+  },
+  "variations": [
+    {
+      "aspects": ["threesegment"],
+      "poser": "cobblemon:dudunsparce_three_segment",
+      "model": "cobblemon:dudunsparce_three-segment.geo",
+      "texture": "cobblemon:textures/pokemon/dudunsparce/dudunsparce_three_segment.png",
+      "layers": [
+      ] 
+    },
+    {
+      "aspects": ["threesegment","shiny"],
+      "texture": "cobblemon:textures/pokemon/dudunsparce/dudunsparce_three_segment_shiny.png",
+      "layers": [
+       
+      ]
+    }
+  ]
+}

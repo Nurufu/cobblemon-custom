@@ -1,0 +1,42 @@
+{
+  "portraitScale": 2.3,
+  "portraitTranslation": [-0.6, -0.5, 0.0],
+  "profileScale": 0.9,
+  "profileTranslation": [0.0, 0.4, 0.0],
+  "rootBone": "mudbray",
+  "animations": {
+    "cry": "q.bedrock_stateful('mudbray', 'cry')"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('mudbray', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('mudbray', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE"],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('mudbray', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('mudbray', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "isBattle": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('mudbray', 'ground_walk')"],
+      "quirks": [
+        "q.bedrock_quirk('mudbray', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('mudbray', 'sleep')"]
+    }
+  }
+}

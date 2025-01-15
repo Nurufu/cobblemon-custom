@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Drilbur",
   "nationalPokedexNumber": 529,
   "primaryType": "ground",
@@ -7,19 +8,6 @@
     "sandforce",
     "h:moldbreaker"
   ],
-  "drops": {
-    "amount": 2,
-    "entries": [
-      {
-        "item": "cobblemon:soft_sand",
-        "percentage": 2.5
-      },
-      {
-        "item": "cobblemon:pinap_berry",
-        "percentage": 2.5
-      }
-    ]
-  },
   "baseStats": {
     "hp": 60,
     "attack": 85,
@@ -28,9 +16,17 @@
     "special_defence": 45,
     "speed": 68
   },
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": true,
+      "depth": "normal",
+      "light": "0-4"
+    }
+  },
   "catchRate": 120,
   "maleRatio": 0.5,
-  "shoulderMountable": false,
+  "shoulderMountable": true,
   "baseExperienceYield": 66,
   "experienceGroup": "medium_fast",
   "eggCycles": 20,
@@ -38,22 +34,22 @@
     "field"
   ],
   "moves": [
-    "1:mudslap",
     "1:mudsport",
-    "1:rapidspin",
-    "4:scratch",
-    "8:honeclaws",
+    "1:scratch",
+    "5:rapidspin",
+    "8:mudslap",
     "12:furyswipes",
-    "16:metalclaw",
-    "20:sandstorm",
+    "15:metalclaw",
+    "19:dig",
+    "22:honeclaws",
     "24:crushclaw",
     "26:slash",
-    "28:rockslide",
-    "32:dig",
+    "29:rockslide",
+    "33:earthquake",
     "36:swordsdance",
-    "40:drillrun",
-    "44:earthquake",
-    "48:fissure",
+    "40:sandstorm",
+    "43:drillrun",
+    "47:fissure",
     "egg:crushclaw",
     "egg:earthpower",
     "egg:irondefense",
@@ -68,10 +64,8 @@
     "tm:brickbreak",
     "tm:bulldoze",
     "tm:confide",
-    "tm:curse",
     "tm:cut",
     "tm:dig",
-    "tm:doubleedge",
     "tm:doubleteam",
     "tm:drillrun",
     "tm:earthpower",
@@ -80,15 +74,11 @@
     "tm:facade",
     "tm:fling",
     "tm:frustration",
-    "tm:helpinghand",
     "tm:hiddenpower",
     "tm:highhorsepower",
     "tm:honeclaws",
     "tm:irondefense",
-    "tm:metalclaw",
-    "tm:metalsound",
     "tm:mudshot",
-    "tm:mudslap",
     "tm:poisonjab",
     "tm:protect",
     "tm:rest",
@@ -99,21 +89,16 @@
     "tm:round",
     "tm:sandstorm",
     "tm:sandtomb",
-    "tm:scorchingsands",
     "tm:secretpower",
     "tm:shadowclaw",
     "tm:sleeptalk",
     "tm:sludgebomb",
     "tm:snore",
     "tm:stealthrock",
-    "tm:stompingtantrum",
     "tm:strength",
     "tm:substitute",
-    "tm:sunnyday",
     "tm:swagger",
     "tm:swordsdance",
-    "tm:takedown",
-    "tm:terablast",
     "tm:toxic",
     "tm:xscissor",
     "tutor:drillrun",
@@ -152,8 +137,8 @@
   ],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 0.9,
+    "height": 0.8,
     "fixed": false
   },
   "baseFriendship": 50,

@@ -1,0 +1,9 @@
+{
+    "appear": {
+        "sounds": ["custom:wild_shiny_appear_chime"]
+            },
+    "ambient": {
+        "sounds": ["custom:shiny_ambient_chime_1"]},
+    "owned": {
+        "sounds": ["custom:shiny_appear_chime"]}
+}

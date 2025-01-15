@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:starly",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:starly2",
+      "model": "cobblemon:starly2.geo",
+      "texture": "cobblemon:textures/pokemon/0396_starly/starly.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0396_starly/starly_shiny.png"
+    }
+  ]
+}

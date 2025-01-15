@@ -1,11 +1,10 @@
 {
+  "implemented": true,
   "name": "Chi-Yu",
   "nationalPokedexNumber": 1004,
   "primaryType": "dark",
   "secondaryType": "fire",
-  "abilities": [
-    "beadsofruin"
-  ],
+  "abilities": ["beadsofruin"],
   "baseStats": {
     "hp": 55,
     "attack": 80,
@@ -28,9 +27,7 @@
   },
   "experienceGroup": "slow",
   "eggCycles": 50,
-  "eggGroups": [
-    "undiscovered"
-  ],
+  "eggGroups": ["undiscovered"],
   "moves": [
     "1:ember",
     "1:meanlook",
@@ -86,16 +83,11 @@
     "tm:willowisp",
     "tm:zenheadbutt"
   ],
-  "labels": [
-    "gen9",
-    "legendary"
-  ],
+  "labels": ["gen9", "legendary"],
   "aspects": [],
   "height": 4,
   "weight": 49,
   "evolutions": [],
   "cannotDynamax": false,
-  "pokedex": [
-    "cobblemon.species.chiyu.desc"
-  ]
+  "pokedex": ["cobblemon.species.chiyu.desc"]
 }

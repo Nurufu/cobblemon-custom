@@ -1,0 +1,42 @@
+{
+  "portraitScale": 2.4,
+  "portraitTranslation": [-0.2, -1.0, 0.0],
+  "profileScale": 1,
+  "profileTranslation": [0.0, 0.3, 0.0],
+  "rootBone": "pidove",
+  "animations": {
+    "cry": "q.bedrock_stateful('pidove', 'cry')"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('pidove', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('pidove', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "WALK", "SWIM"],
+      "isTouchingWater": false,
+      "animations": ["q.look('head_ai')", "q.bedrock('pidove', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('pidove', 'blink')"
+      ]
+    },
+    "hovering": {
+      "poseTypes": ["HOVER"],
+      "animations": ["q.look('head_ai')", "q.bedrock('pidove', 'air_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('pidove', 'blink')"
+      ]
+    },
+    "flying": {
+      "poseTypes": ["FLY"],
+      "animations": ["q.look('head_ai')", "q.bedrock('pidove', 'air_fly')"],
+      "quirks": [
+        "q.bedrock_quirk('pidove', 'blink')"
+      ]
+    }
+  }
+}

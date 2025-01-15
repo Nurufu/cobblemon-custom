@@ -1,13 +1,10 @@
 {
+  "implemented": true,
   "name": "Houndoom",
   "nationalPokedexNumber": 229,
   "primaryType": "dark",
   "secondaryType": "fire",
-  "abilities": [
-    "earlybird",
-    "flashfire",
-    "h:unnerve"
-  ],
+  "abilities": ["earlybird", "flashfire", "h:unnerve"],
   "baseStats": {
     "hp": 75,
     "attack": 90,
@@ -24,9 +21,7 @@
       "name": "Mega",
       "primaryType": "dark",
       "secondaryType": "fire",
-      "abilities": [
-        "solarpower"
-      ],
+      "abilities": ["solarpower"],
       "baseStats": {
         "hp": 75,
         "attack": 90,
@@ -49,16 +44,9 @@
       },
       "experienceGroup": "slow",
       "eggCycles": 20,
-      "eggGroups": [
-        "field"
-      ],
-      "labels": [
-        "gen6",
-        "mega"
-      ],
-      "aspects": [
-        "mega"
-      ],
+      "eggGroups": ["field"],
+      "labels": ["gen6", "mega"],
+      "aspects": ["mega"],
       "height": 19,
       "weight": 495,
       "cannotDynamax": false,
@@ -68,9 +56,7 @@
   "baseExperienceYield": 175,
   "experienceGroup": "slow",
   "eggCycles": 20,
-  "eggGroups": [
-    "field"
-  ],
+  "eggGroups": ["field"],
   "moves": [
     "1:ember",
     "1:howl",
@@ -220,12 +206,8 @@
     "tutor:toxic",
     "tutor:uproar"
   ],
-  "labels": [
-    "gen2"
-  ],
-  "pokedex": [
-    "cobblemon.species.houndoom.desc"
-  ],
+  "labels": ["gen2"],
+  "pokedex": ["cobblemon.species.houndoom.desc"],
   "preEvolution": "houndour",
   "evolutions": [],
   "baseScale": 1,
@@ -260,11 +242,11 @@
       },
       {
         "item": "minecraft:blaze_powder",
-        "percentage": 5.0
+        "percentage": 5
       },
       {
         "item": "cobblemon:rawst_berry",
-        "percentage": 5.0
+        "percentage": 5
       }
     ]
   }

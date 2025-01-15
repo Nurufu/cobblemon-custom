@@ -1,0 +1,272 @@
+{
+	"display": {
+		"icon": {
+			"item": "cobblemon:pokemon_model",
+			"nbt": "{\"species\":\"cobblemon:magikarp\",\"aspects\":[\"magikarp-jump-skully\"]}"
+		},
+		"title": {
+			"translate": "Aspiring Fisherman"
+		},
+		"description": {
+			"translate": "All for sale for 円500 each!"
+		},
+		"frame": "challenge"
+	},
+	"parent": "cobblemon:first_catch",
+	"criteria": {
+		"apricot-stripes": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-apricot-stripes"]
+			}
+		},
+		"apricot-tiger": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-apricot-tiger"]
+			}
+		},
+		"apricot-zebra": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-apricot-zebra"]
+			}
+		},
+		"black-forehead": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-black-forehead"]
+			}
+		},
+		"black-mask": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-black-mask"]
+			}
+		},
+		"blue-raindrops": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-blue-raindrops"]
+			}
+		},
+		"blue-saucy": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-blue-saucy"]
+			}
+		},
+		"brown-stripes": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-brown-stripes"]
+			}
+		},
+		"brown-tiger": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-brown-tiger"]
+			}
+		},
+		"brown-zebra": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-brown-zebra"]
+			}
+		},
+		"calico-orange-gold": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-calico-orange-gold"]
+			}
+		},
+		"calico-orange-white": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-calico-orange-white"]
+			}
+		},
+		"orange-white-black": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-orange-white-black"]
+			}
+		},
+		"calico-white-orange": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-calico-white-orange"]
+			}
+		},
+		"gray-bubbles": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-gray-bubbles"]
+			}
+		},
+		"gray-diamonds": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-gray-diamonds"]
+			}
+		},
+		"gray-patches": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-gray-patches"]
+			}
+		},
+		"orange-dapples": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-orange-dapples"]
+			}
+		},
+		"orange-forehead": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-orange-forehead"]
+			}
+		},
+		"orange-mask": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-orange-mask"]
+			}
+		},
+		"orange-orca": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-orange-orca"]
+			}
+		},
+		"orange-two-tone": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-orange-two-tone"]
+			}
+		},
+		"pink-dapples": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-pink-dapples"]
+			}
+		},
+		"pink-orca": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-pink-orca"]
+			}
+		},
+		"pink-two-tone": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-pink-two-tone"]
+			}
+		},
+		"purple-bubbles": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-purple-bubbles"]
+			}
+		},
+		"purple-diamonds": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-purple-diamonds"]
+			}
+		},
+		"purple-patches": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-purple-patches"]
+			}
+		},
+		"skelly": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-skelly"]
+			}
+		},
+		"violet-raindrops": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-violet-raindrops"]
+			}
+		},
+		"violet-saucy": {
+			"trigger": "cobblemon:aspects_collected",
+			"conditions": {
+				"pokemon": "cobblemon:magikarp",
+				"aspects": ["magikarp-jump-violet-saucy"]
+			}
+		}
+	},
+	"requirements": [
+		["apricot-stripes"],
+		["apricot-tiger"],
+		["apricot-zebra"],
+		["black-forehead"],
+		["black-mask"],
+		["blue-raindrops"],
+		["blue-saucy"],
+		["brown-stripes"],
+		["brown-tiger"],
+		["brown-zebra"],
+		["calico-orange-gold"],
+		["calico-orange-white"],
+		["orange-white-black"],
+		["calico-white-orange"],
+		["gray-bubbles"],
+		["gray-diamonds"],
+		["gray-patches"],
+		["orange-dapples"],
+		["orange-forehead"],
+		["orange-mask"],
+		["orange-orca"],
+		["orange-two-tone"],
+		["pink-dapples"],
+		["pink-orca"],
+		["pink-two-tone"],
+		["purple-bubbles"],
+		["purple-diamonds"],
+		["purple-patches"],
+		["skelly"],
+		["violet-raindrops"],
+		["violet-saucy"]
+	],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": false
+}

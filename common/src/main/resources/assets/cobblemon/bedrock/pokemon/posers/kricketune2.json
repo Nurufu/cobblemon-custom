@@ -1,0 +1,110 @@
+{
+    "head": "head",
+    "portraitScale": 2.4,
+    "portraitTranslation": [ 0, 0.41, 0 ],
+    "profileScale": 0.8,
+    "profileTranslation": [ 0, 0.6, 0 ],
+    "faint": "bedrock(kricketune, faint, true)",
+    "cry": "bedrock(kricketune, cry)",
+    "poses": {
+      "battle-idle": {
+        "poseName": "battle-idle",
+        "transformTicks": 10,
+        "poseTypes": ["STAND"],
+        "isBattle": true,
+        "animations": ["bedrock(kricketune, battle_idle)"],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": ["bedrock(kricketune, blink)"]
+          }
+        ]
+      },
+      "standing": {
+        "poseName": "standing",
+        "transformTicks": 10,
+        "poseTypes": [
+          "STAND",
+          "NONE",
+          "PORTRAIT",
+          "PROFILE"
+        ],
+        "isBattle": false,
+        "animations": [
+          "bedrock(kricketune, ground_idle)"
+        ],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": [
+              "bedrock(kricketune, blink)"
+            ]
+          }
+        ]
+      },
+      "walking": {
+        "poseName": "walking",
+        "transformTicks": 10,
+        "poseTypes": [
+          "WALK"
+        ],
+        "animations": [
+          "bedrock(kricketune, ground_walk)"
+        ],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": [
+              "bedrock(kricketune, blink)"
+            ]
+          }
+        ]
+      },
+      "hovering": {
+        "poseName": "hovering",
+        "transformTicks": 10,
+        "poseTypes": [
+          "HOVER"
+        ],
+        "animations": [
+          "bedrock(kricketune, air_idle)"
+        ],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": [
+              "bedrock(kricketune, blink)"
+            ]
+          }
+        ]
+      },
+      "flying": {
+        "poseName": "flying",
+        "transformTicks": 10,
+        "poseTypes": [
+          "FLY"
+        ],
+        "animations": [
+          "bedrock(kricketune, air_fly)"
+        ],
+        "quirks": [
+          {
+            "name": "blink",
+            "animations": [
+              "bedrock(kricketune, blink)"
+            ]
+          }
+        ]
+      },
+      "sleeping": {
+        "poseName": "sleeping",
+        "transformTicks": 10,
+        "poseTypes": [
+          "SLEEP"
+        ],
+        "animations": [
+          "bedrock(kricketune, sleep)"
+        ]
+      }
+    }
+   }

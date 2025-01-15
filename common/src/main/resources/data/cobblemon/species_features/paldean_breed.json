@@ -1,7 +1,7 @@
 {
   "type": "choice",
   "keys": ["paldean_breed"],
-  "default": "combat",
+  "default": "false",
   "choices": [
     "combat",
     "aqua",

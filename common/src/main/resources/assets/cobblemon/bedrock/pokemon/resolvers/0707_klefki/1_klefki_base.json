@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:klefki",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:klefki2",
+      "model": "cobblemon:klefki2.geo",
+      "texture": "cobblemon:textures/pokemon/0707_klefki/klefki.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0707_klefki/klefki_shiny.png"
+    }
+  ]
+}

@@ -79,13 +79,13 @@ object TestCommand {
 //            after(seconds = 0.5F) {
 //                player.sendPacket(PlayPoseableAnimationPacket(evolutionEntity.id, setOf("evolution:animation.evolution.evolution"), emptySet()))
 //            }
-            testAbilityCapsule()
-            testAbilityPatch()
+            //testAbilityCapsule()
+            //testAbilityPatch()
 
 //            readBerryDataFromCSV()
 
 //            this.testClosestBattle(context)
-            //testTrade(context.source.player!!)
+              testTrade(context.source.player!!)
 //            testParticles(context)
 //            extractMovesData()
 //            // Player variables

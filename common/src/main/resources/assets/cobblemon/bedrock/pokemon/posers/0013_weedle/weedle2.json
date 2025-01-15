@@ -1,0 +1,40 @@
+{
+    "portraitScale": 2.2,
+    "portraitTranslation": [-0.15, -0.93, 0.0],
+    "profileScale": 0.8,
+    "profileTranslation": [0.1, 0.6, 0.0],
+    "rootBone": "weedle",
+    "animations": {
+      "cry": "q.bedrock_stateful('weedle', 'cry')",
+      "faint": "q.bedrock_primary('weedle', 'faint', q.curve('one'))"
+    },
+    "poses": {
+      "portrait": {
+        "poseTypes": ["PORTRAIT", "PROFILE"],
+        "isBattle": false,
+        "isTouchingWater": false,
+        "animations": ["q.look('head_ai')", "q.bedrock('weedle', 'ground_idle')"],
+        "quirks": ["q.bedrock_quirk('weedle', 'blink')"]
+      },
+      "standing": {
+        "poseTypes": ["STAND", "NONE"],
+        "isBattle": false,
+        "isTouchingWater": false,
+        "animations": ["q.look('head_ai')", "q.bedrock('weedle', 'ground_idle')"],
+        "quirks": [
+          "q.bedrock_quirk('weedle', 'blink')"
+        ]
+      },
+      "walking": {
+        "poseTypes": ["WALK", "SWIM"],
+        "isTouchingWater": false,
+        "animations": ["q.look('head_ai')", "q.bedrock('weedle', 'ground_walk')"],
+        "quirks": ["q.bedrock_quirk('weedle', 'blink')"]
+      },
+      "sleep": {
+        "poseTypes": ["SLEEP"],
+        "animations": ["q.bedrock('weedle', 'sleep')"]
+      }
+    }
+  }
+  

@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:pignite",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:pignite2",
+      "model": "cobblemon:pignite2.geo",
+      "texture": "cobblemon:textures/pokemon/0499_pignite/pignite.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0499_pignite/pignite_shiny.png"
+    }
+  ]
+}

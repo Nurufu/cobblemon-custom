@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Groudon",
   "nationalPokedexNumber": 383,
   "primaryType": "ground",
@@ -16,6 +17,7 @@
   "catchRate": 3,
   "maleRatio": -1,
   "shoulderMountable": false,
+  "features": ["primal"],
   "forms": [
     {
       "name": "Primal",
@@ -60,7 +62,23 @@
       "height": 50,
       "weight": 9997,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": false,
+      "baseScale":1.5,
+      "evolutions": [
+  {
+    "id": "groudon_normal",
+    "variant": "level_up",
+    "result": "groudon primal=false",
+    "consumeHeldItem": false,
+    "learnableMoves": [],
+    "requirements": [
+      {
+        "variant": "held_item",
+        "itemCondition": "minecraft:nether_star"
+      }
+    ]
+  }
+]
     }
   ],
   "baseExperienceYield": 335,
@@ -228,11 +246,43 @@
   "pokedex": [
     "cobblemon.species.groudon.desc"
   ],
-  "evolutions": [],
+  "behaviour": {
+    "moving": {
+      "canLook": true,
+      "walk": {
+        "walkSpeed": 0.2,
+        "canWalk": true,
+        "avoidsLand": false
+      },
+    "fly": {
+      "canFly": false
+    },
+    "swim": {
+      "swimSpeed": 0.1,
+      "canSwimInWater": false,
+      "canBreatheUnderwater": false
+    }
+  }
+},
+"evolutions": [
+  {
+    "id": "groudon_primal",
+    "variant": "level_up",
+    "result": "groudon primal",
+    "consumeHeldItem": false,
+    "learnableMoves": [],
+    "requirements": [
+      {
+        "variant": "held_item",
+        "itemCondition": "minecraft:nether_star"
+      }
+    ]
+  }
+],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 5.5,
+    "height": 6,
     "fixed": false
   },
   "baseFriendship": 0,

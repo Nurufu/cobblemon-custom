@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:snorlax",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:snorlax2",
+      "model": "cobblemon:snorlax2.geo",
+      "texture": "cobblemon:textures/pokemon/0143_snorlax/snorlax.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0143_snorlax/snorlax_shiny.png"
+    }
+  ]
+}

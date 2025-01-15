@@ -1,12 +1,10 @@
 {
+  "implemented": true,
   "name": "Swablu",
   "nationalPokedexNumber": 333,
   "primaryType": "normal",
   "secondaryType": "flying",
-  "abilities": [
-    "naturalcure",
-    "h:cloudnine"
-  ],
+  "abilities": ["naturalcure", "h:cloudnine"],
   "baseStats": {
     "hp": 45,
     "attack": 40,
@@ -21,10 +19,7 @@
   "baseExperienceYield": 62,
   "experienceGroup": "erratic",
   "eggCycles": 20,
-  "eggGroups": [
-    "flying",
-    "dragon"
-  ],
+  "eggGroups": ["flying", "dragon"],
   "moves": [
     "1:growl",
     "1:peck",
@@ -69,19 +64,14 @@
     "tm:dazzlinggleam",
     "tm:disarmingvoice",
     "tm:doubleteam",
-    "tm:dragoncheer",
     "tm:dragonpulse",
     "tm:dreameater",
-    "tm:dualwingbeat",
     "tm:echoedvoice",
-    "tm:endeavor",
     "tm:endure",
     "tm:facade",
     "tm:falseswipe",
-    "tm:featherdance",
     "tm:fly",
     "tm:frustration",
-    "tm:haze",
     "tm:heatwave",
     "tm:helpinghand",
     "tm:hiddenpower",
@@ -148,21 +138,15 @@
     "tutor:twister",
     "tutor:uproar"
   ],
-  "labels": [
-    "gen3"
-  ],
-  "pokedex": [
-    "cobblemon.species.swablu.desc"
-  ],
+  "labels": ["gen3"],
+  "pokedex": ["cobblemon.species.swablu.desc"],
   "evolutions": [
     {
       "id": "swablu_altaria",
       "variant": "level_up",
       "result": "altaria",
       "consumeHeldItem": false,
-      "learnableMoves": [
-        "dragonpulse"
-      ],
+      "learnableMoves": ["dragonpulse"],
       "requirements": [
         {
           "variant": "level",
@@ -173,8 +157,8 @@
   ],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 0.5,
+    "height": 0.75,
     "fixed": false
   },
   "baseFriendship": 50,
@@ -189,21 +173,5 @@
   "height": 4,
   "weight": 12,
   "aspects": [],
-  "cannotDynamax": false,
-  "drops": {
-    "amount": 3,
-    "entries": [
-      {
-        "item": "minecraft:white_wool",
-        "quantityRange": "0-1"
-      },
-      {
-        "item": "minecraft:chicken"
-      },
-      {
-        "item": "cobblemon:yache_berry",
-        "percentage": 2.5
-      }
-    ]
-  }
+  "cannotDynamax": false
 }

@@ -1,0 +1,29 @@
+{
+	"species": "cobblemon:kyurem",
+	"order": 0,
+	"variations": [
+		{
+			"aspects": [
+				"black"
+			],
+			"poser": "cobblemon:kyuremblack",
+			"model": "cobblemon:kyuremblack.geo",
+			"texture": "cobblemon:textures/pokemon/kyurem/kyuremblack.png",
+			"layers": [
+        {
+              "name": "emissive",
+              "emissive": true,
+              "texture": "cobblemon:textures/pokemon/kyurem/kyuremblack_emissive.png",
+              "translucent": true
+        }
+      ]
+		},
+		{
+			"aspects": [
+				"shiny",
+				"black"
+			],
+			"texture": "cobblemon:textures/pokemon/kyurem/kyuremblack_shiny.png"
+		}
+	]
+}

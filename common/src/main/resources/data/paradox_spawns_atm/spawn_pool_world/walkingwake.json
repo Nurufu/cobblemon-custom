@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "walkingwake-1",
+      "pokemon": "walkingwake",
+      "presets": [
+          "natural"
+      ],
+      "type": "pokemon",
+      "context": "grounded",
+      "bucket": "rare",
+      "level": "40-65",
+      "weight": 2.0,
+      "condition": {
+        "biomes": [ "#minecraft:is_beach" ]
+      }
+    }
+  ]
+}

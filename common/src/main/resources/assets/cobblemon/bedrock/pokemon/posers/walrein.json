@@ -1,0 +1,30 @@
+{
+  "head": "head",
+  "portraitScale": 1.5,
+  "portraitTranslation": [ -1, 0.5, 0 ],
+  "profileScale": 0.6,
+  "profileTranslation": [ -0.1, 0.6, 0 ],
+  "cry": "bedrock(walrein, cry)",
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "transformTicks": 10,
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "animations": [
+        "look",
+        "bedrock(walrein, ground_idle)"
+      ]
+    },
+    "walking": {
+      "poseName": "walking",
+      "transformTicks": 10,
+      "poseTypes": [ "WALK" ],
+      "animations": [ "bedrock(walrein, ground_walk)" ]
+    }
+  }
+}

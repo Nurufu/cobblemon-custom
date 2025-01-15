@@ -1,0 +1,17 @@
+{
+  "portraitScale": 1.8,
+  "portraitTranslation": [-1.36, 0.86, 0.0],
+  "profileScale": 0.56,
+  "profileTranslation": [-0.04, 0.79, 0.0],
+  "rootBone": "zweilous",
+  "animations": {
+    "cry": "q.bedrock_stateful('zweilous', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK", "SWIM"],
+      "animations": ["q.look('head')", "q.bedrock('zweilous', 'ground_idle')"]
+    }
+  }
+}

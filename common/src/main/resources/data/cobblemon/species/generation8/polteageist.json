@@ -1,11 +1,9 @@
 {
+  "implemented": true,
   "name": "Polteageist",
   "nationalPokedexNumber": 855,
   "primaryType": "ghost",
-  "abilities": [
-    "weakarmor",
-    "h:cursedbody"
-  ],
+  "abilities": ["weakarmor", "h:cursedbody"],
   "baseStats": {
     "hp": 60,
     "attack": 65,
@@ -21,10 +19,7 @@
     {
       "name": "Antique",
       "primaryType": "ghost",
-      "abilities": [
-        "weakarmor",
-        "h:cursedbody"
-      ],
+      "abilities": ["weakarmor", "h:cursedbody"],
       "baseStats": {
         "hp": 60,
         "attack": 65,
@@ -47,18 +42,13 @@
       },
       "experienceGroup": "medium_fast",
       "eggCycles": 20,
-      "eggGroups": [
-        "undiscovered"
-      ],
-      "labels": [
-        "gen8"
-      ],
-      "aspects": [
-        "antique"
-      ],
+      "eggGroups": ["undiscovered"],
+      "labels": ["gen8"],
+      "aspects": ["is_antique"],
       "height": 2,
       "weight": 4,
-      "preEvolution": "sinistea antique",
+      "preEvolution": "sinistea form=Antique",
+      "evolutions": [],
       "cannotDynamax": false,
       "battleOnly": false
     }
@@ -66,10 +56,7 @@
   "baseExperienceYield": 178,
   "experienceGroup": "medium_fast",
   "eggCycles": 20,
-  "eggGroups": [
-    "mineral",
-    "amorphous"
-  ],
+  "eggGroups": ["mineral", "amorphous"],
   "moves": [
     "1:aromaticmist",
     "1:astonish",
@@ -90,7 +77,6 @@
     "tm:batonpass",
     "tm:calmmind",
     "tm:confuseray",
-    "tm:curse",
     "tm:darkpulse",
     "tm:endure",
     "tm:facade",
@@ -105,10 +91,8 @@
     "tm:metronome",
     "tm:nastyplot",
     "tm:nightshade",
-    "tm:painsplit",
     "tm:payback",
     "tm:phantomforce",
-    "tm:poltergeist",
     "tm:protect",
     "tm:psybeam",
     "tm:psychic",
@@ -121,7 +105,6 @@
     "tm:skillswap",
     "tm:sleeptalk",
     "tm:snore",
-    "tm:spite",
     "tm:storedpower",
     "tm:substitute",
     "tm:terablast",
@@ -131,18 +114,16 @@
     "tm:wonderroom",
     "tutor:poltergeist"
   ],
-  "labels": [
-    "gen8"
-  ],
+  "labels": ["gen8"],
   "pokedex": [
-    "cobblemon.species.polteageist.desc"
+    "Leaving leftover black tea unattended is asking for this Pokémon to come along and pour itself into it, turning the tea into a new Polteageist."
   ],
   "preEvolution": "sinistea",
   "evolutions": [],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 0.75,
+    "height": 1.5,
     "fixed": false
   },
   "baseFriendship": 50,
@@ -157,14 +138,6 @@
   "height": 2,
   "weight": 4,
   "aspects": [],
-  "cannotDynamax": false,
-  "drops": {
-    "amount": 1,
-    "entries": [
-      {
-        "item": "cobblemon:spell_tag",
-        "percentage": 5.0
-      }
-    ]
-  }
+  "features": ["is_antique"],
+  "cannotDynamax": false
 }

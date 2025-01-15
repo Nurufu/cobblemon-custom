@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:torkoal",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:torkoal2",
+      "model": "cobblemon:torkoal2.geo",
+      "texture": "cobblemon:textures/pokemon/0324_torkoal/torkoal.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0324_torkoal/torkoal_shiny.png"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:porygon",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:porygon3",
+      "model": "cobblemon:porygon3.geo",
+      "texture": "cobblemon:textures/pokemon/0137_porygon/porygon.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0137_porygon/porygon_shiny.png"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "species": "cobblemon:mamoswine",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": ["female"],
+      "model": "cobblemon:mamoswine_female2.geo"
+    }
+  ]
+}

@@ -1,11 +1,9 @@
 {
+  "implemented": true,
   "name": "Sinistea",
   "nationalPokedexNumber": 854,
   "primaryType": "ghost",
-  "abilities": [
-    "weakarmor",
-    "h:cursedbody"
-  ],
+  "abilities": ["weakarmor", "h:cursedbody"],
   "baseStats": {
     "hp": 40,
     "attack": 45,
@@ -21,10 +19,7 @@
     {
       "name": "Antique",
       "primaryType": "ghost",
-      "abilities": [
-        "weakarmor",
-        "h:cursedbody"
-      ],
+      "abilities": ["weakarmor", "h:cursedbody"],
       "baseStats": {
         "hp": 40,
         "attack": 45,
@@ -47,9 +42,7 @@
       },
       "experienceGroup": "medium_fast",
       "eggCycles": 20,
-      "eggGroups": [
-        "undiscovered"
-      ],
+      "eggGroups": ["undiscovered"],
       "moves": [
         "1:astonish",
         "1:withdraw",
@@ -66,7 +59,6 @@
         "tm:batonpass",
         "tm:calmmind",
         "tm:confuseray",
-        "tm:curse",
         "tm:darkpulse",
         "tm:endure",
         "tm:facade",
@@ -79,7 +71,6 @@
         "tm:nastyplot",
         "tm:nightshade",
         "tm:phantomforce",
-        "tm:poltergeist",
         "tm:protect",
         "tm:psybeam",
         "tm:psychic",
@@ -88,7 +79,6 @@
         "tm:shadowball",
         "tm:skillswap",
         "tm:sleeptalk",
-        "tm:spite",
         "tm:storedpower",
         "tm:substitute",
         "tm:terablast",
@@ -100,19 +90,15 @@
         "tutor:memento",
         "tutor:metronome"
       ],
-      "labels": [
-        "gen8"
-      ],
-      "aspects": [
-        "antique"
-      ],
+      "labels": ["gen8"],
+      "aspects": ["is_antique"],
       "height": 1,
       "weight": 2,
       "evolutions": [
         {
           "id": "sinistea_polteageist",
           "variant": "item_interact",
-          "result": "polteageist antique",
+          "result": "polteageist form=Antique",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": [],
@@ -126,10 +112,7 @@
   "baseExperienceYield": 62,
   "experienceGroup": "medium_fast",
   "eggCycles": 20,
-  "eggGroups": [
-    "mineral",
-    "amorphous"
-  ],
+  "eggGroups": ["mineral", "amorphous"],
   "moves": [
     "1:astonish",
     "1:withdraw",
@@ -149,7 +132,6 @@
     "tm:batonpass",
     "tm:calmmind",
     "tm:confuseray",
-    "tm:curse",
     "tm:darkpulse",
     "tm:endure",
     "tm:facade",
@@ -163,7 +145,6 @@
     "tm:nightshade",
     "tm:payback",
     "tm:phantomforce",
-    "tm:poltergeist",
     "tm:protect",
     "tm:psybeam",
     "tm:psychic",
@@ -174,7 +155,6 @@
     "tm:skillswap",
     "tm:sleeptalk",
     "tm:snore",
-    "tm:spite",
     "tm:storedpower",
     "tm:substitute",
     "tm:terablast",
@@ -184,29 +164,24 @@
     "tm:wonderroom",
     "tutor:poltergeist"
   ],
-  "labels": [
-    "gen8"
-  ],
-  "pokedex": [
-    "cobblemon.species.sinistea.desc"
-  ],
+  "labels": ["gen8"],
+
+  "pokedex": ["cobblemon.species.sinistea.desc"],
   "evolutions": [
     {
       "id": "sinistea_polteageist",
       "variant": "item_interact",
       "result": "polteageist",
       "consumeHeldItem": false,
-      "learnableMoves": [
-        "teatime"
-      ],
+      "learnableMoves": ["teatime"],
       "requirements": [],
       "requiredContext": "cobblemon:cracked_pot"
     }
   ],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 0.5,
+    "height": 0.5,
     "fixed": false
   },
   "baseFriendship": 50,
@@ -221,14 +196,6 @@
   "height": 1,
   "weight": 2,
   "aspects": [],
-  "cannotDynamax": false,
-  "drops": {
-    "amount": 1,
-    "entries": [
-      {
-        "item": "cobblemon:spell_tag",
-        "percentage": 2.5
-      }
-    ]
-  }
+  "features": ["is_antique"],
+  "cannotDynamax": false
 }

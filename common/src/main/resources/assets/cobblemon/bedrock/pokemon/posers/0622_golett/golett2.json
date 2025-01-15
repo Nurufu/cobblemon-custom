@@ -1,0 +1,39 @@
+{
+  "portraitScale": 3,
+  "portraitTranslation": [-0.15, -0.45, 0.0],
+  "profileScale": 0.8,
+  "profileTranslation": [0.0, 0.55, 0.0],
+  "rootBone": "golett",
+  "animations": {
+    "cry": "q.bedrock_stateful('golett', 'cry')",
+    "faint": "q.bedrock_primary('golett', 'faint', q.curve('one'))"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseName": "battle-standing",
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": ["q.look('head')", "q.bedrock('golett', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('golett', 'blink')"]
+    },
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": ["q.look('head')", "q.bedrock('golett', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('golett', 'blink')"]
+    },
+    "walking": {
+      "poseName": "walking",
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('golett', 'ground_walk')"
+      ],
+      "quirks": ["q.bedrock_quirk('golett', 'blink')"]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('golett', 'sleep')"]
+    }
+  }
+}

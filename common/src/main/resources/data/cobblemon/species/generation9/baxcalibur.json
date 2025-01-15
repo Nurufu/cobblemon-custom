@@ -1,12 +1,10 @@
 {
+  "implemented": true,
   "name": "Baxcalibur",
   "nationalPokedexNumber": 998,
   "primaryType": "dragon",
   "secondaryType": "ice",
-  "abilities": [
-    "thermalexchange",
-    "h:icebody"
-  ],
+  "abilities": ["thermalexchange", "h:icebody"],
   "baseStats": {
     "hp": 115,
     "attack": 145,
@@ -29,10 +27,7 @@
   },
   "experienceGroup": "slow",
   "eggCycles": 40,
-  "eggGroups": [
-    "dragon",
-    "mineral"
-  ],
+  "eggGroups": ["dragon", "mineral"],
   "moves": [
     "1:breakingswipe",
     "1:dragontail",
@@ -97,25 +92,20 @@
     "tm:thunderfang",
     "tm:zenheadbutt"
   ],
-  "labels": [
-    "gen9",
-    "pseudo_legendary"
-  ],
+  "labels": ["gen9", "pseudo_legendary"],
   "aspects": [],
   "height": 21,
   "weight": 2100,
   "preEvolution": "arctibax",
   "evolutions": [],
   "cannotDynamax": false,
-  "pokedex": [
-    "cobblemon.species.baxcalibur.desc"
-  ],
+  "pokedex": ["cobblemon.species.baxcalibur.desc"],
   "drops": {
     "amount": 1,
     "entries": [
       {
         "item": "cobblemon:haban_berry",
-        "percentage": 10.0
+        "percentage": 10
       }
     ]
   }

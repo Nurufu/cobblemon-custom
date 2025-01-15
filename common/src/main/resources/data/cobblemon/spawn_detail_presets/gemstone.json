@@ -1,0 +1,7 @@
+{
+  "condition": {
+	"neededNearbyBlocks": [
+      "minecraft:amethyst_block"
+    ]
+  }
+}

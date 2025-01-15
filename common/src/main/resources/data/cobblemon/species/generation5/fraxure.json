@@ -1,22 +1,19 @@
 {
+  "implemented": true,
   "name": "Fraxure",
   "nationalPokedexNumber": 611,
   "primaryType": "dragon",
-  "abilities": [
-    "rivalry",
-    "moldbreaker",
-    "h:unnerve"
-  ],
+  "abilities": ["rivalry", "moldbreaker", "h:unnerve"],
   "drops": {
     "amount": 2,
     "entries": [
       {
         "item": "cobblemon:dragon_fang",
-        "percentage": 5.0
+        "percentage": 5
       },
       {
         "item": "cobblemon:haban_berry",
-        "percentage": 5.0
+        "percentage": 5
       }
     ]
   },
@@ -34,10 +31,7 @@
   "baseExperienceYield": 144,
   "experienceGroup": "slow",
   "eggCycles": 40,
-  "eggGroups": [
-    "monster",
-    "dragon"
-  ],
+  "eggGroups": ["monster", "dragon"],
   "moves": [
     "1:bite",
     "1:dragonrage",
@@ -141,12 +135,8 @@
     "tutor:stompingtantrum",
     "tutor:superpower"
   ],
-  "labels": [
-    "gen5"
-  ],
-  "pokedex": [
-    "cobblemon.species.fraxure.desc"
-  ],
+  "labels": ["gen5"],
+  "pokedex": ["cobblemon.species.fraxure.desc"],
   "preEvolution": "axew",
   "evolutions": [
     {
