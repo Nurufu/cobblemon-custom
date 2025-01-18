@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.gui.interact.wheel
 
 import com.cobblemon.mod.common.api.gui.blitk
+import com.cobblemon.mod.common.client.battle.ClientBattleChallenge
 import com.cobblemon.mod.common.client.gui.startselection.widgets.preview.ArrowButton
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.google.common.collect.Multimap

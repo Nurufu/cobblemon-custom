@@ -13,6 +13,7 @@ import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.battles.model.PokemonBattle
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor
 import com.cobblemon.mod.common.api.storage.party.PartyStore
+import com.cobblemon.mod.common.api.storage.party.PlayerPartyStore
 import com.cobblemon.mod.common.battles.actor.PlayerBattleActor
 import com.cobblemon.mod.common.battles.actor.PokemonBattleActor
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon
@@ -42,6 +43,70 @@ object BattleBuilder {
     ): BattleStartResult {
         val team1 = partyAccessor(player1).toBattleTeam(clone = cloneParties, checkHealth = !healFirst, leadingPokemonPlayer1)
         val team2 = partyAccessor(player2).toBattleTeam(clone = cloneParties, checkHealth = !healFirst, leadingPokemonPlayer2)
+
+        val player1Actor = PlayerBattleActor(player1.uuid, team1)
+        val player2Actor = PlayerBattleActor(player2.uuid, team2)
+
+        val errors = ErroredBattleStart()
+
+        for ((player, actor) in arrayOf(player1 to player1Actor, player2 to player2Actor)) {
+            if (actor.pokemonList.size < battleFormat.battleType.slotsPerActor) {
+                errors.participantErrors[actor] += BattleStartError.insufficientPokemon(
+                    player = player,
+                    requiredCount = battleFormat.battleType.slotsPerActor,
+                    hadCount = actor.pokemonList.size
+                )
+            }
+
+            if (BattleRegistry.getBattleByParticipatingPlayer(player) != null) {
+                errors.participantErrors[actor] += BattleStartError.alreadyInBattle(player)
+            }
+        }
+
+        return if (errors.isEmpty) {
+            BattleRegistry.startBattle(
+                battleFormat = battleFormat,
+                side1 = BattleSide(player1Actor),
+                side2 = BattleSide(player2Actor)
+            ).ifSuccessful {
+                player1Actor.battleTheme = player2.getBattleTheme()
+                player2Actor.battleTheme = player1.getBattleTheme()
+            }
+        } else {
+            errors
+        }
+    }
+
+    fun pvpset(
+        player1: ServerPlayerEntity,
+        player2: ServerPlayerEntity,
+        leadingPokemonPlayer1: UUID? = null,
+        leadingPokemonPlayer2: UUID? = null,
+        battleFormat: BattleFormat = BattleFormat.GEN_9_SINGLES,
+        cloneParties: Boolean = false,
+        healFirst: Boolean = false,
+        partyAccessor: (ServerPlayerEntity) -> PartyStore = { it.party() }
+    ): BattleStartResult {
+        val autoLevel = battleFormat.getAdjustLevelRule()
+        val team1 = partyAccessor(player1).toBattleTeam(clone = cloneParties || autoLevel != null, checkHealth = !healFirst, leadingPokemonPlayer1).sortedBy { it.health <= 0 }
+        val team2 = partyAccessor(player2).toBattleTeam(clone = cloneParties || autoLevel != null, checkHealth = !healFirst, leadingPokemonPlayer2).sortedBy { it.health <= 0 }
+
+        val battlePartyStores = emptyList<PlayerPartyStore>().toMutableList()
+            team1.forEach {
+                it.effectedPokemon.level = 50
+                it.effectedPokemon.heal()
+            }
+            team2.forEach {
+                it.effectedPokemon.level = 50
+                it.effectedPokemon.heal()
+            }
+            val tempStoreP1 = PlayerPartyStore(player1.uuid)
+            team1.forEachIndexed { index, it -> tempStoreP1.set(index, it.effectedPokemon) }
+            battlePartyStores.add(tempStoreP1)
+            val tempStoreP2 = PlayerPartyStore(player2.uuid)
+            team2.forEachIndexed { index, it -> tempStoreP2.set(index, it.effectedPokemon) }
+            battlePartyStores.add(tempStoreP2)
+
 
         val player1Actor = PlayerBattleActor(player1.uuid, team1)
         val player2Actor = PlayerBattleActor(player2.uuid, team2)
@@ -106,9 +171,9 @@ object BattleBuilder {
 
         if(playerTeam.isNotEmpty() && playerTeam[0].health <= 0){
             errors.participantErrors[playerActor] += BattleStartError.insufficientPokemon(
-                    player = player,
-                    requiredCount = battleFormat.battleType.slotsPerActor,
-                    hadCount = playerActor.pokemonList.size
+                player = player,
+                requiredCount = battleFormat.battleType.slotsPerActor,
+                hadCount = playerActor.pokemonList.size
             )
         }
 
@@ -269,8 +334,8 @@ open class ErroredBattleStart(
         get() = generalErrors.isEmpty() && participantErrors.values.all { it.isEmpty() }
 
     fun isPlayerToBlame(player: ServerPlayerEntity) = generalErrors.isEmpty()
-        && participantErrors.size == 1
-        && participantErrors.entries.first().let { it.key.uuid == player.uuid }
+            && participantErrors.size == 1
+            && participantErrors.entries.first().let { it.key.uuid == player.uuid }
 
     fun isSomePlayerToBlame() = generalErrors.isEmpty() && participantErrors.isNotEmpty()
 

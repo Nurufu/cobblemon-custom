@@ -45,6 +45,7 @@ import com.cobblemon.mod.common.api.pokemon.stats.EvCalculator
 import com.cobblemon.mod.common.api.pokemon.stats.Generation8EvCalculator
 import com.cobblemon.mod.common.api.pokemon.stats.StatProvider
 import com.cobblemon.mod.common.api.properties.CustomPokemonProperty
+import com.cobblemon.mod.common.pokemon.properties.BattleCloneProperty
 import com.cobblemon.mod.common.api.scheduling.ServerRealTimeTaskTracker
 import com.cobblemon.mod.common.api.scheduling.ServerTaskTracker
 import com.cobblemon.mod.common.api.spawning.BestSpawner
@@ -288,7 +289,7 @@ object Cobblemon {
         SpeciesFeatures.register(
             DataKeys.HAS_BEEN_SHEARED,
             FlagSpeciesFeatureProvider(keys = listOf(DataKeys.HAS_BEEN_SHEARED), default = false))
-
+        CustomPokemonProperty.register(BattleCloneProperty)
         CustomPokemonProperty.register(UncatchableProperty)
         CustomPokemonProperty.register(PokemonFlagProperty)
         CustomPokemonProperty.register(HiddenAbilityPropertyType)
