@@ -21,6 +21,7 @@ import com.cobblemon.mod.common.api.battles.model.actor.FleeableBattleActor
 import com.cobblemon.mod.common.api.events.CobblemonEvents
 import com.cobblemon.mod.common.api.events.battles.BattleFledEvent
 import com.cobblemon.mod.common.api.net.NetworkPacket
+import com.cobblemon.mod.common.api.storage.party.PlayerPartyStore
 import com.cobblemon.mod.common.api.tags.CobblemonItemTags
 import com.cobblemon.mod.common.api.text.red
 import com.cobblemon.mod.common.api.text.yellow
@@ -66,6 +67,8 @@ open class PokemonBattle(
 ) {
     /** Whether logging will be silenced for this battle. */
     var mute = true
+
+    val battlePartyStores = emptyList<PlayerPartyStore>().toMutableList()
 
     init {
         side1.battle = this
@@ -337,6 +340,13 @@ open class PokemonBattle(
     fun dispatchToFront(dispatcher: () -> DispatchResult) {
         dispatches.addFirst(BattleDispatch { dispatcher() })
 
+    }
+
+    fun dispatchWaitingToFront(delaySeconds: Float = 1F, dispatcher: () -> Unit) {
+        dispatches.addFirst(BattleDispatch {
+            dispatcher()
+            WaitDispatch(delaySeconds)
+        })
     }
 
     fun dispatchGo(dispatcher: () -> Unit) {

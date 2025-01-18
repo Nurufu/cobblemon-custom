@@ -15,6 +15,7 @@ import com.cobblemon.mod.common.net.messages.client.PlayerInteractOptionsPacket
 import com.cobblemon.mod.common.net.messages.server.RequestPlayerInteractionsPacket
 import net.minecraft.server.MinecraftServer
 import net.minecraft.server.network.ServerPlayerEntity
+import java.util.EnumMap
 import java.util.EnumSet
 
 object RequestInteractionsHandler : ServerNetworkPacketHandler<RequestPlayerInteractionsPacket> {
@@ -24,14 +25,14 @@ object RequestInteractionsHandler : ServerNetworkPacketHandler<RequestPlayerInte
         player: ServerPlayerEntity
     ) {
         //We could potentially check if the targeted player has pokemon here
-        val options = EnumSet.of(PlayerInteractOptionsPacket.Options.TRADE)
+        val options : EnumMap<PlayerInteractOptionsPacket.Options, PlayerInteractOptionsPacket.OptionStatus> = EnumMap<PlayerInteractOptionsPacket.Options, PlayerInteractOptionsPacket.OptionStatus>(PlayerInteractOptionsPacket.Options::class.java)
 
         val isTargetBattling = BattleRegistry.getBattleByParticipatingPlayerId(packet.targetId) != null
         if (isTargetBattling and Cobblemon.config.allowSpectating) {
-            options.add(PlayerInteractOptionsPacket.Options.SPECTATE_BATTLE)
+            options[PlayerInteractOptionsPacket.Options.SPECTATE_BATTLE] = PlayerInteractOptionsPacket.OptionStatus.AVAILABLE
         }
         else {
-            options.add(PlayerInteractOptionsPacket.Options.BATTLE)
+            options[PlayerInteractOptionsPacket.Options.BATTLE] = PlayerInteractOptionsPacket.OptionStatus.AVAILABLE
         }
         PlayerInteractOptionsPacket(options, packet.targetId, packet.targetNumericId, packet.pokemonId).sendToPlayer(player)
 

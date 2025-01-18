@@ -11,8 +11,7 @@ package com.cobblemon.mod.common.net.messages.client
 import com.cobblemon.mod.common.api.net.NetworkPacket
 import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.network.PacketByteBuf
-import java.util.UUID
-import java.util.EnumSet
+import java.util.*
 
 /**
  * Used to populate the player interaction menu
@@ -22,7 +21,7 @@ import java.util.EnumSet
  * @since November 5th, 2023
  */
 class PlayerInteractOptionsPacket(
-    val options: EnumSet<Options>,
+    val options: EnumMap<Options, OptionStatus>,
     val targetId: UUID,
     val numericTargetId: Int,
     val selectedPokemonId: UUID
@@ -30,16 +29,31 @@ class PlayerInteractOptionsPacket(
     companion object {
         val ID = cobblemonResource("player_interactions")
         fun decode(buffer: PacketByteBuf) = PlayerInteractOptionsPacket(
-            buffer.readEnumSet(Options::class.java),
+            readOptionsMap(buffer),
             buffer.readUuid(),
             buffer.readInt(),
             buffer.readUuid()
         )
+
+        private fun readOptionsMap(buffer: PacketByteBuf) : EnumMap<Options, OptionStatus> {
+            val size = buffer.readInt()
+            val options : EnumMap<Options, OptionStatus> = EnumMap<Options, OptionStatus>(Options::class.java)
+            repeat(size) {
+                val key = buffer.readEnumConstant(Options::class.java)
+                val value = buffer.readEnumConstant(OptionStatus::class.java)
+                options[key] = value
+            }
+            return options
+        }
     }
 
     override val id = ID
     override fun encode(buffer: PacketByteBuf) {
-        buffer.writeEnumSet(options, Options::class.java)
+        buffer.writeInt(options.size)
+        for((key,value) in options) {
+            buffer.writeEnumConstant(key)
+            buffer.writeEnumConstant(value)
+        }
         buffer.writeUuid(targetId)
         buffer.writeInt(numericTargetId)
         buffer.writeUuid(selectedPokemonId)
@@ -49,6 +63,13 @@ class PlayerInteractOptionsPacket(
         BATTLE,
         SPECTATE_BATTLE,
         TRADE
+    }
+
+    enum class OptionStatus {
+        AVAILABLE,
+        TOO_FAR,
+        INSUFFICIENT_POKEMON,
+        OTHER
     }
 
 }

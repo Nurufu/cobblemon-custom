@@ -60,6 +60,7 @@ import com.cobblemon.mod.common.pokemon.activestate.ShoulderedState
 import com.cobblemon.mod.common.pokemon.ai.FormPokemonBehaviour
 import com.cobblemon.mod.common.pokemon.evolution.variants.ItemInteractionEvolution
 import com.cobblemon.mod.common.pokemon.misc.GimmighoulStashHandler
+import com.cobblemon.mod.common.pokemon.properties.UncatchableProperty
 import com.cobblemon.mod.common.util.*
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
 import java.util.EnumSet
@@ -422,6 +423,13 @@ open class PokemonEntity(
      * @return If the Pokémon is uncatchable.
      */
     fun isUncatchable() = pokemon.isUncatchable()
+
+    /**
+     * A utility method that checks if this Pokémon has the [UncatchableProperty.uncatchable] property.
+     *
+     * @return If the Pokémon is uncatchable.
+     */
+    fun isBattleClone() = pokemon.isBattleClone()
 
     fun recallWithAnimation(): CompletableFuture<Pokemon> {
         val owner = owner

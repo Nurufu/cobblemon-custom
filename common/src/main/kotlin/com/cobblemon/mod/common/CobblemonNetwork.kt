@@ -150,6 +150,7 @@ import com.cobblemon.mod.common.net.messages.server.trade.ChangeTradeAcceptanceP
 import com.cobblemon.mod.common.net.messages.server.trade.OfferTradePacket
 import com.cobblemon.mod.common.net.messages.server.trade.UpdateTradeOfferPacket
 import com.cobblemon.mod.common.net.serverhandling.ChallengeHandler
+import com.cobblemon.mod.common.net.serverhandling.ChallengeResponseHandler
 import com.cobblemon.mod.common.net.serverhandling.RequestInteractionsHandler
 import com.cobblemon.mod.common.net.serverhandling.battle.BattleSelectActionsHandler
 import com.cobblemon.mod.common.net.serverhandling.battle.RemoveSpectatorHandler
@@ -369,6 +370,7 @@ object CobblemonNetwork : NetworkManager {
         this.createServerBound(RequestMoveSwapPacket.ID, RequestMoveSwapPacket::decode, RequestMoveSwapHandler)
         this.createServerBound(BenchMovePacket.ID, BenchMovePacket::decode, BenchMoveHandler)
         this.createServerBound(BattleChallengePacket.ID, BattleChallengePacket::decode, ChallengeHandler)
+        this.createServerBound(BattleChallengeResponsePacket.ID, BattleChallengeResponsePacket::decode, ChallengeResponseHandler)
 
         this.createServerBound(MovePCPokemonToPartyPacket.ID, MovePCPokemonToPartyPacket::decode, MovePCPokemonToPartyHandler)
         this.createServerBound(MovePartyPokemonToPCPacket.ID, MovePartyPokemonToPCPacket::decode, MovePartyPokemonToPCHandler)

@@ -22,7 +22,7 @@ import net.minecraft.network.PacketByteBuf
 data class BattleFormat(
     val mod: String = "cobblemon",
     val battleType: BattleType = BattleTypes.SINGLES,
-    val ruleSet: Set<String> = setOf(),
+    var ruleSet: Set<String> = setOf(),
     val gen: Int = 9
 ) {
     companion object {
@@ -31,7 +31,7 @@ data class BattleFormat(
             ruleSet = setOf(BattleRules.OBTAINABLE, BattleRules.PAST, BattleRules.UNOBTAINABLE)
         )
 
-        val GEN_9_DOUBLES = BattleFormat(
+            val GEN_9_DOUBLES = BattleFormat(
             battleType = BattleTypes.DOUBLES,
             ruleSet = setOf(BattleRules.OBTAINABLE)
         )
@@ -60,6 +60,12 @@ data class BattleFormat(
         buffer.writeSizedInt(IntSize.U_BYTE, ruleSet.size)
         ruleSet.forEach(buffer::writeString)
         return buffer
+    }
+
+    fun getAdjustLevelRule(): Int? {
+        val levelRulesetOptionString = this.ruleSet.firstOrNull { it.startsWith("Adjust Level = ") } ?: ""
+        val regex = "\\d+$".toRegex()
+        return regex.find(levelRulesetOptionString)?.value?.toIntOrNull()
     }
 
     fun toFormatJSON(): String {

@@ -73,7 +73,7 @@ object ChallengeHandler : ServerNetworkPacketHandler<BattleChallengePacket> {
                     BattleBuilder.pvp1v1(player, targetedEntity, leadingPokemon, existingChallengePokemon)
                     BattleRegistry.removeChallenge(targetedEntity.uuid)
                 } else {
-                    val challenge = BattleRegistry.BattleChallenge(UUID.randomUUID(), targetedEntity.uuid, leadingPokemon)
+                    val challenge = BattleRegistry.BattleChallenge(UUID.randomUUID(), targetedEntity.uuid, leadingPokemon, packet.battleFormat)
                     BattleRegistry.pvpChallenges[player.uuid] = challenge
                     afterOnServer(seconds = challenge.expiryTimeSeconds.toFloat()) {
                         BattleRegistry.removeChallenge(player.uuid, challengeId = challenge.challengeId)

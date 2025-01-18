@@ -18,6 +18,9 @@ import com.cobblemon.mod.common.battles.dispatch.*
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon
 import com.cobblemon.mod.common.entity.pokemon.effects.IllusionEffect
 import com.cobblemon.mod.common.net.messages.client.battle.BattleSwitchPokemonPacket
+import com.cobblemon.mod.common.net.serverhandling.storage.SendOutPokemonHandler.SEND_OUT_DURATION
+import com.cobblemon.mod.common.util.getPlayer
+import com.cobblemon.mod.common.util.party
 import com.cobblemon.mod.common.util.swap
 import net.minecraft.entity.LivingEntity
 import net.minecraft.server.world.ServerWorld
@@ -69,6 +72,26 @@ class SwitchInstruction(val instructionSet: InstructionSet, val battleActor: Bat
             }
             else if (pokemonEntity != null) {
                 illusion?.let { IllusionEffect(it.effectedPokemon).start(pokemonEntity) }
+            }
+            val futureSwitches = instructionSet.getSubsequentInstructions(this).filterIsInstance<SwitchInstruction>()
+            if (futureSwitches.isEmpty()) {
+                if(battle.battlePartyStores.isNotEmpty()) {
+                    var waitOnRecall = false
+                    battle.actors.forEach{ it ->
+                        val playersUUIDS = it.getPlayerUUIDs()
+                        playersUUIDS.forEach { uuid ->
+                            uuid.getPlayer()?.party()?.forEach { pokemon ->
+                                if(pokemon.entity != null) {
+                                    waitOnRecall = true
+                                    pokemon.entity!!.recallWithAnimation()
+                                }
+                            }
+                        }
+                    }
+                    if (waitOnRecall){
+                        battle.dispatchWaitingToFront(SEND_OUT_DURATION) {  }
+                    }
+                }
             }
         } else {
             battle.dispatchInsert {

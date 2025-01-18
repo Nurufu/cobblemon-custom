@@ -32,6 +32,7 @@ object BattleRegistry {
         val challengeId: UUID,
         val challengedPlayerUUID: UUID,
         val selectedPokemonId: UUID,
+        val battleFormat: BattleFormat,
         var expiryTimeSeconds: Int = 60
     ) {
         val challengedTime = Instant.now()
