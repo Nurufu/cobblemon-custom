@@ -70,7 +70,13 @@ object ChallengeHandler : ServerNetworkPacketHandler<BattleChallengePacket> {
                         }
                         existingChallengePokemon = targetedEntity.party().first().uuid
                     }
-                    BattleBuilder.pvp1v1(player, targetedEntity, leadingPokemon, existingChallengePokemon)
+                    if(packet.level == 0)
+                    {
+                        BattleBuilder.pvp1v1(player, targetedEntity, leadingPokemon, existingChallengePokemon)
+                    }
+                    else if(packet.level == 50){
+                        BattleBuilder.pvpset(player, targetedEntity, leadingPokemon, existingChallengePokemon)
+                    }
                     BattleRegistry.removeChallenge(targetedEntity.uuid)
                 } else {
                     val challenge = BattleRegistry.BattleChallenge(UUID.randomUUID(), targetedEntity.uuid, leadingPokemon)

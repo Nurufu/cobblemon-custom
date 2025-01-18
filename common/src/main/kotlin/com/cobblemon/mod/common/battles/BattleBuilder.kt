@@ -41,13 +41,57 @@ object BattleBuilder {
         healFirst: Boolean = false,
         partyAccessor: (ServerPlayerEntity) -> PartyStore = { it.party() }
     ): BattleStartResult {
+        val team1 = partyAccessor(player1).toBattleTeam(clone = cloneParties, checkHealth = !healFirst, leadingPokemonPlayer1)
+        val team2 = partyAccessor(player2).toBattleTeam(clone = cloneParties, checkHealth = !healFirst, leadingPokemonPlayer2)
+
+        val player1Actor = PlayerBattleActor(player1.uuid, team1)
+        val player2Actor = PlayerBattleActor(player2.uuid, team2)
+
+        val errors = ErroredBattleStart()
+
+        for ((player, actor) in arrayOf(player1 to player1Actor, player2 to player2Actor)) {
+            if (actor.pokemonList.size < battleFormat.battleType.slotsPerActor) {
+                errors.participantErrors[actor] += BattleStartError.insufficientPokemon(
+                    player = player,
+                    requiredCount = battleFormat.battleType.slotsPerActor,
+                    hadCount = actor.pokemonList.size
+                )
+            }
+
+            if (BattleRegistry.getBattleByParticipatingPlayer(player) != null) {
+                errors.participantErrors[actor] += BattleStartError.alreadyInBattle(player)
+            }
+        }
+
+        return if (errors.isEmpty) {
+            BattleRegistry.startBattle(
+                battleFormat = battleFormat,
+                side1 = BattleSide(player1Actor),
+                side2 = BattleSide(player2Actor)
+            ).ifSuccessful {
+                player1Actor.battleTheme = player2.getBattleTheme()
+                player2Actor.battleTheme = player1.getBattleTheme()
+            }
+        } else {
+            errors
+        }
+    }
+
+    fun pvpset(
+        player1: ServerPlayerEntity,
+        player2: ServerPlayerEntity,
+        leadingPokemonPlayer1: UUID? = null,
+        leadingPokemonPlayer2: UUID? = null,
+        battleFormat: BattleFormat = BattleFormat.GEN_9_SINGLES,
+        cloneParties: Boolean = false,
+        healFirst: Boolean = false,
+        partyAccessor: (ServerPlayerEntity) -> PartyStore = { it.party() }
+    ): BattleStartResult {
         val autoLevel = battleFormat.getAdjustLevelRule()
         val team1 = partyAccessor(player1).toBattleTeam(clone = cloneParties || autoLevel != null, checkHealth = !healFirst, leadingPokemonPlayer1).sortedBy { it.health <= 0 }
         val team2 = partyAccessor(player2).toBattleTeam(clone = cloneParties || autoLevel != null, checkHealth = !healFirst, leadingPokemonPlayer2).sortedBy { it.health <= 0 }
 
         val battlePartyStores = emptyList<PlayerPartyStore>().toMutableList()
-
-        if (autoLevel != null && autoLevel > 0) {
             team1.forEach {
                 it.effectedPokemon.level = 50
                 it.effectedPokemon.heal()
@@ -62,7 +106,7 @@ object BattleBuilder {
             val tempStoreP2 = PlayerPartyStore(player2.uuid)
             team2.forEachIndexed { index, it -> tempStoreP2.set(index, it.effectedPokemon) }
             battlePartyStores.add(tempStoreP2)
-        }
+
 
         val player1Actor = PlayerBattleActor(player1.uuid, team1)
         val player2Actor = PlayerBattleActor(player2.uuid, team2)

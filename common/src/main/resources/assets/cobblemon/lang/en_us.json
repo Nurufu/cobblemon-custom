@@ -608,6 +608,7 @@
   "cobblemon.ui.interact.spectate": "Spectate",
   "cobblemon.ui.interact.trade": "Trade",
   "cobblemon.ui.interact.battle": "Battle",
+  "cobblemon.ui.interact.setbattle": "Set level 50 Battle",
   "cobblemon.ui.interact.mount.shoulder": "Shoulder",
 
   "key.cobblemon.upshiftparty": "Party Shift Up",

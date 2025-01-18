@@ -13,14 +13,15 @@ import com.cobblemon.mod.common.util.cobblemonResource
 import java.util.UUID
 import net.minecraft.network.PacketByteBuf
 
-class BattleChallengePacket(val targetedEntityId: Int, val selectedPokemonId: UUID) : NetworkPacket<BattleChallengePacket> {
+class BattleChallengePacket(val targetedEntityId: Int, val selectedPokemonId: UUID, val level: Int) : NetworkPacket<BattleChallengePacket> {
     override val id = ID
     override fun encode(buffer: PacketByteBuf) {
         buffer.writeInt(this.targetedEntityId)
         buffer.writeUuid(this.selectedPokemonId)
+        buffer.writeInt(this.level)
     }
     companion object {
         val ID = cobblemonResource("battle_challenge")
-        fun decode(buffer: PacketByteBuf) = BattleChallengePacket(buffer.readInt(), buffer.readUuid())
+        fun decode(buffer: PacketByteBuf) = BattleChallengePacket(buffer.readInt(), buffer.readUuid(), buffer.readInt())
     }
 }

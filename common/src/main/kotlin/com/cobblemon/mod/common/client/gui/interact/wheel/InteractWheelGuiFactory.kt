@@ -78,7 +78,7 @@ fun createPlayerInteractGui(optionsPacket: PlayerInteractOptionsPacket): Interac
         onPress = {
             val battleRequest = CobblemonClient.requests.battleChallenges.find { it.challengerId == optionsPacket.targetId }
             // This can be improved in future with more detailed battle challenge data.
-            BattleChallengePacket(optionsPacket.numericTargetId, optionsPacket.selectedPokemonId).sendToServer()
+            BattleChallengePacket(optionsPacket.numericTargetId, optionsPacket.selectedPokemonId, 0).sendToServer()
             closeGUI()
         }
     )
@@ -94,11 +94,11 @@ fun createPlayerInteractGui(optionsPacket: PlayerInteractOptionsPacket): Interac
     val setBattle = InteractWheelOption(
         iconResource = cobblemonResource("textures/gui/interact/icon_battle.png"),
         colour = { if (CobblemonClient.requests.battleChallenges.any { it.challengerId == optionsPacket.targetId }) Vector3f(0F, 0.6F, 0F) else null },
-        tooltipText = "cobblemon.ui.interact.battle",
+        tooltipText = "cobblemon.ui.interact.setbattle",
         onPress = {
             //val battleRequest = CobblemonClient.requests.battleChallenges.find { it.challengerId == optionsPacket.targetId }
             // This can be improved in future with more detailed battle challenge data.
-            BattleChallengePacket(optionsPacket.numericTargetId, optionsPacket.selectedPokemonId).sendToServer()
+            BattleChallengePacket(optionsPacket.numericTargetId, optionsPacket.selectedPokemonId, 50).sendToServer()
             closeGUI()
         }
     )
@@ -110,6 +110,9 @@ fun createPlayerInteractGui(optionsPacket: PlayerInteractOptionsPacket): Interac
         }
         if (it.equals(PlayerInteractOptionsPacket.Options.BATTLE)) {
             options.put(Orientation.TOP_RIGHT, battle)
+        }
+        if (it.equals(PlayerInteractOptionsPacket.Options.BATTLE)) {
+            options.put(Orientation.BOTTOM_RIGHT, setBattle)
         }
         if (it.equals(PlayerInteractOptionsPacket.Options.SPECTATE_BATTLE)) {
             options.put(Orientation.TOP_RIGHT, spectate)
