@@ -12,6 +12,7 @@ import com.cobblemon.mod.common.CobblemonNetwork
 import com.cobblemon.mod.common.api.events.CobblemonEvents
 import com.cobblemon.mod.common.api.events.pokemon.interaction.PokemonInteractionGUICreationEvent
 import com.cobblemon.mod.common.client.CobblemonClient
+import com.cobblemon.mod.common.client.battle.ClientBattleChallenge
 import com.cobblemon.mod.common.net.messages.client.PlayerInteractOptionsPacket
 import com.cobblemon.mod.common.net.messages.server.BattleChallengePacket
 import com.cobblemon.mod.common.net.messages.server.battle.SpectateBattlePacket
@@ -90,6 +91,17 @@ fun createPlayerInteractGui(optionsPacket: PlayerInteractOptionsPacket): Interac
         },
         tooltipText = "cobblemon.ui.interact.spectate"
         )
+    val setBattle = InteractWheelOption(
+        iconResource = cobblemonResource("textures/gui/interact/icon_battle.png"),
+        colour = { if (CobblemonClient.requests.battleChallenges.any { it.challengerId == optionsPacket.targetId }) Vector3f(0F, 0.6F, 0F) else null },
+        tooltipText = "cobblemon.ui.interact.battle",
+        onPress = {
+            //val battleRequest = CobblemonClient.requests.battleChallenges.find { it.challengerId == optionsPacket.targetId }
+            // This can be improved in future with more detailed battle challenge data.
+            BattleChallengePacket(optionsPacket.numericTargetId, optionsPacket.selectedPokemonId).sendToServer()
+            closeGUI()
+        }
+    )
     val options: Multimap<Orientation, InteractWheelOption> = ArrayListMultimap.create()
     //The way things are positioned should probably be more thought out if more options are added
     optionsPacket.options.map {

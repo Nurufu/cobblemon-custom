@@ -13,6 +13,7 @@ import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.battles.model.PokemonBattle
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor
 import com.cobblemon.mod.common.api.storage.party.PartyStore
+import com.cobblemon.mod.common.api.storage.party.PlayerPartyStore
 import com.cobblemon.mod.common.battles.actor.PlayerBattleActor
 import com.cobblemon.mod.common.battles.actor.PokemonBattleActor
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon
@@ -40,8 +41,28 @@ object BattleBuilder {
         healFirst: Boolean = false,
         partyAccessor: (ServerPlayerEntity) -> PartyStore = { it.party() }
     ): BattleStartResult {
-        val team1 = partyAccessor(player1).toBattleTeam(clone = cloneParties, checkHealth = !healFirst, leadingPokemonPlayer1)
-        val team2 = partyAccessor(player2).toBattleTeam(clone = cloneParties, checkHealth = !healFirst, leadingPokemonPlayer2)
+        val autoLevel = battleFormat.getAdjustLevelRule()
+        val team1 = partyAccessor(player1).toBattleTeam(clone = cloneParties || autoLevel != null, checkHealth = !healFirst, leadingPokemonPlayer1).sortedBy { it.health <= 0 }
+        val team2 = partyAccessor(player2).toBattleTeam(clone = cloneParties || autoLevel != null, checkHealth = !healFirst, leadingPokemonPlayer2).sortedBy { it.health <= 0 }
+
+        val battlePartyStores = emptyList<PlayerPartyStore>().toMutableList()
+
+        if (autoLevel != null && autoLevel > 0) {
+            team1.forEach {
+                it.effectedPokemon.level = 50
+                it.effectedPokemon.heal()
+            }
+            team2.forEach {
+                it.effectedPokemon.level = 50
+                it.effectedPokemon.heal()
+            }
+            val tempStoreP1 = PlayerPartyStore(player1.uuid)
+            team1.forEachIndexed { index, it -> tempStoreP1.set(index, it.effectedPokemon) }
+            battlePartyStores.add(tempStoreP1)
+            val tempStoreP2 = PlayerPartyStore(player2.uuid)
+            team2.forEachIndexed { index, it -> tempStoreP2.set(index, it.effectedPokemon) }
+            battlePartyStores.add(tempStoreP2)
+        }
 
         val player1Actor = PlayerBattleActor(player1.uuid, team1)
         val player2Actor = PlayerBattleActor(player2.uuid, team2)
@@ -106,9 +127,9 @@ object BattleBuilder {
 
         if(playerTeam.isNotEmpty() && playerTeam[0].health <= 0){
             errors.participantErrors[playerActor] += BattleStartError.insufficientPokemon(
-                    player = player,
-                    requiredCount = battleFormat.battleType.slotsPerActor,
-                    hadCount = playerActor.pokemonList.size
+                player = player,
+                requiredCount = battleFormat.battleType.slotsPerActor,
+                hadCount = playerActor.pokemonList.size
             )
         }
 
@@ -269,8 +290,8 @@ open class ErroredBattleStart(
         get() = generalErrors.isEmpty() && participantErrors.values.all { it.isEmpty() }
 
     fun isPlayerToBlame(player: ServerPlayerEntity) = generalErrors.isEmpty()
-        && participantErrors.size == 1
-        && participantErrors.entries.first().let { it.key.uuid == player.uuid }
+            && participantErrors.size == 1
+            && participantErrors.entries.first().let { it.key.uuid == player.uuid }
 
     fun isSomePlayerToBlame() = generalErrors.isEmpty() && participantErrors.isNotEmpty()
 

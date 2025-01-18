@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.client.battle
 
+import com.cobblemon.mod.common.battles.BattleFormat
 import java.util.UUID
 
 class ClientBattleChallenge(

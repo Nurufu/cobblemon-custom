@@ -69,6 +69,7 @@ import com.cobblemon.mod.common.pokemon.misc.GimmighoulStashHandler
 import com.cobblemon.mod.common.pokemon.properties.UncatchableProperty
 import com.cobblemon.mod.common.pokemon.status.PersistentStatus
 import com.cobblemon.mod.common.pokemon.status.PersistentStatusContainer
+import com.cobblemon.mod.common.pokemon.properties.BattleCloneProperty
 import com.cobblemon.mod.common.util.*
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -715,6 +716,13 @@ open class Pokemon : ShowdownIdentifiable {
      * @return If the Pokémon is uncatchable.
      */
     fun isUncatchable() = UncatchableProperty.uncatchable().matches(this)
+
+    /**
+     * A utility method that checks if this Pokémon has the [BattleCloneProperty.isBattleClone] property.
+     *
+     * @return If the Pokémon is uncatchable.
+     */
+    fun isBattleClone() = BattleCloneProperty.isBattleClone().matches(this)
 
     /**
      * Returns a copy of the held item.

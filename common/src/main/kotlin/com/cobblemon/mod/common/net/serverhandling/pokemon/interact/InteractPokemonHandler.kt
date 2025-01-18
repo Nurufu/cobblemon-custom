@@ -18,7 +18,7 @@ import net.minecraft.server.network.ServerPlayerEntity
 object InteractPokemonHandler : ServerNetworkPacketHandler<InteractPokemonPacket> {
     override fun handle(packet: InteractPokemonPacket, server: MinecraftServer, player: ServerPlayerEntity) {
         val pokemonEntity = player.serverWorld.getEntity(packet.pokemonID)
-        if (pokemonEntity is PokemonEntity) {
+        if (pokemonEntity is PokemonEntity && !pokemonEntity.isBattleClone()) {
             if (packet.mountShoulder) {
                 if (!pokemonEntity.isReadyToSitOnPlayer || player.party().none { it == pokemonEntity.pokemon }) {
                     return
