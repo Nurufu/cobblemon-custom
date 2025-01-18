@@ -1,21 +1,20 @@
 {
-    "portraitScale": 2.3,
-    "portraitTranslation": [-0.15, 0.4, 0.0],
-    "profileScale": 0.7,
-    "profileTranslation": [0.0, 0.65, 0.0],
+  "portraitScale": 2.3,
+  "portraitTranslation": [-0.15, 1, 0.0],
+  "profileScale": 0.7,
+  "profileTranslation": [0.0, 0.65, 0.0],
     "rootBone": "mew",
+    "animations": {
+      "cry": "q.bedrock_stateful('mew', 'cry')"
+    },
     "poses": {
       "portrait": {
         "poseTypes": ["PORTRAIT", "PROFILE"],
-        "isBattle": false,
-        "isTouchingWater": false,
         "animations": ["q.look('head_ai')", "q.bedrock('mew', 'ground_idle')"],
         "quirks": ["q.bedrock_quirk('mew', 'blink')"]
       },
       "standing": {
         "poseTypes": ["STAND", "NONE"],
-        "isBattle": false,
-        "isTouchingWater": false,
         "animations": ["q.look('head_ai')", "q.bedrock('mew', 'ground_idle')"],
         "quirks": [
           "q.bedrock_quirk('mew', 'blink')"
@@ -23,7 +22,6 @@
       },
       "walking": {
         "poseTypes": ["WALK", "SWIM"],
-        "isTouchingWater": false,
         "animations": ["q.look('head_ai')", "q.bedrock('mew', 'ground_walk')"],
         "quirks": ["q.bedrock_quirk('mew', 'blink')"]
       }

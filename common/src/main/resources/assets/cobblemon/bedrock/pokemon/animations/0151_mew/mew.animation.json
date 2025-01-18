@@ -6,7 +6,7 @@
 			"bones": {
 				"body": {
 					"rotation": [15, 0, 0],
-					"position": [0, 5, 0]
+					"position": [0, "8+Math.cos((query.anim_time) * 90 * 1 - 45) * 2", 0]
 				},
 				"arm_left": {
 					"rotation": [15, 15, 30]
@@ -21,13 +21,13 @@
 					"rotation": [-55, 0, 0]
 				},
 				"leg_left": {
-					"rotation": [15, 0, 0]
+					"rotation": ["15++math.sin(q.anim_time*90*1+180)*5", 0, 0]
 				},
 				"foot_left": {
-					"rotation": [15, 0, 0]
+					"rotation": ["15+math.sin(q.anim_time*90*1+180)*5\"", 0, 0]
 				},
 				"tail": {
-					"rotation": [17.5, 0, 0]
+					"rotation": ["17.5+Math.cos((query.anim_time) * 90 * 1 - 55) * 8", 0, 0]
 				},
 				"tail5": {
 					"rotation": [-52.5, 0, 0]
@@ -39,13 +39,13 @@
 					"rotation": [-37.5, 0, 0]
 				},
 				"leg_right": {
-					"rotation": [15, 0, 0]
+					"rotation": ["15+math.sin(q.anim_time*90*1+190)*5", 0, 0]
 				},
 				"foot_right": {
-					"rotation": [15, 0, 0]
+					"rotation": ["15+math.sin(q.anim_time*90*1+180)*5\"", 0, 0]
 				},
 				"head": {
-					"rotation": [-15, 0, 0]
+					"rotation": ["-15+Math.cos((query.anim_time) * 90 * 1 - 90)", 0, "0+Math.cos((query.anim_time) * 90 * 1/2 + 60) * 2"]
 				},
 				"arm_right": {
 					"rotation": [15, -15, -30]
@@ -57,13 +57,13 @@
 			"bones": {
 				"body": {
 					"rotation": [45, 0, 0],
-					"position": [0, 4, -3]
+					"position": [0, "8+Math.cos((query.anim_time) * 90 * 1.5 - 45) * 2", -3]
 				},
 				"arm_left": {
 					"rotation": [15, 0, 30]
 				},
 				"tail": {
-					"rotation": [-45, 0, 0]
+					"rotation": ["-45+Math.cos((query.anim_time)*90 * 1.5 - 55) * 8", 0, 0]
 				},
 				"tail2": {
 					"rotation": [15, 0, 0]
@@ -78,7 +78,7 @@
 					"rotation": [15, 0, 0]
 				},
 				"foot_left": {
-					"rotation": [30, 0, 0]
+					"rotation": ["30+math.sin(q.anim_time*90*1.5+180)*5", 0, 0]
 				},
 				"tail5": {
 					"rotation": [-20, 0, 0]
@@ -93,10 +93,10 @@
 					"rotation": [15, 0, 0]
 				},
 				"foot_right": {
-					"rotation": [30, 0, 0]
+					"rotation": ["30+math.sin(q.anim_time*90*1.5+180)*5", 0, 0]
 				},
 				"head": {
-					"rotation": [-30, 0, 0]
+					"rotation": ["-30+Math.cos((query.anim_time) * 90 * 1.5 - 90)", "+Math.cos((query.anim_time) * 90 * 1/2 + 60) * 2", 0]
 				},
 				"arm_right": {
 					"rotation": [15, 0, -30]
@@ -119,6 +119,14 @@
 						"0.125": [-0.1, 0, -0.1],
 						"0.1667": [0, 0, 0]
 					}
+				}
+			}
+		},
+		"animation.mew.cry": {
+			"animation_length": 0.4583,
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.mew.cry"
 				}
 			}
 		}

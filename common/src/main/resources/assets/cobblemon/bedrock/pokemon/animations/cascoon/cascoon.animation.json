@@ -1,0 +1,27 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.cascoon.ground_idle": {
+			"loop": true,
+			"animation_length": 6,
+			"bones": {
+				"cascoon": {
+					"rotation": {
+						"0.0": {
+							"post": [0, 0, -8],
+							"lerp_mode": "catmullrom"
+						},
+						"3.0": {
+							"post": [0, 0, 8],
+							"lerp_mode": "catmullrom"
+						},
+						"6.0": {
+							"post": [0, 0, -8],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		}
+	}
+}

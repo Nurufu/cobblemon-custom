@@ -19,8 +19,7 @@
                 "canSeeSky": false,
                 "biomes": [
                     "#cobblemon:is_overworld"
-                ],
-                "minY": 30
+                ]
             }
         }
     ]
