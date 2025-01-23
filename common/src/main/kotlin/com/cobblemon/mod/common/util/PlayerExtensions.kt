@@ -374,4 +374,4 @@ fun PlayerEntity.isPartyBusy() =
     if (this.world.isClient())
         CobblemonClient.storage.myParty.find { it?.entity?.isBusy == true } != null
     else
-        Cobblemon.storage.getParty(this.uuid).find { it.entity?.isBusy == false} != null
+        Cobblemon.storage.getParty(this.uuid).find { it.entity?.isBusy == true} != null
