@@ -13,7 +13,9 @@
           "STAND",
           "NONE",
           "PORTRAIT",
-          "PROFILE"
+          "PROFILE",
+          "SWIM",
+          "FLOAT"
         ],
         "animations": [
           "bedrock(drednaw, ground_idle)"
