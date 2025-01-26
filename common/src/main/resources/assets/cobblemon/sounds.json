@@ -37,6 +37,9 @@
     "subtitle": "cobblemon.subtitle.poke_ball.capture_succeeded",
     "sounds": [ { "name": "cobblemon:poke_ball/poke_ball_capture_succeeded_ancient", "volume":  0.7 } ]
   },
+  "poke_ball.capture_started": {
+    "sounds": [ "cobblemon:pokeball/capture_started" ]
+  },
   "poke_ball.shake": {
     "sounds": [
       { "name": "cobblemon:poke_ball/poke_ball_shake_1", "volume": 0.7 },
