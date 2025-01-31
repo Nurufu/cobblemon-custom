@@ -249,7 +249,17 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
                 capturingPokemon = pokemonEntity
                 dataTracker.set(HIT_VELOCITY, velocity.normalize())
                 dataTracker.set(HIT_TARGET_POSITION, hitResult.pos)
-                attemptCatch(pokemonEntity)
+                //attemptCatch(pokemonEntity)
+                CobblemonEvents.THROWN_POKEBALL_HIT.postThen(
+                    event = ThrownPokeballHitEvent(this, pokemonEntity),
+                    ifSucceeded = {
+                        attemptCatch(pokemonEntity)
+                    },
+                    ifCanceled = {
+                        drop()
+                        return
+                    }
+                )
                 return
             }
         }
@@ -272,19 +282,6 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
         delegate.tick(this)
 
         if (world.isServerSide()) {
-            capturingPokemon?.let {
-                if (!it.isInvisible) {
-                    dataTracker.set(HIT_TARGET_POSITION, it.pos)
-                }
-                CobblemonEvents.THROWN_POKEBALL_HIT.postThen(
-                    event = ThrownPokeballHitEvent(this, it),
-                    ifSucceeded = {},
-                    ifCanceled = {
-                        drop()
-                        return
-                    }
-                )
-            }
 
             if (this.age > 600 && this.capturingPokemon == null) {
                 this.remove(RemovalReason.DISCARDED)
@@ -307,6 +304,18 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
         schedulingTracker.update(1/20F)
     }
 
+    private fun ancientBallShake(animations: Set<String>) {
+        val pktShakeAncientAnimation = PlayPoseableAnimationPacket(this.id, animations, emptySet())
+        pktShakeAncientAnimation.sendToPlayersAround(
+            x = this.x,
+            y = this.y,
+            z = this.z,
+            worldKey = this.world.registryKey,
+            distance = 64.0
+        )
+    }
+
+
     private fun shakeBall(task: ScheduledTask, rollsRemaining: Int, captureResult: CaptureContext) {
         if (this.capturingPokemon?.isAlive != true || !this.isAlive || this.owner == null|| owner?.isAlive != true) {
             if (this.capturingPokemon?.isAlive == true) {
@@ -321,11 +330,11 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
             if (captureResult.isSuccessfulCapture) {
                 captureState = if (captureResult.isCriticalCapture) CaptureState.CAPTURED_CRITICAL else CaptureState.CAPTURED
                 // Do a capture
-                world.playSoundServer(pos, CobblemonSounds.POKE_BALL_CAPTURE_SUCCEEDED, volume = 0.8F, pitch = 1F)
                 val pokemon = capturingPokemon ?: return
                 val player = this.owner as? ServerPlayerEntity ?: return
+                val captureTime = if (pokeBall.ancient == true) 1.8F else 1F
 
-                after(seconds = 1F) {
+                after(seconds = captureTime) {
                     // Dupes occurred by double-adding Pokémon, this hopefully prevents it triple-condom style
                     if (pokemon.pokemon.isWild() && pokemon.isAlive && !captureFuture.isDone) {
                         pokemon.discard()
@@ -345,10 +354,18 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
             return
         }
 
-        world.playSoundServer(pos, CobblemonSounds.POKE_BALL_SHAKE, volume = 0.8F)
+        if(this.pokeBall.ancient) {
+            when (captureResult.numberOfShakes) {
+                1 -> ancientBallShake(setOf("q.bedrock_stateful('ancient_poke_ball', 'weirdhop')"))
+                2 -> ancientBallShake(setOf("q.bedrock_stateful('ancient_poke_ball', 'bighop')"))
+                3 -> ancientBallShake(setOf("q.bedrock_stateful('ancient_poke_ball', 'midhop1')", "q.bedrock.stateful('ancient_poke_ball', 'midhop2')"))
+                4 -> ancientBallShake(setOf("q.bedrock_stateful('ancient_poke_ball', 'smallhop1')", "q.bedrock.stateful('ancient_poke_ball', 'smallhop2')"))
+            }
+        } else { dataTracker.update(SHAKE) { !it } }
+
         // Emits a shake by changing the value to the opposite of what it currently is. Sends an update to the client basically.
         // We could replace this with a packet, but it feels awfully excessive when we already have 5 bajillion packets.
-        dataTracker.update(SHAKE) { !it }
+
     }
 
     private fun breakFree() {
@@ -362,7 +379,6 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
         }
 
         captureState = CaptureState.BROKEN_FREE
-        world.playSoundServer(pos, CobblemonSounds.POKE_BALL_OPEN, volume = 0.8F)
 
         after(seconds = 1F) {
             pokemon.busyLocks.remove(this)
@@ -381,7 +397,7 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
         val displace = velocity
         captureState = CaptureState.HIT
         val mul = if (random.nextBoolean()) 1 else -1
-        world.playSoundServer(pos, CobblemonSounds.POKE_BALL_HIT, volume = 0.4F)
+        world.playSoundServer(pos, CobblemonSounds.POKE_BALL_HIT, volume = 1F)
 
         // Hit Pokémon plays recoil animation
         val pkt = PlayPoseableAnimationPacket(pokemonEntity.id, setOf("recoil"), emptySet())
@@ -400,7 +416,7 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
             // Start beaming them up.
             velocity = Vec3d.ZERO
             setNoGravity(true)
-            world.playSoundServer(pos, CobblemonSounds.POKE_BALL_CAPTURE_STARTED, volume = 0.6F)
+            world.playSoundServer(pos, CobblemonSounds.POKE_BALL_RECALL, volume = 0.6F)
             pokemonEntity.beamMode = 3
         }
 
@@ -452,6 +468,9 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
             .delay(SECONDS_BEFORE_SHAKE)
             .interval(SECONDS_BETWEEN_SHAKES)
             .execute {
+                if(pokeBall.ancient && rollsRemaining > 1){
+                    rollsRemaining = 1
+                }
                 shakeBall(it, rollsRemaining, captureResult)
                 rollsRemaining--
             }

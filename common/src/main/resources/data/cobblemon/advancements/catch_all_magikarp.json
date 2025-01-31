@@ -98,11 +98,11 @@
 				"aspects": ["magikarp-jump-calico-orange-white"]
 			}
 		},
-		"orange-white-black": {
+		"calico-orange-white-black": {
 			"trigger": "cobblemon:aspects_collected",
 			"conditions": {
 				"pokemon": "cobblemon:magikarp",
-				"aspects": ["magikarp-jump-orange-white-black"]
+				"aspects": ["magikarp-jump-calico-orange-white-black"]
 			}
 		},
 		"calico-white-orange": {
@@ -245,7 +245,7 @@
 		["brown-zebra"],
 		["calico-orange-gold"],
 		["calico-orange-white"],
-		["orange-white-black"],
+		["calico-orange-white-black"],
 		["calico-white-orange"],
 		["gray-bubbles"],
 		["gray-diamonds"],
