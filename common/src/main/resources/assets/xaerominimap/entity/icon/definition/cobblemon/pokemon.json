@@ -1554,6 +1554,8 @@
         "cobblemon:textures/pokemon/0669_flabebe/flabebe_shiny.png": "normal_sprite:shiny/0669_flabebe.png",
         "cobblemon:textures/pokemon/0670_floette/floette.png": "normal_sprite:regular/0670_floette.png",
         "cobblemon:textures/pokemon/0670_floette/floette_shiny.png": "normal_sprite:shiny/0670_floette.png",
+        "cobblemon:textures/pokemon/0670_floette/floette_e.png": "normal_sprite:regular/0670v4_floette.png",
+        "cobblemon:textures/pokemon/0670_floette/floette_e_shiny.png": "normal_sprite:shiny/0670v4_floette.png",
         "cobblemon:textures/pokemon/0671_florges/florges.png": "normal_sprite:regular/0671_florges.png",
         "cobblemon:textures/pokemon/0671_florges/florges_shiny.png": "normal_sprite:shiny/0671_florges.png",
         "cobblemon:textures/pokemon/skiddo/skiddo.png": "normal_sprite:regular/0672_skiddo.png",
