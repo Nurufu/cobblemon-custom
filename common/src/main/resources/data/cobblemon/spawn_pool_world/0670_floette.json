@@ -4,6 +4,58 @@
     "neededUninstalledMods": [],
     "spawns": [
         {
+            "id": "floette-eternal-1",
+            "pokemon": "floette eternal",
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "ultra-rare",
+            "level": "50",
+            "weight": 0.01,
+            "condition": {
+                "canSeeSky": true,
+                "biomes": [
+                    "#cobblemon:is_overworld"
+                ]
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 10.0,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "minecraft:pitcher_plant"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "floette-eternal-2",
+            "pokemon": "floette eternal",
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "ultra-rare",
+            "level": "70",
+            "weight": 0.015,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_overworld"
+                ],
+                "structures": [
+                    "minecraft:ancient_city"
+                ]
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 10.0,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "minecraft:pitcher_plant"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
             "id": "floette-red-1",
             "pokemon": "floette flower=red",
             "presets": [

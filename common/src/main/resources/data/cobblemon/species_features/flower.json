@@ -1,7 +1,7 @@
 {
   "type": "choice",
   "keys": ["flower"],
-  "default": "random",
+  "default": "none",
   "choices": [
     "white",
     "orange",

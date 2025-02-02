@@ -5,33 +5,33 @@
   "profileTranslation": [0, 0.68, 0],
   "rootBone": "floette",
   "animations": {
-    "cry": "q.bedrock_stateful('floette', 'cry')",
-    "recoil": "q.bedrock_stateful('floette', 'recoil')"
+    "cry": "q.bedrock_stateful('floette_e', 'cry')",
+    "recoil": "q.bedrock_stateful('floette_e', 'recoil')"
   },
   "poses": {
     "battle-standing": {
       "poseTypes": ["STAND"],
       "isBattle": true,
-      "animations": ["q.look('head')", "q.bedrock('floette', 'battle_idle')"],
-      "quirks": ["q.bedrock_quirk('floette', 'blink')"]
+      "animations": ["q.look('head')", "q.bedrock('floette_e', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('floette_e', 'blink')"]
     },
     "standing": {
       "poseTypes": ["STAND", "HOVER", "FLOAT", "NONE", "PORTRAIT", "PROFILE"],
       "isBattle": false,
-      "animations": ["q.look('head')", "q.bedrock('floette', 'ground_idle')"],
-      "quirks": ["q.bedrock_quirk('floette', 'blink')"]
+      "animations": ["q.look('head')", "q.bedrock('floette_e', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('floette_e', 'blink')"]
     },
     "walking": {
       "poseTypes": ["WALK", "FLY", "SWIM"],
-      "animations": ["q.look('head')", "q.bedrock('floette', 'ground_walk')"],
-      "quirks": ["q.bedrock_quirk('floette', 'blink')"]
+      "animations": ["q.look('head')", "q.bedrock('floette_e', 'ground_walk')"],
+      "quirks": ["q.bedrock_quirk('floette_e', 'blink')"]
     },
     "sleep": {
       "poseTypes": ["SLEEP"],
       "namedAnimations": {
         "cry": "q.bedrock_stateful('dummy', 'cry')"
       },
-      "animations": ["q.bedrock('floette', 'sleep')"]
+      "animations": ["q.bedrock('floette_e', 'sleep')"]
     }
   }
 }
