@@ -8,6 +8,10 @@
       "model": "cobblemon:floette_e.geo",
       "texture": "cobblemon:textures/pokemon/0670_floette/floette_e.png",
       "layers": []
+    },
+    {
+      "aspects": ["eternal", "shiny"],
+      "texture": "cobblemon:textures/pokemon/0670_floette/floette_e_shiny.png"
     }
   ]
 }
