@@ -16,7 +16,7 @@
     },
     "catchRate": 5,
     "maleRatio": 0,
-    "baseExperienceYield": 0,
+    "baseExperienceYield": 275,
     "baseFriendship": 0,
     "evYield": {
       "hp": 0,
@@ -211,7 +211,7 @@
         },
         "catchRate": 5,
         "maleRatio": 0,
-        "baseExperienceYield": 0,
+        "baseExperienceYield": 275,
         "baseFriendship": 0,
         "evYield": {
           "hp": 0,
@@ -269,7 +269,7 @@
         },
         "catchRate": 5,
         "maleRatio": 0,
-        "baseExperienceYield": 0,
+        "baseExperienceYield": 275,
         "baseFriendship": 0,
         "evYield": {
           "hp": 0,
@@ -327,7 +327,7 @@
         },
         "catchRate": 5,
         "maleRatio": 0,
-        "baseExperienceYield": 0,
+        "baseExperienceYield": 275,
         "baseFriendship": 0,
         "evYield": {
           "hp": 0,
@@ -384,7 +384,7 @@
         },
         "catchRate": 5,
         "maleRatio": 0,
-        "baseExperienceYield": 0,
+        "baseExperienceYield": 275,
         "baseFriendship": 0,
         "evYield": {
           "hp": 0,
