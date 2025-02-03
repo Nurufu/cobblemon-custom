@@ -52,7 +52,11 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     val POKE_BALL_THROW = this.create("poke_ball.throw")
     @JvmField
     val POKE_BALL_TRAIL = this.create("poke_ball.trail")
-
+    //Capture succeeded and ball shake are required to not break PokeNav compat
+    @JvmField
+    val POKE_BALL_CAPTURE_SUCCEEDED = this.create("poke_ball.capture_succeeded")
+    @JvmField
+    val POKE_BALL_SHAKE = this.create("poke_ball.shake")
     @JvmField
     val ITEM_USE = this.create("item.use")
     @JvmField
