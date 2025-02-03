@@ -7,6 +7,9 @@
             "id": "hoppip-1",
             "pokemon": "hoppip",
             "type": "pokemon",
+            "presets": [
+                "natural"
+            ],
             "context": "grounded",
             "bucket": "common",
             "level": "4-25",

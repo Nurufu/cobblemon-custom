@@ -8,6 +8,9 @@
             "pokemon": "skiddo",
             "type": "pokemon",
             "context": "grounded",
+            "presets": [
+                "natural"
+            ],
             "bucket": "common",
             "level": "5-20",
             "weight": 8.0,

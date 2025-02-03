@@ -7,6 +7,9 @@
             "id": "skiploom-1",
             "pokemon": "skiploom",
             "type": "pokemon",
+            "presets": [
+                "natural"
+            ],
             "context": "grounded",
             "bucket": "common",
             "level": "18-34",

@@ -7,6 +7,9 @@
         "id": "nymble-1",
         "pokemon": "nymble",
         "type": "pokemon",
+        "presets": [
+          "natural"
+        ],
         "context": "grounded",
         "bucket": "common",
         "level": "7-25",
@@ -23,6 +26,9 @@
         "pokemon": "nymble",
         "type": "pokemon",
         "context": "grounded",
+        "presets": [
+          "natural"
+        ],
         "bucket": "common",
         "level": "7-22",
         "weight": 6.0,

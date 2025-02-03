@@ -7,9 +7,13 @@
             "id": "floette-eternal-1",
             "pokemon": "floette eternal",
             "type": "pokemon",
+            "presets": [
+                "natural"
+            ],
             "context": "grounded",
             "bucket": "ultra-rare",
             "level": "50",
+            "maxY": 150,
             "weight": 0.01,
             "condition": {
                 "canSeeSky": true,

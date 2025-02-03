@@ -8,6 +8,9 @@
             "pokemon": "jumpluff",
             "type": "pokemon",
             "context": "grounded",
+            "presets": [
+                "natural"
+            ],
             "bucket": "uncommon",
             "level": "27-46",
             "weight": 1,

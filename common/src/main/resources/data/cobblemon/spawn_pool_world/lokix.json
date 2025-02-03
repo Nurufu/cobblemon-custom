@@ -7,6 +7,9 @@
         "id": "lokix-1",
         "pokemon": "lokix",
         "type": "pokemon",
+        "presets": [
+          "natural"
+        ],
         "context": "grounded",
         "bucket": "uncommon",
         "level": "25-46",
@@ -23,6 +26,9 @@
         "pokemon": "lokix",
         "type": "pokemon",
         "context": "grounded",
+        "presets": [
+          "natural"
+        ],
         "bucket": "uncommon",
         "level": "35-45",
         "weight": 0.8,
