@@ -7,6 +7,9 @@
             "id": "capsakid-1",
             "pokemon": "capsakid",
             "type": "pokemon",
+            "presets": [
+                "natural"
+            ],
             "context": "grounded",
             "bucket": "common",
             "level": "4-25",

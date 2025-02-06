@@ -7,6 +7,9 @@
             "id": "scovillain-1",
             "pokemon": "scovillain",
             "type": "pokemon",
+            "presets": [
+                "natural"
+            ],
             "context": "grounded",
             "bucket": "uncommon",
             "level": "26-60",

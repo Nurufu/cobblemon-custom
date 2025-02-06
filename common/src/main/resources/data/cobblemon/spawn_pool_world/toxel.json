@@ -7,6 +7,9 @@
             "id": "toxel-1",
             "pokemon": "toxel",
             "type": "pokemon",
+            "presets": [
+                "natural"
+            ],
             "context": "grounded",
             "bucket": "uncommon",
             "level": "15-40",
