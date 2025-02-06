@@ -3,7 +3,7 @@
 	"structures": [
 	  "minecraft:ancient_city"
     ],
-	"maxY": 62,
+	"maxY": -20,
 	"neededNearbyBlocks": [
       "minecraft:chiseled_deepslate",
 	  "minecraft:cobbled_deepslate_wall",
