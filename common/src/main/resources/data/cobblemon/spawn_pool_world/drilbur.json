@@ -7,6 +7,9 @@
             "id": "drilbur-1",
             "pokemon": "drilbur",
             "type": "pokemon",
+            "presets": [
+                "natural"
+            ],
             "context": "grounded",
             "bucket": "common",
             "level": "8-31",

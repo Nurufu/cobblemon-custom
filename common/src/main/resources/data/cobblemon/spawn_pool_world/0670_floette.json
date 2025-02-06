@@ -36,14 +36,15 @@
             "id": "floette-eternal-2",
             "pokemon": "floette eternal",
             "type": "pokemon",
+            "presets": [
+                "natural"
+            ],
             "context": "grounded",
             "bucket": "ultra-rare",
             "level": "70",
+            "maxY": -20,
             "weight": 0.015,
             "condition": {
-                "biomes": [
-                    "#cobblemon:is_overworld"
-                ],
                 "structures": [
                     "minecraft:ancient_city"
                 ]

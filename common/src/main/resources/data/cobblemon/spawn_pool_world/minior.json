@@ -7,6 +7,7 @@
             "id": "minior-1",
             "pokemon": "minior core=shielded",
             "presets": [
+                "natural"
             ],
             "type": "pokemon",
             "context": "grounded",
@@ -29,6 +30,7 @@
             "context": "grounded",
             "bucket": "uncommon",
             "level": "20-30",
+            "maxY": 125,
             "weight": 2.35,
             "condition": {
 		"biomes": [
@@ -40,6 +42,7 @@
             "id": "minior-3",
             "pokemon": "minior core=orange",
             "presets": [
+                "natural"
             ],
             "type": "pokemon",
             "context": "grounded",
@@ -58,6 +61,7 @@
             "id": "minior-4",
             "pokemon": "minior core=yellow",
             "presets": [
+                "natural"
             ],
             "type": "pokemon",
             "context": "grounded",
@@ -76,6 +80,7 @@
             "id": "minior-5",
             "pokemon": "minior core=green",
             "presets": [
+                "natural"
             ],
             "type": "pokemon",
             "context": "grounded",
@@ -94,6 +99,7 @@
             "id": "minior-6",
             "pokemon": "minior core=blue",
             "presets": [
+                "natural"
             ],
             "type": "pokemon",
             "context": "grounded",
@@ -113,6 +119,7 @@
             "id": "minior-7",
             "pokemon": "minior core=indigo",
             "presets": [
+                "natural"
             ],
             "type": "pokemon",
             "context": "grounded",

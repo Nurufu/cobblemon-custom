@@ -7,6 +7,9 @@
             "id": "excadrill-1",
             "pokemon": "excadrill",
             "type": "pokemon",
+            "presets": [
+                "natural"
+            ],
             "context": "grounded",
             "bucket": "uncommon",
             "level": "25-51",
