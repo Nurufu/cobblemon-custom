@@ -6,6 +6,9 @@
         {
             "id": "banette-1",
             "pokemon": "banette",
+            "presets": [
+                "antitallflower"
+            ],
             "type": "pokemon",
             "context": "grounded",
             "bucket": "rare",
@@ -13,7 +16,7 @@
             "weight": 7.0,
             "condition": {
                 "canSeeSky": false,
-                "minHeight":3,
+                "minHeight":2,
                 "biomes": [
                     "minecraft:deep_dark"
                 ]

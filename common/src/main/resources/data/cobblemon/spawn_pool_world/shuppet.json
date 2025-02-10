@@ -7,6 +7,9 @@
             "id": "shuppet-1",
             "pokemon": "shuppet",
             "type": "pokemon",
+            "presets": [
+                "antitallflower"
+            ],
             "context": "grounded",
             "bucket": "common",
             "level": "15-36",

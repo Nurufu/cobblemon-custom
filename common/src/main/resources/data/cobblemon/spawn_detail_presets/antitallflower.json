@@ -1,0 +1,6 @@
+{  "anticondition": {
+    "neededBaseBlocks": [
+      "minecraft:dirt"
+  ]
+  }
+}
