@@ -43,7 +43,7 @@
             "bucket": "ultra-rare",
             "level": "70",
             "maxY": -20,
-            "weight": 0.015,
+            "weight": 0.02,
             "condition": {
                 "structures": [
                     "minecraft:ancient_city"
@@ -51,7 +51,7 @@
             },
             "weightMultipliers": [
                 {
-                    "multiplier": 10.0,
+                    "multiplier": 15.0,
                     "condition": {
                         "neededNearbyBlocks": [
                             "minecraft:pitcher_plant"
