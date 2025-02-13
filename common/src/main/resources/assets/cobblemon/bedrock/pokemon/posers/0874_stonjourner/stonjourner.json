@@ -5,9 +5,9 @@
   "profileTranslation": [0, 1.16, 0],
   "rootBone": "stonjourner",
   "animations": {
-    "faint": "q.bedrock_primary('primeape', 'faint', q.curve('one'))",
+    "faint": "q.bedrock_primary('stonjourner', 'faint', q.curve('one'))",
     "cry": "q.bedrock_stateful('stonjourner','cry')",
-    "recoil": "q.bedrock_stateful('stonjourner','recoil'"
+    "recoil": "q.bedrock_stateful('stonjourner','recoil')"
   },
   "poses": {
     "battle-standing": {

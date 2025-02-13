@@ -54,7 +54,7 @@
       "poseTypes": ["FLY"],
       "animations": [
         "q.look('head')",
-        "q.bedrock(', 'air_fly')"
+        "q.bedrock('hoothoot', 'air_fly')"
       ],
       "quirks": [
         "q.bedrock_quirk('hoothoot', 'blink')"

@@ -34,7 +34,7 @@
     "sleeping": {
       "poseName": "sleeping",
       "poseTypes": ["SLEEP"],
-      "animations": "q.bedrock('munchlax','sleep')"
+      "animations": ["q.bedrock('munchlax', 'sleep')"]
     }
   }
 }

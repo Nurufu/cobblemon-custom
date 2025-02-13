@@ -5,8 +5,8 @@
   "profileTranslation": [0, 0.74, 0],
   "rootBone": "poliwrath",
   "animations": {
-    "physical": ["q.bedrock_stateful('poliwrath','physical')"],
-    "recoil": ["q.bedrock_stateful('poliwrath','recoil'"]
+    "physical": "q.bedrock_stateful('poliwrath','physical')",
+    "recoil": "q.bedrock_stateful('poliwrath','recoil')"
   },
   "poses": {
     "battle-standing": {
@@ -19,7 +19,7 @@
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
       "animations": ["q.bedrock('poliwrath', 'ground_idle')"],
       "quirks": ["q.bedrock_quirk('poliwrath', 'blink')",
-      "q.bedrock_quirk('poliwrath', 'stretch_quirk'"]
+      "q.bedrock_quirk('poliwrath', 'stretch_quirk')"]
     },
     "walking": {
       "poseTypes": ["WALK"],

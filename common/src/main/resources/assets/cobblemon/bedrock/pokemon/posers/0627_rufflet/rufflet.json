@@ -1,6 +1,6 @@
 {
-  "portraitScale": 1.44,
-  "portraitTranslation": [-0.14, -0.63, 0],
+  "portraitScale": 1.6,
+  "portraitTranslation": [0, -0.1, 0],
   "profileScale": 0.63,
   "profileTranslation": [0, 0.64, 0],
   "animations": {
@@ -25,7 +25,7 @@
       ]
     },
     "fly": {
-      "poseTypes": ["FLYING"],
+      "poseTypes": ["FLY"],
       "animations": ["q.bedrock('rufflet', 'air_fly')"],
       "quirks": [
         "q.bedrock_quirk('rufflet', 'blink')"

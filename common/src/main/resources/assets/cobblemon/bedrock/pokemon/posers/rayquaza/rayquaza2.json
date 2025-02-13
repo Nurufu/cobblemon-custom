@@ -1,9 +1,9 @@
 {
   "head": "head",
   "portraitScale": 0.8,
-  "portraitTranslation": [-1.7, 4.7, -20],
+  "portraitTranslation": [-1.7, 4.7, 0],
   "profileScale": 0.2,
-  "profileTranslation": [0, 1.7, -20],
+  "profileTranslation": [0, 1.7, 0],
   "animations": {
     "faint": "q.bedrock_primary('rayquaza', 'faint', q.curve('one'))",
     "cry": "q.bedrock_primary('rayquaza', 'cry', q.curve('symmetrical_wide'))",
@@ -23,7 +23,6 @@
     },
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
-      "isBattle": false,
       "animations": ["look", "q.bedrock('rayquaza', 'ground_idle')"
       ],
       "quirks": [

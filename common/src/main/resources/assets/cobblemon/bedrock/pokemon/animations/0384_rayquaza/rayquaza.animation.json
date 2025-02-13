@@ -5,7 +5,8 @@
 			"loop": true,
 			"bones": {
 				"rayquaza": {
-					"rotation": [-75, 0, 0]
+					"rotation": [-75, 0, 0],
+					"scale": 1
 				},
 				"neck": {
 					"rotation": [30, 0, 0],

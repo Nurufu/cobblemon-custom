@@ -24,7 +24,7 @@
         "q.bedrock('snorlax', 'ground_idle')"
       ],
       "quirks": [
-        "q.bedrock('snorlax','quirk_idle')"
+        "q.bedrock_quirk('snorlax','quirk_idle')"
       ],
       "transformedParts": [
         {
@@ -50,7 +50,7 @@
     "sleep": {
       "poseTypes": ["SLEEP"],
       "namedAnimations": [
-        "q.bedrock('snorlax','sleep_intro')"
+        "q.bedrock_stateful('snorlax','sleep_intro')"
       ],
       "animations": [
         "q.bedrock('snorlax','sleep')"

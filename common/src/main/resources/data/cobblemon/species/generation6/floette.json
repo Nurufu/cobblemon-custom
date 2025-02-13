@@ -125,6 +125,12 @@
       "aspects": [
         "eternal"
       ],
+      "baseScale": 0.4,
+      "hitbox": {
+        "width": 2.51,
+        "height": 1.3,
+        "fixed": false
+      },
       "height": 2,
       "weight": 9,
       "cannotDynamax": false,

@@ -1,8 +1,8 @@
 {
-  "portraitScale": 1.44,
-  "portraitTranslation": [-0.14, -0.63, 0],
-  "profileScale": 0.63,
-  "profileTranslation": [0, 0.64, 0],
+  "portraitScale": 1.6,
+  "portraitTranslation": [-0.4, 1.93, 0],
+  "profileScale": 0.56,
+  "profileTranslation": [0.3, 0.93, 0],
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK"],
@@ -22,7 +22,7 @@
       ]
     },
     "fly": {
-      "poseTypes": ["FLYING"],
+      "poseTypes": ["FLY"],
       "animations": ["q.bedrock('braviary', 'air_fly')"],
       "quirks": [
         "q.bedrock_quirk('braviary', 'blink')"
