@@ -1,0 +1,22 @@
+{
+  "portraitScale": 1.9,
+  "portraitTranslation": [-0.9, -0.7, 0],
+  "profileScale": 0.75,
+  "profileTranslation": [0, 0.6, 0],
+  "rootBone": "bouffalant",
+  "animations": {
+    "faint": "q.bedrock_stateful('bouffalant','new')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK", "SWIM", "FLOAT"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('bouffalant', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('bouffalant', 'blink')"
+      ]
+    }
+  }
+}

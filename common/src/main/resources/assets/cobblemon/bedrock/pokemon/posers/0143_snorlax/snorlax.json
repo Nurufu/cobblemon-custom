@@ -5,7 +5,8 @@
   "profileTranslation": [-0.01, 1.16, 0],
   "rootBone": "snorlax",
   "animations": {
-    "cry": "q.bedrock_stateful('snorlax', 'cry')"
+    "cry": "q.bedrock_stateful('snorlax', 'cry')",
+    "recoil": "q.bedrock_stateful('snorlax','recoil')"
   },
   "poses": {
     "standing": {
@@ -16,12 +17,14 @@
         "PORTRAIT",
         "PROFILE",
         "FLOAT",
-        "HOVER",
-        "SLEEP"
+        "HOVER"
       ],
       "animations": [
         "q.look('head')",
-        "q.bedrock('snorlax', 'ground_idle_old')"
+        "q.bedrock('snorlax', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock('snorlax','quirk_idle')"
       ],
       "transformedParts": [
         {
@@ -35,13 +38,22 @@
       "poseTypes": ["WALK", "SWIM", "FLY"],
       "animations": [
         "q.look('head')",
-        "q.bedrock('snorlax', 'ground_walk_old')"
+        "q.bedrock('snorlax', 'ground_walk')"
       ],
       "transformedParts": [
         {
           "part": "coolhat",
           "isVisible": false
         }
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "namedAnimations": [
+        "q.bedrock('snorlax','sleep_intro')"
+      ],
+      "animations": [
+        "q.bedrock('snorlax','sleep')"
       ]
     }
   }

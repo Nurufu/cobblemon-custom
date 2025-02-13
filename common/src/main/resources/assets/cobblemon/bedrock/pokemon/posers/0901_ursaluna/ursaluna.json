@@ -1,0 +1,21 @@
+{
+  "portraitScale": 1.2,
+  "portraitTranslation": [-1.1, 0.4, 0.0],
+  "profileScale": 0.45,
+  "profileTranslation": [0, 0.9, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('ursaluna', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK", "FLOAT", "SWIM"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('ursaluna', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('ursaluna', 'blink')"
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "portraitScale": 1.4,
+  "portraitTranslation": [-0.1, -0.28, 0.0],
+  "profileScale": 0.9,
+  "profileTranslation": [0, 0.37, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('graveler', 'cry')",
+    "recoil": "q.bredrock_stateful('graveler', 'recoil')",
+    "status": "q.bredrock_stateful('graveler', 'status')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('graveler', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('graveler', 'blink')"
+      ]
+    },
+    "battle": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('graveler', 'battle_cry')"
+      },
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('graveler', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('graveler', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('graveler', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('graveler', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('graveler', 'sleep')"]
+    }
+  }
+}

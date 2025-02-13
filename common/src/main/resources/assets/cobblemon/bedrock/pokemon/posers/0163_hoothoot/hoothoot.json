@@ -1,0 +1,68 @@
+{
+  "portraitScale": 2.2,
+  "portraitTranslation": [-0.25, -0.9, 0.0],
+  "profileScale": 1,
+  "profileTranslation": [0, 0.3, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('hoothoot', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('hoothoot', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('hoothoot', 'blink')",
+        "q.bedrock_quirk('hoothoot', 'quirk_foot')"
+      ]
+    },
+    "battle": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('hoothoot', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('hoothoot', 'blink')",
+        "q.bedrock_quirk('hoothoot', 'quirk_foot')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('hoothoot', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('hoothoot', 'blink')"
+      ]
+    },
+    "hover": {
+      "poseTypes": ["HOVER"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('hoothoot', 'air_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('hoothoot', 'blink')"
+      ]
+    },
+    "flying": {
+      "poseTypes": ["FLY"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock(', 'air_fly')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('hoothoot', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('hoothoot', 'sleep')"]
+    }
+  }
+}

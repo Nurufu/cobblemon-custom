@@ -1,0 +1,50 @@
+{
+  "portraitScale": 1.7,
+  "portraitTranslation": [-0.6, -0.25, 0.0],
+  "profileScale": 0.75,
+  "profileTranslation": [0, 0.55, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('golem', 'cry')",
+    "recoil": "q.bredrock_stateful('golem', 'recoil')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('golem', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('golem', 'blink')"
+      ]
+    },
+    "battle": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('golem', 'battle_cry')"
+      },
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('golem', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('golem', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('golem', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('golem', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('golem', 'sleep')"]
+    }
+  }
+}

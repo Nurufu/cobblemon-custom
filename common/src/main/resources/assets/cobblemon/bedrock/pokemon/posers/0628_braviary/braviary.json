@@ -1,0 +1,32 @@
+{
+  "portraitScale": 1.44,
+  "portraitTranslation": [-0.14, -0.63, 0],
+  "profileScale": 0.63,
+  "profileTranslation": [0, 0.64, 0],
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('braviary', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('braviary', 'blink')"
+      ]
+    },
+    "hover": {
+      "poseTypes": ["HOVER"],
+      "animations": ["q.bedrock('braviary', 'air_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('braviary', 'blink')"
+      ]
+    },
+    "fly": {
+      "poseTypes": ["FLYING"],
+      "animations": ["q.bedrock('braviary', 'air_fly')"],
+      "quirks": [
+        "q.bedrock_quirk('braviary', 'blink')"
+      ]
+    }
+  }
+}

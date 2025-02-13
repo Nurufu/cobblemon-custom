@@ -14,9 +14,31 @@
       "animations": ["q.look('head')", "q.bedrock('dondozo', 'ground_idle')"],
       "quirks": ["q.bedrock_quirk('dondozo', 'blink')"]
     },
+    "battle": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": ["q.look('head')", "q.bedrock('dondozo', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('dondozo', 'blink')"]
+    },
     "walking": {
-      "poseTypes": ["WALK", "SWIM"],
-      "animations": ["q.look('head')", "q.bedrock('dondozo', 'ground_idle')"],
+      "poseTypes": ["WALK"],
+      "animations": ["q.look('head')", "q.bedrock('dondozo', 'ground_walk')"],
+      "quirks": ["q.bedrock_quirk('dondozo', 'blink')"]
+    },
+    "float": {
+      "poseTypes": ["FLOAT"],
+      "animations": ["q.look('head')", "q.bedrock('dondozo', 'water_idle')"],
+      "quirks": ["q.bedrock_quirk('dondozo', 'blink')"]
+    },
+    "water-battle": {
+      "poseTypes": ["FLOAT"],
+      "isBattle": true,
+      "animations": ["q.look('head')", "q.bedrock('dondozo', 'water_battle_idle')"],
+      "quirks": ["q.bedrock_quirk('dondozo', 'blink')"]
+    },
+    "swim": {
+      "poseTypes": ["SWIM"],
+      "animations": ["q.look('head')", "q.bedrock('dondozo', 'water_swim')"],
       "quirks": ["q.bedrock_quirk('dondozo', 'blink')"]
     }
   }

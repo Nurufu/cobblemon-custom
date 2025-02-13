@@ -6,13 +6,13 @@
             "aspects": [
                 "paldean-breed-blaze"
             ],
-            "model": "cobblemon:tauros_blaze.geo",
-            "poser": "cobblemon:tauros_blaze",
-            "texture": "cobblemon:textures/pokemon/tauros/tauros_blaze.png",
+            "model": "cobblemon:tauros_paldean_blaze.geo",
+            "poser": "cobblemon:tauros",
+            "texture": "cobblemon:textures/pokemon/tauros/tauros_paldean_blaze.png",
             "layers": [
                 {
                     "name": "emissive",
-                    "texture": "cobblemon:textures/pokemon/tauros/tauros_blaze_emissive.png",
+                    "texture": "cobblemon:textures/pokemon/tauros/tauros_paldean_blaze_emissive.png",
                     "emissive": true
                 }
             ]
@@ -22,7 +22,7 @@
                 "paldean-breed-blaze",
                 "shiny"
             ],
-            "texture": "cobblemon:textures/pokemon/tauros/tauros_blaze_shiny.png"
+            "texture": "cobblemon:textures/pokemon/tauros/tauros_paldean_blaze_shiny.png"
         }
     ]
 }

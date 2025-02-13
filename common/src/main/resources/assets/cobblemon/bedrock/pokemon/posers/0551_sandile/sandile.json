@@ -1,0 +1,61 @@
+{
+  "portraitScale": 2.54,
+  "portraitTranslation": [-0.5,-1.9,0],
+  "profileScale": 0.84,
+  "profileTranslation": [0.05, 0.48, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('sandile', 'cry')",
+    "recoil": "q.bredrock_stateful('sandile', 'recoil')",
+    "physical": "q.bredrock_stateful('sandile', 'physical')",
+    "special": "q.bredrock_stateful('sandile', 'special')",
+    "status": "q.bredrock_stateful('sandile', 'status')",
+    "faint": "q.bredrock_stateful('sandile', 'faint')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('sandile', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('sandile', 'blink')",
+        "q.bedrock_quirk('sandile', 'bite_quirk')"
+      ]
+    },
+    "battle": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('sandile', 'battle_cry')"
+      },
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('sandile', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('sandile', 'blink')",
+        "q.bedrock_quirk('sandile', 'bite_quirk')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('sandile', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('sandile', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('sandile', 'sleep')"]
+    },
+    "sleep-battle": {
+      "poseTypes": ["SLEEP"],
+      "isBattle": true,
+      "animations": ["q.bedrock('sandile', 'battle_sleep')"]
+    }
+  }
+}

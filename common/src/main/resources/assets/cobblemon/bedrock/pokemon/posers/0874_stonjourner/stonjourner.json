@@ -1,0 +1,37 @@
+{
+  "portraitScale": 1.83,
+  "portraitTranslation": [-0.46, 3.17, 0],
+  "profileScale": 0.38,
+  "profileTranslation": [0, 1.16, 0],
+  "rootBone": "stonjourner",
+  "animations": {
+    "faint": "q.bedrock_primary('primeape', 'faint', q.curve('one'))",
+    "cry": "q.bedrock_stateful('stonjourner','cry')",
+    "recoil": "q.bedrock_stateful('stonjourner','recoil'"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": ["q.bedrock('stonjourner', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('stonjourner', 'blink')"]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": ["q.bedrock('stonjourner', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('stonjourner', 'blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "isBattle": false,
+      "animations": [
+        "q.bedrock('stonjourner', 'ground_idle')"
+      ],
+      "quirks": ["q.bedrock_quirk('stonjourner', 'blink')"]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('stonjourner', 'sleep')"]
+    }
+  }
+}

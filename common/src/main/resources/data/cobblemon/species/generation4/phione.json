@@ -122,6 +122,14 @@
     "special_defence": 0,
     "speed": 0
   },
+  "behavior":
+  {
+    "swim": {
+      "swimSpeed": 0.3,
+      "canSwimInWater": true,
+      "canBreatheUnderwater": true
+    }
+  },
   "height": 4,
   "weight": 31,
   "aspects": [],

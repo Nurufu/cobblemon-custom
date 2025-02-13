@@ -1,0 +1,51 @@
+{
+  "portraitScale": 1.9,
+  "portraitTranslation": [0, -1.4, 0.0],
+  "profileScale": 0.9,
+  "profileTranslation": [-0.05, 0.3, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('geodude', 'cry')",
+    "recoil": "q.bredrock_stateful('geodude', 'recoil')",
+    "status": "q.bredrock_stateful('geodude', 'status')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('geodude', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('geodude', 'blink')"
+      ]
+    },
+    "battle": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('geodude', 'battle_cry')"
+      },
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('geodude', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('geodude', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('geodude', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('geodude', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('geodude', 'sleep')"]
+    }
+  }
+}

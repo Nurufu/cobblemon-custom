@@ -6,18 +6,27 @@
   "rootBone": "krookodile",
   "animations": {
     "faint": "q.bedrock_primary('krookodile', 'faint', q.curve('one'))",
-    "cry": "q.bedrock_stateful('krookodile', 'cry')"
+    "cry": "q.bedrock_stateful('krookodile', 'cry')",
+    "recoil": "q.bredrock_stateful('krookodile', 'recoil')",
+    "physical": "q.bredrock_stateful('krookodile', 'physical')",
+    "special": "q.bredrock_stateful('krookodile', 'special')",
+    "status": "q.bredrock_stateful('krookodile', 'status')"
   },
   "poses": {
     "battle-standing": {
       "poseName": "battle-standing",
       "poseTypes": ["STAND"],
       "isBattle": true,
+      "namedAnimations": [
+        "q.bedrock('krookodile', 'battle_cry')"
+      ],
       "animations": [
         "q.look('head')",
         "q.bedrock('krookodile', 'battle_idle')"
       ],
-      "quirks": ["q.bedrock_quirk('krookodile', 'blink')"]
+      "quirks": ["q.bedrock_quirk('krookodile', 'blink')",
+        "q.bedrock_quirk('krookodile', 'shake_quirk')",
+        "q.bedrock_quirk('krookodile', 'look_quirk')"]
     },
     "standing": {
       "poseName": "standing",
@@ -27,10 +36,9 @@
         "q.look('head')",
         "q.bedrock('krookodile', 'ground_idle')"
       ],
-      "quirks": [
-        "q.bedrock_quirk('krookodile', 'blink')",
-        "q.bedrock_quirk('krookodile', 'look_quirk')"
-      ]
+      "quirks": ["q.bedrock_quirk('krookodile', 'blink')",
+        "q.bedrock_quirk('krookodile', 'shake_quirk')",
+        "q.bedrock_quirk('krookodile', 'look_quirk')"]
     },
     "walking": {
       "poseName": "walking",
@@ -39,12 +47,20 @@
         "q.look('head')",
         "q.bedrock('krookodile', 'ground_walk')"
       ],
-      "quirks": ["q.bedrock_quirk('krookodile', 'blink')"]
+      "quirks": ["q.bedrock_quirk('krookodile', 'blink')",
+        "q.bedrock_quirk('krookodile', 'shake_quirk')",
+        "q.bedrock_quirk('krookodile', 'look_quirk')"]
     },
     "sleeping": {
       "poseName": "sleeping",
       "poseTypes": ["SLEEP"],
       "animations": ["q.bedrock('krookodile', 'sleep')"]
+    },
+    "sleeping-battle": {
+      "poseName": "sleeping",
+      "isBattle": true,
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('krookodile', 'battle_sleep')"]
     }
   }
 }

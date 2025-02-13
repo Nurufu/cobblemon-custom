@@ -1,0 +1,49 @@
+{
+  "portraitScale": 1.5,
+  "portraitTranslation": [-0.1, -0.1, 0.0],
+  "profileScale": 0.75,
+  "profileTranslation": [0, 0.65, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('nosepass', 'cry')",
+    "recoil": "q.bredrock_stateful('nosepass', 'recoil')",
+    "physical": "q.bredrock_stateful('nosepass', 'physical')",
+    "special": "q.bredrock_stateful('nosepass', 'special')",
+    "status": "q.bredrock_stateful('nosepass', 'status')",
+    "faint": "q.bredrock_stateful('nosepass', 'faint')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('nosepass', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('nosepass', 'quirk_wave')",
+        "q.bedrock_quirk('nosepass', 'quirk_scan')"
+      ]
+    },
+    "battle": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('nosepass', 'battle_cry')"
+      },
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('nosepass', 'battle_idle')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('nosepass', 'ground_walk')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('nosepass', 'sleep')"]
+    }
+  }
+}

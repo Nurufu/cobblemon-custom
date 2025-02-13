@@ -1,0 +1,50 @@
+{
+  "portraitScale": 1.7,
+  "portraitTranslation": [-0.22, 0.13, 0.0],
+  "profileScale": 0.52,
+  "profileTranslation": [0, 1.04, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('gossifleur', 'cry')",
+    "recoil": "q.bredrock_stateful('gossifleur', 'recoil')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('gossifleur', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('gossifleur', 'blink')"
+      ]
+    },
+    "battle": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('gossifleur', 'battle_cry')"
+      },
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('gossifleur', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('gossifleur', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('gossifleur', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('gossifleur', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('gossifleur', 'sleep')"]
+    }
+  }
+}

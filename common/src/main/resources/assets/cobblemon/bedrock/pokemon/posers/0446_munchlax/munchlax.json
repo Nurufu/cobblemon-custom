@@ -5,7 +5,8 @@
   "profileTranslation": [-0.03, 0.35, 0],
   "rootBone": "munchlax",
   "animations": {
-    "cry": "q.bedrock_stateful('munchlax', 'cry')"
+    "cry": "q.bedrock_stateful('munchlax', 'cry')",
+    "recoil": "q.bedrock_stateful('munchlax','recoil')"
   },
   "poses": {
     "standing": {
@@ -16,21 +17,24 @@
         "PORTRAIT",
         "PROFILE",
         "FLOAT",
-        "HOVER",
-        "SLEEP"
+        "HOVER"
       ],
       "animations": ["q.look('head')", "q.bedrock('munchlax', 'ground_idle')"],
-      "quirks": ["q.bedrock_quirk('munchlax', 'blink')"]
+      "quirks": ["q.bedrock_quirk('munchlax', 'blink')","q.bedrock_quirk('munchlax','eat_food')","q.bedrock_quirk('munchlax','quirk_idle')"]
     },
     "walking": {
       "poseName": "walking",
       "poseTypes": ["WALK", "SWIM", "FLY"],
       "animations": [
         "q.look('head')",
-        "q.bedrock('munchlax', 'ground_idle')",
-        "q.biped_walk(1, 1, 'foot_left', 'foot_right')"
+        "q.bedrock('munchlax', 'ground_idle')"
       ],
       "quirks": ["q.bedrock_quirk('munchlax', 'blink')"]
+    },
+    "sleeping": {
+      "poseName": "sleeping",
+      "poseTypes": ["SLEEP"],
+      "animations": "q.bedrock('munchlax','sleep')"
     }
   }
 }

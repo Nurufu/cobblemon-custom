@@ -12,7 +12,7 @@
   "poses": {
     "portrait": {
       "poseTypes": ["PORTRAIT"],
-      "animations": ["q.bedrock('porygon2', 'portrait_idle')"],
+      "animations": ["q.bedrock('porygon2', 'ground_idle')"],
       "quirks": ["q.bedrock_quirk('porygon2', 'blink')"]
     },
     "battle-standing": {
