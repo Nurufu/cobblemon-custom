@@ -681,7 +681,6 @@ object PokemonModelRepository : VaryingModelRepository<PokemonEntity, PokemonPos
         inbuilt("rowlet_hisui_bias", ::RowletHisuiBiasModel)
         inbuilt("dartrix_hisui_bias", ::DartrixHisuiBiasModel)
         inbuilt("decidueye_hisuian", ::DecidueyeHisuianModel)
-        inbuilt("smeargle", ::SmeargleModel)
     }
 
     override fun loadJsonPoser(json: String): (Bone) -> PokemonPoseableModel {

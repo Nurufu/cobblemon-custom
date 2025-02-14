@@ -39,6 +39,16 @@
         "cry": "q.bedrock_stateful('dummy', 'cry')"
       },
       "animations": ["q.bedrock('smeargle', 'sleep')"]
+    },
+    "hover": {
+      "poseTypes": ["HOVER"],
+      "animations": ["q.bedrock('smeargle', 'air_idle')"],
+      "quirks": ["q.bedrock_quirk('smeargle', 'blink')"]
+    },
+    "fly": {
+      "poseTypes": ["FLY"],
+      "animations": ["q.bedrock('smeargle', 'air_idle')"],
+      "quirks": ["q.bedrock_quirk('smeargle', 'blink')"]
     }
   }
 }
