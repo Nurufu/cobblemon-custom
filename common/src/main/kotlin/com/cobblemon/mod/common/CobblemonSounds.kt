@@ -25,6 +25,8 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
 
     @JvmField
     val GUI_CLICK = this.create("gui.click")
+    @JvmField
+    val GUI_TRADE = this.create("gui.trade")
 
     @JvmField
     val PC_ON = this.create("pc.on")
@@ -40,7 +42,9 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     val PC_CLICK = this.create("pc.click")
 
     @JvmField
-    val HEALING_MACHINE_ACTIVE = this.create("healing_machine.active")
+    val VILLAGER_WORK_NURSE = this.create("entity.villager.work_nurse")
+    @JvmField
+    val HEALING_MACHINE_ACTIVE = this.create("block.healing_machine.active")
 
     @JvmField
     val POKE_BALL_HIT = this.create("poke_ball.hit")
@@ -60,11 +64,11 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     @JvmField
     val ITEM_USE = this.create("item.use")
     @JvmField
-    val CAN_EVOLVE = this.create("pokemon.can_evolve")
+    val CAN_EVOLVE = this.create("evolution.notification")
     @JvmField
-    val EVOLVING = this.create("pokemon.evolving")
+    val EVOLVING = this.create("evolution.full")
     @JvmField
-    val EVOLVE = this.create("evolution.evolve")
+    val EVOLVE = this.create("evolution.full")
 
     @JvmField
     val PVN_BATTLE = this.create("battle.pvn.default")
@@ -74,120 +78,122 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     val PVW_BATTLE = this.create("battle.pvw.default")
 
     @JvmField
-    val MEDICINE_HERB_USE = this.create("medicine_herb.use")
+    val MEDICINE_HERB_USE = this.create("item.medicine_herb.use")
     @JvmField
-    val MEDICINE_LIQUID_USE = this.create("medicine_liquid.use")
+    val MEDICINE_LIQUID_USE = this.create("item.medicine_liquid.use")
     @JvmField
-    val MEDICINE_PILLS_USE = this.create("medicine_pills.use")
+    val MEDICINE_PILLS_USE = this.create("item.medicine_pills.use")
     @JvmField
-    val MEDICINE_SPRAY_USE = this.create("medicine_spray.use")
+    val MEDICINE_SPRAY_USE = this.create("item.medicine_spray.use")
     @JvmField
-    val MEDICINE_FEATHER_USE = this.create("medicine_feather.use")
+    val MEDICINE_FEATHER_USE = this.create("item.medicine_feather.use")
 
     @JvmField
-    val BERRY_HARVEST = this.create("berry.harvest")
+    val MULCH_PLACE = this.create("block.mulch.place")
     @JvmField
-    val BERRY_EAT = this.create("berry.eat")
+    val MULCH_REMOVE = this.create("block.mulch.remove")
+
 
     @JvmField
-    val MULCH_PLACE = this.create("mulch.place")
+    val FOSSIL_MACHINE_ACTIVATE = this.create("block.fossil_machine.activate")
     @JvmField
-    val MULCH_REMOVE = this.create("mulch.remove")
+    val FOSSIL_MACHINE_ACTIVE_LOOP = this.create("block.fossil_machine.active_loop")
+    @JvmField
+    val FOSSIL_MACHINE_ASSEMBLE = this.create("block.fossil_machine.assemble")
+    @JvmField
+    val FOSSIL_MACHINE_DNA_FULL = this.create("block.fossil_machine.dna_full")
+    @JvmField
+    val FOSSIL_MACHINE_FINISHED = this.create("block.fossil_machine.finished")
+    @JvmField
+    val FOSSIL_MACHINE_INSERT_DNA = this.create("block.fossil_machine.insert_dna")
+    @JvmField
+    val FOSSIL_MACHINE_INSERT_DNA_SMALL = this.create("block.fossil_machine.insert_dna_small")
+    @JvmField
+    val FOSSIL_MACHINE_INSERT_FOSSIL = this.create("block.fossil_machine.insert_fossil")
+    @JvmField
+    val FOSSIL_MACHINE_RETRIEVE_FOSSIL = this.create("block.fossil_machine.retrieve_fossil")
+    @JvmField
+    val FOSSIL_MACHINE_RETRIEVE_POKEMON = this.create("block.fossil_machine.retrieve_pokemon")
+    @JvmField
+    val FOSSIL_MACHINE_UNPROTECTED = this.create("block.fossil_machine.unprotected")
+
 
     @JvmField
-    val FOSSIL_MACHINE_ACTIVATE = this.create("fossil_machine.activate")
+    val RELIC_COIN_SACK_BREAK = this.create("block.relic_coin_sack.break")
     @JvmField
-    val FOSSIL_MACHINE_ACTIVE_LOOP = this.create("fossil_machine.active_loop")
+    val RELIC_COIN_SACK_HIT = this.create("block.relic_coin_sack.hit")
     @JvmField
-    val FOSSIL_MACHINE_ASSEMBLE = this.create("fossil_machine.assemble")
+    val RELIC_COIN_SACK_STEP = this.create("block.relic_coin_sack.step")
     @JvmField
-    val FOSSIL_MACHINE_DNA_FULL = this.create("fossil_machine.dna_full")
+    val RELIC_COIN_SACK_PLACE = this.create("block.relic_coin_sack.place")
     @JvmField
-    val FOSSIL_MACHINE_FINISHED = this.create("fossil_machine.finished")
+    val RELIC_COIN_POUCH_BREAK = this.create("block.relic_coin_pouch.break")
     @JvmField
-    val FOSSIL_MACHINE_INSERT_DNA = this.create("fossil_machine.insert_dna")
-    @JvmField
-    val FOSSIL_MACHINE_INSERT_DNA_SMALL = this.create("fossil_machine.insert_dna_small")
-    @JvmField
-    val FOSSIL_MACHINE_INSERT_FOSSIL = this.create("fossil_machine.insert_fossil")
-    @JvmField
-    val FOSSIL_MACHINE_RETRIEVE_FOSSIL = this.create("fossil_machine.retrieve_fossil")
-    @JvmField
-    val FOSSIL_MACHINE_RETRIEVE_POKEMON = this.create("fossil_machine.retrieve_pokemon")
-    @JvmField
-    val FOSSIL_MACHINE_UNPROTECTED = this.create("fossil_machine.unprotected")
+    val RELIC_COIN_POUCH_PLACE = this.create("block.relic_coin_pouch.place")
 
     @JvmField
-    val RELIC_COIN_SACK_BREAK = this.create("relic_coin_sack.break")
+    val TUMBLESTONE_BREAK = this.create("block.tumblestone.break")
     @JvmField
-    val RELIC_COIN_SACK_HIT = this.create("relic_coin_sack.hit")
+    val TUMBLESTONE_BLOCK_BREAK = this.create("block.tumblestone.block_break")
     @JvmField
-    val RELIC_COIN_SACK_STEP = this.create("relic_coin_sack.step")
+    val TUMBLESTONE_HIT = this.create("block.tumblestone.hit")
     @JvmField
-    val RELIC_COIN_SACK_PLACE = this.create("relic_coin_sack.place")
+    val TUMBLESTONE_PLACE = this.create("block.tumblestone.place")
     @JvmField
-    val RELIC_COIN_POUCH_BREAK = this.create("relic_coin_pouch.break")
-    @JvmField
-    val RELIC_COIN_POUCH_PLACE = this.create("relic_coin_pouch.place")
+    val TUMBLESTONE_STEP = this.create("block.tumblestone.step")
 
     @JvmField
-    val TUMBLESTONE_BREAK = this.create("tumblestone.break")
+    val GIMMIGHOUL_GIVE_ITEM = this.create("pokemon.gimmighoul.give_item")
     @JvmField
-    val TUMBLESTONE_BLOCK_BREAK = this.create("tumblestone.block_break")
-    @JvmField
-    val TUMBLESTONE_HIT = this.create("tumblestone.hit")
-    @JvmField
-    val TUMBLESTONE_PLACE = this.create("tumblestone.place")
-    @JvmField
-    val TUMBLESTONE_STEP = this.create("tumblestone.step")
+    val GIMMIGHOUL_REVEAL = this.create("pokemon.gimmighoul.reveal")
 
     @JvmField
-    val GIMMIGHOUL_GIVE_ITEM_SMALL = this.create("gimmighoul.give_item_small")
+    val BERRY_BUSH_BREAK = this.create("block.berry_bush.break")
     @JvmField
-    val GIMMIGHOUL_REVEAL = this.create("gimmighoul.reveal")
+    val BERRY_BUSH_PLACE = this.create("block.berry_bush.place")
+    @JvmField
+    val BERRY_HARVEST = this.create("block.berry_bush.harvest")
+    @JvmField
+    val BERRY_EAT = this.create("item.berry.eat")
 
     @JvmField
-    val BERRY_BUSH_BREAK = this.create("berry_bush.break")
+    val BIG_ROOT_BREAK = this.create("block.big_root.break")
     @JvmField
-    val BERRY_BUSH_PLACE = this.create("berry_bush.place")
+    val ENERGY_ROOT_PLACE = this.create("block.energy_root.place")
 
     @JvmField
-    val BIG_ROOT_BREAK = this.create("big_root.break")
+    val VIVICHOKE_BREAK = this.create("block.vivichoke.break")
     @JvmField
-    val ENERGY_ROOT_PLACE = this.create("energy_root.place")
+    val VIVICHOKE_PLACE = this.create("block.vivichoke.place")
 
     @JvmField
-    val VIVICHOKE_BREAK = this.create("vivichoke.break")
+    val MINT_BREAK = this.create("block.mint.break")
     @JvmField
-    val VIVICHOKE_PLACE = this.create("vivichoke.place")
+    val MINT_PLACE = this.create("block.mint.place")
 
     @JvmField
-    val MINT_BREAK = this.create("mint.break")
+    val REVIVAL_HERB_BREAK = this.create("block.revival_herb.break")
     @JvmField
-    val MINT_PLACE = this.create("mint.place")
+    val REVIVAL_HERB_PLACE = this.create("block.revival_herb.place")
 
     @JvmField
-    val REVIVAL_HERB_BREAK = this.create("revival_herb.break")
+    val MEDICINAL_LEEK_BREAK = this.create("block.medicinal_leek.break")
     @JvmField
-    val REVIVAL_HERB_PLACE = this.create("revival_herb.place")
+    val MEDICINAL_LEEK_PLACE = this.create("block.medicinal_leek.plant")
 
     @JvmField
-    val MEDICINAL_LEEK_BREAK = this.create("medicinal_leek.break")
+    val GILDED_CHEST_OPEN = this.create("block.gilded_chest.open")
     @JvmField
-    val MEDICINAL_LEEK_PLACE = this.create("medicinal_leek.plant")
+    val GILDED_CHEST_CLOSE = this.create("block.gilded_chest.close")
+    @JvmField
+    val GILDED_CHEST_STEP = this.create("block.gilded_chest.step")
+    @JvmField
+    val GILDED_CHEST_HIT = this.create("block.gilded_chest.hit")
+    @JvmField
+    val GILDED_CHEST_BREAK = this.create("block.gilded_chest.break")
+    @JvmField
+    val GILDED_CHEST_PLACE = this.create("block.gilded_chest.place")
 
-    @JvmField
-    val GILDED_CHEST_OPEN = this.create("gilded_chest.open")
-    @JvmField
-    val GILDED_CHEST_CLOSE = this.create("gilded_chest.close")
-    @JvmField
-    val GILDED_CHEST_STEP = this.create("gilded_chest.step")
-    @JvmField
-    val GILDED_CHEST_HIT = this.create("gilded_chest.hit")
-    @JvmField
-    val GILDED_CHEST_BREAK = this.create("gilded_chest.break")
-    @JvmField
-    val GILDED_CHEST_PLACE = this.create("gilded_chest.place")
 
     @JvmField
     val RELIC_COIN_SACK_SOUNDS = BlockSoundGroup(1f, 1f,
@@ -205,6 +211,13 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
         RELIC_COIN_SACK_HIT,
         RELIC_COIN_SACK_STEP
     )
+
+    @JvmField
+    val MOVE_QUICKATTACK_TARGET = this.create("move.quickattack.target")
+    @JvmField
+    val MOVE_PURSUIT_TARGET = this.create("move.pursuit.target")
+    @JvmField
+    val MOVE_PSYCHIC_TARGET = this.create("move.psychic.target")
 
     @JvmField
     val IMPACT_NORMAL = this.create("impact.normal")

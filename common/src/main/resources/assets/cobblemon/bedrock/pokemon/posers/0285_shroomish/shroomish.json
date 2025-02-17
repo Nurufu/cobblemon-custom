@@ -1,0 +1,33 @@
+{
+  "head": "head",
+  "portraitScale": 2,
+  "portraitTranslation": [-0.1, -1.2, 0.0],
+  "profileScale": 1,
+  "profileTranslation": [0.0, 0.3, 0.0],
+  "rootBone": "shroomish",
+  "animations": {
+    "cry": "q.bedrock_stateful('shroomish', 'cry')",
+    "faint": "q.bedrock_primary('shroomish', 'faint')"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": ["PORTRAIT", "PROFILE"],
+      "animations": ["q.look('head')", "q.bedrock('shroomish', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('shroomish', 'blink')"]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE"],
+      "animations": ["q.look('head')", "q.bedrock('shroomish', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('shroomish', 'blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "SWIM"],
+      "animations": ["q.look('head')", "q.bedrock('shroomish', 'ground_walk')"],
+      "quirks": ["q.bedrock_quirk('shroomish', 'blink')"]
+    },
+    "sleeping": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('shroomish', 'sleep')"]
+    }
+  }
+}

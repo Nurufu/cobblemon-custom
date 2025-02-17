@@ -11,8 +11,6 @@
   "poses": {
     "portrait": {
       "poseTypes": ["PORTRAIT", "PROFILE"],
-      "isBattle": false,
-      "isTouchingWater": false,
       "animations": ["q.look('head_ai')", "q.bedrock('taillow', 'ground_idle')"]
     },
     "battle-flying": {
@@ -33,18 +31,14 @@
     },
     "standing": {
       "poseTypes": ["STAND", "NONE"],
-      "isBattle": false,
-      "isTouchingWater": false,
       "animations": ["q.look('head_ai')", "q.bedrock('taillow', 'ground_idle')"]
     },
     "walking": {
       "poseTypes": ["WALK", "SWIM"],
-      "isTouchingWater": false,
       "animations": ["q.look('head_ai')", "q.bedrock('taillow', 'ground_walk')"]
     },
     "fly": {
       "poseTypes": ["FLY"],
-      "isBattle": false,
       "animations": ["q.look('head_ai')", "q.bedrock('taillow', 'air_fly')"]
     }
   }

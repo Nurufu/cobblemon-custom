@@ -3,14 +3,14 @@
   "order": 1,
   "variations": [
     {
-      "aspects": ["west"],
+      "aspects": ["west-sea"],
       "poser": "cobblemon:gastrodon_west",
       "model": "cobblemon:gastrodon_west.geo",
       "texture": "cobblemon:textures/pokemon/0423_gastrodon/gastrodon_west.png",
       "layers": []
     },
     {
-      "aspects": ["west", "shiny"],
+      "aspects": ["shiny", "west-sea"],
       "texture": "cobblemon:textures/pokemon/0423_gastrodon/gastrodon_west_shiny.png"
     }
   ]
