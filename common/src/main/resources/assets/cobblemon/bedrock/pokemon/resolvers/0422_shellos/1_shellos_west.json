@@ -4,7 +4,7 @@
   "variations": [
     {
       "aspects": ["west-sea"],
-      "poser": "cobblemon:shellos_west",
+      "poser": "cobblemon:shellos",
       "model": "cobblemon:shellos_west.geo",
       "texture": "cobblemon:textures/pokemon/0422_shellos/shellos_west.png",
       "layers": []

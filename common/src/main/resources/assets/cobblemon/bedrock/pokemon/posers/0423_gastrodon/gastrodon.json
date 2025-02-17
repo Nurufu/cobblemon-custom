@@ -1,0 +1,28 @@
+{
+  "head": "head",
+  "portraitScale": 1.8,
+  "portraitTranslation": [ -0.7, 0.7, 0 ],
+  "profileScale": 0.9,
+  "profileTranslation": [ 0, 0.4, 0 ],
+  "poses": {
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "FLOAT",
+        "PORTRAIT",
+        "PROFILE",
+        "NONE"
+      ],
+      "animations": ["q.bedrock('gastrodon', 'ground_idle')"]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK",
+        "SWIM"
+      ],
+      "animations": [
+        "q.bedrock('gastrodon', 'ground_walk')"
+      ]
+    }
+  }
+}

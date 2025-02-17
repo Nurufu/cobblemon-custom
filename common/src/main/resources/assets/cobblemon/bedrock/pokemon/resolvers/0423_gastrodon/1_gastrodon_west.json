@@ -4,7 +4,7 @@
   "variations": [
     {
       "aspects": ["west-sea"],
-      "poser": "cobblemon:gastrodon_west",
+      "poser": "cobblemon:gastrodon",
       "model": "cobblemon:gastrodon_west.geo",
       "texture": "cobblemon:textures/pokemon/0423_gastrodon/gastrodon_west.png",
       "layers": []
