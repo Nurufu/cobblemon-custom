@@ -5,7 +5,7 @@
     "spawns": [
         {
             "id": "floette-eternal-1",
-            "pokemon": "floette eternal",
+            "pokemon": "floette flower=none eternal",
             "type": "pokemon",
             "presets": [
                 "natural"
@@ -34,7 +34,7 @@
         },
         {
             "id": "floette-eternal-2",
-            "pokemon": "floette eternal",
+            "pokemon": "floette flower=none eternal",
             "type": "pokemon",
             "presets": [
                 "natural"
