@@ -1,0 +1,46 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+        {
+            "id": "rufflet-1",
+            "pokemon": "rufflet",
+            "presets": [
+                "natural",
+                "treetop"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "common",
+            "level": "7-35",
+            "weight": 2.0,
+            "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_forest"
+                ]
+            },
+            "anticondition": {
+                "biomes": [
+                    "#cobblemon:is_freezing"
+                ]
+            }
+        },
+        {
+            "id": "rufflet-2",
+            "pokemon": "rufflet",
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "common",
+            "level": "15-40",
+            "weight": 2.0,
+            "condition": {
+                "biomes": [
+                    "#minecraft:is_savanna"
+                ]
+            }
+        }
+    ]
+}
