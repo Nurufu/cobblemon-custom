@@ -487,8 +487,6 @@ object PokemonModelRepository : VaryingModelRepository<PokemonEntity, PokemonPos
         inbuilt("annihilape", ::AnnihilapeModel)
         inbuilt("ponyta_galarian", ::PonytaGalarianModel)
         inbuilt("rapidash_galarian", ::RapidashGalarianModel)
-        inbuilt("volbeat", ::VolbeatModel)
-        inbuilt("illumise", ::IllumiseModel)
         inbuilt("yamper", ::YamperModel)
         inbuilt("boltund", ::BoltundModel)
         inbuilt("tinkatink", ::TinkatinkModel)

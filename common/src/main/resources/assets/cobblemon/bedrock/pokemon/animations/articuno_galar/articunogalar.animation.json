@@ -224,6 +224,14 @@
 					"position": [6, 0, 0]
 				}
 			}
+		},
+		"animation.articunogalar.cry": {
+			"animation_length": 1,
+			"sound_effects": {
+				"0.0": {
+					"effect": "pokemon.articuno.cry"
+				}
+			}
 		}
 	}
 }

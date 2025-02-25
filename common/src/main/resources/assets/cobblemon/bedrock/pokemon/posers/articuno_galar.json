@@ -4,6 +4,9 @@
   "portraitTranslation": [ 0, 3.5, 0 ],
   "profileScale": 0.55,
   "profileTranslation": [ 0, 1.25, 0 ],
+  "animations": {
+    "cry": "q.bedrock_stateful('articunogalar', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

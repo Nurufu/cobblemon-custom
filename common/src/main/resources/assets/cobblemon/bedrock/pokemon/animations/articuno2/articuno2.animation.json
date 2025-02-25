@@ -598,6 +598,14 @@
 					"rotation": [39.47824, 5.87457, 5.06653]
 				}
 			}
+		},
+		"animation.articuno2.cry": {
+			"animation_length": 1,
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.articuno.cry"
+				}
+			}
 		}
 	}
 }

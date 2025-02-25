@@ -721,8 +721,8 @@
 				}
 			},
 			"sound_effects": {
-				"0.0": {
-					"effect": "illumise_ambient"
+				"0.0417": {
+					"effect": "pokemon.illumise.cry"
 				}
 			}
 		},

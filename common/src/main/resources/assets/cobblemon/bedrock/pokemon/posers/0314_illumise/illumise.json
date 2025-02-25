@@ -1,0 +1,49 @@
+{
+  "portraitScale": 2,
+  "portraitTranslation": [-0.2, -0.3, 0],
+  "profileScale": 0.9,
+  "profileTranslation": [0, 0.3, 0],
+  "rootBone": "illumise",
+  "animations": {
+    "cry": "q.bedrock_stateful('illumise', 'cry')"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "namedAnimations": {
+        "cry": "q.bedrock_primary('illumise', 'cry', q.curve('symmetrical'))"
+      },
+      "animations": ["q.bedrock('illumise', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('illumise','flicker_quirk')","q.bedrock_quirk('illumise','blink')"]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "FLOAT", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "animations": ["q.look('head')", "q.bedrock('illumise', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('illumise','flicker_quirk')","q.bedrock_quirk('illumise','blink')"]
+    },
+    "flying": {
+      "poseTypes": ["FLY"],
+      "animations": ["q.look('head')", "q.bedrock('illumise', 'air_fly')"],
+      "quirks": ["q.bedrock_quirk('illumise','blink')"]
+    },
+    "hover": {
+      "poseTypes": ["HOVER"],
+      "animations": ["q.look('head')", "q.bedrock('illumise', 'air_idle')"],
+      "quirks": ["q.bedrock_quirk('illumise','blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "SWIM"],
+      "animations": ["q.look('head')", "q.bedrock('illumise', 'ground_walk')"],
+      "quirks": ["q.bedrock_quirk('illumise','blink')"]
+    },
+    "sleep": {
+      "poseTypes": ["SLEEP"],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      },
+      "animations": ["q.bedrock('illumise', 'sleep')"]
+    }
+  }
+}
