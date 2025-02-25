@@ -26,7 +26,7 @@ import net.minecraft.text.Text
  */
 class SwapMoveButton(
     val pX: Int, val pY: Int,
-    var move: MoveTemplate,
+    var move: MoveTemplate?,
     var movesWidget: MovesWidget,
     onPress: PressAction
 ): ButtonWidget((pX + OFFSET_X).toInt(), (pY + OFFSET_Y).toInt(), (WIDTH * SCALE).toInt(), (HEIGHT * SCALE).toInt(), Text.empty(), onPress, DEFAULT_NARRATION_SUPPLIER) {
@@ -42,14 +42,15 @@ class SwapMoveButton(
         private const val OFFSET_Y = 6.5F
         private const val SCALE = 0.5F
         private val switchMoveButtonResource = cobblemonResource("textures/gui/summary/summary_move_swap.png")
+        private val addMoveButtonResource = cobblemonResource("textures/gui/summary/summary_move_add.png")
     }
 
     override fun renderButton(context: DrawContext, pMouseX: Int, pMouseY: Int, pPartialTicks: Float) {
         val swapScreen = movesWidget.summary.sideScreen
-        var selected = if (swapScreen is MoveSwapScreen) swapScreen.replacedMove?.template == move else false
+        val selected = if (swapScreen is MoveSwapScreen) swapScreen.replacedMove?.template == move else false
         blitk(
             matrixStack = context.matrices,
-            texture = switchMoveButtonResource,
+            texture = if(move==null) addMoveButtonResource else switchMoveButtonResource,
             x = (pX + OFFSET_X) / SCALE,
             y = (pY + OFFSET_Y) / SCALE,
             width = WIDTH,

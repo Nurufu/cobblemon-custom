@@ -14,6 +14,7 @@ import com.cobblemon.mod.common.api.moves.Moves
 import com.cobblemon.mod.common.api.text.bold
 import com.cobblemon.mod.common.api.text.gold
 import com.cobblemon.mod.common.api.text.red
+import com.cobblemon.mod.common.api.types.ElementalType
 import com.cobblemon.mod.common.client.CobblemonResources
 import com.cobblemon.mod.common.client.gui.MoveCategoryIcon
 import com.cobblemon.mod.common.client.gui.TypeIcon
@@ -28,9 +29,9 @@ import net.minecraft.util.math.MathHelper
 
 class MoveSlotWidget(
     pX: Int, pY: Int,
-    val move: Move,
+    val move: Move?,
     private val movesWidget: MovesWidget
-): SoundlessWidget(pX, pY, MOVE_WIDTH, MOVE_HEIGHT, Text.literal(move.name)) {
+): SoundlessWidget(pX, pY, MOVE_WIDTH, MOVE_HEIGHT, Text.literal(move?.name ?: "")) {
 
     companion object {
         private val moveResource = cobblemonResource("textures/gui/summary/summary_move.png")
@@ -54,7 +55,7 @@ class MoveSlotWidget(
         addWidget(this)
     }
 
-    private val switchMoveButton = SwapMoveButton(x, y, move.template, movesWidget) {
+    private val switchMoveButton = SwapMoveButton(x, y, move?.template, movesWidget) {
         movesWidget.selectMove(null)
         if (movesWidget.summary.sideScreenIndex == Summary.MOVE_SWAP) {
             movesWidget.summary.displaySideScreen(Summary.PARTY)
@@ -69,85 +70,87 @@ class MoveSlotWidget(
         val matrices = context.matrices
         hovered = pMouseX >= x && pMouseY >= y && pMouseX < x + width && pMouseY < y + height
 
-        val moveTemplate = Moves.getByNameOrDummy(move.name)
-        val rgb = moveTemplate.elementalType.hue.toRGB()
+        if(move != null) {
+            val moveTemplate = Moves.getByNameOrDummy(move.name)
+            val rgb = moveTemplate.elementalType.hue.toRGB()
 
-        if (movesWidget.selectedMove == move) {
+            if (movesWidget.selectedMove == move) {
+                blitk(
+                    matrixStack = matrices,
+                    texture = moveSelectedOverlayResource,
+                    x = x - 1,
+                    y = y - 1,
+                    width = MOVE_WIDTH + 2,
+                    height = MOVE_HEIGHT + 2
+                )
+            }
+
             blitk(
                 matrixStack = matrices,
-                texture = moveSelectedOverlayResource,
-                x = x - 1,
-                y = y - 1,
-                width = MOVE_WIDTH + 2,
-                height = MOVE_HEIGHT + 2
+                texture = moveResource,
+                x = x,
+                y = y,
+                width = MOVE_WIDTH,
+                height = MOVE_HEIGHT,
+                vOffset = if (isHovered) MOVE_HEIGHT else 0,
+                textureHeight = MOVE_HEIGHT * 2,
+                red = rgb.first,
+                green = rgb.second,
+                blue = rgb.third
             )
+
+            blitk(
+                matrixStack = matrices,
+                texture = moveOverlayResource,
+                x = x,
+                y = y,
+                width = MOVE_WIDTH,
+                height = MOVE_HEIGHT
+            )
+
+            var movePPText = Text.literal("${move.currentPp}/${move.maxPp}").bold()
+
+            if (move.currentPp <= MathHelper.floor(move.maxPp / 2F)) {
+                movePPText = if (move.currentPp == 0) movePPText.red() else movePPText.gold()
+            }
+
+            drawScaledText(
+                context = context,
+                font = CobblemonResources.DEFAULT_LARGE,
+                text = movePPText,
+                x = x + 93,
+                y = y + 13,
+                centered = true
+            )
+
+            // Type Icon
+            TypeIcon(
+                x = x + 2,
+                y = y + 2,
+                type = moveTemplate.elementalType
+            ).render(context)
+
+            // Move Category
+            MoveCategoryIcon(
+                x = x + 66,
+                y = y + 13.5,
+                category = move.damageCategory
+            ).render(context)
+
+            // Move Name
+            drawScaledText(
+                context = context,
+                font = CobblemonResources.DEFAULT_LARGE,
+                text = move.displayName.bold(),
+                x = x + 28,
+                y = y + 2,
+                shadow = true
+            )
+
+            // Reorder Buttons
+            moveUpButton.render(context, pMouseX, pMouseY, pPartialTicks)
+            moveDownButton.render(context, pMouseX, pMouseY, pPartialTicks)
         }
-
-        blitk(
-            matrixStack = matrices,
-            texture = moveResource,
-            x = x,
-            y = y,
-            width = MOVE_WIDTH,
-            height = MOVE_HEIGHT,
-            vOffset = if (isHovered) MOVE_HEIGHT else 0,
-            textureHeight = MOVE_HEIGHT * 2,
-            red = rgb.first,
-            green = rgb.second,
-            blue = rgb.third
-        )
-
-        blitk(
-            matrixStack = matrices,
-            texture = moveOverlayResource,
-            x = x,
-            y = y,
-            width = MOVE_WIDTH,
-            height = MOVE_HEIGHT
-        )
-
-        var movePPText = Text.literal("${move.currentPp}/${move.maxPp}").bold()
-
-        if (move.currentPp <= MathHelper.floor(move.maxPp / 2F)) {
-            movePPText = if (move.currentPp == 0) movePPText.red() else movePPText.gold()
-        }
-
-        drawScaledText(
-            context = context,
-            font = CobblemonResources.DEFAULT_LARGE,
-            text = movePPText,
-            x = x + 93,
-            y = y + 13,
-            centered = true
-        )
-
-        // Type Icon
-        TypeIcon(
-            x = x + 2,
-            y = y + 2,
-            type = moveTemplate.elementalType
-        ).render(context)
-
-        // Move Category
-        MoveCategoryIcon(
-            x = x + 66,
-            y = y + 13.5,
-            category = move.damageCategory
-        ).render(context)
-
-        // Move Name
-        drawScaledText(
-            context = context,
-            font = CobblemonResources.DEFAULT_LARGE,
-            text = move.displayName.bold(),
-            x = x + 28,
-            y = y + 2,
-            shadow = true
-        )
-
-        // Reorder Buttons
-        moveUpButton.render(context, pMouseX, pMouseY, pPartialTicks)
-        moveDownButton.render(context, pMouseX, pMouseY, pPartialTicks)
 
         // Switch Move Button
         switchMoveButton.render(context, pMouseX, pMouseY, pPartialTicks)

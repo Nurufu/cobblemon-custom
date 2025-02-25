@@ -50,17 +50,21 @@ class MovesWidget(
     var selectedMove: Move? = null
 
     private var index = -1
-    private val moves = summary.selectedPokemon.moveSet.getMoves().map { move ->
-        index++
-        MoveSlotWidget(
-            x + 13,
-            y + 6 + (MoveSlotWidget.MOVE_HEIGHT + 3) * index,
-            move,
-            this
-        )
-    }.toMutableList().onEach {
-        addWidget(it)
-    }
+    private val moves = (
+            if(summary.selectedPokemon.benchedMoves.count() > 0)
+                summary.selectedPokemon.moveSet.getMovesWithNulls()
+            else summary.selectedPokemon.moveSet
+            ).map { move ->
+                index++
+            MoveSlotWidget(
+                x+10,
+                y+6+(MoveSlotWidget.MOVE_HEIGHT+3) * index,
+                move,
+                this
+            )
+        }.toMutableList().onEach {
+            addWidget(it)
+        }
 
     override fun renderButton(context: DrawContext, pMouseX: Int, pMouseY: Int, pPartialTicks: Float) {
         val matrices = context.matrices
