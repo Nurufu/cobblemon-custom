@@ -24,7 +24,21 @@
       "poseTypes": [
         "WALK"
       ],
-      "animations": ["q.bedrock('spheal', 'ground_walk_placeholder')"]
+      "animations": ["q.bedrock('spheal', 'ground_walk')"]
+    },
+    "leftshoulder": {
+    "poseName": "leftshoulder",
+    "transformTicks": 10,
+    "poseTypes":["SHOULDER_LEFT"],
+    "animations":["q.bedrock('spheal', 'shoulder_left')"],
+    "quirks": ["q.bedrock_quirk('spheal','blink')"]
+    },
+    "rightshoulder": {
+    "poseName": "rightshoulder",
+    "transformTicks": 10,
+    "poseTypes":["SHOULDER_RIGHT"],
+    "animations":["q.bedrock('spheal', 'shoulder_right')"],
+    "quirks": ["q.bedrock_quirk('spheal','blink')"]
     }
   }
 }

@@ -30,6 +30,16 @@
     "sleep": {
       "poseTypes": ["SLEEP"],
       "animations": ["q.bedrock('bulbasaur', 'sleep')"]
+    },
+    "leftshoulder": {
+    "poseTypes": ["SHOULDER_LEFT"],
+    "animations": ["q.look('head')", "q.bedrock('bulbasaur', 'shoulder_left')"],
+    "quirks": ["q.bedrock_quirk('bulbasaur','blink')"]
+    },
+    "rightshoulder": {
+    "poseTypes": ["SHOULDER_RIGHT"],
+    "animations": ["q.look('head')", "q.bedrock('bulbasaur', 'shoulder_right')"],
+    "quirks": ["q.bedrock_quirk('bulbasaur','blink')"]
     }
   }
 }

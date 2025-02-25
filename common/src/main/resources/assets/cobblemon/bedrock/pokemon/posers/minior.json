@@ -27,6 +27,14 @@
         "animations": [ 
           "bedrock(minior, ground_walk)"
         ]
-      }
+      },
+          "leftshoulder": {
+      "poseTypes": ["SHOULDER_LEFT"],
+      "animations": ["q.bedrock('minior', 'shoulder_left')"]
+    },
+    "rightshoulder": {
+      "poseTypes": ["SHOULDER_RIGHT"],
+      "animations": ["q.bedrock('minior', 'shoulder_right')"]
+    }
     }
   }
