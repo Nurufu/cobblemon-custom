@@ -68,6 +68,8 @@ abstract class PoseableEntityState<T : Entity> : Schedulable {
             runtime.environment.getQueryStruct().addFunctions(value?.functions?.functions ?: hashMapOf())
         }
     var currentPose: String? = null
+    /** A kind of cache for the current aspects being rendered. It's a bit sloppily maintained but necessary. */
+    var currentAspects: Set<String> = emptySet()
     var primaryAnimation: PrimaryAnimation<T>? = null
     val statefulAnimations: MutableList<StatefulAnimation<T, *>> = mutableListOf()
     val quirks = mutableMapOf<ModelQuirk<T, *>, QuirkData<T>>()
