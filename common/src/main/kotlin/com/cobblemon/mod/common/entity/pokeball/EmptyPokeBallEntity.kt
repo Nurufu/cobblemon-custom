@@ -20,7 +20,6 @@ import com.cobblemon.mod.common.api.net.serializers.StringSetDataSerializer
 import com.cobblemon.mod.common.api.net.serializers.Vec3DataSerializer
 import com.cobblemon.mod.common.api.pokeball.PokeBalls
 import com.cobblemon.mod.common.api.pokeball.catching.CaptureContext
-import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.api.pokemon.status.Statuses
 import com.cobblemon.mod.common.api.reactive.SimpleObservable
 import com.cobblemon.mod.common.api.scheduling.Schedulable
@@ -40,7 +39,7 @@ import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.Poseable
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.entity.pokemon.PokemonServerDelegate
-import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
+import com.cobblemon.mod.common.net.messages.client.animation.PlayPosableAnimationPacket
 import com.cobblemon.mod.common.net.messages.client.battle.BattleCaptureStartPacket
 import com.cobblemon.mod.common.net.messages.client.effect.SpawnSnowstormEntityParticlePacket
 import com.cobblemon.mod.common.net.messages.client.spawn.SpawnPokeballPacket
@@ -64,7 +63,6 @@ import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket
 import net.minecraft.particle.ParticleTypes
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.sound.SoundEvents
-import net.minecraft.util.Identifier
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.hit.EntityHitResult
 import net.minecraft.util.hit.HitResult
@@ -311,7 +309,7 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
     }
 
     private fun ancientBallShake(animations: Set<String>) {
-        val pktShakeAncientAnimation = PlayPoseableAnimationPacket(this.id, animations, emptySet())
+        val pktShakeAncientAnimation = PlayPosableAnimationPacket(this.id, animations, emptySet())
         pktShakeAncientAnimation.sendToPlayersAround(
             x = this.x,
             y = this.y,
@@ -432,7 +430,7 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
         world.playSoundServer(pos, CobblemonSounds.POKE_BALL_HIT, volume = 1F)
 
         // Hit Pokémon plays recoil animation
-        val pkt = PlayPoseableAnimationPacket(pokemonEntity.id, setOf("recoil"), emptySet())
+        val pkt = PlayPosableAnimationPacket(pokemonEntity.id, setOf("recoil"), emptySet())
         pkt.sendToPlayersAround(
             x = pokemonEntity.x,
             y = pokemonEntity.y,

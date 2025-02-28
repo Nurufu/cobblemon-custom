@@ -21,6 +21,7 @@ import com.cobblemon.mod.common.api.scheduling.ScheduledTask
 import com.cobblemon.mod.common.api.scheduling.SchedulingTracker
 import com.cobblemon.mod.common.api.scheduling.afterOnClient
 import com.cobblemon.mod.common.api.scheduling.lerpOnClient
+import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.client.particle.BedrockParticleEffectRepository
 import com.cobblemon.mod.common.client.particle.ParticleStorm
 import com.cobblemon.mod.common.client.render.MatrixWrapper
@@ -32,10 +33,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.repository.Pokem
 import com.cobblemon.mod.common.client.render.pokemon.PokemonRenderer.Companion.ease
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.pokemon.Pokemon
-import com.cobblemon.mod.common.util.MovingSoundInstance
-import com.cobblemon.mod.common.util.asExpressionLike
-import com.cobblemon.mod.common.util.cobblemonResource
-import com.cobblemon.mod.common.util.resolve
+import com.cobblemon.mod.common.util.*
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.Entity
@@ -72,6 +70,7 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
     var ballStartTime = System.currentTimeMillis()
     var lastShinyParticle = System.currentTimeMillis()
     var shined = false
+    var notified = false
     var ballDone = false
     var ballOffset = 0f
     var ballRotOffset = 0f
@@ -208,12 +207,6 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                                             val ballsparkle = BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/ballsparkle"))
                                             ballsparkle?.let { effect ->
                                                 ParticleStorm(effect, wrapper, world).spawn()
-                                            }
-                                            currentEntity.after(seconds=0.1f){
-                                                if(currentEntity.pokemon.shiny && !currentEntity.isBattling) {
-                                                    playShinyEffect("cobblemon:shiny_ring")
-                                                    lastShinyParticle = System.currentTimeMillis()
-                                                }
                                             }
                                         }
                                     }
@@ -355,12 +348,19 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
         val player = MinecraftClient.getInstance().player ?: return
         val isWithinRange = player.pos.distanceTo(currentEntity.pos) <= Cobblemon.config.shinyNoticeParticlesDistance
 
-        if(currentEntity.pokemon.shiny && currentEntity.ownerUuid == null){
-            if(isWithinRange && !shined){
+        if(currentEntity.pokemon.shiny && currentEntity.ownerUuid == null && !player.isSpectator){
+            if(isWithinRange && !shined && !notified){
+                playShinyEffect("cobblemon:wild_shiny_ring")
+                player.sendMessage(currentEntity.pokemon.species.translatedName)
+                currentEntity.
+                shined = true
+                notified = true
+                lastShinyParticle = System.currentTimeMillis()
+            } else if(isWithinRange && !shined && notified){
                 playShinyEffect("cobblemon:wild_shiny_ring")
                 shined = true
                 lastShinyParticle = System.currentTimeMillis()
-            } else if (!isWithinRange) {
+            } else if (!isWithinRange && notified) {
                 shined = false
             }
         }
@@ -368,7 +368,9 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
 
     fun playShinyEffect(particleId: String){
         val locator = listOf("shiny_particles","middle").firstOrNull{this.locatorStates[it] != null} ?: "root"
+        check(locator != "root") {return}
         runtime.resolve("q.particle('$particleId', '$locator')".asExpressionLike())
+        Cobblemon.LOGGER.info(locator)
     }
 
     fun setPhaseTarget(targetId: Int) {

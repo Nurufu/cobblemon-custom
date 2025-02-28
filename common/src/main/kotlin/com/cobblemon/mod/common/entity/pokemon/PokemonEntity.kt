@@ -20,7 +20,6 @@ import com.cobblemon.mod.common.api.events.pokemon.ShoulderMountEvent
 import com.cobblemon.mod.common.api.interaction.PokemonEntityInteraction
 import com.cobblemon.mod.common.api.net.serializers.PoseTypeDataSerializer
 import com.cobblemon.mod.common.api.net.serializers.StringSetDataSerializer
-import com.cobblemon.mod.common.api.pokemon.PokemonProperties
 import com.cobblemon.mod.common.api.pokemon.feature.ChoiceSpeciesFeatureProvider
 import com.cobblemon.mod.common.api.pokemon.feature.FlagSpeciesFeature
 import com.cobblemon.mod.common.api.pokemon.feature.SpeciesFeatures
@@ -46,7 +45,7 @@ import com.cobblemon.mod.common.entity.pokemon.ai.PokemonNavigation
 import com.cobblemon.mod.common.entity.pokemon.ai.goals.*
 import com.cobblemon.mod.common.entity.pokemon.effects.EffectTracker
 import com.cobblemon.mod.common.entity.pokemon.effects.IllusionEffect
-import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
+import com.cobblemon.mod.common.net.messages.client.animation.PlayPosableAnimationPacket
 import com.cobblemon.mod.common.net.messages.client.sound.UnvalidatedPlaySoundS2CPacket
 import com.cobblemon.mod.common.net.messages.client.spawn.SpawnPokemonPacket
 import com.cobblemon.mod.common.net.messages.client.ui.InteractPokemonUIPacket
@@ -105,11 +104,8 @@ import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 import net.minecraft.text.TextContent
 import net.minecraft.util.ActionResult
-import net.minecraft.util.Colors
-import net.minecraft.util.DyeColor
 import net.minecraft.util.Hand
 import net.minecraft.util.Identifier
-import net.minecraft.util.Util
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Box
 import net.minecraft.util.math.Vec3d
@@ -1044,7 +1040,7 @@ open class PokemonEntity(
 
     fun cry() {
         if(this.isSilent) return
-        val pkt = PlayPoseableAnimationPacket(id, setOf("cry"), emptySet())
+        val pkt = PlayPosableAnimationPacket(id, setOf("cry"), emptySet())
         world.getEntitiesByClass(ServerPlayerEntity::class.java, Box.of(pos, 64.0, 64.0, 64.0), { true }).forEach {
             it.sendPacket(pkt)
         }

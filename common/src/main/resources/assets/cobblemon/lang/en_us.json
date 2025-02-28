@@ -6166,5 +6166,6 @@
   "advancements.cobblemon.catch_all_magikarp.description": "All for sale for 円500 each!",
   "advancements.cobblemon.catch_all_magikarp": "Aspiring Fisherman",
   "advancements.cobblemon.catch_all_magikarp.for_reals.description": "Now go for the real value",
-  "advancements.cobblemon.catch_all_magikarp.for_reals": "True Fisherman"
+  "advancements.cobblemon.catch_all_magikarp.for_reals": "True Fisherman",
+  "cobblemon.shiny.notif": "A shiny %1$s is nearby!"
 }

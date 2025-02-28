@@ -12,21 +12,17 @@ import com.bedrockk.molang.runtime.MoLangRuntime
 import com.cobblemon.mod.common.api.battles.interpreter.BattleMessage
 import com.cobblemon.mod.common.api.battles.model.PokemonBattle
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.addStandardFunctions
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.moves.animations.ActionEffectContext
 import com.cobblemon.mod.common.api.moves.animations.UsersProvider
 import com.cobblemon.mod.common.api.pokemon.status.Statuses
 import com.cobblemon.mod.common.api.text.red
 import com.cobblemon.mod.common.battles.ShowdownInterpreter
-import com.cobblemon.mod.common.battles.ShowdownInterpreter.lastCauser
 import com.cobblemon.mod.common.battles.dispatch.ActionEffectInstruction
 import com.cobblemon.mod.common.battles.dispatch.GO
 import com.cobblemon.mod.common.battles.dispatch.InstructionSet
 import com.cobblemon.mod.common.battles.dispatch.UntilDispatch
-import com.cobblemon.mod.common.battles.dispatch.WaitDispatch
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon
-import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
+import com.cobblemon.mod.common.net.messages.client.animation.PlayPosableAnimationPacket
 import com.cobblemon.mod.common.net.messages.client.battle.BattleHealthChangePacket
 import com.cobblemon.mod.common.net.messages.client.effect.RunPosableMoLangPacket
 import com.cobblemon.mod.common.pokemon.evolution.progress.DamageTakenEvolutionProgress
@@ -37,7 +33,6 @@ import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.lang
 import java.util.concurrent.CompletableFuture
 import net.minecraft.text.Text
-import net.minecraft.util.Identifier
 
 /**
  * Format: |-damage|POKEMON|HP STATUS
@@ -133,7 +128,7 @@ class DamageInstruction(
             val pokemonEntity = battlePokemon.entity
             //Play recoil animation if the pokemon recoiling isnt dead
             if (!causedFaint && pokemonEntity != null) {
-                val pkt = PlayPoseableAnimationPacket(pokemonEntity.id, setOf("recoil"), emptySet())
+                val pkt = PlayPosableAnimationPacket(pokemonEntity.id, setOf("recoil"), emptySet())
                 pkt.sendToPlayersAround(
                     x = pokemonEntity.x,
                     y = pokemonEntity.y,

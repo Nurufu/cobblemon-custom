@@ -13,7 +13,7 @@ import com.cobblemon.mod.common.api.net.NetworkPacket
 import com.cobblemon.mod.common.api.net.ServerNetworkPacketHandler
 import com.cobblemon.mod.common.client.net.PlayerInteractOptionsHandler
 import com.cobblemon.mod.common.client.net.SetClientPlayerDataHandler
-import com.cobblemon.mod.common.client.net.animation.PlayPoseableAnimationHandler
+import com.cobblemon.mod.common.client.net.animation.PlayPosableAnimationHandler
 import com.cobblemon.mod.common.client.net.battle.*
 import com.cobblemon.mod.common.client.net.callback.move.OpenMoveCallbackHandler
 import com.cobblemon.mod.common.client.net.callback.party.OpenPartyCallbackHandler
@@ -57,7 +57,7 @@ import com.cobblemon.mod.common.client.net.trade.TradeOfferNotificationHandler
 import com.cobblemon.mod.common.client.net.trade.TradeStartedHandler
 import com.cobblemon.mod.common.client.net.trade.TradeUpdatedHandler
 import com.cobblemon.mod.common.net.messages.client.PlayerInteractOptionsPacket
-import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
+import com.cobblemon.mod.common.net.messages.client.animation.PlayPosableAnimationPacket
 import com.cobblemon.mod.common.net.messages.client.battle.*
 import com.cobblemon.mod.common.net.messages.client.callback.OpenMoveCallbackPacket
 import com.cobblemon.mod.common.net.messages.client.callback.OpenPartyCallbackPacket
@@ -337,7 +337,7 @@ object CobblemonNetwork : NetworkManager {
         this.createClientBound(PokemonUnpasturedPacket.ID, PokemonUnpasturedPacket::decode, PokemonUnpasturedHandler)
 
         // Behaviours
-        this.createClientBound(PlayPoseableAnimationPacket.ID, PlayPoseableAnimationPacket::decode, PlayPoseableAnimationHandler)
+        this.createClientBound(PlayPosableAnimationPacket.ID, PlayPosableAnimationPacket::decode, PlayPosableAnimationHandler)
 
         // Move select packets
         this.createClientBound(OpenMoveCallbackPacket.ID, OpenMoveCallbackPacket::decode, OpenMoveCallbackHandler)

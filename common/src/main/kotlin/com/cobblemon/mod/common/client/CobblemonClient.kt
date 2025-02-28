@@ -146,7 +146,7 @@ object CobblemonClient {
         PlatformEvents.CLIENT_TICK_POST.subscribe { event ->
             val player = event.client.player
             val nearbyShinies = player?.world?.getOtherEntities(player, Box.of(player.pos, 16.0,16.0,16.0)) { (it is PokemonEntity) && it.pokemon.shiny }
-                nearbyShinies?.firstOrNull() {player.isLookingAt(it)}.let {
+                nearbyShinies?.firstOrNull() {player.isLookingAt(it) && !player.isSpectator}.let {
                     if(it is PokemonEntity)
                         it.delegate.spawnShinyParticle(player!!)
                 }
