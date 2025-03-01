@@ -220,7 +220,7 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                                         ballOffset = 0f
                                         ballRotOffset = 0f
                                         sendOutPosition = null
-                                }
+                                    }
 
                                 }
                             }
@@ -244,7 +244,7 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                             currentEntity.after(seconds=0.5F){
                                 ballDone = true
                             }
-                            if(!playedSendOutSound && client.soundManager.get(soundEvent.id) != null){
+                            if(!playedSendOutSound && client.soundManager.get(soundEvent.id) != null && currentEntity.ownerUuid != null){
                                 client.world?.playSound(
                                     client.player,
                                     soundPos.x,
@@ -325,8 +325,8 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                 return@Function DoubleValue(currentEntity.pokemon.species.weight.toDouble())
             },
             "evo_glow_time" to java.util.function.Function {
-              it.get<MoValue?>(0).asDouble().let { glowTime = (it * 20).toInt()}
-              return@Function DoubleValue(this.glowTime.toDouble())
+                it.get<MoValue?>(0).asDouble().let { glowTime = (it * 20).toInt()}
+                return@Function DoubleValue(this.glowTime.toDouble())
             },
             "friendship" to java.util.function.Function {
                 return@Function DoubleValue(currentEntity.pokemon.friendship.toDouble())
@@ -396,9 +396,9 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
     fun cry() {
         val model = currentModel ?: return
         if (model is PokemonPoseableModel) {
-           if (cryAnimation != null && (cryAnimation in statefulAnimations || cryAnimation == primaryAnimation)) {
-               return
-           }
+            if (cryAnimation != null && (cryAnimation in statefulAnimations || cryAnimation == primaryAnimation)) {
+                return
+            }
 
             val animation = model.cryAnimation(currentEntity, this) ?: return
             if (animation is PrimaryAnimation) {
