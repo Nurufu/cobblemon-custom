@@ -244,7 +244,7 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                             currentEntity.after(seconds=0.5F){
                                 ballDone = true
                             }
-                            if(!playedSendOutSound && client.soundManager.get(soundEvent.id) != null){
+                            if(!playedSendOutSound && client.soundManager.get(soundEvent.id) != null && currentEntity.ownerUuid != null){
                                 client.world?.playSound(
                                     client.player,
                                     soundPos.x,
