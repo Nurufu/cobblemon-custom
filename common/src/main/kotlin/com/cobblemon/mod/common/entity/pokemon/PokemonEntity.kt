@@ -142,6 +142,7 @@ open class PokemonEntity(
         @JvmStatic val FRIENDSHIP = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
         @JvmStatic val EVOLUTION_STARTED = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
         @JvmStatic val SHINED = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
+        @JvmStatic val PINGED = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
 
         const val BATTLE_LOCK = "battle"
         const val EVOLUTION_LOCK = "evolving"
@@ -485,7 +486,7 @@ open class PokemonEntity(
         if (!countsTowardsSpawnCap) {
             nbt.putBoolean(DataKeys.POKEMON_COUNTS_TOWARDS_SPAWN_CAP, false)
         }
-        if(aspects.contains("shiny") && this.ownerUuid == null){
+        if(!pokemon.isPlayerOwned() && aspects.contains("shiny") || pokemon.isLegendary() || pokemon.isUltraBeast() || pokemon.isMythical()){
             this.setPersistent()
         }
 

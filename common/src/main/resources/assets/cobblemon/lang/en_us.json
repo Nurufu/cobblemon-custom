@@ -6167,5 +6167,6 @@
   "advancements.cobblemon.catch_all_magikarp": "Aspiring Fisherman",
   "advancements.cobblemon.catch_all_magikarp.for_reals.description": "Now go for the real value",
   "advancements.cobblemon.catch_all_magikarp.for_reals": "True Fisherman",
-  "cobblemon.shiny.notif": "A shiny %1$s has appeared nearby %2$s!"
+  "cobblemon.shiny.notif": "A shiny %1$s has appeared nearby %2$s!",
+  "cobblemon.lege.notif": "A powerful entity has manifested near %1$s!"
 }

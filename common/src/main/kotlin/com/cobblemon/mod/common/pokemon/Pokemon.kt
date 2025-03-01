@@ -325,6 +325,12 @@ open class Pokemon : ShowdownIdentifiable {
             updateAspects()
         }
 
+    var pinged = false
+        set(value) {
+            field = value
+            updateAspects()
+        }
+
     var tradeable = true
         set(value) {
             field = value

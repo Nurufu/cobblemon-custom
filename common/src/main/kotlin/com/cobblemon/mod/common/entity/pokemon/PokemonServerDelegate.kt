@@ -154,6 +154,12 @@ class PokemonServerDelegate : PokemonSideDelegate {
             entity.pokemon.shined = true
         }
 
+        if(!entity.pokemon.isPlayerOwned() && !entity.pokemon.pinged && entity.pokemon.isLegendary() || entity.pokemon.isMythical() && !entity.pokemon.pinged || entity.pokemon.isUltraBeast() && !entity.pokemon.pinged)
+        {
+            legeNotif(entity)
+            entity.pokemon.pinged = true
+        }
+
         entity.dataTracker.update(PokemonEntity.BATTLE_ID) { opt ->
             val battleId = opt.orElse(null)
             if (battleId != null && BattleRegistry.getBattle(battleId).let { it == null || it.ended }) {
@@ -212,6 +218,27 @@ class PokemonServerDelegate : PokemonSideDelegate {
             }
         }
         players.forEach{it.sendMessage(lang("shiny.notif", entity.pokemon.species.translatedName, closest.name))}
+    }
+
+    fun legeNotif(pokemon: PokemonEntity) {
+        val world = entity.world as ServerWorld
+        val players = world.players
+        val close = ArrayList<ServerPlayerEntity>()
+        //players.forEach{it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance}
+        players.forEach{
+            if(it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance)
+            {
+                close.add(it)
+            }
+            closest = close[0]
+        }
+        close.forEach{
+            if(it.pos.distanceTo(pokemon.pos) < closest.pos.distanceTo(pokemon.pos))
+            {
+                closest = it
+            }
+        }
+        players.forEach{it.sendMessage(lang("lege.notif", closest.name))}
     }
 
     fun updatePoseType() {
