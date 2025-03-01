@@ -11,14 +11,17 @@ package com.cobblemon.mod.common.client.entity
 import com.bedrockk.molang.runtime.value.DoubleValue
 import com.bedrockk.molang.runtime.value.MoValue
 import com.bedrockk.molang.runtime.value.StringValue
+import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.entity.PokemonSideDelegate
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
+import com.cobblemon.mod.common.api.scheduling.ScheduledTask
 import com.cobblemon.mod.common.api.scheduling.SchedulingTracker
 import com.cobblemon.mod.common.api.scheduling.afterOnClient
 import com.cobblemon.mod.common.api.scheduling.lerpOnClient
+import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.client.particle.BedrockParticleEffectRepository
 import com.cobblemon.mod.common.client.particle.ParticleStorm
 import com.cobblemon.mod.common.client.render.MatrixWrapper
@@ -30,12 +33,12 @@ import com.cobblemon.mod.common.client.render.models.blockbench.repository.Pokem
 import com.cobblemon.mod.common.client.render.pokemon.PokemonRenderer.Companion.ease
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.pokemon.Pokemon
-import com.cobblemon.mod.common.util.MovingSoundInstance
-import com.cobblemon.mod.common.util.cobblemonResource
+import com.cobblemon.mod.common.util.*
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.Entity
 import net.minecraft.entity.data.TrackedData
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.sound.SoundCategory
 import net.minecraft.sound.SoundEvent
 import net.minecraft.util.Hand
@@ -47,6 +50,7 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
         const val BEAM_SHRINK_TIME = 0.4F
         const val BEAM_EXTEND_TIME = 0.2F
         const val POKEBALL_AIR_TIME = 0.5F
+        const val SHINY_PARTICLE_COOLDOWN = 3.5F
     }
 
     override val schedulingTracker: SchedulingTracker
@@ -64,6 +68,9 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
 
     var beamStartTime = System.currentTimeMillis()
     var ballStartTime = System.currentTimeMillis()
+    var lastShinyParticle = System.currentTimeMillis()
+    var shined = false
+    var notified = false
     var ballDone = false
     var ballOffset = 0f
     var ballRotOffset = 0f
@@ -80,7 +87,12 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
     val secondsSinceBallThrown: Float
         get() = (System.currentTimeMillis() - ballStartTime) / 1000F
 
+    val secondsSinceLastShinyParticle: Float
+        get() = (System.currentTimeMillis() - lastShinyParticle) / 1000F
+
     private var cryAnimation: StatefulAnimation<PokemonEntity, *>? = null
+
+    private var scaleAnimTask: ScheduledTask? = null
 
     override fun onTrackedDataSet(data: TrackedData<*>) {
         super.onTrackedDataSet(data)
@@ -91,7 +103,11 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                 currentEntity.pokemon.species = PokemonSpecies.getByIdentifier(identifier)!! // TODO exception handling
                 // force a model update - handles edge case where the PoseableEntityState's tracked PoseableEntityModel isn't updated until the LivingEntityRenderer render is run
                 currentModel = PokemonModelRepository.getPoser(identifier, currentEntity.aspects)
-            } else if (data == PokemonEntity.DYING_EFFECTS_STARTED) {
+            }   else if (data == PokemonEntity.ASPECTS) {
+                currentAspects = currentEntity.dataTracker.get(PokemonEntity.ASPECTS)
+                currentEntity.pokemon.shiny = currentAspects.contains("shiny")
+            }
+            else if (data == PokemonEntity.DYING_EFFECTS_STARTED) {
                 val isDying = currentEntity.dataTracker.get(PokemonEntity.DYING_EFFECTS_STARTED)
                 if (isDying) {
                     val model = (currentModel ?: return) as PokemonPoseableModel
@@ -144,9 +160,25 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                         currentEntity.after(seconds = POKEBALL_AIR_TIME){
                             beamStartTime = System.currentTimeMillis()
                             ballDone = true
-                            if (client.soundManager.get(CobblemonSounds.POKE_BALL_SEND_OUT.id) != null && !playedSendOutSound) {
-                                client.world?.playSound(client.player, soundPos.x, soundPos.y, soundPos.z, SoundEvent.of(CobblemonSounds.POKE_BALL_SEND_OUT.id), SoundCategory.PLAYERS, 0.6f, 1f)
+                            if (client.soundManager.get(CobblemonSounds.POKE_BALL_SEND_OUT.id) != null || client.soundManager.get(CobblemonSounds.POKE_BALL_SEND_OUT.id) != null && !playedSendOutSound) {
+                                if(currentEntity.pokemon.shiny){
+                                    client.world?.playSound(client.player, soundPos.x, soundPos.y, soundPos.z, SoundEvent.of(CobblemonSounds.POKE_BALL_SHINY_SEND_OUT.id), SoundCategory.PLAYERS, 0.6f, 1f)
+                                } else {
+                                    client.world?.playSound(client.player, soundPos.x, soundPos.y, soundPos.z, SoundEvent.of(CobblemonSounds.POKE_BALL_SEND_OUT.id), SoundCategory.PLAYERS, 0.6f, 1f)
+                                }
                                 playedSendOutSound = true
+                            }
+                            currentEntity.ownerUuid?.let {
+                                client.world?.playSound(
+                                    client.player,
+                                    soundPos.x,
+                                    soundPos.y,
+                                    soundPos.z,
+                                    SoundEvent.of(CobblemonSounds.POKE_BALL_SEND_OUT.id),
+                                    SoundCategory.PLAYERS,
+                                    0.6f,
+                                    1f
+                                )
                             }
                             // Display ball-specific particles
                             sendOutPosition?.let{
@@ -180,43 +212,57 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                                     }
                                 }
                             }
-                            currentEntity.after(seconds = BEAM_EXTEND_TIME) {
-                                lerpOnClient(BEAM_SHRINK_TIME) { entityScaleModifier = it }
-                                currentEntity.isInvisible = false
-                                currentEntity.after(seconds = POKEBALL_AIR_TIME*2){
-                                    ballOffset = 0f
-                                    ballRotOffset = 0f
-                                    sendOutPosition = null
+                            currentEntity.after(seconds = POKEBALL_AIR_TIME) {
+                                if(scaleAnimTask == null || scaleAnimTask!!.expired){
+                                    scaleAnimTask = lerpOnClient(BEAM_SHRINK_TIME) { entityScaleModifier = it }
+                                    currentEntity.isInvisible = false
+                                    currentEntity.after(seconds = POKEBALL_AIR_TIME*2){
+                                        ballOffset = 0f
+                                        ballRotOffset = 0f
+                                        sendOutPosition = null
+                                }
+
                                 }
                             }
                         }
                     }
                     2 -> {
                         // Scaling up with no delay and no particles
-                        playedSendOutSound = false
-                        entityScaleModifier = 0F
-                        currentEntity.isInvisible = false
-                        val soundPos = currentEntity.pos
-                        val client = MinecraftClient.getInstance()
+                        if(ballDone){
+                            playedSendOutSound = false
+                            entityScaleModifier = 0F
+                            currentEntity.isInvisible = false
+                            ballDone = false
+                            val soundPos = currentEntity.pos
+                            val client = MinecraftClient.getInstance()
 
-                        if (client.soundManager.get(CobblemonSounds.POKE_BALL_SEND_OUT.id) != null && !playedSendOutSound) {
-                            client.world?.playSound(
-                                client.player,
-                                soundPos.x,
-                                soundPos.y,
-                                soundPos.z,
-                                CobblemonSounds.POKE_BALL_SEND_OUT,
-                                SoundCategory.PLAYERS,
-                                0.6f,
-                                1f
-                            )
-                            playedSendOutSound = true
-                        }
-                        lerpOnClient(BEAM_SHRINK_TIME) { entityScaleModifier = it }
-                        currentEntity.after(seconds = BEAM_SHRINK_TIME * 2) {
-                            ballOffset = 0f
-                            ballRotOffset = 0f
-                            sendOutPosition = null
+                            val soundEvent = if(currentEntity.pokemon.shiny){
+                                CobblemonSounds.POKE_BALL_SHINY_SEND_OUT
+                            } else {
+                                CobblemonSounds.POKE_BALL_SEND_OUT
+                            }
+                            currentEntity.after(seconds=0.5F){
+                                ballDone = true
+                            }
+                            if(!playedSendOutSound && client.soundManager.get(soundEvent.id) != null){
+                                client.world?.playSound(
+                                    client.player,
+                                    soundPos.x,
+                                    soundPos.y,
+                                    soundPos.z,
+                                    soundEvent,
+                                    SoundCategory.PLAYERS,
+                                    0.6f,
+                                    1f
+                                )
+                                playedSendOutSound = true
+                            }
+                            scaleAnimTask = lerpOnClient (BEAM_SHRINK_TIME) { entityScaleModifier = it }
+                            currentEntity.after (seconds = BEAM_SHRINK_TIME*2) {
+                                ballOffset=0f
+                                ballRotOffset=0f
+                                sendOutPosition=null
+                            }
                         }
                     }
                     3 -> {
@@ -227,9 +273,11 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                         ballRotOffset = 0f
                         sendOutPosition = null
                         afterOnClient(seconds = BEAM_EXTEND_TIME) {
-                            lerpOnClient(BEAM_SHRINK_TIME) {
-                                entityScaleModifier = (1 - it)
-                            }
+                            entityScaleModifier = 1F
+                        }
+                        scaleAnimTask?.expire()
+                        scaleAnimTask = lerpOnClient(BEAM_SHRINK_TIME){
+                            entityScaleModifier = (1-it)
                         }
                     }
                     else -> { /* Do nothing */ }
@@ -289,11 +337,48 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
     override fun tick(entity: PokemonEntity) {
         updateLocatorPosition(entity.pos)
         incrementAge(entity)
-        glowTime = maxOf(0, glowTime - 1)
+        if(currentEntity.ownerUuid == null && currentEntity.pokemon.shiny && secondsSinceLastShinyParticle > SHINY_PARTICLE_COOLDOWN && !currentEntity.isBattling) {
+            playShinyEffect("cobblemon:shiny_sparkle_ambient_wild")
+            lastShinyParticle = System.currentTimeMillis()
+        }
+        getClientShinyPokemon()
+    }
+
+    fun getClientShinyPokemon() {
+        val player = MinecraftClient.getInstance().player ?: return
+        val isWithinRange = player.pos.distanceTo(currentEntity.pos) <= Cobblemon.config.shinyNoticeParticlesDistance
+
+        if(currentEntity.pokemon.shiny && currentEntity.ownerUuid == null && !player.isSpectator){
+            if(isWithinRange && !shined && !notified){
+                playShinyEffect("cobblemon:wild_shiny_ring")
+                shined = true
+                notified = true
+                lastShinyParticle = System.currentTimeMillis()
+            } else if(isWithinRange && !shined && notified){
+                playShinyEffect("cobblemon:wild_shiny_ring")
+                shined = true
+                lastShinyParticle = System.currentTimeMillis()
+            } else if (!isWithinRange && notified) {
+                shined = false
+            }
+        }
+    }
+
+    fun playShinyEffect(particleId: String){
+        val locator = listOf("shiny_particles","middle").firstOrNull{this.locatorStates[it] != null} ?: "root"
+        check(locator != "root") {return}
+        runtime.resolve("q.particle('$particleId', '$locator')".asExpressionLike())
     }
 
     fun setPhaseTarget(targetId: Int) {
         this.phaseTarget = currentEntity.world.getEntityById(targetId)
+    }
+
+    override fun spawnShinyParticle(player: PlayerEntity) {
+        if(secondsSinceLastShinyParticle > SHINY_PARTICLE_COOLDOWN) {
+            playShinyEffect("cobblemon:ambient_shiny_sparkle")
+            lastShinyParticle = System.currentTimeMillis()
+        }
     }
 
     override fun handleStatus(status: Byte) {

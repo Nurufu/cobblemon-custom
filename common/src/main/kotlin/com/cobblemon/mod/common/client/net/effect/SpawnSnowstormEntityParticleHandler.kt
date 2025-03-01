@@ -28,7 +28,8 @@ object SpawnSnowstormEntityParticleHandler : ClientNetworkPacketHandler<SpawnSno
         val entity = world.getEntityById(packet.entityId) as? Poseable ?: return
         entity as Entity
         val state = entity.delegate as PoseableEntityState<*>
-        val matrixWrapper = state.locatorStates[packet.locator] ?: state.locatorStates["root"]!!
+        val locator = packet.locator.firstOrNull() {state.locatorStates[it] != null} ?: return
+        val matrixWrapper = state.locatorStates[locator]!!
 
         val particleRuntime = MoLangRuntime().setup().setupClient()
         particleRuntime.environment.getQueryStruct().addFunction("entity") { state.runtime.environment.getQueryStruct() }

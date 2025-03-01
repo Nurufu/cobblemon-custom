@@ -50,9 +50,12 @@ import com.cobblemon.mod.common.item.PokeBallItem
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.FossilModelRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.GenericBedrockEntityModelRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.MiscModelRepository
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.platform.events.PlatformEvents
+import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.util.DataKeys
 import com.cobblemon.mod.common.util.asTranslated
+import com.cobblemon.mod.common.util.isLookingAt
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.render.RenderLayer
 import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer
@@ -66,6 +69,7 @@ import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.resource.ResourceManager
 import net.minecraft.util.Language
+import net.minecraft.util.math.Box
 
 object CobblemonClient {
 
@@ -138,6 +142,14 @@ object CobblemonClient {
                     listKey = "${key}_${++i}"
                 }
             }
+        }
+        PlatformEvents.CLIENT_TICK_POST.subscribe { event ->
+            val player = event.client.player
+            val nearbyShinies = player?.world?.getOtherEntities(player, Box.of(player.pos, 16.0,16.0,16.0)) { (it is PokemonEntity) && it.pokemon.shiny }
+                nearbyShinies?.firstOrNull() {player.isLookingAt(it) && !player.isSpectator}.let {
+                    if(it is PokemonEntity)
+                        it.delegate.spawnShinyParticle(player!!)
+                }
         }
     }
 

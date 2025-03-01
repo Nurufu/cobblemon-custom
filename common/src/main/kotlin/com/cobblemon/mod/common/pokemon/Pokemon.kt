@@ -57,6 +57,7 @@ import com.cobblemon.mod.common.config.CobblemonConfig
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.entity.pokemon.effects.IllusionEffect
 import com.cobblemon.mod.common.net.messages.client.PokemonUpdatePacket
+import com.cobblemon.mod.common.net.messages.client.effect.SpawnSnowstormEntityParticlePacket
 import com.cobblemon.mod.common.net.messages.client.pokemon.update.*
 import com.cobblemon.mod.common.net.serverhandling.storage.SendOutPokemonHandler.SEND_OUT_DURATION
 import com.cobblemon.mod.common.pokeball.PokeBall
@@ -318,6 +319,18 @@ open class Pokemon : ShowdownIdentifiable {
             _shiny.emit(value)
         }
 
+    var shined = false
+        set(value) {
+            field = value
+            updateAspects()
+        }
+
+    var pinged = false
+        set(value) {
+            field = value
+            updateAspects()
+        }
+
     var tradeable = true
         set(value) {
             field = value
@@ -520,6 +533,12 @@ open class Pokemon : ShowdownIdentifiable {
                 if (doCry) {
                     it.cry()
                 }
+            }
+
+            if(illusion != null) {
+                if (illusion.mock.shiny == true) SpawnSnowstormEntityParticlePacket(cobblemonResource("shiny_ring"),it.id, listOf("shiny_particles","middle")).sendToPlayersAround(it.x,it.y,it.z,64.0,it.world.registryKey)
+            } else {
+                if (shiny) SpawnSnowstormEntityParticlePacket(cobblemonResource("shiny_ring"),it.id, listOf("shiny_particles","middle")).sendToPlayersAround(it.x,it.y,it.z,64.0,it.world.registryKey)
             }
 
             mutation(it)

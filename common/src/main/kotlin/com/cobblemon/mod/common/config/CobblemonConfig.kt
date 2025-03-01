@@ -186,6 +186,9 @@ class CobblemonConfig {
     @NodeCategory(Category.Pokemon)
     var playerDamagePokemon = true
 
+    @NodeCategory(Category.Pokemon)
+    var shinyNoticeParticlesDistance = 24F
+
     @NodeCategory(Category.World)
     var appleLeftoversChance = 0.025
 
