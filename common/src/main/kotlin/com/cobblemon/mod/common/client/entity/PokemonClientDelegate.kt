@@ -351,8 +351,6 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
         if(currentEntity.pokemon.shiny && currentEntity.ownerUuid == null && !player.isSpectator){
             if(isWithinRange && !shined && !notified){
                 playShinyEffect("cobblemon:wild_shiny_ring")
-                player.sendMessage(currentEntity.pokemon.species.translatedName)
-                currentEntity.
                 shined = true
                 notified = true
                 lastShinyParticle = System.currentTimeMillis()
@@ -370,7 +368,6 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
         val locator = listOf("shiny_particles","middle").firstOrNull{this.locatorStates[it] != null} ?: "root"
         check(locator != "root") {return}
         runtime.resolve("q.particle('$particleId', '$locator')".asExpressionLike())
-        Cobblemon.LOGGER.info(locator)
     }
 
     fun setPhaseTarget(targetId: Int) {

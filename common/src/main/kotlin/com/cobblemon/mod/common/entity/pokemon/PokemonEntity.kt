@@ -57,6 +57,7 @@ import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.InactivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.ShoulderedState
 import com.cobblemon.mod.common.pokemon.ai.FormPokemonBehaviour
+import com.cobblemon.mod.common.pokemon.aspects.SHINY_ASPECT
 import com.cobblemon.mod.common.pokemon.evolution.variants.ItemInteractionEvolution
 import com.cobblemon.mod.common.pokemon.misc.GimmighoulStashHandler
 import com.cobblemon.mod.common.util.*
@@ -140,6 +141,7 @@ open class PokemonEntity(
         @JvmStatic val SPAWN_DIRECTION = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.FLOAT)
         @JvmStatic val FRIENDSHIP = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
         @JvmStatic val EVOLUTION_STARTED = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
+        @JvmStatic val SHINED = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
 
         const val BATTLE_LOCK = "battle"
         const val EVOLUTION_LOCK = "evolving"
@@ -259,6 +261,7 @@ open class PokemonEntity(
         dataTracker.startTracking(SPAWN_DIRECTION, world.random.nextFloat() * 360F)
         dataTracker.startTracking(FRIENDSHIP, 0)
         dataTracker.startTracking(EVOLUTION_STARTED, false)
+        dataTracker.startTracking(SHINED, false)
     }
 
     override fun onTrackedDataSet(data: TrackedData<*>) {
@@ -481,6 +484,9 @@ open class PokemonEntity(
         }
         if (!countsTowardsSpawnCap) {
             nbt.putBoolean(DataKeys.POKEMON_COUNTS_TOWARDS_SPAWN_CAP, false)
+        }
+        if(aspects.contains("shiny") && this.ownerUuid == null){
+            this.setPersistent()
         }
 
         // save active effects

@@ -319,6 +319,12 @@ open class Pokemon : ShowdownIdentifiable {
             _shiny.emit(value)
         }
 
+    var shined = false
+        set(value) {
+            field = value
+            updateAspects()
+        }
+
     var tradeable = true
         set(value) {
             field = value
