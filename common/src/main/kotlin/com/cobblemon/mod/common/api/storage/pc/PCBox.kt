@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.api.storage.pc
 
+import com.cobblemon.mod.common.api.pokemon.PokemonSortMode
 import com.cobblemon.mod.common.api.reactive.Observable.Companion.stopAfter
 import com.cobblemon.mod.common.api.reactive.SimpleObservable
 import com.cobblemon.mod.common.api.storage.InvalidSpeciesException
@@ -15,9 +16,13 @@ import com.cobblemon.mod.common.api.storage.StoreCoordinates
 import com.cobblemon.mod.common.net.messages.client.storage.pc.SetPCBoxPokemonPacket
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.util.DataKeys
+import com.cobblemon.mod.common.util.DataKeys.STORE_BOX_NAME
+import com.cobblemon.mod.common.util.DataKeys.STORE_BOX_WALLPAPER
+import com.cobblemon.mod.common.util.cobblemonResource
 import com.google.gson.JsonObject
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.server.network.ServerPlayerEntity
+import net.minecraft.util.Identifier
 
 /**
  * A single box of a PC. The list of Pokémon is strictly sized at [POKEMON_PER_BOX] - 30.
@@ -32,6 +37,18 @@ open class PCBox(val pc: PCStore) : Iterable<Pokemon> {
     val boxChangeEmitter = SimpleObservable<Unit>()
 
     protected var emit = true
+
+    var name : String? = null
+        set(value) {
+            field = value
+            if (emit) boxChangeEmitter.emit(Unit)
+        }
+
+    var wallpaper : Identifier = cobblemonResource("textures/gui/pc/pc_screen_overlay.png")
+        set(value) {
+            field = value
+            if (emit) boxChangeEmitter.emit(Unit)
+        }
 
     protected val pokemon = Array<Pokemon?>(POKEMON_PER_BOX) { null }
 
@@ -87,6 +104,13 @@ open class PCBox(val pc: PCStore) : Iterable<Pokemon> {
         boxChangeEmitter.subscribe { pc.pcChangeObservable.emit(Unit) }
     }
 
+    fun sort(sortMode: PokemonSortMode, descending: Boolean) {
+        pokemon.sortWith(sortMode.comparator(descending))
+        pokemon.forEachIndexed{slot,pokemon ->
+            pokemon?.storeCoordinates?.set(StoreCoordinates(pc, PCPosition(boxNumber,slot)))
+        }
+    }
+
     fun trackPokemon(pokemon: Pokemon) {
         pokemon.getChangeObservable()
             .pipe(
@@ -103,6 +127,10 @@ open class PCBox(val pc: PCStore) : Iterable<Pokemon> {
     }
 
     open fun saveToNBT(nbt: NbtCompound): NbtCompound {
+        name?.let {
+            nbt.putString(STORE_BOX_NAME, it)
+        }
+        nbt.putString(STORE_BOX_WALLPAPER, wallpaper.toString())
         for (slot in 0 until POKEMON_PER_BOX) {
             val pokemon = pokemon[slot] ?: continue
             nbt.put(DataKeys.STORE_SLOT + slot, pokemon.saveToNBT(NbtCompound()))
@@ -111,6 +139,10 @@ open class PCBox(val pc: PCStore) : Iterable<Pokemon> {
     }
 
     open fun saveToJSON(json: JsonObject): JsonObject {
+        name?.let {
+            json.addProperty(STORE_BOX_NAME, it)
+        }
+        json.addProperty(STORE_BOX_WALLPAPER, wallpaper.toString())
         for (slot in 0 until POKEMON_PER_BOX) {
             val pokemon = pokemon[slot] ?: continue
             json.add(DataKeys.STORE_SLOT + slot, pokemon.saveToJSON(JsonObject()))
@@ -119,6 +151,14 @@ open class PCBox(val pc: PCStore) : Iterable<Pokemon> {
     }
 
     open fun loadFromJSON(json: JsonObject): PCBox {
+        if (json.has(STORE_BOX_NAME)) {
+            name = json.getAsJsonPrimitive(STORE_BOX_NAME).asString
+        }
+
+        if (json.has(STORE_BOX_WALLPAPER)) {
+            wallpaper = Identifier.tryParse(json.getAsJsonPrimitive(STORE_BOX_WALLPAPER).asString)!!
+        }
+
         for (slot in 0 until POKEMON_PER_BOX) {
             if (json.has(DataKeys.STORE_SLOT + slot)) {
                 val pokemonJson = json.getAsJsonObject(DataKeys.STORE_SLOT + slot)
@@ -133,6 +173,14 @@ open class PCBox(val pc: PCStore) : Iterable<Pokemon> {
     }
 
     open fun loadFromNBT(nbt: NbtCompound): PCBox {
+        if (nbt.contains(STORE_BOX_NAME)) {
+            name = nbt.getString(STORE_BOX_NAME)
+        }
+
+        if (nbt.contains(STORE_BOX_WALLPAPER)) {
+            wallpaper = Identifier.tryParse(nbt.getString(STORE_BOX_WALLPAPER))!!
+        }
+
         for (slot in 0 until POKEMON_PER_BOX) {
             if (nbt.contains(DataKeys.STORE_SLOT + slot)) {
                 val pokemonNBT = nbt.getCompound(DataKeys.STORE_SLOT + slot)

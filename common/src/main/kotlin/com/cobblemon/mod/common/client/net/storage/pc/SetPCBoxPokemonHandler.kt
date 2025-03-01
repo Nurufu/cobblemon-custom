@@ -13,13 +13,14 @@ import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.client.storage.ClientBox
 import com.cobblemon.mod.common.net.messages.client.storage.pc.SetPCBoxPokemonPacket
 import net.minecraft.client.MinecraftClient
+import net.minecraft.text.Text
 
 object SetPCBoxPokemonHandler : ClientNetworkPacketHandler<SetPCBoxPokemonPacket> {
     override fun handle(packet: SetPCBoxPokemonPacket, client: MinecraftClient) {
         CobblemonClient.storage.pcStores[packet.storeID]?.let { pc ->
             val boxNumber = packet.boxNumber
             while (pc.boxes.size <= boxNumber) { pc.boxes.add(ClientBox()) }
-            pc.boxes[boxNumber] = ClientBox()
+            pc.boxes[boxNumber] = ClientBox(if (packet.name.isBlank()) null else Text.literal(packet.name), packet.wallpaper)
             packet.pokemon.forEach { (slot, pokemon) -> pc.boxes[packet.boxNumber].slots[slot] = pokemon.create() }
         }
     }

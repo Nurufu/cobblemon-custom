@@ -10,7 +10,11 @@ package com.cobblemon.mod.common.client.storage
 
 import com.cobblemon.mod.common.api.storage.pc.PCPosition
 import com.cobblemon.mod.common.api.storage.pc.POKEMON_PER_BOX
+import com.cobblemon.mod.common.api.text.bold
+import com.cobblemon.mod.common.client.gui.pc.PCGUI
 import com.cobblemon.mod.common.pokemon.Pokemon
+import net.minecraft.client.MinecraftClient
+import net.minecraft.text.Text
 import java.util.UUID
 class ClientPC(uuid: UUID, boxCount: Int) : ClientStorage<PCPosition>(uuid) {
     val boxes = MutableList(boxCount) { ClientBox() }
@@ -51,5 +55,12 @@ class ClientPC(uuid: UUID, boxCount: Int) : ClientStorage<PCPosition>(uuid) {
             }
         }
         return null
+    }
+
+    fun renameBox(boxNumber: Int, name: String?) {
+        if(boxes.size > boxNumber){
+            boxes[boxNumber].name = if (name.isNullOrBlank()) null else Text.literal(name).bold()
+            (MinecraftClient.getInstance().currentScreen as? PCGUI)?.updateBoxName()
+        }
     }
 }

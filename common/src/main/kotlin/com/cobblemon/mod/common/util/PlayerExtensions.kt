@@ -19,6 +19,7 @@ import com.cobblemon.mod.common.api.reactive.Observable.Companion.filter
 import com.cobblemon.mod.common.api.reactive.Observable.Companion.takeFirst
 import com.cobblemon.mod.common.battles.BattleRegistry
 import com.cobblemon.mod.common.client.CobblemonClient
+import com.cobblemon.mod.common.net.messages.client.storage.pc.wallpaper.RequestPCBoxWallpapersPacket
 import com.cobblemon.mod.common.platform.events.PlatformEvents
 import com.cobblemon.mod.common.pokemon.Pokemon
 import net.minecraft.block.BlockState
@@ -53,6 +54,10 @@ fun ServerPlayerEntity.openDialogue(dialogue: Dialogue) {
 fun ServerPlayerEntity.extraData(key: String) = Cobblemon.playerData.get(this).extraData[key]
 fun ServerPlayerEntity.hasKeyItem(key: Identifier) = Cobblemon.playerData.get(this).keyItems.contains(key)
 fun UUID.getPlayer() = server()?.playerManager?.getPlayer(this)
+
+fun ServerPlayerEntity.requestWallpapers() {
+    RequestPCBoxWallpapersPacket().sendToPlayer(this)
+}
 
 fun ServerPlayerEntity.onLogout(handler: () -> Unit) {
     PlatformEvents.SERVER_PLAYER_LOGOUT.pipe(filter { it.player.uuid == uuid }, takeFirst()).subscribe { handler() }

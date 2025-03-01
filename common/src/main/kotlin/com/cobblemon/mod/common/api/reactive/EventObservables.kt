@@ -45,4 +45,16 @@ open class CancelableObservable<T : Cancelable> : EventObservable<T>() {
             }
         }
     }
+
+    inline fun postThenFinally(event: T, ifCanceled: (T) -> Unit = {}, finally: (T) -> Unit = {},ifSucceeded: (T) -> Unit) {
+        post(event) {
+            if (it.isCanceled) {
+                ifCanceled(it)
+            } else {
+                ifSucceeded(it)
+            }
+            finally(it)
+        }
+    }
+
 }

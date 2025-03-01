@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.client.gui.pc
 
 import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.gui.blitk
+import com.cobblemon.mod.common.api.storage.pc.search.Search
 import com.cobblemon.mod.common.api.text.bold
 import com.cobblemon.mod.common.api.text.text
 import com.cobblemon.mod.common.client.CobblemonResources
@@ -21,6 +22,7 @@ import com.cobblemon.mod.common.client.gui.summary.widgets.common.reformatNature
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.storage.ClientPC
 import com.cobblemon.mod.common.client.storage.ClientParty
+import com.cobblemon.mod.common.net.messages.server.storage.pc.SortPCBoxPacket
 import com.cobblemon.mod.common.net.messages.server.storage.pc.UnlinkPlayerFromPCPacket
 import com.cobblemon.mod.common.pokemon.Gender
 import com.cobblemon.mod.common.pokemon.Pokemon
@@ -34,6 +36,7 @@ import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.client.util.InputUtil
 import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
+import javax.swing.Box
 
 class PCGUI(
     val pc: ClientPC,
@@ -64,9 +67,13 @@ class PCGUI(
     }
 
     private lateinit var storageWidget: StorageWidget
+    private lateinit var boxNameWidget: BoxNameWidget
+    private lateinit var searchWidget: SearchWidget
+    private lateinit var wallpaperWidget: WallpapersScrollingWidget
     private var modelWidget: ModelWidget? = null
     internal var previewPokemon: Pokemon? = null
 
+    var search: Search = Search.DEFAULT
     var ticksElapsed = 0
     var selectPointerOffsetY = 0
     var selectPointerOffsetIncrement = false
@@ -96,6 +103,16 @@ class PCGUI(
             ) { storageWidget.box -= 1 }
         )
 
+        this.addDrawableChild(
+            SortButton(
+                pX = x+85,
+                pY = y+12,
+                onPress = { it as SortButton
+                    SortPCBoxPacket(pc.uuid,storageWidget.box,it.sortMode, hasShiftDown()).sendToServer()
+                }
+            )
+        )
+
         // Add Storage
         this.storageWidget = StorageWidget(
             pX = x + 85,
@@ -105,8 +122,43 @@ class PCGUI(
             party = party
         )
 
+        this.boxNameWidget = BoxNameWidget(
+            pX = x+172,
+            pY= y+15,
+            pcGui = this,
+            storageWidget = storageWidget
+        )
+
+        this.searchWidget = SearchWidget(
+            pX = x+117,
+            pY = y+183,
+            update = { search = Search.of(searchWidget.text)}
+        )
+
+        this.addDrawableChild(
+            WallpaperButton(
+                pX = x+235,
+                pY = y+12,
+                onPress = {
+                    configuration.showParty = wallpaperWidget.isFocused
+                    wallpaperWidget.isFocused = !wallpaperWidget.isFocused
+                },
+                pcGui = this
+            )
+        )
+
+        this.wallpaperWidget = WallpapersScrollingWidget(
+            pX = x+275,
+            pY = y+30,
+            pcGui = this,
+            storageWidget = storageWidget
+        )
+
         this.setPreviewPokemon(null)
         this.addDrawableChild(storageWidget)
+        this.addDrawableChild(boxNameWidget)
+        this.addDrawableChild(searchWidget)
+        this.addDrawableChild(wallpaperWidget)
         super.init()
     }
 
@@ -128,7 +180,9 @@ class PCGUI(
         )
 
         // Render Model Portrait
-        modelWidget?.render(context, mouseX, mouseY, delta)
+        if(search.passes(previewPokemon)) {
+            modelWidget?.render(context,mouseX,mouseY,delta)
+        }
 
         // Render Base Resource
         blitk(
@@ -169,7 +223,7 @@ class PCGUI(
 
         // Render Pokemon Info
         val pokemon = previewPokemon
-        if (pokemon != null) {
+        if (pokemon != null && search.passes(pokemon)) {
             // Status
             val status = pokemon.status?.status
             if (pokemon.isFainted() || status != null) {
@@ -359,16 +413,6 @@ class PCGUI(
             )
         }
 
-        // Box Label
-        drawScaledText(
-            context = context,
-            font = CobblemonResources.DEFAULT_LARGE,
-            text = Text.translatable("cobblemon.ui.pc.box.title", (this.storageWidget.box + 1).toString()).bold(),
-            x = x + 172,
-            y = y + 15,
-            centered = true
-        )
-
         blitk(
             matrixStack = matrices,
             texture = topSpacerResource,
@@ -445,20 +489,37 @@ class PCGUI(
     }
 
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        val boxNameSelected = this::boxNameWidget.isInitialized && boxNameWidget.isFocused
+        val searchSelected = this::searchWidget.isInitialized && searchWidget.isFocused
+        if(isInventoryKeyPressed(minecraft,keyCode,scanCode) && !boxNameSelected && !searchSelected) {
+            playSound(CobblemonSounds.PC_OFF)
+            UnlinkPlayerFromPCPacket().sendToServer()
+            MinecraftClient.getInstance().setScreen(null)
+            return true
+        }
+
+        if((keyCode == InputUtil.GLFW_KEY_ENTER && (boxNameSelected || searchSelected))) {
+            this.focused = null
+        }
+
         when (keyCode) {
             InputUtil.GLFW_KEY_ESCAPE -> {
                 playSound(CobblemonSounds.PC_OFF)
                 UnlinkPlayerFromPCPacket().sendToServer()
+                onClose()
+                return true
             }
 
             InputUtil.GLFW_KEY_RIGHT -> {
                 playSound(CobblemonSounds.PC_CLICK)
                 this.storageWidget.box += 1
+                return true
             }
 
             InputUtil.GLFW_KEY_LEFT -> {
                 playSound(CobblemonSounds.PC_CLICK)
                 this.storageWidget.box -= 1
+                return true
             }
         }
         return super.keyPressed(keyCode, scanCode, modifiers)
@@ -467,9 +528,7 @@ class PCGUI(
     /**
      * Whether this Screen should pause the Game in SinglePlayer
      */
-    override fun shouldPause(): Boolean {
-        return false
-    }
+    override fun shouldPause() = false
 
     override fun tick() {
         ticksElapsed++
@@ -503,6 +562,12 @@ class PCGUI(
         } else {
             previewPokemon = null
             modelWidget = null
+        }
+    }
+
+    fun updateBoxName() {
+        if(this::boxNameWidget.isInitialized) {
+            boxNameWidget.update()
         }
     }
 }
