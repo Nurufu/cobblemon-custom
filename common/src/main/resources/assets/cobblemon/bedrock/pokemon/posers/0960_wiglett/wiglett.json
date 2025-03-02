@@ -5,7 +5,8 @@
   "profileTranslation": [-0.05, 0.71, 0.0],
   "rootBone": "wiglett",
   "animations": {
-    "recoil": "q.bedrock_stateful('wiglett', 'recoil')"
+    "recoil": "q.bedrock_stateful('wiglett', 'recoil')",
+    "cry": "q.bedrock_stateful('wiglett', 'cry')"
   },
   "poses": {
     "battle-standing": {

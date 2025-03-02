@@ -5,7 +5,8 @@
   "profileTranslation": [-0.08, 0.92, 0.0],
   "rootBone": "wugtrio",
   "animations": {
-    "recoil": "q.bedrock_stateful('wugtrio', 'recoil')"
+    "recoil": "q.bedrock_stateful('wugtrio', 'recoil')",
+    "cry": "q.bedrock_stateful('wugtrio', 'cry')"
   },
   "poses": {
     "battle-standing": {

@@ -154,7 +154,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
             entity.pokemon.shined = true
         }
 
-        if(!entity.pokemon.isPlayerOwned() && !entity.pokemon.pinged && entity.pokemon.isLegendary() || entity.pokemon.isMythical() && !entity.pokemon.pinged || entity.pokemon.isUltraBeast() && !entity.pokemon.pinged)
+        if(!entity.pokemon.isPlayerOwned() && !entity.pokemon.pinged && entity.pokemon.isLegendary() || !entity.pokemon.isPlayerOwned() && entity.pokemon.isMythical() && !entity.pokemon.pinged || !entity.pokemon.isPlayerOwned() && entity.pokemon.isUltraBeast() && !entity.pokemon.pinged)
         {
             legeNotif(entity)
             entity.pokemon.pinged = true

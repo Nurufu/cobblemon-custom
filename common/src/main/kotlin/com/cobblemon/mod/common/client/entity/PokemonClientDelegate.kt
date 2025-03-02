@@ -350,7 +350,7 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
     fun getLegendaryPokemon() {
         val player = MinecraftClient.getInstance().player ?: return
         val isWithinRange = player.pos.distanceTo(currentEntity.pos) <= Cobblemon.config.shinyNoticeParticlesDistance
-        if(currentEntity.ownerUuid == null && currentEntity.pokemon.isLegendary() || currentEntity.pokemon.isMythical() || currentEntity.pokemon.isUltraBeast()){
+        if(currentEntity.ownerUuid == null && currentEntity.pokemon.isLegendary() || currentEntity.ownerUuid == null && currentEntity.pokemon.isMythical() || currentEntity.ownerUuid == null &&  currentEntity.pokemon.isUltraBeast()){
             if(isWithinRange){
                 if(!pinged && !player.isSpectator){
                     legendaryCry(currentEntity.pokemon.species.toString())

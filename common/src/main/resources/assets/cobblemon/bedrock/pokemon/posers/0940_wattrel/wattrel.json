@@ -4,7 +4,9 @@
   "profileScale": 0.71,
   "profileTranslation": [-0.03, 0.72, 0],
   "rootBone": "wattrel",
-  "animations": {},
+  "animations": {
+    "cry": "q.bedrock_stateful('wattrel', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
