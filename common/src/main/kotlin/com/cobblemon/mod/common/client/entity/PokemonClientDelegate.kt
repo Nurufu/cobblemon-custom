@@ -35,6 +35,8 @@ import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.util.*
 import net.minecraft.client.MinecraftClient
+import net.minecraft.client.sound.PositionedSoundInstance
+import net.minecraft.client.sound.SoundManager
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.Entity
 import net.minecraft.entity.data.TrackedData
@@ -70,7 +72,7 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
     var ballStartTime = System.currentTimeMillis()
     var lastShinyParticle = System.currentTimeMillis()
     var shined = false
-    var notified = false
+    var pinged = false
     var ballDone = false
     var ballOffset = 0f
     var ballRotOffset = 0f
@@ -342,23 +344,45 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
             lastShinyParticle = System.currentTimeMillis()
         }
         getClientShinyPokemon()
+        getLegendaryPokemon()
+    }
+
+    fun getLegendaryPokemon() {
+        val player = MinecraftClient.getInstance().player ?: return
+        val isWithinRange = player.pos.distanceTo(currentEntity.pos) <= Cobblemon.config.shinyNoticeParticlesDistance
+        if(currentEntity.ownerUuid == null && currentEntity.pokemon.isLegendary() || currentEntity.pokemon.isMythical() || currentEntity.pokemon.isUltraBeast()){
+            if(isWithinRange){
+                if(!pinged && !player.isSpectator){
+                    legendaryCry(currentEntity.pokemon.species.toString())
+                    pinged=true
+                }
+            }
+        }
+    }
+
+    fun legendaryCry(s: String) {
+        val cry = "pokemon."+s+".cry"
+        val client = MinecraftClient.getInstance()
+        client.soundManager.play(PositionedSoundInstance.master(SoundEvent.of(Identifier("item.trident.thunder")), 0.5f, 0.3f))
+        client.soundManager.play(PositionedSoundInstance.master(SoundEvent.of(Identifier("cobblemon", cry)), 1f, 1f))
     }
 
     fun getClientShinyPokemon() {
         val player = MinecraftClient.getInstance().player ?: return
         val isWithinRange = player.pos.distanceTo(currentEntity.pos) <= Cobblemon.config.shinyNoticeParticlesDistance
 
-        if(currentEntity.pokemon.shiny && currentEntity.ownerUuid == null && !player.isSpectator){
-            if(isWithinRange && !shined && !notified){
-                playShinyEffect("cobblemon:wild_shiny_ring")
-                shined = true
-                notified = true
-                lastShinyParticle = System.currentTimeMillis()
-            } else if(isWithinRange && !shined && notified){
-                playShinyEffect("cobblemon:wild_shiny_ring")
-                shined = true
-                lastShinyParticle = System.currentTimeMillis()
-            } else if (!isWithinRange && notified) {
+        if(currentEntity.pokemon.shiny && currentEntity.ownerUuid == null){
+            if(isWithinRange){
+                if(secondsSinceLastShinyParticle > SHINY_PARTICLE_COOLDOWN && !currentEntity.isBattling){
+                    playShinyEffect("cobblemon:shiny_sparkle_ambient_wild")
+                    lastShinyParticle = System.currentTimeMillis()
+                }
+                if(!shined && !player.isSpectator)
+                {
+                    playShinyEffect("cobblemon:wild_shiny_ring")
+                    shined=true
+                }
+            } else {
                 shined = false
             }
         }
