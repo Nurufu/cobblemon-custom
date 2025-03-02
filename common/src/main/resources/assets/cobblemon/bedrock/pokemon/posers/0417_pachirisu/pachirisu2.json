@@ -5,6 +5,7 @@
   "profileTranslation": [0.0, 0.55, 0.0],
   "rootBone": "pachirisu",
   "animations": {
+    "cry": "q.bedrock_stateful('pachirisu', 'cry')"
   },
   "poses": {
     "portrait": {
