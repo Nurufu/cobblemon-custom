@@ -4,6 +4,9 @@
   "profileScale": 0.7,
   "profileTranslation": [0.02, 0.62, 0],
   "rootBone": "alomomola",
+  "animations": {
+    "cry": "q.bedrock_stateful('alomomola', 'cry')"
+  },
   "poses": {
     "battle-standing": {
       "poseTypes": ["STAND"],
