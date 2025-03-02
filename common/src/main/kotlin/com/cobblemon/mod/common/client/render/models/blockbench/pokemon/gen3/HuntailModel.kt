@@ -11,6 +11,7 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.WaveAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.WaveSegment
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
@@ -46,6 +47,8 @@ class HuntailModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     val tail4Segment = WaveSegment(modelPart = tail4, length = 5F)
     val tail5Segment = WaveSegment(modelPart = tail5, length = 5F)
     val tail6Segment = WaveSegment(modelPart = tail6, length = 5F)
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("huntail", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

@@ -4,6 +4,9 @@
   "profileScale": 0.75,
   "profileTranslation": [0, 0.64, 0],
   "rootBone": "baltoy",
+  "animations": {
+    "cry": "q.bedrock_stateful('baltoy', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],

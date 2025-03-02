@@ -5,6 +5,7 @@
     "profileTranslation": [0.0, 0.5, 0.0],
     "rootBone": "minun",
     "animations": {
+      "cry": "q.bedrock_stateful('minun', 'cry')"
     },
     "poses": {
       "standing": {

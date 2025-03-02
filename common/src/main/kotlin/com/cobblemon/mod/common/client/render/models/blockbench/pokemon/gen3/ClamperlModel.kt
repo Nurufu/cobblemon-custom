@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -30,6 +31,8 @@ class ClamperlModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     lateinit var floating: PokemonPose
     lateinit var swimming: PokemonPose
     lateinit var portrait: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("clamperl", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

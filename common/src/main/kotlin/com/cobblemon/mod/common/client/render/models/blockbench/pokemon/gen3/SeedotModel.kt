@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
@@ -30,6 +31,8 @@ class SeedotModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame {
 
     lateinit var standing: PokemonPose
     lateinit var walk: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("seedot", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("seedot", "blink") }
