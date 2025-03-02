@@ -6711,8 +6711,11 @@
   "pokemon.toxel.cry": {
     "sounds": [ {  "name": "cobblemon:pokemon/toxel/toxel_cry", "volume": 0.8 } ]
   },
-  "pokemon.toxtricity.cry": {
-    "sounds": [ { "name": "cobblemon:pokemon/toxtricity/toxtricity_cry", "volume": 0.8 } ]
+  "pokemon.toxtricitya.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/toxtricity/toxtricitya_cry", "volume": 0.8 } ]
+  },
+  "pokemon.toxtricityb.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/toxtricity/toxtricityb_cry", "volume": 0.8 } ]
   },
   "pokemon.sizzlipede.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/sizzlipede/sizzlipede_cry", "volume": 0.8 } ]
