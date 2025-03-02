@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.toucannon.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.toucannon.cry"
+				}
+			}
+		},
 		"animation.toucannon.ground_idle": {
 			"loop": true,
 			"bones": {

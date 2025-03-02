@@ -168,6 +168,11 @@
 				"beak_closed": {
 					"position": [0, 0.1, 0]
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.trumbeak.cry"
+				}
 			}
 		},
 		"animation.trumbeak.render": {

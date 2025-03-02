@@ -84,7 +84,12 @@
 			}
 		},
 		"animation.pikipek.cry": {
-			"loop": true
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.pikipek.cry"
+				}
+			}
 		},
 		"animation.pikipek.blink": {
 			"animation_length": 0.1667,

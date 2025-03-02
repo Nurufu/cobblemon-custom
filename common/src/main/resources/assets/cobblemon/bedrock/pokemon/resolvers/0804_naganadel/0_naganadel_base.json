@@ -5,15 +5,15 @@
     {
       "aspects": [],
       "poser": "cobblemon:naganadel",
-      "model": "cobblemon:naganadel.geo",
-      "texture": "cobblemon:textures/pokemon/0804_naganadel/naganadel.png",
+      "model": "cobblemon:naganadel2.geo",
+      "texture": "cobblemon:textures/pokemon/naganadel/naganadel.png",
       "layers": []
     },
     {
       "aspects": [
         "shiny"
       ],
-      "texture": "cobblemon:textures/pokemon/0804_naganadel/naganadel_shiny.png"
+      "texture": "cobblemon:textures/pokemon/naganadel/naganadel_shiny.png"
     }
   ]
 }
