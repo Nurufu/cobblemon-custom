@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -34,6 +35,8 @@ class PolitoedModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
     lateinit var walking: PokemonPose
     lateinit var float: PokemonPose
     lateinit var swim: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("politoed", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(
