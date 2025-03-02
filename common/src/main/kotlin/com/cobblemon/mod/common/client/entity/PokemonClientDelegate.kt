@@ -170,18 +170,18 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                                 }
                                 playedSendOutSound = true
                             }
-                            currentEntity.ownerUuid?.let {
-                                client.world?.playSound(
-                                    client.player,
-                                    soundPos.x,
-                                    soundPos.y,
-                                    soundPos.z,
-                                    SoundEvent.of(CobblemonSounds.POKE_BALL_SEND_OUT.id),
-                                    SoundCategory.PLAYERS,
-                                    0.6f,
-                                    1f
-                                )
-                            }
+////                            currentEntity.ownerUuid?.let {
+////                                client.world?.playSound(
+////                                    client.player,
+////                                    soundPos.x,
+////                                    soundPos.y,
+////                                    soundPos.z,
+////                                    SoundEvent.of(CobblemonSounds.POKE_BALL_SEND_OUT.id),
+////                                    SoundCategory.PLAYERS,
+////                                    0.6f,
+////                                    1f
+////                                )
+//                            }
                             // Display ball-specific particles
                             sendOutPosition?.let{
                                 val newPos = it.add(sendOutOffset)
