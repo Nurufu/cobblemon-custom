@@ -67,6 +67,14 @@
 					}
 				}
 			}
+		},
+		"animation.nidorino.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.nidorino.cry"
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

@@ -4,7 +4,8 @@
   "profileScale": 0.75,
   "profileTranslation": [0, 0.55, 0],
   "animations": {
-    "recoil": "q.bredrock_stateful('seaking', 'recoil')"
+    "recoil": "q.bredrock_stateful('seaking', 'recoil')",
+    "cry": "q.bedrock_stateful('seaking', 'cry')"
   },
   "poses": {
     "standing": {

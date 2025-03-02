@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.jynx.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.jynx.cry"
+				}
+			}
+		},
 		"animation.jynx.ground_idle": {
 			"loop": true,
 			"bones": {

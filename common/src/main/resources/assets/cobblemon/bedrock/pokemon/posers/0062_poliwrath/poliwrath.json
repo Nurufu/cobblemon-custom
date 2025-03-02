@@ -6,7 +6,8 @@
   "rootBone": "poliwrath",
   "animations": {
     "physical": "q.bedrock_stateful('poliwrath','physical')",
-    "recoil": "q.bedrock_stateful('poliwrath','recoil')"
+    "recoil": "q.bedrock_stateful('poliwrath','recoil')",
+    "cry": "q.bedrock_stateful('poliwrath', 'cry')"
   },
   "poses": {
     "battle-standing": {
