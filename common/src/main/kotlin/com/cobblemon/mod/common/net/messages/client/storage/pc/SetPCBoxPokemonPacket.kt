@@ -41,7 +41,7 @@ class SetPCBoxPokemonPacket internal constructor(val storeID: UUID, val boxNumbe
         buffer.writeUuid(storeID)
         buffer.writeSizedInt(IntSize.U_BYTE, boxNumber)
         buffer.writeString(name)
-        buffer.writeString(wallpaper.toString())
+        buffer.writeIdentifier(wallpaper)
         buffer.writeMapK(map = pokemon) { (slot, pokemon) ->
             buffer.writeSizedInt(IntSize.U_BYTE, slot)
             pokemon.encode(buffer)
@@ -54,7 +54,7 @@ class SetPCBoxPokemonPacket internal constructor(val storeID: UUID, val boxNumbe
             val storeID = buffer.readUuid()
             val boxNumber = buffer.readSizedInt(IntSize.U_BYTE)
             val name = buffer.readString()
-            val wallpaper = Identifier.tryParse(buffer.readString())
+            val wallpaper = buffer.readIdentifier()
             val pokemonMap = mutableMapOf<Int, PokemonDTO>()
             buffer.readMapK(map = pokemonMap) { buffer.readSizedInt(IntSize.U_BYTE) to PokemonDTO().also { it.decode(buffer) } }
             return SetPCBoxPokemonPacket(storeID, boxNumber, name, wallpaper, pokemonMap)

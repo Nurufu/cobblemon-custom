@@ -23,13 +23,15 @@ abstract class ScrollingWidget<T : AlwaysSelectedEntryListWidget.Entry<T>>(
     width: Int = 10,
     height: Int = 10,
     slotHeight: Int = 10,
-    val scrollBarWidth: Int = 5, m: Int,
+    val scrollBarWidth: Int = 5,
+    val m: Int = 0
 ) : AlwaysSelectedEntryListWidget<T>(
     MinecraftClient.getInstance(),
     width, // Width
     height, // Height
     top, // Top
-    slotHeight, m // Slot Height
+    slotHeight, // Slot Height,
+    m
 ), CobblemonRenderable {
     override fun renderBackground(context: DrawContext) {}
     override fun drawSelectionHighlight(context: DrawContext, y: Int, entryWidth: Int, entryHeight: Int, borderColor: Int, fillColor: Int) {}
@@ -38,7 +40,6 @@ abstract class ScrollingWidget<T : AlwaysSelectedEntryListWidget.Entry<T>>(
 
     init {
         updateSize(width, height, top, top + height)
-        setLeft(left)
     }
 
     final override fun updateSize(width: Int, height: Int, top: Int, bottom: Int) {
@@ -49,16 +50,12 @@ abstract class ScrollingWidget<T : AlwaysSelectedEntryListWidget.Entry<T>>(
         this.right = left + width
     }
 
-    fun setLeft(left: Int){
-        this.left = left
-    }
-
     override fun render(context: DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
         val asAccessor = this as EntryListWidgetAccessor
-        this.focused = if (this.isMouseOver(mouseX.toDouble(), mouseY.toDouble())) this.getEntryAtPosition(
-            mouseX.toDouble(),
-            mouseY.toDouble()
-        ) else null
+//        this.focused = if (this.isMouseOver(mouseX.toDouble(), mouseY.toDouble())) this.getEntryAtPosition(
+//            mouseX.toDouble(),
+//            mouseY.toDouble()
+//        ) else null
         val renderBackground = false
         if (renderBackground) {
             context.setShaderColor(0.125f, 0.125f, 0.125f, 1.0f)

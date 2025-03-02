@@ -15,6 +15,7 @@ import com.cobblemon.mod.common.client.gui.pc.PCGUI
 import com.cobblemon.mod.common.pokemon.Pokemon
 import net.minecraft.client.MinecraftClient
 import net.minecraft.text.Text
+import net.minecraft.util.Identifier
 import java.util.UUID
 class ClientPC(uuid: UUID, boxCount: Int) : ClientStorage<PCPosition>(uuid) {
     val boxes = MutableList(boxCount) { ClientBox() }
@@ -61,6 +62,13 @@ class ClientPC(uuid: UUID, boxCount: Int) : ClientStorage<PCPosition>(uuid) {
         if(boxes.size > boxNumber){
             boxes[boxNumber].name = if (name.isNullOrBlank()) null else Text.literal(name).bold()
             (MinecraftClient.getInstance().currentScreen as? PCGUI)?.updateBoxName()
+        }
+    }
+
+    fun changeBoxWallpaper(boxNumber: Int, wallpaper: Identifier)
+    {
+        if(boxes.size > boxNumber){
+            boxes[boxNumber].wallpaper = wallpaper
         }
     }
 }

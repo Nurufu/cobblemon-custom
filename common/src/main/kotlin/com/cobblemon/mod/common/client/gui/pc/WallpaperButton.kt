@@ -30,7 +30,7 @@ class WallpaperButton(
         private val buttonResource = cobblemonResource("textures/gui/pc/pc_wallpaper_button.png")
     }
 
-    override fun renderWidget(context: net.minecraft.client.gui.DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
+    override fun render(context: net.minecraft.client.gui.DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
         blitk(
             matrixStack = context.matrices,
             texture = buttonResource,

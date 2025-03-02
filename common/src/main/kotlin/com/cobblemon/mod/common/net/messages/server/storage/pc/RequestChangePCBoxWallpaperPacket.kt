@@ -25,7 +25,7 @@ class RequestChangePCBoxWallpaperPacket internal constructor(val storeID: UUID, 
     override fun encode(buffer: PacketByteBuf) {
         buffer.writeUuid(storeID)
         buffer.writeSizedInt(IntSize.U_SHORT, boxNumber)
-        buffer.writeString(wallpaper.toString())
+        buffer.writeIdentifier(wallpaper)
     }
 
     companion object {
@@ -33,7 +33,7 @@ class RequestChangePCBoxWallpaperPacket internal constructor(val storeID: UUID, 
         fun decode(buffer: PacketByteBuf): RequestChangePCBoxWallpaperPacket {
             val storeID = buffer.readUuid()
             val boxNumber = buffer.readSizedInt(IntSize.U_SHORT)
-            val wallpaper = Identifier.tryParse(buffer.readString())
+            val wallpaper = buffer.readIdentifier()
             return RequestChangePCBoxWallpaperPacket(storeID, boxNumber, wallpaper)
         }
     }

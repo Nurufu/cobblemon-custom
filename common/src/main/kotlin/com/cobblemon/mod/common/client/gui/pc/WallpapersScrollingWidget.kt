@@ -22,20 +22,22 @@ import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.lang
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.sound.PositionedSoundInstance
+import net.minecraft.client.sound.Sound
+import net.minecraft.client.sound.SoundManager
 import net.minecraft.text.MutableText
 import net.minecraft.util.Identifier
 
 class WallpapersScrollingWidget(
     pX: Int, val pY: Int,
     val pcGui: PCGUI,
-    val storageWidget: StorageWidget, m: Int
+    val storageWidget: StorageWidget
 ) : ScrollingWidget<WallpaperEntry>(
     width = WIDTH,
     height = HEIGHT,
     left = pX,
     top = 0,
     slotHeight = SLOT_HEIGHT + SLOT_PADDING,
-    scrollBarWidth = SCROLL_BAR_WIDTH, m = m
+    scrollBarWidth = SCROLL_BAR_WIDTH
 ) {
     companion object {
         const val WIDTH = 67
@@ -49,7 +51,6 @@ class WallpapersScrollingWidget(
     }
 
     init {
-        this.visible = false
         this.top = pY
         createEntries()
     }
@@ -137,10 +138,10 @@ class WallpapersScrollingWidget(
         }
 
         override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
-            if (this@WallpapersScrollingWidget.visible && isMouseOver(mouseX, mouseY)) {
+            if (isMouseOver(mouseX, mouseY)) {
                 RequestChangePCBoxWallpaperPacket(pcGui.pc.uuid, storageWidget.box, wallpaper).sendToServer()
                 pcGui.pc.boxes[storageWidget.box].wallpaper = wallpaper
-                soundManager.play(PositionedSoundInstance.master(CobblemonSounds.PC_CLICK, 1.0F))
+                //SoundManager.play(PositionedSoundInstance.master(CobblemonSounds.PC_CLICK, 1.0F))
                 return true
             }
             return false

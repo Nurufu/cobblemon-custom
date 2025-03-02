@@ -491,12 +491,12 @@ class PCGUI(
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
         val boxNameSelected = this::boxNameWidget.isInitialized && boxNameWidget.isFocused
         val searchSelected = this::searchWidget.isInitialized && searchWidget.isFocused
-        if(isInventoryKeyPressed(minecraft,keyCode,scanCode) && !boxNameSelected && !searchSelected) {
-            playSound(CobblemonSounds.PC_OFF)
-            UnlinkPlayerFromPCPacket().sendToServer()
-            MinecraftClient.getInstance().setScreen(null)
-            return true
-        }
+//        if(isInventoryKeyPressed(minecraft,keyCode,scanCode) && !boxNameSelected && !searchSelected) {
+//            playSound(CobblemonSounds.PC_OFF)
+//            UnlinkPlayerFromPCPacket().sendToServer()
+//            MinecraftClient.getInstance().setScreen(null)
+//            return true
+//        }
 
         if((keyCode == InputUtil.GLFW_KEY_ENTER && (boxNameSelected || searchSelected))) {
             this.focused = null
@@ -506,7 +506,6 @@ class PCGUI(
             InputUtil.GLFW_KEY_ESCAPE -> {
                 playSound(CobblemonSounds.PC_OFF)
                 UnlinkPlayerFromPCPacket().sendToServer()
-                onClose()
                 return true
             }
 

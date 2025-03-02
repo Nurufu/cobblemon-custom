@@ -23,7 +23,7 @@ open class PCBoxWallpapersPacket internal constructor(val wallpapers: List<Ident
     override fun encode(buffer: PacketByteBuf) {
         buffer.writeSizedInt(IntSize.INT, wallpapers.size)
         for (wallpaper in wallpapers) {
-            buffer.writeString(wallpaper.toString())
+            buffer.writeIdentifier(wallpaper)
         }
     }
 
@@ -33,7 +33,7 @@ open class PCBoxWallpapersPacket internal constructor(val wallpapers: List<Ident
             val wallpapers = mutableListOf<Identifier>()
             val size = buffer.readSizedInt(IntSize.INT)
             repeat(size) {
-                wallpapers.add(Identifier.tryParse(buffer.readString()))
+                wallpapers.add(buffer.readIdentifier())
             }
             return PCBoxWallpapersPacket(wallpapers)
         }

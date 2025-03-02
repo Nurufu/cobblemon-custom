@@ -33,7 +33,7 @@ class SetPCBoxWallpapersPacket internal constructor(val wallpapers: List<Identif
             val wallpapers = mutableListOf<Identifier>()
             val size = buffer.readSizedInt(IntSize.INT)
             repeat(size) {
-                wallpapers.add(Identifier.tryParse(buffer.readString()))
+                wallpapers.add(buffer.readIdentifier())
             }
             return SetPCBoxWallpapersPacket(wallpapers)
         }

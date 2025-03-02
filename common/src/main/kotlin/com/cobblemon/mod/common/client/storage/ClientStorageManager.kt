@@ -148,7 +148,7 @@ class ClientStorageManager {
     }
 
     fun changeBoxWallpaper(storeID: UUID, boxNumber: Int, wallpaper: Identifier){
-        pcStores[storeID]?.changeBoxWallpaper(boxNumber, name)
+        pcStores[storeID]?.changeBoxWallpaper(boxNumber, wallpaper)
     }
 
     fun onLogin() {
