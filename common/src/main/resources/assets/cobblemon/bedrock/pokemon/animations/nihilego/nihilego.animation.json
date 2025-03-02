@@ -245,6 +245,14 @@
 					"rotation": [5, 0, 0]
 				}
 			}
-		}
+		},
+		"animation.nihilego.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.nihilego.cry"
+				}
+			}
+		},
 	}
 }

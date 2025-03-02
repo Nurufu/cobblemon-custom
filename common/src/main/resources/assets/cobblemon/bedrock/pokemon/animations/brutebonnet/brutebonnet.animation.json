@@ -78,6 +78,14 @@
 					"rotation": ["-5+math.sin(q.anim_time*90)*5", 0, -5]
 				}
 			}
+		},
+		"animation.brutebonnet.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.brutebonnet.cry"
+				}
+			}
 		}
 	}
 }

@@ -58,6 +58,14 @@
 					"rotation": [0, "0+Math.cos((query.anim_time - 0.8) * 270) * 8", 0]
 				}
 			}
+		},
+		"animation.chiyu.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.chiyu.cry"
+				}
+			}
 		}
 	}
 }

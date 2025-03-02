@@ -7229,5 +7229,14 @@
     },
     "pokemon.urshifurs.cry": {
         "sounds": [ "cobblemon:pokemon/urshifurs/urshifurs_cry" ]
-    }
+    },
+  "pokemon.ogerpon.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/ogerpon/ogerpon_cry", "volume": 0.8 } ]
+  },
+  "pokemon.pecharunt.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/pecharunt/pecharunt_cry", "volume": 0.8 } ]
+  },
+  "pokemon.ragingbolt.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/ragingbolt/ragingbolt_cry", "volume": 0.8 } ]
+  }
 }

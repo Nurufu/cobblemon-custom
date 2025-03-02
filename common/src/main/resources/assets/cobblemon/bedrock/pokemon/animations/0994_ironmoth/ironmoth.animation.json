@@ -938,6 +938,14 @@
 					"position": [0, "math.sin(query.anim_time*90*2+60)*2", 0]
 				}
 			}
+		},
+		"animation.ironmoth.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.ironmoth.cry"
+				}
+			}
 		}
 	}
 }

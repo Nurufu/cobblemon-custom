@@ -222,6 +222,14 @@
 					"rotation": ["-0.1*math.sin(q.anim_time*90*2+90)", 0, 0]
 				}
 			}
+		},
+		"animation.xerneas.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.xerneas.cry"
+				}
+			}
 		}
 	}
 }
