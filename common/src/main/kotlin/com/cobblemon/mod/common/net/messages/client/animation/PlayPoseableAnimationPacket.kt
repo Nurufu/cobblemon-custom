@@ -20,16 +20,16 @@ import net.minecraft.util.Identifier
  * @author Hiroku
  * @since October 21st, 2023
  */
-class PlayPosableAnimationPacket(
+class PlayPoseableAnimationPacket(
     val entityId: Int,
     val animation: Set<String>,
     val expressions: Set<String>
-) : NetworkPacket<PlayPosableAnimationPacket> {
+) : NetworkPacket<PlayPoseableAnimationPacket> {
     override val id: Identifier = ID
 
     companion object {
         val ID = cobblemonResource("play_poseable_animation")
-        fun decode(buffer: PacketByteBuf) = PlayPosableAnimationPacket(
+        fun decode(buffer: PacketByteBuf) = PlayPoseableAnimationPacket(
             buffer.readInt(),
             buffer.readList { buffer.readString() }.toSet(),
             buffer.readList { buffer.readString() }.toSet()

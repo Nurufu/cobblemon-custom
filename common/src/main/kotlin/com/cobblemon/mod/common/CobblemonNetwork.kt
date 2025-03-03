@@ -57,7 +57,7 @@ import com.cobblemon.mod.common.client.net.trade.TradeOfferNotificationHandler
 import com.cobblemon.mod.common.client.net.trade.TradeStartedHandler
 import com.cobblemon.mod.common.client.net.trade.TradeUpdatedHandler
 import com.cobblemon.mod.common.net.messages.client.PlayerInteractOptionsPacket
-import com.cobblemon.mod.common.net.messages.client.animation.PlayPosableAnimationPacket
+import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
 import com.cobblemon.mod.common.net.messages.client.battle.*
 import com.cobblemon.mod.common.net.messages.client.callback.OpenMoveCallbackPacket
 import com.cobblemon.mod.common.net.messages.client.callback.OpenPartyCallbackPacket
@@ -337,7 +337,7 @@ object CobblemonNetwork : NetworkManager {
         this.createClientBound(PokemonUnpasturedPacket.ID, PokemonUnpasturedPacket::decode, PokemonUnpasturedHandler)
 
         // Behaviours
-        this.createClientBound(PlayPosableAnimationPacket.ID, PlayPosableAnimationPacket::decode, PlayPosableAnimationHandler)
+        this.createClientBound(PlayPoseableAnimationPacket.ID, PlayPoseableAnimationPacket::decode, PlayPosableAnimationHandler)
 
         // Move select packets
         this.createClientBound(OpenMoveCallbackPacket.ID, OpenMoveCallbackPacket::decode, OpenMoveCallbackHandler)

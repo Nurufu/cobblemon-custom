@@ -25,7 +25,7 @@ import com.cobblemon.mod.common.pokemon.evolution.variants.TradeEvolution
 import com.cobblemon.mod.common.util.lang
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundCategory
-import com.cobblemon.mod.common.net.messages.client.animation.PlayPosableAnimationPacket
+import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
 import net.minecraft.entity.Entity
 
 /**
@@ -133,13 +133,13 @@ interface Evolution : EvolutionLike {
 
 
     private fun evolutionAnimation(pokemon: Entity) {
-        val playPosableAnimationPacket = PlayPosableAnimationPacket(pokemon.id, setOf("q.bedrock_stateful('evolution', 'evolution', 'endures_primary_animations');"), setOf())
-        playPosableAnimationPacket.sendToPlayersAround(pokemon.x, pokemon.y, pokemon.z, 128.0, pokemon.world.registryKey)
+        val playPoseableAnimationPacket = PlayPoseableAnimationPacket(pokemon.id, setOf("q.bedrock_stateful('evolution', 'evolution', 'endures_primary_animations');"), setOf())
+        playPoseableAnimationPacket.sendToPlayersAround(pokemon.x, pokemon.y, pokemon.z, 128.0, pokemon.world.registryKey)
     }
 
     private fun cryAnimation(pokemon: Entity) {
-        val playPosableAnimationPacket = PlayPosableAnimationPacket(pokemon.id, setOf("cry"), emptySet())
-        playPosableAnimationPacket.sendToPlayersAround(pokemon.x, pokemon.y, pokemon.z, 128.0, pokemon.world.registryKey)
+        val playPoseableAnimationPacket = PlayPoseableAnimationPacket(pokemon.id, setOf("cry"), emptySet())
+        playPoseableAnimationPacket.sendToPlayersAround(pokemon.x, pokemon.y, pokemon.z, 128.0, pokemon.world.registryKey)
     }
 
 
