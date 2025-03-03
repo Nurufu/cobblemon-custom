@@ -152,7 +152,7 @@
     "cobblemon.species.bouffalant.desc"
   ],
   "evolutions": [],
-  "baseScale": 1.6,
+  "baseScale": 1,
   "hitbox": {
     "width": 1.3,
     "height": 1.5,

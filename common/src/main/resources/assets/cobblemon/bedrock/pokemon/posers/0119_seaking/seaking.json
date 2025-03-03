@@ -1,8 +1,8 @@
 {
-  "portraitScale": 1.7,
-  "portraitTranslation": [-0.6, -0.25, 0.0],
-  "profileScale": 0.75,
-  "profileTranslation": [0, 0.55, 0],
+  "portraitScale": 0.86,
+  "portraitTranslation": [-0.07, 0.29, 0.0],
+  "profileScale": 0.51,
+  "profileTranslation": [0, 0.8, 0],
   "animations": {
     "recoil": "q.bredrock_stateful('seaking', 'recoil')",
     "cry": "q.bedrock_stateful('seaking', 'cry')"

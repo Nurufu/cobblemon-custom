@@ -1,14 +1,14 @@
 {
    "portraitScale":1.7,
    "portraitTranslation":[
-      -0.4,
-      -0.7,
+      -0.2,
+      0.75,
       0
    ],
-   "profileScale":0.55,
+   "profileScale":0.65,
    "profileTranslation":[
       0,
-      0.4,
+      0.75,
       0
    ],
    "poses":{
@@ -19,7 +19,9 @@
             "STAND",
             "NONE",
             "PORTRAIT",
-            "PROFILE"
+            "PROFILE",
+            "WALK",
+            "SWIM"
          ],
          "animations":[
             "bedrock(mrrime, ground_idle)"

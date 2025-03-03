@@ -111,5 +111,11 @@
         "percentage": 5.0
       }
     ]
+  },
+  "baseScale": 1.5,
+  "hitbox": {
+    "width": 1,
+    "height": 1,
+    "fixed": false
   }
 }

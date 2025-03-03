@@ -17,6 +17,12 @@
     "special_defence": 70,
     "speed": 60
   },
+  "baseScale": 1.2,
+  "hitbox": {
+    "width": 1,
+    "height": 2,
+    "fixed": false
+  },
   "catchRate": 45,
   "maleRatio": 0.5,
   "baseExperienceYield": 260,
