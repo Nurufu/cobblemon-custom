@@ -9,7 +9,8 @@
     "special": "q.bedrock_primary('barbaracle', 'special', q.curve('symmetrical_wide'))",
     "status": "q.bedrock_primary('barbaracle', 'special', q.curve('symmetrical_wide'))",
     "recoil": "q.bedrock_primary('barbaracle', 'recoil', q.curve('symmetrical_wide'))",
-    "blink" : "q.bedrock_stateful('barbaracle', 'blink')"
+    "blink" : "q.bedrock_stateful('barbaracle', 'blink')",
+    "cry": "q.bedrock_stateful('barbaracle', 'cry')"
   },
   "poses": {
     "battle-standing": {

@@ -3,6 +3,7 @@
   "portraitTranslation": [-0.58, 1.21, 0.0],
   "profileScale": 0.58,
   "profileTranslation": [0.14, 0.92, 0.0],
+  "cry":  "bedrock(arcanine_hisuian, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

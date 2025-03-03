@@ -4,6 +4,7 @@
   "portraitTranslation": [0, 2.5, 0.0],
   "profileScale": 0.6,
   "profileTranslation": [-0.15, 1, 0.0],
+  "cry":  "bedrock(mewtwo2, cry)",
   "poses": {
     "standing": {
       "poseName": "standing",

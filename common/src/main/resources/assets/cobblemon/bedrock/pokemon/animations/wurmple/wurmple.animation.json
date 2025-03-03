@@ -58,6 +58,14 @@
 				}
 			}
 		},
+		"animation.wurmple.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.wurmple.cry"
+				}
+			}
+		},
 		"animation.wurmple.ground_idle": {
 			"loop": true,
 			"animation_length": 9,

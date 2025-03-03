@@ -659,6 +659,11 @@
 						}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.ludicolo.cry"
+				}
 			}
 		},
 		"animation.ludicolo.sleep": {

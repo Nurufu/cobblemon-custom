@@ -18,7 +18,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
-
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 class NuzleafModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("nuzleaf")
     override val head = getPart("head")
@@ -36,6 +36,8 @@ class NuzleafModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
 
     lateinit var standing: PokemonPose
     lateinit var walk: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("nuzleaf", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("nuzleaf", "blink") }

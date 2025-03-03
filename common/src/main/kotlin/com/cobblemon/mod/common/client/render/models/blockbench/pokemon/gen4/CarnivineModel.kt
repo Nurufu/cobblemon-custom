@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -34,6 +35,8 @@ class CarnivineModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame{
     lateinit var hover: PokemonPose
     lateinit var flying: PokemonPose
     lateinit var battle_idle: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("carnivine", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("carnivine", "blink") }

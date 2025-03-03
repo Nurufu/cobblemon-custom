@@ -35,7 +35,7 @@ class LanturnModel (root: ModelPart) : PokemonPoseableModel() {
     lateinit var battleidle: PokemonPose
     lateinit var waterbattleidle: PokemonPose
 
-//    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("lanturn", "cry") }
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("lanturn", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("lanturn", "blink")}

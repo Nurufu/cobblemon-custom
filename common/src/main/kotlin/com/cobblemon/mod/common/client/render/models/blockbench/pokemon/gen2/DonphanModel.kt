@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -34,6 +35,8 @@ class DonphanModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
     lateinit var walk: PokemonPose
     lateinit var sleep: PokemonPose
     lateinit var battle_idle: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("donphan", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("donphan", "blink") }

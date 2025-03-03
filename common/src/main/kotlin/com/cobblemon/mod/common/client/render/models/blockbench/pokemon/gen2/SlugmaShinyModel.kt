@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -31,6 +32,8 @@ class SlugmaShinyModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     lateinit var shiny_sleep: PokemonPose
     lateinit var shiny_standing: PokemonPose
     lateinit var shiny_walk: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("slugma_shiny", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("slugma_shiny", "blink") }

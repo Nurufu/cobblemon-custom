@@ -1,8 +1,13 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.cyyclizar.pose": {
-			"loop": true
+		"animation.cyclizar.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.cyclizar.cry"
+				}
+			}
 		},
 		"animation.cyclizar.pose": {
 			"loop": true

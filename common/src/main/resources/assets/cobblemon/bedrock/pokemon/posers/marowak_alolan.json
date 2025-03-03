@@ -4,6 +4,7 @@
     "portraitTranslation": [ -0.3, 0, 0 ],
     "profileScale": 0.9,
     "profileTranslation": [ 0.1, 0.4, 0 ],
+  "cry":  "bedrock(marowak_alolan, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.muk_alolan.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.muk.cry"
+				}
+			}
+		},
 		"animation.muk_alolan.ground_idle": {
 			"loop": true,
 			"bones": {

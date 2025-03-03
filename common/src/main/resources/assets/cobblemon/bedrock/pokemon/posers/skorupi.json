@@ -8,7 +8,8 @@
     "physical": "q.bedrock_primary('skorupi', 'physical', q.curve('symmetrical_wide'))",
     "special": "q.bedrock_primary('skorupi', 'special', q.curve('symmetrical_wide'))",
     "status": "q.bedrock_primary('skorupi', 'special', q.curve('symmetrical_wide'))",
-    "recoil": "q.bedrock_primary('skorupi', 'recoil', q.curve('symmetrical_wide'))"
+    "recoil": "q.bedrock_primary('skorupi', 'recoil', q.curve('symmetrical_wide'))",
+    "cry": "q.bedrock_stateful('skorupi', 'cry')"
   },
   "poses": {
     "battle-standing": {

@@ -826,7 +826,15 @@
 			},
 			"sound_effects": {
 				"1.2917": {
-					"effect": "beautifly_cry"
+					"effect": "pokemon.beautifly.cry"
+				}
+			}
+		},
+		"animation.beautifly.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.beautifly.cry"
 				}
 			}
 		}

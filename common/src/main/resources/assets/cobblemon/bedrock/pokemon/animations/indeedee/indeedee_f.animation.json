@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.indeedee_f.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.indeedeef.cry"
+				}
+			}
+		},
 		"animation.indeedee_f.ground_idle": {
 			"loop": true,
 			"bones": {

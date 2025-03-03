@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.minccino.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.minccino.cry"
+				}
+			}
+		},
 		"animation.minccino.ground_walk": {
 			"loop": true,
 			"bones": {

@@ -217,6 +217,11 @@
 						"1.2917": [1, 1, 1]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.meltan.cry"
+				}
 			}
 		},
 		"animation.meltan.blink": {

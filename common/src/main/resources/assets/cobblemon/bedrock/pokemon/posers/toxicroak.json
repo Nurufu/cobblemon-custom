@@ -5,6 +5,7 @@
   "profileScale": 0.8,
   "profileTranslation": [-0.1, 0.6, 0],
   "faint": "bedrock(toxicroak, faint)",
+  "cry":  "bedrock(toxicroak, cry)",
   "poses": {
     "standing": {
       "poseName": "standing",

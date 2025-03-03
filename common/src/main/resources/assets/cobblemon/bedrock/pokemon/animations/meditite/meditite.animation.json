@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.meditite.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.meditite.cry"
+				}
+			}
+		},
 		"animation.meditite.pose": {
 			"animation_length": 2,
 			"bones": {

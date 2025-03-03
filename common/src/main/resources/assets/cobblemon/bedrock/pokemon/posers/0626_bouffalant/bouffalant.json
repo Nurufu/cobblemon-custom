@@ -5,7 +5,8 @@
   "profileTranslation": [0, 0.6, 0],
   "rootBone": "bouffalant",
   "animations": {
-    "faint": "q.bedrock_stateful('bouffalant','new')"
+    "faint": "q.bedrock_stateful('bouffalant','new')",
+    "cry": "q.bedrock_stateful('bouffalant', 'cry')"
   },
   "poses": {
     "standing": {

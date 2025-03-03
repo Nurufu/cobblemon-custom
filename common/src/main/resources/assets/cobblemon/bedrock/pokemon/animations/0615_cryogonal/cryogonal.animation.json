@@ -315,6 +315,14 @@
 					}
 				}
 			}
+		},
+		"animation.cryogonal.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.cryogonal.cry"
+				}
+			}
 		}
 	}
 }

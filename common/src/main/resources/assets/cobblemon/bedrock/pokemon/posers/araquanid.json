@@ -5,6 +5,7 @@
   "profileScale": 1,
   "profileTranslation": [ 0, 0.15, 0 ],
   "faint": "bedrock(araquanid, faint)",
+  "cry":  "bedrock(araquanid, cry)",
   "poses": {
     "standing": {
       "poseName": "standing",

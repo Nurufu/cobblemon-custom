@@ -5,6 +5,7 @@
     "profileRotation": 90,
     "profileTranslation": [ 0, 0.65, 0 ],
     "faint": "bedrock(polteageist, sleep)",
+  "cry":  "bedrock(polteageist, cry)",
     "poses": {
 
       "standing": {

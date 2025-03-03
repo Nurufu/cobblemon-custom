@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen7
 
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -29,6 +30,8 @@ class WishiwashiSchoolingModel (root: ModelPart) : PokemonPoseableModel(){
     lateinit var floating: PokemonPose
     lateinit var swimming: PokemonPose
     lateinit var watersleep: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("wishiwashi_school", "cry") }
 
     val offsetY = -8.0
     override fun registerPoses() {

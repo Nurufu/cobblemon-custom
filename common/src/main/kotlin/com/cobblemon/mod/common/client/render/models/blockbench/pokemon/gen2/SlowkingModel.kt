@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -31,6 +32,8 @@ class SlowkingModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     lateinit var float: PokemonPose
     lateinit var swim: PokemonPose
     lateinit var battleidle: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("slowking", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("slowking", "blink") }

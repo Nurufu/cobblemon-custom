@@ -387,6 +387,11 @@
 						"1.6667": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.wyrdeer.cry"
+				}
 			}
 		},
 		"animation.wyrdeer.blink": {

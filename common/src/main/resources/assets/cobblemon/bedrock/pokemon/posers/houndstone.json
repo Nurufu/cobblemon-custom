@@ -5,6 +5,7 @@
   "profileScale": 0.3,
   "profileTranslation": [0, 1, 0],
   "faint": "bedrock(houndstone, faint)",
+  "cry": "bedrock(houndstone, cry)",
   "poses": {
     "standing": {
       "poseName": "standing",

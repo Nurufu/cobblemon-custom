@@ -5,6 +5,7 @@
   "profileScale": 0.85,
   "profileTranslation": [0, 0.55, 0],
   "faint": "bedrock(corsola_galar, sleep)",
+  "cry":  "bedrock(corsola_galar, cry)",
   "poses": {
     "standing": {
       "poseName": "standing",

@@ -5,6 +5,7 @@
     "profileScale": 0.5,
     "profileTranslation": [ 0.05, 1.0, 0 ],
     "faint": "bedrock(altaria, sleep)",
+    "cry":  "bedrock(altaria, cry)",
     "poses": {
 
       "standing": {

@@ -5,6 +5,7 @@
     "profileScale": 0.6,
     "profileTranslation": [ 0, 0.90, 0 ],
     "faint": "bedrock(zeraora, faint)",
+  "cry": "bedrock(zeraora, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

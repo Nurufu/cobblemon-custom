@@ -63,7 +63,7 @@
 			"animation_length": 3,
 			"sound_effects": {
 				"0.1667": {
-					"effect": "pokemon.chiyu.cry"
+					"effect": "pokemon.chi-yu.cry"
 				}
 			}
 		}

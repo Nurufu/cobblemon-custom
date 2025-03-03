@@ -5,6 +5,7 @@
   "profileScale": 1,
   "profileTranslation": [0, 0.15, 0],
   "faint": "bedrock(drilbur, faint)",
+  "cry":  "bedrock(drilbur, cry)",
   "poses": {
     "standing": {
       "poseName": "standing",

@@ -6399,8 +6399,14 @@
   "pokemon.rockruff.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/rockruff/rockruff_cry", "volume": 0.8 } ]
   },
-  "pokemon.lycanroc.cry": {
-    "sounds": [ { "name": "cobblemon:pokemon/lycanroc/lycanroc_cry", "volume": 0.8 } ]
+  "pokemon.lycanrocmidday.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/lycanroc/lycanrocmidday_cry", "volume": 0.8 } ]
+  },
+  "pokemon.lycanrocdusk.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/lycanroc/lycanrocdusk_cry", "volume": 0.8 } ]
+  },
+  "pokemon.lycanrocmidnight.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/lycanroc/lycanrocmidnight_cry", "volume": 0.8 } ]
   },
   "pokemon.wishiwashi.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/wishiwashi/wishiwashi_cry", "volume": 0.8 } ]
@@ -6795,8 +6801,11 @@
   "pokemon.eiscueice.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/eiscueice/eiscueice_cry", "volume": 0.8 } ]
   },
-  "pokemon.indeedee.cry": {
-    "sounds": [ { "name": "cobblemon:pokemon/indeedee/indeedee_cry", "volume": 0.8 } ]
+  "pokemon.indeedeem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/indeedee/indeedeem_cry", "volume": 0.8 } ]
+  },
+  "pokemon.indeedeef.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/indeedee/indeedeef_cry", "volume": 0.8 } ]
   },
   "pokemon.morpeko.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/morpeko/morpeko_cry", "volume": 0.8 } ]
@@ -7241,5 +7250,17 @@
   },
   "pokemon.ragingbolt.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/ragingbolt/ragingbolt_cry", "volume": 0.8 } ]
+  },
+  "pokemon.poltchageist.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/poltchageist/poltchageist_cry", "volume": 0.8 } ]
+  },
+  "pokemon.dipplin.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/dipplin/dipplin_cry", "volume": 0.8 } ]
+  },
+  "pokemon.hydrapple.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/hydrapple/hydrapple_cry", "volume": 0.8 } ]
+  },
+  "pokemon.sinistcha.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/sinistcha/sinistcha_cry", "volume": 0.8 } ]
   }
 }

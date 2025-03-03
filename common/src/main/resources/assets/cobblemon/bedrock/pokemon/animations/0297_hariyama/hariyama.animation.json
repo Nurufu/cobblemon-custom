@@ -75,6 +75,14 @@
 				}
 			}
 		},
+		"animation.hariyama.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.hariyama.cry"
+				}
+			}
+		},
 		"animation.hariyama.ground_idle": {
 			"loop": true,
 			"bones": {

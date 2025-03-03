@@ -4,6 +4,7 @@
   "portraitTranslation": [-0.4, -0.25, 0],
   "profileScale": 0.65,
   "profileTranslation": [0, 0.8, 0],
+  "cry":  "bedrock(golem_alolan, cry)",
   "poses": {
     "standing": {
       "poseName": "standing",

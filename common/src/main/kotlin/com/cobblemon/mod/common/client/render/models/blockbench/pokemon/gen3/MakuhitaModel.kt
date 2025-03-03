@@ -38,7 +38,7 @@ class MakuhitaModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
     lateinit var standing: PokemonPose
     lateinit var walk: PokemonPose
 
-//    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("makuhita", "cry") }
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("makuhita", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

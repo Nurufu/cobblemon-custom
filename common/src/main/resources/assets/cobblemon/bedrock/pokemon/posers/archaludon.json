@@ -4,7 +4,7 @@
   "profileScale": 0.6,
   "profileTranslation": [0, 1.0, -1.8],
   "animations": {
-    "cry": "bedrock('archaludon', 'cry')",
+    "cry": "q.bedrock_stateful('archaludon', 'cry')",
     "recoil": "q.bedrock_stateful('archaludon', 'recoil')",
     "physical": "q.bedrock_primary('archaludon', 'physical', q.curve('symmetrical_wide'))",
     "special": "q.bedrock_primary('archaludon', 'special', q.curve('symmetrical_wide'))",

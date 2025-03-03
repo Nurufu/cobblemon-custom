@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.kingambit.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.kingambit.cry"
+				}
+			}
+		},
 		"animation.kingambit.ground_walk": {
 			"loop": true,
 			"animation_length": 20.9583,

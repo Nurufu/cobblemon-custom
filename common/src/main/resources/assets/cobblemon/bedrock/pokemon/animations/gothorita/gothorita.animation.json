@@ -1676,7 +1676,7 @@
 			},
 			"sound_effects": {
 				"0.0417": {
-					"effect": "gothortia_cry"
+					"effect": "pokemon.gothorita.cry"
 				}
 			}
 		}

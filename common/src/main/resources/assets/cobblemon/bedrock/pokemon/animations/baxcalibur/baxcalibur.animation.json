@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.baxcalibur.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.baxcalibur.cry"
+				}
+			}
+		},
 		"animation.baxcalibur.ground_idle": {
 			"loop": true,
 			"bones": {

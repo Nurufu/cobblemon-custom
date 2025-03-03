@@ -12,6 +12,7 @@
         0.5,
         0
     ],
+  "cry":  "bedrock(tynamo, cry)",
     "poses": {
         "standing": {
             "poseName": "standing",

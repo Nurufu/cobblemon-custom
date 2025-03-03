@@ -3,6 +3,7 @@
   "portraitTranslation": [-0.7, -1.25, 0.0],
   "profileScale": 1.1,
   "profileTranslation": [0.0, 0.1, 0.0],
+  "cry":  "bedrock(arctibax, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

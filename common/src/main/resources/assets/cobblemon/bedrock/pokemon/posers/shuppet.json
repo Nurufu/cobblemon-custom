@@ -5,6 +5,7 @@
     "profileScale": 1.0,
     "profileTranslation": [ 0, 0.25, 0 ],
     "faint": "bedrock(shuppet, sleep)",
+  "cry":  "bedrock(shuppet, cry)",
     "poses": {
 
       "standing": {

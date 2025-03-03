@@ -1270,7 +1270,15 @@
 			},
 			"sound_effects": {
 				"0.4167": {
-					"effect": "dustox_cry"
+					"effect": "pokemon.dustox.cry"
+				}
+			}
+		},
+		"animation.dustox.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.dustox.cry"
 				}
 			}
 		}

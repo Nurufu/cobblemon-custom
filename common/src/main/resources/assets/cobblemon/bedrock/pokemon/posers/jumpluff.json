@@ -5,6 +5,7 @@
     "profileScale": 0.8,
     "profileTranslation": [ 0, 0.65, 0 ],
     "faint": "bedrock(jumpluff, faint)",
+  "cry":  "bedrock(jumpluff, cry)",
     "poses": {
 
       "standing": {

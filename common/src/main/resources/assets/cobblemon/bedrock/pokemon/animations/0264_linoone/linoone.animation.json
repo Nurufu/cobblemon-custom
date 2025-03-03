@@ -936,7 +936,7 @@
 			},
 			"sound_effects": {
 				"0.0": {
-					"effect": "linoone_ambient"
+					"effect": "pokemon.linoone.cry"
 				}
 			}
 		},

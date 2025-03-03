@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -36,6 +37,8 @@ class DratiniModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     lateinit var sleep: PokemonPose
     lateinit var water_sleep: PokemonPose
     lateinit var surface_swim: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("dratini", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("dratini", "blink") }

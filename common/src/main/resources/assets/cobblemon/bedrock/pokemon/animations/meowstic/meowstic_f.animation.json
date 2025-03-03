@@ -381,7 +381,7 @@
 			},
 			"sound_effects": {
 				"0.625": {
-					"effect": "678meowstic"
+					"effect": "pokemon.meowstic.cry"
 				}
 			}
 		},

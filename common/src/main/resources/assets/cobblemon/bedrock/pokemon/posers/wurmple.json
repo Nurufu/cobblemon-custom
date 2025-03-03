@@ -5,6 +5,7 @@
     "profileScale": 1,
     "profileTranslation": [ 0, -0.1, -1 ],
     "faint": "bedrock(wurmple, faint)",
+    "cry": "bedrock(wurmple, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",
