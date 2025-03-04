@@ -344,27 +344,6 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
             lastShinyParticle = System.currentTimeMillis()
         }
         getClientShinyPokemon()
-        getLegendaryPokemon()
-    }
-
-    fun getLegendaryPokemon() {
-        val player = MinecraftClient.getInstance().player ?: return
-        val isWithinRange = player.pos.distanceTo(currentEntity.pos) <= Cobblemon.config.shinyNoticeParticlesDistance
-        if(currentEntity.ownerUuid == null && currentEntity.pokemon.isLegendary() || currentEntity.ownerUuid == null && currentEntity.pokemon.isMythical() || currentEntity.ownerUuid == null &&  currentEntity.pokemon.isUltraBeast()){
-            if(isWithinRange){
-                if(!pinged && !player.isSpectator){
-                    legendaryCry(currentEntity.pokemon.species.toString())
-                    pinged=true
-                }
-            }
-        }
-    }
-
-    fun legendaryCry(s: String) {
-        val cry = "pokemon."+s+".cry"
-        val client = MinecraftClient.getInstance()
-        client.soundManager.play(PositionedSoundInstance.master(SoundEvent.of(Identifier("item.trident.thunder")), 0.5f, 0.3f))
-        client.soundManager.play(PositionedSoundInstance.master(SoundEvent.of(Identifier("cobblemon", cry)), 1f, 0.6f))
     }
 
     fun getClientShinyPokemon() {

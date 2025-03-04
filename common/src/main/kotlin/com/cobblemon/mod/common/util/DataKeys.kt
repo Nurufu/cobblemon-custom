@@ -19,6 +19,8 @@ object DataKeys {
     const val POKEMON_GENDER = "Gender"
     const val POKEMON_EXPERIENCE = "Experience"
     const val POKEMON_FRIENDSHIP = "Friendship"
+    const val POKEMON_PINGED = "Pinged"
+    const val POKEMON_SHINED = "Shined"
 
     const val POKEMON_STATS = "Stats"
     const val POKEMON_IVS = "IVs"

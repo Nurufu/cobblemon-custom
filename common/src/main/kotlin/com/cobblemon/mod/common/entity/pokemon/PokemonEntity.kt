@@ -192,6 +192,12 @@ open class PokemonEntity(
         get() = dataTracker.get(BATTLE_ID).isPresent
     val friendship: Int
         get() = dataTracker.get(FRIENDSHIP)
+    var pinged: Boolean
+        get() = dataTracker.get(PINGED)
+        set(value) = dataTracker.set(PINGED, value)
+    var shined: Boolean
+        get() = dataTracker.get(SHINED)
+        set(value) = dataTracker.set(SHINED, value)
 
     var drops: DropTable? = null
 
@@ -261,6 +267,7 @@ open class PokemonEntity(
         dataTracker.startTracking(SPAWN_DIRECTION, world.random.nextFloat() * 360F)
         dataTracker.startTracking(FRIENDSHIP, 0)
         dataTracker.startTracking(EVOLUTION_STARTED, false)
+        dataTracker.startTracking(PINGED, false)
         dataTracker.startTracking(SHINED, false)
     }
 
@@ -489,6 +496,9 @@ open class PokemonEntity(
             this.setPersistent()
         }
 
+        nbt.putBoolean(DataKeys.POKEMON_PINGED, dataTracker.get(PINGED))
+        nbt.putBoolean(DataKeys.POKEMON_SHINED, dataTracker.get(SHINED))
+
         // save active effects
         nbt.put(DataKeys.ENTITY_EFFECTS, effects.saveToNbt())
 
@@ -551,6 +561,8 @@ open class PokemonEntity(
         dataTracker.set(LABEL_LEVEL, pokemon.level)
         dataTracker.set(POSE_TYPE, PoseType.valueOf(nbt.getString(DataKeys.POKEMON_POSE_TYPE)))
         dataTracker.set(BEHAVIOUR_FLAGS, nbt.getByte(DataKeys.POKEMON_BEHAVIOUR_FLAGS))
+        dataTracker.set(PINGED, if (nbt.contains(DataKeys.POKEMON_PINGED)) nbt.getBoolean(DataKeys.POKEMON_PINGED) else false)
+        dataTracker.set(SHINED, if (nbt.contains(DataKeys.POKEMON_SHINED)) nbt.getBoolean(DataKeys.POKEMON_SHINED) else false)
 
         if (nbt.contains(DataKeys.POKEMON_HIDE_LABEL)) {
             dataTracker.set(HIDE_LABEL, nbt.getBoolean(DataKeys.POKEMON_HIDE_LABEL))

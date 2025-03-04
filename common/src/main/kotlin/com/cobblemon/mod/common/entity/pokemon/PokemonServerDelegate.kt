@@ -19,19 +19,15 @@ import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.SentOutState
-import com.cobblemon.mod.common.util.DataKeys
 import com.cobblemon.mod.common.util.lang
 import com.cobblemon.mod.common.util.playSoundServer
 import com.cobblemon.mod.common.util.update
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
-import net.minecraft.client.MinecraftClient
-import net.minecraft.client.sound.Sound
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ai.pathing.PathNodeType
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.data.TrackedData
-import net.minecraft.nbt.NbtCompound
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundCategory
@@ -155,16 +151,16 @@ class PokemonServerDelegate : PokemonSideDelegate {
 //            entity.setBehaviourFlag(PokemonBehaviourFlag.FLYING, true)
 //        }
 
-        if(!entity.pokemon.isPlayerOwned() && entity.pokemon.aspects.contains("shiny") && !entity.pokemon.shined){
+        if(entity.pokemon.isWild() && entity.pokemon.aspects.contains("shiny") && !entity.shined){
             if (shinyNotif(entity)) {
-                entity.pokemon.shined = true
+                entity.shined = true
             }
         }
 
-        if(!entity.pokemon.isPlayerOwned() && !entity.pokemon.pinged && entity.pokemon.isLegendary() || !entity.pokemon.isPlayerOwned() && entity.pokemon.isMythical() && !entity.pokemon.pinged || !entity.pokemon.isPlayerOwned() && entity.pokemon.isUltraBeast() && !entity.pokemon.pinged)
+        if(entity.pokemon.isWild() && !entity.pinged && (entity.pokemon.isLegendary() || entity.pokemon.isMythical() || entity.pokemon.isUltraBeast()))
         {
             if (legeNotif(entity)) {
-                entity.pokemon.pinged = true
+                entity.pinged = true
             }
         }
 

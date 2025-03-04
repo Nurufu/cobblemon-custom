@@ -319,18 +319,6 @@ open class Pokemon : ShowdownIdentifiable {
             _shiny.emit(value)
         }
 
-    var shined = false
-        set(value) {
-            field = value
-            updateAspects()
-        }
-
-    var pinged = false
-        set(value) {
-            field = value
-            updateAspects()
-        }
-
     var tradeable = true
         set(value) {
             field = value
@@ -916,7 +904,6 @@ open class Pokemon : ShowdownIdentifiable {
         originalTrainerType = OriginalTrainerType.valueOf(nbt.getString(DataKeys.POKEMON_ORIGINAL_TRAINER_TYPE).ifEmpty { OriginalTrainerType.NONE.name })
         originalTrainer = if (nbt.contains(DataKeys.POKEMON_ORIGINAL_TRAINER)) nbt.getString(DataKeys.POKEMON_ORIGINAL_TRAINER) else null
         refreshOriginalTrainer()
-
         return this
     }
 
@@ -1065,6 +1052,7 @@ open class Pokemon : ShowdownIdentifiable {
             this.originalTrainer = json.get(DataKeys.POKEMON_ORIGINAL_TRAINER).asString
         }
         refreshOriginalTrainer()
+
         return this
     }
 
