@@ -258,7 +258,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
             }
         }
         players.forEach{it.sendMessage(lang("lege.notif", closest.name))}
-        players.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
+        close.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
                         it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
                         it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 1f, 1f)}
         return true
