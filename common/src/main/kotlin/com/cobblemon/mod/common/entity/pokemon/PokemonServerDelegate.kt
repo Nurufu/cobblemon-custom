@@ -30,7 +30,6 @@ import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.data.TrackedData
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
-import net.minecraft.text.MutableText
 import net.minecraft.text.Text
 import java.util.*
 
@@ -150,14 +149,16 @@ class PokemonServerDelegate : PokemonSideDelegate {
 //        }
 
         if(!entity.pokemon.isPlayerOwned() && entity.pokemon.aspects.contains("shiny") && !entity.pokemon.shined){
-            shinyNotif(entity)
-            entity.pokemon.shined = true
+            if (shinyNotif(entity)) {
+                entity.pokemon.shined = true
+            }
         }
 
         if(!entity.pokemon.isPlayerOwned() && !entity.pokemon.pinged && entity.pokemon.isLegendary() || !entity.pokemon.isPlayerOwned() && entity.pokemon.isMythical() && !entity.pokemon.pinged || !entity.pokemon.isPlayerOwned() && entity.pokemon.isUltraBeast() && !entity.pokemon.pinged)
         {
-            legeNotif(entity)
-            entity.pokemon.pinged = true
+            if (legeNotif(entity)) {
+                entity.pokemon.pinged = true
+            }
         }
 
         entity.dataTracker.update(PokemonEntity.BATTLE_ID) { opt ->
@@ -199,11 +200,14 @@ class PokemonServerDelegate : PokemonSideDelegate {
         updateTrackedValues()
     }
 
-    fun shinyNotif(pokemon: PokemonEntity) {
+    fun shinyNotif(pokemon: PokemonEntity): Boolean {
         val world = entity.world as ServerWorld
         val players = world.players
+        if (players.size < 1) {
+            return false
+        }
         val close = ArrayList<ServerPlayerEntity>()
-        //players.forEach{it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance}
+
         players.forEach{
             if(it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance)
             {
@@ -218,11 +222,15 @@ class PokemonServerDelegate : PokemonSideDelegate {
             }
         }
         players.forEach{it.sendMessage(lang("shiny.notif", entity.pokemon.species.translatedName, closest.name))}
+        return true
     }
 
-    fun legeNotif(pokemon: PokemonEntity) {
+    fun legeNotif(pokemon: PokemonEntity): Boolean {
         val world = entity.world as ServerWorld
         val players = world.players
+        if (players.size < 1) {
+            return false
+        }
         val close = ArrayList<ServerPlayerEntity>()
         //players.forEach{it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance}
         players.forEach{
@@ -239,6 +247,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
             }
         }
         players.forEach{it.sendMessage(lang("lege.notif", closest.name))}
+        return true
     }
 
     fun updatePoseType() {
