@@ -19,6 +19,7 @@ import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.SentOutState
+import com.cobblemon.mod.common.util.DataKeys
 import com.cobblemon.mod.common.util.lang
 import com.cobblemon.mod.common.util.playSoundServer
 import com.cobblemon.mod.common.util.update
@@ -30,6 +31,7 @@ import net.minecraft.entity.ai.pathing.PathNodeType
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.data.TrackedData
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundCategory
@@ -229,7 +231,11 @@ class PokemonServerDelegate : PokemonSideDelegate {
                 closest = it
             }
         }
-        players.forEach{it.sendMessage(lang("shiny.notif", entity.pokemon.species.translatedName, closest.name))}
+        players.forEach{it.sendMessage(closest.playerListName?.let { it1 ->
+            lang("shiny.notif", entity.pokemon.species.translatedName,
+                it1
+            )
+        })}
         return true
     }
 
@@ -257,10 +263,10 @@ class PokemonServerDelegate : PokemonSideDelegate {
                 closest = it
             }
         }
-        players.forEach{it.sendMessage(lang("lege.notif", closest.name))}
+        players.forEach{it.sendMessage(closest.playerListName?.let { it1 -> lang("lege.notif", it1) })}
         close.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
                         it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
-                        it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 1f, 1f)}
+                        it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)}
         return true
     }
 

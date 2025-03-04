@@ -364,7 +364,7 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
         val cry = "pokemon."+s+".cry"
         val client = MinecraftClient.getInstance()
         client.soundManager.play(PositionedSoundInstance.master(SoundEvent.of(Identifier("item.trident.thunder")), 0.5f, 0.3f))
-        client.soundManager.play(PositionedSoundInstance.master(SoundEvent.of(Identifier("cobblemon", cry)), 1f, 1f))
+        client.soundManager.play(PositionedSoundInstance.master(SoundEvent.of(Identifier("cobblemon", cry)), 1f, 0.6f))
     }
 
     fun getClientShinyPokemon() {

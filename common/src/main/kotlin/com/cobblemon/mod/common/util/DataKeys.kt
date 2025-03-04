@@ -68,6 +68,9 @@ object DataKeys {
     const val POKEMON_ORIGINAL_TRAINER = "PokemonOriginalTrainer"
     const val POKEMON_ORIGINAL_TRAINER_TYPE = "PokemonOriginalTrainerType"
 
+    const val PINGED = "Pinged"
+    const val SHINED = "shined"
+
     // Entity effects
     const val ENTITY_EFFECTS = "EntityEffects"
     const val ENTITY_EFFECT_MOCK = "EntityEffectMock"
