@@ -23,6 +23,8 @@ import com.cobblemon.mod.common.util.lang
 import com.cobblemon.mod.common.util.playSoundServer
 import com.cobblemon.mod.common.util.update
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
+import net.minecraft.client.MinecraftClient
+import net.minecraft.client.sound.Sound
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ai.pathing.PathNodeType
 import net.minecraft.entity.attribute.EntityAttributes
@@ -30,7 +32,10 @@ import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.data.TrackedData
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
+import net.minecraft.sound.SoundCategory
+import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
+import net.minecraft.util.Identifier
 import java.util.*
 
 /** Handles purely server logic for a Pokémon */
@@ -253,6 +258,9 @@ class PokemonServerDelegate : PokemonSideDelegate {
             }
         }
         players.forEach{it.sendMessage(lang("lege.notif", closest.name))}
+        players.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
+                        it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
+                        it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 1f, 1f)}
         return true
     }
 

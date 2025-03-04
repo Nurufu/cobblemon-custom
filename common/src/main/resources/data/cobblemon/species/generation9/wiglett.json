@@ -77,6 +77,12 @@
   "aspects": [],
   "height": 12,
   "weight": 18,
+  "baseScale": 0.8,
+  "hitbox": {
+    "width": 1,
+    "height": 1,
+    "fixed": false
+  },
   "evolutions": [
     {
       "id": "wiglett_wugtrio",
