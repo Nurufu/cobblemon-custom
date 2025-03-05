@@ -227,8 +227,8 @@ class PokemonServerDelegate : PokemonSideDelegate {
                 closest = it
             }
         }
-        players.forEach{it.sendMessage(closest.playerListName?.let { it1 ->
-            var s: String = entity.pokemon.species.name
+        players.forEach{it.sendMessage(closest.displayName?.let { it1 ->
+            val s: String = entity.pokemon.species.name
             lang("shiny.notif", "§e${s}",
                 it1
             )
@@ -260,7 +260,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
                 closest = it
             }
         }
-        players.forEach{it.sendMessage(closest.playerListName?.let { it1 -> lang("lege.notif", it1) })}
+        players.forEach{it.sendMessage(closest.displayName?.let { it1 -> lang("lege.notif", it1) })}
         close.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
                         it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
                         it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)}
