@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.pokeball
 
+import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.api.reactive.Observable
 import com.cobblemon.mod.common.api.reactive.SettableObservable
 import com.cobblemon.mod.common.api.scheduling.Schedulable

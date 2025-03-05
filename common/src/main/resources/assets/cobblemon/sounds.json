@@ -1020,10 +1020,10 @@
   "particle.wild_shiny_ambient_chime": {
     "subtitle": "cobblemon.subtitle.pokemon.shiny_ambient",
     "sounds": [
-      { "name": "cobblemon:shiny/wild_shiny_ambient_chime_1", "volume": 0.8, "attenuation_distance": 128.0 },
-      { "name": "cobblemon:shiny/wild_shiny_ambient_chime_2", "volume": 0.8, "attenuation_distance": 128.0 },
-      { "name": "cobblemon:shiny/wild_shiny_ambient_chime_3", "volume": 0.8, "attenuation_distance": 128.0 },
-      { "name": "cobblemon:shiny/wild_shiny_ambient_chime_4", "volume": 0.8, "attenuation_distance": 128.0 }
+      { "name": "cobblemon:shiny/wild_shiny_ambient_chime_1", "volume": 1.2, "attenuation_distance": 128.0 },
+      { "name": "cobblemon:shiny/wild_shiny_ambient_chime_2", "volume": 1.2, "attenuation_distance": 128.0 },
+      { "name": "cobblemon:shiny/wild_shiny_ambient_chime_3", "volume": 1.2, "attenuation_distance": 128.0 },
+      { "name": "cobblemon:shiny/wild_shiny_ambient_chime_4", "volume": 1.2, "attenuation_distance": 128.0 }
     ]
   },
   "pokemon.bulbasaur.ambient": {

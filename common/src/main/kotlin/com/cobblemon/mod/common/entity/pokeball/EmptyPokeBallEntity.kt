@@ -289,7 +289,7 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
         delegate.tick(this)
 
             if(world.isServerSide()){
-                capturingPokemon?.let{
+                this.capturingPokemon?.let{
                     if(!it.isInvisible){
                         this.dataTracker.set(HIT_TARGET_POSITION, it.pos)
                     }
@@ -404,11 +404,18 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
             world.playSoundServer(pos,CobblemonSounds.POKE_BALL_OPEN, volume = 0.8F)
         }
 
-        after(seconds=0.8F){
-            if(pokemon.pokemon.shiny){
-                SpawnSnowstormEntityParticlePacket(cobblemonResource("shiny_ring"), pokemon.id, listOf("shiny_particles","middle"))
-                    .sendToPlayersAround(pokemon.x,pokemon.y,pokemon.z,32.0,pokemon.world.registryKey)
+        after(seconds=0.5F){
+            if(pokemon.pokemon.shiny) {
+                SpawnSnowstormEntityParticlePacket(
+                    cobblemonResource("shiny_ring"),
+                    pokemon.id,
+                    listOf("shiny_particles", "middle")
+                )
+                    .sendToPlayersAround(pokemon.x, pokemon.y, pokemon.z, 32.0, pokemon.world.registryKey)
             }
+        }
+
+        after(seconds = 1.2F){
             discard()
         }
 

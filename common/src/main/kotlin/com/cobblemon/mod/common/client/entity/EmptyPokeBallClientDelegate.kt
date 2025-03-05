@@ -58,7 +58,7 @@ class EmptyPokeBallClientDelegate : PokeBallPoseableState(), EntitySideDelegate<
         when (data) {
             EmptyPokeBallEntity.CAPTURE_STATE -> stateEmitter.set(currentEntity.captureState)
             EmptyPokeBallEntity.SHAKE -> shakeEmitter.emit(Unit)
-            //EmptyPokeBallEntity.ASPECTS -> currentAspects = currentEntity.aspects
+            EmptyPokeBallEntity.ASPECTS -> currentAspects = currentEntity.aspects
         }
     }
 }

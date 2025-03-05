@@ -36,6 +36,7 @@ import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.util.*
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.sound.PositionedSoundInstance
+import net.minecraft.client.sound.Sound
 import net.minecraft.client.sound.SoundManager
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.Entity
@@ -73,7 +74,7 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
     var lastShinyParticle = System.currentTimeMillis()
     var shined = false
     var pinged = false
-    var ballDone = false
+    var ballDone = true
     var ballOffset = 0f
     var ballRotOffset = 0f
     var sendOutPosition: Vec3d? = null
@@ -130,104 +131,131 @@ class PokemonClientDelegate : PoseableEntityState<PokemonEntity>(), PokemonSideD
                 when (beamMode) {
                     0 -> { /* Do nothing */ }
                     1 -> {
-                        // Scaling up out of pokeball
-                        playedSendOutSound = false
-                        entityScaleModifier = 0F
-                        beamStartTime = System.currentTimeMillis()
-                        ballStartTime = System.currentTimeMillis()
-                        currentEntity.isInvisible = true
-                        ballDone = false
-                        var soundPos = currentEntity.pos
-                        currentEntity.pokemon.getOwnerUUID()?.let{
-                            currentEntity.world.getPlayerByUuid(it)?.let {
-                                val offset = it.pos.subtract(currentEntity.pos.add(0.0, 2.0 - (ballOffset.toDouble()/10f), 0.0)).normalize().multiply(-ease(ballOffset.toDouble()))
-                                with(it.pos.subtract(currentEntity.pos)) {
-                                    var newOffset = offset.multiply(2.0)
-                                    val distance = it.pos.distanceTo(currentEntity.pos)
-                                    newOffset = newOffset.multiply((distance / 10.0) * 5)
-                                    soundPos = currentEntity.pos.add(newOffset)
-                                }
-                                it.swingHand(it.activeHand ?: Hand.MAIN_HAND)
-                            }
-                        }
-                        val client = MinecraftClient.getInstance()
-                        val sound = MovingSoundInstance(SoundEvent.of(CobblemonSounds.POKE_BALL_TRAIL.id), SoundCategory.PLAYERS, { sendOutPosition?.add(sendOutOffset) }, 0.1f, 1f, false, 20, 0)
-                        if(!playedThrowingSound){
-                            client.soundManager.play(sound)
-                            playedThrowingSound = true
-                        }
-                        lerpOnClient(POKEBALL_AIR_TIME) { ballOffset = it }
-                        ballRotOffset = ((Math.random()) * currentEntity.world.random.nextBetween(-15, 15)).toFloat()
-
-                        currentEntity.after(seconds = POKEBALL_AIR_TIME){
+                        if (ballDone) {
+                            playedSendOutSound = false
+                            entityScaleModifier = 0F
                             beamStartTime = System.currentTimeMillis()
-                            ballDone = true
-                            if (client.soundManager.get(CobblemonSounds.POKE_BALL_SEND_OUT.id) != null || client.soundManager.get(CobblemonSounds.POKE_BALL_SEND_OUT.id) != null && !playedSendOutSound) {
-                                if(currentEntity.pokemon.shiny){
-                                    client.world?.playSound(client.player, soundPos.x, soundPos.y, soundPos.z, SoundEvent.of(CobblemonSounds.POKE_BALL_SHINY_SEND_OUT.id), SoundCategory.PLAYERS, 0.6f, 1f)
-                                } else {
-                                    client.world?.playSound(client.player, soundPos.x, soundPos.y, soundPos.z, SoundEvent.of(CobblemonSounds.POKE_BALL_SEND_OUT.id), SoundCategory.PLAYERS, 0.6f, 1f)
+                            ballStartTime = System.currentTimeMillis()
+                            currentEntity.isInvisible = true
+                            ballDone = false
+                            var soundPos = currentEntity.pos
+                            currentEntity.pokemon.getOwnerUUID()?.let {
+                                currentEntity.world.getPlayerByUuid(it)?.let {
+                                    val offset = it.pos.subtract(currentEntity.pos.add(0.0, 2.0 - (ballOffset.toDouble() / 10f), 0.0)).normalize().multiply(-ease(ballOffset.toDouble()))
+                                    with(it.pos.subtract(currentEntity.pos)) {
+                                        var newOffset = offset.multiply(2.0)
+                                        val distance = it.pos.distanceTo(currentEntity.pos)
+                                        newOffset = newOffset.multiply((distance / 10.0) * 5)
+                                        soundPos = currentEntity.pos.add(newOffset)
+                                    }
+                                    it.swingHand(it.activeHand ?: Hand.MAIN_HAND)
                                 }
-                                playedSendOutSound = true
                             }
-////                            currentEntity.ownerUuid?.let {
-////                                client.world?.playSound(
-////                                    client.player,
-////                                    soundPos.x,
-////                                    soundPos.y,
-////                                    soundPos.z,
-////                                    SoundEvent.of(CobblemonSounds.POKE_BALL_SEND_OUT.id),
-////                                    SoundCategory.PLAYERS,
-////                                    0.6f,
-////                                    1f
-////                                )
-//                            }
-                            // Display ball-specific particles
-                            sendOutPosition?.let{
-                                val newPos = it.add(sendOutOffset)
-                                val ballType = currentEntity.pokemon.caughtBall.name.path.lowercase().replace("_","")
-                                val mode = if(currentEntity.isBattling) "battle" else "casual"
-                                val sendflash = BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/${mode}/sendflash"))
-                                sendflash?.let { effect ->
-                                    val wrapper = MatrixWrapper()
-                                    val matrix = MatrixStack()
-                                    matrix.translate(newPos.x, newPos.y, newPos.z)
-                                    wrapper.updateMatrix(matrix.peek().positionMatrix)
-                                    val world = MinecraftClient.getInstance().world ?: return@let
-                                    ParticleStorm(effect, wrapper, world).spawn()
-                                    val ballsparks = BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/${mode}/ballsparks"))
-                                    val ballsendsparkle = BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/${mode}/ballsendsparkle"))
-                                    // using afterOnClient because it's such a small timeframe that it's unlikely the entity has been removed & we'd like the precision
-                                    afterOnClient(seconds = 0.01667f) {
-                                        ballsparks?.let { effect ->
+                            val client = MinecraftClient.getInstance()
+                            val sound = MovingSoundInstance(SoundEvent.of(CobblemonSounds.POKE_BALL_TRAIL.id), SoundCategory.PLAYERS, { sendOutPosition?.add(sendOutOffset) }, 0.1f, 1f, false, 20, 0)
+                            if (!playedThrowingSound) {
+                                client.soundManager.play(sound)
+                                playedThrowingSound = true
+                            }
+                            lerpOnClient(POKEBALL_AIR_TIME) { ballOffset = it }
+                            ballRotOffset = ((Math.random()) * currentEntity.world.random.nextBetween(-15, 15)).toFloat()
+
+                            currentEntity.after(seconds = POKEBALL_AIR_TIME) {
+                                beamStartTime = System.currentTimeMillis()
+                                ballDone = true
+                                if (client.soundManager.get(CobblemonSounds.POKE_BALL_SEND_OUT.id) != null || client.soundManager.get(CobblemonSounds.POKE_BALL_SHINY_SEND_OUT.id) != null && !playedSendOutSound) {
+                                    if (currentEntity.pokemon.shiny) {
+                                        client.world?.playSound(client.player, soundPos.x, soundPos.y, soundPos.z, SoundEvent.of(CobblemonSounds.POKE_BALL_SHINY_SEND_OUT.id), SoundCategory.PLAYERS, 0.6f, 1f)
+                                    } else {
+                                        client.world?.playSound(client.player, soundPos.x, soundPos.y, soundPos.z, SoundEvent.of(CobblemonSounds.POKE_BALL_SEND_OUT.id), SoundCategory.PLAYERS, 0.6f, 1f)
+                                    }
+                                    playedSendOutSound = true
+                                }
+                                currentEntity.ownerUuid?.let {
+                                    client.world?.playSound(
+                                        client.player,
+                                        soundPos.x,
+                                        soundPos.y,
+                                        soundPos.z,
+                                        SoundEvent.of(CobblemonSounds.POKE_BALL_SEND_OUT.id),
+                                        SoundCategory.PLAYERS,
+                                        0.6f,
+                                        1f
+                                    )
+                                    playedSendOutSound = true
+                                    /// create end rod particles in a 0.1 radius around the soundPos with a count of 50 and a random velocity of 0.1
+                                    sendOutPosition?.let {
+                                        val newPos = it.add(sendOutOffset)
+                                        val ballType =
+                                            currentEntity.pokemon.caughtBall.name.path.toLowerCase().replace("_", "")
+                                        val mode = if (currentEntity.isBattling) "battle" else "casual"
+                                        val sendflash =
+                                            BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/${mode}/sendflash"))
+                                        sendflash?.let { effect ->
+                                            val wrapper = MatrixWrapper()
+                                            val matrix = MatrixStack()
+                                            matrix.translate(newPos.x, newPos.y, newPos.z)
+                                            wrapper.updateMatrix(matrix.peek().positionMatrix)
+                                            val world = MinecraftClient.getInstance().world ?: return@let
                                             ParticleStorm(effect, wrapper, world).spawn()
-                                        }
-                                        ballsendsparkle?.let { effect ->
-                                            ParticleStorm(effect, wrapper, world).spawn()
-                                        }
-                                        currentEntity.after(seconds = 0.4f) {
-                                            val ballsparkle = BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/ballsparkle"))
-                                            ballsparkle?.let { effect ->
-                                                ParticleStorm(effect, wrapper, world).spawn()
+                                            val ballsparks =
+                                                BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/${mode}/ballsparks"))
+                                            val ballsendsparkle =
+                                                BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/${mode}/ballsendsparkle"))
+                                            // using afterOnClient because it's such a small timeframe that it's unlikely the entity has been removed & we'd like the precision
+                                            afterOnClient(seconds = 0.01667f) {
+                                                ballsparks?.let { effect ->
+                                                    ParticleStorm(
+                                                        effect,
+                                                        wrapper,
+                                                        world
+                                                    ).spawn()
+                                                }
+                                                ballsendsparkle?.let { effect ->
+                                                    ParticleStorm(
+                                                        effect,
+                                                        wrapper,
+                                                        world
+                                                    ).spawn()
+                                                }
+                                                currentEntity.after(seconds = 0.4f) {
+                                                    val ballsparkle =
+                                                        BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/ballsparkle"))
+                                                    ballsparkle?.let { effect ->
+                                                        ParticleStorm(
+                                                            effect,
+                                                            wrapper,
+                                                            world
+                                                        ).spawn()
+                                                    }
+                                                    currentEntity.after(seconds = 0.1f) {
+                                                        //This is only for when the player is sending out the Pokemon into the world and not a battle.
+                                                        if (currentEntity.pokemon.shiny && !currentEntity.isBattling) {
+                                                            playShinyEffect("cobblemon:shiny_ring")
+                                                            lastShinyParticle = System.currentTimeMillis()
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
                             currentEntity.after(seconds = POKEBALL_AIR_TIME) {
-                                if(scaleAnimTask == null || scaleAnimTask!!.expired){
+                                // Skip scaling task if the Pokémon is already being recalled
+                                if (scaleAnimTask == null || scaleAnimTask!!.expired) {
                                     scaleAnimTask = lerpOnClient(BEAM_SHRINK_TIME) { entityScaleModifier = it }
                                     currentEntity.isInvisible = false
-                                    currentEntity.after(seconds = POKEBALL_AIR_TIME*2){
+                                    currentEntity.after(seconds = POKEBALL_AIR_TIME * 2) {
                                         ballOffset = 0f
                                         ballRotOffset = 0f
                                         sendOutPosition = null
                                     }
-
                                 }
                             }
                         }
                     }
+
                     2 -> {
                         // Scaling up with no delay and no particles
                         if(ballDone){
