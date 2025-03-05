@@ -228,7 +228,8 @@ class PokemonServerDelegate : PokemonSideDelegate {
             }
         }
         players.forEach{it.sendMessage(closest.playerListName?.let { it1 ->
-            lang("shiny.notif", entity.pokemon.species.translatedName,
+            var s: String = entity.pokemon.species.name
+            lang("shiny.notif", "§e${s}",
                 it1
             )
         })}
