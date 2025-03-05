@@ -15,7 +15,6 @@
         "NONE",
         "PORTRAIT",
         "PROFILE",
-        "FLOAT",
         "HOVER",
         "SLEEP"
       ],
@@ -25,9 +24,21 @@
       "poseName": "walking",
       "poseTypes": ["WALK", "SWIM", "FLY"],
       "animations": [
-        "q.look('head')",
-        "q.bedrock('cramorant', 'ground_idle')",
-        "q.biped_walk(1, 1, 'leg_left', 'leg_right')"
+        "q.look('head')", "q.bedrock('cramorant, 'ground_walk')"
+      ]
+    },
+    "float": {
+      "poseName": "float",
+      "poseTypes": ["FLOAT"],
+      "animations": [
+        "q.look('head')", "q.bedrock('cramorant, 'water_idle')"
+      ]
+    },
+    "swim": {
+      "poseName": "swim",
+      "poseTypes": ["SWIM"],
+      "animations": [
+        "q.look('head')", "q.bedrock('cramorant, 'water_swim')"
       ]
     }
   }
