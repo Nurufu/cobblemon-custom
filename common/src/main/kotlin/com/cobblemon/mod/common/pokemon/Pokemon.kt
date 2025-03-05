@@ -60,6 +60,7 @@ import com.cobblemon.mod.common.net.messages.client.PokemonUpdatePacket
 import com.cobblemon.mod.common.net.messages.client.effect.SpawnSnowstormEntityParticlePacket
 import com.cobblemon.mod.common.net.messages.client.pokemon.update.*
 import com.cobblemon.mod.common.net.serverhandling.storage.SendOutPokemonHandler.SEND_OUT_DURATION
+import com.cobblemon.mod.common.net.serverhandling.storage.SendOutPokemonHandler.THROW_DURATION
 import com.cobblemon.mod.common.pokeball.PokeBall
 import com.cobblemon.mod.common.pokemon.activestate.*
 import com.cobblemon.mod.common.pokemon.evolution.CobblemonEvolutionProxy
@@ -513,7 +514,17 @@ open class Pokemon : ShowdownIdentifiable {
             it.beamMode = 1
             it.battleId = battleId
 
+            it.after(seconds = THROW_DURATION) {
+                it.phasingTargetId = -1
+            }
+
             it.after(seconds = SEND_OUT_DURATION) {
+                // Allow recall animation to override sendout animation
+                if(it.beamMode == 3) {
+                    future.complete(it)
+                    return@after
+                }
+
                 it.phasingTargetId = -1
                 it.beamMode = 0
                 future.complete(it)

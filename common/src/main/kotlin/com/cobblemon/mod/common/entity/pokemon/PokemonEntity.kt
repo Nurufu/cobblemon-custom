@@ -414,6 +414,10 @@ open class PokemonEntity(
             return true
         }
 
+        if(beamMode != 0){
+            return true
+        }
+
         // Owned Pokémon cannot be hurt by players or suffocation
         if (ownerUuid != null && (damageSource.attacker is PlayerEntity || damageSource.isOf(DamageTypes.IN_WALL))) {
             return true
@@ -422,6 +426,12 @@ open class PokemonEntity(
         if (!Cobblemon.config.playerDamagePokemon && damageSource.attacker is PlayerEntity) {
             return true
         }
+
+//        // Let the Pokémon be intangible during recall
+//        noPhysics = true
+//        // This doesn't appear to actually prevent a livingEntity from falling, but is here as a precaution
+//        isNoGravity = true
+
 
         return super.isInvulnerableTo(damageSource)
     }

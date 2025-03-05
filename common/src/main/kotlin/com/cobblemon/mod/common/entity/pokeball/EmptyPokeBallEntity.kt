@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.entity.pokeball
 
+import com.bedrockk.molang.runtime.struct.QueryStruct
 import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.CobblemonEntities.EMPTY_POKEBALL
 import com.cobblemon.mod.common.CobblemonNetwork
@@ -16,6 +17,7 @@ import com.cobblemon.mod.common.api.events.CobblemonEvents
 import com.cobblemon.mod.common.api.events.pokeball.PokeBallCaptureCalculatedEvent
 import com.cobblemon.mod.common.api.events.pokeball.ThrownPokeballHitEvent
 import com.cobblemon.mod.common.api.events.pokemon.PokemonCapturedEvent
+import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
 import com.cobblemon.mod.common.api.net.serializers.StringSetDataSerializer
 import com.cobblemon.mod.common.api.net.serializers.Vec3DataSerializer
 import com.cobblemon.mod.common.api.pokeball.PokeBalls
@@ -71,6 +73,7 @@ import net.minecraft.util.math.MathHelper.PI
 import net.minecraft.util.math.Vec3d
 import net.minecraft.world.World
 import java.util.concurrent.CompletableFuture
+import kotlin.reflect.jvm.internal.impl.resolve.constants.StringValue
 
 class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Schedulable {
     enum class CaptureState {
@@ -285,18 +288,30 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
         super.tick()
         delegate.tick(this)
 
-        if (world.isServerSide()) {
+            if(world.isServerSide()){
+                capturingPokemon?.let{
+                    if(!it.isInvisible){
+                        this.dataTracker.set(HIT_TARGET_POSITION, it.pos)
+                    }
+                    CobblemonEvents.THROWN_POKEBALL_HIT.postThen(
+                        event = ThrownPokeballHitEvent(this, it),
+                        ifSucceeded = {},
+                        ifCanceled = {
+                            drop()
+                            return
+                        }
+                    )
+                }
+                if (this.age > 600 && this.capturingPokemon == null){
+                    this.remove(RemovalReason.DISCARDED)
+                }
 
-            if (this.age > 600 && this.capturingPokemon == null) {
-                this.remove(RemovalReason.DISCARDED)
+                if (owner == null || !owner!!.isAlive || (captureState != CaptureState.NOT && capturingPokemon?.isAlive != true)){
+                    breakFree()
+                    discard()
+                    return
+                }
             }
-
-            if (owner == null || !owner!!.isAlive || (captureState != CaptureState.NOT && capturingPokemon?.isAlive != true)) {
-                breakFree()
-                discard()
-                return
-            }
-        }
 
         // Look at the target, if the target is known.
         val hitTargetPosition = dataTracker.get(HIT_TARGET_POSITION)
@@ -386,7 +401,7 @@ class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Sched
         if(pokemon.pokemon.shiny) {
             world.playSoundServer(pos,CobblemonSounds.POKE_BALL_SHINY_OPEN, volume = 0.8F)
         } else {
-            world.playSoundServer(pos,CobblemonSounds.POKE_BALL_SEND_OUT, volume = 0.8F)
+            world.playSoundServer(pos,CobblemonSounds.POKE_BALL_OPEN, volume = 0.8F)
         }
 
         after(seconds=0.8F){

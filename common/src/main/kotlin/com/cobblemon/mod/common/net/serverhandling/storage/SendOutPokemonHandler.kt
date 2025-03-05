@@ -20,6 +20,7 @@ import net.minecraft.world.RaycastContext
 
 object SendOutPokemonHandler : ServerNetworkPacketHandler<SendOutPokemonPacket> {
 
+    const val THROW_DURATION = 0.5F
     const val SEND_OUT_DURATION = 1.5F
 
     override fun handle(packet: SendOutPokemonPacket, server: MinecraftServer, player: ServerPlayerEntity) {
@@ -39,7 +40,14 @@ object SendOutPokemonHandler : ServerNetworkPacketHandler<SendOutPokemonPacket> 
         } else {
             val entity = state.entity
             if (entity != null) {
-                entity.recallWithAnimation()
+                val buffer = THROW_DURATION + 0.5F - entity.ticksLived.toFloat() / 20F
+                if(buffer > 0.75F){
+                    //nothing
+                }else if(buffer >0){
+                    entity.after(buffer){entity.recallWithAnimation()}
+                }else{
+                    entity.recallWithAnimation()
+                }
             } else {
                 pokemon.recall()
             }
