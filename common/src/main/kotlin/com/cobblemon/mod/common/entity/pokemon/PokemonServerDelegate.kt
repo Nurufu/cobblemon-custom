@@ -154,6 +154,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
         if(entity.pokemon.isWild() && entity.pokemon.aspects.contains("shiny") && !entity.shined){
             if (shinyNotif(entity)) {
                 entity.shined = true
+                entity.setPersistent()
             }
         }
 
@@ -161,6 +162,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
         {
             if (legeNotif(entity)) {
                 entity.pinged = true
+                entity.setPersistent()
             }
         }
 

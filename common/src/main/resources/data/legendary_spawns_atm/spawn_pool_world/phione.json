@@ -8,9 +8,9 @@
             "pokemon": "phione",
             "type": "pokemon",
             "context": "submerged",
-            "bucket": "rare",
+            "bucket": "ultra-rare",
             "level": "50",
-            "weight": 3.0,
+            "weight": 4.5,
             "condition": {
                 "biomes": [
                     "#cobblemon:is_ocean"

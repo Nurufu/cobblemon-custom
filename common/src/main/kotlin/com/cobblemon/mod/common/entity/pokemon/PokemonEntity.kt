@@ -499,11 +499,11 @@ open class PokemonEntity(
         if (dataTracker.get(UNBATTLEABLE)) {
             nbt.putBoolean(DataKeys.POKEMON_UNBATTLEABLE, true)
         }
+
+        if(this.pokemon.isWild() && (this.pokemon.isLegendary() || this.pokemon.isMythical() || this.pokemon.isUltraBeast())) countsTowardsSpawnCap = false else countsTowardsSpawnCap = true
+
         if (!countsTowardsSpawnCap) {
             nbt.putBoolean(DataKeys.POKEMON_COUNTS_TOWARDS_SPAWN_CAP, false)
-        }
-        if(!pokemon.isPlayerOwned() && aspects.contains("shiny") || pokemon.isLegendary() || pokemon.isUltraBeast() || pokemon.isMythical()){
-            this.setPersistent()
         }
 
         nbt.putBoolean(DataKeys.POKEMON_PINGED, dataTracker.get(PINGED))
