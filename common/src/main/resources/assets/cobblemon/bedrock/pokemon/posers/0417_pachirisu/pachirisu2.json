@@ -25,6 +25,14 @@
       "quirks": [
         "q.bedrock_quirk('pachirisu', 'blink')"
       ]
+    },
+    "leftshoulder": {
+      "poseTypes": ["SHOULDER_LEFT"],
+      "animations": ["q.look('head_ai')","q.bedrock('pachirisu', 'shoulder_left')"]
+    },
+    "rightshoulder": {
+      "poseTypes": ["SHOULDER_RIGHT"],
+      "animations": ["q.look('head_ai')", "q.bedrock('pachirisu', 'shoulder_right')"]
     }
   }
 }
