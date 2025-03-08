@@ -35,7 +35,7 @@
         "SLEEP"
       ],
       "animations": [
-        "bedrock(purrloin, 'pose1')"
+        "bedrock(purrloin, pose1)"
       ]
     }
   }
