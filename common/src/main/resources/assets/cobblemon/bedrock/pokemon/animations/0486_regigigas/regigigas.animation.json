@@ -578,6 +578,7 @@
 			}
 		},
 		"animation.regigigas.battle_idle": {
+			"loop": true,
 			"animation_length": 2.3333,
 			"bones": {
 				"torso": {
