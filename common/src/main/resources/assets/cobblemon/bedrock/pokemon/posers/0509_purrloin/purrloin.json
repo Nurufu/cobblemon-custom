@@ -27,6 +27,16 @@
       "poseTypes": ["WALK"],
       "animations": ["q.look('head')", "q.bedrock('purrloin', 'ground_walk')"],
       "quirks": ["q.bedrock_quirk('purrloin', 'blink')"]
+    },
+    "sleeping": {
+      "poseName": "sleeping",
+      "transformTicks": 10,
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "animations": [
+        "bedrock(purrloin, 'pose1')"
+      ]
     }
   }
 }
