@@ -229,6 +229,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
                 closest = it
             }
         }
+        closest.playSound(SoundEvent.of(Identifier("cobblemon", "particle.wild_shiny_chime")),SoundCategory.MASTER, 0.6f, 1f)
         players.forEach{it.sendMessage(closest.displayName?.let { it1 ->
             val s: String = entity.pokemon.species.name
             lang("shiny.notif", "§e${s}",

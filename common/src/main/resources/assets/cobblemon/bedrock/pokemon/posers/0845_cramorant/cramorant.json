@@ -22,10 +22,8 @@
     },
     "walking": {
       "poseName": "walking",
-      "poseTypes": ["WALK", "SWIM", "FLY"],
-      "animations": [
-        "q.look('head')", "q.bedrock('cramorant, 'ground_walk')"
-      ]
+      "poseTypes": ["WALK", "FLY"],
+      "animations": ["q.look('head')", "q.bedrock('cramorant, 'ground_walk')"]
     },
     "float": {
       "poseName": "float",

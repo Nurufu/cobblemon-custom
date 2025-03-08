@@ -59,6 +59,9 @@ open class BedrockStatefulAnimation<T : Entity>(
     }
 
     override fun applyEffects(entity: T, state: PoseableEntityState<T>, previousSeconds: Float, newSeconds: Float) {
+        if(startedSeconds == -1F){
+            startedSeconds = state.animationSeconds
+        }
         val previousSecondsOffset = previousSeconds - startedSeconds
         val currentSecondsOffset = newSeconds - startedSeconds
         animation.applyEffects(entity, state, previousSecondsOffset, currentSecondsOffset)
