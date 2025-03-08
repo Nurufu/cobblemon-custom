@@ -2,8 +2,8 @@
   "head": "head",
   "portraitScale": 1.5,
   "portraitTranslation": [ -1, 4.3, 0 ],
-  "profileScale": 0.4,
-  "profileTranslation": [ 0, 1.2, 0 ],
+  "profileScale": 0.33,
+  "profileTranslation": [ 0, 1.35, 0 ],
   "faint": "bedrock(farigiraf, faint)",
   "cry": "bedrock(farigiraf, cry)",
   "poses": {

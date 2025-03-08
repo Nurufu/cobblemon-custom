@@ -1,26 +1,37 @@
 {
-  "portraitScale": 0.35,
-  "portraitTranslation": [-0.09, 2.21, 0],
-  "profileScale": 0.21,
-  "profileTranslation": [-0.04, 1.44, 0],
+  "portraitScale": 0.3,
+  "portraitTranslation": [-0.28, 1.64, 0],
+  "profileScale": 0.18,
+  "profileTranslation": [-0.04, 1.3, 0],
   "rootBone": "regigigas",
+  "animations": {
+    "cry": "q.bedrock_stateful('regigigas', 'cry')",
+    "physical": "q.bedrock_primary('regigigas', 'physical')",
+    "faint": "q.bedrock_primary('regigigas', 'faint')"
+  },
   "poses": {
     "battle-standing": {
-      "poseTypes": ["STAND"],
+      "poseTypes": ["STAND", "FLOAT"],
       "isBattle": true,
       "animations": ["q.bedrock('regigigas', 'battle_idle')"]
     },
     "standing": {
-      "poseTypes": ["STAND", "FLOAT", "PORTRAIT", "PROFILE", "NONE"],
+      "postTypes": ["PORTRAIT", "PROFILE", "NONE"],
+      "isBattle":false,
+      "animations": ["q.bedrock('regigigas', 'kneeling')"]
+    },
+    "stand": {
+      "poseTypes": ["STAND", "FLOAT"],
       "isBattle": false,
-      "animations": ["q.bedrock('regigigas', 'ground_idle')"]
+      "animations": ["q.bedrock('regigigas', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_primary_quirk('regigigas', 'quirk_spin')",
+        "q.bedrock_primary_quirk('regigigas', 'quirk_punch')"
+      ]
     },
     "walking": {
       "poseTypes": ["WALK", "SWIM"],
-      "animations": [
-        "q.biped_walk(0.4, 0.7, 'leg_left', 'leg_right')",
-        "q.bedrock('regigigas', 'ground_idle')"
-      ]
+      "animations": ["q.bedrock('regigigas', 'ground_walk')"]
     }
   }
 }
