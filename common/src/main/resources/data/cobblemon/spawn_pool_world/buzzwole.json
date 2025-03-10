@@ -4,20 +4,18 @@
     "neededUninstalledMods": [],
     "spawns": [
         {
-            "id": "magearna-1",
-            "pokemon": "magearna",
+            "id": "buzzwole-1",
+            "pokemon": "buzzwole",
             "type": "pokemon",
             "context": "grounded",
             "bucket": "ultra-rare",
-            "level": "50-70",
-            "weight": 0.7,
+            "level": "70",
+            "weight": 0.2,
             "condition": {
+                "canSeeSky": true,
                 "biomes": [
-                    "#cobblemon:is_forest"
-                ],
-                "neededBaseBlocks": [
-                    "minecraft:grass_block"
-                  ]
+                    "#cobblemon:is_swamp"
+                ]
 			}
 		}
     ]

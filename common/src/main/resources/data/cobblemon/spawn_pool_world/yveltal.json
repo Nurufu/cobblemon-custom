@@ -4,20 +4,18 @@
     "neededUninstalledMods": [],
     "spawns": [
         {
-            "id": "magearna-1",
-            "pokemon": "magearna",
+            "id": "yveltal-1",
+            "pokemon": "yveltal",
             "type": "pokemon",
             "context": "grounded",
             "bucket": "ultra-rare",
-            "level": "50-70",
-            "weight": 0.7,
+            "level": "70",
+            "weight": 0.5,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_forest"
+                    "#cobblemon:is_spooky"
                 ],
-                "neededBaseBlocks": [
-                    "minecraft:grass_block"
-                  ]
+                "timeRange": "night"
 			}
 		}
     ]

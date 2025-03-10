@@ -4,20 +4,20 @@
     "neededUninstalledMods": [],
     "spawns": [
         {
-            "id": "magearna-1",
-            "pokemon": "magearna",
+            "id": "tapufini-1",
+            "pokemon": "tapufini",
             "type": "pokemon",
             "context": "grounded",
             "bucket": "ultra-rare",
             "level": "50-70",
-            "weight": 0.7,
+            "weight": 1,
             "condition": {
+                "canSeeSky": true,
                 "biomes": [
-                    "#cobblemon:is_forest"
-                ],
-                "neededBaseBlocks": [
-                    "minecraft:grass_block"
-                  ]
+                    "#cobblemon:is_forest",
+                    "#cobblemon:is_jungle",
+                    "#minecraft:is_beach"
+                ]
 			}
 		}
     ]

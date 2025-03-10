@@ -4,20 +4,20 @@
     "neededUninstalledMods": [],
     "spawns": [
         {
-            "id": "magearna-1",
-            "pokemon": "magearna",
+            "id": "solgaleo-1",
+            "pokemon": "solgaleo",
             "type": "pokemon",
             "context": "grounded",
             "bucket": "ultra-rare",
-            "level": "50-70",
-            "weight": 0.7,
+            "level": "70",
+            "weight": 0.5,
             "condition": {
+                "canSeeSky": true,
                 "biomes": [
-                    "#cobblemon:is_forest"
+                    "#cobblemon:is_badlands",
+                    "#cobblemon:is_savanna"
                 ],
-                "neededBaseBlocks": [
-                    "minecraft:grass_block"
-                  ]
+                "timeRange": "morning"
 			}
 		}
     ]

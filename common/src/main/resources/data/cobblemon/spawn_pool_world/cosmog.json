@@ -4,20 +4,19 @@
     "neededUninstalledMods": [],
     "spawns": [
         {
-            "id": "magearna-1",
-            "pokemon": "magearna",
+            "id": "cosmog-1",
+            "pokemon": "cosmog",
             "type": "pokemon",
             "context": "grounded",
             "bucket": "ultra-rare",
-            "level": "50-70",
-            "weight": 0.7,
+            "level": "30-50",
+            "weight": 1,
             "condition": {
+                "canSeeSky": true,
                 "biomes": [
-                    "#cobblemon:is_forest"
+                    "#cobblemon:is_floral"
                 ],
-                "neededBaseBlocks": [
-                    "minecraft:grass_block"
-                  ]
+                "timeRange": "any"
 			}
 		}
     ]

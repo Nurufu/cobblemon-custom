@@ -114,7 +114,7 @@
     "tutor:uproar",
     "tutor:waterpulse"
   ],
-  "labels": ["gen4", "mythical", "legendary"],
+  "labels": ["gen4"],
   "pokedex": ["cobblemon.species.phione.desc"],
   "evolutions": [],
   "baseScale": 0.6,
