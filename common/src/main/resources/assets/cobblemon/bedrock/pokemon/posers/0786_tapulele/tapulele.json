@@ -1,0 +1,40 @@
+{
+    "head": "head",
+    "portraitScale": 1.36,
+    "portraitTranslation": [ -0.31, 2.69, 0 ],
+    "profileScale": 0.43,
+    "profileTranslation": [ 0, 1.3, 0 ],
+    "animations": {
+      "cry": "q.bedrock_stateful('tapulele', 'cry')",
+      "faint": "q.bedrock_primary('tapulele', 'faint')"
+    },
+    "poses": {
+
+      "standing": {
+        "poseName": "standing",
+        "transformTicks": 10,
+        "poseTypes": [
+          "STAND",
+          "NONE",
+          "PORTRAIT",
+          "PROFILE"
+        ],
+        "animations": [
+          "look",
+          "bedrock(tapulele, ground_idle)"
+        ],
+        "quirks": []
+      },
+
+      "walking": {
+        "poseName": "walking",
+        "transformTicks": 10,
+        "poseTypes": [ "WALK" ],
+        "animations": [ 
+          "look",
+          "bedrock(tapulele, ground_walk)"
+        ],
+        "quirks": []
+      }
+    }
+  }

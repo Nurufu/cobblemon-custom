@@ -1,0 +1,35 @@
+{
+    "head": "head",
+    "portraitScale": 1.87,
+    "portraitTranslation": [ 0, 2.84, 0 ],
+    "profileScale": 0.48,
+    "profileTranslation": [ 0, 1.08, 0 ],
+    "animations": {
+      "cry": "q.bedrock_stateful('pheromosa', 'cry')"
+    },
+    "poses": {
+      "standing": {
+        "poseName": "standing",
+        "transformTicks": 10,
+        "poseTypes": [
+          "STAND",
+          "NONE",
+          "PORTRAIT",
+          "PROFILE"
+        ],
+        "animations": [
+          "look",
+          "bedrock(pheromosa, ground_idle)"
+        ]
+      },
+      "walking": {
+        "poseName": "walking",
+        "transformTicks": 10,
+        "poseTypes": [ "WALK" ],
+        "animations": [ 
+          "look",
+          "bedrock(pheromosa, ground_walk)"
+        ]
+      }
+    }
+  }

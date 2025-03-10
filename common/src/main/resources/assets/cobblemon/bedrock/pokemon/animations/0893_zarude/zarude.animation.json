@@ -216,6 +216,11 @@
 						"1.5": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.zarude.cry"
+				}
 			}
 		},
 		"animation.zarude.blink": {
@@ -241,7 +246,7 @@
 			"loop": true,
 			"bones": {
 				"torso": {
-					"rotation": [15, 0, 0]
+					"rotation": ["15+math.sin(q.anim_time*90*2)+3", 0, 0]
 				},
 				"head": {
 					"rotation": [-15, 0, 0]
@@ -268,7 +273,7 @@
 					"rotation": [0, -50, -50]
 				},
 				"arm_right2": {
-					"rotation": [0, -22.5, 0]
+					"rotation": [0, "-22.5-math.sin(q.anim_time*90*2+90)*4", 0]
 				},
 				"finger_right9": {
 					"rotation": [12.5, 20, 0]
@@ -304,7 +309,7 @@
 					"rotation": [0, 50, 50]
 				},
 				"arm_left2": {
-					"rotation": [0, 22.5, 0]
+					"rotation": [0, "22.5+math.sin(q.anim_time*90*2+90)*4", 0]
 				},
 				"finger_left9": {
 					"rotation": [12.5, -20, 0]
@@ -337,13 +342,13 @@
 					"rotation": [0, 0, 12.5]
 				},
 				"tail2": {
-					"rotation": [22.5, 0, 0]
+					"rotation": ["22.5-math.sin(q.anim_time*90*2+90)*2", 0, 0]
 				},
 				"tail3": {
 					"rotation": [17.5, 0, 0]
 				},
 				"tail4": {
-					"rotation": [20, 0, 0]
+					"rotation": ["20-math.sin(q.anim_time*90*2+90)*3", 0, 0]
 				},
 				"tail5": {
 					"rotation": [22.5, 0, 0]
@@ -352,7 +357,7 @@
 					"rotation": [27.5, 0, 0]
 				},
 				"tail7": {
-					"rotation": [15, 0, 0]
+					"rotation": ["15-math.sin(q.anim_time*90*2+90)*4", 0, 0]
 				},
 				"leg_left": {
 					"rotation": [-47.5, -45, 0]
@@ -368,6 +373,9 @@
 				},
 				"toe_left5": {
 					"rotation": [0, -12.5, 0]
+				},
+				"chest": {
+					"rotation": ["math.sin(q.anim_time*90*2)+3", 0, 0]
 				}
 			}
 		}

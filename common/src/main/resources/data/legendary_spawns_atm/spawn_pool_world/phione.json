@@ -8,7 +8,7 @@
             "pokemon": "phione",
             "type": "pokemon",
             "context": "submerged",
-            "bucket": "ultra-rare",
+            "bucket": "rare",
             "level": "50",
             "weight": 4.5,
             "condition": {

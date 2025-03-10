@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Rellor",
   "nationalPokedexNumber": 953,
   "primaryType": "bug",
@@ -100,6 +101,12 @@
   "pokedex": [
     "cobblemon.species.rellor.desc"
   ],
+  "baseScale": 0.2,
+  "hitbox": {
+    "width": 1,
+    "height": 1.4,
+    "fixed": false
+  },
   "drops": {
     "amount": 1,
     "entries": [
