@@ -1,4 +1,5 @@
 {
+  "implimented": true,
   "name": "Cosmog",
   "nationalPokedexNumber": 789,
   "primaryType": "psychic",
@@ -52,10 +53,10 @@
       ]
     }
   ],
-  "baseScale": 1,
+  "baseScale": 0.2,
   "hitbox": {
     "width": 1,
-    "height": 1,
+    "height": 2,
     "fixed": false
   },
   "baseFriendship": 0,

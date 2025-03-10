@@ -1,4 +1,5 @@
 {
+  "implimented": true,
   "name": "Victini",
   "nationalPokedexNumber": 494,
   "primaryType": "psychic",
@@ -167,10 +168,10 @@
     "cobblemon.species.victini.desc"
   ],
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.35,
   "hitbox": {
     "width": 1,
-    "height": 1,
+    "height": 1.35,
     "fixed": false
   },
   "baseFriendship": 100,

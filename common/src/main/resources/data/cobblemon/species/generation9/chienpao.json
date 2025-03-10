@@ -15,6 +15,7 @@
   },
   "catchRate": 6,
   "maleRatio": -1,
+  "shoulderMountable": true,
   "baseExperienceYield": 285,
   "baseFriendship": 0,
   "evYield": {

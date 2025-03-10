@@ -112,6 +112,7 @@ interface Evolution : EvolutionLike {
         val preEvoName = pokemon.getDisplayName()
         val pokemonEntity = pokemon.entity
         if (pokemonEntity == null || !useEvolutionEffect) {
+            pokemon.getOwnerPlayer()?.playSound(CobblemonSounds.EVOLUTION_UI, SoundCategory.NEUTRAL, 1F, 1F)
             evolutionMethod(pokemon)
             pokemon.getOwnerPlayer()?.sendMessage(lang("ui.evolve.into", preEvoName, pokemon.species.translatedName))
         } else {
@@ -155,7 +156,6 @@ interface Evolution : EvolutionLike {
         }
         // we want to instantly tick for example you might only evolve your Bulbasaur at level 34 so Venusaur should be immediately available
         pokemon.lockedEvolutions.filterIsInstance<PassiveEvolution>().forEach { evolution -> evolution.attemptEvolution(pokemon) }
-        pokemon.getOwnerPlayer()?.playSound(CobblemonSounds.EVOLVING, SoundCategory.NEUTRAL, 1F, 1F)
         CobblemonEvents.EVOLUTION_COMPLETE.post(EvolutionCompleteEvent(pokemon, this))
     }
 

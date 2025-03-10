@@ -1,0 +1,40 @@
+{
+    "head": "head",
+    "portraitScale": 1.4,
+    "portraitTranslation": [ -0.07, 2.51, 0 ],
+    "profileScale": 0.38,
+    "profileTranslation": [ 0, 1.28, 0 ],
+    "animations": {
+      "cry": "q.bedrock_stateful('tapufini', 'cry')",
+      "faint": "q.bedrock_primary('tapufini', 'faint')"
+    },
+    "poses": {
+
+      "standing": {
+        "poseName": "standing",
+        "transformTicks": 10,
+        "poseTypes": [
+          "STAND",
+          "NONE",
+          "PORTRAIT",
+          "PROFILE"
+        ],
+        "animations": [
+          "look",
+          "bedrock(tapufini, ground_idle)"
+        ],
+        "quirks": []
+      },
+
+      "walking": {
+        "poseName": "walking",
+        "transformTicks": 10,
+        "poseTypes": [ "WALK" ],
+        "animations": [ 
+          "look",
+          "bedrock(tapufini, ground_walk)"
+        ],
+        "quirks": []
+      }
+    }
+  }

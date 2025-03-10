@@ -21,18 +21,18 @@
     },
     "walking": {
       "poseTypes": ["WALK", "FLY"],
-      "animations": ["q.look('head')", "q.bedrock('cramorant, 'ground_walk')"]
+      "animations": ["q.look('head')", "q.bedrock('cramorant', 'ground_walk')"]
     },
     "float": {
       "poseTypes": ["FLOAT"],
       "animations": [
-        "q.look('head')", "q.bedrock('cramorant, 'water_idle')"
+        "q.look('head')", "q.bedrock('cramorant', 'water_idle')"
       ]
     },
     "swim": {
       "poseTypes": ["SWIM"],
       "animations": [
-        "q.look('head')", "q.bedrock('cramorant, 'water_swim')"
+        "q.look('head')", "q.bedrock('cramorant', 'water_swim')"
       ]
     }
   }
