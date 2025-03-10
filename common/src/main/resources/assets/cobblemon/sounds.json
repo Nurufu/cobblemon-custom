@@ -7167,7 +7167,7 @@
   "pokemon.ting-lu.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/tinglu/tinglu_cry", "volume": 0.6 } ]
   },
-  "pokemon.chien-pao.cry": {
+  "pokemon.chienpao.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/chienpao/chienpao_cry", "volume": 0.6 } ]
   },
   "pokemon.wo-chien.cry": {
