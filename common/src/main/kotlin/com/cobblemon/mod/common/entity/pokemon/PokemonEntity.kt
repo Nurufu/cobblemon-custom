@@ -1256,7 +1256,7 @@ open class PokemonEntity(
                 "purple" -> Items.PURPLE_WOOL
                 "red" -> Items.RED_WOOL
                 "yellow" -> Items.YELLOW_WOOL
-                "pingk" -> Items.PINK_WOOL
+                "pink" -> Items.PINK_WOOL
                 else -> Items.WHITE_WOOL
             }
             val itemEntity =  this.dropItem(woolItem, 1) ?: return
