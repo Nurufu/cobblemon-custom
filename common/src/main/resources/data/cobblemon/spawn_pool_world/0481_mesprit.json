@@ -11,7 +11,7 @@
         "context": "grounded",
         "bucket": "ultra-rare",
         "level": "50-75",
-        "weight": 0.5,
+        "weight": 2,
         "condition": {
           "canSeeSky": true,
           "biomes": [ "#cobblemon:is_freshwater" ]
