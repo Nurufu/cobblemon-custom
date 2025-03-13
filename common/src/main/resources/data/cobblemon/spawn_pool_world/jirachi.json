@@ -16,8 +16,7 @@
         "biomes": [ 
           "#cobblemon:is_mountain",
           "#cobblemon:is_hills"
-           ], 
-          "timeRange": "morning"
+           ]
       }
     },
     {

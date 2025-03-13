@@ -14,10 +14,7 @@
             "condition": {
                 "biomes": [
                     "#cobblemon:is_forest"
-                ],
-                "neededBaseBlocks": [
-                    "minecraft:grass_block"
-                  ]
+                ]
 			}
 		}
     ]

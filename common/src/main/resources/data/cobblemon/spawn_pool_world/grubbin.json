@@ -4,17 +4,19 @@
     "neededUninstalledMods": [],
     "spawns": [
         {
-            "id": "buzzwole-1",
-            "pokemon": "buzzwole",
+            "id": "grubbin-1",
+            "pokemon": "grubbin",
             "type": "pokemon",
             "context": "grounded",
-            "bucket": "ultra-rare",
-            "level": "70",
-            "weight": 1,
+            "bucket": "common",
+            "level": "5-25",
+            "weight": 4,
             "condition": {
                 "canSeeSky": true,
                 "biomes": [
-                    "#cobblemon:is_swamp"
+                    "#cobblemon:is_badlands",
+                    "#cobblemon:is_jungle",
+                    "#minecraft:is_taiga"
                 ]
 			}
 		}
