@@ -416,6 +416,22 @@
 					}
 				}
 			}
+		},
+		"animation.wurmple.shoulder_left": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"position": [4, 0, 1]
+				}
+			}
+		},
+		"animation.wurmple.shoulder_right": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"position": [-4, 0, 1]
+				}
+			}
 		}
 	}
 }
