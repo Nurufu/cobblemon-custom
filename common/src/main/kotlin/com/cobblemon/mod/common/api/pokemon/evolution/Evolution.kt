@@ -116,7 +116,7 @@ interface Evolution : EvolutionLike {
             evolutionMethod(pokemon)
             pokemon.getOwnerPlayer()?.sendMessage(lang("ui.evolve.into", preEvoName, pokemon.species.translatedName))
         } else {
-            pokemonEntity.dataTracker.set(PokemonEntity.EVOLUTION_STARTED, true)
+            pokemonEntity.busyLocks.add(PokemonEntity.EVOLUTION_LOCK)
             pokemonEntity.navigation.stop()
             pokemonEntity.after(1F) {
                 evolutionAnimation(pokemonEntity)
@@ -126,7 +126,7 @@ interface Evolution : EvolutionLike {
             }
             pokemonEntity.after( seconds = 12F ) {
                 cryAnimation(pokemonEntity)
-                pokemonEntity.dataTracker.set(PokemonEntity.EVOLUTION_STARTED, false)
+                pokemonEntity.busyLocks.remove(PokemonEntity.EVOLUTION_LOCK)
                 pokemon.getOwnerPlayer()?.sendMessage(lang("ui.evolve.into", preEvoName, pokemon.species.translatedName))
             }
         }

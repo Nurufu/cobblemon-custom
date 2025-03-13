@@ -168,7 +168,7 @@ abstract class PoseableEntityState<T : Entity> : Schedulable {
     open fun incrementAge(entity: T) {
         val previousAge = age
         updateAge(age + 1)
-        runEffects(entity, previousAge, age)
+        try {runEffects(entity, previousAge, age)} catch (e: Exception) { return }
         val primaryAnimation = primaryAnimation ?: return
         if (primaryAnimation.started + primaryAnimation.duration <= animationSeconds) {
             this.primaryAnimation = null

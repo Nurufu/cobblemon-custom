@@ -35,7 +35,8 @@ import net.minecraft.nbt.NbtString
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.sound.SoundCategory
 
-class ServerEvolutionController(override val pokemon: Pokemon) : EvolutionController<Evolution> {
+class ServerEvolutionController(
+    override val pokemon: Pokemon) : EvolutionController<Evolution> {
 
     private val evolutions = hashSetOf<Evolution>()
     private val progress = arrayListOf<EvolutionProgress<*>>()

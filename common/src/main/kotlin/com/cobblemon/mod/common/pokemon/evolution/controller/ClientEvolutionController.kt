@@ -9,14 +9,18 @@
 package com.cobblemon.mod.common.pokemon.evolution.controller
 
 import com.cobblemon.mod.common.CobblemonNetwork
+import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.pokemon.evolution.EvolutionController
 import com.cobblemon.mod.common.api.pokemon.evolution.EvolutionDisplay
 import com.cobblemon.mod.common.api.pokemon.evolution.progress.EvolutionProgress
+import com.cobblemon.mod.common.api.text.green
 import com.cobblemon.mod.common.net.messages.client.pokemon.update.evolution.AddEvolutionPacket
 import com.cobblemon.mod.common.net.messages.server.pokemon.update.evolution.AcceptEvolutionPacket
 import com.cobblemon.mod.common.pokemon.Pokemon
+import com.cobblemon.mod.common.util.asTranslated
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
+import net.minecraft.client.MinecraftClient
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtElement
 import net.minecraft.network.PacketByteBuf
@@ -24,6 +28,13 @@ import net.minecraft.network.PacketByteBuf
 class ClientEvolutionController(override val pokemon: Pokemon) : EvolutionController<EvolutionDisplay> {
 
     private val evolutions = hashSetOf<EvolutionDisplay>()
+
+    init {
+        if (evolutions.isNotEmpty()){
+            MinecraftClient.getInstance().player?.sendMessage("cobblemon.ui.evolve.hint".asTranslated(pokemon.getDisplayName()).green())
+            MinecraftClient.getInstance().player?.playSound(CobblemonSounds.CAN_EVOLVE, 1F, 1F)
+        }
+    }
 
     override val size: Int
         get() = this.evolutions.size
