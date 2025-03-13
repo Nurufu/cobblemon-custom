@@ -1480,6 +1480,23 @@
 					"effect": "pokemon.regigigas.cry"
 				}
 			}
+		},
+		"animation.regigigas.pose": {
+			"loop": true,
+			"bones": {
+				"arm_left_rotation": {
+					"rotation": [0, 0, 40]
+				},
+				"arm_left2": {
+					"rotation": [4.8493, 11.53486, 22.99008]
+				},
+				"arm_right_rotation": {
+					"rotation": [0, 0, -55]
+				},
+				"arm_right2": {
+					"rotation": [0, -25, 0]
+				}
+			}
 		}
 	}
 }

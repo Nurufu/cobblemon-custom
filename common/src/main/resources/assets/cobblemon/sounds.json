@@ -6318,6 +6318,9 @@
   "pokemon.hoopa.cry": {
     "sounds": [ {  "name": "cobblemon:pokemon/hoopa/hoopa_cry", "volume": 0.6 } ]
   },
+  "pokemon.hoopau.cry": {
+    "sounds": [ {  "name": "cobblemon:pokemon/hoopau/hoopau_cry", "volume": 0.6 } ]
+  },
   "pokemon.volcanion.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/volcanion/volcanion_cry", "volume": 0.6 } ]
   },
