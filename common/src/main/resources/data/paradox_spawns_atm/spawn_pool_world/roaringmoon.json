@@ -20,7 +20,17 @@
                 "biomes": [
                     "#cobblemon:is_mountain"
                 ]
-            }
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 1.5,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "minecraft:pitcher_plant"
+                        ]
+                    }
+                }
+            ]
         }
     ]
 }

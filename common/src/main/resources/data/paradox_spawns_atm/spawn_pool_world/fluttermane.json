@@ -19,6 +19,16 @@
                "#cobblemon:is_spooky"
            ]
        },
+      "weightMultipliers": [
+        {
+          "multiplier": 1.5,
+          "condition": {
+            "neededNearbyBlocks": [
+              "minecraft:pitcher_plant"
+            ]
+          }
+        }
+      ],
        "timeRange":"night"
     },
     {
@@ -34,6 +44,16 @@
             "#cobblemon:is_swamp"
         ]
        },
+      "weightMultipliers": [
+        {
+          "multiplier": 1.5,
+          "condition": {
+            "neededNearbyBlocks": [
+              "minecraft:pitcher_plant"
+            ]
+          }
+        }
+      ],
         "timeRange":"night"
      }
     ]

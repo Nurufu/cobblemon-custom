@@ -20,7 +20,17 @@
                     "#cobblemon:is_desert"
 			
                 ]
-            }
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 1.5,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "minecraft:pitcher_plant"
+                        ]
+                    }
+                }
+            ]
         }
     ]
 }

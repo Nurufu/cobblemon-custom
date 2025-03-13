@@ -19,7 +19,17 @@
                     "#cobblemon:is_swamp"
                 ],
                 "timeRange": "day"
-            }
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 1.5,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "cobblemon:pc"
+                        ]
+                    }
+                }
+            ]
       	}
 	]
 }

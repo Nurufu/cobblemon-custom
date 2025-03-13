@@ -17,7 +17,17 @@
                     "#cobblemon:is_plains"
                 ],
                 "neededNearbyBlocks": ["minecraft:lightning_rod"]
-            }
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 1.5,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "cobblemon:pc"
+                        ]
+                    }
+                }
+            ]
         }
     ]
 }
