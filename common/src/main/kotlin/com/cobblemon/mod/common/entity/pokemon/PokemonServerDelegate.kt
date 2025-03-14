@@ -25,6 +25,7 @@ import com.cobblemon.mod.common.util.server
 import com.cobblemon.mod.common.util.update
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
 import net.minecraft.client.sound.Sound
+import net.minecraft.command.CommandSource
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ai.pathing.PathNodeType
 import net.minecraft.entity.attribute.EntityAttributes
@@ -32,6 +33,9 @@ import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.data.TrackedData
 import net.minecraft.server.MinecraftServer
 import net.minecraft.server.PlayerManager
+import net.minecraft.server.command.CommandManager
+import net.minecraft.server.command.SayCommand
+import net.minecraft.server.command.ServerCommandSource
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundCategory
@@ -39,6 +43,10 @@ import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import java.util.*
+import de.erdbeerbaerlp.dcintegration.common.*
+import net.dv8tion.jda.api.entities.EmbedType
+import net.dv8tion.jda.api.entities.MessageEmbed
+import java.time.OffsetDateTime
 
 /** Handles purely server logic for a Pokémon */
 class PokemonServerDelegate : PokemonSideDelegate {
@@ -239,10 +247,10 @@ class PokemonServerDelegate : PokemonSideDelegate {
         val s: String = entity.pokemon.species.name
         server()?.playerManager?.broadcast(
             Text.translatable("cobblemon.shiny.notif","§e${s}", *arrayOf<Any>(
-                    this.closest.displayName
-                )
+                this.closest.displayName)
             ), false
         )
+        DiscordIntegration.INSTANCE.sendMessage("A strangely-colored ${entity.pokemon.species.name} has appeared near ${closest.entityName}!")
         return true
     }
 
@@ -275,6 +283,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
         close.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
                         it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
                         it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)}
+        DiscordIntegration.INSTANCE.sendMessage("A powerful entity has manifested near ${closest.entityName}!")
         return true
     }
 
