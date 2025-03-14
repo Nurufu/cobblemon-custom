@@ -14,14 +14,14 @@
         "quirks": ["q.bedrock_quirk('mew', 'blink')"]
       },
       "standing": {
-        "poseTypes": ["STAND", "NONE"],
+        "poseTypes": ["STAND", "NONE", "FLOAT", "HOVER"],
         "animations": ["q.look('head_ai')", "q.bedrock('mew', 'ground_idle')"],
         "quirks": [
           "q.bedrock_quirk('mew', 'blink')"
         ]
       },
       "walking": {
-        "poseTypes": ["WALK", "SWIM"],
+        "poseTypes": ["WALK", "SWIM", "FLY", "SWIM"],
         "animations": ["q.look('head_ai')", "q.bedrock('mew', 'ground_walk')"],
         "quirks": ["q.bedrock_quirk('mew', 'blink')"]
       }
