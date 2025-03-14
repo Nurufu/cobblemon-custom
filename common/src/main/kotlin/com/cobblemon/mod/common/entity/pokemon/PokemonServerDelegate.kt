@@ -250,7 +250,11 @@ class PokemonServerDelegate : PokemonSideDelegate {
                 this.closest.displayName)
             ), false
         )
-        DiscordIntegration.INSTANCE.sendMessage("A strangely-colored ${entity.pokemon.species.name} has appeared near ${closest.displayName.string}!")
+        try {
+            DiscordIntegration.INSTANCE.sendMessage("A powerful entity has manifested near ${closest.displayName.string}!")
+        } catch (e: NoClassDefFoundError) {
+            null
+        }
         return true
     }
 
@@ -283,7 +287,11 @@ class PokemonServerDelegate : PokemonSideDelegate {
         close.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
                         it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
                         it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)}
-        DiscordIntegration.INSTANCE.sendMessage("A powerful entity has manifested near ${closest.displayName.string}!")
+            try {
+                DiscordIntegration.INSTANCE.sendMessage("A powerful entity has manifested near ${closest.displayName.string}!")
+            } catch (e: NoClassDefFoundError) {
+                null
+            }
         return true
     }
 
