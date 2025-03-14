@@ -6170,5 +6170,6 @@
   "cobblemon.shiny.notif": "§6A strangely-colored %1$s §6has appeared near %2$s§6!",
   "cobblemon.lege.notif": "§6A powerful entity has manifested near %1$s§6!",
   "cobblemon.battle.start.slowstart": "Regigigas can't get it going!",
-  "cobblemon.battle.end.slowstart": "Regigigas finally got its act together!"
+  "cobblemon.battle.end.slowstart": "Regigigas finally got its act together!",
+  "shiny_egg": "%1$s§6 has hatched a strangely-colored %2$s!"
 }
