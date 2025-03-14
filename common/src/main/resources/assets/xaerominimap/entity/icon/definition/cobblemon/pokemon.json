@@ -504,6 +504,8 @@
         "cobblemon:textures/pokemon/0200_misdreavus/misdreavus_shiny.png": "normal_sprite:shiny/0200_misdreavus.png",
         "cobblemon:textures/pokemon/0201_unown/unown.png": "normal_sprite:regular/0201_unownj.png",
         "cobblemon:textures/pokemon/0201_unown/unown_shiny.png": "normal_sprite:shiny/0201_unownj.png",
+        "cobblemon:textures/pokemon/0201_unown/unown_punctuation.png": "normal_sprite:regular/0201_unownj.png",
+        "cobblemon:textures/pokemon/0201_unown/unown_punctuation_shiny.png": "normal_sprite:shiny/0201_unownj.png",
         "cobblemon:textures/pokemon/0202_wobbuffet/wobbuffet.png": "normal_sprite:regular/0202_wobbuffet.png",
         "cobblemon:textures/pokemon/0202_wobbuffet/wobbuffet_shiny.png": "normal_sprite:shiny/0202_wobbuffet.png",
         "cobblemon:textures/pokemon/girafarig/girafarig.png": "normal_sprite:regular/0203_girafarig.png",

@@ -37,7 +37,7 @@
       "swimming": {
         "poseName": "swimming",
         "transformTicks": 10,
-        "poseTypes": [ "SWIM "],
+        "poseTypes": [ "SWIM"],
         "animation": [
           "bedrock(surskit, ground_walk)"
         ],

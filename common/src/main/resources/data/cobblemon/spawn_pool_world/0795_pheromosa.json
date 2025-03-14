@@ -17,10 +17,7 @@
             "condition": {
                 "canSeeSky": true,
                 "biomes": [
-                    "minecraft:plains",
-                    "minecraft:flower_forest",
-                    "minecraft:sparse_jungle",
-                    "minecraft:meadow",
+                    "#cobblemon:is_plains",
                     "terralith:blooming_valley",
                     "terralith:steppe",
                     "terralith:white_cliffs"

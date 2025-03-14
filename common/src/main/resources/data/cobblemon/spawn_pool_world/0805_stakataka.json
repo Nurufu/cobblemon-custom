@@ -17,11 +17,10 @@
             "condition": {
                 "canSeeSky": true,
                 "biomes": [
-                    "minecraft:plains",
-                    "minecraft:desert",
-                    "minecraft:savanna",
-                    "minecraft:badlands",
-                    "minecraft:deep_dark",
+                    "#cobblemon:is_plains",
+                    "#cobblemon:is_desert",
+                    "#cobblemon:is_savanna",
+                    "#cobblemon:is_badlands",
                     "terralith:savanna_badlands",
                     "terralith:warped_mesa",
                     "terralith:white_mesa"
@@ -54,12 +53,12 @@
             "context": "grounded",
             "bucket": "ultra-rare",
             "level": "55-65",
-            "weight": 1.0,
+            "weight": 2.0,
             "condition": {
                 "canSeeSky": false,
                 "biomes": [
-                    "minecraft:deep_dark",
                     "minecraft:soul_sand_valley",
+                    "#minecraft:is_end",
                     "incendium:ash_barrens",
                     "nullscape:crystal_peaks",
                     "nullscape:shadowlands",
