@@ -14,7 +14,7 @@
     "special_defence": 90,
     "speed": 90
   },
-  "catchRate": 3,
+  "catchRate": 6,
   "maleRatio": -1,
   "shoulderMountable": false,
   "features": ["primal"],
@@ -34,7 +34,7 @@
         "special_defence": 90,
         "speed": 90
       },
-      "catchRate": 3,
+      "catchRate": 6,
       "maleRatio": -1,
       "baseExperienceYield": 335,
       "baseFriendship": 0,

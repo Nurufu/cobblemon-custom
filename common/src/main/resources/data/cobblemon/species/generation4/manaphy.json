@@ -22,7 +22,7 @@
       }
     }
   },
-  "catchRate": 3,
+  "catchRate": 6,
   "maleRatio": -1,
   "shoulderMountable": false,
   "baseExperienceYield": 270,
