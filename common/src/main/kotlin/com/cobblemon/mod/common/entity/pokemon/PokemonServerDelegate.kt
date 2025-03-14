@@ -21,13 +21,17 @@ import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.SentOutState
 import com.cobblemon.mod.common.util.lang
 import com.cobblemon.mod.common.util.playSoundServer
+import com.cobblemon.mod.common.util.server
 import com.cobblemon.mod.common.util.update
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
+import net.minecraft.client.sound.Sound
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ai.pathing.PathNodeType
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.data.TrackedData
+import net.minecraft.server.MinecraftServer
+import net.minecraft.server.PlayerManager
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundCategory
@@ -229,14 +233,16 @@ class PokemonServerDelegate : PokemonSideDelegate {
                 closest = it
             }
         }
+        val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
         closest.playSound(SoundEvent.of(Identifier("cobblemon", "particle.wild_shiny_chime")),SoundCategory.MASTER, 0.6f, 1f)
-//        players.forEach{it.sendMessage(closest.displayName?.let { it1 ->
-//            val s: String = entity.pokemon.species.name
-//            lang("shiny.notif", "§e${s}",
-//                it1
-//            )
-//        })}
-
+        closest.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)
+        val s: String = entity.pokemon.species.name
+        server()?.playerManager?.broadcast(
+            Text.translatable("cobblemon.shiny.notif","§e${s}", *arrayOf<Any>(
+                    this.closest.displayName
+                )
+            ), false
+        )
         return true
     }
 
@@ -247,7 +253,6 @@ class PokemonServerDelegate : PokemonSideDelegate {
             return false
         }
         val close = ArrayList<ServerPlayerEntity>()
-        //players.forEach{it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance}
         players.forEach{
             if(it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance)
             {
@@ -264,7 +269,9 @@ class PokemonServerDelegate : PokemonSideDelegate {
                 closest = it
             }
         }
-        players.forEach{it.sendMessage(closest.displayName?.let { it1 -> lang("lege.notif", it1) })}
+        server()?.playerManager?.broadcast(
+            Text.translatable("cobblemon.lege.notif", this.closest.displayName), false
+        )
         close.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
                         it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
                         it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)}
