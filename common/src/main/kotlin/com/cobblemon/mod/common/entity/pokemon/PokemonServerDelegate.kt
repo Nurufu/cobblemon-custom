@@ -251,7 +251,8 @@ class PokemonServerDelegate : PokemonSideDelegate {
             ), false
         )
         try {
-            DiscordIntegration.INSTANCE.sendMessage("A powerful entity has manifested near ${closest.displayName.string}!")
+            DiscordIntegration.INSTANCE.sendMessage("A strangely-colored ${entity.pokemon.species.toString()
+                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}!")
         } catch (e: NoClassDefFoundError) {
             null
         }
