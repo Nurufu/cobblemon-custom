@@ -131,6 +131,7 @@ class PokemonPastureBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(
         val world = world ?: return false
         val entity = PokemonEntity(world, pokemon = pokemon)
         entity.calculateDimensions()
+        entity.isInvulnerable = true
         val width = entity.boundingBox.xLength
 
         val idealPlace = pos.add(directionToBehind.vector.multiply(ceil(width).toInt() + 1))
