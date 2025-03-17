@@ -34,7 +34,7 @@
   "features": [
     "galarian"
   ],
-  "catchRate": 6,
+  "catchRate": 12,
   "maleRatio": -1,
   "shoulderMountable": false,
   "forms": [
@@ -53,7 +53,7 @@
         "special_defence": 90,
         "speed": 100
       },
-      "catchRate": 6,
+      "catchRate": 12,
       "maleRatio": -1,
       "baseExperienceYield": 290,
       "baseFriendship": 35,

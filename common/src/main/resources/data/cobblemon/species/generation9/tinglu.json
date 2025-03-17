@@ -14,7 +14,7 @@
     "special_defence": 80,
     "speed": 45
   },
-  "catchRate": 6,
+  "catchRate": 12,
   "maleRatio": -1,
   "baseExperienceYield": 285,
   "baseFriendship": 0,
