@@ -19,10 +19,7 @@ import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.SentOutState
-import com.cobblemon.mod.common.util.lang
-import com.cobblemon.mod.common.util.playSoundServer
-import com.cobblemon.mod.common.util.server
-import com.cobblemon.mod.common.util.update
+import com.cobblemon.mod.common.util.*
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
 import net.minecraft.client.sound.Sound
 import net.minecraft.command.CommandSource
@@ -252,7 +249,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
         )
         try {
             DiscordIntegration.INSTANCE.sendMessage("A strangely-colored ${entity.pokemon.species.toString()
-                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}!")
+                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }} has appeared near ${closest.displayName.string}!")
         } catch (e: NoClassDefFoundError) {
             null
         }
@@ -289,7 +286,8 @@ class PokemonServerDelegate : PokemonSideDelegate {
                         it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
                         it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)}
             try {
-                DiscordIntegration.INSTANCE.sendMessage("A powerful entity has manifested near ${closest.displayName.string}!")
+                DiscordIntegration.INSTANCE.sendMessage("A powerful entity has manifested near ${closest.displayName.string}! It's a ||${entity.pokemon.species.toString()
+                    .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}||")
             } catch (e: NoClassDefFoundError) {
                 null
             }
