@@ -41,6 +41,9 @@ import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import java.util.*
 import de.erdbeerbaerlp.dcintegration.common.*
+import de.erdbeerbaerlp.dcintegration.common.storage.Configuration
+import de.erdbeerbaerlp.dcintegration.common.util.DiscordMessage
+import de.erdbeerbaerlp.dcintegration.common.util.TextColors
 import net.dv8tion.jda.api.entities.EmbedType
 import net.dv8tion.jda.api.entities.MessageEmbed
 import java.time.OffsetDateTime
@@ -247,12 +250,16 @@ class PokemonServerDelegate : PokemonSideDelegate {
                 this.closest.displayName)
             ), false
         )
-        try {
-            DiscordIntegration.INSTANCE.sendMessage("A strangely-colored ${entity.pokemon.species.toString()
-                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }} has appeared near ${closest.displayName.string}!")
-        } catch (e: NoClassDefFoundError) {
-            null
-        }
+        try{
+            var embedBuilder = Configuration.instance().embedMode.chatMessages.toEmbed()
+            embedBuilder = embedBuilder.setColor(TextColors.generateFromUUID(closest.uuid))
+            embedBuilder = embedBuilder.setAuthor(closest.name.string, null, Configuration.instance().webhook.playerAvatarURL.replace("%uuid%", closest.uuidAsString).replace("%uuid_dashless%", closest.uuidAsString.replace("-", "")).replace("%name%", closest.name.string).replace("%randomUUID%", UUID.randomUUID().toString()))
+                .setDescription("A strangely-colored ${entity.pokemon.species.toString()
+                    .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }} has appeared near ${closest.displayName.string}!")
+
+            DiscordIntegration.INSTANCE.sendMessage(DiscordMessage(embedBuilder.build()),DiscordIntegration.INSTANCE.getChannel(
+                Configuration.instance().advanced.chatOutputChannelID))
+        }catch(e: NoClassDefFoundError) {null}
         return true
     }
 
@@ -285,12 +292,16 @@ class PokemonServerDelegate : PokemonSideDelegate {
         close.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
                         it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
                         it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)}
-            try {
-                DiscordIntegration.INSTANCE.sendMessage("A powerful entity has manifested near ${closest.displayName.string}! It's a ||${entity.pokemon.species.toString()
+        try{
+            var embedBuilder = Configuration.instance().embedMode.chatMessages.toEmbed()
+            embedBuilder = embedBuilder.setColor(TextColors.generateFromUUID(closest.uuid))
+            embedBuilder = embedBuilder.setAuthor(closest.name.string, null, Configuration.instance().webhook.playerAvatarURL.replace("%uuid%", closest.uuidAsString).replace("%uuid_dashless%", closest.uuidAsString.replace("-", "")).replace("%name%", closest.name.string).replace("%randomUUID%", UUID.randomUUID().toString()))
+                .setDescription("A powerful entity has manifested near ${closest.displayName.string}! It's a ||${entity.pokemon.species.toString()
                     .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}||")
-            } catch (e: NoClassDefFoundError) {
-                null
-            }
+
+            DiscordIntegration.INSTANCE.sendMessage(DiscordMessage(embedBuilder.build()),DiscordIntegration.INSTANCE.getChannel(
+                Configuration.instance().advanced.chatOutputChannelID))
+        }catch(e: NoClassDefFoundError) {null}
         return true
     }
 
