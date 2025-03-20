@@ -1320,6 +1320,7 @@
   "cobblemon.battle.end.healblock": "%1$s's Heal Block wore off!",
   "cobblemon.battle.end.skydrop": "%1$s was freed from the Sky Drop!",
   "cobblemon.battle.end.illusion": "%1$s's illusion wore off!",
+  "cobblemon.battle.end.stockpile": "%1$s's stockpiled effect wore off!",
 
   "cobblemon.battle.block.uproar": "But the uproar kept %1$s awake!",
 
@@ -6169,6 +6170,9 @@
   "advancements.cobblemon.catch_all_magikarp": "Aspiring Fisherman",
   "advancements.cobblemon.catch_all_magikarp.for_reals.description": "Now go for the real value",
   "advancements.cobblemon.catch_all_magikarp.for_reals": "True Fisherman",
-  "cobblemon.shiny.notif": "A shiny %1$s has appeared nearby %2$s!",
-  "cobblemon.lege.notif": "A powerful entity has manifested near %1$s!"
+  "cobblemon.shiny.notif": "§6A strangely-colored %1$s §6has appeared near %2$s§6!",
+  "cobblemon.lege.notif": "§6A powerful entity has manifested near %1$s§6!",
+  "cobblemon.battle.start.slowstart": "Regigigas can't get it going!",
+  "cobblemon.battle.end.slowstart": "Regigigas finally got its act together!",
+  "shiny_egg": "%1$s§6 has hatched a strangely-colored %2$s!"
 }

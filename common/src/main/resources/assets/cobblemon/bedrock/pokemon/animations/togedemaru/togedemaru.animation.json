@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.togedemaru.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.togedemaru.cry"
+				}
+			}
+		},
 		"animation.togedemaru.ground_idle": {
 			"loop": true,
 			"bones": {

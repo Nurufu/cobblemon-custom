@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.ironleaves.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.ironleaves.cry"
+				}
+			}
+		},
 		"animation.ironleaves.ground_idle": {
 			"loop": true
 		},

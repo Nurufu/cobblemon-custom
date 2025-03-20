@@ -234,6 +234,11 @@
 						"1.1667": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.bonsly.cry"
+				}
 			}
 		},
 		"animation.bonsly.blink": {

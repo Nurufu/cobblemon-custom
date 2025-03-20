@@ -13,7 +13,7 @@
 			"bones": [
 				{
 					"name": "mr_mime",
-					"pivot": [-2.9, 16, 0.5]
+					"pivot": [0, 0, 0]
 				},
 				{
 					"name": "body",

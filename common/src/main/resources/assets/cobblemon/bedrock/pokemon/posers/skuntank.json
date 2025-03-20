@@ -5,6 +5,7 @@
     "profileScale": 0.9,
     "profileTranslation": [ 0, 0.3, 0 ],
     "faint": "bedrock(skuntank, faint)",
+  "cry":  "bedrock(skuntank, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

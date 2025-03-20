@@ -112,7 +112,7 @@ class ParticleEvent(
             val position = particle?.let { Vec3d(it.getX(), it.getY(), it.getZ()) } ?: Vec3d(storm.getX(), storm.getY(), storm.getZ())
             val world = storm.world
             val soundEvent = SoundEvent.of(effect.sound)
-            world.playSound(position.x, position.y, position.z, soundEvent, SoundCategory.NEUTRAL, 1F, 1F, true)
+            world.playSound(position.x, position.y, position.z, soundEvent, SoundCategory.MASTER, 1F, 1F, true)
         }
         expression?.resolve(storm.runtime)
     }

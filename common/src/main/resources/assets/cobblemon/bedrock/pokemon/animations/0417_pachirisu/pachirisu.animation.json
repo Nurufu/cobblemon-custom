@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.pachirisu.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.pachirisu.cry"
+				}
+			}
+		},
 		"animation.pachirisu.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -34,6 +42,22 @@
 						"0.125": [0, 0, -0.1],
 						"0.1667": [0, 0, 0]
 					}
+				}
+			}
+		},
+		"animation.pachirisu.shoulder_left": {
+			"loop": true,
+			"bones": {
+				"pachirisu": {
+					"position": [5, 0, 3]
+				}
+			}
+		},
+		"animation.pachirisu.shoulder_right": {
+			"loop": true,
+			"bones": {
+				"pachirisu": {
+					"position": [-5, 0, 3]
 				}
 			}
 		}

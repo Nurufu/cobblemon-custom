@@ -2,8 +2,8 @@
   "head": "head",
   "portraitScale": 0.2,
   "portraitTranslation": [0, 2.5, 0],
-  "profileScale": 0.2,
-  "profileTranslation": [0, 2, 0],
+  "profileScale": 0.09,
+  "profileTranslation": [0, 1.7, 0],
   "animations": {
     "faint": "q.bedrock_primary('hoopa_unbound', 'faint', q.curve('one'))",
     "cry": "q.bedrock_stateful('hoopa_unbound', 'cry')",
@@ -14,19 +14,8 @@
   "poses": {
     "battle-standing": {
       "poseTypes": ["STAND"],
-      "isBattle": true,
       "animations": [
         "q.bedrock('hoopa_unbound', 'battle_idle')"
-      ],
-      "quirks": [
-        "q.bedrock_quirk('hoopa_unbound', 'blink')"
-      ]
-    },
-    "standing": {
-      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
-      "isBattle": false,
-      "animations": [
-        "q.bedrock('hoopa_unbound', 'ground_idle')"
       ],
       "quirks": [
         "q.bedrock_quirk('hoopa_unbound', 'blink')"

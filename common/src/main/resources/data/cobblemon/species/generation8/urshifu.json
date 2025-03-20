@@ -34,7 +34,7 @@
       }
     }
   },
-    "catchRate": 3,
+    "catchRate": 12,
     "maleRatio": 0.875,
     "shoulderMountable": false,
     "baseScale":0.7,
@@ -59,7 +59,7 @@
           "special_defence": 60,
           "speed": 97
         },
-        "catchRate": 3,
+        "catchRate": 12,
         "maleRatio": 0.875,
         "baseExperienceYield": 275,
         "baseFriendship": 50,
@@ -187,7 +187,7 @@
           "special_defence": 60,
           "speed": 97
         },
-        "catchRate": 3,
+        "catchRate": 12,
         "maleRatio": 0.875,
         "baseExperienceYield": 275,
         "baseFriendship": 50,
@@ -232,7 +232,7 @@
           "special_defence": 60,
           "speed": 97
         },
-        "catchRate": 3,
+        "catchRate": 12,
         "maleRatio": 0.875,
         "baseExperienceYield": 275,
         "baseFriendship": 50,

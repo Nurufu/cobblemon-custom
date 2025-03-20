@@ -4,6 +4,7 @@
   "portraitTranslation": [ -0.5, 1.0, 0 ],
   "profileScale": 0.7,
   "profileTranslation": [ 0, 0.8, 0 ],
+  "cry": "bedrock(ogerpon_fire, cry)",
   "faint": "bedrock(ogerpon_fire, sleep)",
   "poses": {
     "battle-idle": {

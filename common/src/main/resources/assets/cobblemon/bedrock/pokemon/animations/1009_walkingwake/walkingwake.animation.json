@@ -2190,6 +2190,11 @@
 						"1.6667": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.walkingwake.cry"
+				}
 			}
 		},
 		"animation.walkingwake.blink": {

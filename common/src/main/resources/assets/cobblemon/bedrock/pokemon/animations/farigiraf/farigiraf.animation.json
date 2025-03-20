@@ -309,6 +309,12 @@
 				},
 				"tail2": {
 					"rotation": ["math.sin(q.anim_time*90*4-90)*0.5+1", 0, 0]
+				},
+				"hoodie_eye_psychic_left": {
+					"scale": 0
+				},
+				"hoodie_eye_psychic_right": {
+					"scale": 0
 				}
 			}
 		},
@@ -517,6 +523,12 @@
 				},
 				"leg_back_left_fire": {
 					"rotation": [0, "math.sin(q.anim_time*90*10-20)*5", 0]
+				},
+				"hoodie_eye_psychic_left": {
+					"scale": 0
+				},
+				"hoodie_eye_psychic_right": {
+					"scale": 0
 				}
 			}
 		}

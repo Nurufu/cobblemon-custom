@@ -4,7 +4,9 @@
   "profileScale": 1.06,
   "profileTranslation": [-0.02, 0.21, 0],
   "rootBone": "trumbeak",
-  "animations": {},
+  "animations": {
+    "cry": "q.bedrock_stateful('trumbeak', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],

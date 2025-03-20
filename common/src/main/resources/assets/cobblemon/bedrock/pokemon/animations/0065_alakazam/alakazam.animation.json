@@ -337,6 +337,11 @@
 						}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.alakazam.cry"
+				}
 			}
 		}
 	}

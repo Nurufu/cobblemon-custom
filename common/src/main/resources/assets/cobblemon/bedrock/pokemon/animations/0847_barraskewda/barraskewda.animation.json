@@ -343,7 +343,7 @@
 			},
 			"sound_effects": {
 				"0.0": {
-					"effect": "barraskewda_ambient"
+					"effect": "pokemon.barraskewda.cry"
 				}
 			}
 		},

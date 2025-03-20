@@ -8,7 +8,8 @@
     "special": "q.bedrock_primary('druddigon', 'special', q.curve('symmetrical_wide'))",
     "status": "q.bedrock_primary('druddigon', 'special', q.curve('symmetrical_wide'))",
     "recoil": "q.bedrock_primary('druddigon', 'recoil', q.curve('symmetrical_wide'))",
-    "faint": "q.bedrock_primary('druddigon', 'faint', q.curve('symmetrical_wide'))"
+    "faint": "q.bedrock_primary('druddigon', 'faint', q.curve('symmetrical_wide'))",
+    "cry": "q.bedrock_stateful('druddigon','cry')"
   },
   "poses": {
     "battle-standing": {

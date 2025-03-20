@@ -4,6 +4,7 @@
     "portraitTranslation": [ -0.3, -0.5, 0 ],
     "profileScale": 1.0,
     "profileTranslation": [ 0, 0.3, 0 ],
+  "cry":  "bedrock(rockruff, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

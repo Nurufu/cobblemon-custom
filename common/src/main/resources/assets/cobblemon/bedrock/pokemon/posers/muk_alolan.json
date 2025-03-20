@@ -4,6 +4,7 @@
   "profileScale": 0.75,
   "profileTranslation": [ -0.05, 0.5, 0 ],
     "faint": "bedrock(muk_alolan, faint)",
+  "cry":  "bedrock(muk_alolan, cry)",
     "poses": {
 
       "standing": {

@@ -8,7 +8,8 @@
     "physical": "q.bedrock_primary('dudunsparce', 'physical', q.curve('symmetrical_wide'))",
     "special": "q.bedrock_primary('dudunsparce', 'special', q.curve('symmetrical_wide'))",
     "status": "q.bedrock_primary('dudunsparce', 'special', q.curve('symmetrical_wide'))",
-    "recoil": "q.bedrock_primary('dudunsparce', 'recoil', q.curve('symmetrical_wide'))"
+    "recoil": "q.bedrock_primary('dudunsparce', 'recoil', q.curve('symmetrical_wide'))",
+    "cry": "q.bedrock_stateful('dudunsparce', 'cry')"
   },
   "poses": {
     "battle-standing": {

@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.mrrime.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.mrrime.cry"
+				}
+			}
+		},
 		"animation.mrrime.ground_idle": {
 			"loop": true,
 			"animation_length": 1.75,

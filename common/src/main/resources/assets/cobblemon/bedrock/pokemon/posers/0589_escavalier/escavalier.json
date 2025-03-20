@@ -3,6 +3,9 @@
   "portraitTranslation": [0.1, 0.7, 0],
   "profileScale": 0.5,
   "profileTranslation": [0.05, 0.9, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('escavalier', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK"],

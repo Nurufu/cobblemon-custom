@@ -87,6 +87,11 @@
 						"1.0": [0, 0.75, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.beartic.cry"
+				}
 			}
 		}
 	}

@@ -7,7 +7,8 @@
     "recoil": "q.bedrock_stateful('kleavor', 'recoil')",
     "physical": "q.bedrock_primary('kleavor', 'physical', q.curve('symmetrical_wide'))",
     "special": "q.bedrock_primary('kleavor', 'special', q.curve('symmetrical_wide'))",
-    "status": "q.bedrock_primary('kleavor', 'status', q.curve('symmetrical_wide'))"
+    "status": "q.bedrock_primary('kleavor', 'status', q.curve('symmetrical_wide'))",
+    "cry": "q.bedrock_stateful('kleavor', 'cry')"
   },
   "poses": {
     "battle-standing": {

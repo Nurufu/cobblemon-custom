@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -29,6 +30,8 @@ class VespiquenModel (root: ModelPart) : PokemonPoseableModel() {
     lateinit var fly: PokemonPose
     lateinit var sleep: PokemonPose
     lateinit var standing: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("vespiquen", "cry") }
 
     override fun registerPoses() {
         val blink1 = quirk { bedrockStateful("vespiquen", "blink") }

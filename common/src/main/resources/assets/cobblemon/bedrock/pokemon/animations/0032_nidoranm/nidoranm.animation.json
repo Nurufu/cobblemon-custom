@@ -84,6 +84,14 @@
 					"position": [0, -0.25, 0]
 				}
 			}
+		},
+		"animation.nidoranm.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.nidoranm.cry"
+				}
+			}
 		}
 	}
 }

@@ -60,6 +60,7 @@ import com.cobblemon.mod.common.net.messages.client.PokemonUpdatePacket
 import com.cobblemon.mod.common.net.messages.client.effect.SpawnSnowstormEntityParticlePacket
 import com.cobblemon.mod.common.net.messages.client.pokemon.update.*
 import com.cobblemon.mod.common.net.serverhandling.storage.SendOutPokemonHandler.SEND_OUT_DURATION
+import com.cobblemon.mod.common.net.serverhandling.storage.SendOutPokemonHandler.THROW_DURATION
 import com.cobblemon.mod.common.pokeball.PokeBall
 import com.cobblemon.mod.common.pokemon.activestate.*
 import com.cobblemon.mod.common.pokemon.evolution.CobblemonEvolutionProxy
@@ -121,13 +122,14 @@ open class Pokemon : ShowdownIdentifiable {
                 throw IllegalArgumentException("Cannot set a species that isn't registered")
             }
             val quotient = clamp(currentHealth / hp.toFloat(), 0F, 1F)
+            val oldValue = field
             field = value
             if (!isClient) {
                 val newFeatures = SpeciesFeatures.getFeaturesFor(species).mapNotNull { it.invoke(this) }
                 features.clear()
                 features.addAll(newFeatures)
             }
-            this.evolutionProxy.current().clear()
+            if(oldValue != value) evolutionProxy.current().clear()
             updateAspects()
             updateForm()
             checkGender()
@@ -317,18 +319,6 @@ open class Pokemon : ShowdownIdentifiable {
             field = value
             updateAspects()
             _shiny.emit(value)
-        }
-
-    var shined = false
-        set(value) {
-            field = value
-            updateAspects()
-        }
-
-    var pinged = false
-        set(value) {
-            field = value
-            updateAspects()
         }
 
     var tradeable = true
@@ -525,7 +515,17 @@ open class Pokemon : ShowdownIdentifiable {
             it.beamMode = 1
             it.battleId = battleId
 
+            it.after(seconds = THROW_DURATION) {
+                it.phasingTargetId = -1
+            }
+
             it.after(seconds = SEND_OUT_DURATION) {
+                // Allow recall animation to override sendout animation
+                if(it.beamMode == 3) {
+                    future.complete(it)
+                    return@after
+                }
+
                 it.phasingTargetId = -1
                 it.beamMode = 0
                 future.complete(it)
@@ -916,7 +916,6 @@ open class Pokemon : ShowdownIdentifiable {
         originalTrainerType = OriginalTrainerType.valueOf(nbt.getString(DataKeys.POKEMON_ORIGINAL_TRAINER_TYPE).ifEmpty { OriginalTrainerType.NONE.name })
         originalTrainer = if (nbt.contains(DataKeys.POKEMON_ORIGINAL_TRAINER)) nbt.getString(DataKeys.POKEMON_ORIGINAL_TRAINER) else null
         refreshOriginalTrainer()
-
         return this
     }
 
@@ -1065,6 +1064,7 @@ open class Pokemon : ShowdownIdentifiable {
             this.originalTrainer = json.get(DataKeys.POKEMON_ORIGINAL_TRAINER).asString
         }
         refreshOriginalTrainer()
+
         return this
     }
 

@@ -4,6 +4,9 @@
   "profileScale": 0.52,
   "profileTranslation": [0, 1, 0],
   "rootBone": "delibird",
+  "animations": {
+    "cry": "q.bedrock_stateful('delibird', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": [

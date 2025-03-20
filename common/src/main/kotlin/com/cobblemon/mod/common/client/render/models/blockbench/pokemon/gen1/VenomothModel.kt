@@ -11,6 +11,7 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.WingFlapIdleAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BiWingedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.sineFunction
@@ -41,6 +42,8 @@ class VenomothModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BiWi
     lateinit var battleidle: PokemonPose
     lateinit var hover: PokemonPose
     lateinit var flying: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("venomoth", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("venomoth", "blink") }

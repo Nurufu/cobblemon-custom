@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Rotom",
   "nationalPokedexNumber": 479,
   "primaryType": "electric",
@@ -60,6 +61,16 @@
       "aspects": [
         "heat"
       ],
+      "evolutions":[
+        {
+          "id":"heat_revert",
+          "variant": "item_interact",
+          "result": "rotom appliance=none",
+          "consumeHeldItem": false,
+          "requirements":[],
+          "requiredContext": "create:wrench"
+        }
+      ],
       "height": 3,
       "weight": 3,
       "cannotDynamax": false,
@@ -106,6 +117,16 @@
       ],
       "aspects": [
         "wash"
+      ],
+      "evolutions":[
+        {
+          "id":"wash_revert",
+          "variant": "item_interact",
+          "result": "rotom appliance=none",
+          "consumeHeldItem": false,
+          "requirements":[],
+          "requiredContext": "create:wrench"
+        }
       ],
       "height": 3,
       "weight": 3,
@@ -154,6 +175,16 @@
       "aspects": [
         "frost"
       ],
+      "evolutions":[
+        {
+          "id":"frost_revert",
+          "variant": "item_interact",
+          "result": "rotom appliance=none",
+          "consumeHeldItem": false,
+          "requirements":[],
+          "requiredContext": "create:wrench"
+        }
+      ],
       "height": 3,
       "weight": 3,
       "cannotDynamax": false,
@@ -201,6 +232,16 @@
       "aspects": [
         "fan"
       ],
+      "evolutions":[
+        {
+          "id":"fan_revert",
+          "variant": "item_interact",
+          "result": "rotom appliance=none",
+          "consumeHeldItem": false,
+          "requirements":[],
+          "requiredContext": "create:wrench"
+        }
+      ],
       "height": 3,
       "weight": 3,
       "cannotDynamax": false,
@@ -247,6 +288,16 @@
       ],
       "aspects": [
         "mow"
+      ],
+      "evolutions":[
+        {
+          "id":"mow_revert",
+          "variant": "item_interact",
+          "result": "rotom appliance=none",
+          "consumeHeldItem": false,
+          "requirements":[],
+          "requiredContext": "create:wrench"
+        }
       ],
       "height": 3,
       "weight": 3,
@@ -377,8 +428,54 @@
   "pokedex": [
     "cobblemon.species.rotom.desc"
   ],
-  "evolutions": [],
-  "baseScale": 0.75,
+  "evolutions": [
+    {
+      "id": "rotom_heat",
+      "variant": "item_interact",
+      "result": "rotom appliance=heat",
+      "consumeHeldItem": false,
+      "learnableMoves": ["overheat"],
+      "requirements":[],
+      "requiredContext": "create:blaze_burner"
+    },
+    {
+      "id": "rotom_fan",
+      "variant": "item_interact",
+      "result": "rotom appliance=fan",
+      "consumeHeldItem": false,
+      "learnableMoves": ["airslash"],
+      "requirements":[],
+      "requiredContext": "create:encased_fan"
+    },
+    {
+      "id": "rotom_mow",
+      "variant": "item_interact",
+      "result": "rotom appliance=mow",
+      "consumeHeldItem": false,
+      "learnableMoves": ["leafstorm"],
+      "requirements":[],
+      "requiredContext": "create:mechanical_harvester"
+    },
+    {
+      "id": "rotom_frost",
+      "variant": "item_interact",
+      "result": "rotom appliance=frost",
+      "consumeHeldItem": false,
+      "learnableMoves": ["blizzard"],
+      "requirements":[],
+      "requiredContext": "create:item_vault"
+    },
+    {
+      "id": "rotom_wash",
+      "variant": "item_interact",
+      "result": "rotom appliance=wash",
+      "consumeHeldItem": false,
+      "learnableMoves": ["hydropump"],
+      "requirements":[],
+      "requiredContext": "create:spout"
+    }
+  ],
+  "baseScale": 0.55,
   "hitbox": {
     "width": 0.55,
     "height": 1.3,

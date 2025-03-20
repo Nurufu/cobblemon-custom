@@ -28,6 +28,7 @@ class CobblemonConfig {
             .create()
     }
 
+    var inBattleModifier: Boolean = false
     var lastSavedVersion: String = "0.0.1"
 
     @NodeCategory(Category.Pokemon)

@@ -312,7 +312,12 @@
 				"right_eyelid": {
 					"rotation": [0, -2.5, 0]
 				}
-			}
+			},
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.scizor.cry"
+					}
+				}
 		}
 	}
 }

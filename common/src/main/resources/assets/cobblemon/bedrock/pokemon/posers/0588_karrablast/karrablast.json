@@ -3,6 +3,9 @@
   "portraitTranslation": [-0.14, -0.29, 0],
   "profileScale": 0.8,
   "profileTranslation": [0, 0.44, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('karrablast', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK"],

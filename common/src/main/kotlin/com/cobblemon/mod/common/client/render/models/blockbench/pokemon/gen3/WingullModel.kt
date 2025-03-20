@@ -11,6 +11,7 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BiWingedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
@@ -39,6 +40,8 @@ class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWin
     lateinit var water_surface_idle: PokemonPose
     lateinit var water_surface_swim: PokemonPose
     lateinit var water_surface_sleep: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("wingull", "cry") }
 
     val wateroffset = -9
 

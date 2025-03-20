@@ -3,6 +3,7 @@
     "portraitTranslation": [ 0, 0.8, 0 ],
     "profileScale": 0.8,
     "profileTranslation": [ 0, 0.8, 0 ],
+  "cry":  "bedrock(cyclizar, cry)",
     "poses": {
       "standing": {
         "poseName": "cyclizar",

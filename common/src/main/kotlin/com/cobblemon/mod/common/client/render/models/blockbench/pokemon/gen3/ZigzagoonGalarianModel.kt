@@ -12,6 +12,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.Quadru
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -41,6 +42,8 @@ class ZigzagoonGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedF
     val shoulderOffsetX = 0
     val shoulderOffsetY = 0
     val shoulderOffsetZ = -0.5
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("zigzagoon_galarian", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("zigzagoon_galarian", "blink") }

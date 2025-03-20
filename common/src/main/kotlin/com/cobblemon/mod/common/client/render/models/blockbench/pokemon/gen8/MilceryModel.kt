@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
@@ -34,6 +35,8 @@ class MilceryModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     lateinit var shoulderRight: PokemonPose
 
     val shoulderOffset = 4
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("milcery", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

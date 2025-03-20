@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
@@ -43,6 +44,8 @@ class DragonairModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     lateinit var flying: PokemonPose
 
     val flyingoffset = -12
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("dragonair", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("dragonair", "blink") }

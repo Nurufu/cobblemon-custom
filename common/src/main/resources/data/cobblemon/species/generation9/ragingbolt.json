@@ -13,7 +13,7 @@
     "special_defence": 89,
     "speed": 75
   },
-  "catchRate": 10,
+  "catchRate": 12,
   "maleRatio": -1,
   "baseExperienceYield": 0,
   "baseFriendship": 0,
@@ -93,7 +93,7 @@
     "tm:weatherball",
     "tm:wildcharge"
   ],
-  "labels": ["gen9", "paradox"],
+  "labels": ["gen9", "paradox", "legendary"],
   "pokedex": [
     "It's said to incinerate everything around it with lightning launched from its fur. Very little is known about this creature."
   ],

@@ -187,6 +187,11 @@
 						"1.5": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.wishiwashi.cry"
+				}
 			}
 		},
 		"animation.wishiwashi_solo.blink": {

@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.entity.PoseType
@@ -30,6 +31,8 @@ class TentacoolModel(root: ModelPart) : PokemonPoseableModel() {
     lateinit var float: PokemonPose
     lateinit var sleep: PokemonPose
     lateinit var watersleep: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("tentacool", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("tentacool", "blink")}

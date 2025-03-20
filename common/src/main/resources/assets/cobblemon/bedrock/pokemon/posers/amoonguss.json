@@ -4,6 +4,7 @@
     "portraitTranslation": [ 0, -0.2, 0 ],
     "profileScale": 0.8,
     "profileTranslation": [ 0, 0.5, 0 ],
+    "cry":  "bedrock(amoonguss, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

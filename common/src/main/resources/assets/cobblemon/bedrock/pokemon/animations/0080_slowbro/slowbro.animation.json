@@ -654,6 +654,11 @@
 				"shell_jaw": {
 					"rotation": [0, 0, 0]
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.slowbro.cry"
+				}
 			}
 		},
 		"animation.slowbro.bite_quirk": {

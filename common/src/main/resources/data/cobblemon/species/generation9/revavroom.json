@@ -41,6 +41,12 @@
       "light": "0-4"
     }
   },
+  "baseScale": 1.5,
+  "hitbox": {
+    "width": 1,
+    "height": 1,
+    "fixed": false
+  },
   "catchRate": 75,
   "maleRatio": 0.5,
   "baseExperienceYield": 175,

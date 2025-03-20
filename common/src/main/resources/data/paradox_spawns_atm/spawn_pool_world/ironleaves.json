@@ -1,0 +1,35 @@
+{
+    "enabled": "true",
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+        {
+            "id": "ironleaves-1",
+            "pokemon": "ironleaves",
+            "presets": [
+                "natural"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "ultra-rare",
+            "level": "40-65",
+            "weight": 2.0,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_plains",
+                    "#cobblemon:is_forest"
+                ]
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 1.5,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "cobblemon:pc"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

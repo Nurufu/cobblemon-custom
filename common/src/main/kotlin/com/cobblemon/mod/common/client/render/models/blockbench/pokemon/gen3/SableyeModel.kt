@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
@@ -43,6 +44,8 @@ class SableyeModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biped
     lateinit var shoulderRight: PokemonPose
 
     val shoulderOffset = 1
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("sableye", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

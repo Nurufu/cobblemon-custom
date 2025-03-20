@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Azelf",
   "nationalPokedexNumber": 482,
   "primaryType": "psychic",
@@ -13,7 +14,7 @@
     "special_defence": 70,
     "speed": 115
   },
-  "catchRate": 3,
+  "catchRate": 12,
   "maleRatio": -1,
   "shoulderMountable": false,
   "baseExperienceYield": 290,
@@ -198,10 +199,10 @@
     "cobblemon.species.azelf.desc"
   ],
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.5,
   "hitbox": {
     "width": 1,
-    "height": 1,
+    "height": 2.6,
     "fixed": false
   },
   "baseFriendship": 140,

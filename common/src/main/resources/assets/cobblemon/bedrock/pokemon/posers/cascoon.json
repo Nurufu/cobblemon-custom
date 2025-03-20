@@ -3,6 +3,7 @@
     "portraitTranslation": [ 0, -1.3, 0.5 ],
     "profileScale": 1,
     "profileTranslation": [ 0, -0.1, -1 ],
+    "cry":  "bedrock(cascoon, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

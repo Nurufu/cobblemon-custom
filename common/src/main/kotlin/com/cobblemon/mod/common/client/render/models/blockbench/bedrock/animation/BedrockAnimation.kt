@@ -75,6 +75,7 @@ class BedrockParticleKeyframe(
     override fun <T : Entity> run(entity: T, state: PoseableEntityState<T>) {
         val world = entity.world as? ClientWorld ?: return
         val matrixWrapper = state.locatorStates[locator] ?: state.locatorStates["root"]!!
+        check(matrixWrapper != state.locatorStates["root"]) {return}
 
         if (this in state.poseParticles) {
             return
@@ -100,7 +101,7 @@ class BedrockParticleKeyframe(
         state.poseParticles.add(this)
         storm.runtime.execute(this.scripts)
         storm.spawn()
-    }
+        }
 }
 
 class BedrockSoundKeyframe(

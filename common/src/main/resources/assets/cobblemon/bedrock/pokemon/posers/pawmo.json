@@ -11,6 +11,7 @@
       0.3,
       0
    ],
+   "cry":  "bedrock(pawmo, cry)",
    "poses":{
       "standing":{
          "poseName":"standing",

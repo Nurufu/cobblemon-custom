@@ -5,6 +5,7 @@
   "profileScale": 1.5,
   "profileTranslation": [0, -0.5, 0],
   "faint": "bedrock(capsakid, faint)",
+  "cry":  "bedrock(capsakid, cry)",
   "poses": {
     "standing": {
       "poseName": "standing",

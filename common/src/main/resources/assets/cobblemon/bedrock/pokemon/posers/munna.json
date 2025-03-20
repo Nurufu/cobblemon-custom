@@ -4,6 +4,7 @@
     "portraitTranslation": [ -0.2, 0.3, 0 ],
     "profileScale": 0.9,
     "profileTranslation": [ 0, 0.9, 0 ],
+  "cry":  "bedrock(munna, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

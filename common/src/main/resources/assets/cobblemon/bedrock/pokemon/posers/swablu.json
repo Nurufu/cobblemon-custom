@@ -4,6 +4,7 @@
     "profileScale": 1.1,
     "profileTranslation": [ -0.05, 0.25, 0 ],
     "faint": "bedrock(swablu, sleep)",
+  "cry":  "bedrock(swablu, cry)",
     "poses": {
 
       "standing": {

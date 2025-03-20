@@ -45,7 +45,7 @@ import com.cobblemon.mod.common.entity.pokemon.ai.PokemonNavigation
 import com.cobblemon.mod.common.entity.pokemon.ai.goals.*
 import com.cobblemon.mod.common.entity.pokemon.effects.EffectTracker
 import com.cobblemon.mod.common.entity.pokemon.effects.IllusionEffect
-import com.cobblemon.mod.common.net.messages.client.animation.PlayPosableAnimationPacket
+import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
 import com.cobblemon.mod.common.net.messages.client.sound.UnvalidatedPlaySoundS2CPacket
 import com.cobblemon.mod.common.net.messages.client.spawn.SpawnPokemonPacket
 import com.cobblemon.mod.common.net.messages.client.ui.InteractPokemonUIPacket
@@ -57,7 +57,6 @@ import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.InactivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.ShoulderedState
 import com.cobblemon.mod.common.pokemon.ai.FormPokemonBehaviour
-import com.cobblemon.mod.common.pokemon.aspects.SHINY_ASPECT
 import com.cobblemon.mod.common.pokemon.evolution.variants.ItemInteractionEvolution
 import com.cobblemon.mod.common.pokemon.misc.GimmighoulStashHandler
 import com.cobblemon.mod.common.util.*
@@ -193,6 +192,12 @@ open class PokemonEntity(
         get() = dataTracker.get(BATTLE_ID).isPresent
     val friendship: Int
         get() = dataTracker.get(FRIENDSHIP)
+    var pinged: Boolean
+        get() = dataTracker.get(PINGED)
+        set(value) = dataTracker.set(PINGED, value)
+    var shined: Boolean
+        get() = dataTracker.get(SHINED)
+        set(value) = dataTracker.set(SHINED, value)
 
     var drops: DropTable? = null
 
@@ -262,6 +267,7 @@ open class PokemonEntity(
         dataTracker.startTracking(SPAWN_DIRECTION, world.random.nextFloat() * 360F)
         dataTracker.startTracking(FRIENDSHIP, 0)
         dataTracker.startTracking(EVOLUTION_STARTED, false)
+        dataTracker.startTracking(PINGED, false)
         dataTracker.startTracking(SHINED, false)
     }
 
@@ -356,7 +362,7 @@ open class PokemonEntity(
         }
         //This is so that pokemon in the pasture block are ALWAYS in sync with the pokemon box
         //Before, pokemon entities in pastures would hold an old ref to a pokemon obj and changes to that would not appear to the underlying file
-        if (this.tethering != null) {
+        if (this.tethering != null && ownerUuid != null) {
             //Only for online players
             if (world.getPlayerByUuid(ownerUuid) != null){
                 this.ownerUuid?.let {
@@ -408,6 +414,10 @@ open class PokemonEntity(
             return true
         }
 
+        if(beamMode != 0){
+            return true
+        }
+
         // Owned Pokémon cannot be hurt by players or suffocation
         if (ownerUuid != null && (damageSource.attacker is PlayerEntity || damageSource.isOf(DamageTypes.IN_WALL))) {
             return true
@@ -416,6 +426,12 @@ open class PokemonEntity(
         if (!Cobblemon.config.playerDamagePokemon && damageSource.attacker is PlayerEntity) {
             return true
         }
+
+//        // Let the Pokémon be intangible during recall
+//        noPhysics = true
+//        // This doesn't appear to actually prevent a livingEntity from falling, but is here as a precaution
+//        isNoGravity = true
+
 
         return super.isInvulnerableTo(damageSource)
     }
@@ -483,12 +499,15 @@ open class PokemonEntity(
         if (dataTracker.get(UNBATTLEABLE)) {
             nbt.putBoolean(DataKeys.POKEMON_UNBATTLEABLE, true)
         }
+
+        if(this.pokemon.isWild() && (this.pokemon.isLegendary() || this.pokemon.isMythical() || this.pokemon.isUltraBeast())) countsTowardsSpawnCap = false else countsTowardsSpawnCap = true
+
         if (!countsTowardsSpawnCap) {
             nbt.putBoolean(DataKeys.POKEMON_COUNTS_TOWARDS_SPAWN_CAP, false)
         }
-        if(!pokemon.isPlayerOwned() && aspects.contains("shiny") || pokemon.isLegendary() || pokemon.isUltraBeast() || pokemon.isMythical()){
-            this.setPersistent()
-        }
+
+        nbt.putBoolean(DataKeys.POKEMON_PINGED, dataTracker.get(PINGED))
+        nbt.putBoolean(DataKeys.POKEMON_SHINED, dataTracker.get(SHINED))
 
         // save active effects
         nbt.put(DataKeys.ENTITY_EFFECTS, effects.saveToNbt())
@@ -552,6 +571,8 @@ open class PokemonEntity(
         dataTracker.set(LABEL_LEVEL, pokemon.level)
         dataTracker.set(POSE_TYPE, PoseType.valueOf(nbt.getString(DataKeys.POKEMON_POSE_TYPE)))
         dataTracker.set(BEHAVIOUR_FLAGS, nbt.getByte(DataKeys.POKEMON_BEHAVIOUR_FLAGS))
+        dataTracker.set(PINGED, if (nbt.contains(DataKeys.POKEMON_PINGED)) nbt.getBoolean(DataKeys.POKEMON_PINGED) else false)
+        dataTracker.set(SHINED, if (nbt.contains(DataKeys.POKEMON_SHINED)) nbt.getBoolean(DataKeys.POKEMON_SHINED) else false)
 
         if (nbt.contains(DataKeys.POKEMON_HIDE_LABEL)) {
             dataTracker.set(HIDE_LABEL, nbt.getBoolean(DataKeys.POKEMON_HIDE_LABEL))
@@ -1047,7 +1068,7 @@ open class PokemonEntity(
 
     fun cry() {
         if(this.isSilent) return
-        val pkt = PlayPosableAnimationPacket(id, setOf("cry"), emptySet())
+        val pkt = PlayPoseableAnimationPacket(id, setOf("cry"), emptySet())
         world.getEntitiesByClass(ServerPlayerEntity::class.java, Box.of(pos, 64.0, 64.0, 64.0), { true }).forEach {
             it.sendPacket(pkt)
         }
@@ -1227,14 +1248,15 @@ open class PokemonEntity(
                 "cyan" -> Items.CYAN_WOOL
                 "gray" -> Items.GRAY_WOOL
                 "green" -> Items.GREEN_WOOL
-                "light-blue" -> Items.LIGHT_BLUE_WOOL
-                "light-gray" -> Items.LIGHT_GRAY_WOOL
+                "light_blue" -> Items.LIGHT_BLUE_WOOL
+                "light_gray" -> Items.LIGHT_GRAY_WOOL
                 "lime" -> Items.LIME_WOOL
                 "magenta" -> Items.MAGENTA_WOOL
                 "orange" -> Items.ORANGE_WOOL
                 "purple" -> Items.PURPLE_WOOL
                 "red" -> Items.RED_WOOL
                 "yellow" -> Items.YELLOW_WOOL
+                "pink" -> Items.PINK_WOOL
                 else -> Items.WHITE_WOOL
             }
             val itemEntity =  this.dropItem(woolItem, 1) ?: return

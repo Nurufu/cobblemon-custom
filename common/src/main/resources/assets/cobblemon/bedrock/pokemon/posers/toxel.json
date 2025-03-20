@@ -4,7 +4,10 @@
   "portraitTranslation": [0, -0, 0],
   "profileScale": 0.7,
   "profileTranslation": [0, 0.8, 0],
-  "faint": "bedrock(toxel, ground_idle)",
+  "animations": {
+    "faint": "q.bedrock_primary('toxel', 'ground_idle', q.curve('one'))",
+    "cry": "q.bedrock_primary('toxel', 'cry', q.curve('symmetrical_wide'))"
+  },
   "poses": {
     "battle-idle": {
       "poseName": "battle-idle",

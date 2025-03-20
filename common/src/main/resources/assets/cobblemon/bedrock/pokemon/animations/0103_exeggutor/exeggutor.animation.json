@@ -817,6 +817,11 @@
 						"1.25": {"pre": [0, 0, 0], "post": [0, 0, 0.1]}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.exeggutor.cry"
+				}
 			}
 		},
 		"animation.exeggutor.battle_idle": {

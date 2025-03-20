@@ -5,6 +5,7 @@
   "profileTranslation": [0.0, 0.5, 0.0],
     "rootBone": "plusle",
     "animations": {
+      "cry": "q.bedrock_stateful('plusle', 'cry')"
     },
     "poses": {
       "standing": {

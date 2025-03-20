@@ -1,33 +1,39 @@
 {
   "portraitScale": 1.88,
-  "portraitTranslation": [-0.51, 0.83, 0],
+  "portraitTranslation": [-0.8, 0.53, 0],
   "profileScale": 0.72,
   "profileTranslation": [-0.04, 0.71, 0],
   "rootBone": "cramorant",
+  "animations": {
+    "cry": "q.bedrock_stateful('cramorant', 'cry')"
+  },
   "poses": {
     "standing": {
-      "poseName": "standing",
       "poseTypes": [
         "STAND",
         "NONE",
         "PORTRAIT",
         "PROFILE",
-        "FLOAT",
         "HOVER",
         "SLEEP"
       ],
-      "animations": ["q.look('head')", "q.bedrock('cramorant', 'ground_idle')"],
-      "quirks": ["q.bedrock_quirk('cramorant', 'blink', 5, 30, 1)"]
+      "animations": ["q.look('head')", "q.bedrock('cramorant', 'ground_idle')"]
     },
     "walking": {
-      "poseName": "walking",
-      "poseTypes": ["WALK", "SWIM", "FLY"],
+      "poseTypes": ["WALK", "FLY"],
+      "animations": ["q.look('head')", "q.bedrock('cramorant', 'ground_walk')"]
+    },
+    "float": {
+      "poseTypes": ["FLOAT"],
       "animations": [
-        "q.look('head')",
-        "q.bedrock('cramorant', 'ground_idle')",
-        "q.biped_walk(1, 1, 'leg_left', 'leg_right')"
-      ],
-      "quirks": ["q.bedrock_quirk('cramorant', 'blink', 5, 30, 1)"]
+        "q.look('head')", "q.bedrock('cramorant', 'water_idle')"
+      ]
+    },
+    "swim": {
+      "poseTypes": ["SWIM"],
+      "animations": [
+        "q.look('head')", "q.bedrock('cramorant', 'water_swim')"
+      ]
     }
   }
 }

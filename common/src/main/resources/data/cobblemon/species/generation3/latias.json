@@ -15,7 +15,7 @@
       "special_defence": 130,
       "speed": 110
     },
-    "catchRate": 3,
+    "catchRate": 12,
     "maleRatio": 0,
     "shoulderMountable": false,
     "forms": [
@@ -34,7 +34,7 @@
           "special_defence": 150,
           "speed": 110
         },
-        "catchRate": 3,
+        "catchRate": 12,
         "maleRatio": 0,
         "baseExperienceYield": 300,
         "baseFriendship": 90,

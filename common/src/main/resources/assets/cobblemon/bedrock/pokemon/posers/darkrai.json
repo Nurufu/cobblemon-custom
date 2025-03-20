@@ -3,6 +3,7 @@
     "portraitTranslation": [ -0.25, 0, 0 ],
     "profileScale": 1,
     "profileTranslation": [ 0.05, 0.35, 0 ],
+  "cry": "bedrock(darkrai, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

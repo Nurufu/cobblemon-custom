@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.scovillain.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.scovillain.cry"
+				}
+			}
+		},
 		"animation.scovillain.ground_idle": {
 			"loop": true,
 			"animation_length": 1.28,

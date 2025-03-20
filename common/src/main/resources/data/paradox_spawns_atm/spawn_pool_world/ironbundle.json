@@ -18,7 +18,17 @@
                 "biomes": [
                     "#cobblemon:is_freezing"
                 ]
-            }
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 1.5,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "cobblemon:pc"
+                        ]
+                    }
+                }
+            ]
         }
     ]
 }

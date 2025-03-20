@@ -131,6 +131,7 @@ class PokemonPastureBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(
         val world = world ?: return false
         val entity = PokemonEntity(world, pokemon = pokemon)
         entity.calculateDimensions()
+        entity.isInvulnerable = true
         val width = entity.boundingBox.xLength
 
         val idealPlace = pos.add(directionToBehind.vector.multiply(ceil(width).toInt() + 1))
@@ -138,7 +139,7 @@ class PokemonPastureBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(
 
         for (i in 0..5) {
             box = box.offset(directionToBehind.vector.x.toDouble(), 0.0, directionToBehind.vector.z.toDouble())
-            val fixedPosition = makeSuitableY(world, idealPlace.add(directionToBehind.vector), entity, box)
+            val fixedPosition = makeSuitableY(world, idealPlace.add(directionToBehind.vector.multiply((i + 1))), entity, box)
             if (fixedPosition != null) {
                 entity.setPosition(fixedPosition.toCenterPos().subtract(0.0, 0.5, 0.0))
                 val pc = Cobblemon.storage.getPC(player.uuid)

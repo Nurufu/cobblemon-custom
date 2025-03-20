@@ -20,7 +20,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
-
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 class PerrserkerModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("perrserker")
     override val head = getPart("head")
@@ -39,6 +39,8 @@ class PerrserkerModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bi
 //    lateinit var sleep: PokemonPose
     lateinit var standing: PokemonPose
     lateinit var walk: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("perrserker", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("perrserker", "blink") }

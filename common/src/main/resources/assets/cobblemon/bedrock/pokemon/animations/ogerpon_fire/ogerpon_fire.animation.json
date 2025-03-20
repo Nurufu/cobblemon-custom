@@ -475,6 +475,14 @@
 					}
 				}
 			}
+		},
+		"animation.ogerpon.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.ogerpon.cry"
+				}
+			}
 		}
 	}
 }

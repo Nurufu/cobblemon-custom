@@ -19,7 +19,17 @@
                     "#cobblemon:is_plains"
                 ],
             "isThundering": "true"
-            }
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 1.5,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "minecraft:pitcher_plant"
+                        ]
+                    }
+                }
+            ]
         }
     ]
 }

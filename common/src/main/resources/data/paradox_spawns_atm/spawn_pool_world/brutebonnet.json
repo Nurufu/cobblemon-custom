@@ -16,7 +16,17 @@
       "weight": 2.0,
       "condition": {
         "biomes": [ "#cobblemon:is_jungle" ]
-      }
+      },
+      "weightMultipliers": [
+        {
+          "multiplier": 1.5,
+          "condition": {
+            "neededNearbyBlocks": [
+              "minecraft:pitcher_plant"
+            ]
+          }
+        }
+      ]
     }
   ]
 }

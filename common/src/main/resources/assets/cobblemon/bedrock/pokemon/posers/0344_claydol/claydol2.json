@@ -4,6 +4,9 @@
   "profileScale": 0.58,
   "profileTranslation": [0, 0.89, 0],
   "rootBone": "claydol",
+  "animations": {
+    "cry": "q.bedrock_stateful('claydol', 'cry')"
+  },
   "poses": {
     "walking": {
       "poseTypes": ["WALK", "SWIM"],

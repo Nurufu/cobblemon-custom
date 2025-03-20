@@ -19,20 +19,34 @@ import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.SentOutState
-import com.cobblemon.mod.common.util.lang
-import com.cobblemon.mod.common.util.playSoundServer
-import com.cobblemon.mod.common.util.update
+import com.cobblemon.mod.common.util.*
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
+import net.minecraft.client.sound.Sound
+import net.minecraft.command.CommandSource
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ai.pathing.PathNodeType
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.data.TrackedData
+import net.minecraft.server.MinecraftServer
+import net.minecraft.server.PlayerManager
+import net.minecraft.server.command.CommandManager
+import net.minecraft.server.command.SayCommand
+import net.minecraft.server.command.ServerCommandSource
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
-import net.minecraft.text.MutableText
+import net.minecraft.sound.SoundCategory
+import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
+import net.minecraft.util.Identifier
 import java.util.*
+import de.erdbeerbaerlp.dcintegration.common.*
+import de.erdbeerbaerlp.dcintegration.common.storage.Configuration
+import de.erdbeerbaerlp.dcintegration.common.util.DiscordMessage
+import de.erdbeerbaerlp.dcintegration.common.util.TextColors
+import net.dv8tion.jda.api.entities.EmbedType
+import net.dv8tion.jda.api.entities.MessageEmbed
+import java.time.OffsetDateTime
 
 /** Handles purely server logic for a Pokémon */
 class PokemonServerDelegate : PokemonSideDelegate {
@@ -106,7 +120,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
         val trackedNickname =  mock?.nickname ?: entity.pokemon.nickname ?: Text.empty()
         val trackedAspects = mock?.aspects ?: entity.pokemon.aspects
 
-        entity.ownerUuid = entity.pokemon.getOwnerPlayer()?.uuid
+        entity.ownerUuid = entity.pokemon.getOwnerUUID()
         entity.dataTracker.set(PokemonEntity.SPECIES, trackedSpecies)
         if (entity.dataTracker.get(PokemonEntity.NICKNAME) != trackedNickname) {
             entity.dataTracker.set(PokemonEntity.NICKNAME, trackedNickname)
@@ -149,15 +163,19 @@ class PokemonServerDelegate : PokemonSideDelegate {
 //            entity.setBehaviourFlag(PokemonBehaviourFlag.FLYING, true)
 //        }
 
-        if(!entity.pokemon.isPlayerOwned() && entity.pokemon.aspects.contains("shiny") && !entity.pokemon.shined){
-            shinyNotif(entity)
-            entity.pokemon.shined = true
+        if(entity.pokemon.isWild() && entity.pokemon.aspects.contains("shiny") && !entity.shined){
+            if (shinyNotif(entity)) {
+                entity.shined = true
+                entity.setPersistent()
+            }
         }
 
-        if(!entity.pokemon.isPlayerOwned() && !entity.pokemon.pinged && entity.pokemon.isLegendary() || entity.pokemon.isMythical() && !entity.pokemon.pinged || entity.pokemon.isUltraBeast() && !entity.pokemon.pinged)
+        if(entity.pokemon.isWild() && !entity.pinged && (entity.pokemon.isLegendary() || entity.pokemon.isMythical() || entity.pokemon.isUltraBeast()))
         {
-            legeNotif(entity)
-            entity.pokemon.pinged = true
+            if (legeNotif(entity)) {
+                entity.pinged = true
+                entity.setPersistent()
+            }
         }
 
         entity.dataTracker.update(PokemonEntity.BATTLE_ID) { opt ->
@@ -199,46 +217,92 @@ class PokemonServerDelegate : PokemonSideDelegate {
         updateTrackedValues()
     }
 
-    fun shinyNotif(pokemon: PokemonEntity) {
+    fun shinyNotif(pokemon: PokemonEntity): Boolean {
         val world = entity.world as ServerWorld
         val players = world.players
+        if (players.size < 1) {
+            return false
+        }
         val close = ArrayList<ServerPlayerEntity>()
-        //players.forEach{it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance}
+
         players.forEach{
             if(it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance)
             {
                 close.add(it)
             }
-            closest = close[0]
         }
+        if (close.size < 1) {
+            return false
+        }
+        closest = close[0]
         close.forEach{
             if(it.pos.distanceTo(pokemon.pos) < closest.pos.distanceTo(pokemon.pos))
             {
                 closest = it
             }
         }
-        players.forEach{it.sendMessage(lang("shiny.notif", entity.pokemon.species.translatedName, closest.name))}
+        val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
+        closest.playSound(SoundEvent.of(Identifier("cobblemon", "particle.wild_shiny_chime")),SoundCategory.MASTER, 0.6f, 1f)
+        closest.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)
+        val s: String = entity.pokemon.species.name
+        server()?.playerManager?.broadcast(
+            Text.translatable("cobblemon.shiny.notif","§e${s}", *arrayOf<Any>(
+                this.closest.displayName)
+            ), false
+        )
+        try{
+            var embedBuilder = Configuration.instance().embedMode.chatMessages.toEmbed()
+            embedBuilder = embedBuilder.setColor(TextColors.generateFromUUID(closest.uuid))
+            embedBuilder = embedBuilder.setAuthor(closest.name.string, null, Configuration.instance().webhook.playerAvatarURL.replace("%uuid%", closest.uuidAsString).replace("%uuid_dashless%", closest.uuidAsString.replace("-", "")).replace("%name%", closest.name.string).replace("%randomUUID%", UUID.randomUUID().toString()))
+                .setDescription("A strangely-colored ${entity.pokemon.species.toString()
+                    .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }} has appeared near ${closest.displayName.string}!")
+
+            DiscordIntegration.INSTANCE.sendMessage(DiscordMessage(embedBuilder.build()),DiscordIntegration.INSTANCE.getChannel(
+                Configuration.instance().advanced.chatOutputChannelID))
+        }catch(e: NoClassDefFoundError) {null}
+        return true
     }
 
-    fun legeNotif(pokemon: PokemonEntity) {
+    fun legeNotif(pokemon: PokemonEntity): Boolean {
         val world = entity.world as ServerWorld
         val players = world.players
+        if (players.size < 1) {
+            return false
+        }
         val close = ArrayList<ServerPlayerEntity>()
-        //players.forEach{it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance}
         players.forEach{
             if(it.pos.distanceTo(pokemon.pos) <= Cobblemon.config.shinyNoticeParticlesDistance)
             {
                 close.add(it)
             }
-            closest = close[0]
         }
+        if (close.size < 1) {
+            return false
+        }
+        closest = close[0]
         close.forEach{
             if(it.pos.distanceTo(pokemon.pos) < closest.pos.distanceTo(pokemon.pos))
             {
                 closest = it
             }
         }
-        players.forEach{it.sendMessage(lang("lege.notif", closest.name))}
+        server()?.playerManager?.broadcast(
+            Text.translatable("cobblemon.lege.notif", this.closest.displayName), false
+        )
+        close.forEach { val cry = "pokemon."+entity.pokemon.species.toString()+".cry"
+                        it.playSound(SoundEvent.of(Identifier("item.trident.thunder")),SoundCategory.MASTER, 0.3f, 0.5f)
+                        it.playSound(SoundEvent.of(Identifier("cobblemon", cry)),SoundCategory.MASTER, 0.6f, 1f)}
+        try{
+            var embedBuilder = Configuration.instance().embedMode.chatMessages.toEmbed()
+            embedBuilder = embedBuilder.setColor(TextColors.generateFromUUID(closest.uuid))
+            embedBuilder = embedBuilder.setAuthor(closest.name.string, null, Configuration.instance().webhook.playerAvatarURL.replace("%uuid%", closest.uuidAsString).replace("%uuid_dashless%", closest.uuidAsString.replace("-", "")).replace("%name%", closest.name.string).replace("%randomUUID%", UUID.randomUUID().toString()))
+                .setDescription("A powerful entity has manifested near ${closest.displayName.string}! It's a ||${entity.pokemon.species.toString()
+                    .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}||")
+
+            DiscordIntegration.INSTANCE.sendMessage(DiscordMessage(embedBuilder.build()),DiscordIntegration.INSTANCE.getChannel(
+                Configuration.instance().advanced.chatOutputChannelID))
+        }catch(e: NoClassDefFoundError) {null}
+        return true
     }
 
     fun updatePoseType() {

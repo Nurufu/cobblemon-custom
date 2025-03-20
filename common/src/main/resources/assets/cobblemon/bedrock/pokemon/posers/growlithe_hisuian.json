@@ -3,6 +3,7 @@
   "portraitTranslation": [-0.2, -0.6, 0.0],
   "profileScale": 0.9,
   "profileTranslation": [0.0, 0.4, 0.0],
+  "cry":  "bedrock(growlithe_hisuian, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

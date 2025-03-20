@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.barbaracle.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.barbaracle.cry"
+				}
+			}
+		},
 		"animation.barbaracle.pose": {
 			"loop": true,
 			"bones": {

@@ -37,7 +37,7 @@ class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
     lateinit var battleidle: PokemonPose
     lateinit var waterbattleidle: PokemonPose
 
-//    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("chinchou", "cry") }
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("chinchou", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("chinchou", "blink")}

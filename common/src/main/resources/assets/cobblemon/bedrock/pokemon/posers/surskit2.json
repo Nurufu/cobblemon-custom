@@ -37,7 +37,7 @@
       "swimming": {
         "poseName": "swimming",
         "transformTicks": 10,
-        "postTypes": [ "SWIM "],
+        "poseTypes": [ "SWIM"],
         "animation": [
           "bedrock(surskit, ground_walk)"
         ],
@@ -67,6 +67,14 @@
             ]
           }
         ]
+      },
+      "leftshoulder": {
+        "poseTypes": ["SHOULDER_LEFT"],
+        "animations": ["q.look('body')", "q.bedrock('surskit', 'shoulder_left')"]
+      },
+      "rightshoulder": {
+        "poseTypes": ["SHOULDER_RIGHT"],
+        "animations": ["q.look('body')", "q.bedrock('surskit', 'shoulder_right')"]
       }
     }
   }

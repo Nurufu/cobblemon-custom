@@ -5,6 +5,7 @@
   "profileScale": 1,
   "profileTranslation": [-0.2, 0.15, 0],
   "faint": "bedrock(scovillain, faint)",
+  "cry":  "bedrock(scovillain, cry)",
   "poses": {
     "standing": {
       "poseName": "standing",

@@ -2,7 +2,7 @@
     "implemented": true,
     "target": "cobblemon:liepard",   
     "shoulderMountable": false,
-    "baseScale": 1.0,
+    "baseScale": 0.6,
     "hitbox": {
       "width": 0.9,
       "height": 1.3,

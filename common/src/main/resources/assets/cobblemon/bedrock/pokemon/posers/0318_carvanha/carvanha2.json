@@ -4,6 +4,9 @@
   "profileScale": 0.72,
   "profileTranslation": [0.06, 0.44, 0],
   "rootBone": "carvanha",
+  "animations": {
+    "cry": "q.bedrock_stateful('carvanha', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": [

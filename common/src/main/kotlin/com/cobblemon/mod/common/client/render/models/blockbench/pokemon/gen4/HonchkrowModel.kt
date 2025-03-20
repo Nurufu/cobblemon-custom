@@ -21,6 +21,7 @@ import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.math.geometry.toRadians
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 
 class HonchkrowModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BiWingedFrame {
     override val rootPart = root.registerChildWithAllChildren("honchkrow")
@@ -41,6 +42,8 @@ class HonchkrowModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
     lateinit var sleep: PokemonPose
     lateinit var hover: PokemonPose
     lateinit var fly: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("honchkrow", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("honchkrow", "blink") }

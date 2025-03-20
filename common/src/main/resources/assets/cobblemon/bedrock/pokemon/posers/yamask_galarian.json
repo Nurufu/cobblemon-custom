@@ -4,6 +4,7 @@
     "profileScale": 0.7,
     "profileTranslation": [ 0.0, 0.7, 0.0 ],
     "faint": "bedrock(yamask_galarian, sleep)",
+  "cry":  "bedrock(yamask_galarian, cry)",
     "poses": {
 
       "standing": {

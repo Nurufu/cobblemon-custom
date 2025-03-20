@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.banette.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.banette.cry"
+				}
+			}
+		},
 		"animation.banette.pose": {
 			"loop": "hold_on_last_frame",
 			"bones": {

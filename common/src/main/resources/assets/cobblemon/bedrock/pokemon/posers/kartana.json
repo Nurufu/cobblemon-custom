@@ -4,6 +4,7 @@
     "profileScale": 0.75,
     "profileTranslation": [ 0, 0.75, 0 ],
     "faint": "bedrock(kartana, sleep)",
+  "cry": "bedrock(kartana, cry)",
     "poses": {
 
       "standing": {

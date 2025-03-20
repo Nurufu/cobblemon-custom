@@ -5,6 +5,7 @@
     "profileScale": 1,
     "profileTranslation": [ 0, -0.1, -1 ],
     "faint": "bedrock(wurmple, faint)",
+    "cry": "bedrock(wurmple, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",
@@ -25,6 +26,14 @@
         "transformTicks": 10,
         "poseTypes": [ "WALK" ],
         "animations": [ "bedrock(wurmple, ground_walk)" ]
+      },
+      "leftshoulder": {
+        "poseTypes": ["SHOULDER_LEFT"],
+        "animations": ["q.look('head')","q.bedrock('wurmple', 'shoulder_left')"]
+      },
+      "rightshoulder": {
+        "poseTypes": ["SHOULDER_RIGHT"],
+        "animations": ["q.look('head')", "q.bedrock('wurmple', 'shoulder_right')"]
       }
     }
    }

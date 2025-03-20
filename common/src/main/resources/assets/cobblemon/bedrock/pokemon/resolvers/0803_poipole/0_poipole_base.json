@@ -5,15 +5,15 @@
     {
       "aspects": [],
       "poser": "cobblemon:poipole",
-      "model": "cobblemon:poipole.geo",
-      "texture": "cobblemon:textures/pokemon/0803_poipole/poipole.png",
+      "model": "cobblemon:poipole2.geo",
+      "texture": "cobblemon:textures/pokemon/poipole/poipole.png",
       "layers": []
     },
     {
       "aspects": [
         "shiny"
       ],
-      "texture": "cobblemon:textures/pokemon/0803_poipole/poipole_shiny.png"
+      "texture": "cobblemon:textures/pokemon/poipole/poipole_shiny.png"
     }
   ]
 }

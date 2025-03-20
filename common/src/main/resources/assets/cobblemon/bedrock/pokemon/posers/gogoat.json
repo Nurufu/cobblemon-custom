@@ -4,6 +4,7 @@
     "portraitTranslation": [ -1.1, -0.7, 0 ],
     "profileScale": 0.9,
     "profileTranslation": [ 0, 0.4, 0 ],
+  "cry":  "bedrock(gogoat, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

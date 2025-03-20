@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen7
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
@@ -36,6 +37,8 @@ class ComfeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biman
     lateinit var shoulderRight: PokemonPose
 
     val shoulderOffset = 1.5
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("comfey", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("comfey", "blink")}

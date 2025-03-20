@@ -659,7 +659,7 @@
 			},
 			"sound_effects": {
 				"0.0": {
-					"effect": "477"
+					"effect": "pokemon.dusknoir.cry"
 				}
 			}
 		},

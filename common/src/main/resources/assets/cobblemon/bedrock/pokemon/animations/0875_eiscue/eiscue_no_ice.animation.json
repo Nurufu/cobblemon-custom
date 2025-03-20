@@ -428,6 +428,11 @@
 						"1.2083": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.eiscueice.cry"
+				}
 			}
 		},
 		"animation.eiscue_no_ice.blink": {

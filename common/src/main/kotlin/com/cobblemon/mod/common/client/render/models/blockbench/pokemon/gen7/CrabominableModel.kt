@@ -15,7 +15,7 @@ import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
-
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 class CrabominableModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("crabominable")
     override val head = getPart("head")
@@ -28,6 +28,8 @@ class CrabominableModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame 
 
     lateinit var standing: PokemonPose
     lateinit var walk: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("crabominable", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

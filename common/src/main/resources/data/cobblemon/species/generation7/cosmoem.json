@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Cosmoem",
   "nationalPokedexNumber": 790,
   "primaryType": "psychic",
@@ -15,7 +16,7 @@
   },
   "catchRate": 45,
   "maleRatio": -1,
-  "shoulderMountable": false,
+  "shoulderMountable": true,
   "baseExperienceYield": 140,
   "experienceGroup": "slow",
   "eggCycles": 120,
@@ -67,10 +68,10 @@
       ]
     }
   ],
-  "baseScale": 1,
+  "baseScale": 0.15,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 2.5,
+    "height": 2,
     "fixed": false
   },
   "baseFriendship": 0,

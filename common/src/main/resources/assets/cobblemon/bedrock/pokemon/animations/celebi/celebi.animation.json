@@ -120,6 +120,14 @@
 					"position": [0, "math.sin(q.anim_time*90*2-20)*-0.1", 0]
 				}
 			}
+		},
+		"animation.celebi.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.celebi.cry"
+				}
+			}
 		}
 	}
 }

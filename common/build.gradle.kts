@@ -32,6 +32,7 @@ architectury {
 repositories {
     maven(url = "${rootProject.projectDir}/deps")
     maven(url = "https://api.modrinth.com/maven")
+    maven (url = "https://repo.erdbeerbaerlp.de/repository/maven-public/")
     mavenLocal()
 }
 
@@ -47,6 +48,8 @@ dependencies {
     }
     // Flywheel has no common dep so just pick one and don't use any platform specific code in common
     // modCompileOnly(libs.flywheelFabric)
+
+    modCompileOnly("de.erdbeerbaerlp:dcintegration.common:3.0.7")
 
     // Showdown
     modCompileOnly(libs.graal)

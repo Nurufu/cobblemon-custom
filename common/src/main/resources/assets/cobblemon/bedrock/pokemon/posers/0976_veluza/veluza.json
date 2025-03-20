@@ -4,7 +4,9 @@
   "profileScale": 0.72,
   "profileTranslation": [0, 0.32, 0],
   "rootBone": "veluza",
-  "animations": {},
+  "animations": {
+    "cry": "q.bedrock_stateful('veluza', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "FLOAT", "PORTRAIT", "PROFILE"],

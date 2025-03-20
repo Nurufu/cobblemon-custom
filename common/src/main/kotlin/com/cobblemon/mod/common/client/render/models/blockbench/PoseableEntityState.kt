@@ -168,7 +168,7 @@ abstract class PoseableEntityState<T : Entity> : Schedulable {
     open fun incrementAge(entity: T) {
         val previousAge = age
         updateAge(age + 1)
-        runEffects(entity, previousAge, age)
+        try {runEffects(entity, previousAge, age)} catch (e: Exception) { return }
         val primaryAnimation = primaryAnimation ?: return
         if (primaryAnimation.started + primaryAnimation.duration <= animationSeconds) {
             this.primaryAnimation = null
@@ -280,11 +280,14 @@ abstract class PoseableEntityState<T : Entity> : Schedulable {
         val previousSeconds = previousAge / 20F
         val currentSeconds = newAge / 20F
 
+        allStatefulAnimations.forEach { it.applyEffects(entity, this, previousSeconds, currentSeconds) }
+        primaryAnimation?.animation?.applyEffects(entity, this, previousSeconds, currentSeconds)
         currentModel?.let { model ->
             val pose = currentPose?.let(model::getPose)
-            allStatefulAnimations.forEach { it.applyEffects(entity, this, previousSeconds, currentSeconds) }
-            primaryAnimation?.animation?.applyEffects(entity, this, previousSeconds, currentSeconds)
-            pose?.idleAnimations?.filter { shouldIdleRun(it, 0.5F) }?.forEach { it.applyEffects(entity, this, previousSeconds, currentSeconds) }
+            //pose?.idleAnimations?.filter { shouldIdleRun(it, 0.5F) }?.forEach { it.applyEffects(entity, this, previousSeconds, currentSeconds) }
+            pose?.idleAnimations
+                ?.filter { shouldIdleRun(it, 0.5F) }
+                ?.forEach { it.applyEffects(entity , this, previousSeconds, currentSeconds) }
         }
     }
 

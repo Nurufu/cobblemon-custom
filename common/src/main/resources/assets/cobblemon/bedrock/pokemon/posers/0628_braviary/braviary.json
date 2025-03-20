@@ -2,7 +2,10 @@
   "portraitScale": 1.6,
   "portraitTranslation": [-0.4, 1.93, 0],
   "profileScale": 0.56,
-  "profileTranslation": [0.3, 0.93, 0],
+  "profileTranslation": [0.1, 0.93, 0.2],
+  "animations": {
+    "cry": "q.bedrock_stateful('braviary', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK"],

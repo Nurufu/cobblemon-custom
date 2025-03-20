@@ -1416,6 +1416,14 @@
 					}
 				}
 			}
+		},
+		"animation.manaphy.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.manaphy.cry"
+				}
+			}
 		}
 	}
 }

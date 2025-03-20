@@ -19,6 +19,8 @@ object DataKeys {
     const val POKEMON_GENDER = "Gender"
     const val POKEMON_EXPERIENCE = "Experience"
     const val POKEMON_FRIENDSHIP = "Friendship"
+    const val POKEMON_PINGED = "Pinged"
+    const val POKEMON_SHINED = "Shined"
 
     const val POKEMON_STATS = "Stats"
     const val POKEMON_IVS = "IVs"
@@ -67,6 +69,9 @@ object DataKeys {
 
     const val POKEMON_ORIGINAL_TRAINER = "PokemonOriginalTrainer"
     const val POKEMON_ORIGINAL_TRAINER_TYPE = "PokemonOriginalTrainerType"
+
+    const val PINGED = "Pinged"
+    const val SHINED = "shined"
 
     // Entity effects
     const val ENTITY_EFFECTS = "EntityEffects"

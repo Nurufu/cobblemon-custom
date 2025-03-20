@@ -4,6 +4,7 @@
     "portraitTranslation": [ 0, 0.7, 0 ],
     "profileScale": 0.8,
     "profileTranslation": [ 0, 0.7, 0 ],
+  "cry": "bedrock(phione, cry)",
     "poses": {
       "standing": {
         "poseName": "standing",

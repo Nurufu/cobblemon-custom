@@ -1,11 +1,12 @@
 {
   "portraitScale": 1.9,
-  "portraitTranslation": [-0.9, -0.7, 0],
-  "profileScale": 0.75,
-  "profileTranslation": [0, 0.6, 0],
+  "portraitTranslation": [-1.2, 0, 0],
+  "profileScale": 0.5,
+  "profileTranslation": [-0.2, 1, 0.5],
   "rootBone": "bouffalant",
   "animations": {
-    "faint": "q.bedrock_stateful('bouffalant','new')"
+    "faint": "q.bedrock_stateful('bouffalant','new')",
+    "cry": "q.bedrock_stateful('bouffalant', 'cry')"
   },
   "poses": {
     "standing": {

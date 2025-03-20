@@ -5,6 +5,7 @@
   "profileTranslation": [0.0, 0.55, 0.0],
   "rootBone": "smoochum",
   "animations": {
+    "cry": "q.bedrock_stateful('smoochum', 'cry')"
   },
   "poses": {
     "standing": {

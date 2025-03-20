@@ -5,6 +5,7 @@
   "profileTranslation": [0.0, 0.55, 0.0],
   "rootBone": "pachirisu",
   "animations": {
+    "cry": "q.bedrock_stateful('pachirisu', 'cry')"
   },
   "poses": {
     "portrait": {
@@ -24,6 +25,14 @@
       "quirks": [
         "q.bedrock_quirk('pachirisu', 'blink')"
       ]
+    },
+    "leftshoulder": {
+      "poseTypes": ["SHOULDER_LEFT"],
+      "animations": ["q.look('head_ai')","q.bedrock('pachirisu', 'shoulder_left')"]
+    },
+    "rightshoulder": {
+      "poseTypes": ["SHOULDER_RIGHT"],
+      "animations": ["q.look('head_ai')", "q.bedrock('pachirisu', 'shoulder_right')"]
     }
   }
 }
