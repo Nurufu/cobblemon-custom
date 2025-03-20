@@ -147,7 +147,7 @@ class WallpapersScrollingWidget(
             return false
         }
 
-        override fun getNarration(): MutableText? {
+        override fun getNarration(): MutableText {
             return wallpaper.toString().text()
         }
     }

@@ -78,7 +78,6 @@ object CobblemonCaptureCalculator: CaptureCalculator, CriticalCaptureProvider, P
             .behavior(thrower, pokemon)
             .mutator((3F * pokemon.hp - 2F * pokemon.currentHealth) * darkGrass * catchRate * inBattleModifier, ballBonus) / (3F * pokemon.hp)
         modifiedCatchRate *= bonusStatus * bonusLevel
-        Cobblemon.LOGGER.info(inBattleModifier)
         if (thrower is ServerPlayerEntity) {
             val highestLevelThrower = this.findHighestThrowerLevel(thrower, pokemon)
             if (highestLevelThrower != null && highestLevelThrower < pokemon.level) {
