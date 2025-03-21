@@ -140,8 +140,8 @@ class PCGUI(
                 pX = x+235,
                 pY = y+12,
                 onPress = {
-                    configuration.showParty = wallpaperWidget.isFocused
-                    wallpaperWidget.isFocused = !wallpaperWidget.isFocused
+                    configuration.showParty = wallpaperWidget.isVisible()
+                    wallpaperWidget.setVisible(!wallpaperWidget.isVisible())
                 },
                 pcGui = this
             )
@@ -152,7 +152,10 @@ class PCGUI(
             pY = y+30,
             pcGui = this,
             storageWidget = storageWidget
-        )
+        ).also{
+            it.setVisible(false)
+            configuration.showParty=true
+        }
 
         this.setPreviewPokemon(null)
         this.addDrawableChild(storageWidget)
@@ -506,6 +509,7 @@ class PCGUI(
             InputUtil.GLFW_KEY_ESCAPE -> {
                 playSound(CobblemonSounds.PC_OFF)
                 UnlinkPlayerFromPCPacket().sendToServer()
+                MinecraftClient.getInstance().setScreen(null)
                 return true
             }
 

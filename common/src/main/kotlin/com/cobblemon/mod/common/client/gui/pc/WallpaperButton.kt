@@ -38,7 +38,7 @@ class WallpaperButton(
             y = y,
             width = WIDTH,
             height = HEIGHT,
-            vOffset = if (isHovered() || !pcGui.configuration.showParty) HEIGHT else 0,
+            vOffset = if (this.visible || !pcGui.configuration.showParty) HEIGHT else 0,
             textureHeight = HEIGHT * 2
         )
     }
