@@ -42,6 +42,8 @@ import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
+import org.spongepowered.asm.mixin.Shadow
+import com.cobblemon.mod.common.util.boxMemory
 
 class StorageWidget(
     pX: Int, pY: Int,
@@ -144,6 +146,16 @@ class StorageWidget(
         if (pcGui.configuration is PasturePCGUIConfiguration) {
             this.pastureWidget = PastureWidget(this, pcGui.configuration, x + 182, y - 19)
         }
+
+        if(pc.boxes.size > boxMemory){
+            setOpenBox(boxMemory)
+        }
+
+    }
+
+    @Shadow
+    fun setOpenBox(b: Int){
+        this.box = b
     }
 
     fun canDeleteSelected(): Boolean {
@@ -255,6 +267,8 @@ class StorageWidget(
             this.releaseButton.render(context, mouseX, mouseY, delta)
             this.releaseYesButton.render(context, mouseX, mouseY, delta)
             this.releaseNoButton.render(context, mouseX, mouseY, delta)
+
+            boxMemory = this.box
         }
 
         // Screen Overlay

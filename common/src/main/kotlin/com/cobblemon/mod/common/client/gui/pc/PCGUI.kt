@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.client.gui.pc
 
 import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.gui.blitk
+import com.cobblemon.mod.common.api.gui.drawText
 import com.cobblemon.mod.common.api.storage.pc.search.Search
 import com.cobblemon.mod.common.api.text.bold
 import com.cobblemon.mod.common.api.text.text
@@ -71,6 +72,7 @@ class PCGUI(
     private lateinit var searchWidget: SearchWidget
     private lateinit var wallpaperWidget: WallpapersScrollingWidget
     private lateinit var ivWidget: IvWidget
+    private lateinit var boxIdWidget: BoxIdWidget
     private var modelWidget: ModelWidget? = null
     internal var previewPokemon: Pokemon? = null
 
@@ -162,12 +164,18 @@ class PCGUI(
             gui = this
         )
 
+        this.boxIdWidget = BoxIdWidget(
+            gui = this,
+            storageWidget = storageWidget
+        )
+
         this.setPreviewPokemon(null)
         this.addDrawableChild(storageWidget)
         this.addDrawableChild(boxNameWidget)
         this.addDrawableChild(searchWidget)
         this.addDrawableChild(wallpaperWidget)
         this.addDrawable(ivWidget)
+        this.addDrawable(boxIdWidget)
         super.init()
     }
 

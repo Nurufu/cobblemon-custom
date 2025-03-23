@@ -18,7 +18,6 @@ import net.minecraft.server.network.ServerPlayerEntity
 
 object SwapBoxCommand {
     private val BOX_DOES_NOT_EXIST = { boxNo: Int -> commandLang("pokebox.box_does_not_exist", boxNo) }
-    private val CANNOT_CHANGE_WALLPAPER = { name: String -> commandLang("changewallpaper.cannot_change_wallpaper", name) }
     fun register(dispatcher: CommandDispatcher<ServerCommandSource>) {
         dispatcher.register(CommandManager.literal("swapbox")
             .permission(CobblemonPermissions.SWAP_BOX)
@@ -51,11 +50,11 @@ object SwapBoxCommand {
                 CobblemonEvents.SWAP_PC_BOX_EVENT_POST.post(SwapPCBoxEvent.Post(player, box-1, box2-1))
                 SetPCBoxPokemonPacket(box0).sendToPlayer(player)
                 SetPCBoxPokemonPacket(box1).sendToPlayer(player)
-                player.sendMessage(lang("box.swapped", box0.boxNumber, box1.boxNumber))
+                player.sendMessage(lang("box.swapped", box0.boxNumber+1, box1.boxNumber+1))
             },
             ifCanceled ={
                 throw SimpleCommandExceptionType(
-                    ChangeBoxWallpaperCommand.CANNOT_CHANGE_WALLPAPER(box0.toString()).red()).create()
+                    SwapBoxCommand.BOX_DOES_NOT_EXIST(box0.boxNumber).red()).create()
             }
         )
 
