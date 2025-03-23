@@ -15,7 +15,8 @@
           "STAND",
           "NONE",
           "PORTRAIT",
-          "PROFILE"
+          "PROFILE",
+          "HOVER"
         ],
         "animations": [
           "look",
@@ -32,7 +33,7 @@
       "walking": {
         "poseName": "walking",
         "transformTicks": 10,
-        "poseTypes": [ "WALK" ],
+        "poseTypes": [ "WALK", "FLY" ],
         "animations": [ 
           "look",
           "bedrock(altaria, ground_walk)"

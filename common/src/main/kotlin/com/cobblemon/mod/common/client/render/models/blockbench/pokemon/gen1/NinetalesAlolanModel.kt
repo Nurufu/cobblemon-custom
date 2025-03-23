@@ -19,7 +19,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
-
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 class NinetalesAlolanModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, QuadrupedFrame {
     override val rootPart = root.registerChildWithAllChildren("ninetales_alolan")
     override val head = getPart("head")
@@ -45,6 +45,8 @@ class NinetalesAlolanModel(root: ModelPart) : PokemonPoseableModel(), HeadedFram
     lateinit var standing: PokemonPose
     lateinit var walk: PokemonPose
     lateinit var sleep: PokemonPose
+
+    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("ninetales_alolan", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("ninetales_alolan", "blink")}
