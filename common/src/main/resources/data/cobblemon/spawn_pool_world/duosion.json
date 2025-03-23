@@ -34,9 +34,8 @@
             "level": "31-52",
             "weight": 3.0,
             "condition": {
-                "canSeeSky": true,
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         }

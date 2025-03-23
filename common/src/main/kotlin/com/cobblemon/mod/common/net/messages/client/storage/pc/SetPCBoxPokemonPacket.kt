@@ -19,6 +19,7 @@ import com.cobblemon.mod.common.util.writeMapK
 import com.cobblemon.mod.common.util.writeSizedInt
 import java.util.UUID
 import net.minecraft.network.PacketByteBuf
+import net.minecraft.util.Identifier
 
 /**
  * Sets an entire box of Pokémon in the client side representation of a PC. This is used
@@ -30,15 +31,17 @@ import net.minecraft.network.PacketByteBuf
  * @author Hiroku
  * @since June 18th, 2022
  */
-class SetPCBoxPokemonPacket internal constructor(val storeID: UUID, val boxNumber: Int, val pokemon: Map<Int, PokemonDTO>) : NetworkPacket<SetPCBoxPokemonPacket> {
+class SetPCBoxPokemonPacket internal constructor(val storeID: UUID, val boxNumber: Int, val name: String, val wallpaper: Identifier, val pokemon: Map<Int, PokemonDTO>) : NetworkPacket<SetPCBoxPokemonPacket> {
 
     override val id = ID
 
-    constructor(box: PCBox): this(box.pc.uuid, box.boxNumber, box.getNonEmptySlots().map { it.key to PokemonDTO(it.value, toClient = true) }.toMap())
+    constructor(box: PCBox): this(box.pc.uuid, box.boxNumber, box.name?: "", box.wallpaper, box.getNonEmptySlots().map { it.key to PokemonDTO(it.value, toClient = true) }.toMap())
 
     override fun encode(buffer: PacketByteBuf) {
         buffer.writeUuid(storeID)
         buffer.writeSizedInt(IntSize.U_BYTE, boxNumber)
+        buffer.writeString(name)
+        buffer.writeIdentifier(wallpaper)
         buffer.writeMapK(map = pokemon) { (slot, pokemon) ->
             buffer.writeSizedInt(IntSize.U_BYTE, slot)
             pokemon.encode(buffer)
@@ -50,9 +53,11 @@ class SetPCBoxPokemonPacket internal constructor(val storeID: UUID, val boxNumbe
         fun decode(buffer: PacketByteBuf): SetPCBoxPokemonPacket {
             val storeID = buffer.readUuid()
             val boxNumber = buffer.readSizedInt(IntSize.U_BYTE)
+            val name = buffer.readString()
+            val wallpaper = buffer.readIdentifier()
             val pokemonMap = mutableMapOf<Int, PokemonDTO>()
             buffer.readMapK(map = pokemonMap) { buffer.readSizedInt(IntSize.U_BYTE) to PokemonDTO().also { it.decode(buffer) } }
-            return SetPCBoxPokemonPacket(storeID, boxNumber, pokemonMap)
+            return SetPCBoxPokemonPacket(storeID, boxNumber, name, wallpaper, pokemonMap)
         }
     }
 }

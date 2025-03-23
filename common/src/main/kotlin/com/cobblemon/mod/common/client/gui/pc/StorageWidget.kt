@@ -42,6 +42,8 @@ import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
+import org.spongepowered.asm.mixin.Shadow
+import com.cobblemon.mod.common.util.boxMemory
 
 class StorageWidget(
     pX: Int, pY: Int,
@@ -61,7 +63,7 @@ class StorageWidget(
         const val PARTY_SLOT_PADDING = 6
 
         private val partyPanelResource = cobblemonResource("textures/gui/pc/party_panel.png")
-        private val screenOverlayResource = cobblemonResource("textures/gui/pc/pc_screen_overlay.png")
+//        private val screenOverlayResource = cobblemonResource("textures/gui/pc/pc_screen_overlay.png")
     }
 
     private val partySlots = arrayListOf<PartyStorageSlot>()
@@ -86,6 +88,7 @@ class StorageWidget(
             // Else it's greater than max, wrap around to start
             else 0
             this.setupStorageSlots()
+            this.pcGui.updateBoxName()
         }
 
     init {
@@ -143,6 +146,16 @@ class StorageWidget(
         if (pcGui.configuration is PasturePCGUIConfiguration) {
             this.pastureWidget = PastureWidget(this, pcGui.configuration, x + 182, y - 19)
         }
+
+        if(pc.boxes.size > boxMemory){
+            setOpenBox(boxMemory)
+        }
+
+    }
+
+    @Shadow
+    fun setOpenBox(b: Int){
+        this.box = b
     }
 
     fun canDeleteSelected(): Boolean {
@@ -254,12 +267,14 @@ class StorageWidget(
             this.releaseButton.render(context, mouseX, mouseY, delta)
             this.releaseYesButton.render(context, mouseX, mouseY, delta)
             this.releaseNoButton.render(context, mouseX, mouseY, delta)
+
+            boxMemory = this.box
         }
 
         // Screen Overlay
         blitk(
             matrixStack = matrices,
-            texture = screenOverlayResource,
+            texture = pc.boxes[box].wallpaper,
             x = x - 17,
             y = y - 17,
             width = 208,
@@ -350,7 +365,7 @@ class StorageWidget(
         }
 
         if (grabbedSlot == null) {
-            if (clickedPokemon != null) {
+            if (clickedPokemon != null && pcGui.search.passes(clickedPokemon)) {
                 val shiftClicked = Screen.hasShiftDown()
                 if (shiftClicked) {
                     if (clickedPosition is PCPosition) {

@@ -42,12 +42,7 @@ import com.cobblemon.mod.common.client.net.storage.party.InitializePartyHandler
 import com.cobblemon.mod.common.client.net.storage.party.MoveClientPartyPokemonHandler
 import com.cobblemon.mod.common.client.net.storage.party.SetPartyPokemonHandler
 import com.cobblemon.mod.common.client.net.storage.party.SetPartyReferenceHandler
-import com.cobblemon.mod.common.client.net.storage.pc.ClosePCHandler
-import com.cobblemon.mod.common.client.net.storage.pc.InitializePCHandler
-import com.cobblemon.mod.common.client.net.storage.pc.MoveClientPCPokemonHandler
-import com.cobblemon.mod.common.client.net.storage.pc.OpenPCHandler
-import com.cobblemon.mod.common.client.net.storage.pc.SetPCBoxPokemonHandler
-import com.cobblemon.mod.common.client.net.storage.pc.SetPCPokemonHandler
+import com.cobblemon.mod.common.client.net.storage.pc.*
 import com.cobblemon.mod.common.client.net.toast.ToastPacketHandler
 import com.cobblemon.mod.common.client.net.trade.TradeAcceptanceChangedHandler
 import com.cobblemon.mod.common.client.net.trade.TradeCancelledHandler
@@ -99,12 +94,10 @@ import com.cobblemon.mod.common.net.messages.client.storage.party.InitializePart
 import com.cobblemon.mod.common.net.messages.client.storage.party.MoveClientPartyPokemonPacket
 import com.cobblemon.mod.common.net.messages.client.storage.party.SetPartyPokemonPacket
 import com.cobblemon.mod.common.net.messages.client.storage.party.SetPartyReferencePacket
-import com.cobblemon.mod.common.net.messages.client.storage.pc.ClosePCPacket
-import com.cobblemon.mod.common.net.messages.client.storage.pc.InitializePCPacket
-import com.cobblemon.mod.common.net.messages.client.storage.pc.MoveClientPCPokemonPacket
-import com.cobblemon.mod.common.net.messages.client.storage.pc.OpenPCPacket
-import com.cobblemon.mod.common.net.messages.client.storage.pc.SetPCBoxPokemonPacket
-import com.cobblemon.mod.common.net.messages.client.storage.pc.SetPCPokemonPacket
+import com.cobblemon.mod.common.net.messages.client.storage.pc.*
+import com.cobblemon.mod.common.net.messages.client.storage.pc.wallpaper.ChangePCBoxWallpaperPacket
+import com.cobblemon.mod.common.net.messages.client.storage.pc.wallpaper.RequestPCBoxWallpapersPacket
+import com.cobblemon.mod.common.net.messages.client.storage.pc.wallpaper.SetPCBoxWallpapersPacket
 import com.cobblemon.mod.common.net.messages.client.toast.ToastPacket
 import com.cobblemon.mod.common.net.messages.client.trade.TradeAcceptanceChangedPacket
 import com.cobblemon.mod.common.net.messages.client.trade.TradeCancelledPacket
@@ -138,12 +131,7 @@ import com.cobblemon.mod.common.net.messages.server.storage.SwapPCPartyPokemonPa
 import com.cobblemon.mod.common.net.messages.server.storage.party.MovePartyPokemonPacket
 import com.cobblemon.mod.common.net.messages.server.storage.party.ReleasePartyPokemonPacket
 import com.cobblemon.mod.common.net.messages.server.storage.party.SwapPartyPokemonPacket
-import com.cobblemon.mod.common.net.messages.server.storage.pc.MovePCPokemonPacket
-import com.cobblemon.mod.common.net.messages.server.storage.pc.MovePCPokemonToPartyPacket
-import com.cobblemon.mod.common.net.messages.server.storage.pc.MovePartyPokemonToPCPacket
-import com.cobblemon.mod.common.net.messages.server.storage.pc.ReleasePCPokemonPacket
-import com.cobblemon.mod.common.net.messages.server.storage.pc.SwapPCPokemonPacket
-import com.cobblemon.mod.common.net.messages.server.storage.pc.UnlinkPlayerFromPCPacket
+import com.cobblemon.mod.common.net.messages.server.storage.pc.*
 import com.cobblemon.mod.common.net.messages.server.trade.AcceptTradeRequestPacket
 import com.cobblemon.mod.common.net.messages.server.trade.CancelTradePacket
 import com.cobblemon.mod.common.net.messages.server.trade.ChangeTradeAcceptancePacket
@@ -177,12 +165,7 @@ import com.cobblemon.mod.common.net.serverhandling.storage.SwapPCPartyPokemonHan
 import com.cobblemon.mod.common.net.serverhandling.storage.party.MovePartyPokemonHandler
 import com.cobblemon.mod.common.net.serverhandling.storage.party.ReleasePCPokemonHandler
 import com.cobblemon.mod.common.net.serverhandling.storage.party.SwapPartyPokemonHandler
-import com.cobblemon.mod.common.net.serverhandling.storage.pc.MovePCPokemonHandler
-import com.cobblemon.mod.common.net.serverhandling.storage.pc.MovePCPokemonToPartyHandler
-import com.cobblemon.mod.common.net.serverhandling.storage.pc.MovePartyPokemonToPCHandler
-import com.cobblemon.mod.common.net.serverhandling.storage.pc.ReleasePartyPokemonHandler
-import com.cobblemon.mod.common.net.serverhandling.storage.pc.SwapPCPokemonHandler
-import com.cobblemon.mod.common.net.serverhandling.storage.pc.UnlinkPlayerFromPCHandler
+import com.cobblemon.mod.common.net.serverhandling.storage.pc.*
 import com.cobblemon.mod.common.net.serverhandling.trade.AcceptTradeRequestHandler
 import com.cobblemon.mod.common.net.serverhandling.trade.CancelTradeHandler
 import com.cobblemon.mod.common.net.serverhandling.trade.ChangeTradeAcceptanceHandler
@@ -255,6 +238,11 @@ object CobblemonNetwork : NetworkManager {
         this.createClientBound(SetPCPokemonPacket.ID, SetPCPokemonPacket::decode, SetPCPokemonHandler)
         this.createClientBound(OpenPCPacket.ID, OpenPCPacket::decode, OpenPCHandler)
         this.createClientBound(ClosePCPacket.ID, ClosePCPacket::decode, ClosePCHandler)
+
+        this.createClientBound(RenamePCBoxPacket.ID, RenamePCBoxPacket::decode, RenamePCBoxHandler)
+        this.createClientBound(RequestPCBoxWallpapersPacket.ID, RequestPCBoxWallpapersPacket::decode, RequestPCBoxWallpapersHandler)
+        this.createClientBound(SetPCBoxWallpapersPacket.ID, SetPCBoxWallpapersPacket::decode, SetPCBoxWallpapersHandler)
+        this.createClientBound(ChangePCBoxWallpaperPacket.ID, ChangePCBoxWallpaperPacket::decode, ChangePCBoxWallpaperHandler)
 
         this.createClientBound(SwapClientPokemonPacket.ID, SwapClientPokemonPacket::decode, SwapClientPokemonHandler)
         this.createClientBound(RemoveClientPokemonPacket.ID, RemoveClientPokemonPacket::decode, RemoveClientPokemonHandler)
@@ -376,6 +364,10 @@ object CobblemonNetwork : NetworkManager {
         this.createServerBound(ReleasePCPokemonPacket.ID, ReleasePCPokemonPacket::decode, ReleasePCPokemonHandler)
         this.createServerBound(UnlinkPlayerFromPCPacket.ID, UnlinkPlayerFromPCPacket::decode, UnlinkPlayerFromPCHandler)
 
+        this.createServerBound(RequestRenamePCBoxPacket.ID, RequestRenamePCBoxPacket::decode, RequestRenamePCBoxHandler)
+        this.createServerBound(PCBoxWallpapersPacket.ID, PCBoxWallpapersPacket::decode, PCBoxWallpapersHandler)
+        this.createServerBound(RequestChangePCBoxWallpaperPacket.ID, RequestChangePCBoxWallpaperPacket::decode, RequestChangePCBoxWallpaperHandler)
+
         // Starter packets
         this.createServerBound(SelectStarterPacket.ID, SelectStarterPacket::decode, SelectStarterPacketHandler)
         this.createServerBound(RequestStarterScreenPacket.ID, RequestStarterScreenPacket::decode, RequestStarterScreenHandler)
@@ -387,6 +379,8 @@ object CobblemonNetwork : NetworkManager {
         this.createServerBound(MovePartyPokemonPacket.ID, MovePartyPokemonPacket::decode, MovePartyPokemonHandler)
 
         this.createServerBound(SwapPCPartyPokemonPacket.ID, SwapPCPartyPokemonPacket::decode, SwapPCPartyPokemonHandler)
+
+        this.createServerBound(SortPCBoxPacket.ID, SortPCBoxPacket::decode, SortPCBoxHandler)
 
         // Battle packets
         this.createServerBound(BattleSelectActionsPacket.ID, BattleSelectActionsPacket::decode, BattleSelectActionsHandler)
