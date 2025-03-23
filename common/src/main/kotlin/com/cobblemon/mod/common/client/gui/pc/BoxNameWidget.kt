@@ -8,6 +8,8 @@
 
 package com.cobblemon.mod.common.client.gui.pc
 
+import com.cobblemon.mod.common.api.storage.pc.PCBox
+import com.cobblemon.mod.common.api.storage.pc.PCStore
 import com.cobblemon.mod.common.api.text.bold
 import com.cobblemon.mod.common.api.text.font
 import com.cobblemon.mod.common.api.text.text

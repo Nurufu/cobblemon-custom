@@ -13,7 +13,8 @@ import com.cobblemon.mod.common.pokemon.Pokemon
 enum class PokemonSortMode(val comparator: Comparator<Pokemon?>, val reverseComparator: Comparator<Pokemon?>) {
     NAME( { it?.getDisplayName()?.string } ),
     LEVEL( { it?.level } ),
-    TYPE( { it?.primaryType?.name } );
+    TYPE( { it?.primaryType?.name } ),
+    DEX( { it?.species?.nationalPokedexNumber });
 
     constructor(mapper: (Pokemon?) -> Comparable<*>?) : this(compareBy({ it == null }, mapper),
         compareBy<Pokemon?> { it == null }.thenComparing(compareBy(mapper).reversed()))

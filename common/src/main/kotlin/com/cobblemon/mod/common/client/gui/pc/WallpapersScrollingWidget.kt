@@ -8,166 +8,166 @@
 
 package com.cobblemon.mod.common.client.gui.pc
 
-import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.Cobblemon.storage
 import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.gui.blitk
+import com.cobblemon.mod.common.api.storage.NoPokemonStoreException
 import com.cobblemon.mod.common.api.text.bold
 import com.cobblemon.mod.common.api.text.text
 import com.cobblemon.mod.common.client.CobblemonResources
-import com.cobblemon.mod.common.client.gui.ScrollingWidget
-import com.cobblemon.mod.common.client.gui.pc.WallpapersScrollingWidget.WallpaperEntry
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.render.gui.PCBoxWallpaperRepository
 import com.cobblemon.mod.common.net.messages.server.storage.pc.RequestChangePCBoxWallpaperPacket
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.lang
+import com.mojang.blaze3d.systems.RenderSystem
+import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
-import net.minecraft.client.sound.PositionedSoundInstance
-import net.minecraft.client.sound.Sound
-import net.minecraft.client.sound.SoundManager
-import net.minecraft.text.MutableText
+import net.minecraft.client.gui.widget.AlwaysSelectedEntryListWidget
+import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-class WallpapersScrollingWidget(
-    pX: Int, val pY: Int,
-    val pcGui: PCGUI,
-    val storageWidget: StorageWidget,
-) : ScrollingWidget<WallpaperEntry>(
-    width = WIDTH,
-    height = HEIGHT,
-    left = pX,
-    top = 0,
-    slotHeight = SLOT_HEIGHT + SLOT_PADDING,
-    scrollBarWidth = SCROLL_BAR_WIDTH
-) {
-    companion object {
-        const val WIDTH = 68
-        const val HEIGHT = 146
-        const val SLOT_WIDTH = 56
-        const val SLOT_HEIGHT = 50
-        const val SLOT_PADDING = 4
-        const val SCROLL_BAR_WIDTH = 3
-        val ENTRY_HOVERED = cobblemonResource("textures/gui/pc/wallpaper_entry_hover.png")
-        val BACKGROUND = cobblemonResource("textures/gui/pc/wallpaper_widget_background.png")
-        var visible: Boolean = false
-    }
+
+class WallpapersScrollingWidget(pX: Int, pY: Int, val pcGui: PCGUI, val storageWidget: StorageWidget) :
+    AlwaysSelectedEntryListWidget<WallpapersScrollingWidget.Entry?>(
+        MinecraftClient.getInstance(),
+        68,
+        46,
+        pY,
+        pY + 150,
+        ENTRY_HEIGHT
+    ) {
+    var _visible: Boolean = false
 
     init {
-        this.setVisible(false)
-        this.top = pY
-        createEntries()
+        centerListVertically = false
+        setRenderBackground(false)
+        setRenderHeader(false, 0)
+        setRenderHorizontalShadows(false)
+        this.top = pY-6
+        setLeftPos(pX+68)
+    }
+
+    fun setVisible(visible: Boolean) {
+        if (visible) {
+            for (wallpaper in PCBoxWallpaperRepository.wallpapers) {
+                addEntry(Entry(wallpaper))
+            }
+            this._visible = true
+        } else {
+            clearEntries()
+            this._visible = false
+        }
     }
 
     fun isVisible(): Boolean {
-        return visible
+        return _visible
     }
 
-    fun setVisible(b: Boolean): Unit{
-        visible = b
+    override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (isMouseOver(mouseX, mouseY) && hoveredEntry != null) {
+//            Utils.playSound(CobblemonSounds.PC_CLICK)
+            hoveredEntry!!.mouseClicked(mouseX, mouseY, button)
+            return true
+        }
+        return false
     }
 
-    override fun getScrollbarPositionX(): Int = left + width - 3
-
-    override fun render(
-        context: DrawContext,
-        mouseX: Int,
-        mouseY: Int,
-        delta: Float
-    ) {
-        if(this.isVisible()) {
+    override fun render(context: DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
+        if (_visible) {
             blitk(
                 matrixStack = context.matrices,
-                texture = BACKGROUND,
-                x = left - 1,
-                y = top - 1,
-                width = width + 1,
-                height = height + 2
+                texture = cobblemonResource("textures/gui/pc/wallpaper_scroll_background.png"),
+                x = left,
+                y = top-1,
+                width = 80,
+                height= 158
             )
-
             drawScaledText(
                 context = context,
                 font = CobblemonResources.DEFAULT_LARGE,
                 text = lang("ui.wallpapers").bold(),
-                x = left + 23,
-                y = top - 18.5,
+                x = left + 29,
+                y = top - 12.5,
                 centered = true,
                 shadow = true
             )
-            context.enableScissor(left, top, left + width, top + height)
             super.render(context, mouseX, mouseY, delta)
-            context.disableScissor()
         }
     }
 
-    private fun createEntries() {
-        clearEntries()
-        for (wallpaper in PCBoxWallpaperRepository.wallpapers) {
-            addEntry(WallpaperEntry(wallpaper))
-            Cobblemon.LOGGER.info(wallpaper.toString())
+    override fun renderList(context: DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
+        for (i in 0..<entryCount) {
+            val top = getRowTop(i) + 2
+            val bottom = top + ENTRY_HEIGHT
+            if (bottom >= this.top && top <= this.bottom - 2) {
+                this.renderEntry(
+                    context, mouseX, mouseY, delta, i,
+                    this.left + (this.width / 2) - (56 / 2), top, ENTRY_WIDTH, ENTRY_HEIGHT
+                )
+            }
         }
     }
 
-    override fun getRowLeft(): Int {
-        return this.left + SLOT_PADDING
+    override fun getScrollbarPositionX(): Int {
+        return this.left + this.width+5
     }
 
-    override fun getRowWidth(): Int {
-        return SLOT_WIDTH
-    }
-
-    override fun getRowRight(): Int {
-        return this.rowLeft + SLOT_WIDTH
-    }
-
-    inner class WallpaperEntry(val wallpaper: Identifier) : Slot<WallpaperEntry>() {
-        var i = 5
+    inner class Entry(protected val wallpaper: Identifier) :
+        AlwaysSelectedEntryListWidget.Entry<Entry?>() {
         override fun render(
-            guiGraphics: DrawContext,
+            context: DrawContext,
             index: Int,
-            top: Int,
-            left: Int,
-            width: Int,
-            height: Int,
+            y: Int,
+            x: Int,
+            entryWidth: Int,
+            entryHeight: Int,
             mouseX: Int,
             mouseY: Int,
-            hovering: Boolean,
-            partialTick: Float
+            hovered: Boolean,
+            tickDelta: Float
         ) {
-            if (visible) {
-                val matrices = guiGraphics.matrices
-                blitk(
-                    matrixStack = matrices,
-                    texture = wallpaper,
-                    x = left,
-                    y = top,
-                    width = width,
-                    height = 40,
-                )
-                if (hovering) {
-                    blitk(
-                        matrixStack = matrices,
-                        texture = ENTRY_HOVERED,
-                        x = left,
-                        y = top,
-                        width = width,
-                        height = height
-                    )
+            if (hovered) {
+                val textRenderer = MinecraftClient.getInstance().textRenderer
+                if (y + textRenderer.fontHeight + 2 > this@WallpapersScrollingWidget.top) {
+                    //context.drawTooltip(textRenderer, Text.of(wallpaper.toString()), x, y + textRenderer.fontHeight + 2)
                 }
+                RenderSystem.disableBlend()
+                context.setShaderColor(1.0f, 1.0f, 1.0f, 0.5f)
             }
+
+            context.drawTexture(
+                wallpaper,
+                x, y,
+                56, 56,
+                0f, 0f,
+                56,
+                36,
+                56,
+                36
+            )
+
+            RenderSystem.enableBlend()
+            context.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
         }
 
         override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
-            if (this@WallpapersScrollingWidget.isVisible() && isMouseOver(mouseX, mouseY)) {
+            if(this@WallpapersScrollingWidget._visible && isMouseOver(mouseX, mouseY)){
                 RequestChangePCBoxWallpaperPacket(pcGui.pc.uuid, storageWidget.box, wallpaper).sendToServer()
                 pcGui.pc.boxes[storageWidget.box].wallpaper = wallpaper
-                //SoundManager.play(PositionedSoundInstance.master(CobblemonSounds.PC_CLICK, 1.0F))
+
                 return true
             }
             return false
         }
 
-        override fun getNarration(): MutableText {
-            return wallpaper.toString().text()
+        override fun getNarration(): Text {
+            return Text.empty()
         }
+    }
+
+    companion object {
+        protected const val ENTRY_WIDTH: Int = 46
+        protected const val ENTRY_HEIGHT: Int = 56
     }
 }

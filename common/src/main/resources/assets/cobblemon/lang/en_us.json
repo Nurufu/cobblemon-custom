@@ -6174,5 +6174,12 @@
   "cobblemon.lege.notif": "§6A powerful entity has manifested near %1$s§6!",
   "cobblemon.battle.start.slowstart": "Regigigas can't get it going!",
   "cobblemon.battle.end.slowstart": "Regigigas finally got its act together!",
-  "shiny_egg": "%1$s§6 has hatched a strangely-colored %2$s!"
+  "shiny_egg": "%1$s§6 has hatched a strangely-colored %2$s!",
+  "iv_display.hp": "HP",
+  "iv_display.attack": "Atk",
+  "iv_display.defense": "Def",
+  "iv_display.sp_attack": "Sp.Atk",
+  "iv_display.sp_defense": "Sp.Def",
+  "iv_display.speed": "Speed",
+  "cobblemon.box.swapped": "Swapped %1$s and %2$s."
 }

@@ -70,6 +70,7 @@ class PCGUI(
     private lateinit var boxNameWidget: BoxNameWidget
     private lateinit var searchWidget: SearchWidget
     private lateinit var wallpaperWidget: WallpapersScrollingWidget
+    private lateinit var ivWidget: IvWidget
     private var modelWidget: ModelWidget? = null
     internal var previewPokemon: Pokemon? = null
 
@@ -148,7 +149,7 @@ class PCGUI(
         )
 
         this.wallpaperWidget = WallpapersScrollingWidget(
-            pX = x+275,
+            pX = x+200,
             pY = y+30,
             pcGui = this,
             storageWidget = storageWidget
@@ -156,12 +157,17 @@ class PCGUI(
             it.setVisible(false)
             configuration.showParty=true
         }
+        
+        this.ivWidget = IvWidget(
+            gui = this
+        )
 
         this.setPreviewPokemon(null)
         this.addDrawableChild(storageWidget)
         this.addDrawableChild(boxNameWidget)
         this.addDrawableChild(searchWidget)
         this.addDrawableChild(wallpaperWidget)
+        this.addDrawable(ivWidget)
         super.init()
     }
 
