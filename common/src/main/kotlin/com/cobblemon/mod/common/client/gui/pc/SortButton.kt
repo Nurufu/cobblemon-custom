@@ -22,9 +22,11 @@ import kotlin.math.abs
 class SortButton(
     pX: Int, pY: Int,
     onPress: PressAction,
+    val storageWidget: StorageWidget
 ) : ButtonWidget(pX, pY, WIDTH, HEIGHT, Text.literal("SortButton"), onPress, DEFAULT_NARRATION_SUPPLIER) {
 
     var sortMode = PokemonSortMode.NAME
+    val storage = storageWidget
 
     companion object {
         const val WIDTH = 24
@@ -69,6 +71,7 @@ class SortButton(
             if (mode < 0) mode = modes.size - 1
             if (mode >= modes.size) mode = 0
             sortMode = modes[mode]
+            if(pDelta.toInt() == 1) storage.box += 1 else storage.box -= 1
             return true
         }
         return false

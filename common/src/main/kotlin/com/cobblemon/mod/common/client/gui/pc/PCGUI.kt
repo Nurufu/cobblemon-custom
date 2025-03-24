@@ -106,15 +106,6 @@ class PCGUI(
             ) { storageWidget.box -= 1 }
         )
 
-        this.addDrawableChild(
-            SortButton(
-                pX = x+85,
-                pY = y+12,
-                onPress = { it as SortButton
-                    SortPCBoxPacket(pc.uuid,storageWidget.box,it.sortMode, hasShiftDown()).sendToServer()
-                }
-            )
-        )
 
         // Add Storage
         this.storageWidget = StorageWidget(
@@ -123,6 +114,17 @@ class PCGUI(
             pcGui = this,
             pc = pc,
             party = party
+        )
+
+        this.addDrawableChild(
+            SortButton(
+                pX = x+85,
+                pY = y+12,
+                onPress = { it as SortButton
+                    SortPCBoxPacket(pc.uuid,storageWidget.box,it.sortMode, hasShiftDown()).sendToServer()
+                },
+                storageWidget = storageWidget
+            )
         )
 
         this.boxNameWidget = BoxNameWidget(
