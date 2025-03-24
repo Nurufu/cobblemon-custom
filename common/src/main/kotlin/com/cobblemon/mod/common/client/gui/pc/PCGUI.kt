@@ -20,6 +20,8 @@ import com.cobblemon.mod.common.client.gui.TypeIcon
 import com.cobblemon.mod.common.client.gui.summary.Summary
 import com.cobblemon.mod.common.client.gui.summary.widgets.ModelWidget
 import com.cobblemon.mod.common.client.gui.summary.widgets.common.reformatNatureTextIfMinted
+import com.cobblemon.mod.common.client.keybind.CobblemonKeyBinds
+import com.cobblemon.mod.common.client.keybind.boundKey
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.storage.ClientPC
 import com.cobblemon.mod.common.client.storage.ClientParty
@@ -492,7 +494,12 @@ class PCGUI(
             mouseX,
             mouseY,
             amount
-        )
+        )else if(wallpaperWidget.isVisible()){
+            //do nothing :)
+        }
+        else{
+            storageWidget.box -= amount.toInt() % this.pc.boxes.size
+        }
         return children().any { it.mouseScrolled(mouseX, mouseY, amount) }
     }
 

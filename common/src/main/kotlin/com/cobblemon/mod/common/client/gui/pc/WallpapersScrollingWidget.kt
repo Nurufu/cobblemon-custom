@@ -164,6 +164,7 @@ class WallpapersScrollingWidget(pX: Int, pY: Int, val pcGui: PCGUI, val storageW
         override fun getNarration(): Text {
             return Text.empty()
         }
+
     }
 
     companion object {

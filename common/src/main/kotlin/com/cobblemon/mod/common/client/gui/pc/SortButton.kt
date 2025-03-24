@@ -59,7 +59,6 @@ class SortButton(
         )
     }
 
-    @OptIn(ExperimentalStdlibApi::class)
     override fun mouseScrolled(
         mouseX: Double,
         mouseY: Double,
