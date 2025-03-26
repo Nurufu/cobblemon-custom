@@ -163,14 +163,14 @@ class PokemonServerDelegate : PokemonSideDelegate {
 //            entity.setBehaviourFlag(PokemonBehaviourFlag.FLYING, true)
 //        }
 
-        if(entity.pokemon.isWild() && entity.pokemon.aspects.contains("shiny") && !entity.shined){
+        if(entity.pokemon.isWild() && entity.pokemon.aspects.contains("shiny") && !entity.shined && !entity.isBattling){
             if (shinyNotif(entity)) {
                 entity.shined = true
                 entity.setPersistent()
             }
         }
 
-        if(entity.pokemon.isWild() && !entity.pinged && (entity.pokemon.isLegendary() || entity.pokemon.isMythical() || entity.pokemon.isUltraBeast()))
+        if(entity.pokemon.isWild() && !entity.pinged && !entity.isBattling && (entity.pokemon.isLegendary() || entity.pokemon.isMythical() || entity.pokemon.isUltraBeast()))
         {
             if (legeNotif(entity)) {
                 entity.pinged = true
