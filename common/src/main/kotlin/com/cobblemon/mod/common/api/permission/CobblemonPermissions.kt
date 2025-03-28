@@ -61,7 +61,8 @@ object CobblemonPermissions {
     val POKEBOX = this.create("${COMMAND_PREFIX}pokebox", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
 
     val RENAMEBOX = this.create("${COMMAND_PREFIX}renamebox", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
-    val CHANGE_WALLPAPER = this.create("${COMMAND_PREFIX}changewallpaper", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
+    val CHANGE_WALLPAPER_PLAYER = this.create("${COMMAND_PREFIX}changewallpaper", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
+    val CHANGE_WALLPAPER_ADMIN = this.create("${COMMAND_PREFIX}adminchangewallpaper", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
     val SWAP_BOX = this.create("${COMMAND_PREFIX}swapbox", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
 
     val TEST_STORE = this.create("${COMMAND_PREFIX}teststore", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)

@@ -15,10 +15,8 @@ import com.cobblemon.mod.common.api.permission.CobblemonPermissions
 import com.cobblemon.mod.common.api.text.red
 import com.cobblemon.mod.common.net.messages.client.storage.pc.SetPCBoxPokemonPacket
 import com.cobblemon.mod.common.util.*
-import com.mojang.brigadier.Command
 import com.mojang.brigadier.CommandDispatcher
 import com.mojang.brigadier.arguments.IntegerArgumentType
-import com.mojang.brigadier.context.CommandContext
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType
 import net.minecraft.server.command.CommandManager
 import net.minecraft.server.command.ServerCommandSource
@@ -35,12 +33,11 @@ object SwapBoxCommand {
                         val player = context.source.playerOrThrow
                         val box = IntegerArgumentType.getInteger(context, "box")
                         val box2 = IntegerArgumentType.getInteger(context, "box2")
-                        execute(context, player, box, box2)
+                        execute(player, box, box2)
                     })))
     }
 
     private fun execute(
-        context: CommandContext<ServerCommandSource>,
         player: ServerPlayerEntity,
         box: Int,
         box2: Int
@@ -62,7 +59,7 @@ object SwapBoxCommand {
             },
             ifCanceled ={
                 throw SimpleCommandExceptionType(
-                    SwapBoxCommand.BOX_DOES_NOT_EXIST(box0.boxNumber).red()).create()
+                    BOX_DOES_NOT_EXIST(box0.boxNumber).red()).create()
             }
         )
 
