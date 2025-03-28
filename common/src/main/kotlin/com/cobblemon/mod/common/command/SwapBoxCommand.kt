@@ -15,6 +15,7 @@ import com.cobblemon.mod.common.api.permission.CobblemonPermissions
 import com.cobblemon.mod.common.api.text.red
 import com.cobblemon.mod.common.net.messages.client.storage.pc.SetPCBoxPokemonPacket
 import com.cobblemon.mod.common.util.*
+import com.mojang.brigadier.Command
 import com.mojang.brigadier.CommandDispatcher
 import com.mojang.brigadier.arguments.IntegerArgumentType
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType
@@ -63,6 +64,6 @@ object SwapBoxCommand {
             }
         )
 
-        return box0.boxNumber
+        return Command.SINGLE_SUCCESS
     }
 }
