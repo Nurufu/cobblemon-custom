@@ -213,7 +213,7 @@ class Search(
                     count++
                 }
             }
-            return count>=5
+            return count>=amt
         }
 
         private fun ivSum(pokemon: Pokemon, p: Int): Boolean{
