@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.client.gui
 
+import com.cobblemon.mod.common.Cobblemon.config
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository

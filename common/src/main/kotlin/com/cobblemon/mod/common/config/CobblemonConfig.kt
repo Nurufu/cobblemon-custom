@@ -28,6 +28,7 @@ class CobblemonConfig {
             .create()
     }
 
+    var searchShadow: Boolean = true
     var inBattleModifier: Boolean = false
     var lastSavedVersion: String = "0.0.1"
 
