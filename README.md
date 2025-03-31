@@ -1,6 +1,12 @@
+# Cobblemon-custom
+
+A fork of open-source Pokémon mod for Minecraft Java Edition, written in Kotlin for Fabric and Forge. Primarily aimed at back-porting features from the main repo found [here](https://gitlab.com/cable-mc/cobblemon) to Minecraft Java version 1.20.1.
+
+Original README below:
+
 # Cobblemon
 
-An open-source Pokémon mod for Minecraft Java Edition, written in Kotlin for Fabric and Forge.
+An open-source Pokémon mod for Minecraft Java Edition, written in Kotlin for Fabric and forge.
 
 ## Getting started
 
@@ -16,7 +22,7 @@ Troubleshooting:
 
 ## Contributing
 
-If you're interested in contributing to the project, you can simply fork the repository and comment on any of the issues 
+If you're interested in contributing to the main project, you can simply fork the repository and comment on any of the issues
 [here](https://gitlab.com/cable-mc/cobblemon/-/issues?scope=all&state=opened&label_name[]=accepted&assignee_id=None).
 
 If you want a more involved role in the project, involving branches on the main repository instead of forking and involvement
