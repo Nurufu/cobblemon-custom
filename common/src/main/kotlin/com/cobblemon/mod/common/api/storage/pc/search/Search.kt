@@ -223,7 +223,6 @@ class Search(
                 total += s.value
             }
             total = (total/186f)*100
-            Cobblemon.LOGGER.info(total.toString())
             return p<=total
         }
     }

@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.render.renderScaledGuiItemIcon
 import com.cobblemon.mod.common.pokemon.Gender
 import com.cobblemon.mod.common.pokemon.Pokemon
+import com.cobblemon.mod.common.pokemon.RenderablePokemon
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.lang
 import com.cobblemon.mod.common.util.math.fromEulerXYZDegrees
@@ -43,6 +44,8 @@ open class StorageSlot(
         private val selectPointerResource = cobblemonResource("textures/gui/pc/pc_pointer.png")
         private val slotOverlayResource = cobblemonResource("textures/gui/pc/pc_slot_overlay.png")
         private val slotOverlayPastureIconResource = cobblemonResource("textures/gui/pasture/pc_slot_icon_pasture.png")
+        private val slotOverlayPastureIconResourcePass = cobblemonResource("textures/gui/pasture/pc_slot_icon_pasture_pass.png")
+        private val slotOverlayPastureIconResourceFail = cobblemonResource("textures/gui/pasture/pc_slot_icon_pasture_fail.png")
         private val slotOverlayMoveIconResource = cobblemonResource("textures/gui/pasture/pc_slot_icon_move.png")
     }
 
@@ -52,7 +55,7 @@ open class StorageSlot(
     override fun render(context: DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
         if (shouldRender()) {
             renderSlot(context, x, y, delta)
-        } else if (config.searchShadow){
+        }else if(shadowed()) {
             renderSlotShadowed(context, x, y, delta)
         }
     }
@@ -136,6 +139,9 @@ open class StorageSlot(
                     height = SIZE,
                     texture = slotOverlayResource
                 )
+            }else if(shouldRender() && Cobblemon.config.searchShadow)
+            {
+                // nothing? :)
             }
 
             val opacity = if (config is PasturePCGUIConfiguration && config.pasturedPokemon.get().none { it.pokemonId == pokemon.uuid }) 0.5F else 1F
@@ -150,7 +156,7 @@ open class StorageSlot(
                 scale = PCGUI.SCALE,
                 alpha = opacity
             )
-        }
+       }
 
         if (isSelected) {
             // If pasture UI and slot is not in pasture
@@ -196,8 +202,9 @@ open class StorageSlot(
         matrices.pop()
     }
 
-    fun renderSlotShadowed(context: DrawContext, posX: Int, posY: Int, partialTicks: Float) {
+    private fun renderSlotShadowed(context: DrawContext, posX: Int, posY: Int, partialTicks: Float) {
         val pokemon = getPokemon() ?: return
+        Cobblemon.LOGGER.info(pokemon.species.name)
         val matrices = context.matrices
         context.enableScissor(
             posX - 2,
@@ -210,9 +217,7 @@ open class StorageSlot(
         matrices.translate(posX + (SIZE / 2.0), posY + 1.0, 0.0)
         matrices.scale(2.5F, 2.5F, 1F)
         drawProfilePokemon(
-            renderablePokemon = pokemon.asRenderablePokemon().also{
-                RenderSystem.setShaderColor(0.3f,0.3f,0.3f, 0.3f)
-            },
+            renderablePokemon = pokemon.asRenderablePokemon(),
             matrixStack = matrices,
             rotation = Quaternionf().fromEulerXYZDegrees(Vector3f(13F, 35F, 0F)),
             state = null,
@@ -286,9 +291,18 @@ open class StorageSlot(
                 y = (posY + 7.5) / PCGUI.SCALE,
                 width = 20,
                 height = 20,
-                texture = slotOverlayPastureIconResource,
+                texture = slotOverlayPastureIconResourceFail,
                 scale = PCGUI.SCALE,
                 alpha = opacity
+            )
+        } else{
+            blitk(
+                matrixStack = matrices,
+                x = posX,
+                y = posY,
+                width = SIZE,
+                height = SIZE,
+                texture = slotOverlayResource
             )
         }
 
@@ -350,6 +364,14 @@ open class StorageSlot(
 
     open fun shouldRender(): Boolean {
         return parent.pcGui.search.passes(getPokemon())
+    }
+
+    open fun shadowed(): Boolean {
+        return if(config.searchShadow){
+            !parent.pcGui.search.passes(getPokemon())
+        } else{
+            false
+        }
     }
 
     open fun clickable(): Boolean {
