@@ -139,9 +139,6 @@ open class StorageSlot(
                     height = SIZE,
                     texture = slotOverlayResource
                 )
-            }else if(shouldRender() && Cobblemon.config.searchShadow)
-            {
-                // nothing? :)
             }
 
             val opacity = if (config is PasturePCGUIConfiguration && config.pasturedPokemon.get().none { it.pokemonId == pokemon.uuid }) 0.5F else 1F
@@ -204,7 +201,6 @@ open class StorageSlot(
 
     private fun renderSlotShadowed(context: DrawContext, posX: Int, posY: Int, partialTicks: Float) {
         val pokemon = getPokemon() ?: return
-        Cobblemon.LOGGER.info(pokemon.species.name)
         val matrices = context.matrices
         context.enableScissor(
             posX - 2,
