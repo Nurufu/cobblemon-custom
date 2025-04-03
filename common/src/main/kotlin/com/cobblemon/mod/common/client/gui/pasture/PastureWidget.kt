@@ -67,6 +67,8 @@ class PastureWidget(
             centered = true
         )
 
+        pasturePCGUIConfiguration.showParty = false
+
         pastureScrollList.render(context, mouseX, mouseY, delta)
 
         recallButton.render(context, mouseX, mouseY, delta)

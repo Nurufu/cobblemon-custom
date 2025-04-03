@@ -490,7 +490,7 @@ class PCGUI(
     }
 
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
-        if (storageWidget.pastureWidget != null) storageWidget.pastureWidget!!.pastureScrollList.mouseScrolled(
+        if (storageWidget.pastureWidget != null && storageWidget.pastureWidget!!.pastureScrollList.isMouseOver(mouseX, mouseY)) storageWidget.pastureWidget!!.pastureScrollList.mouseScrolled(
             mouseX,
             mouseY,
             amount

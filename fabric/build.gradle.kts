@@ -39,6 +39,7 @@ repositories {
     mavenLocal()
     maven("https://oss.sonatype.org/content/repositories/snapshots")
     maven(url = "https://api.modrinth.com/maven")
+    maven (url = "https://repo.erdbeerbaerlp.de/repository/maven-public/")
 }
 
 dependencies {
@@ -55,6 +56,8 @@ dependencies {
     modImplementation(libs.fabric.loader)
     modApi(libs.fabric.api)
     modApi(libs.bundles.fabric)
+
+    modCompileOnly("de.erdbeerbaerlp:dcintegration.common:3.0.7")
 
     modCompileOnly(libs.bundles.fabric.integrations.compileOnly) {
         isTransitive = false
