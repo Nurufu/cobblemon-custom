@@ -13,6 +13,8 @@ object CobblemonPermissions {
     private const val COMMAND_PREFIX = "command."
     private val permissions = arrayListOf<Permission>()
 
+    val EMPTY_BOXES = this.create("${COMMAND_PREFIX}emptyboxes", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
+
     val CHANGE_SCALE_AND_SIZE = this.create("${COMMAND_PREFIX}changescaleandsize", PermissionLevel.ALL_COMMANDS)
     val CHANGE_WALK_SPEED = this.create("${COMMAND_PREFIX}changewalkspeed", PermissionLevel.ALL_COMMANDS)
     val CHECKSPAWNS = this.create("${COMMAND_PREFIX}checkspawns", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
