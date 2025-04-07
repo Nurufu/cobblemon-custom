@@ -44,7 +44,6 @@ open class StorageSlot(
         private val selectPointerResource = cobblemonResource("textures/gui/pc/pc_pointer.png")
         private val slotOverlayResource = cobblemonResource("textures/gui/pc/pc_slot_overlay.png")
         private val slotOverlayPastureIconResource = cobblemonResource("textures/gui/pasture/pc_slot_icon_pasture.png")
-        private val slotOverlayPastureIconResourcePass = cobblemonResource("textures/gui/pasture/pc_slot_icon_pasture_pass.png")
         private val slotOverlayPastureIconResourceFail = cobblemonResource("textures/gui/pasture/pc_slot_icon_pasture_fail.png")
         private val slotOverlayMoveIconResource = cobblemonResource("textures/gui/pasture/pc_slot_icon_move.png")
     }

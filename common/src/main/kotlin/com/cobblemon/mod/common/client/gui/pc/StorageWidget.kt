@@ -365,7 +365,7 @@ class StorageWidget(
         }
 
         if (grabbedSlot == null) {
-            if (clickedPokemon != null && pcGui.search.passes(clickedPokemon)) {
+            if (clickedPokemon != null) {
                 val shiftClicked = Screen.hasShiftDown()
                 if (shiftClicked) {
                     if (clickedPosition is PCPosition) {
