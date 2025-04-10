@@ -42,6 +42,7 @@ import net.minecraft.util.Identifier
 import java.util.*
 import de.erdbeerbaerlp.dcintegration.common.*
 import de.erdbeerbaerlp.dcintegration.common.storage.Configuration
+import de.erdbeerbaerlp.dcintegration.common.storage.linking.LinkManager
 import de.erdbeerbaerlp.dcintegration.common.util.DiscordMessage
 import de.erdbeerbaerlp.dcintegration.common.util.TextColors
 import net.dv8tion.jda.api.entities.EmbedType
@@ -259,6 +260,12 @@ class PokemonServerDelegate : PokemonSideDelegate {
 
             DiscordIntegration.INSTANCE.sendMessage(DiscordMessage(embedBuilder.build()),DiscordIntegration.INSTANCE.getChannel(
                 Configuration.instance().advanced.chatOutputChannelID))
+            if(LinkManager.isPlayerLinked(closest.uuid)) {
+                val pLink = LinkManager.getLink(null, closest.uuid)
+                val dc = DiscordIntegration.INSTANCE.getMemberById(pLink.discordID.toLongOrNull())
+
+                DiscordIntegration.INSTANCE.sendMessage("<@${dc.id}>")
+            }
         }catch(e: NoClassDefFoundError) {null}
         return true
     }
@@ -301,6 +308,12 @@ class PokemonServerDelegate : PokemonSideDelegate {
 
             DiscordIntegration.INSTANCE.sendMessage(DiscordMessage(embedBuilder.build()),DiscordIntegration.INSTANCE.getChannel(
                 Configuration.instance().advanced.chatOutputChannelID))
+            if(LinkManager.isPlayerLinked(closest.uuid)) {
+                val pLink = LinkManager.getLink(null, closest.uuid)
+                val dc = DiscordIntegration.INSTANCE.getMemberById(pLink.discordID.toLongOrNull())
+
+                DiscordIntegration.INSTANCE.sendMessage("<@${dc.id}>")
+            }
         }catch(e: NoClassDefFoundError) {null}
         return true
     }
