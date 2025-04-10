@@ -276,7 +276,7 @@ object CobblemonItemGroups {
         entries.add(CobblemonItems.DEEPSLATE_THUNDER_STONE_ORE)
         entries.add(CobblemonItems.WATER_STONE_ORE)
         entries.add(CobblemonItems.DEEPSLATE_WATER_STONE_ORE)
-        
+
         entries.add(CobblemonItems.DAWN_STONE_BLOCK)
         entries.add(CobblemonItems.DUSK_STONE_BLOCK)
         entries.add(CobblemonItems.FIRE_STONE_BLOCK)
