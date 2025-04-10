@@ -4,8 +4,8 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:beedrill",
-      "model": "cobblemon:beedrill.geo",
+      "poser": "cobblemon:beedrill2",
+      "model": "cobblemon:beedrill2.geo",
       "texture": "cobblemon:textures/pokemon/0015_beedrill/beedrill.png",
       "layers": [
         {

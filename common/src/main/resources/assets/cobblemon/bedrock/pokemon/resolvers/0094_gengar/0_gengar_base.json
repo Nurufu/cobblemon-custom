@@ -4,8 +4,8 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:gengar",
-      "model": "cobblemon:gengar.geo",
+      "poser": "cobblemon:gengar2",
+      "model": "cobblemon:gengar2.geo",
       "texture": "cobblemon:textures/pokemon/0094_gengar/gengar.png",
       "layers": [
         {

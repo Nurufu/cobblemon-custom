@@ -4,8 +4,8 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:swampert",
-      "model": "cobblemon:swampert.geo",
+      "poser": "cobblemon:swampert2",
+      "model": "cobblemon:swampert2.geo",
       "texture": "cobblemon:textures/pokemon/0260_swampert/swampert.png",
       "layers": []
     },

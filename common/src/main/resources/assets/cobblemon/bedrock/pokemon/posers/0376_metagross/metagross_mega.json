@@ -1,0 +1,33 @@
+{
+  "head": "head",
+  "portraitScale": 1.06,
+  "portraitTranslation": [
+    -0.349,
+    1.08,
+    0
+  ],
+  "profileScale": 0.32,
+  "profileTranslation": [
+    0,
+    1.02,
+    0
+  ],
+  "animations": {
+    "cry": "q.bedrock_stateful('metagross_mega', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "transformTicks": 10,
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "animations": [
+        "bedrock(metagross_mega, ground_idle)"
+      ]
+    }
+  }
+}

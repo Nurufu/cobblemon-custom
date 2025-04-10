@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:aggron",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": ["mega"],
+      "model": "cobblemon:aggron_mega.geo",
+      "poser": "cobblemon:aggron_mega",
+      "texture": "cobblemon:textures/pokemon/0306_aggron/aggron_mega.png"
+    },
+    {
+      "aspects": ["mega", "shiny"],
+      "model": "cobblemon:aggron_mega.geo",
+      "texture": "cobblemon:textures/pokemon/0306_aggron/aggron_mega_shiny.png"
+    }
+  ]
+}

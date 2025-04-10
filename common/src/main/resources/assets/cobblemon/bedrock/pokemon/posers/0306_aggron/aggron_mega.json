@@ -1,0 +1,24 @@
+{
+  "portraitScale": 1.55,
+  "portraitTranslation": [-0.78, 2.49, 0],
+  "profileScale": 0.40,
+  "profileTranslation": [-0.009, 1.14, 0],
+  "rootBone": "aggron",
+  "animations": {
+    "cry": "q.bedrock_stateful('aggron_mega', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "FLOAT", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": ["q.bedrock('aggron', 'ground_idle')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "SWIM"],
+      "animations": [
+        "q.biped_walk(0.66, 0.6, 'leg_left', 'leg_right')",
+        "q.bimanual_swing(0.66, 0.6, 'arm_left', 'arm_right')",
+        "q.bedrock('aggron', 'ground_idle')"
+      ]
+    }
+  }
+}

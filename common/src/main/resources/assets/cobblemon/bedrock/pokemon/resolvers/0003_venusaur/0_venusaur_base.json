@@ -4,16 +4,14 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:venusaur",
-      "model": "cobblemon:venusaur_male.geo",
-      "texture": "cobblemon:textures/pokemon/0003_venusaur/venusaur.png",
+      "poser": "cobblemon:venusaur2",
+      "model": "cobblemon:venusaur2.geo",
+      "texture": "cobblemon:textures/pokemon/0003_venusaur/venusaur_male.png",
       "layers": []
     },
     {
-      "aspects": [
-        "shiny"
-      ],
-      "texture": "cobblemon:textures/pokemon/0003_venusaur/venusaur_shiny.png"
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0003_venusaur/venusaur_male_shiny.png"
     }
   ]
 }

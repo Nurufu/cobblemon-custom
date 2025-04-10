@@ -1,0 +1,33 @@
+{
+  "portraitScale": 2.29,
+  "portraitTranslation": [0.11, 1.89, 0],
+  "profileScale": 0.579,
+  "profileTranslation": [0, 0.919, 0],
+  "rootBone": "gardevoir",
+  "animations": {
+    "cry": "q.bedrock_stateful('gardevoir_mega', 'cry')"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": ["q.bedrock('gardevoir', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('gardevoir', 'blink')"]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "FLOAT", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "animations": ["q.bedrock('gardevoir', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('gardevoir', 'blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "SWIM"],
+      "animations": ["q.bedrock('gardevoir', 'ground_walk')"],
+      "quirks": ["q.bedrock_quirk('gardevoir', 'blink')"]
+    },
+    "sleeping": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('gardevoir', 'sleep')"]
+    }
+  }
+}

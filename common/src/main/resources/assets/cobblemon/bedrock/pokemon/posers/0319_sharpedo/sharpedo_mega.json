@@ -1,0 +1,34 @@
+{
+  "portraitScale": 1.32,
+  "portraitTranslation": [
+    -0.169,
+    -0.589,
+    0
+  ],
+  "profileScale": 0.609,
+  "profileTranslation": [
+    0,
+    0.619,
+    0
+  ],
+  "rootBone": "sharpedo",
+  "animations": {
+    "cry": "q.bedrock_stateful('sharpedo_mega', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "FLOAT",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE",
+        "SWIM",
+        "WALK"
+      ],
+      "animations": [
+        "q.bedrock('sharpedo', 'water_idle')"
+      ]
+    }
+  }
+}

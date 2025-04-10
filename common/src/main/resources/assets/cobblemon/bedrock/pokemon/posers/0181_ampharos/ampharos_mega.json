@@ -1,0 +1,35 @@
+{
+  "portraitScale": 1.67,
+  "portraitTranslation": [-0.04, 2.18, 0],
+  "profileScale": 0.46,
+  "profileTranslation": [0, 1.04, 0],
+  "rootBone": "ampharos",
+  "animations": {
+    "faint": "q.bedrock_primary('ampharos', 'faint')",
+    "cry": "q.bedrock_stateful('ampharos_mega', 'cry')"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": ["q.bedrock('ampharos', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('ampharos', 'blink')",
+      "q.bedrock_quirk('ampharos', 'quirk_glow')"]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "FLOAT", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "animations": ["q.bedrock('ampharos', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('ampharos', 'blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "SWIM"],
+      "animations": ["q.bedrock('ampharos', 'ground_walk')"],
+      "quirks": ["q.bedrock_quirk('ampharos', 'blink')"]
+    },
+    "sleeping": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('ampharos', 'sleep')"]
+    }
+  }
+}
