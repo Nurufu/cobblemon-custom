@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.item.group
 
+import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.CobblemonItems
 import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.item.ItemConvertible
@@ -430,6 +431,7 @@ object CobblemonItemGroups {
         entries.add(CobblemonItems.RIBBON_SWEET)
         entries.add(CobblemonItems.AUSPICIOUS_ARMOR)
         entries.add(CobblemonItems.MALICIOUS_ARMOR)
+        entries.add(CobblemonItems.MEGA_STONE)
     }
 
     private fun heldItemEntries(displayContext: DisplayContext, entries: Entries) {

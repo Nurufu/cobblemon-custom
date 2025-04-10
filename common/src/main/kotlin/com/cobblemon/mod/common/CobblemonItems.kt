@@ -655,6 +655,9 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     @JvmField
     val WATER_STONE = noSettingsItem("water_stone")
 
+    @JvmField
+    val MEGA_STONE = noSettingsItem("mega_stone")
+
     // Held Items
     @JvmField
     val ABILITY_SHIELD = heldItem("ability_shield")
