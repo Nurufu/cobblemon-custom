@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Audino",
   "nationalPokedexNumber": 531,
   "primaryType": "normal",
@@ -74,7 +75,28 @@
       "height": 15,
       "weight": 320,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.8,
+      "hitbox": {
+        "width": 1,
+        "height": 1,
+        "fixed": false
+      },
+      "evolutions": [
+        {
+          "id": "audino_mega_revert",
+          "variant": "level_up",
+          "result": "audino mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 390,
@@ -238,8 +260,22 @@
   "pokedex": [
     "cobblemon.species.audino.desc"
   ],
-  "evolutions": [],
-  "baseScale": 1,
+  "evolutions": [
+    {
+      "id": "audino_mega",
+      "variant": "level_up",
+      "result": "audino mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
+  "baseScale": 0.7,
   "hitbox": {
     "width": 1,
     "height": 1,

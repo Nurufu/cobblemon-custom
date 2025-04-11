@@ -2,8 +2,8 @@
  "target": "cobblemon:houndoom",
  "baseScale": 0.5,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 1.5,
+    "height": 2.6,
     "fixed": false
   }
 

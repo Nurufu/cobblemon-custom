@@ -7265,5 +7265,146 @@
   },
   "pokemon.sinistcha.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/sinistcha/sinistcha_cry", "volume": 0.6 } ]
+  },
+  "pokemon.beedrillm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/beedrill/beedrillm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.pidgeotm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/pidgeot/pidgeotm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.alakazamm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/alakazam/alakazamm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.slowbrom.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/slowbro/slowbrom_cry", "volume": 0.4 } ]
+  },
+  "pokemon.kangaskhanm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/kangaskhan/kangaskhanm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.gyaradosm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/gyarados/gyaradosm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.mewtwomx.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/mewtwo/mewtwomx_cry", "volume": 0.4 } ]
+  },
+  "pokemon.mewtwomy.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/mewtwo/mewtwomy_cry", "volume": 0.4 } ]
+  },
+  "pokemon.scizorm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/scizor/scizorm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.houndoomm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/houndoom/houndoomm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.sableyem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/sableye/sableyem_cry", "volume": 0.4 } ]
+  },
+  "pokemon.mawilem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/mawile/mawilem_cry", "volume": 0.4 } ]
+  },
+  "pokemon.manectricm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/manectric/manectricm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.altariam.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/altaria/altariam_cry", "volume": 0.4 } ]
+  },
+  "pokemon.banettem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/banette/banettem_cry", "volume": 0.4 } ]
+  },
+  "pokemon.absolm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/absol/absolm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.metagrossm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/metagross/metagrossm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.latiosm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/latios/latiosm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.abomasnowm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/abomasnow/abomasnowm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.galladem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/gallade/galladem_cry", "volume": 0.4 } ]
+  },
+  "pokemon.dianciem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/diancie/dianciem_cry", "volume": 0.4 } ]
+  },
+  "pokemon.latiasm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/latias/latiasm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.charizardx.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/charizard/charizardx_cry", "volume": 0.4 } ]
+  },
+  "pokemon.charizardy.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/charizard/charizardy_cry", "volume": 0.4 } ]
+  },
+  "pokemon.audinom.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/audino/audino_cry", "volume": 0.4 } ]
+  },
+  "pokemon.lucariom.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/lucario/lucariom_cry", "volume": 0.4 } ]
+  },
+  "pokemon.lopunnym.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/lopunny/lopunnym_cry", "volume": 0.4 } ]
+  },
+  "pokemon.garchompm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/garchomp/garchompm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.gengarm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/gengar/gengarm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.aerodactylm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/aerodactyl/aerodactylm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.medichamm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/medicham/medichamm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.swampertm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/swampert/swampertm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.blastoisem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/blastoise/blastoisem_cry", "volume": 0.4 } ]
+  },
+  "pokemon.venusaurm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/venusaur/venusaurm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.gardevoirm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/gardevoir/gardevoirm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.sharpedom.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/sharpedo/sharpedom_cry", "volume": 0.4 } ]
+  },
+  "pokemon.cameruptm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/camerupt/cameruptm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.pinsirm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/pinsir/pinsirm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.ampharosm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/ampharos/ampharosm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.steelixm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/steelix/steelixm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.sceptilem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/sceptile/sceptilem_cry", "volume": 0.4 } ]
+  },
+  "pokemon.blazikenm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/blaziken/blazikenm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.tyranitarm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/tyranitar/tyranitarm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.heracrossm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/heracross/heracrossm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.aggronm.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/aggron/aggronm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.glaliem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/glalie/glaliem_cry", "volume": 0.4 } ]
+  },
+  "pokemon.salamencem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/salamence/salamencem_cry", "volume": 0.4 } ]
   }
 }

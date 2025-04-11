@@ -253,14 +253,6 @@
 					"rotation": [0, 0, 20]
 				}
 			}
-		},
-		"animation.yanmega.cry": {
-			"animation_length": 1.33333,
-			"sound_effects": {
-				"0.0417": {
-					"effect": "pokemon.yanmega.cry"
-				}
-			}
 		}
 	}
 }

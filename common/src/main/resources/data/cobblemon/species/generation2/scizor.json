@@ -63,7 +63,28 @@
       "height": 20,
       "weight": 1250,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.95,
+      "hitbox": {
+        "width": 1.1,
+        "height": 2.6,
+        "fixed": false
+      },
+      "evolutions": [
+        {
+          "id": "scizor_mega_revert",
+          "variant": "level_up",
+          "result": "scizor mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 175,
@@ -255,7 +276,21 @@
     "cobblemon.species.scizor.desc"
   ],
   "preEvolution": "scyther",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "scizor_mega",
+      "variant": "level_up",
+      "result": "scizor mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.85,
   "hitbox": {
     "width": 1.1,

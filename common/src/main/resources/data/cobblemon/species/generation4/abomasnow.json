@@ -1,4 +1,5 @@
 {
+  "implemented": true,
   "name": "Abomasnow",
   "nationalPokedexNumber": 460,
   "primaryType": "grass",
@@ -79,7 +80,28 @@
       "height": 27,
       "weight": 1850,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.95,
+      "hitbox": {
+        "width": 1.9,
+        "height": 2.6,
+        "fixed": false
+      },
+      "evolutions": [
+        {
+          "id": "abomasnow_mega_revert",
+          "variant": "level_up",
+          "result": "abomasnow mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 173,
@@ -218,11 +240,25 @@
     "cobblemon.species.abomasnow.desc"
   ],
   "preEvolution": "snover",
-  "evolutions": [],
-  "baseScale": 1,
+  "evolutions": [
+    {
+      "id": "abomasnow_mega",
+      "variant": "level_up",
+      "result": "abomasnow mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
+  "baseScale": 0.8,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 1.9,
+    "height": 2.6,
     "fixed": false
   },
   "baseFriendship": 50,

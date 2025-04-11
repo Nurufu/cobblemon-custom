@@ -1,0 +1,26 @@
+{
+  "portraitScale": 2.29,
+  "portraitTranslation": [-0.32, 2.23, 0],
+  "profileScale": 0.579,
+  "profileTranslation": [0, 0.909, 0],
+  "rootBone": "sceptile",
+  "animations": {
+    "cry": "q.bedrock_stateful('sceptile_mega', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "FLOAT", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": ["q.bedrock('sceptile', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('sceptile', 'blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "SWIM"],
+      "animations": [
+        "q.biped_walk(0.66, 0.6, 'leg_left', 'leg_right')",
+        "q.bimanual_swing(0.66, 0.6, 'arm_left', 'arm_right')",
+        "q.bedrock('sceptile', 'ground_idle')"
+      ],
+      "quirks": ["q.bedrock_quirk('sceptile', 'blink')"]
+    }
+  }
+}

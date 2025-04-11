@@ -63,7 +63,22 @@
       "height": 17,
       "weight": 625,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "heracross_mega_revert",
+          "variant": "level_up",
+          "result": "heracross mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 175,
@@ -254,7 +269,21 @@
   "pokedex": [
     "cobblemon.species.heracross.desc"
   ],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "heracross_mega",
+      "variant": "level_up",
+      "result": "heracross mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1.05,

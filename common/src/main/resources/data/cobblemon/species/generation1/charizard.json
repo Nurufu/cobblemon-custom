@@ -35,6 +35,34 @@
         "special_defence": 85,
         "speed": 100
       },
+      "evolutions": [
+        {
+          "id": "charizard_x_mega_revert",
+          "variant": "level_up",
+          "result": "charizard mega-x=false mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        },
+        {
+          "id": "charizard_x_mega_y",
+          "variant": "level_up",
+          "result": "charizard mega-x=false mega=true mega-y=true",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ],
       "catchRate": 45,
       "maleRatio": 0.875,
       "baseExperienceYield": 267,
@@ -108,7 +136,35 @@
       "height": 17,
       "weight": 1005,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "charizard_y_mega_revert",
+          "variant": "level_up",
+          "result": "charizard mega-y=false mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        },
+        {
+          "id": "charizard_y_mega_x",
+          "variant": "level_up",
+          "result": "charizard mega-x=true mega=true mega-y=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "Gmax",
@@ -415,8 +471,35 @@
     "cobblemon.species.charizard.desc"
   ],
   "preEvolution": "charmeleon",
-  "evolutions": [],
-  "baseScale": 1,
+  "evolutions": [
+    {
+      "id": "charizard_x_mega",
+      "variant": "level_up",
+      "result": "charizard mega-x=true mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    },
+    {
+      "id": "charizard_y_mega",
+      "variant": "level_up",
+      "result": "charizard mega-y=true mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
+  "baseScale": 0.8,
   "hitbox": {
     "width": 1.5,
     "height": 2.65,

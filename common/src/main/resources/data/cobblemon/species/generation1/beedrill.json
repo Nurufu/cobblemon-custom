@@ -62,7 +62,22 @@
       "height": 14,
       "weight": 405,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "beedrill_mega_revert",
+          "variant": "level_up",
+          "result": "beedrill mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 178,
@@ -228,7 +243,21 @@
     "cobblemon.species.beedrill.desc"
   ],
   "preEvolution": "kakuna",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "beedrill_mega",
+      "variant": "level_up",
+      "result": "beedrill mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.9,
   "hitbox": {
     "width": 0.6,

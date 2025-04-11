@@ -4,8 +4,8 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:garchomp",
-      "model": "cobblemon:garchomp_male.geo",
+      "poser": "cobblemon:garchomp2",
+      "model": "cobblemon:garchomp_male2.geo",
       "texture": "cobblemon:textures/pokemon/0445_garchomp/garchomp.png",
       "layers": []
     },

@@ -70,7 +70,22 @@
       "height": 22,
       "weight": 1000,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "kangaskhan_mega_revert",
+          "variant": "level_up",
+          "result": "kangaskhan mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 172,
@@ -292,11 +307,25 @@
   "pokedex": [
     "cobblemon.species.kangaskhan.desc"
   ],
-  "evolutions": [],
-  "baseScale": 1.4,
+  "evolutions": [
+    {
+      "id": "kangaskhan_mega",
+      "variant": "level_up",
+      "result": "kangaskhan mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
+  "baseScale": 0.9,
   "hitbox": {
-    "width": 1.2,
-    "height": 1.9,
+    "width": 1.5,
+    "height": 2.5,
     "fixed": false
   },
   "baseFriendship": 50,

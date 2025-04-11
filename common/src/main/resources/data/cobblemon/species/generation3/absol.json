@@ -48,7 +48,22 @@
       "height": 12,
       "weight": 490,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "absol_mega_revert",
+          "variant": "level_up",
+          "result": "absol mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 163,
@@ -227,7 +242,21 @@
   ],
   "labels": ["gen3"],
   "pokedex": ["cobblemon.species.absol.desc"],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "absol_mega",
+      "variant": "level_up",
+      "result": "absol mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

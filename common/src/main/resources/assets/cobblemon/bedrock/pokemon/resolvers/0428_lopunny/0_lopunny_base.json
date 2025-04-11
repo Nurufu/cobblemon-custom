@@ -4,8 +4,8 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:lopunny",
-      "model": "cobblemon:lopunny.geo",
+      "poser": "cobblemon:lopunny2",
+      "model": "cobblemon:lopunny2.geo",
       "texture": "cobblemon:textures/pokemon/0428_lopunny/lopunny.png",
       "layers": []
     },

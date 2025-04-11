@@ -1,0 +1,33 @@
+{
+  "portraitScale": 1.69,
+  "portraitTranslation": [-0.179, 0.47, 0],
+  "profileScale": 0.62,
+  "profileTranslation": [0, 0.819, 0],
+  "rootBone": "pinsir",
+  "animations": {
+    "cry": "q.bedrock_stateful('pinsir_mega', 'cry')"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": ["q.bedrock('pinsir', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('pinsir', 'blink')"]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "FLOAT", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "animations": ["q.bedrock('pinsir', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('pinsir', 'blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "SWIM"],
+      "animations": ["q.bedrock('pinsir', 'ground_walk')"],
+      "quirks": ["q.bedrock_quirk('pinsir', 'blink')"]
+    },
+    "sleeping": {
+      "poseTypes": ["SLEEP"],
+      "animations": ["q.bedrock('pinsir', 'sleep')"]
+    }
+  }
+}

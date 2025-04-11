@@ -69,7 +69,28 @@
       "height": 12,
       "weight": 480,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.8,
+      "hitbox": {
+        "width": 1,
+        "height": 1.7,
+        "fixed": false
+      },
+      "evolutions": [
+        {
+          "id": "alakazam_mega_revert",
+          "variant": "level_up",
+          "result": "alakazam mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 250,
@@ -283,7 +304,21 @@
     "cobblemon.species.alakazam.desc"
   ],
   "preEvolution": "kadabra",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "alakazam_mega",
+      "variant": "level_up",
+      "result": "alakazam mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

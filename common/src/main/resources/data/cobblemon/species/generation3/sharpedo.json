@@ -75,7 +75,28 @@
       "height": 25,
       "weight": 1303,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 1.2,
+      "hitbox": {
+        "width": 1.2,
+        "height": 1,
+        "fixed": false
+      },
+      "evolutions": [
+        {
+          "id": "sharpedo_mega_revert",
+          "variant": "level_up",
+          "result": "sharpedo mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 161,
@@ -219,7 +240,21 @@
     "cobblemon.species.sharpedo.desc"
   ],
   "preEvolution": "carvanha",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "sharpedo_mega",
+      "variant": "level_up",
+      "result": "sharpedo mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1.2,
