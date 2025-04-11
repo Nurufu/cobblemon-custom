@@ -84,15 +84,18 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     val PVW_BATTLE = this.create("battle.pvw.default")
 
     @JvmField
-    val MEDICINE_HERB_USE = this.create("item.medicine_herb.use")
+    val MEDICINE_CANDY_USE = this.create("item.medicine.candy.use")
+
     @JvmField
-    val MEDICINE_LIQUID_USE = this.create("item.medicine_liquid.use")
+    val MEDICINE_HERB_USE = this.create("item.medicine.herb.use")
     @JvmField
-    val MEDICINE_PILLS_USE = this.create("item.medicine_pills.use")
+    val MEDICINE_LIQUID_USE = this.create("item.medicine.liquid.use")
     @JvmField
-    val MEDICINE_SPRAY_USE = this.create("item.medicine_spray.use")
+    val MEDICINE_PILLS_USE = this.create("item.medicine.pills.use")
     @JvmField
-    val MEDICINE_FEATHER_USE = this.create("item.medicine_feather.use")
+    val MEDICINE_SPRAY_USE = this.create("item.medicine.spray.use")
+    @JvmField
+    val MEDICINE_FEATHER_USE = this.create("item.medicine.feather.use")
 
     @JvmField
     val MULCH_PLACE = this.create("block.mulch.place")
@@ -147,6 +150,15 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     val TUMBLESTONE_PLACE = this.create("block.tumblestone.place")
     @JvmField
     val TUMBLESTONE_STEP = this.create("block.tumblestone.step")
+
+    @JvmField
+    val EVOLUTION_STONE_BLOCK_BREAK = this.create("block.evolution_stone_block.break")
+    @JvmField
+    val EVOLUTION_STONE_BLOCK_HIT = this.create("block.evolution_stone_block.hit")
+    @JvmField
+    val EVOLUTION_STONE_BLOCK_PLACE = this.create("block.evolution_stone_block.place")
+    @JvmField
+    val EVOLUTION_STONE_BLOCK_STEP = this.create("block.evolution_stone_block.step")
 
     @JvmField
     val GIMMIGHOUL_GIVE_ITEM = this.create("pokemon.gimmighoul.give_item")
@@ -281,6 +293,15 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     )
 
     @JvmField
+    val EVOLUTION_STONE_BLOCK_SOUNDS = BlockSoundGroup(1f, 1.1f,
+        EVOLUTION_STONE_BLOCK_BREAK,
+        EVOLUTION_STONE_BLOCK_STEP,
+        EVOLUTION_STONE_BLOCK_PLACE,
+        EVOLUTION_STONE_BLOCK_HIT,
+        EVOLUTION_STONE_BLOCK_STEP
+    )
+
+    @JvmField
     val BERRY_BUSH_SOUNDS = BlockSoundGroup(1f, 1f,
         BERRY_BUSH_BREAK,
         SoundEvents.BLOCK_GRASS_STEP,
@@ -353,17 +374,17 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     )
 
     @JvmField
-    val DISPLAY_CASE_ADD_ITEM = this.create("display_case.add_item")
+    val DISPLAY_CASE_ADD_ITEM = this.create("block.display_case.add_item")
     @JvmField
-    val DISPLAY_CASE_REMOVE_ITEM = this.create("display_case.remove_item")
+    val DISPLAY_CASE_REMOVE_ITEM = this.create("block.display_case.remove_item")
     @JvmField
-    val DISPLAY_CASE_BREAK = this.create("display_case.break")
+    val DISPLAY_CASE_BREAK = this.create("block.display_case.break")
     @JvmField
-    val DISPLAY_CASE_HIT = this.create("display_case.hit")
+    val DISPLAY_CASE_HIT = this.create("block.display_case.hit")
     @JvmField
-    val DISPLAY_CASE_PLACE = this.create("display_case.place")
+    val DISPLAY_CASE_PLACE = this.create("block.display_case.place")
     @JvmField
-    val DISPLAY_CASE_STEP = this.create("display_case.step")
+    val DISPLAY_CASE_STEP = this.create("block.display_case.step")
 
     @JvmField
     val DISPLAY_CASE_SOUNDS = BlockSoundGroup(1f, 1f,
