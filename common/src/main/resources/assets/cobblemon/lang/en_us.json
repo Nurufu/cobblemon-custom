@@ -6194,5 +6194,6 @@
   "iv_display.speed": "Speed",
   "cobblemon.box.swapped": "Swapped boxes %1$s and %2$s.",
   "cobblemon.move.psyblade": "Psyblade",
-  "cobblemon.move.psyblade.desc": "This move's power is boosted by 50% when used on Electric Terrain"
+  "cobblemon.move.psyblade.desc": "This move's power is boosted by 50% when used on Electric Terrain",
+  "cobblemon.ui.pc.boxjump": "Jump to box"
 }

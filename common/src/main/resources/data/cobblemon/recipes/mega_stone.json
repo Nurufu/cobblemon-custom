@@ -2,28 +2,28 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "cobblemon:fire_stone"
-        },
-        {
-            "item": "cobblemon:water_stone"
-        },
-        {
-            "item": "cobblemon:leaf_stone"
-        },
-        {
-            "item": "cobblemon:thunder_stone"
-        },
-        {
-            "item": "minecraft:heart_of_the_sea"
-        },
-        {
             "item": "cobblemon:ice_stone"
+        },
+        {
+            "item": "cobblemon:water_stone_block"
         },
         {
             "item": "cobblemon:sun_stone"
         },
         {
+            "item": "cobblemon:leaf_stone_block"
+        },
+        {
+            "item": "minecraft:heart_of_the_sea"
+        },
+        {
+            "item": "cobblemon:fire_stone_block"
+        },
+        {
             "item": "cobblemon:moon_stone"
+        },
+        {
+            "item": "cobblemon:thunder_stone_block"
         },
         {
             "item": "cobblemon:shiny_stone"

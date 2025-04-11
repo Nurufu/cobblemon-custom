@@ -25,18 +25,18 @@ class BoxIdWidget(val gui: PCGUI, val storageWidget: StorageWidget) : Drawable {
         var y = (gui.height - PCGUI.BASE_WIDTH) / 2.0
 
         x += 108.0
-        y += 63.0
+        y += 57.0
 
         context.drawTexture(
             cobblemonResource("textures/gui/pc/pc_box_id.png"),
             x.toInt(), y.toInt(),
             126,
-            15,
+            20,
             0f, 0f,
             120,
-            15,
+            30,
             120,
-            15
+            30
         )
 
         drawScaledText(
@@ -44,7 +44,7 @@ class BoxIdWidget(val gui: PCGUI, val storageWidget: StorageWidget) : Drawable {
             font = CobblemonResources.DEFAULT_LARGE,
             text = Text.literal("Box ID: ${storageWidget.box+1}").bold(),
             x = x+60,
-            y = y+3,
+            y = y+1,
             centered = true,
             shadow = true
         )

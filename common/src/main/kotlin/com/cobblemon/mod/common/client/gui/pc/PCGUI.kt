@@ -75,6 +75,7 @@ class PCGUI(
     private lateinit var wallpaperWidget: WallpapersScrollingWidget
     private lateinit var ivWidget: IvWidget
     private lateinit var boxIdWidget: BoxIdWidget
+    private lateinit var boxJumpWidget: BoxJumpWidget
     private var modelWidget: ModelWidget? = null
     internal var previewPokemon: Pokemon? = null
 
@@ -173,6 +174,11 @@ class PCGUI(
             storageWidget = storageWidget
         )
 
+        this.boxJumpWidget = BoxJumpWidget(
+            pX = x+117,
+            pY = y-7
+        )
+
         this.setPreviewPokemon(null)
         this.addDrawableChild(storageWidget)
         this.addDrawableChild(boxNameWidget)
@@ -180,6 +186,7 @@ class PCGUI(
         this.addDrawableChild(wallpaperWidget)
         this.addDrawable(ivWidget)
         this.addDrawable(boxIdWidget)
+        this.addDrawableChild(boxJumpWidget)
         super.init()
     }
 
@@ -517,6 +524,7 @@ class PCGUI(
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
         val boxNameSelected = this::boxNameWidget.isInitialized && boxNameWidget.isFocused
         val searchSelected = this::searchWidget.isInitialized && searchWidget.isFocused
+        val jumpSelected = this::boxJumpWidget.isInitialized && boxJumpWidget.isFocused
 //        if(isInventoryKeyPressed(minecraft,keyCode,scanCode) && !boxNameSelected && !searchSelected) {
 //            playSound(CobblemonSounds.PC_OFF)
 //            UnlinkPlayerFromPCPacket().sendToServer()
@@ -525,6 +533,14 @@ class PCGUI(
 //        }
 
         if((keyCode == InputUtil.GLFW_KEY_ENTER && (boxNameSelected || searchSelected))) {
+            this.focused = null
+        }
+        else if(keyCode==InputUtil.GLFW_KEY_ENTER && jumpSelected){
+            try{storageWidget.box = boxJumpWidget.text.toInt()-1}catch(e:Exception){
+                boxJumpWidget.text=""
+                this.focused = null
+                return false}
+            boxJumpWidget.text = ""
             this.focused = null
         }
 
@@ -537,12 +553,14 @@ class PCGUI(
             }
 
             InputUtil.GLFW_KEY_RIGHT -> {
+                if(searchSelected || boxNameSelected || jumpSelected) return false
                 playSound(CobblemonSounds.PC_CLICK)
                 this.storageWidget.box += 1
                 return true
             }
 
             InputUtil.GLFW_KEY_LEFT -> {
+                if(searchSelected || boxNameSelected || jumpSelected) return false
                 playSound(CobblemonSounds.PC_CLICK)
                 this.storageWidget.box -= 1
                 return true
