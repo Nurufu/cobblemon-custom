@@ -63,7 +63,22 @@
       "height": 21,
       "weight": 790,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "aerodactyl_mega_revert",
+          "variant": "level_up",
+          "result": "aerodactyl mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 180,
@@ -279,7 +294,21 @@
   "pokedex": [
     "cobblemon.species.aerodactyl.desc"
   ],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "aerodactyl_mega",
+      "variant": "level_up",
+      "result": "aerodactyl mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1.8,
   "hitbox": {
     "width": 1,

@@ -62,7 +62,22 @@
       "height": 22,
       "weight": 3950,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "aggron_mega_revert",
+          "variant": "level_up",
+          "result": "aggron mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 265,
@@ -246,7 +261,21 @@
     "cobblemon.species.aggron.desc"
   ],
   "preEvolution": "lairon",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "aggron_mega",
+      "variant": "level_up",
+      "result": "aggron mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1.4,

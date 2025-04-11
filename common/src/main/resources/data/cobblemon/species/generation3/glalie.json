@@ -48,7 +48,22 @@
       "height": 21,
       "weight": 3502,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "glalie_mega_revert",
+          "variant": "level_up",
+          "result": "glalie mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 168,
@@ -163,7 +178,21 @@
   "labels": ["gen3"],
   "pokedex": ["cobblemon.species.glalie.desc"],
   "preEvolution": "snorunt",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "glalie_mega",
+      "variant": "level_up",
+      "result": "glalie mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

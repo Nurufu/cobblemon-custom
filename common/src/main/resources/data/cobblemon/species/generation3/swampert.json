@@ -69,7 +69,22 @@
         "width": 1.6,
         "height": 2,
         "fixed": false
-      }
+      },
+      "evolutions": [
+        {
+          "id": "swampert_mega_revert",
+          "variant": "level_up",
+          "result": "swampert mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 268,
@@ -265,7 +280,21 @@
     "cobblemon.species.swampert.desc"
   ],
   "preEvolution": "marshtomp",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "swampert_mega",
+      "variant": "level_up",
+      "result": "swampert mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.7,
   "hitbox": {
     "width": 1.6,

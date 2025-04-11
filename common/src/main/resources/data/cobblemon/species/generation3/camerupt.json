@@ -76,7 +76,22 @@
       "height": 25,
       "weight": 3205,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "camerupt_mega_revert",
+          "variant": "level_up",
+          "result": "camerupt mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 161,
@@ -209,7 +224,21 @@
     "cobblemon.species.camerupt.desc"
   ],
   "preEvolution": "numel",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "camerupt_mega",
+      "variant": "level_up",
+      "result": "camerupt mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1.2,
   "hitbox": {
     "width": 2,

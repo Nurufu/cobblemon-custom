@@ -76,7 +76,35 @@
         "width": 0.75,
         "height": 1.7,
         "fixed": false
-      }
+      },
+      "evolutions": [
+        {
+          "id": "mewtwo_x_mega_revert",
+          "variant": "level_up",
+          "result": "mewtwo mega-x=false mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        },
+        {
+          "id": "mewtwo_x_mega_y",
+          "variant": "level_up",
+          "result": "mewtwo mega-y=true mega=true mega-x=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "Mega-Y",
@@ -126,7 +154,35 @@
         "width": 0.75,
         "height": 2.6,
         "fixed": false
-      }
+      },
+      "evolutions": [
+        {
+          "id": "mewtwo_y_mega_revert",
+          "variant": "level_up",
+          "result": "mewtwo mega-y=false mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        },
+        {
+          "id": "mewtwo_y_mega_x",
+          "variant": "level_up",
+          "result": "mewtwo mega-x=true mega=true mega-y=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 340,
@@ -418,7 +474,34 @@
   "pokedex": [
     "cobblemon.species.mewtwo.desc"
   ],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "mewtwo_x_mega",
+      "variant": "level_up",
+      "result": "mewtwo mega-x=true mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    },
+    {
+      "id": "mewtwo_y_mega",
+      "variant": "level_up",
+      "result": "mewtwo mega-y=true mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.9,
   "hitbox": {
     "width": 0.75,

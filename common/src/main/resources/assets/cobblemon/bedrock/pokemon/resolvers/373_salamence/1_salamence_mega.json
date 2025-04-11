@@ -5,6 +5,7 @@
     {
       "aspects": ["mega"],
       "model": "cobblemon:salamencemega.geo",
+      "poser": "cobblemon:salamence_mega",
       "texture": "cobblemon:textures/pokemon/0373_salamence/salamence_mega.png"
     },
     {

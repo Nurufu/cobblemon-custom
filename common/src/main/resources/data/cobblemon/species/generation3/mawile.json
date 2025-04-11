@@ -70,7 +70,22 @@
         "width": 1,
         "height": 1,
         "fixed": false
-      }
+      },
+      "evolutions": [
+        {
+          "id": "mawile_mega_revert",
+          "variant": "level_up",
+          "result": "mawile mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 133,
@@ -266,7 +281,21 @@
   "pokedex": [
     "cobblemon.species.mawile.desc"
   ],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "mawile_mega",
+      "variant": "level_up",
+      "result": "mawile mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.75,
   "hitbox": {
     "width": 0.5,

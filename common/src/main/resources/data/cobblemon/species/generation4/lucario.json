@@ -79,7 +79,22 @@
         "width": 0.8,
         "height": 2.45,
         "fixed": false
-      }
+      },
+      "evolutions": [
+        {
+          "id": "lucario_mega_revert",
+          "variant": "level_up",
+          "result": "lucario mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 184,
@@ -289,7 +304,21 @@
     "cobblemon.species.lucario.desc"
   ],
   "preEvolution": "riolu",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "lucario_mega",
+      "variant": "level_up",
+      "result": "lucario mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.65,
   "hitbox": {
     "width": 0.8,

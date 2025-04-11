@@ -69,7 +69,22 @@
         "width": 0.75,
         "height": 1.5,
         "fixed": false
-      }
+      },
+      "evolutions": [
+        {
+          "id": "pidgeot_mega_revert",
+          "variant": "level_up",
+          "result": "pidgeot mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 216,
@@ -219,7 +234,21 @@
     "cobblemon.species.pidgeot.desc"
   ],
   "preEvolution": "pidgeotto",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "pidgeot_mega",
+      "variant": "level_up",
+      "result": "pidgeot mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1.2,
   "hitbox": {
     "width": 0.75,

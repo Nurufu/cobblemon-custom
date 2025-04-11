@@ -48,7 +48,22 @@
       "height": 12,
       "weight": 130,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "banette_mega_revert",
+          "variant": "level_up",
+          "result": "banette mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 159,
@@ -193,7 +208,21 @@
   "labels": ["gen3"],
   "pokedex": ["cobblemon.species.banette.desc"],
   "preEvolution": "shuppet",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "banette_mega",
+      "variant": "level_up",
+      "result": "banette mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

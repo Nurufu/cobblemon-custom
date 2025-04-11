@@ -63,7 +63,22 @@
       "height": 16,
       "weight": 564,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "gallade_mega_revert",
+          "variant": "level_up",
+          "result": "gallade mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 259,
@@ -315,7 +330,21 @@
     "cobblemon.species.gallade.desc"
   ],
   "preEvolution": "kirlia",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "gallade_mega",
+      "variant": "level_up",
+      "result": "gallade mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 0.6,

@@ -87,7 +87,22 @@
       "height": 19,
       "weight": 950,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "garchomp_mega_revert",
+          "variant": "level_up",
+          "result": "garchomp mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 300,
@@ -241,7 +256,21 @@
     "cobblemon.species.garchomp.desc"
   ],
   "preEvolution": "gabite",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "garchomp_mega",
+      "variant": "level_up",
+      "result": "garchomp mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1.1,
   "hitbox": {
     "width": 1.3,

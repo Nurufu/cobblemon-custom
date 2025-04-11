@@ -7403,5 +7403,8 @@
   },
   "pokemon.glaliem.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/glalie/glaliem_cry", "volume": 0.4 } ]
+  },
+  "pokemon.salamencem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/salamence/salamencem_cry", "volume": 0.4 } ]
   }
 }

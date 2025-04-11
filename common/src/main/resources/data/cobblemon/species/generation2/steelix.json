@@ -69,7 +69,22 @@
         "width": 2,
         "height": 3.2,
         "fixed": false
-      }
+      },
+      "evolutions": [
+        {
+          "id": "steelix_mega_revert",
+          "variant": "level_up",
+          "result": "steelix mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 179,
@@ -269,7 +284,21 @@
     "cobblemon.species.steelix.desc"
   ],
   "preEvolution": "onix",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "steelix_mega",
+      "variant": "level_up",
+      "result": "steelix mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1.6,
   "hitbox": {
     "width": 2,

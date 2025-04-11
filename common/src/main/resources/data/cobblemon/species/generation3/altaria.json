@@ -50,7 +50,22 @@
       "height": 15,
       "weight": 206,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "altaria_mega_revert",
+          "variant": "level_up",
+          "result": "altaria mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "behaviour": {
@@ -211,7 +226,21 @@
   "labels": ["gen3"],
   "pokedex": ["cobblemon.species.altaria.desc"],
   "preEvolution": "swablu",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "altaria_mega",
+      "variant": "level_up",
+      "result": "altaria mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

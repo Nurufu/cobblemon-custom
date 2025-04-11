@@ -68,7 +68,22 @@
         "width": 1,
         "height": 2.2,
         "fixed": false
-      }
+      },
+      "evolutions": [
+        {
+          "id": "sceptile_mega_revert",
+          "variant": "level_up",
+          "result": "sceptile mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 265,
@@ -267,7 +282,21 @@
     "cobblemon.species.sceptile.desc"
   ],
   "preEvolution": "grovyle",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "sceptile_mega",
+      "variant": "level_up",
+      "result": "sceptile mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1.1,
   "hitbox": {
     "width": 1,
