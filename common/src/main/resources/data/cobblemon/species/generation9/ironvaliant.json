@@ -121,5 +121,11 @@
   "weight": 350,
   "evolutions": [],
   "cannotDynamax": false,
-  "pokedex": ["cobblemon.species.ironvaliant.desc"]
+  "pokedex": ["cobblemon.species.ironvaliant.desc"],
+  "baseScale": 1,
+  "hitbox": {
+    "width": 1,
+    "height": 2.1,
+    "fixed": false
+  }
 }

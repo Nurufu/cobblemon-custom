@@ -293,10 +293,10 @@
     "cobblemon.species.kangaskhan.desc"
   ],
   "evolutions": [],
-  "baseScale": 1.4,
+  "baseScale": 0.9,
   "hitbox": {
-    "width": 1.2,
-    "height": 1.9,
+    "width": 1.5,
+    "height": 2.5,
     "fixed": false
   },
   "baseFriendship": 50,

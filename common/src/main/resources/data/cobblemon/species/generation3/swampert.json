@@ -63,7 +63,13 @@
       "height": 19,
       "weight": 1020,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.9,
+      "hitbox": {
+        "width": 1.6,
+        "height": 2,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 268,
@@ -260,7 +266,7 @@
   ],
   "preEvolution": "marshtomp",
   "evolutions": [],
-  "baseScale": 0.9,
+  "baseScale": 0.7,
   "hitbox": {
     "width": 1.6,
     "height": 2,

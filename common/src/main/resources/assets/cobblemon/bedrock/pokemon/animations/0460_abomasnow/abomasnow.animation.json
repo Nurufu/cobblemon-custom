@@ -1155,6 +1155,11 @@
 						}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.abomasnow.cry"
+				}
 			}
 		},
 		"animation.abomasnow.battle_idle": {

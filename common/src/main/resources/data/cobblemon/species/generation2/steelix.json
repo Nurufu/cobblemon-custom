@@ -63,7 +63,13 @@
       "height": 105,
       "weight": 7400,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 1.7,
+      "hitbox": {
+        "width": 2,
+        "height": 3.2,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 179,

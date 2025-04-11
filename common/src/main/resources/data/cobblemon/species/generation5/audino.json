@@ -75,7 +75,13 @@
       "height": 15,
       "weight": 320,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.8,
+      "hitbox": {
+        "width": 1,
+        "height": 1,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 390,
@@ -240,7 +246,7 @@
     "cobblemon.species.audino.desc"
   ],
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.7,
   "hitbox": {
     "width": 1,
     "height": 1,

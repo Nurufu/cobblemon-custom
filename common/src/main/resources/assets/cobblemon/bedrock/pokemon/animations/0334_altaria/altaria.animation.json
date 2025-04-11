@@ -278,6 +278,14 @@
 					}
 				}
 			}
+		},
+		"animation.altaria.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.altaria.cry"
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

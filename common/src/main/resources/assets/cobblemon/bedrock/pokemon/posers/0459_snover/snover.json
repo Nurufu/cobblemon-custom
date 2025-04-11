@@ -1,8 +1,8 @@
 {
     "portraitScale": 1,
     "portraitTranslation": [ 0, 0.3, 0 ],
-    "profileScale": 1,
-    "profileTranslation": [ 0, 0.3, 0 ],
+    "profileScale":0.71,
+    "profileTranslation": [ 0, 0.66, 0 ],
     "animations": {
        "faint": "q.bedrock_primary('snover', 'faint', q.curve('one'))",
        "cry": "q.bedrock_stateful('snover', 'cry')",

@@ -149,7 +149,7 @@
   ],
   "labels": ["gen6", "mythical", "legendary"],
   "pokedex": ["cobblemon.species.diancie.desc"],
-  "baseScale": 0.8,
+  "baseScale": 0.65,
   "hitbox": {
     "width": 0.8,
     "height": 1.6,

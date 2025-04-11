@@ -163,6 +163,14 @@
 					}
 				}
 			}
+		},
+		"animation.swablu.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.swablu.cry"
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

@@ -1004,7 +1004,7 @@
 			},
 			"sound_effects": {
 				"0.24": {
-					"effect": "kangaskhan2"
+					"effect": "pokemon.kangaskhan.cry"
 				}
 			}
 		},

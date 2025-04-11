@@ -70,7 +70,13 @@
       "height": 23,
       "weight": 1270,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 1.1,
+      "hitbox": {
+        "width": 0.75,
+        "height": 1.7,
+        "fixed": false
+      }
     },
     {
       "name": "Mega-Y",
@@ -114,7 +120,13 @@
       "height": 15,
       "weight": 330,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.75,
+      "hitbox": {
+        "width": 0.75,
+        "height": 2.6,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 340,
@@ -407,7 +419,7 @@
     "cobblemon.species.mewtwo.desc"
   ],
   "evolutions": [],
-  "baseScale": 1.2,
+  "baseScale": 0.9,
   "hitbox": {
     "width": 0.75,
     "height": 1.7,

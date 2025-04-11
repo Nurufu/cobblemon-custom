@@ -7400,5 +7400,8 @@
   },
   "pokemon.aggronm.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/aggron/aggronm_cry", "volume": 0.4 } ]
+  },
+  "pokemon.glaliem.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/glalie/glaliem_cry", "volume": 0.4 } ]
   }
 }

@@ -85,6 +85,11 @@
 						"0.5": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.electrike.cry"
+				}
 			}
 		},
 		"animation.electrike.battle_idle": {

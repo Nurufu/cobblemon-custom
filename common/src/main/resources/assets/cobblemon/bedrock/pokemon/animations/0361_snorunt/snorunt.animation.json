@@ -84,6 +84,11 @@
 						}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.snorunt.cry"
+				}
 			}
 		},
 		"animation.snorunt.faint": {

@@ -80,7 +80,13 @@
       "height": 27,
       "weight": 1850,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.95,
+      "hitbox": {
+        "width": 1.9,
+        "height": 2.6,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 173,
@@ -220,10 +226,10 @@
   ],
   "preEvolution": "snover",
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.8,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 1.9,
+    "height": 2.6,
     "fixed": false
   },
   "baseFriendship": 50,

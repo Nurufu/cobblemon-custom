@@ -377,6 +377,11 @@
 						}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.snover.cry"
+				}
 			}
 		},
 		"animation.snover.faint": {

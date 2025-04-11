@@ -63,7 +63,13 @@
       "height": 22,
       "weight": 505,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 1.4,
+      "hitbox": {
+        "width": 0.75,
+        "height": 1.5,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 216,
@@ -214,7 +220,7 @@
   ],
   "preEvolution": "pidgeotto",
   "evolutions": [],
-  "baseScale": 1.4,
+  "baseScale": 1.2,
   "hitbox": {
     "width": 0.75,
     "height": 1.5,

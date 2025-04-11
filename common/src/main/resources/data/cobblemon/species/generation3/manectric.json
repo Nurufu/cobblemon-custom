@@ -61,7 +61,13 @@
       "height": 18,
       "weight": 440,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.8,
+      "hitbox": {
+        "width": 1,
+        "height": 2.3,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 166,
@@ -176,10 +182,10 @@
   ],
   "preEvolution": "electrike",
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.7,
   "hitbox": {
     "width": 1,
-    "height": 1,
+    "height": 2.3,
     "fixed": false
   },
   "baseFriendship": 50,

@@ -27,6 +27,7 @@
     {
       "aspects": ["mega"],
       "model": "cobblemon:mega_medicham.geo",
+      "poser": "cobblemon:medicham_mega",
       "texture": "cobblemon:textures/pokemon/0308_medicham/mega_medicham.png",
       "layers": []
     },
@@ -39,6 +40,7 @@
     {
       "aspects": ["mega","female"],
       "model": "cobblemon:mega_medicham.geo",
+      "poser": "cobblemon:medicham_mega",
       "texture": "cobblemon:textures/pokemon/0308_medicham/mega_medicham.png",
       "layers": []
     },
