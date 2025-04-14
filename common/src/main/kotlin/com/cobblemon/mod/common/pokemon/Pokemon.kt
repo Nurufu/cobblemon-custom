@@ -415,6 +415,13 @@ open class Pokemon : ShowdownIdentifiable {
     var features = mutableListOf<SpeciesFeature>()
 
     fun asRenderablePokemon() = RenderablePokemon(species, aspects)
+
+    var forcedAspects = setOf<String>()
+        set(value){
+            field = value
+            updateAspects()
+        }
+
     var aspects = setOf<String>()
         set(value) {
             if (field != value) {
