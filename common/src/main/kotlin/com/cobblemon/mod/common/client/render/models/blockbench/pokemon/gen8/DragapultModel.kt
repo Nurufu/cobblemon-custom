@@ -30,6 +30,8 @@ class DragapultModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
     lateinit var standing: PokemonPose
     lateinit var walk: PokemonPose
+    lateinit var fly: PokemonPose
+    lateinit var hover: PokemonPose
     lateinit var ui_poses: PokemonPose
 
     override val cryAnimation = CryProvider { _, _ -> bedrockStateful("dragapult", "cry") }
@@ -66,6 +68,32 @@ class DragapultModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
                 transformedParts = arrayOf(
                         rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, -16)
                 ),
+            idleAnimations = arrayOf(
+                singleBoneLook(),
+                bedrock("dragapult", "ground_idle")
+            )
+        )
+
+        fly = registerPose(
+            poseName = "fly",
+            poseTypes = PoseType.MOVING_POSES,
+            quirks = arrayOf(blink),
+            transformedParts = arrayOf(
+                rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, -16)
+            ),
+            idleAnimations = arrayOf(
+                singleBoneLook(),
+                bedrock("dragapult", "ground_idle")
+            )
+        )
+
+        hover = registerPose(
+            poseName = "hover",
+            poseTypes = PoseType.MOVING_POSES,
+            quirks = arrayOf(blink),
+            transformedParts = arrayOf(
+                rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, -16)
+            ),
             idleAnimations = arrayOf(
                 singleBoneLook(),
                 bedrock("dragapult", "ground_idle")
