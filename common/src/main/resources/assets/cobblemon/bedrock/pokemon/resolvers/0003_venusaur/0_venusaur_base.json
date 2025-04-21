@@ -5,7 +5,7 @@
     {
       "aspects": [],
       "poser": "cobblemon:venusaur2",
-      "model": "cobblemon:venusaur2.geo",
+      "model": "cobblemon:venusaur.geo",
       "texture": "cobblemon:textures/pokemon/0003_venusaur/venusaur_male.png",
       "layers": []
     },
