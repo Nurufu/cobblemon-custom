@@ -15,7 +15,6 @@
         "biomes": [ 
           "#cobblemon:is_mountain"
       ],
-      "timeRange": "day",
       "isRaining": false
       }
     }
