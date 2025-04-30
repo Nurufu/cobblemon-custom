@@ -548,7 +548,7 @@ object CobblemonItemGroups {
 
     private fun pokeballentries(displayContext: DisplayContext, entries: Entries) {
         CobblemonItems.pokeBalls.forEach(entries::add)
-        entries.add(CobblemonItems.POKE_ROD)
+        CobblemonItems.pokeRods.forEach(entries::add)
     }
 
     private fun foodInjections(injector: Injector) {

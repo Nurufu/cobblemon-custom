@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.api.data.DataProvider
 import com.cobblemon.mod.common.api.data.DataRegistry
 import com.cobblemon.mod.common.api.dialogue.Dialogues
 import com.cobblemon.mod.common.api.events.CobblemonEvents
+import com.cobblemon.mod.common.api.fishing.PokeRods
 import com.cobblemon.mod.common.api.fossil.Fossils
 import com.cobblemon.mod.common.api.fossil.NaturalMaterials
 import com.cobblemon.mod.common.api.moves.Moves
@@ -74,6 +75,7 @@ object CobblemonDataProvider : DataProvider {
         this.register(Fossils)
 
         CobblemonSpawnPools.load()
+        this.register(PokeRods)
         this.register(Berries)
 
         PlatformEvents.SERVER_PLAYER_LOGOUT.subscribe {

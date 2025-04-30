@@ -18,6 +18,31 @@
             "condition": {
                 "canSeeSky": true
             }
+        },
+        {
+            "id": "goldeen-2",
+            "pokemon": "goldeen",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "common",
+            "level": "7-32",
+            "weight": 9.0,
+            "condition": {
+                "canSeeSky": true,
+                "biomes": [
+                    "#aether:is_aether",
+                    "#cobblemon:is_bamboo",
+                    "#cobblemon:is_floral",
+                    "#cobblemon:is_freezing",
+                    "#cobblemon:is_freshwater",
+                    "#cobblemon:is_jungle",
+                    "#cobblemon:is_magical",
+                    "#cobblemon:is_mountain",
+                    "#cobblemon:is_taiga",
+                    "#cobblemon:is_temperate",
+                    "#cobblemon:is_overworld"
+                ]
+            }
         }
     ]
 }
