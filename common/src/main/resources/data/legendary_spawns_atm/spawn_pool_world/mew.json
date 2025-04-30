@@ -16,7 +16,6 @@
           "#cobblemon:is_floral", 
           "#cobblemon:is_jungle" 
         ],
-        "timeRange": "noon",
         "isRaining": false
       }
     }
