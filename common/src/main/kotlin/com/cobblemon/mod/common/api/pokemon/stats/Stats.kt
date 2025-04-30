@@ -51,6 +51,7 @@ enum class Stats(override val identifier: Identifier, override val displayName: 
 
         /** Gets the [Stat] from the respective Showdown id. */
         fun getStat(statKey: String) = when(statKey) {
+            "hp" -> HP
             "atk", "Attack" -> ATTACK // Hyper Cutter states the full stat name "Attack"
             "def", "Defense" -> DEFENCE // Big Pecks states the full stat name "Defense"
             "spa" -> SPECIAL_ATTACK

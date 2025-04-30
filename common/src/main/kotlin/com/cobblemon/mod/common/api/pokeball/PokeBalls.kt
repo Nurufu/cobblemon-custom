@@ -168,7 +168,7 @@ object PokeBalls : JsonDataRegistry<PokeBall> {
         createDefault("fast_ball", BaseStatModifier(Stats.SPEED, { it >= 100 }, 4F))
         createDefault("level_ball", CatchRateModifiers.LEVEL)
         // ToDo we will need fishing context here once fishing is implemented for a multiplier
-        createDefault("lure_ball", CatchRateModifiers.typeBoosting(2F, ElementalTypes.WATER))
+        createDefault("lure_ball", CatchRateModifiers.LURE)
         createDefault("heavy_ball", CatchRateModifiers.WEIGHT_BASED)
         createDefault("love_ball", CatchRateModifiers.LOVE)
         createDefault("friend_ball", effects = listOf(CaptureEffects.friendshipSetter(150)))

@@ -121,6 +121,13 @@ object CobblemonCriteria {
         )
     )
 
+    val CAST_POKE_ROD = this.create(
+        SimpleCriterionTrigger(
+            cobblemonResource("cast_poke_rod"),
+            CastPokeRodCriterionCondition::class.java
+        )
+    )
+
     private fun <T : Criterion<*>> create(criteria: T): T = Cobblemon.implementation.registerCriteria(criteria)
 
 }

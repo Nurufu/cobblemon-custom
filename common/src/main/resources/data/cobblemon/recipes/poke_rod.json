@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "minecraft:fishing_rod"
+  },
+  "addition": {
+    "item": "cobblemon:poke_ball"
+  },
+  "template": {
+    "item": "cobblemon:pokerod_smithing_template"
+  },
+  "result": {
+    "item": "cobblemon:poke_rod"
+  }
+}

@@ -13,6 +13,7 @@ import com.cobblemon.mod.common.Cobblemon.LOGGER
 import com.cobblemon.mod.common.api.pokemon.PokemonProperties
 import com.cobblemon.mod.common.api.spawning.context.SpawningContext
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.pokemon.feature.FishedFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.SeasonFeatureHandler
 import com.cobblemon.mod.common.util.weightedSelection
 
@@ -45,6 +46,7 @@ class PokemonSpawnAction(
             null
         }?.createStack(ctx)
         val entity = props.createEntity(ctx.world)
+        FishedFeatureHandler.updateFished(entity.pokemon, ctx.spawner.name == "fishing")
         SeasonFeatureHandler.updateSeason(entity.pokemon, Cobblemon.seasonResolver(ctx.world, ctx.position))
         if (heldItem != null) {
             entity.pokemon.swapHeldItem(heldItem)

@@ -29,6 +29,7 @@ import com.cobblemon.mod.common.client.render.block.GildedChestBlockRenderer
 import com.cobblemon.mod.common.client.render.block.HealingMachineRenderer
 import com.cobblemon.mod.common.client.render.block.*
 import com.cobblemon.mod.common.client.render.boat.CobblemonBoatRenderer
+import com.cobblemon.mod.common.client.render.entity.PokeBobberEntityRenderer
 import com.cobblemon.mod.common.client.render.generic.GenericBedrockRenderer
 import com.cobblemon.mod.common.client.render.item.CobblemonBuiltinItemRendererRegistry
 import com.cobblemon.mod.common.client.render.item.PokemonItemRenderer
@@ -278,6 +279,8 @@ object CobblemonClient {
         this.implementation.registerEntityRenderer(CobblemonEntities.CHEST_BOAT) { ctx -> CobblemonBoatRenderer(ctx, true) }
         LOGGER.info("Registering Generic Bedrock Entity renderer")
         this.implementation.registerEntityRenderer(CobblemonEntities.GENERIC_BEDROCK_ENTITY, ::GenericBedrockRenderer)
+        LOGGER.info("Registering PokeRod Bobber renderer")
+        this.implementation.registerEntityRenderer(CobblemonEntities.POKE_BOBBER) { ctx -> PokeBobberEntityRenderer(ctx) }
     }
 
     fun reloadCodedAssets(resourceManager: ResourceManager) {

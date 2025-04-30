@@ -50,8 +50,13 @@ import com.cobblemon.mod.common.api.scheduling.ServerRealTimeTaskTracker
 import com.cobblemon.mod.common.api.scheduling.ServerTaskTracker
 import com.cobblemon.mod.common.api.spawning.BestSpawner
 import com.cobblemon.mod.common.api.spawning.CobblemonSpawningProspector
+import com.cobblemon.mod.common.api.spawning.WorldSlice
 import com.cobblemon.mod.common.api.spawning.context.AreaContextResolver
+import com.cobblemon.mod.common.api.spawning.context.AreaSpawningContext
+import com.cobblemon.mod.common.api.spawning.context.calculators.AreaSpawningContextCalculator
+import com.cobblemon.mod.common.api.spawning.context.calculators.AreaSpawningInput
 import com.cobblemon.mod.common.api.spawning.prospecting.SpawningProspector
+import com.cobblemon.mod.common.api.spawning.spawner.Spawner
 import com.cobblemon.mod.common.api.starter.StarterHandler
 import com.cobblemon.mod.common.api.storage.PokemonStoreManager
 import com.cobblemon.mod.common.api.storage.adapter.conversions.ReforgedConversion
@@ -122,6 +127,7 @@ import net.minecraft.particle.DefaultParticleType
 import net.minecraft.registry.RegistryKey
 import net.minecraft.util.Identifier
 import net.minecraft.util.WorldSavePath
+import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger

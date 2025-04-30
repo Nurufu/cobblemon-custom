@@ -126,6 +126,18 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     @JvmField
     val FOSSIL_MACHINE_UNPROTECTED = this.create("block.fossil_machine.unprotected")
 
+    @JvmField
+    val FISHING_NOTIFICATION = this.create("fishing.notification")
+    @JvmField
+    val FISHING_SPLASH_BIG = this.create("fishing.splash_big")
+    @JvmField
+    val FISHING_SPLASH_SMALL = this.create("fishing.splash_small")
+    @JvmField
+    val FISHING_BOBBER_LAND = this.create("fishing.bobber_land")
+    @JvmField
+    val FISHING_ROD_CAST = this.create("fishing.rod_cast")
+    @JvmField
+    val FISHING_ROD_REEL_IN = this.create("fishing.rod_reel_in")
 
     @JvmField
     val RELIC_COIN_SACK_BREAK = this.create("block.relic_coin_sack.break")
