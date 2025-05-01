@@ -32,4 +32,5 @@ class PokeRodRegistrySyncPacket(rods: Collection<PokeRod>) : DataRegistrySyncPac
     override fun synchronizeDecoded(entries: Collection<PokeRod>) {
         PokeRods.reload(entries.associateBy { it.name!! })
     }
+
 }

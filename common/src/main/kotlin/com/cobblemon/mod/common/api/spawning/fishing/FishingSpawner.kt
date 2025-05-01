@@ -23,7 +23,7 @@ import net.minecraft.util.math.BlockPos
  */
 open class FishingSpawner(
     override val name: String = "fishing",
-    pool: SpawnPool = CobblemonSpawnPools.FISHING_SPAWN_POOL
+    pool: SpawnPool = CobblemonSpawnPools.WORLD_SPAWN_POOL
 ) : TriggerSpawner<FishingSpawnCause>(name, pool) {
     override fun parseContext(cause: FishingSpawnCause, world: ServerWorld, pos: BlockPos): FishingSpawningContext? {
         // Maybe confirm that it's water we're fishing in?

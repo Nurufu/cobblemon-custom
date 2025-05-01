@@ -8,6 +8,8 @@
 
 package com.cobblemon.mod.common.api.fishing
 
+import com.cobblemon.mod.common.api.pokeball.PokeBalls
+import com.cobblemon.mod.common.pokeball.PokeBall
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.util.Identifier
 
@@ -39,4 +41,9 @@ data class PokeRod(
             return PokeRod(pokeBallId, lineColor, name)
         }
     }
+
+    fun getPokeBall(): PokeBall? {
+        return PokeBalls.getPokeBall(pokeBallId)
+    }
+
 }
