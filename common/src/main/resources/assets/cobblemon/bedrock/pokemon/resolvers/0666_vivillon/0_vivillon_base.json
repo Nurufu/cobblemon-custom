@@ -278,6 +278,270 @@
           "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_forsaken.png"
         }
       ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-archipelago", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_archipelago_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-continental", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_continental_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-elegant", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_elegant_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-fancy", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_fancy_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-garden", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_garden_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-high-plains", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_high_plains_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-icy-snow", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_icy_snow_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-jungle", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_jungle_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-marine", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_marine_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-meadow", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_meadow_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-modern", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_modern_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-modern", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_modern_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-monsoon", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_monsoon_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-ocean", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_ocean_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-poke-ball", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_pokeball_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-polar", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_polar_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-river", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_river_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-sandstorm", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_sandstorm_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-savanna", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_savanna_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-sun", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_sun_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-tundra", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_tundra_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-inferno", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_inferno_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-void", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_void_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "vivillon-wings-forsaken", "shiny"
+      ],
+      "layers": [
+        {
+          "name": "wings",
+          "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_wings_forsaken_shiny.png"
+        }
+      ]
     }
   ]
 }
