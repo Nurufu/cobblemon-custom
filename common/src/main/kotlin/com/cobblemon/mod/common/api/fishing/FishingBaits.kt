@@ -17,6 +17,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import net.minecraft.item.ItemStack
+import net.minecraft.registry.BuiltinRegistries
 import net.minecraft.registry.Registries
 import net.minecraft.resource.ResourceType
 import net.minecraft.server.network.ServerPlayerEntity
@@ -41,13 +42,21 @@ object FishingBaits : JsonDataRegistry<FishingBait>{
 
     override fun reload(data: Map<Identifier, FishingBait>) {
         itemMap.clear()
-        data.forEach { id, bait ->
+        data.forEach { (id, bait) ->
             itemMap[bait.item] = bait
         }
     }
 
     fun getFromItemStack(stack: ItemStack): FishingBait? {
         return itemMap[Registries.ITEM.getId(stack.item)]
+    }
+
+    fun getFromBaitItemStack(stack: ItemStack): FishingBait? {
+        return getFromIdentifier(Registries.ITEM.getId(stack.item))
+    }
+
+    fun getFromIdentifier(identifier: Identifier): FishingBait? {
+        return itemMap[identifier]
     }
 
     fun isFishingBait(stack: ItemStack) = itemMap.containsKey(Registries.ITEM.getId(stack.item))

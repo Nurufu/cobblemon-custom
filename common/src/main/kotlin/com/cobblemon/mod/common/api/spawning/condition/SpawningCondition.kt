@@ -62,8 +62,8 @@ abstract class SpawningCondition<T : SpawningContext> {
     var structures: MutableList<Either<Identifier, TagKey<Structure>>>? = null
     var minLureLevel: Int? = null
     var maxLureLevel: Int? = null
-    var bait: String? = null
-    var rodType: String? = null
+    var bait: Identifier? = null
+    var rodType: Identifier? = null
 
     @Transient
     var appendages = mutableListOf<AppendageCondition>()
@@ -124,14 +124,14 @@ abstract class SpawningCondition<T : SpawningContext> {
             if (maxLureLevel != null && EnchantmentHelper.getLure(pokerodStack) > maxLureLevel!!)
                 return false
         } else if (bait != null && ctx is FishingSpawningContext) { // check for the bait on the bobber
-            val pokerodBait = (ctx as FishingSpawningContext).rodBait
-
-            if (Registries.ITEM.getId(PokerodItem.getBait(pokerodBait)?.item).path != bait)
+            val pokerodBait = (ctx as FishingSpawningContext).rodBait?.item
+            if(pokerodBait != bait){
                 return false
+            }
         } else if (rodType != null && ctx is FishingSpawningContext) { // check for the type of pokerod being used
             val pokerodItem = (ctx as FishingSpawningContext).rodItem
 
-            if (pokerodItem?.pokeRodId?.path != rodType)
+            if (pokerodItem?.pokeRodId != rodType)
                 return false
         }
             return true

@@ -138,6 +138,10 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     val FISHING_ROD_CAST = this.create("fishing.rod_cast")
     @JvmField
     val FISHING_ROD_REEL_IN = this.create("fishing.rod_reel_in")
+    @JvmField
+    val FISHING_BAIT_ATTACH = this.create("fishing.bait_attach")
+    @JvmField
+    val FISHING_BAIT_DETACH = this.create("fishing.bait_detach")
 
     @JvmField
     val RELIC_COIN_SACK_BREAK = this.create("block.relic_coin_sack.break")
