@@ -122,6 +122,18 @@ object CatchRateModifiers {
     }
 
     /**
+     * Used by [PokeBalls.LURE_BALL].
+     * Checks if the entity has an aspect for being spawned from fishing.
+     * If yes boosts the catch rate by *4
+     */
+    val LURE = WorldStateModifier { _, entity ->
+        if (entity.pokemon.aspects.contains("fished"))
+            4f
+        else
+            1F
+    }
+
+    /**
      * Used by [PokeBalls.HEAVY_BALL].
      * The base implementation of the heavy ball modifier mechanics.
      */

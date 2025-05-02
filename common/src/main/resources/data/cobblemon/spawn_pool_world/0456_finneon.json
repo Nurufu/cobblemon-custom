@@ -23,6 +23,21 @@
             }
         },
         {
+            "id": "finneon-2",
+            "pokemon": "finneon",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "common",
+            "level": "8-33",
+            "weight": 9.0,
+            "condition": {
+                "canSeeSky": true,
+                "biomes": [
+                    "#cobblemon:is_ocean"
+                ]
+            }
+        },
+        {
             "id": "finneon-3",
             "pokemon": "finneon",
             "presets": [
@@ -44,6 +59,23 @@
             }
         },
         {
+            "id": "finneon-4",
+            "pokemon": "finneon",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "common",
+            "level": "8-33",
+            "weight": 9.0,
+            "condition": {
+                "canSeeSky": false,
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_ocean"
+                ]
+            }
+        },
+        {
             "id": "finneon-5",
             "pokemon": "finneon",
             "presets": [
@@ -51,6 +83,26 @@
             ],
             "type": "pokemon",
             "context": "submerged",
+            "bucket": "common",
+            "level": "8-33",
+            "weight": 9.0,
+            "condition": {
+                "canSeeSky": false,
+                "biomes": [
+                    "#cobblemon:is_overworld"
+                ],
+                "structures": [
+                    "cobblemon:shipwreck_coves/submerged_shipwreck_cove"
+                ],
+                "minY": -60,
+                "maxY": 13
+            }
+        },
+        {
+            "id": "finneon-6",
+            "pokemon": "finneon",
+            "type": "pokemon",
+            "context": "fishing",
             "bucket": "common",
             "level": "8-33",
             "weight": 9.0,

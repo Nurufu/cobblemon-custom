@@ -1,0 +1,851 @@
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/advancement and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/advancement
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/api and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/api
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/battles and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/battles
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/berry and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/berry
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/block and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/block
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/brewing and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/brewing
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/client and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/client
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonActivities.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonActivities.kt
+16d15
+<     val NPC_BATTLING = Activity("npc_battling")
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonBlocks.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonBlocks.kt
+101a102,187
+>     @JvmField
+>     val FIRE_STONE_BLOCK = this.create("fire_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.BRIGHT_RED)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>         .luminance{13}
+>     ))
+>     @JvmField
+>     val WATER_STONE_BLOCK = this.create("water_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.WATER_BLUE)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>     ))
+>     @JvmField
+>     val THUNDER_STONE_BLOCK = this.create("thunder_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.LICHEN_GREEN)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>         .luminance{8}
+>     ))
+>     @JvmField
+>     val LEAF_STONE_BLOCK = this.create("leaf_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.DARK_GREEN)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>     ))
+>     @JvmField
+>     val ICE_STONE_BLOCK = this.create("ice_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.PALE_PURPLE)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>     ))
+>     @JvmField
+>     val SUN_STONE_BLOCK = this.create("sun_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.TERRACOTTA_ORANGE)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>         .luminance { 5 }
+>     ))
+>     @JvmField
+>     val MOON_STONE_BLOCK = this.create("moon_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.DEEPSLATE_GRAY)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>     ))
+>     @JvmField
+>     val SHINY_STONE_BLOCK = this.create("shiny_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.WHITE)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>         .luminance{15}
+>     ))
+>     @JvmField
+>     val DAWN_STONE_BLOCK = this.create("dawn_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.DIAMOND_BLUE)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>         .luminance{15}
+>     ))
+>     @JvmField
+>     val DUSK_STONE_BLOCK = this.create("dusk_stone_block", Block(AbstractBlock.Settings.create()
+>         .mapColor(MapColor.DARK_DULL_PINK)
+>         .strength(1.0F)
+>         .sounds(CobblemonSounds.EVOLUTION_STONE_BLOCK_SOUNDS)
+>         .requiresTool()
+>         .instrument(Instrument.BIT)
+>     ))
+> 
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonCommands.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonCommands.kt
+51c51,56
+<         NPCEditCommand.register(dispatcher)
+---
+>         RenameBoxCommand.register(dispatcher)
+>         ChangeBoxWallpaperAdminCommand.register(dispatcher)
+>         ChangeBoxWallpaperPlayerCommand.register(dispatcher)
+>         SwapBoxCommand.register(dispatcher)
+>         MassChangeBoxWallpaperCommand.register(dispatcher)
+>         MassEmptyBoxCommand.register(dispatcher)
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonEntities.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonEntities.kt
+15d14
+< import com.cobblemon.mod.common.entity.npc.NPCEntity
+20a20
+> import net.minecraft.entity.Entity
+75,77c75,77
+<             POKE_BOBBER_KEY.path,
+<             EntityType.Builder.create(::PokeRodFishingBobberEntity, SpawnGroup.MISC).setDimensions(0.5F, 0.5F).maxTrackingRange(10)
+<                     .build(POKE_BOBBER_KEY.toString())
+---
+>         POKE_BOBBER_KEY.path,
+>         EntityType.Builder.create(::PokeRodFishingBobberEntity, SpawnGroup.MISC).setDimensions(0.5F,0.5F).maxTrackingRange(10)
+>             .build(POKE_BOBBER_KEY.toString())
+89,96d88
+<     @JvmField
+<     val NPC_KEY = cobblemonResource("npc")
+<     @JvmField
+<     val NPC: EntityType<NPCEntity> = create(
+<         NPC_KEY.path,
+<         EntityType.Builder.create({ _, world -> NPCEntity(world) }, SpawnGroup.CREATURE).build("$NPC_KEY")
+<     )
+< 
+99d90
+<         consumer(NPC, NPCEntity.createAttributes())
+100a92
+> 
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonItems.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonItems.kt
+17,18d16
+< import com.cobblemon.mod.common.api.text.blue
+< import com.cobblemon.mod.common.api.text.gray
+50d47
+< import net.minecraft.text.Text
+52a50,53
+> import net.minecraft.text.Text
+> import com.cobblemon.mod.common.api.text.blue
+> import com.cobblemon.mod.common.api.text.gray
+> 
+619a621,641
+>     val FIRE_STONE_BLOCK = blockItem("fire_stone_block", CobblemonBlocks.FIRE_STONE_BLOCK)
+>     @JvmField
+>     val WATER_STONE_BLOCK = blockItem("water_stone_block", CobblemonBlocks.WATER_STONE_BLOCK)
+>     @JvmField
+>     val THUNDER_STONE_BLOCK = blockItem("thunder_stone_block", CobblemonBlocks.THUNDER_STONE_BLOCK)
+>     @JvmField
+>     val LEAF_STONE_BLOCK = blockItem("leaf_stone_block", CobblemonBlocks.LEAF_STONE_BLOCK)
+>     @JvmField
+>     val ICE_STONE_BLOCK = blockItem("ice_stone_block", CobblemonBlocks.ICE_STONE_BLOCK)
+>     @JvmField
+>     val SUN_STONE_BLOCK = blockItem("sun_stone_block", CobblemonBlocks.SUN_STONE_BLOCK)
+>     @JvmField
+>     val MOON_STONE_BLOCK = blockItem("moon_stone_block", CobblemonBlocks.MOON_STONE_BLOCK)
+>     @JvmField
+>     val SHINY_STONE_BLOCK = blockItem("shiny_stone_block", CobblemonBlocks.SHINY_STONE_BLOCK)
+>     @JvmField
+>     val DAWN_STONE_BLOCK = blockItem("dawn_stone_block", CobblemonBlocks.DAWN_STONE_BLOCK)
+>     @JvmField
+>     val DUSK_STONE_BLOCK = blockItem("dusk_stone_block", CobblemonBlocks.DUSK_STONE_BLOCK)
+> 
+>     @JvmField
+639a662,664
+>     @JvmField
+>     val MEGA_STONE = noSettingsItem("mega_stone")
+> 
+949,954d973
+<     @JvmField
+<     val AUTOMATON_ARMOR_TRIM_SMITHING_TEMPLATE: SmithingTemplateItem = this.create(
+<         "automaton_armor_trim_smithing_template",
+<         SmithingTemplateItem.of(CobblemonArmorTrims.AUTOMATON)
+<     )
+< 
+959c978
+<     val CITRINE_ROD = pokerodItem(cobblemonResource("citrine_rod"))
+---
+>     val GREAT_ROD = pokerodItem(cobblemonResource("great_rod"))
+961c980
+<     val VERDANT_ROD = pokerodItem(cobblemonResource("verdant_rod"))
+---
+>     val BEAST_ROD = pokerodItem(cobblemonResource("beast_rod"))
+965,967c984
+<     val ROSEATE_ROD = pokerodItem(cobblemonResource("roseate_rod"))
+<     @JvmField
+<     val SLATE_ROD = pokerodItem(cobblemonResource("slate_rod"))
+---
+>     val CHERISH_ROD = pokerodItem(cobblemonResource("cherish_rod"))
+969c986
+<     val PREMIER_ROD = pokerodItem(cobblemonResource("premier_rod"))
+---
+>     val CITRINE_ROD = pokerodItem(cobblemonResource("citrine_rod"))
+971c988
+<     val GREAT_ROD = pokerodItem(cobblemonResource("great_rod"))
+---
+>     val DIVE_ROD = pokerodItem(cobblemonResource("dive_rod"))
+973c990
+<     val ULTRA_ROD = pokerodItem(cobblemonResource("ultra_rod"))
+---
+>     val DREAM_ROD = pokerodItem(cobblemonResource("dream_rod"))
+975c992
+<     val SAFARI_ROD = pokerodItem(cobblemonResource("safari_rod"))
+---
+>     val DUSK_ROD = pokerodItem(cobblemonResource("dusk_rod"))
+979,986d995
+<     val LEVEL_ROD = pokerodItem(cobblemonResource("level_rod"))
+<     @JvmField
+<     val LURE_ROD = pokerodItem(cobblemonResource("lure_rod"))
+<     @JvmField
+<     val HEAVY_ROD = pokerodItem(cobblemonResource("heavy_rod"))
+<     @JvmField
+<     val LOVE_ROD = pokerodItem(cobblemonResource("love_rod"))
+<     @JvmField
+989,995c998
+<     val MOON_ROD = pokerodItem(cobblemonResource("moon_rod"))
+<     @JvmField
+<     val SPORT_ROD = pokerodItem(cobblemonResource("sport_rod"))
+<     @JvmField
+<     val PARK_ROD = pokerodItem(cobblemonResource("park_rod"))
+<     @JvmField
+<     val NET_ROD = pokerodItem(cobblemonResource("net_rod"))
+---
+>     val HEAL_ROD = pokerodItem(cobblemonResource("heal_rod"))
+997c1000
+<     val DIVE_ROD = pokerodItem(cobblemonResource("dive_rod"))
+---
+>     val HEAVY_ROD = pokerodItem(cobblemonResource("heavy_rod"))
+999c1002
+<     val NEST_ROD = pokerodItem(cobblemonResource("nest_rod"))
+---
+>     val LEVEL_ROD = pokerodItem(cobblemonResource("level_rod"))
+1001c1004
+<     val REPEAT_ROD = pokerodItem(cobblemonResource("repeat_rod"))
+---
+>     val LOVE_ROD = pokerodItem(cobblemonResource("love_rod"))
+1003c1006
+<     val TIMER_ROD = pokerodItem(cobblemonResource("timer_rod"))
+---
+>     val LURE_ROD = pokerodItem(cobblemonResource("lure_rod"))
+1007,1016d1009
+<     val DUSK_ROD = pokerodItem(cobblemonResource("dusk_rod"))
+<     @JvmField
+<     val HEAL_ROD = pokerodItem(cobblemonResource("heal_rod"))
+<     @JvmField
+<     val QUICK_ROD = pokerodItem(cobblemonResource("quick_rod"))
+<     @JvmField
+<     val DREAM_ROD = pokerodItem(cobblemonResource("dream_rod"))
+<     @JvmField
+<     val BEAST_ROD = pokerodItem(cobblemonResource("beast_rod"))
+<     @JvmField
+1019,1023c1012
+<     val CHERISH_ROD = pokerodItem(cobblemonResource("cherish_rod"))
+<     @JvmField
+<     val ANCIENT_POKE_ROD = pokerodItem(cobblemonResource("ancient_poke_rod"))
+<     @JvmField
+<     val ANCIENT_CITRINE_ROD = pokerodItem(cobblemonResource("ancient_citrine_rod"))
+---
+>     val MOON_ROD = pokerodItem(cobblemonResource("moon_rod"))
+1025c1014
+<     val ANCIENT_VERDANT_ROD = pokerodItem(cobblemonResource("ancient_verdant_rod"))
+---
+>     val NEST_ROD = pokerodItem(cobblemonResource("nest_rod"))
+1027c1016
+<     val ANCIENT_AZURE_ROD = pokerodItem(cobblemonResource("ancient_azure_rod"))
+---
+>     val NET_ROD = pokerodItem(cobblemonResource("net_rod"))
+1029c1018
+<     val ANCIENT_ROSEATE_ROD = pokerodItem(cobblemonResource("ancient_roseate_rod"))
+---
+>     val PARK_ROD = pokerodItem(cobblemonResource("park_rod"))
+1031c1020
+<     val ANCIENT_SLATE_ROD = pokerodItem(cobblemonResource("ancient_slate_rod"))
+---
+>     val PREMIER_ROD = pokerodItem(cobblemonResource("premier_rod"))
+1033c1022
+<     val ANCIENT_IVORY_ROD = pokerodItem(cobblemonResource("ancient_ivory_rod"))
+---
+>     val QUICK_ROD = pokerodItem(cobblemonResource("quick_rod"))
+1035c1024
+<     val ANCIENT_GREAT_ROD = pokerodItem(cobblemonResource("ancient_great_rod"))
+---
+>     val REPEAT_ROD = pokerodItem(cobblemonResource("repeat_rod"))
+1037c1026
+<     val ANCIENT_ULTRA_ROD = pokerodItem(cobblemonResource("ancient_ultra_rod"))
+---
+>     val ROSEATE_ROD = pokerodItem(cobblemonResource("roseate_rod"))
+1039c1028
+<     val ANCIENT_FEATHER_ROD = pokerodItem(cobblemonResource("ancient_feather_rod"))
+---
+>     val SAFARI_ROD = pokerodItem(cobblemonResource("safari_rod"))
+1041c1030
+<     val ANCIENT_WING_ROD = pokerodItem(cobblemonResource("ancient_wing_rod"))
+---
+>     val SLATE_ROD = pokerodItem(cobblemonResource("slate_rod"))
+1043c1032
+<     val ANCIENT_JET_ROD = pokerodItem(cobblemonResource("ancient_jet_rod"))
+---
+>     val SPORT_ROD = pokerodItem(cobblemonResource("sport_rod"))
+1045c1034
+<     val ANCIENT_HEAVY_ROD = pokerodItem(cobblemonResource("ancient_heavy_rod"))
+---
+>     val TIMER_ROD = pokerodItem(cobblemonResource("timer_rod"))
+1047c1036
+<     val ANCIENT_LEADEN_ROD = pokerodItem(cobblemonResource("ancient_leaden_rod"))
+---
+>     val ULTRA_ROD = pokerodItem(cobblemonResource("ultra_rod"))
+1049c1038,1040
+<     val ANCIENT_GIGATON_ROD = pokerodItem(cobblemonResource("ancient_gigaton_rod"))
+---
+>     val VERDANT_ROD = pokerodItem(cobblemonResource("verdant_rod"))
+> 
+> 
+1051c1042,1045
+<     val ANCIENT_ORIGIN_ROD = pokerodItem(cobblemonResource("ancient_origin_rod"))
+---
+>     val AUTOMATON_ARMOR_TRIM_SMITHING_TEMPLATE: SmithingTemplateItem = this.create(
+>         "automaton_armor_trim_smithing_template",
+>         SmithingTemplateItem.of(CobblemonArmorTrims.AUTOMATON)
+>     )
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/Cobblemon.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/Cobblemon.kt
+30d29
+< import com.cobblemon.mod.common.api.net.serializers.UUIDSetDataSerializer
+48a48
+> import com.cobblemon.mod.common.pokemon.properties.BattleCloneProperty
+107d106
+< import com.cobblemon.mod.common.pokemon.properties.AspectPropertyType
+109d107
+< import com.cobblemon.mod.common.pokemon.properties.UnaspectPropertyType
+113d110
+< import com.cobblemon.mod.common.sherds.CobblemonSherds
+128a126
+> import net.minecraft.particle.DefaultParticleType
+129a128
+> import net.minecraft.util.Identifier
+146a146
+> 
+176a177
+>     var wallpapers = mapOf<UUID, List<Identifier>>()
+217a219
+>             it.requestWallpapers()
+241c243
+<                 pokemon.evolutions
+---
+>                 pokemon.lockedEvolutions
+260,261d261
+<         TrackedDataHandlerRegistry.register(IdentifierDataSerializer)
+<         TrackedDataHandlerRegistry.register(UUIDSetDataSerializer)
+295c295
+< 
+---
+>         CustomPokemonProperty.register(BattleCloneProperty)
+299,300d298
+<         CustomPokemonProperty.register(AspectPropertyType)
+<         CustomPokemonProperty.register(UnaspectPropertyType)
+426d423
+<         CobblemonSherds.registerSherds()
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonMechanics.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonMechanics.kt
+13d12
+< import com.cobblemon.mod.common.api.molang.ExpressionLike
+19d17
+< import com.cobblemon.mod.common.util.adapters.ExpressionLikeAdapter
+34d31
+<         .registerTypeAdapter(ExpressionLike::class.java, ExpressionLikeAdapter)
+Only in /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/: CobblemonMemories.kt
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonNetwork.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonNetwork.kt
+16c16
+< import com.cobblemon.mod.common.client.net.animation.PlayPoseableAnimationHandler
+---
+> import com.cobblemon.mod.common.client.net.animation.PlayPosableAnimationHandler
+22a23
+> import com.cobblemon.mod.common.client.net.effect.RunPosableMoLangHandler
+25d25
+< import com.cobblemon.mod.common.client.net.effect.RunPosableMoLangHandler
+30,31d29
+< import com.cobblemon.mod.common.client.net.npc.CloseNPCEditorHandler
+< import com.cobblemon.mod.common.client.net.npc.OpenNPCEditorHandler
+47,52c45
+< import com.cobblemon.mod.common.client.net.storage.pc.ClosePCHandler
+< import com.cobblemon.mod.common.client.net.storage.pc.InitializePCHandler
+< import com.cobblemon.mod.common.client.net.storage.pc.MoveClientPCPokemonHandler
+< import com.cobblemon.mod.common.client.net.storage.pc.OpenPCHandler
+< import com.cobblemon.mod.common.client.net.storage.pc.SetPCBoxPokemonHandler
+< import com.cobblemon.mod.common.client.net.storage.pc.SetPCPokemonHandler
+---
+> import com.cobblemon.mod.common.client.net.storage.pc.*
+67,71c60
+< import com.cobblemon.mod.common.net.messages.client.data.AbilityRegistrySyncPacket
+< import com.cobblemon.mod.common.net.messages.client.data.BerryRegistrySyncPacket
+< import com.cobblemon.mod.common.net.messages.client.data.GlobalSpeciesFeatureSyncPacket
+< import com.cobblemon.mod.common.net.messages.client.data.MovesRegistrySyncPacket
+< import com.cobblemon.mod.common.net.messages.client.data.NPCRegistrySyncPacket
+---
+> import com.cobblemon.mod.common.net.messages.client.data.*
+73,75d61
+< import com.cobblemon.mod.common.net.messages.client.data.SpeciesFeatureAssignmentSyncPacket
+< import com.cobblemon.mod.common.net.messages.client.data.SpeciesRegistrySyncPacket
+< import com.cobblemon.mod.common.net.messages.client.data.StandardSpeciesFeatureSyncPacket
+77d62
+< import com.cobblemon.mod.common.net.messages.client.data.*
+85,86d69
+< import com.cobblemon.mod.common.net.messages.client.npc.CloseNPCEditorPacket
+< import com.cobblemon.mod.common.net.messages.client.npc.OpenNPCEditorPacket
+108,113c91,94
+< import com.cobblemon.mod.common.net.messages.client.storage.pc.ClosePCPacket
+< import com.cobblemon.mod.common.net.messages.client.storage.pc.InitializePCPacket
+< import com.cobblemon.mod.common.net.messages.client.storage.pc.MoveClientPCPokemonPacket
+< import com.cobblemon.mod.common.net.messages.client.storage.pc.OpenPCPacket
+< import com.cobblemon.mod.common.net.messages.client.storage.pc.SetPCBoxPokemonPacket
+< import com.cobblemon.mod.common.net.messages.client.storage.pc.SetPCPokemonPacket
+---
+> import com.cobblemon.mod.common.net.messages.client.storage.pc.*
+> import com.cobblemon.mod.common.net.messages.client.storage.pc.wallpaper.ChangePCBoxWallpaperPacket
+> import com.cobblemon.mod.common.net.messages.client.storage.pc.wallpaper.RequestPCBoxWallpapersPacket
+> import com.cobblemon.mod.common.net.messages.client.storage.pc.wallpaper.SetPCBoxWallpapersPacket
+124,129c105
+< import com.cobblemon.mod.common.net.messages.server.BattleChallengePacket
+< import com.cobblemon.mod.common.net.messages.server.BenchMovePacket
+< import com.cobblemon.mod.common.net.messages.server.RequestMoveSwapPacket
+< import com.cobblemon.mod.common.net.messages.server.RequestPlayerInteractionsPacket
+< import com.cobblemon.mod.common.net.messages.server.SelectStarterPacket
+< import com.cobblemon.mod.common.net.messages.server.SendOutPokemonPacket
+---
+> import com.cobblemon.mod.common.net.messages.server.*
+141d116
+< import com.cobblemon.mod.common.net.messages.server.npc.SaveNPCPacket
+153,158c128
+< import com.cobblemon.mod.common.net.messages.server.storage.pc.MovePCPokemonPacket
+< import com.cobblemon.mod.common.net.messages.server.storage.pc.MovePCPokemonToPartyPacket
+< import com.cobblemon.mod.common.net.messages.server.storage.pc.MovePartyPokemonToPCPacket
+< import com.cobblemon.mod.common.net.messages.server.storage.pc.ReleasePCPokemonPacket
+< import com.cobblemon.mod.common.net.messages.server.storage.pc.SwapPCPokemonPacket
+< import com.cobblemon.mod.common.net.messages.server.storage.pc.UnlinkPlayerFromPCPacket
+---
+> import com.cobblemon.mod.common.net.messages.server.storage.pc.*
+178d147
+< import com.cobblemon.mod.common.net.serverhandling.npc.SaveNPCHandler
+193,198c162
+< import com.cobblemon.mod.common.net.serverhandling.storage.pc.MovePCPokemonHandler
+< import com.cobblemon.mod.common.net.serverhandling.storage.pc.MovePCPokemonToPartyHandler
+< import com.cobblemon.mod.common.net.serverhandling.storage.pc.MovePartyPokemonToPCHandler
+< import com.cobblemon.mod.common.net.serverhandling.storage.pc.ReleasePartyPokemonHandler
+< import com.cobblemon.mod.common.net.serverhandling.storage.pc.SwapPCPokemonHandler
+< import com.cobblemon.mod.common.net.serverhandling.storage.pc.UnlinkPlayerFromPCHandler
+---
+> import com.cobblemon.mod.common.net.serverhandling.storage.pc.*
+205d168
+< import kotlin.reflect.KClass
+210a174
+> import kotlin.reflect.KClass
+250a215
+>         this.createClientBound(FormUpdatePacket.ID, FormUpdatePacket::decode, PokemonUpdatePacketHandler())
+270a236,240
+>         this.createClientBound(RenamePCBoxPacket.ID, RenamePCBoxPacket::decode, RenamePCBoxHandler)
+>         this.createClientBound(RequestPCBoxWallpapersPacket.ID, RequestPCBoxWallpapersPacket::decode, RequestPCBoxWallpapersHandler)
+>         this.createClientBound(SetPCBoxWallpapersPacket.ID, SetPCBoxWallpapersPacket::decode, SetPCBoxWallpapersHandler)
+>         this.createClientBound(ChangePCBoxWallpaperPacket.ID, ChangePCBoxWallpaperPacket::decode, ChangePCBoxWallpaperHandler)
+> 
+306,307d275
+< 
+< 
+316d283
+<         this.createClientBound(NPCRegistrySyncPacket.ID, NPCRegistrySyncPacket::decode, DataRegistrySyncPacketHandler())
+354c321
+<         this.createClientBound(PlayPoseableAnimationPacket.ID, PlayPoseableAnimationPacket::decode, PlayPoseableAnimationHandler)
+---
+>         this.createClientBound(PlayPoseableAnimationPacket.ID, PlayPoseableAnimationPacket::decode, PlayPosableAnimationHandler)
+368,371d334
+< 
+<         // NPCs
+<         this.createClientBound(CloseNPCEditorPacket.ID, CloseNPCEditorPacket::decode, CloseNPCEditorHandler)
+<         this.createClientBound(OpenNPCEditorPacket.ID, OpenNPCEditorPacket::decode, OpenNPCEditorHandler)
+396a360,363
+>         this.createServerBound(RequestRenamePCBoxPacket.ID, RequestRenamePCBoxPacket::decode, RequestRenamePCBoxHandler)
+>         this.createServerBound(PCBoxWallpapersPacket.ID, PCBoxWallpapersPacket::decode, PCBoxWallpapersHandler)
+>         this.createServerBound(RequestChangePCBoxWallpaperPacket.ID, RequestChangePCBoxWallpaperPacket::decode, RequestChangePCBoxWallpaperHandler)
+> 
+408a376,377
+>         this.createServerBound(SortPCBoxPacket.ID, SortPCBoxPacket::decode, SortPCBoxHandler)
+> 
+441,443d409
+< 
+<         // NPC packets
+<         this.createServerBound(SaveNPCPacket.ID, SaveNPCPacket::decode, SaveNPCHandler)
+Only in /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/: CobblemonSensors.kt
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonSounds.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonSounds.kt
+27a28,29
+>     @JvmField
+>     val GUI_TRADE = this.create("gui.trade")
+43,50c45
+<     val HEALING_MACHINE_ACTIVE = this.create("healing_machine.active")
+< 
+<     @JvmField
+<     val POKE_BALL_CAPTURE_STARTED = this.create("poke_ball.capture_started")
+<     @JvmField
+<     val POKE_BALL_CAPTURE_SUCCEEDED = this.create("poke_ball.capture_succeeded")
+<     @JvmField
+<     val POKE_BALL_SHAKE = this.create("poke_ball.shake")
+---
+>     val VILLAGER_WORK_NURSE = this.create("entity.villager.work_nurse")
+52c47,48
+<     val POKE_BALL_OPEN = this.create("poke_ball.open")
+---
+>     val HEALING_MACHINE_ACTIVE = this.create("block.healing_machine.active")
+> 
+63c59,69
+< 
+---
+>     //Capture succeeded and ball shake are required to not break PokeNav compat
+>     @JvmField
+>     val POKE_BALL_CAPTURE_SUCCEEDED = this.create("poke_ball.capture_succeeded")
+>     @JvmField
+>     val POKE_BALL_SHAKE = this.create("poke_ball.shake")
+>     @JvmField
+>     val POKE_BALL_SHINY_OPEN = this.create("poke_ball.shiny_open")
+>     @JvmField
+>     val POKE_BALL_SHINY_SEND_OUT = this.create("poke_ball.shiny_send_out")
+>     @JvmField
+>     val POKE_BALL_OPEN = this.create("poke_ball.open")
+67c73
+<     val CAN_EVOLVE = this.create("pokemon.can_evolve")
+---
+>     val CAN_EVOLVE = this.create("evolution.notification")
+69c75
+<     val EVOLVING = this.create("pokemon.evolving")
+---
+>     val EVOLVING = this.create("evolution.full")
+71c77
+<     val EVOLVE = this.create("evolution.evolve")
+---
+>     val EVOLUTION_UI = this.create("evolution.ui")
+81c87,90
+<     val MEDICINE_HERB_USE = this.create("medicine_herb.use")
+---
+>     val MEDICINE_CANDY_USE = this.create("item.medicine.candy.use")
+> 
+>     @JvmField
+>     val MEDICINE_HERB_USE = this.create("item.medicine.herb.use")
+83c92
+<     val MEDICINE_LIQUID_USE = this.create("medicine_liquid.use")
+---
+>     val MEDICINE_LIQUID_USE = this.create("item.medicine.liquid.use")
+85c94
+<     val MEDICINE_PILLS_USE = this.create("medicine_pills.use")
+---
+>     val MEDICINE_PILLS_USE = this.create("item.medicine.pills.use")
+87c96
+<     val MEDICINE_SPRAY_USE = this.create("medicine_spray.use")
+---
+>     val MEDICINE_SPRAY_USE = this.create("item.medicine.spray.use")
+89c98
+<     val MEDICINE_FEATHER_USE = this.create("medicine_feather.use")
+---
+>     val MEDICINE_FEATHER_USE = this.create("item.medicine.feather.use")
+92c101
+<     val BERRY_HARVEST = this.create("berry.harvest")
+---
+>     val MULCH_PLACE = this.create("block.mulch.place")
+94c103,104
+<     val BERRY_EAT = this.create("berry.eat")
+---
+>     val MULCH_REMOVE = this.create("block.mulch.remove")
+> 
+97c107
+<     val MULCH_PLACE = this.create("mulch.place")
+---
+>     val FOSSIL_MACHINE_ACTIVATE = this.create("block.fossil_machine.activate")
+99,100c109,111
+<     val MULCH_REMOVE = this.create("mulch.remove")
+< 
+---
+>     val FOSSIL_MACHINE_ACTIVE_LOOP = this.create("block.fossil_machine.active_loop")
+>     @JvmField
+>     val FOSSIL_MACHINE_ASSEMBLE = this.create("block.fossil_machine.assemble")
+102c113
+<     val FOSSIL_MACHINE_ACTIVATE = this.create("fossil_machine.activate")
+---
+>     val FOSSIL_MACHINE_DNA_FULL = this.create("block.fossil_machine.dna_full")
+104c115
+<     val FOSSIL_MACHINE_ACTIVE_LOOP = this.create("fossil_machine.active_loop")
+---
+>     val FOSSIL_MACHINE_FINISHED = this.create("block.fossil_machine.finished")
+106c117
+<     val FOSSIL_MACHINE_ASSEMBLE = this.create("fossil_machine.assemble")
+---
+>     val FOSSIL_MACHINE_INSERT_DNA = this.create("block.fossil_machine.insert_dna")
+108c119
+<     val FOSSIL_MACHINE_DNA_FULL = this.create("fossil_machine.dna_full")
+---
+>     val FOSSIL_MACHINE_INSERT_DNA_SMALL = this.create("block.fossil_machine.insert_dna_small")
+110c121
+<     val FOSSIL_MACHINE_FINISHED = this.create("fossil_machine.finished")
+---
+>     val FOSSIL_MACHINE_INSERT_FOSSIL = this.create("block.fossil_machine.insert_fossil")
+112c123
+<     val FOSSIL_MACHINE_INSERT_DNA = this.create("fossil_machine.insert_dna")
+---
+>     val FOSSIL_MACHINE_RETRIEVE_FOSSIL = this.create("block.fossil_machine.retrieve_fossil")
+114c125
+<     val FOSSIL_MACHINE_INSERT_DNA_SMALL = this.create("fossil_machine.insert_dna_small")
+---
+>     val FOSSIL_MACHINE_RETRIEVE_POKEMON = this.create("block.fossil_machine.retrieve_pokemon")
+116c127,134
+<     val FOSSIL_MACHINE_INSERT_FOSSIL = this.create("fossil_machine.insert_fossil")
+---
+>     val FOSSIL_MACHINE_UNPROTECTED = this.create("block.fossil_machine.unprotected")
+> 
+>     @JvmField
+>     val FISHING_NOTIFICATION = this.create("fishing.notification")
+>     @JvmField
+>     val FISHING_SPLASH_BIG = this.create("fishing.splash_big")
+>     @JvmField
+>     val FISHING_SPLASH_SMALL = this.create("fishing.splash_small")
+118c136
+<     val FOSSIL_MACHINE_RETRIEVE_FOSSIL = this.create("fossil_machine.retrieve_fossil")
+---
+>     val FISHING_BOBBER_LAND = this.create("fishing.bobber_land")
+120c138
+<     val FOSSIL_MACHINE_RETRIEVE_POKEMON = this.create("fossil_machine.retrieve_pokemon")
+---
+>     val FISHING_ROD_CAST = this.create("fishing.rod_cast")
+122c140
+<     val FOSSIL_MACHINE_UNPROTECTED = this.create("fossil_machine.unprotected")
+---
+>     val FISHING_ROD_REEL_IN = this.create("fishing.rod_reel_in")
+125c143
+<     val RELIC_COIN_SACK_BREAK = this.create("relic_coin_sack.break")
+---
+>     val RELIC_COIN_SACK_BREAK = this.create("block.relic_coin_sack.break")
+127c145
+<     val RELIC_COIN_SACK_HIT = this.create("relic_coin_sack.hit")
+---
+>     val RELIC_COIN_SACK_HIT = this.create("block.relic_coin_sack.hit")
+129c147
+<     val RELIC_COIN_SACK_STEP = this.create("relic_coin_sack.step")
+---
+>     val RELIC_COIN_SACK_STEP = this.create("block.relic_coin_sack.step")
+131c149
+<     val RELIC_COIN_SACK_PLACE = this.create("relic_coin_sack.place")
+---
+>     val RELIC_COIN_SACK_PLACE = this.create("block.relic_coin_sack.place")
+133c151
+<     val RELIC_COIN_POUCH_BREAK = this.create("relic_coin_pouch.break")
+---
+>     val RELIC_COIN_POUCH_BREAK = this.create("block.relic_coin_pouch.break")
+135c153
+<     val RELIC_COIN_POUCH_PLACE = this.create("relic_coin_pouch.place")
+---
+>     val RELIC_COIN_POUCH_PLACE = this.create("block.relic_coin_pouch.place")
+138c156
+<     val FISHING_NOTIFICATION = this.create("fishing.notification")
+---
+>     val TUMBLESTONE_BREAK = this.create("block.tumblestone.break")
+140c158
+<     val FISHING_SPLASH_BIG = this.create("fishing.splash_big")
+---
+>     val TUMBLESTONE_BLOCK_BREAK = this.create("block.tumblestone.block_break")
+142c160
+<     val FISHING_SPLASH_SMALL = this.create("fishing.splash_small")
+---
+>     val TUMBLESTONE_HIT = this.create("block.tumblestone.hit")
+144c162
+<     val FISHING_BOBBER_LAND = this.create("fishing.bobber_land")
+---
+>     val TUMBLESTONE_PLACE = this.create("block.tumblestone.place")
+146c164,165
+<     val TUMBLESTONE_BREAK = this.create("tumblestone.break")
+---
+>     val TUMBLESTONE_STEP = this.create("block.tumblestone.step")
+> 
+148c167
+<     val TUMBLESTONE_BLOCK_BREAK = this.create("tumblestone.block_break")
+---
+>     val EVOLUTION_STONE_BLOCK_BREAK = this.create("block.evolution_stone_block.break")
+150c169
+<     val TUMBLESTONE_HIT = this.create("tumblestone.hit")
+---
+>     val EVOLUTION_STONE_BLOCK_HIT = this.create("block.evolution_stone_block.hit")
+152c171
+<     val TUMBLESTONE_PLACE = this.create("tumblestone.place")
+---
+>     val EVOLUTION_STONE_BLOCK_PLACE = this.create("block.evolution_stone_block.place")
+154c173
+<     val TUMBLESTONE_STEP = this.create("tumblestone.step")
+---
+>     val EVOLUTION_STONE_BLOCK_STEP = this.create("block.evolution_stone_block.step")
+157c176
+<     val GIMMIGHOUL_GIVE_ITEM_SMALL = this.create("gimmighoul.give_item_small")
+---
+>     val GIMMIGHOUL_GIVE_ITEM = this.create("pokemon.gimmighoul.give_item")
+159c178
+<     val GIMMIGHOUL_REVEAL = this.create("gimmighoul.reveal")
+---
+>     val GIMMIGHOUL_REVEAL = this.create("pokemon.gimmighoul.reveal")
+162c181,185
+<     val BERRY_BUSH_BREAK = this.create("berry_bush.break")
+---
+>     val BERRY_BUSH_BREAK = this.create("block.berry_bush.break")
+>     @JvmField
+>     val BERRY_BUSH_PLACE = this.create("block.berry_bush.place")
+>     @JvmField
+>     val BERRY_HARVEST = this.create("block.berry_bush.harvest")
+164c187
+<     val BERRY_BUSH_PLACE = this.create("berry_bush.place")
+---
+>     val BERRY_EAT = this.create("item.berry.eat")
+167c190
+<     val BIG_ROOT_BREAK = this.create("big_root.break")
+---
+>     val BIG_ROOT_BREAK = this.create("block.big_root.break")
+169c192
+<     val ENERGY_ROOT_PLACE = this.create("energy_root.place")
+---
+>     val ENERGY_ROOT_PLACE = this.create("block.energy_root.place")
+172c195
+<     val VIVICHOKE_BREAK = this.create("vivichoke.break")
+---
+>     val VIVICHOKE_BREAK = this.create("block.vivichoke.break")
+174c197
+<     val VIVICHOKE_PLACE = this.create("vivichoke.place")
+---
+>     val VIVICHOKE_PLACE = this.create("block.vivichoke.place")
+177c200
+<     val MINT_BREAK = this.create("mint.break")
+---
+>     val MINT_BREAK = this.create("block.mint.break")
+179c202
+<     val MINT_PLACE = this.create("mint.place")
+---
+>     val MINT_PLACE = this.create("block.mint.place")
+182c205
+<     val REVIVAL_HERB_BREAK = this.create("revival_herb.break")
+---
+>     val REVIVAL_HERB_BREAK = this.create("block.revival_herb.break")
+184c207
+<     val REVIVAL_HERB_PLACE = this.create("revival_herb.place")
+---
+>     val REVIVAL_HERB_PLACE = this.create("block.revival_herb.place")
+187c210
+<     val MEDICINAL_LEEK_BREAK = this.create("medicinal_leek.break")
+---
+>     val MEDICINAL_LEEK_BREAK = this.create("block.medicinal_leek.break")
+189c212
+<     val MEDICINAL_LEEK_PLACE = this.create("medicinal_leek.plant")
+---
+>     val MEDICINAL_LEEK_PLACE = this.create("block.medicinal_leek.plant")
+192c215
+<     val GILDED_CHEST_OPEN = this.create("gilded_chest.open")
+---
+>     val GILDED_CHEST_OPEN = this.create("block.gilded_chest.open")
+194c217
+<     val GILDED_CHEST_CLOSE = this.create("gilded_chest.close")
+---
+>     val GILDED_CHEST_CLOSE = this.create("block.gilded_chest.close")
+196c219
+<     val GILDED_CHEST_STEP = this.create("gilded_chest.step")
+---
+>     val GILDED_CHEST_STEP = this.create("block.gilded_chest.step")
+198c221
+<     val GILDED_CHEST_HIT = this.create("gilded_chest.hit")
+---
+>     val GILDED_CHEST_HIT = this.create("block.gilded_chest.hit")
+200c223
+<     val GILDED_CHEST_BREAK = this.create("gilded_chest.break")
+---
+>     val GILDED_CHEST_BREAK = this.create("block.gilded_chest.break")
+202c225,226
+<     val GILDED_CHEST_PLACE = this.create("gilded_chest.place")
+---
+>     val GILDED_CHEST_PLACE = this.create("block.gilded_chest.place")
+> 
+221a246,252
+>     val MOVE_QUICKATTACK_TARGET = this.create("move.quickattack.target")
+>     @JvmField
+>     val MOVE_PURSUIT_TARGET = this.create("move.pursuit.target")
+>     @JvmField
+>     val MOVE_PSYCHIC_TARGET = this.create("move.psychic.target")
+> 
+>     @JvmField
+276a308,316
+>     val EVOLUTION_STONE_BLOCK_SOUNDS = BlockSoundGroup(1f, 1.1f,
+>         EVOLUTION_STONE_BLOCK_BREAK,
+>         EVOLUTION_STONE_BLOCK_STEP,
+>         EVOLUTION_STONE_BLOCK_PLACE,
+>         EVOLUTION_STONE_BLOCK_HIT,
+>         EVOLUTION_STONE_BLOCK_STEP
+>     )
+> 
+>     @JvmField
+349c389
+<     val DISPLAY_CASE_ADD_ITEM = this.create("display_case.add_item")
+---
+>     val DISPLAY_CASE_ADD_ITEM = this.create("block.display_case.add_item")
+351c391
+<     val DISPLAY_CASE_REMOVE_ITEM = this.create("display_case.remove_item")
+---
+>     val DISPLAY_CASE_REMOVE_ITEM = this.create("block.display_case.remove_item")
+353c393
+<     val DISPLAY_CASE_BREAK = this.create("display_case.break")
+---
+>     val DISPLAY_CASE_BREAK = this.create("block.display_case.break")
+355c395
+<     val DISPLAY_CASE_HIT = this.create("display_case.hit")
+---
+>     val DISPLAY_CASE_HIT = this.create("block.display_case.hit")
+357c397
+<     val DISPLAY_CASE_PLACE = this.create("display_case.place")
+---
+>     val DISPLAY_CASE_PLACE = this.create("block.display_case.place")
+359c399
+<     val DISPLAY_CASE_STEP = this.create("display_case.step")
+---
+>     val DISPLAY_CASE_STEP = this.create("block.display_case.step")
+diff /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonTradeOffers.kt /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/CobblemonTradeOffers.kt
+35,42c35
+<         VillagerProfession.FARMER -> listOf(
+<             VillagerTradeOffer(VillagerProfession.FARMER, 3, listOf(TradeOffers.SellItemFactory(CobblemonItems.VIVICHOKE_SEEDS, 24, 1, 1, 6)))
+<         )
+<         VillagerProfession.FISHERMAN -> listOf(
+<             VillagerTradeOffer(VillagerProfession.FISHERMAN, 5, listOf(
+<                 TradeOffers.SellItemFactory(CobblemonItems.POKEROD_SMITHING_TEMPLATE, 12, 3, 30)
+<             ))
+<         )
+---
+>         VillagerProfession.FARMER -> listOf(VillagerTradeOffer(VillagerProfession.FARMER, 3, listOf(TradeOffers.SellItemFactory(CobblemonItems.VIVICHOKE_SEEDS, 24, 1, 1, 6))))
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/command and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/command
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/config and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/config
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/data and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/data
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/entity and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/entity
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/events and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/events
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/exception and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/exception
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/integration and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/integration
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/item and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/item
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/loot and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/loot
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/mechanics and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/mechanics
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/net and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/net
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/particle and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/particle
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/permission and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/permission
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/platform and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/platform
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/pokeball and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/pokeball
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/pokemon and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/pokemon
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/registry and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/registry
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/sherds and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/sherds
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/starter and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/starter
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/trade and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/trade
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/util and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/util
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/villager and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/villager
+Common subdirectories: /home/nurufu/repo/cobblemon/common/src/main/kotlin/com/cobblemon/mod/common/world and /home/nurufu/repo/cobblemon-custom/common/src/main/kotlin/com/cobblemon/mod/common/world

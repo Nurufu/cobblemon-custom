@@ -11,12 +11,16 @@ package com.cobblemon.mod.common.api.spawning.condition
 import com.cobblemon.mod.common.api.conditional.RegistryLikeCondition
 import com.cobblemon.mod.common.api.spawning.MoonPhaseRange
 import com.cobblemon.mod.common.api.spawning.TimeRange
+import com.cobblemon.mod.common.api.spawning.context.FishingSpawningContext
 import com.cobblemon.mod.common.api.spawning.context.SpawningContext
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail
+import com.cobblemon.mod.common.item.interactive.PokerodItem
 import com.cobblemon.mod.common.util.Merger
 import com.cobblemon.mod.common.util.math.orMax
 import com.cobblemon.mod.common.util.math.orMin
 import com.mojang.datafixers.util.Either
+import net.minecraft.enchantment.EnchantmentHelper
+import net.minecraft.registry.Registries
 import net.minecraft.registry.tag.TagKey
 import net.minecraft.util.Identifier
 import net.minecraft.world.biome.Biome
@@ -56,6 +60,10 @@ abstract class SpawningCondition<T : SpawningContext> {
     var isThundering: Boolean? = null
     var timeRange: TimeRange? = null
     var structures: MutableList<Either<Identifier, TagKey<Structure>>>? = null
+    var minLureLevel: Int? = null
+    var maxLureLevel: Int? = null
+    var bait: Identifier? = null
+    var rodType: Identifier? = null
 
     @Transient
     var appendages = mutableListOf<AppendageCondition>()
@@ -108,9 +116,25 @@ abstract class SpawningCondition<T : SpawningContext> {
             }
         ) {
             return false
-        }
+        } else if (minLureLevel != null && ctx is FishingSpawningContext) { // check for the lureLevel of the rod
+            val pokerodStack = (ctx as FishingSpawningContext).rodStack
 
-        return true
+            if (EnchantmentHelper.getLure(pokerodStack) < minLureLevel!!)
+                return false
+            if (maxLureLevel != null && EnchantmentHelper.getLure(pokerodStack) > maxLureLevel!!)
+                return false
+        } else if (bait != null && ctx is FishingSpawningContext) { // check for the bait on the bobber
+            val pokerodBait = (ctx as FishingSpawningContext).rodBait?.item
+            if(pokerodBait != bait){
+                return false
+            }
+        } else if (rodType != null && ctx is FishingSpawningContext) { // check for the type of pokerod being used
+            val pokerodItem = (ctx as FishingSpawningContext).rodItem
+
+            if (pokerodItem?.pokeRodId != rodType)
+                return false
+        }
+            return true
     }
 
     open fun copyFrom(other: SpawningCondition<*>, merger: Merger) {

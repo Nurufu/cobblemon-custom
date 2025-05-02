@@ -16,8 +16,11 @@ import com.cobblemon.mod.common.CobblemonBlocks
 import com.cobblemon.mod.common.CobblemonClientImplementation
 import com.cobblemon.mod.common.CobblemonEntities
 import com.cobblemon.mod.common.CobblemonItems
+import com.cobblemon.mod.common.api.fishing.FishingBaits
 import com.cobblemon.mod.common.api.scheduling.ClientTaskTracker
+import com.cobblemon.mod.common.api.text.blue
 import com.cobblemon.mod.common.api.text.gray
+import com.cobblemon.mod.common.api.types.ElementalTypes
 import com.cobblemon.mod.common.client.battle.ClientBattle
 import com.cobblemon.mod.common.client.gui.PartyOverlay
 import com.cobblemon.mod.common.client.gui.battle.BattleOverlay
@@ -29,6 +32,7 @@ import com.cobblemon.mod.common.client.render.block.GildedChestBlockRenderer
 import com.cobblemon.mod.common.client.render.block.HealingMachineRenderer
 import com.cobblemon.mod.common.client.render.block.*
 import com.cobblemon.mod.common.client.render.boat.CobblemonBoatRenderer
+import com.cobblemon.mod.common.client.render.entity.PokeBobberEntityRenderer
 import com.cobblemon.mod.common.client.render.generic.GenericBedrockRenderer
 import com.cobblemon.mod.common.client.render.item.CobblemonBuiltinItemRendererRegistry
 import com.cobblemon.mod.common.client.render.item.PokemonItemRenderer
@@ -50,13 +54,20 @@ import com.cobblemon.mod.common.item.PokeBallItem
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.FossilModelRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.GenericBedrockEntityModelRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.MiscModelRepository
+import com.cobblemon.mod.common.client.tooltips.CobblemonTooltipGenerator
+import com.cobblemon.mod.common.client.tooltips.FishingBaitTooltipGenerator
+import com.cobblemon.mod.common.client.tooltips.FishingRodTooltipGenerator
+import com.cobblemon.mod.common.client.tooltips.TooltipManager
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.platform.events.PlatformEvents
+import com.cobblemon.mod.common.pokemon.Gender
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.util.DataKeys
 import com.cobblemon.mod.common.util.asTranslated
 import com.cobblemon.mod.common.util.isLookingAt
+import com.cobblemon.mod.common.util.lang
 import net.minecraft.client.gui.DrawContext
+import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.render.RenderLayer
 import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer
@@ -68,8 +79,11 @@ import net.minecraft.client.render.entity.model.PlayerEntityModel
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.resource.ResourceManager
+import net.minecraft.text.Text
 import net.minecraft.util.Language
 import net.minecraft.util.math.Box
+import java.math.BigDecimal
+import java.text.DecimalFormat
 
 object CobblemonClient {
 
@@ -85,6 +99,8 @@ object CobblemonClient {
 
     val overlay: PartyOverlay by lazy { PartyOverlay() }
     val battleOverlay: BattleOverlay by lazy { BattleOverlay() }
+
+    private val fishingBaitHeader by lazy { lang("fishing_bait_effect_header").blue() }
 
     fun onLogin() {
         clientPlayerData = ClientPlayerData()
@@ -117,6 +133,7 @@ object CobblemonClient {
         Berries.observable.subscribe {
             BerryModelRepository.patchModels()
         }
+        this.registerTooltipManagers()
 
         LOGGER.info("Registering custom BuiltinItemRenderers")
         CobblemonBuiltinItemRendererRegistry.register(CobblemonItems.POKEMON_MODEL, PokemonItemRenderer())
@@ -124,24 +141,7 @@ object CobblemonClient {
         PlatformEvents.CLIENT_ITEM_TOOLTIP.subscribe { event ->
             val stack = event.stack
             val lines = event.lines
-            @Suppress("DEPRECATION")
-            if (stack.item.registryEntry.key.isPresent && stack.item.registryEntry.key.get().value.namespace == Cobblemon.MODID) {
-                if (stack.nbt?.getBoolean(DataKeys.HIDE_TOOLTIP) == true) {
-                    return@subscribe
-                }
-                val language = Language.getInstance()
-                val key = this.baseLangKeyForItem(stack)
-                val offset = if (lines.size > 1) 1 else 0
-                if (language.hasTranslation(key)) {
-                    lines.add(lines.size - offset, key.asTranslated().gray())
-                }
-                var i = 1
-                var listKey = "${key}_$i"
-                while(language.hasTranslation(listKey)) {
-                    lines.add(lines.size - offset, listKey.asTranslated().gray())
-                    listKey = "${key}_${++i}"
-                }
-            }
+            TooltipManager.generateTooltips(stack, lines, Screen.hasShiftDown())
         }
         PlatformEvents.CLIENT_TICK_POST.subscribe { event ->
             val player = event.client.player
@@ -151,6 +151,12 @@ object CobblemonClient {
                         it.delegate.spawnShinyParticle(player!!)
                 }
         }
+    }
+
+    private fun registerTooltipManagers() {
+        TooltipManager.registerTooltipGenerator(CobblemonTooltipGenerator)
+        TooltipManager.registerTooltipGenerator(FishingBaitTooltipGenerator)
+        TooltipManager.registerTooltipGenerator(FishingRodTooltipGenerator)
     }
 
     fun registerFlywheelRenderers() {
@@ -278,6 +284,8 @@ object CobblemonClient {
         this.implementation.registerEntityRenderer(CobblemonEntities.CHEST_BOAT) { ctx -> CobblemonBoatRenderer(ctx, true) }
         LOGGER.info("Registering Generic Bedrock Entity renderer")
         this.implementation.registerEntityRenderer(CobblemonEntities.GENERIC_BEDROCK_ENTITY, ::GenericBedrockRenderer)
+        LOGGER.info("Registering PokeRod Bobber renderer")
+        this.implementation.registerEntityRenderer(CobblemonEntities.POKE_BOBBER) { ctx -> PokeBobberEntityRenderer(ctx) }
     }
 
     fun reloadCodedAssets(resourceManager: ResourceManager) {

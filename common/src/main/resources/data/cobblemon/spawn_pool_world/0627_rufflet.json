@@ -8,38 +8,44 @@
             "pokemon": "rufflet",
             "presets": [
                 "natural",
-                "treetop"
+                "treetop",
+                "wild"
             ],
             "type": "pokemon",
             "context": "grounded",
             "bucket": "common",
-            "level": "7-35",
-            "weight": 2.0,
+            "level": "10-35",
+            "weight": 1.8,
             "condition": {
                 "minSkyLight": 8,
                 "maxSkyLight": 15,
                 "biomes": [
-                    "#cobblemon:is_forest"
-                ]
-            },
-            "anticondition": {
-                "biomes": [
-                    "#cobblemon:is_freezing"
-                ]
+                    "#cobblemon:is_badlands",
+                    "#cobblemon:is_hills"
+                ],
+                "timeRange": "day"
             }
         },
         {
             "id": "rufflet-2",
             "pokemon": "rufflet",
+            "presets": [
+                "natural",
+                "treetop",
+                "wild"
+            ],
             "type": "pokemon",
             "context": "grounded",
             "bucket": "common",
-            "level": "15-40",
-            "weight": 2.0,
+            "level": "10-35",
+            "weight": 9.0,
             "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
                 "biomes": [
-                    "#minecraft:is_savanna"
-                ]
+                    "#cobblemon:is_sky"
+                ],
+                "timeRange": "day"
             }
         }
     ]

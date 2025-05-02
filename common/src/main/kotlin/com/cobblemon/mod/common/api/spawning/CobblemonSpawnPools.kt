@@ -24,8 +24,11 @@ import com.cobblemon.mod.common.data.CobblemonDataProvider
 object CobblemonSpawnPools {
     /** [SpawnPool] used for standard world spawning. */
     lateinit var WORLD_SPAWN_POOL: SpawnPool
+    /** [SpawnPool] used for fishing. */
+    lateinit var FISHING_SPAWN_POOL: SpawnPool
 
     fun load() {
         WORLD_SPAWN_POOL = CobblemonDataProvider.register(SpawnPool("world").addPrecalculators(ContextPrecalculation, BucketPrecalculation))
+        FISHING_SPAWN_POOL = CobblemonDataProvider.register(SpawnPool("fishing").addPrecalculators(ContextPrecalculation, BucketPrecalculation))
     }
 }

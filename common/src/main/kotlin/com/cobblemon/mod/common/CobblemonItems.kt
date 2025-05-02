@@ -47,6 +47,10 @@ import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
 import net.minecraft.util.Identifier
 import net.minecraft.world.World
+import net.minecraft.text.Text
+import com.cobblemon.mod.common.api.text.blue
+import com.cobblemon.mod.common.api.text.gray
+
 
 @Suppress("unused")
 object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<Item>>, Item>() {
@@ -957,6 +961,115 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     val BLACK_TUMBLESTONE_BLOCK = blockItem("black_tumblestone_block", CobblemonBlocks.BLACK_TUMBLESTONE_BLOCK)
 
     @JvmField
+    val POKEROD_SMITHING_TEMPLATE = create("pokerod_smithing_template", SmithingTemplateItem(
+        Text.translatable("item.minecraft.fishing_rod").blue(),
+        Text.translatable("item.cobblemon.smithing_template.pokerod.ingredients").blue(),
+        Text.translatable("upgrade.cobblemon.pokerod").gray(),
+        Text.translatable("item.cobblemon.smithing_template.pokerod.base_slot_description"),
+        Text.translatable("item.cobblemon.smithing_template.pokerod.additions_slot_description"),
+        listOf(cobblemonResource("item/empty_slot_fishing_rod")),
+        listOf(cobblemonResource("item/empty_slot_pokeball"))
+    ))
+
+    val pokeRods = mutableListOf<PokerodItem>()
+    @JvmField
+    val POKE_ROD = pokerodItem(cobblemonResource("poke_rod"))
+    @JvmField
+    val GREAT_ROD = pokerodItem(cobblemonResource("great_rod"))
+    @JvmField
+    val BEAST_ROD = pokerodItem(cobblemonResource("beast_rod"))
+    @JvmField
+    val AZURE_ROD = pokerodItem(cobblemonResource("azure_rod"))
+    @JvmField
+    val CHERISH_ROD = pokerodItem(cobblemonResource("cherish_rod"))
+    @JvmField
+    val CITRINE_ROD = pokerodItem(cobblemonResource("citrine_rod"))
+    @JvmField
+    val DIVE_ROD = pokerodItem(cobblemonResource("dive_rod"))
+    @JvmField
+    val DREAM_ROD = pokerodItem(cobblemonResource("dream_rod"))
+    @JvmField
+    val DUSK_ROD = pokerodItem(cobblemonResource("dusk_rod"))
+    @JvmField
+    val FAST_ROD = pokerodItem(cobblemonResource("fast_rod"))
+    @JvmField
+    val FRIEND_ROD = pokerodItem(cobblemonResource("friend_rod"))
+    @JvmField
+    val HEAL_ROD = pokerodItem(cobblemonResource("heal_rod"))
+    @JvmField
+    val HEAVY_ROD = pokerodItem(cobblemonResource("heavy_rod"))
+    @JvmField
+    val LEVEL_ROD = pokerodItem(cobblemonResource("level_rod"))
+    @JvmField
+    val LOVE_ROD = pokerodItem(cobblemonResource("love_rod"))
+    @JvmField
+    val LURE_ROD = pokerodItem(cobblemonResource("lure_rod"))
+    @JvmField
+    val LUXURY_ROD = pokerodItem(cobblemonResource("luxury_rod"))
+    @JvmField
+    val MASTER_ROD = pokerodItem(cobblemonResource("master_rod"))
+    @JvmField
+    val MOON_ROD = pokerodItem(cobblemonResource("moon_rod"))
+    @JvmField
+    val NEST_ROD = pokerodItem(cobblemonResource("nest_rod"))
+    @JvmField
+    val NET_ROD = pokerodItem(cobblemonResource("net_rod"))
+    @JvmField
+    val PARK_ROD = pokerodItem(cobblemonResource("park_rod"))
+    @JvmField
+    val PREMIER_ROD = pokerodItem(cobblemonResource("premier_rod"))
+    @JvmField
+    val QUICK_ROD = pokerodItem(cobblemonResource("quick_rod"))
+    @JvmField
+    val REPEAT_ROD = pokerodItem(cobblemonResource("repeat_rod"))
+    @JvmField
+    val ROSEATE_ROD = pokerodItem(cobblemonResource("roseate_rod"))
+    @JvmField
+    val SAFARI_ROD = pokerodItem(cobblemonResource("safari_rod"))
+    @JvmField
+    val SLATE_ROD = pokerodItem(cobblemonResource("slate_rod"))
+    @JvmField
+    val SPORT_ROD = pokerodItem(cobblemonResource("sport_rod"))
+    @JvmField
+    val TIMER_ROD = pokerodItem(cobblemonResource("timer_rod"))
+    @JvmField
+    val ULTRA_ROD = pokerodItem(cobblemonResource("ultra_rod"))
+    @JvmField
+    val VERDANT_ROD = pokerodItem(cobblemonResource("verdant_rod"))
+    @JvmField
+    val ANCIENT_POKE_ROD = pokerodItem(cobblemonResource("ancient_poke_rod"))
+    @JvmField
+    val ANCIENT_CITRINE_ROD = pokerodItem(cobblemonResource("ancient_citrine_rod"))
+    @JvmField
+    val ANCIENT_VERDANT_ROD = pokerodItem(cobblemonResource("ancient_verdant_rod"))
+    @JvmField
+    val ANCIENT_AZURE_ROD = pokerodItem(cobblemonResource("ancient_azure_rod"))
+    @JvmField
+    val ANCIENT_ROSEATE_ROD = pokerodItem(cobblemonResource("ancient_roseate_rod"))
+    @JvmField
+    val ANCIENT_SLATE_ROD = pokerodItem(cobblemonResource("ancient_slate_rod"))
+    @JvmField
+    val ANCIENT_IVORY_ROD = pokerodItem(cobblemonResource("ancient_ivory_rod"))
+    @JvmField
+    val ANCIENT_GREAT_ROD = pokerodItem(cobblemonResource("ancient_great_rod"))
+    @JvmField
+    val ANCIENT_ULTRA_ROD = pokerodItem(cobblemonResource("ancient_ultra_rod"))
+    @JvmField
+    val ANCIENT_FEATHER_ROD = pokerodItem(cobblemonResource("ancient_feather_rod"))
+    @JvmField
+    val ANCIENT_WING_ROD = pokerodItem(cobblemonResource("ancient_wing_rod"))
+    @JvmField
+    val ANCIENT_JET_ROD = pokerodItem(cobblemonResource("ancient_jet_rod"))
+    @JvmField
+    val ANCIENT_HEAVY_ROD = pokerodItem(cobblemonResource("ancient_heavy_rod"))
+    @JvmField
+    val ANCIENT_LEADEN_ROD = pokerodItem(cobblemonResource("ancient_leaden_rod"))
+    @JvmField
+    val ANCIENT_GIGATON_ROD = pokerodItem(cobblemonResource("ancient_gigaton_rod"))
+    @JvmField
+    val ANCIENT_ORIGIN_ROD = pokerodItem(cobblemonResource("ancient_origin_rod"))
+
+    @JvmField
     val AUTOMATON_ARMOR_TRIM_SMITHING_TEMPLATE: SmithingTemplateItem = this.create(
         "automaton_armor_trim_smithing_template",
         SmithingTemplateItem.of(CobblemonArmorTrims.AUTOMATON)
@@ -1026,6 +1139,13 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     }
 
     private fun candyItem(name: String, calculator: CandyItem.Calculator): CandyItem  = this.create(name, CandyItem(calculator))
+
+    private fun pokerodItem(pokeRodId: Identifier): PokerodItem {
+        val settings = Item.Settings().maxCount(1).maxDamage(Items.FISHING_ROD.maxDamage)
+        val item = create(pokeRodId.path, PokerodItem(pokeRodId, settings))
+        pokeRods.add(item)
+        return item
+    }
 
     private fun heldItem(name: String, remappedName: String? = null): CobblemonItem = create(
         name,

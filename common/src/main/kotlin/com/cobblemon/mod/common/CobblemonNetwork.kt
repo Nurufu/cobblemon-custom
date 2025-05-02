@@ -57,14 +57,8 @@ import com.cobblemon.mod.common.net.messages.client.battle.*
 import com.cobblemon.mod.common.net.messages.client.callback.OpenMoveCallbackPacket
 import com.cobblemon.mod.common.net.messages.client.callback.OpenPartyCallbackPacket
 import com.cobblemon.mod.common.net.messages.client.callback.OpenPartyMoveCallbackPacket
-import com.cobblemon.mod.common.net.messages.client.data.AbilityRegistrySyncPacket
-import com.cobblemon.mod.common.net.messages.client.data.BerryRegistrySyncPacket
-import com.cobblemon.mod.common.net.messages.client.data.GlobalSpeciesFeatureSyncPacket
-import com.cobblemon.mod.common.net.messages.client.data.MovesRegistrySyncPacket
+import com.cobblemon.mod.common.net.messages.client.data.*
 import com.cobblemon.mod.common.net.messages.client.data.PropertiesCompletionRegistrySyncPacket
-import com.cobblemon.mod.common.net.messages.client.data.SpeciesFeatureAssignmentSyncPacket
-import com.cobblemon.mod.common.net.messages.client.data.SpeciesRegistrySyncPacket
-import com.cobblemon.mod.common.net.messages.client.data.StandardSpeciesFeatureSyncPacket
 import com.cobblemon.mod.common.net.messages.client.data.UnlockReloadPacket
 import com.cobblemon.mod.common.net.messages.client.dialogue.DialogueClosedPacket
 import com.cobblemon.mod.common.net.messages.client.dialogue.DialogueOpenedPacket
@@ -279,8 +273,6 @@ object CobblemonNetwork : NetworkManager {
         this.createClientBound(BattleReplacePokemonPacket.ID, BattleReplacePokemonPacket::decode, BattleReplacePokemonHandler)
         this.createClientBound(BattleTransformPokemonPacket.ID, BattleTransformPokemonPacket::decode, BattleTransformPokemonHandler)
 
-
-
         // Settings packets
         this.createClientBound(ServerSettingsPacket.ID, ServerSettingsPacket::decode, ServerSettingsPacketHandler)
 
@@ -296,6 +288,7 @@ object CobblemonNetwork : NetworkManager {
         this.createClientBound(SpeciesFeatureAssignmentSyncPacket.ID, SpeciesFeatureAssignmentSyncPacket::decode, DataRegistrySyncPacketHandler())
         this.createClientBound(NaturalMaterialRegistrySyncPacket.ID, NaturalMaterialRegistrySyncPacket::decode, DataRegistrySyncPacketHandler())
         this.createClientBound(FossilRegistrySyncPacket.ID, FossilRegistrySyncPacket::decode, DataRegistrySyncPacketHandler())
+        this.createClientBound(PokeRodRegistrySyncPacket.ID, PokeRodRegistrySyncPacket::decode, DataRegistrySyncPacketHandler())
 
         // Effects
         this.createClientBound(SpawnSnowstormParticlePacket.ID, SpawnSnowstormParticlePacket::decode, SpawnSnowstormParticleHandler)

@@ -21,5 +21,7 @@ public interface SoundSystemDuck {
 
     void resumeSounds(@Nullable Identifier id, @Nullable SoundCategory category);
 
+    void stopSounds(@Nullable Identifier id, @Nullable SoundCategory category);
+
     Collection<SoundInstance> getSounds(@Nullable SoundCategory category);
 }

@@ -12,20 +12,19 @@
             "type": "pokemon",
             "context": "grounded",
             "bucket": "common",
-            "level": "7-20",
-            "weight": 2.0,
+            "level": "6-31",
+            "weight": 1.9,
+            "weightMultiplier": {
+                "multiplier": 5.0,
+                "condition": {
+                    "isRaining": true
+                }
+            },
             "condition": {
                 "minSkyLight": 8,
                 "maxSkyLight": 15,
                 "biomes": [
-                    "#cobblemon:is_forest",
-                    "#minecraft:is_river",
                     "#cobblemon:is_swamp"
-                ]
-            },
-            "anticondition": {
-                "biomes": [
-                    "#cobblemon:is_freezing"
                 ]
             }
         }

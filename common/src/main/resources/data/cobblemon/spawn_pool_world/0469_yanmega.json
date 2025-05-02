@@ -7,14 +7,13 @@
             "id": "yanmega-1",
             "pokemon": "yanmega",
             "presets": [
-                "freshwater",
-                "water_surface"
+                "water"
             ],
             "type": "pokemon",
             "context": "surface",
             "bucket": "uncommon",
             "level": "33-52",
-            "weight": 0.6,
+            "weight": 0.96,
             "condition": {
                 "minSkyLight": 8,
                 "maxSkyLight": 15,
@@ -23,19 +22,24 @@
                 ],
                 "timeRange": "day",
                 "isRaining": false
+            },
+            "anticondition": {
+                "biomes": [
+                    "#cobblemon:is_freezing"
+                ]
             }
         },
         {
             "id": "yanmega-2",
             "pokemon": "yanmega",
             "presets": [
-                "water_surface"
+                "water"
             ],
             "type": "pokemon",
             "context": "surface",
             "bucket": "uncommon",
             "level": "33-52",
-            "weight": 0.2,
+            "weight": 0.32,
             "condition": {
                 "minSkyLight": 0,
                 "maxSkyLight": 7,
@@ -48,13 +52,13 @@
             "id": "yanmega-3",
             "pokemon": "yanmega",
             "presets": [
-                "water_surface"
+                "water"
             ],
             "type": "pokemon",
             "context": "surface",
             "bucket": "uncommon",
             "level": "33-52",
-            "weight": 0.2,
+            "weight": 0.32,
             "condition": {
                 "biomes": [
                     "#the_bumblezone:the_bumblezone"
@@ -63,6 +67,25 @@
             "anticondition": {
                 "structures": [
                     "#the_bumblezone:sempiternal_sanctums"
+                ]
+            }
+        },
+        {
+            "id": "yanmega-5",
+            "pokemon": "yanmega",
+            "presets": [
+                "water"
+            ],
+            "type": "pokemon",
+            "context": "surface",
+            "bucket": "uncommon",
+            "level": "33-52",
+            "weight": 0.96,
+            "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#aether:is_aether"
                 ]
             }
         }

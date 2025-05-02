@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.api.spawning
 
 import com.bedrockk.molang.Expression
 import com.cobblemon.mod.common.api.data.JsonDataRegistry
+import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.api.reactive.SimpleObservable
 import com.cobblemon.mod.common.api.spawning.condition.SpawningCondition
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence
@@ -23,12 +24,7 @@ import com.cobblemon.mod.common.api.spawning.rules.selector.ExpressionSpawnDetai
 import com.cobblemon.mod.common.api.spawning.rules.selector.ExpressionSpawningContextSelector
 import com.cobblemon.mod.common.api.spawning.rules.selector.SpawnDetailSelector
 import com.cobblemon.mod.common.api.spawning.rules.selector.SpawningContextSelector
-import com.cobblemon.mod.common.util.adapters.ExpressionAdapter
-import com.cobblemon.mod.common.util.adapters.SpawnDetailSelectorAdapter
-import com.cobblemon.mod.common.util.adapters.SpawnRuleComponentAdapter
-import com.cobblemon.mod.common.util.adapters.SpawningConditionAdapter
-import com.cobblemon.mod.common.util.adapters.SpawningContextSelectorAdapter
-import com.cobblemon.mod.common.util.adapters.TextAdapter
+import com.cobblemon.mod.common.util.adapters.*
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -50,6 +46,7 @@ object CobblemonSpawnRules : JsonDataRegistry<SpawnRule> {
         .registerTypeAdapter(SpawningContextSelector::class.java, SpawningContextSelectorAdapter)
         .registerTypeAdapter(SpawningCondition::class.java, SpawningConditionAdapter)
         .registerTypeAdapter(Expression::class.java, ExpressionAdapter)
+        .registerTypeAdapter(ExpressionLike::class.java, ExpressionLikeAdapter)
         .registerTypeAdapter(Text::class.java, TextAdapter)
         .create()
 

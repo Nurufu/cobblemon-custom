@@ -22,6 +22,37 @@
             }
         },
         {
+            "id": "clawitzer-2",
+            "pokemon": "clawitzer",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "common",
+            "level": "37-50",
+            "weight": 0.2,
+            "weightMultipliers": [
+                {
+                    "multiplier": 3.0,
+                    "condition": {
+                        "minLureLevel": 2,
+                        "maxLureLevel": 2
+                    }
+                },
+                {
+                    "multiplier": 5.0,
+                    "condition": {
+                        "minLureLevel": 3
+                    }
+                }
+            ],
+            "condition": {
+                "canSeeSky": true,
+                "biomes": [
+                    "#cobblemon:is_coast",
+                    "#cobblemon:is_ocean"
+                ]
+            }
+        },
+        {
             "id": "clawitzer-3",
             "pokemon": "clawitzer",
             "presets": [
@@ -37,6 +68,39 @@
                 "minSkyLight": 8,
                 "maxSkyLight": 15,
                 "biomes": [
+                    "#cobblemon:is_ocean"
+                ]
+            }
+        },
+        {
+            "id": "clawitzer-4",
+            "pokemon": "clawitzer",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "common",
+            "level": "37-50",
+            "weight": 0.2,
+            "weightMultipliers": [
+                {
+                    "multiplier": 3.0,
+                    "condition": {
+                        "minLureLevel": 2,
+                        "maxLureLevel": 2
+                    }
+                },
+                {
+                    "multiplier": 5.0,
+                    "condition": {
+                        "minLureLevel": 3
+                    }
+                }
+            ],
+            "condition": {
+                "canSeeSky": false,
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_coast",
                     "#cobblemon:is_ocean"
                 ]
             }

@@ -60,6 +60,12 @@ public abstract class SoundManagerMixin implements SoundManagerDuck {
         ((SoundSystemDuck)soundSystem).resumeSounds(id, category);
     }
 
+    /** Stops the queried SoundInstance(s). If id is null, will stop all sounds belonging to the SoundCategory. */
+    @Override
+    public void stopSounds(@Nullable Identifier id, @Nullable SoundCategory category) {
+        ((SoundSystemDuck)soundSystem).stopSounds(id, category);
+    }
+
     /** Blocks filtered sounds from being played while a BattleMusicInstance is in progress. */
     @Inject(method = "play(Lnet/minecraft/client/sound/SoundInstance;)V", at = @At("HEAD"), cancellable = true)
     public void playStart(SoundInstance sound, CallbackInfo cb) {
