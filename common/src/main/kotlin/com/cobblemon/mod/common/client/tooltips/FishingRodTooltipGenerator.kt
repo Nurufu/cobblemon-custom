@@ -5,8 +5,6 @@ import com.cobblemon.mod.common.api.fishing.PokeRods
 import com.cobblemon.mod.common.api.pokeball.PokeBalls
 import com.cobblemon.mod.common.api.text.gray
 import com.cobblemon.mod.common.item.interactive.PokerodItem
-import com.cobblemon.mod.common.util.itemRegistry
-import net.minecraft.client.MinecraftClient
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 
@@ -26,26 +24,19 @@ object FishingRodTooltipGenerator : TooltipGenerator() {
             resultLines.add(bobberDescription)
         }
 
-        val client = MinecraftClient.getInstance()
-        val itemRegistry = client.world?.itemRegistry
-        itemRegistry.let { registry ->
-            if (registry != null) {
-                FishingBaits.getFromItemStack(stack)?.toItemStack(registry)?.item?.name
-                    ?.let { // maybe this can be simplified to not use the FishingBaits to get the stack and just use PokerodItem to get the stack since we have it already
-                        val baitDescription =
-                            Text.translatable(
-                                "cobblemon.pokerod.bait",
-                                it.copy().gray(),
-                                PokerodItem.getBait(stack).count
-                            )
-                        resultLines.add(baitDescription)
-                    }
+        PokerodItem.getBait(stack).item.name.let {
+            if(PokerodItem.getBait(stack).count > 0) {
+                val baitDesc = Text.translatable(
+                    "cobblemon.pokerod.bait",
+                    it.copy().gray(),
+                    PokerodItem.getBait(stack).count
+                )
+                resultLines.add(baitDesc)
             }
         }
 
-
         // grey text for context for players on how to apply/remove bait to/from rod
-        val greyText = if (FishingBaits.getFromItemStack(stack) != null) {
+        val greyText = if (PokerodItem.getBait(stack).count > 0) {
             Text.translatable("cobblemon.pokerod.remove").gray()
         } else {
             Text.translatable("cobblemon.pokerod.apply").gray()
