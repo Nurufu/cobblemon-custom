@@ -46,13 +46,6 @@
                 "biomes": [
                     "#cobblemon:is_lush"
                 ]
-            },
-            "anticondition": {
-                "structures": [
-                    "cobblemon:shipwreck_coves/lush_shipwreck_cove"
-                ],
-                "minY": -41,
-                "maxY": 9
             }
         },
         {
@@ -76,36 +69,7 @@
                     "#the_bumblezone:sempiternal_sanctums"
                 ]
             }
-        },
-        {
-            "id": "yanmega-4",
-            "pokemon": "yanmega",
-            "presets": [
-                "water"
-            ],
-            "type": "pokemon",
-            "context": "surface",
-            "bucket": "uncommon",
-            "level": "33-52",
-            "weight": 0.32,
-            "condition": {
-                "minSkyLight": 0,
-                "maxSkyLight": 7,
-                "biomes": [
-                    "#cobblemon:is_overworld"
-                ],
-                "structures": [
-                    "cobblemon:shipwreck_coves/lush_shipwreck_cove"
-                ],
-                "minY": -41,
-                "maxY": 9
-            },
-            "anticondition": {
-                "biomes": [
-                    "#cobblemon:is_lush"
-                ]
-            }
-        },
+        }
         {
             "id": "yanmega-5",
             "pokemon": "yanmega",
