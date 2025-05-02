@@ -8,38 +8,44 @@
             "pokemon": "braviary",
             "presets": [
                 "natural",
-                "treetop"
+                "treetop",
+                "wild"
             ],
             "type": "pokemon",
             "context": "grounded",
-            "bucket": "rare",
-            "level": "54-60",
-            "weight": 0.5,
+            "bucket": "common",
+            "level": "54-59",
+            "weight": 0.2,
             "condition": {
                 "minSkyLight": 8,
                 "maxSkyLight": 15,
                 "biomes": [
-                    "#cobblemon:is_forest"
-                ]
-            },
-            "anticondition": {
-                "biomes": [
-                    "#cobblemon:is_freezing"
-                ]
+                    "#cobblemon:is_badlands",
+                    "#cobblemon:is_hills"
+                ],
+                "timeRange": "day"
             }
         },
         {
             "id": "braviary-2",
             "pokemon": "braviary",
+            "presets": [
+                "natural",
+                "treetop",
+                "wild"
+            ],
             "type": "pokemon",
             "context": "grounded",
-            "bucket": "rare",
-            "level": "54-70",
-            "weight": 0.5,
+            "bucket": "common",
+            "level": "54-59",
+            "weight": 1.0,
             "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
                 "biomes": [
-                    "#minecraft:is_savanna"
-                ]
+                    "#cobblemon:is_sky"
+                ],
+                "timeRange": "day"
             }
         }
     ]
