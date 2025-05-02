@@ -9,13 +9,10 @@
 package com.cobblemon.mod.common.client.render.item
 
 import com.cobblemon.mod.common.CobblemonItems
+import com.cobblemon.mod.common.entity.fishing.PokeRodFishingBobberEntity
 import com.cobblemon.mod.common.item.interactive.PokerodItem
-import net.minecraft.client.item.ClampedModelPredicateProvider
 import net.minecraft.client.item.ModelPredicateProviderRegistry
-import net.minecraft.client.world.ClientWorld
-import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.item.ItemStack
 import net.minecraft.util.Identifier
 
 object CobblemonModelPredicateRegistry {
@@ -74,22 +71,26 @@ object CobblemonModelPredicateRegistry {
         )
 
         rods.forEach { rod ->
-            ModelPredicateProviderRegistry.register(rod, Identifier("cast"), ClampedModelPredicateProvider { stack, world, entity, seed ->
-                if (entity == null) {
-                    0.0f
-                } else {
-                    val isMainHand = entity.mainHandStack == stack
-                    var isOffHand = entity.offHandStack == stack
-                    if (entity.mainHandStack.item is PokerodItem) {
+            ModelPredicateProviderRegistry.register(rod, Identifier("cast")) { stack, world, entity, seed ->
+                if (entity !is PlayerEntity || entity.fishHook !is PokeRodFishingBobberEntity) return@register 0.0f
+
+                val rodId = entity.fishHook!!.dataTracker.get(PokeRodFishingBobberEntity.POKEROD_ID)
+
+                val isMainHand = stack == entity.mainHandStack
+                var isOffHand = stack == entity.offHandStack
+
+                var mainHandItem = entity.mainHandStack.item
+                val isFishingWithMainHand = mainHandItem is PokerodItem && rodId == mainHandItem.pokeRodId.toString()
+
+                if (isFishingWithMainHand) {
                         isOffHand = false
                     }
 
-                    if ((isMainHand || isOffHand) && entity is PlayerEntity && entity.fishHook != null) 1.0f else 0.0f
-                }
-            })
+                if (isMainHand && isFishingWithMainHand || isOffHand) 1.0f else 0.0f
+            }
+            }
         }
 
 
 
     }
-}

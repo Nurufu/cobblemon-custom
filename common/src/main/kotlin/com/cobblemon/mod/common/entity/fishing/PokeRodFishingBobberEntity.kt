@@ -372,7 +372,7 @@ class PokeRodFishingBobberEntity(type: EntityType<out PokeRodFishingBobberEntity
                     // set the hook reaction time to be based off the rarity of the bucket chosen
                     this.hookCountdown = MathHelper.nextInt(random, reactionMinMax.first, reactionMinMax.second)
 
-                    println("Player hooked a Pokemon from the bucket: " + chosenBucket.name)
+                    //println("Player hooked a Pokemon from the bucket: " + chosenBucket.name)
 
                 }
                 else {
@@ -622,7 +622,7 @@ class PokeRodFishingBobberEntity(type: EntityType<out PokeRodFishingBobberEntity
                 }
                 else { // logic for spawning Pokemon using rarity
 
-                    System.out.println("Player reeled in a Pokemon from the bucket: " + chosenBucket.name)
+                    //System.out.println("Player reeled in a Pokemon from the bucket: " + chosenBucket.name)
 
                     val bobberOwner = playerOwner as ServerPlayerEntity
 
