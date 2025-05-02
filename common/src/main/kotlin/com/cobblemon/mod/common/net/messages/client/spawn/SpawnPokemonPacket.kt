@@ -90,7 +90,7 @@ class SpawnPokemonPacket(
             scaleModifier = this@SpawnPokemonPacket.scaleModifier
             species = this@SpawnPokemonPacket.species
             form = this@SpawnPokemonPacket.form
-            aspects = this@SpawnPokemonPacket.aspects
+            forcedAspects = this@SpawnPokemonPacket.aspects
             nickname = this@SpawnPokemonPacket.nickname
             PokeBalls.getPokeBall(this@SpawnPokemonPacket.caughtBall)?.let { caughtBall = it }
         }

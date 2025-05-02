@@ -70,6 +70,8 @@ object DataKeys {
     const val POKEMON_ORIGINAL_TRAINER = "PokemonOriginalTrainer"
     const val POKEMON_ORIGINAL_TRAINER_TYPE = "PokemonOriginalTrainerType"
 
+    const val POKEMON_FORCED_ASPECTS = "ForcedAspects"
+
     const val PINGED = "Pinged"
     const val SHINED = "shined"
 

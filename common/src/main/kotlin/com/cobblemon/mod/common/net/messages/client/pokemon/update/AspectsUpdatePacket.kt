@@ -19,7 +19,7 @@ class AspectsUpdatePacket(pokemon: () -> Pokemon, value: Set<String>): SingleUpd
     }
 
     override fun set(pokemon: Pokemon, value: Set<String>) {
-        pokemon.aspects = value
+        pokemon.forcedAspects = value
     }
 
     companion object {

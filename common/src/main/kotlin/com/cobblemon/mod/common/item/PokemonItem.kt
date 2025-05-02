@@ -33,7 +33,7 @@ class PokemonItem : CobblemonItem(Settings().maxCount(1)) {
         val aspects = this.aspects(stack) ?: setOf()
         return Pokemon().apply {
             this.species = species
-            this.aspects = aspects
+            this.forcedAspects = aspects
         }
     }
 

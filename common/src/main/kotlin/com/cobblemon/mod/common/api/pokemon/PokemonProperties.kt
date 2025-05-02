@@ -59,9 +59,9 @@ open class PokemonProperties {
             val props = PokemonProperties()
             props.originalString = string
             val keyPairs = string.splitMap(delimiter, assigner)
-            props.customProperties = CustomPokemonProperty.properties.mapNotNull { property ->
-                val matchedKeyPair = keyPairs.find { it.first.lowercase() in property.keys }
-                if (matchedKeyPair == null) {
+            props.customProperties = CustomPokemonProperty.properties.flatMap { property ->
+                val matchedKeyPairs = keyPairs.filter { it.first.lowercase() in property.keys }
+                if (matchedKeyPairs.isEmpty()) {
                     if (!property.needsKey) {
                         var savedProperty: CustomPokemonProperty? = null
                         val keyPair = keyPairs.find { keyPair ->
@@ -71,13 +71,20 @@ open class PokemonProperties {
                         if (keyPair != null) {
                             keyPairs.remove(keyPair)
                         }
-                        return@mapNotNull savedProperty
+                        return@flatMap savedProperty?.let { listOf(it) } ?: emptyList()
                     } else {
-                        return@mapNotNull null
+                        return@flatMap emptyList()
                     }
                 } else {
-                    keyPairs.remove(matchedKeyPair)
-                    return@mapNotNull property.fromString(matchedKeyPair.second)
+                    val properties = mutableListOf<CustomPokemonProperty>()
+                    for ((customKey, customValue) in matchedKeyPairs) {
+                        val property = property.fromString(customValue)
+                        keyPairs.remove(customKey to customValue)
+                        if (property != null) {
+                            properties.add(property)
+                        }
+                    }
+                    return@flatMap properties
                 }
             }.toMutableList()
             props.gender = Gender.values().toList().parsePropertyOfCollection(keyPairs, listOf("gender"), labelsOptional = true) { it.name.lowercase() }

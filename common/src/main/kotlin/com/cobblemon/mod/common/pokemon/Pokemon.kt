@@ -850,6 +850,7 @@ open class Pokemon : ShowdownIdentifiable {
             nbt.putString(DataKeys.POKEMON_ORIGINAL_TRAINER, originalTrainer)
         }
         nbt.putString(DataKeys.POKEMON_ORIGINAL_TRAINER_TYPE, originalTrainerType.name)
+        nbt.put(DataKeys.POKEMON_FORCED_ASPECTS, NbtList().also { it.addAll(forcedAspects.map { NbtString.of(it)})})
         return nbt
     }
 
@@ -906,6 +907,7 @@ open class Pokemon : ShowdownIdentifiable {
         if (nbt.contains(DataKeys.POKEMON_MINTED_NATURE)) {
             this.mintedNature = nbt.getString(DataKeys.POKEMON_MINTED_NATURE).takeIf { it.isNotBlank() }?.let { Natures.getNature(Identifier(it)) }
         }
+        this.forcedAspects = nbt.getList(DataKeys.POKEMON_FORCED_ASPECTS, NbtString.STRING_TYPE.toInt()).map { it.asString() }.toSet()
         updateAspects()
         updateForm() // If saved with an incorrect form, readjust on load
         nbt.get(DataKeys.POKEMON_EVOLUTIONS)?.let { tag -> this.evolutionProxy.loadFromNBT(tag) }
@@ -969,6 +971,7 @@ open class Pokemon : ShowdownIdentifiable {
         json.addProperty(DataKeys.POKEMON_TRADEABLE, tradeable)
         json.addProperty(DataKeys.POKEMON_ORIGINAL_TRAINER_TYPE, originalTrainerType.name)
         if (originalTrainer != null) json.addProperty(DataKeys.POKEMON_ORIGINAL_TRAINER, originalTrainer)
+        json.add(DataKeys.POKEMON_FORCED_ASPECTS, JsonArray().also { forcedAspects.forEach { aspect -> it.add(aspect) } })
         return json
     }
 
@@ -1033,6 +1036,7 @@ open class Pokemon : ShowdownIdentifiable {
         if (json.has(DataKeys.POKEMON_MINTED_NATURE)) {
             this.mintedNature = json.get(DataKeys.POKEMON_MINTED_NATURE).asString?.let { Natures.getNature(Identifier(it)) }
         }
+        this.forcedAspects = json.getAsJsonArray(DataKeys.POKEMON_FORCED_ASPECTS)?.map { it.asString }?.toSet() ?: emptySet()
         updateAspects()
         updateForm() // If saved with an incorrect form, readjust on load
         json.get(DataKeys.POKEMON_EVOLUTIONS)?.let { this.evolutionProxy.loadFromJson(it) }
@@ -1232,9 +1236,12 @@ open class Pokemon : ShowdownIdentifiable {
          * We don't want to run this for client representations of Pokémon as they won't always have the same
          * aspect providers, and we want the server side to entirely manage them anyway.
          */
+        aspects = emptySet()
+
         if (!isClient) {
             aspects = AspectProvider.providers.flatMap { it.provide(this) }.toSet()
         }
+        aspects += forcedAspects
     }
 
     fun updateForm() {

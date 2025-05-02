@@ -252,7 +252,7 @@ class PokemonDTO : Encodable, Decodable {
             }
             it.caughtBall = PokeBalls.getPokeBall(caughtBall)!!
             it.benchedMoves.addAll(benchedMoves)
-            it.aspects = aspects
+            it.forcedAspects = aspects
             it.evolutionProxy.loadFromBuffer(evolutionBuffer)
             evolutionBuffer.release()
             it.nature = Natures.getNature(nature)!!

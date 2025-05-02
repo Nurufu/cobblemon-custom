@@ -29,6 +29,7 @@ import com.cobblemon.mod.common.api.reactive.ObservableSubscription
 import com.cobblemon.mod.common.api.reactive.SimpleObservable
 import com.cobblemon.mod.common.api.scheduling.Schedulable
 import com.cobblemon.mod.common.api.scheduling.SchedulingTracker
+import com.cobblemon.mod.common.api.spawning.SpawnCause
 import com.cobblemon.mod.common.api.storage.InvalidSpeciesException
 import com.cobblemon.mod.common.api.types.ElementalTypes
 import com.cobblemon.mod.common.battles.BagItems
@@ -222,6 +223,9 @@ open class PokemonEntity(
     var phasingTargetId: Int
         get() = dataTracker.get(PHASING_TARGET_ID)
         set(value) { dataTracker.set(PHASING_TARGET_ID, value) }
+
+    /** The [SpawnCause] that created it, if this was the result of the [BestSpawner]. Note: This will be wiped by chunk-unload. */
+    var spawnCause: SpawnCause? = null
 
     // properties like the above are synced and can be subscribed to for changes on either side
 

@@ -11,6 +11,7 @@ package com.cobblemon.mod.common.api.pokeball.catching.modifiers
 import com.cobblemon.mod.common.api.pokeball.PokeBalls
 import com.cobblemon.mod.common.api.pokeball.catching.CatchRateModifier
 import com.cobblemon.mod.common.api.pokemon.status.Status
+import com.cobblemon.mod.common.api.spawning.fishing.FishingSpawnCause
 import com.cobblemon.mod.common.api.tags.CobblemonBiomeTags
 import com.cobblemon.mod.common.api.types.ElementalType
 import com.cobblemon.mod.common.battles.BattleRegistry
@@ -127,7 +128,8 @@ object CatchRateModifiers {
      * If yes boosts the catch rate by *4
      */
     val LURE = WorldStateModifier { _, entity ->
-        if (entity.pokemon.aspects.contains("fished"))
+        //if (entity.pokemon.aspects.contains("fished"))
+        if (FishingSpawnCause.FISHED_ASPECT in entity.aspects)
             4f
         else
             1F
