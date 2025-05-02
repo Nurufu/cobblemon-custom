@@ -57,14 +57,8 @@ import net.minecraft.world.World
 import net.minecraft.world.event.GameEvent
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtList
-import net.minecraft.nbt.NbtString
-import net.minecraft.registry.Registries
 import net.minecraft.screen.slot.Slot
-import net.minecraft.text.ClickEvent
 import net.minecraft.util.ClickType
-import java.awt.Component
-import java.math.BigDecimal
-import java.math.RoundingMode
 import net.minecraft.util.math.Vec3d
 
 class PokerodItem(val pokeRodId: Identifier, settings: Settings?) : FishingRodItem(settings) {
@@ -315,36 +309,10 @@ class PokerodItem(val pokeRodId: Identifier, settings: Settings?) : FishingRodIt
             // play the Rod casting sound and set it
             world.playSound(null as PlayerEntity?, user.x, user.y, user.z, CobblemonSounds.FISHING_ROD_CAST, SoundCategory.PLAYERS, 1.0f, 1.0f / (world.getRandom().nextFloat() * 0.4f + 0.8f))
 
-            // create a SoundInstance for the casting sound to be also sent to the bobber
-            val castingSoundInstance = PositionedSoundInstance(
-                CobblemonSounds.FISHING_ROD_CAST,
-                SoundCategory.PLAYERS,
-                1.0f,
-                1.0f / (world.getRandom().nextFloat() * 0.4f + 0.8f),
-                world.random,
-                user.x,
-                user.y,
-                user.z
-            )
-
             if (!world.isClient()) {
                 val lureLevel = EnchantmentHelper.getLure(itemStack)
                 val luckLevel = EnchantmentHelper.getLuckOfTheSea(itemStack)
 
-                /*// play the Rod casting sound and set it
-                world.playSound(null as PlayerEntity?, user.x, user.y, user.z, CobblemonSounds.FISHING_ROD_CAST, SoundCategory.PLAYERS, 1.0f, 1.0f / (world.getRandom().nextFloat() * 0.4f + 0.8f))
-
-                // create a SoundInstance for the casting sound to be also sent to the bobber
-                val castingSoundInstance = CancellableSoundInstance(
-                        CobblemonSounds.FISHING_ROD_CAST,
-                        SoundCategory.PLAYERS,
-                        1.0f,
-                        1.0f / (world.getRandom().nextFloat() * 0.4f + 0.8f),
-                        world.random,
-                        user.x,
-                        user.y,
-                        user.z
-                )*/
 
                 val bobberEntity = PokeRodFishingBobberEntity(
                     user,
@@ -353,23 +321,12 @@ class PokerodItem(val pokeRodId: Identifier, settings: Settings?) : FishingRodIt
                     world,
                     luckLevel,
                     lureLevel,
-                    castingSoundInstance,
                     itemStack
                 )
                 CobblemonEvents.POKEROD_CAST_PRE.postThen(
                     PokerodCastEvent.Pre(itemStack, bobberEntity, getBait(itemStack)),
                     { event -> return TypedActionResult.fail(itemStack) },
                     { event ->
-                        // play the Rod casting sound and set it
-                        world.playSoundServer(
-                            Vec3d(user.x,
-                                user.y,
-                                user.z),
-                            CobblemonSounds.FISHING_ROD_CAST,
-                            SoundCategory.PLAYERS,
-                            1.0f,
-                            1.0f / (world.getRandom().nextFloat() * 0.4f + 0.8f)
-                        )
                         world.spawnEntity(bobberEntity)
                         CobblemonCriteria.CAST_POKE_ROD.trigger(user as ServerPlayerEntity, baitOnRod != null)
 

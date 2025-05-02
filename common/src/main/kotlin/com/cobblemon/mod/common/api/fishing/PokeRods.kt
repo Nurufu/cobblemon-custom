@@ -42,13 +42,10 @@ object PokeRods : JsonDataRegistry<PokeRod> {
     private val rods = mutableMapOf<Identifier, PokeRod>()
 
     override fun reload(data: Map<Identifier, PokeRod>) {
-        {
             data.forEach {
                 it.value.name = it.key
                 rods[it.key] = it.value
             }
-        }
-        rods.putAll(data)
         this.observable.emit(this)
     }
 

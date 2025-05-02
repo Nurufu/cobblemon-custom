@@ -38,6 +38,7 @@ import com.cobblemon.mod.common.util.toBlockPos
 import net.minecraft.advancement.criterion.Criteria
 import net.minecraft.block.Blocks
 import net.minecraft.client.MinecraftClient
+import net.minecraft.client.sound.EntityTrackingSoundInstance
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.client.sound.SoundInstance
 import net.minecraft.entity.*
@@ -109,13 +110,12 @@ class PokeRodFishingBobberEntity(type: EntityType<out PokeRodFishingBobberEntity
     var randomPitch: Float = 0f
     var randomYaw: Float = 0f
     var lastBobberPos: Vec3d? = null
-    var castingSound: SoundInstance? = null
+    private val castingSound = CobblemonSounds.FISHING_ROD_CAST
     var rodItem: ItemStack? = null
 
-    constructor(thrower: PlayerEntity, pokeRodId: Identifier, bait: ItemStack, world: World, luckOfTheSea: Int, lure: Int, castSound: SoundInstance, rodItemStack: ItemStack) : this(CobblemonEntities.POKE_BOBBER, world) {
+    constructor(thrower: PlayerEntity, pokeRodId: Identifier, bait: ItemStack, world: World, luckOfTheSea: Int, lure: Int, rodItemStack: ItemStack) : this(CobblemonEntities.POKE_BOBBER, world) {
         owner = thrower
         rodItem = rodItemStack
-        castingSound = castSound
         luckOfTheSeaLevel = luckOfTheSea
         lureLevel = lure
         this.pokeRodId = pokeRodId
@@ -434,15 +434,8 @@ class PokeRodFishingBobberEntity(type: EntityType<out PokeRodFishingBobberEntity
     }
 
     fun stopCastingAudio () {
-        // stop audio for the rod casting
-        //(MinecraftClient.getInstance().getSoundManager() as SoundManagerDuck).stopSounds(CobblemonSounds.FISHING_ROD_CAST.id, SoundCategory.PLAYERS)
-
-        if (castingSound != null) {
-            (MinecraftClient.getInstance().getSoundManager()).stop(castingSound)
-
-            // reset casting sound
-            castingSound = null
-        }
+        if(!this.world.isClient()) return
+        owner?.let { MinecraftClient.getInstance().soundManager.stopSounds(CobblemonSounds.FISHING_ROD_CAST.id, SoundCategory.PLAYERS)}
     }
 
     private fun removeIfInvalid(player: PlayerEntity): Boolean {
