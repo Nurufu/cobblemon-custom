@@ -54,7 +54,23 @@ object CobblemonModelPredicateRegistry {
             CobblemonItems.SPORT_ROD,
             CobblemonItems.TIMER_ROD,
             CobblemonItems.ULTRA_ROD,
-            CobblemonItems.VERDANT_ROD
+            CobblemonItems.VERDANT_ROD,
+            CobblemonItems.ANCIENT_AZURE_ROD,
+            CobblemonItems.ANCIENT_CITRINE_ROD,
+            CobblemonItems.ANCIENT_FEATHER_ROD,
+            CobblemonItems.ANCIENT_GIGATON_ROD,
+            CobblemonItems.ANCIENT_GREAT_ROD,
+            CobblemonItems.ANCIENT_HEAVY_ROD,
+            CobblemonItems.ANCIENT_IVORY_ROD,
+            CobblemonItems.ANCIENT_JET_ROD,
+            CobblemonItems.ANCIENT_LEADEN_ROD,
+            CobblemonItems.ANCIENT_ORIGIN_ROD,
+            CobblemonItems.ANCIENT_POKE_ROD,
+            CobblemonItems.ANCIENT_ROSEATE_ROD,
+            CobblemonItems.ANCIENT_SLATE_ROD,
+            CobblemonItems.ANCIENT_ULTRA_ROD,
+            CobblemonItems.ANCIENT_VERDANT_ROD,
+            CobblemonItems.ANCIENT_WING_ROD
         )
 
         rods.forEach { rod ->

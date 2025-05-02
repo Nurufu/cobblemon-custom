@@ -9,7 +9,7 @@
       "item": "minecraft:prismarine_shard"
     },
     "S": {
-      "item": "cobblemon:poke_ball"
+      "item": "cobblemon:pokerod_smithing_template"
     }
   },
   "pattern": [
@@ -18,7 +18,7 @@
     "###"
   ],
   "result": {
-    "count": 1,
+    "count": 2,
     "item": "cobblemon:pokerod_smithing_template"
   },
   "show_notification": true

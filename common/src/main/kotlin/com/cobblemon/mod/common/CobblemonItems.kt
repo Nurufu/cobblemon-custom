@@ -1036,7 +1036,38 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     val ULTRA_ROD = pokerodItem(cobblemonResource("ultra_rod"))
     @JvmField
     val VERDANT_ROD = pokerodItem(cobblemonResource("verdant_rod"))
-
+    @JvmField
+    val ANCIENT_POKE_ROD = pokerodItem(cobblemonResource("ancient_poke_rod"))
+    @JvmField
+    val ANCIENT_CITRINE_ROD = pokerodItem(cobblemonResource("ancient_citrine_rod"))
+    @JvmField
+    val ANCIENT_VERDANT_ROD = pokerodItem(cobblemonResource("ancient_verdant_rod"))
+    @JvmField
+    val ANCIENT_AZURE_ROD = pokerodItem(cobblemonResource("ancient_azure_rod"))
+    @JvmField
+    val ANCIENT_ROSEATE_ROD = pokerodItem(cobblemonResource("ancient_roseate_rod"))
+    @JvmField
+    val ANCIENT_SLATE_ROD = pokerodItem(cobblemonResource("ancient_slate_rod"))
+    @JvmField
+    val ANCIENT_IVORY_ROD = pokerodItem(cobblemonResource("ancient_ivory_rod"))
+    @JvmField
+    val ANCIENT_GREAT_ROD = pokerodItem(cobblemonResource("ancient_great_rod"))
+    @JvmField
+    val ANCIENT_ULTRA_ROD = pokerodItem(cobblemonResource("ancient_ultra_rod"))
+    @JvmField
+    val ANCIENT_FEATHER_ROD = pokerodItem(cobblemonResource("ancient_feather_rod"))
+    @JvmField
+    val ANCIENT_WING_ROD = pokerodItem(cobblemonResource("ancient_wing_rod"))
+    @JvmField
+    val ANCIENT_JET_ROD = pokerodItem(cobblemonResource("ancient_jet_rod"))
+    @JvmField
+    val ANCIENT_HEAVY_ROD = pokerodItem(cobblemonResource("ancient_heavy_rod"))
+    @JvmField
+    val ANCIENT_LEADEN_ROD = pokerodItem(cobblemonResource("ancient_leaden_rod"))
+    @JvmField
+    val ANCIENT_GIGATON_ROD = pokerodItem(cobblemonResource("ancient_gigaton_rod"))
+    @JvmField
+    val ANCIENT_ORIGIN_ROD = pokerodItem(cobblemonResource("ancient_origin_rod"))
 
     @JvmField
     val AUTOMATON_ARMOR_TRIM_SMITHING_TEMPLATE: SmithingTemplateItem = this.create(

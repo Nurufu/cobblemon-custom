@@ -1131,6 +1131,12 @@
   "advancements.cobblemon.grow_tumblestone.description": "Place a Tumblestone near Lava or Magma to grow it over time",
   "advancements.cobblemon.craft_ancient_balls": "A true Antiquarian",
   "advancements.cobblemon.craft_ancient_balls.description": "Utilize Tumblestones to craft all fifteen Ancient Balls",
+  "advancements.cobblemon.craft_rod": "Gone fishing",
+  "advancements.cobblemon.craft_rod.description": "Craft a Poké Rod using a Poké Rod Smithing Template",
+  "advancements.cobblemon.use_bait": "A Berry Good Lure",
+  "advancements.cobblemon.use_bait.description": "Use a berry as bait for your Poké Rod",
+  "advancements.cobblemon.craft_master_rod": "Masterful Dedication",
+  "advancements.cobblemon.craft_master_rod.description": "Craft a Poké Rod using a Master Ball",
 
 
   "cobblemon.battle.crash": "A battle error has occurred. If playing single-player, report this to the mod team. Otherwise, report this to the servers administrator.",
