@@ -124,4 +124,3 @@ data class FishingBait(
     }
 }
 
-

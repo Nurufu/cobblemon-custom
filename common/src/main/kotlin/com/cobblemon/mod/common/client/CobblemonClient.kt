@@ -8,7 +8,6 @@
 
 package com.cobblemon.mod.common.client
 
-import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.Cobblemon.LOGGER
 import com.cobblemon.mod.common.api.berry.Berries
 import com.cobblemon.mod.common.CobblemonBlockEntities
@@ -16,11 +15,7 @@ import com.cobblemon.mod.common.CobblemonBlocks
 import com.cobblemon.mod.common.CobblemonClientImplementation
 import com.cobblemon.mod.common.CobblemonEntities
 import com.cobblemon.mod.common.CobblemonItems
-import com.cobblemon.mod.common.api.fishing.FishingBaits
 import com.cobblemon.mod.common.api.scheduling.ClientTaskTracker
-import com.cobblemon.mod.common.api.text.blue
-import com.cobblemon.mod.common.api.text.gray
-import com.cobblemon.mod.common.api.types.ElementalTypes
 import com.cobblemon.mod.common.client.battle.ClientBattle
 import com.cobblemon.mod.common.client.gui.PartyOverlay
 import com.cobblemon.mod.common.client.gui.battle.BattleOverlay
@@ -60,12 +55,7 @@ import com.cobblemon.mod.common.client.tooltips.FishingRodTooltipGenerator
 import com.cobblemon.mod.common.client.tooltips.TooltipManager
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.platform.events.PlatformEvents
-import com.cobblemon.mod.common.pokemon.Gender
-import com.cobblemon.mod.common.pokemon.Pokemon
-import com.cobblemon.mod.common.util.DataKeys
-import com.cobblemon.mod.common.util.asTranslated
 import com.cobblemon.mod.common.util.isLookingAt
-import com.cobblemon.mod.common.util.lang
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.render.RenderLayer
@@ -79,11 +69,7 @@ import net.minecraft.client.render.entity.model.PlayerEntityModel
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.resource.ResourceManager
-import net.minecraft.text.Text
-import net.minecraft.util.Language
 import net.minecraft.util.math.Box
-import java.math.BigDecimal
-import java.text.DecimalFormat
 
 object CobblemonClient {
 
@@ -99,8 +85,6 @@ object CobblemonClient {
 
     val overlay: PartyOverlay by lazy { PartyOverlay() }
     val battleOverlay: BattleOverlay by lazy { BattleOverlay() }
-
-    private val fishingBaitHeader by lazy { lang("fishing_bait_effect_header").blue() }
 
     fun onLogin() {
         clientPlayerData = ClientPlayerData()
@@ -155,7 +139,7 @@ object CobblemonClient {
 
     private fun registerTooltipManagers() {
         TooltipManager.registerTooltipGenerator(CobblemonTooltipGenerator)
-        TooltipManager.registerTooltipGenerator(FishingBaitTooltipGenerator)
+//        TooltipManager.registerTooltipGenerator(FishingBaitTooltipGenerator)
         TooltipManager.registerTooltipGenerator(FishingRodTooltipGenerator)
     }
 

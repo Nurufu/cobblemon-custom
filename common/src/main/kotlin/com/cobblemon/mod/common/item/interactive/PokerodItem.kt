@@ -83,7 +83,8 @@ class PokerodItem(val pokeRodId: Identifier, settings: Settings?) : FishingRodIt
                 val baitCount = baitStack.count
                 if (baitCount == 1) {
                     stack.orCreateNbt.apply {
-                        put(NBT_KEY_BAIT, null)
+                        val b = ItemStack(baitStack.item, 0)
+                        put(NBT_KEY_BAIT, b.writeNbt(NbtCompound()))
                     }
                     return
                 }
@@ -114,30 +115,6 @@ class PokerodItem(val pokeRodId: Identifier, settings: Settings?) : FishingRodIt
             }
             return effects
         }
-
-        fun setBaitEffects(stack: ItemStack, effects: List<FishingBait.Effect>) {
-            val nbt = stack.orCreateNbt
-            val nbtList = NbtList()
-            for (effect in effects) {
-                nbtList.add(effect.toNbt())
-            }
-            nbt.put(NBT_KEY_BAIT_EFFECTS, nbtList)
-        }
-
-        /*fun writeBobberToNbt(bobberEntity: PokeRodFishingBobberEntity, nbt: NbtCompound) {
-            val bobberNbt = NbtCompound()
-            bobberNbt.putUuid("uuid", bobberEntity.uuid)
-            nbt.put(NBT_KEY_BOBBER, bobberNbt)
-        }
-
-        fun readBobberFromNbt(nbt: NbtCompound, world: World): PokeRodFishingBobberEntity? {
-            if (!nbt.contains(NBT_KEY_BOBBER)) return null
-
-            val bobberNbt = nbt.getCompound(NBT_KEY_BOBBER)
-            val uuid = bobberNbt.getUuid("uuid")
-
-            return PokeRodFishingBobberEntity(world, uuid)
-        }*/
 
     }
 

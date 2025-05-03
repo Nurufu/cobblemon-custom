@@ -31,6 +31,7 @@ object CodecUtils {
         )
     }
 
+
     @JvmStatic
     fun <T> createByStringCodec(from: (String) -> T?, to: (T) -> String, errorSupplier: (String) -> String): Codec<T> {
         return Codec.STRING.comapFlatMap(
