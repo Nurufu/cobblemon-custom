@@ -10,18 +10,17 @@ package com.cobblemon.mod.common.client.gui.pc
 
 import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.gui.blitk
-import com.cobblemon.mod.common.api.gui.drawText
+import com.cobblemon.mod.common.api.pokemon.RideablePokemonSpecies
 import com.cobblemon.mod.common.api.storage.pc.search.Search
 import com.cobblemon.mod.common.api.text.bold
 import com.cobblemon.mod.common.api.text.text
 import com.cobblemon.mod.common.client.CobblemonResources
+import com.cobblemon.mod.common.client.blitRideIcon
 import com.cobblemon.mod.common.client.gui.ExitButton
 import com.cobblemon.mod.common.client.gui.TypeIcon
 import com.cobblemon.mod.common.client.gui.summary.Summary
 import com.cobblemon.mod.common.client.gui.summary.widgets.ModelWidget
 import com.cobblemon.mod.common.client.gui.summary.widgets.common.reformatNatureTextIfMinted
-import com.cobblemon.mod.common.client.keybind.CobblemonKeyBinds
-import com.cobblemon.mod.common.client.keybind.boundKey
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.storage.ClientPC
 import com.cobblemon.mod.common.client.storage.ClientParty
@@ -37,9 +36,9 @@ import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.client.util.InputUtil
+import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
-import javax.swing.Box
 
 class PCGUI(
     val pc: ClientPC,
@@ -493,6 +492,29 @@ class PCGUI(
         MinecraftClient.getInstance().setScreen(null)
         if (unlink) {
             UnlinkPlayerFromPCPacket().sendToServer()
+        }
+    }
+
+    fun displayRideIcon(context: DrawContext){
+        val pcgui = this
+        val x = pcgui.width - BASE_WIDTH / 2
+        val y = pcgui.height - BASE_HEIGHT / 2
+        val matricies: MatrixStack = context.matrices
+
+        val pokemon = pcgui.previewPokemon
+        if(pcgui.previewPokemon != null){
+            val species = pokemon?.species?.showdownId()?.let { RideablePokemonSpecies.getByName(it) }
+            if(species != null && species.getForm(pokemon.form.name).enabled){
+                blitRideIcon(
+                    matricies,
+                    cobblemonResource("textures/gui/summary/ride-icon.png"),
+                    (x + 56) / SCALE,
+                    (y + 95.5) / SCALE,
+                    32,
+                    16,
+                    SCALE
+                )
+            }
         }
     }
 

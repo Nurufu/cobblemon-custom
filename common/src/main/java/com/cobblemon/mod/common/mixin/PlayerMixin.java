@@ -12,7 +12,6 @@ import com.cobblemon.mod.common.Cobblemon;
 import com.cobblemon.mod.common.CobblemonItems;
 import com.cobblemon.mod.common.api.events.CobblemonEvents;
 import com.cobblemon.mod.common.api.events.item.LeftoversCreatedEvent;
-import com.cobblemon.mod.common.api.storage.NoPokemonStoreException;
 import com.cobblemon.mod.common.api.storage.party.PartyStore;
 import com.cobblemon.mod.common.api.tags.CobblemonItemTags;
 import com.cobblemon.mod.common.pokemon.Pokemon;
@@ -27,9 +26,11 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
+import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -62,21 +63,34 @@ public abstract class PlayerMixin extends LivingEntity {
         super(p_20966_, p_20967_);
     }
 
+    /**
+     * This inject makes sure that sneaking won't dismount you when you're riding a Ride Pokemon.
+     */
+    @Inject(
+            method = "shouldDismount",
+            at = @At(value = "RETURN"),
+            cancellable = true
+    )
+    private void doNotDismountRidePokemon(CallbackInfoReturnable<Boolean> cir) {
+        PlayerEntity player = (PlayerEntity) (Object) this;
+        cir.setReturnValue(!(player.getVehicle() instanceof RideablePokemonEntity) && cir.getReturnValue());
+    }
+
     @Inject(method = "dropShoulderEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/EntityType;getEntityFromNbt(Lnet/minecraft/nbt/NbtCompound;Lnet/minecraft/world/World;)Ljava/util/Optional;"), cancellable = true)
     private void cobblemon$removePokemon(NbtCompound nbt, CallbackInfo ci) {
         if (CompoundTagExtensionsKt.isPokemonEntity(nbt)) {
-            final UUID uuid = this.getPokemonID(nbt);
+            final UUID uuid = this.cobblemon$getPokemonID(nbt);
             if (this.isShoulderPokemon(this.getShoulderEntityRight())) {
-                final UUID uuidRight = this.getPokemonID(this.getShoulderEntityRight());
+                final UUID uuidRight = this.cobblemon$getPokemonID(this.getShoulderEntityRight());
                 if (uuid.equals(uuidRight)) {
-                    this.recallPokemon(uuidRight);
+                    this.cobblemon$recallPokemon(uuidRight);
                     this.setShoulderEntityRight(new NbtCompound());
                 }
             }
             if (this.isShoulderPokemon(this.getShoulderEntityLeft())) {
-                final UUID uuidLeft = this.getPokemonID(this.getShoulderEntityLeft());
+                final UUID uuidLeft = this.cobblemon$getPokemonID(this.getShoulderEntityLeft());
                 if (uuid.equals(uuidLeft)) {
-                    this.recallPokemon(uuidLeft);
+                    this.cobblemon$recallPokemon(uuidLeft);
                     this.setShoulderEntityLeft(new NbtCompound());
                 }
             }
@@ -109,12 +123,14 @@ public abstract class PlayerMixin extends LivingEntity {
         ci.cancel();
     }
 
-    private UUID getPokemonID(NbtCompound nbt) {
+    @Unique
+    private UUID cobblemon$getPokemonID(NbtCompound nbt) {
         return nbt.getCompound(DataKeys.POKEMON)
                 .getUuid(DataKeys.POKEMON_UUID);
     }
 
-    private void recallPokemon(UUID uuid) {
+    @Unique
+    private void cobblemon$recallPokemon(UUID uuid) {
         // We need to do this cause the Entity doesn't store a reference to its storage
         final PartyStore party = Cobblemon.INSTANCE.getStorage().getParty(this.uuid);
         for (Pokemon pokemon : party) {

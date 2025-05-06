@@ -50,7 +50,6 @@ import com.cobblemon.mod.common.client.render.models.blockbench.repository.Fossi
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.GenericBedrockEntityModelRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.MiscModelRepository
 import com.cobblemon.mod.common.client.tooltips.CobblemonTooltipGenerator
-import com.cobblemon.mod.common.client.tooltips.FishingBaitTooltipGenerator
 import com.cobblemon.mod.common.client.tooltips.FishingRodTooltipGenerator
 import com.cobblemon.mod.common.client.tooltips.TooltipManager
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
@@ -70,6 +69,9 @@ import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.resource.ResourceManager
 import net.minecraft.util.math.Box
+import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity
+import com.cobblemon.mod.common.net.messages.server.pokemon.sync.GetRidePokemonBehaviourPacket
+import net.starliteheart.cobbleride.common.net.messages.server.pokemon.sync.GetRidePokemonPassengersPacket
 
 object CobblemonClient {
 
@@ -134,6 +136,13 @@ object CobblemonClient {
                     if(it is PokemonEntity)
                         it.delegate.spawnShinyParticle(player!!)
                 }
+        }
+
+        PlatformEvents.RIGHT_CLICK_ENTITY.subscribe {
+            if (it.entity is RideablePokemonEntity) {
+                GetRidePokemonPassengersPacket(it.entity.id).sendToServer()
+                GetRidePokemonBehaviourPacket(it.entity.id).sendToServer()
+            }
         }
     }
 
@@ -304,7 +313,7 @@ object CobblemonClient {
     }
 
     private fun createBoatModelLayers() {
-        CobblemonBoatType.values().forEach { type ->
+        CobblemonBoatType.entries.forEach { type ->
             this.implementation.registerLayer(CobblemonBoatRenderer.createBoatModelLayer(type, false), BoatEntityModel::getTexturedModelData)
             this.implementation.registerLayer(CobblemonBoatRenderer.createBoatModelLayer(type, true), ChestBoatEntityModel::getTexturedModelData)
         }

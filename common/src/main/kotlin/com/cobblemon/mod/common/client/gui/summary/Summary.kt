@@ -14,6 +14,7 @@ import com.cobblemon.mod.common.api.gui.blitk
 import com.cobblemon.mod.common.api.moves.Move
 import com.cobblemon.mod.common.api.moves.MoveSet
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies.species
+import com.cobblemon.mod.common.api.pokemon.RideablePokemonSpecies
 import com.cobblemon.mod.common.api.reactive.Observable.Companion.emitWhile
 import com.cobblemon.mod.common.api.reactive.ObservableSubscription
 import com.cobblemon.mod.common.api.scheduling.Schedulable
@@ -23,6 +24,7 @@ import com.cobblemon.mod.common.api.text.bold
 import com.cobblemon.mod.common.api.text.text
 import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.client.CobblemonResources
+import com.cobblemon.mod.common.client.blitRideIcon
 import com.cobblemon.mod.common.client.gui.ExitButton
 import com.cobblemon.mod.common.client.gui.TypeIcon
 import com.cobblemon.mod.common.client.gui.summary.widgets.EvolutionSelectScreen
@@ -51,6 +53,7 @@ import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.widget.ClickableWidget
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.client.util.InputUtil
+import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
 
@@ -589,6 +592,24 @@ class Summary private constructor(party: Collection<Pokemon?>, private val edita
             val itemHovered = mouseX.toFloat() in (itemX.toFloat()..(itemX.toFloat() + 16)) && mouseY.toFloat() in (itemY.toFloat()..(itemY.toFloat() + 16))
             if (itemHovered) context.drawItemTooltip(MinecraftClient.getInstance().textRenderer, heldItem, mouseX, mouseY)
         }
+    }
+
+    fun displayRideIcon(context: DrawContext){
+        val x = width - BASE_WIDTH / 2
+        val y = height - BASE_HEIGHT / 2
+        val matricies = context.matrices
+
+        val pokemon = selectedPokemon
+        val species = RideablePokemonSpecies.getByName(pokemon.species.showdownId())
+        if(species != null && species.getForm(pokemon.form.name).enabled) blitRideIcon(
+            matricies,
+            cobblemonResource("textures/gui/summary/ride-icon.png"),
+            (x + 56) / SCALE,
+            (y + 101) / SCALE,
+            32,
+            16,
+            SCALE
+        )
     }
 
     /**

@@ -16,38 +16,32 @@ import com.cobblemon.mod.common.api.pokemon.stats.Stats
 import com.cobblemon.mod.common.api.pokemon.status.Statuses
 import com.cobblemon.mod.common.battles.BattleRegistry
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity.Companion.MOVING
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.SentOutState
 import com.cobblemon.mod.common.util.*
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
-import net.minecraft.client.sound.Sound
-import net.minecraft.command.CommandSource
+import de.erdbeerbaerlp.dcintegration.common.*
+import de.erdbeerbaerlp.dcintegration.common.storage.Configuration
+import de.erdbeerbaerlp.dcintegration.common.storage.linking.LinkManager
+import de.erdbeerbaerlp.dcintegration.common.util.DiscordMessage
+import de.erdbeerbaerlp.dcintegration.common.util.TextColors
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ai.pathing.PathNodeType
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.damage.DamageSource
+import net.minecraft.entity.data.DataTracker
 import net.minecraft.entity.data.TrackedData
-import net.minecraft.server.MinecraftServer
-import net.minecraft.server.PlayerManager
-import net.minecraft.server.command.CommandManager
-import net.minecraft.server.command.SayCommand
-import net.minecraft.server.command.ServerCommandSource
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundCategory
 import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.Vec3d
 import java.util.*
-import de.erdbeerbaerlp.dcintegration.common.*
-import de.erdbeerbaerlp.dcintegration.common.storage.Configuration
-import de.erdbeerbaerlp.dcintegration.common.storage.linking.LinkManager
-import de.erdbeerbaerlp.dcintegration.common.util.DiscordMessage
-import de.erdbeerbaerlp.dcintegration.common.util.TextColors
-import net.dv8tion.jda.api.entities.EmbedType
-import net.dv8tion.jda.api.entities.MessageEmbed
-import java.time.OffsetDateTime
 
 /** Handles purely server logic for a Pokémon */
 class PokemonServerDelegate : PokemonSideDelegate {
@@ -132,6 +126,22 @@ class PokemonServerDelegate : PokemonSideDelegate {
         entity.dataTracker.set(PokemonEntity.FRIENDSHIP, entity.pokemon.friendship)
 
         updatePoseType()
+    }
+
+    private fun setIfRideableIsMoving(instance: DataTracker, arg: TrackedData<Any>, `object`: Any) {
+        if (arg == MOVING && this.entity is RideablePokemonEntity && entity.controllingPassenger != null && entity.controllingPassenger is PlayerEntity) {
+            val x: Float = entity.sidewaysSpeed * 0.5f
+            var z: Float = entity.forwardSpeed
+            if (z <= 0.0f) {
+                z *= 0.25f
+            }
+            val input: Vec3d = Vec3d(x.toDouble(), 0.0, z.toDouble())
+            val isRideableMoving: Boolean = input.length() > 0.005f
+            //            boolean hasPlatform = rideable.getPlatform() != PlatformType.NONE;
+            instance.set(arg as TrackedData<Boolean?>, (`object` as Boolean)) /*|| (!hasPlatform && isRideableMoving))*/
+        } else {
+            instance.set(arg, `object`)
+        }
     }
 
     override fun onTrackedDataSet(data: TrackedData<*>) {

@@ -12,11 +12,13 @@ import com.cobblemon.mod.common.api.data.JsonDataRegistry
 import com.cobblemon.mod.common.api.net.ClientNetworkPacketHandler
 import com.cobblemon.mod.common.api.net.NetworkPacket
 import com.cobblemon.mod.common.api.net.ServerNetworkPacketHandler
+import com.cobblemon.mod.common.api.tags.CobbleRideTags
 import com.mojang.brigadier.arguments.ArgumentType
 import kotlin.reflect.KClass
 import net.minecraft.advancement.criterion.Criterion
 import net.minecraft.block.ComposterBlock
 import net.minecraft.command.argument.serialize.ArgumentSerializer
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemConvertible
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.network.listener.ClientPlayPacketListener
@@ -29,11 +31,13 @@ import net.minecraft.resource.ResourceType
 import net.minecraft.server.MinecraftServer
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Text
+import net.minecraft.util.Hand
 import net.minecraft.util.Identifier
 import net.minecraft.world.GameRules
 import net.minecraft.world.biome.Biome
 import net.minecraft.world.gen.GenerationStep
 import net.minecraft.world.gen.feature.PlacedFeature
+import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity
 
 interface CobblemonImplementation {
     val modAPI: ModAPI
@@ -189,6 +193,19 @@ interface CobblemonImplementation {
      * @param activationBehaviour The [ResourcePackActivationBehaviour] for this pack.
      */
     fun registerBuiltinResourcePack(id: Identifier, title: Text, activationBehaviour: ResourcePackActivationBehaviour)
+
+    fun canInteractToMount(player: PlayerEntity, hand: Hand, entity: RideablePokemonEntity): Boolean {
+        return !player.isSneaking && hand == Hand.MAIN_HAND
+                && !player.getStackInHand(hand).isIn(CobbleRideTags.NO_MOUNT_ITEMS)
+                && !(entity.isBattling && player.getStackInHand(hand).isIn(CobbleRideTags.NO_MOUNT_BATTLE_ITEMS))
+    }
+
+    fun shouldRenderStaminaBar(player: PlayerEntity): Boolean {
+        return if (player.vehicle is RideablePokemonEntity) {
+            val mount = (player.vehicle as RideablePokemonEntity)
+            mount.canSprint && mount.canExhaust && mount.isLogicalSideForUpdatingMovement
+        } else false
+    }
 
 }
 

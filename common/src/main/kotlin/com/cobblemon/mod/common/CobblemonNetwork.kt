@@ -75,6 +75,7 @@ import com.cobblemon.mod.common.net.messages.client.pokemon.update.*
 import com.cobblemon.mod.common.net.messages.client.pokemon.update.evolution.AddEvolutionPacket
 import com.cobblemon.mod.common.net.messages.client.pokemon.update.evolution.ClearEvolutionsPacket
 import com.cobblemon.mod.common.net.messages.client.pokemon.update.evolution.RemoveEvolutionPacket
+import com.cobblemon.mod.common.net.messages.client.settings.SendServerSettingsPacket
 import com.cobblemon.mod.common.net.messages.client.settings.ServerSettingsPacket
 import com.cobblemon.mod.common.net.messages.client.sound.UnvalidatedPlaySoundS2CPacket
 import com.cobblemon.mod.common.net.messages.client.spawn.SpawnGenericBedrockPacket
@@ -171,8 +172,21 @@ import net.minecraft.network.listener.ClientPlayPacketListener
 import net.minecraft.network.packet.Packet
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
+import com.cobblemon.mod.common.client.net.settings.SendServerSettingsHandler
+import com.cobblemon.mod.common.net.messages.client.spawn.SpawnRidePokemonPacket
+import com.cobblemon.mod.common.client.net.spawn.SpawnRidePokemonHandler
+import com.cobblemon.mod.common.net.messages.client.data.RideableSpeciesRegistrySyncPacket
+import com.cobblemon.mod.common.net.messages.client.pokemon.sync.UpdatePokemonBehaviourPacket
+import com.cobblemon.mod.common.net.serverhandling.pokemon.sync.GetRidePokemonBehaviourHandler
+import com.cobblemon.mod.common.net.serverhandling.pokemon.sync.GetRidePokemonPassengersHandler
+import com.cobblemon.mod.common.net.serverhandling.pokemon.update.DismountPokemonHandler
+import com.cobblemon.mod.common.net.serverhandling.pokemon.update.SetRidePokemonExhaustHandler
+import net.starliteheart.cobbleride.common.client.net.pokemon.sync.UpdatePokemonBehaviourHandler
+import com.cobblemon.mod.common.net.messages.server.pokemon.sync.GetRidePokemonBehaviourPacket
+import net.starliteheart.cobbleride.common.net.messages.server.pokemon.sync.GetRidePokemonPassengersPacket
+import com.cobblemon.mod.common.net.messages.server.pokemon.update.DismountPokemonPacket
+import com.cobblemon.mod.common.net.messages.server.pokemon.update.SetRidePokemonExhaustPacket
 import kotlin.reflect.KClass
-
 /**
  * Registers Cobblemon network packets.
  *
@@ -189,6 +203,12 @@ object CobblemonNetwork : NetworkManager {
     fun sendPacketToPlayers(players: Iterable<ServerPlayerEntity>, packet: NetworkPacket<*>) = players.forEach { sendPacketToPlayer(it, packet) }
 
     override fun registerClientBound() {
+        //Ride Packets
+        this.createClientBound(SendServerSettingsPacket.ID, SendServerSettingsPacket::decode, SendServerSettingsHandler())
+        this.createClientBound(SpawnRidePokemonPacket.ID, SpawnRidePokemonPacket::decode, SpawnRidePokemonHandler())
+        this.createClientBound(RideableSpeciesRegistrySyncPacket.ID, RideableSpeciesRegistrySyncPacket::decode, DataRegistrySyncPacketHandler())
+        this.createClientBound(UpdatePokemonBehaviourPacket.ID, UpdatePokemonBehaviourPacket::decode, UpdatePokemonBehaviourHandler())
+
         // Pokemon Update Packets
         this.createClientBound(FriendshipUpdatePacket.ID, FriendshipUpdatePacket::decode, PokemonUpdatePacketHandler())
         this.createClientBound(MoveSetUpdatePacket.ID, MoveSetUpdatePacket::decode, PokemonUpdatePacketHandler())
@@ -335,6 +355,12 @@ object CobblemonNetwork : NetworkManager {
     }
 
     override fun registerServerBound() {
+        //Ride Packets
+        this.createServerBound(SetRidePokemonExhaustPacket.ID, SetRidePokemonExhaustPacket::decode, SetRidePokemonExhaustHandler())
+        this.createServerBound(GetRidePokemonPassengersPacket.ID, GetRidePokemonPassengersPacket::decode, GetRidePokemonPassengersHandler())
+        this.createServerBound(DismountPokemonPacket.ID, DismountPokemonPacket::decode, DismountPokemonHandler())
+        this.createServerBound(GetRidePokemonBehaviourPacket.ID, GetRidePokemonBehaviourPacket::decode, GetRidePokemonBehaviourHandler())
+
         // Pokemon Update Packets
         this.createServerBound(SetNicknamePacket.ID, SetNicknamePacket::decode, SetNicknameHandler)
 

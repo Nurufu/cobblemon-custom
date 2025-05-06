@@ -62,10 +62,6 @@ import com.cobblemon.mod.common.pokemon.evolution.variants.ItemInteractionEvolut
 import com.cobblemon.mod.common.pokemon.misc.GimmighoulStashHandler
 import com.cobblemon.mod.common.util.*
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
-import java.util.EnumSet
-import java.util.Optional
-import java.util.UUID
-import java.util.concurrent.CompletableFuture
 import net.minecraft.entity.*
 import net.minecraft.entity.ai.control.MoveControl
 import net.minecraft.entity.ai.goal.EatGrassGoal
@@ -84,11 +80,7 @@ import net.minecraft.entity.passive.PassiveEntity
 import net.minecraft.entity.passive.TameableShoulderEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.fluid.FluidState
-import net.minecraft.item.DyeItem
-import net.minecraft.item.ItemStack
-import net.minecraft.item.ItemUsage
-import net.minecraft.item.Items
-import net.minecraft.item.SuspiciousStewItem
+import net.minecraft.item.*
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtHelper
 import net.minecraft.nbt.NbtString
@@ -114,6 +106,7 @@ import net.minecraft.world.EntityView
 import net.minecraft.world.World
 import net.minecraft.world.event.GameEvent
 import java.util.*
+import java.util.concurrent.CompletableFuture
 
 @Suppress("unused")
 open class PokemonEntity(
@@ -1234,6 +1227,10 @@ open class PokemonEntity(
 
     override fun method_48926(): EntityView {
         return this.world
+    }
+
+    private fun returnRideablePokemonEntity(): PokemonEntity {
+        return RideablePokemonEntity(world, pokemon)
     }
 
     override fun sheared(shearedSoundCategory: SoundCategory) {

@@ -18,7 +18,7 @@ rootProject.name = "cobblemon"
 listOf(
     "common",
     "fabric",
-    "forge"
+    //"forge"
 ).forEach { setupProject(it, file(it)) }
 
 fun setupProject(name: String, projectDirectory: File) = setupProject(name) {
