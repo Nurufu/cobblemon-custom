@@ -1,12 +1,12 @@
-package net.starliteheart.cobbleride.common.client.gui
+package com.cobblemon.mod.common.client.gui
 
 import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.util.rideableResource
 import com.mojang.blaze3d.systems.RenderSystem
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.hud.InGameHud
-import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity
-import net.starliteheart.cobbleride.common.util.rideableResource
 
 class RideStaminaOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.getInstance().itemRenderer) {
 
@@ -33,7 +33,7 @@ class RideStaminaOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftCli
 //                return
 //            }
 
-            val ridePokemon = player.vehicle as RideablePokemonEntity
+            val ridePokemon = player.vehicle as PokemonEntity
 
             minecraft.profiler.push("staminaBar")
             val f = ridePokemon.sprintStaminaScale

@@ -1,9 +1,8 @@
-package net.starliteheart.cobbleride.common.net.messages.server.pokemon.sync
+package com.cobblemon.mod.common.net.messages.server.pokemon.sync
 
 import com.cobblemon.mod.common.api.net.NetworkPacket
 import net.minecraft.network.PacketByteBuf
-import net.starliteheart.cobbleride.common.util.rideableResource
-import java.util.UUID
+import com.cobblemon.mod.common.util.rideableResource
 
 class GetRidePokemonPassengersPacket(
     val pokemonID: Int,

@@ -2,7 +2,7 @@ package com.cobblemon.mod.common.net.messages.server.pokemon.update
 
 import com.cobblemon.mod.common.api.net.NetworkPacket
 import net.minecraft.network.PacketByteBuf
-import net.starliteheart.cobbleride.common.util.rideableResource
+import com.cobblemon.mod.common.util.rideableResource
 
 class DismountPokemonPacket(
     val slot: Int

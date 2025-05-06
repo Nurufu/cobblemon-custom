@@ -1,4 +1,4 @@
-package net.starliteheart.cobbleride.common.client.settings
+package com.cobblemon.mod.common.client.settings
 
 import com.cobblemon.mod.common.Cobblemon
 

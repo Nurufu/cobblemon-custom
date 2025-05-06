@@ -7,7 +7,6 @@ import com.cobblemon.mod.common.util.*
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.Vec3d
-import net.starliteheart.cobbleride.common.pokemon.RiderOffsetType
 import java.util.*
 
 class RideableSpecies : ClientDataSynchronizer<RideableSpecies>, ShowdownIdentifiable {

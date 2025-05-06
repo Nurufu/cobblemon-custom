@@ -5,7 +5,6 @@ import com.cobblemon.mod.common.api.net.NetworkPacket
 import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.util.Identifier
-import net.starliteheart.cobbleride.common.util.rideableResource
 
 class SendServerSettingsPacket internal constructor(
     val globalBaseSpeedModifier: Double,

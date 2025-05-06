@@ -1,4 +1,4 @@
-package net.starliteheart.cobbleride.common.pokemon
+package com.cobblemon.mod.common.pokemon
 
 enum class RiderOffsetType {
     DEFAULT,

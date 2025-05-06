@@ -5,7 +5,7 @@ import com.cobblemon.mod.common.api.pokemon.RideablePokemonSpecies
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.util.Identifier
 import com.cobblemon.mod.common.pokemon.RideableSpecies
-import net.starliteheart.cobbleride.common.util.rideableResource
+import com.cobblemon.mod.common.util.rideableResource
 
 class RideableSpeciesRegistrySyncPacket(species: Collection<RideableSpecies>) :
     DataRegistrySyncPacket<RideableSpecies, RideableSpeciesRegistrySyncPacket>(species) {

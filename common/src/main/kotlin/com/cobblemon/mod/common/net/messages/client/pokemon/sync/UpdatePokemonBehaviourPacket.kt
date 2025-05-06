@@ -3,7 +3,7 @@ package com.cobblemon.mod.common.net.messages.client.pokemon.sync
 import com.cobblemon.mod.common.api.net.NetworkPacket
 import net.minecraft.network.PacketByteBuf
 import com.cobblemon.mod.common.net.messages.client.pokemon.ai.ClientMoveBehaviour
-import net.starliteheart.cobbleride.common.util.rideableResource
+import com.cobblemon.mod.common.util.rideableResource
 
 class UpdatePokemonBehaviourPacket(
     val pokemonID: Int,

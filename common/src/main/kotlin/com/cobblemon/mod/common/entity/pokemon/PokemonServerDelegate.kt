@@ -20,9 +20,11 @@ import com.cobblemon.mod.common.entity.pokemon.PokemonEntity.Companion.MOVING
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.SentOutState
-import com.cobblemon.mod.common.util.*
+import com.cobblemon.mod.common.util.playSoundServer
+import com.cobblemon.mod.common.util.server
+import com.cobblemon.mod.common.util.update
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
-import de.erdbeerbaerlp.dcintegration.common.*
+import de.erdbeerbaerlp.dcintegration.common.DiscordIntegration
 import de.erdbeerbaerlp.dcintegration.common.storage.Configuration
 import de.erdbeerbaerlp.dcintegration.common.storage.linking.LinkManager
 import de.erdbeerbaerlp.dcintegration.common.util.DiscordMessage
@@ -129,7 +131,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
     }
 
     private fun setIfRideableIsMoving(instance: DataTracker, arg: TrackedData<Any>, `object`: Any) {
-        if (arg == MOVING && this.entity is RideablePokemonEntity && entity.controllingPassenger != null && entity.controllingPassenger is PlayerEntity) {
+        if (arg == MOVING && entity.controllingPassenger != null && entity.controllingPassenger is PlayerEntity) {
             val x: Float = entity.sidewaysSpeed * 0.5f
             var z: Float = entity.forwardSpeed
             if (z <= 0.0f) {

@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.math.Vec3d
 import com.cobblemon.mod.common.net.messages.client.data.RideableSpeciesRegistrySyncPacket
 import com.cobblemon.mod.common.util.cobblemonResource
-import net.starliteheart.cobbleride.common.util.rideableResource
+import com.cobblemon.mod.common.util.rideableResource
 
 object RideablePokemonSpecies : JsonDataRegistry<RideableSpecies> {
     override val id: Identifier = cobblemonResource("rideable_species")

@@ -1,10 +1,8 @@
-package net.starliteheart.cobbleride.common.util
+package com.cobblemon.mod.common.util
 
 import com.cobblemon.mod.common.Cobblemon
-import com.cobblemon.mod.common.util.EntityTraceResult
 import com.cobblemon.mod.common.util.math.geometry.toDegrees
 import com.cobblemon.mod.common.util.math.geometry.toRadians
-import com.cobblemon.mod.common.util.traceFirstEntityCollision
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.particle.DefaultParticleType

@@ -13,8 +13,8 @@ import com.cobblemon.mod.common.api.net.ClientNetworkPacketHandler
 import com.cobblemon.mod.common.api.net.NetworkPacket
 import com.cobblemon.mod.common.api.net.ServerNetworkPacketHandler
 import com.cobblemon.mod.common.api.tags.CobbleRideTags
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.mojang.brigadier.arguments.ArgumentType
-import kotlin.reflect.KClass
 import net.minecraft.advancement.criterion.Criterion
 import net.minecraft.block.ComposterBlock
 import net.minecraft.command.argument.serialize.ArgumentSerializer
@@ -37,7 +37,7 @@ import net.minecraft.world.GameRules
 import net.minecraft.world.biome.Biome
 import net.minecraft.world.gen.GenerationStep
 import net.minecraft.world.gen.feature.PlacedFeature
-import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity
+import kotlin.reflect.KClass
 
 interface CobblemonImplementation {
     val modAPI: ModAPI
@@ -194,15 +194,15 @@ interface CobblemonImplementation {
      */
     fun registerBuiltinResourcePack(id: Identifier, title: Text, activationBehaviour: ResourcePackActivationBehaviour)
 
-    fun canInteractToMount(player: PlayerEntity, hand: Hand, entity: RideablePokemonEntity): Boolean {
+    fun canInteractToMount(player: PlayerEntity, hand: Hand, entity: PokemonEntity): Boolean {
         return !player.isSneaking && hand == Hand.MAIN_HAND
                 && !player.getStackInHand(hand).isIn(CobbleRideTags.NO_MOUNT_ITEMS)
                 && !(entity.isBattling && player.getStackInHand(hand).isIn(CobbleRideTags.NO_MOUNT_BATTLE_ITEMS))
     }
 
     fun shouldRenderStaminaBar(player: PlayerEntity): Boolean {
-        return if (player.vehicle is RideablePokemonEntity) {
-            val mount = (player.vehicle as RideablePokemonEntity)
+        return if (player.vehicle is PokemonEntity) {
+            val mount = (player.vehicle as PokemonEntity)
             mount.canSprint && mount.canExhaust && mount.isLogicalSideForUpdatingMovement
         } else false
     }
