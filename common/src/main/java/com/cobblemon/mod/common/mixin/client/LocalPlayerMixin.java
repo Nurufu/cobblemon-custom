@@ -7,14 +7,16 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = ClientPlayerEntity.class)
 public abstract class LocalPlayerMixin {
+    @Unique
     @Final
-    protected MinecraftClient minecraft;
+    protected MinecraftClient client = MinecraftClient.getInstance();
 
     @Shadow
     public Input input;
@@ -30,7 +32,7 @@ public abstract class LocalPlayerMixin {
         ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
         if (player.getVehicle() instanceof PokemonEntity pokemon && pokemon.isLogicalSideForUpdatingMovement()) {
             pokemon.setRideDescending(this.input.sneaking);
-            pokemon.setRideSprinting(this.minecraft.options.sprintKey.isPressed());
+            pokemon.setRideSprinting(this.client.options.sprintKey.isPressed());
         }
     }
 }
