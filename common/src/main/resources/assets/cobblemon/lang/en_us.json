@@ -6651,5 +6651,11 @@
   "cobblemon.box.swapped": "Swapped boxes %1$s and %2$s.",
   "cobblemon.move.psyblade": "Psyblade",
   "cobblemon.move.psyblade.desc": "This move's power is boosted by 50% when used on Electric Terrain",
-  "cobblemon.ui.pc.boxjump": "Jump to box"
+  "cobblemon.ui.pc.boxjump": "Jump to box",
+  "cobblemon.mount.onboard": "Press %1$s while %2$s is Selected to Dismount",
+  "cobblemon.ui.mount.evolve": "You can't evolve %1$s while it's being ridden! Remove its passengers and try again.",
+  "key.cobbleride.categories.cobbleride": "Cobblemon: Ride On!",
+  "key.cobbleride.ascend": "Ascend / Fly",
+  "key.cobbleride.descend": "Descend / Dive",
+  "key.cobbleride.sprint": "Sprint"
 }
