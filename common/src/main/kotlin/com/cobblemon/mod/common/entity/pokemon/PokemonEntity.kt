@@ -354,21 +354,17 @@ open class PokemonEntity(
         }
     }
 
-    override fun canWalkOnFluid(state: FluidState): Boolean {
+    override fun canWalkOnFluid(state: FluidState): Boolean = !shouldSinkInWater &&
 //        val node = navigation.currentPath?.currentNode
 //        val targetPos = node?.blockPos
 //        if (targetPos == null || world.getBlockState(targetPos.up()).isAir) {
-        return if (state.isIn(FluidTags.WATER) && !isSubmergedIn(FluidTags.WATER)) {
+        if (state.isIn(FluidTags.WATER) && !isSubmergedIn(FluidTags.WATER)) {
             behaviour.moving.swim.canWalkOnWater
         } else if (state.isIn(FluidTags.LAVA) && !isSubmergedIn(FluidTags.LAVA)) {
             behaviour.moving.swim.canWalkOnLava
         } else {
             super.canWalkOnFluid(state)
         }
-//        }
-//
-//        return super.canWalkOnFluid(state)
-    }
 
     override fun handleStatus(status: Byte) {
         delegate.handleStatus(status)
@@ -1247,20 +1243,20 @@ open class PokemonEntity(
         this.getCurrentPoseType() == poseType
 
     override fun updatePassengerForDismount(entity: LivingEntity): Vec3d {
-        val Vec3d = getPassengerDismountOffset(
+        val vec3d = getPassengerDismountOffset(
             this.width.toDouble(), entity.width.toDouble(),
             (this.y + (if (entity.mainArm == Arm.RIGHT) 90.0f else -90.0f)).toFloat()
         )
-        val Vec3d1: Vec3d? = this.getDismountLocationInDirection(Vec3d, entity)
-        if (Vec3d1 != null) {
-            return Vec3d1
+        val vec3d1: Vec3d? = this.getDismountLocationInDirection(vec3d, entity)
+        if (vec3d1 != null) {
+            return vec3d1
         } else {
-            val Vec3d2 = getPassengerDismountOffset(
+            val vec3d2 = getPassengerDismountOffset(
                 this.width.toDouble(), entity.width.toDouble(),
                 (this.y + (if (entity.mainArm == Arm.LEFT) 90.0f else -90.0f)).toFloat()
             )
-            val Vec3d3: Vec3d? = this.getDismountLocationInDirection(Vec3d2, entity)
-            return Vec3d3 ?: this.pos
+            val vec3d3: Vec3d? = this.getDismountLocationInDirection(vec3d2, entity)
+            return vec3d3 ?: this.pos
         }
     }
 
@@ -1361,22 +1357,30 @@ open class PokemonEntity(
             shouldSinkInWater = isAbleToDive() && (isRideDescending || (isOnWaterSurface() && this.getFluidHeight(
                 FluidTags.WATER
             ) > this.swimHeight))
+                    //return (double)this.getEyeHeight() < 0.4 ? (double)0.0F : 0.4;
 
-//            // Sprint control logic
-//            val shouldBeSprinting = canSprint && (isTouchingWater || isFlying() || config.sprinting.canSprintOnLand)
-//                    && (!isTouchingWater || config.sprinting.canSprintInWater) && (!isFlying() || config.sprinting.canSprintInAir)
-//                    /*&& isRideSprinting && Vec3d.horizontalLength() > 0*/ && (!canExhaust || (!isExhausted && sprintStaminaScale > 0F))
-//            if (shouldBeSprinting) {
-//                sprintCooldownScale = 0F
-//                if (canExhaust) {
-//                    sprintStaminaScale = max(sprintStaminaScale - (1F / config.sprinting.maxStamina), 0F)
-//                    if (sprintStaminaScale == 0F)
-//                        isExhausted = true
-//                }
-//            }
-//            this.isSprinting = shouldBeSprinting
-//            // Sets player POV, a bit dirty but it will work for now until the inevitable bugs (possibly unintended hunger drain?)
-//            player.isSprinting = shouldBeSprinting
+//            Cobblemon.LOGGER.info("shrug: ${(this.isInLava && !moveBehaviour.swim.canBreatheUnderlava) ||
+//                (((moveBehaviour.swim.canSwimInWater && !moveBehaviour.swim.canBreatheUnderwater) ||
+//                        (isAbleToDive() && isOnWaterSurface() && !isRideDescending))
+//                        && this.isTouchingWater && this.getFluidHeight(
+//                    FluidTags.WATER
+//                ) > this.swimHeight)}")
+
+            // Sprint control logic
+            val shouldBeSprinting = canSprint && (isTouchingWater || isFlying() || config.sprinting.canSprintOnLand)
+                    && (!isTouchingWater || config.sprinting.canSprintInWater) && (!isFlying() || config.sprinting.canSprintInAir)
+                    && isRideSprinting && vec3d.horizontalLength() > 0 && (!canExhaust || (!isExhausted && sprintStaminaScale > 0F))
+            if (shouldBeSprinting) {
+                sprintCooldownScale = 0F
+                if (canExhaust) {
+                    sprintStaminaScale = max(sprintStaminaScale - (1F / config.sprinting.maxStamina), 0F)
+                    if (sprintStaminaScale == 0F)
+                        isExhausted = true
+                }
+            }
+            this.isSprinting = shouldBeSprinting
+            // Sets player POV, a bit dirty but it will work for now until the inevitable bugs (possibly unintended hunger drain?)
+            player.isSprinting = shouldBeSprinting
         }
 
         // If the Pokemon is flying and can land, clear the flying state
