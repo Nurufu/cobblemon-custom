@@ -29,11 +29,11 @@ import de.erdbeerbaerlp.dcintegration.common.storage.Configuration
 import de.erdbeerbaerlp.dcintegration.common.storage.linking.LinkManager
 import de.erdbeerbaerlp.dcintegration.common.util.DiscordMessage
 import de.erdbeerbaerlp.dcintegration.common.util.TextColors
+import net.minecraft.command.argument.EntityArgumentType.player
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ai.pathing.PathNodeType
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.damage.DamageSource
-import net.minecraft.entity.data.DataTracker
 import net.minecraft.entity.data.TrackedData
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.server.network.ServerPlayerEntity
@@ -44,6 +44,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.Vec3d
 import java.util.*
+
 
 /** Handles purely server logic for a Pokémon */
 class PokemonServerDelegate : PokemonSideDelegate {
@@ -124,26 +125,23 @@ class PokemonServerDelegate : PokemonSideDelegate {
         }
         entity.dataTracker.set(PokemonEntity.ASPECTS, trackedAspects)
         entity.dataTracker.set(PokemonEntity.LABEL_LEVEL, entity.pokemon.level)
-        entity.dataTracker.set(PokemonEntity.MOVING, entity.velocity.multiply(1.0, if (entity.isOnGround) 0.0 else 1.0, 1.0).length() > 0.005F)
+        entity.dataTracker.set(MOVING, entity.velocity.multiply(1.0, if (entity.isOnGround) 0.0 else 1.0, 1.0).length() > 0.005F)
         entity.dataTracker.set(PokemonEntity.FRIENDSHIP, entity.pokemon.friendship)
 
-        updatePoseType()
-    }
-
-    private fun setIfRideableIsMoving(instance: DataTracker, arg: TrackedData<Any>, `object`: Any) {
-        if (arg == MOVING && entity.controllingPassenger != null && entity.controllingPassenger is PlayerEntity) {
-            val x: Float = entity.sidewaysSpeed * 0.5f
-            var z: Float = entity.forwardSpeed
+        if(entity.passengerList != null && entity.controllingPassenger is PlayerEntity)
+        {
+            val player = entity.controllingPassenger as PlayerEntity
+            val x: Float = player.sidewaysSpeed * 0.5f
+            var z: Float = player.forwardSpeed
             if (z <= 0.0f) {
                 z *= 0.25f
             }
-            val input: Vec3d = Vec3d(x.toDouble(), 0.0, z.toDouble())
+            val input = Vec3d(x.toDouble(), 0.0, z.toDouble())
             val isRideableMoving: Boolean = input.length() > 0.005f
-            //            boolean hasPlatform = rideable.getPlatform() != PlatformType.NONE;
-            instance.set(arg as TrackedData<Boolean?>, (`object` as Boolean)) /*|| (!hasPlatform && isRideableMoving))*/
-        } else {
-            instance.set(arg, `object`)
+            entity.dataTracker.set(MOVING, isRideableMoving)
         }
+
+        updatePoseType()
     }
 
     override fun onTrackedDataSet(data: TrackedData<*>) {
@@ -332,7 +330,7 @@ class PokemonServerDelegate : PokemonSideDelegate {
 
     fun updatePoseType() {
         val isSleeping = entity.pokemon.status?.status == Statuses.SLEEP && entity.behaviour.resting.canSleep
-        val isMoving = entity.dataTracker.get(PokemonEntity.MOVING)
+        val isMoving = entity.dataTracker.get(MOVING)
         val isPassenger = entity.hasVehicle()
         val isUnderwater = entity.getIsSubmerged()
         val isFlying = entity.getBehaviourFlag(PokemonBehaviourFlag.FLYING)

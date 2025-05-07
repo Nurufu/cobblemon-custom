@@ -566,7 +566,6 @@ open class Pokemon : ShowdownIdentifiable {
         mutation: (PokemonEntity) -> Unit = {}
     ): CompletableFuture<PokemonEntity> {
         val future = CompletableFuture<PokemonEntity>()
-
         // get the current position of the cobblemon on the players shoulder
         val isLeftShoulder = (state as ShoulderedState).isLeftShoulder
         val arbitraryXOffset = player.width * 0.3 + this.form.hitbox.width * 0.3

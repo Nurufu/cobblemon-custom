@@ -1362,21 +1362,21 @@ open class PokemonEntity(
                 FluidTags.WATER
             ) > this.swimHeight))
 
-            // Sprint control logic
-            val shouldBeSprinting = canSprint && (isTouchingWater || isFlying() || config.sprinting.canSprintOnLand)
-                    && (!isTouchingWater || config.sprinting.canSprintInWater) && (!isFlying() || config.sprinting.canSprintInAir)
-                    /*&& isRideSprinting && Vec3d.horizontalLength() > 0*/ && (!canExhaust || (!isExhausted && sprintStaminaScale > 0F))
-            if (shouldBeSprinting) {
-                sprintCooldownScale = 0F
-                if (canExhaust) {
-                    sprintStaminaScale = max(sprintStaminaScale - (1F / config.sprinting.maxStamina), 0F)
-                    if (sprintStaminaScale == 0F)
-                        isExhausted = true
-                }
-            }
-            this.isSprinting = shouldBeSprinting
-            // Sets player POV, a bit dirty but it will work for now until the inevitable bugs (possibly unintended hunger drain?)
-            player.isSprinting = shouldBeSprinting
+//            // Sprint control logic
+//            val shouldBeSprinting = canSprint && (isTouchingWater || isFlying() || config.sprinting.canSprintOnLand)
+//                    && (!isTouchingWater || config.sprinting.canSprintInWater) && (!isFlying() || config.sprinting.canSprintInAir)
+//                    /*&& isRideSprinting && Vec3d.horizontalLength() > 0*/ && (!canExhaust || (!isExhausted && sprintStaminaScale > 0F))
+//            if (shouldBeSprinting) {
+//                sprintCooldownScale = 0F
+//                if (canExhaust) {
+//                    sprintStaminaScale = max(sprintStaminaScale - (1F / config.sprinting.maxStamina), 0F)
+//                    if (sprintStaminaScale == 0F)
+//                        isExhausted = true
+//                }
+//            }
+//            this.isSprinting = shouldBeSprinting
+//            // Sets player POV, a bit dirty but it will work for now until the inevitable bugs (possibly unintended hunger drain?)
+//            player.isSprinting = shouldBeSprinting
         }
 
         // If the Pokemon is flying and can land, clear the flying state
