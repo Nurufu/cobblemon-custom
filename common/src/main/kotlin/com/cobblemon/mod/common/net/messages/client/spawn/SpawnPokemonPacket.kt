@@ -30,7 +30,6 @@ class SpawnPokemonPacket(
     private val species: Species,
     private val form: FormData,
     private val aspects: Set<String>,
-    //private val moveBehaviour: ClientMoveBehaviour,
     private val battleId: UUID?,
     private val phasingTargetId: Int,
     private val beamMode: Byte,
@@ -42,7 +41,7 @@ class SpawnPokemonPacket(
     private val caughtBall: Identifier,
     private val spawnYaw: Float,
     private val friendship: Int,
-    vanillaSpawnPacket: EntitySpawnS2CPacket
+    vanillaSpawnPacket: EntitySpawnS2CPacket,
 ) : SpawnExtraDataEntityPacket<SpawnPokemonPacket, PokemonEntity>(vanillaSpawnPacket) {
 
     override val id: Identifier = ID
@@ -53,7 +52,6 @@ class SpawnPokemonPacket(
         entity.exposedSpecies,
         entity.pokemon.form,
         entity.pokemon.aspects,
-        //ClientMoveBehaviour(entity.exposedForm.behaviour.moving),
         entity.battleId,
         entity.phasingTargetId,
         entity.beamMode.toByte(),
@@ -74,7 +72,6 @@ class SpawnPokemonPacket(
         buffer.writeIdentifier(this.species.resourceIdentifier)
         buffer.writeString(this.form.formOnlyShowdownId())
         buffer.writeCollection(this.aspects) { pb, value -> pb.writeString(value) }
-        //moveBehaviour.encode(buffer)
         buffer.writeNullable(this.battleId) { pb, value -> pb.writeUuid(value) }
         buffer.writeInt(this.phasingTargetId)
         buffer.writeByte(this.beamMode.toInt())
@@ -98,7 +95,6 @@ class SpawnPokemonPacket(
             nickname = this@SpawnPokemonPacket.nickname
             PokeBalls.getPokeBall(this@SpawnPokemonPacket.caughtBall)?.let { caughtBall = it }
         }
-        //entity.moveBehaviour = this.moveBehaviour
         entity.phasingTargetId = this.phasingTargetId
         entity.beamMode = this.beamMode.toInt()
         entity.battleId = this.battleId
@@ -123,7 +119,6 @@ class SpawnPokemonPacket(
             val showdownId = buffer.readString()
             val form = species.forms.firstOrNull { it.formOnlyShowdownId() == showdownId } ?: species.standardForm
             val aspects = buffer.readList(PacketByteBuf::readString).toSet()
-            //val moveBehaviour = ClientMoveBehaviour.decode(buffer)
             val battleId = buffer.readNullable { buffer.readUuid() }
             val phasingTargetId = buffer.readInt()
             val beamModeEmitter = buffer.readByte()
@@ -137,7 +132,7 @@ class SpawnPokemonPacket(
             val friendship = buffer.readInt()
             val vanillaPacket = decodeVanillaPacket(buffer)
 
-            return SpawnPokemonPacket(ownerId, scaleModifier, species, form, aspects, /*moveBehaviour,*/ battleId, phasingTargetId, beamModeEmitter, nickname, labelLevel, poseType, unbattlable, hideLabel, caughtBall, spawnAngle, friendship, vanillaPacket)
+            return SpawnPokemonPacket(ownerId, scaleModifier, species, form, aspects, battleId, phasingTargetId, beamModeEmitter, nickname, labelLevel, poseType, unbattlable, hideLabel, caughtBall, spawnAngle, friendship, vanillaPacket)
         }
     }
 

@@ -2,6 +2,7 @@ package com.cobblemon.mod.common.client.gui
 
 import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.rideableResource
 import com.mojang.blaze3d.systems.RenderSystem
@@ -36,7 +37,7 @@ class RideStaminaOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftCli
 //                return
 //            }
 
-            val ridePokemon = player.vehicle as PokemonEntity
+            val ridePokemon = player.vehicle as RideablePokemonEntity
 
             minecraft.profiler.push("staminaBar")
             val f = ridePokemon.sprintStaminaScale

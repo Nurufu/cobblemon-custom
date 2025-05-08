@@ -12,6 +12,7 @@ import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.net.ServerNetworkPacketHandler
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity
 import com.cobblemon.mod.common.net.messages.server.SendOutPokemonPacket
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.SentOutState
@@ -37,8 +38,8 @@ object SendOutPokemonHandler : ServerNetworkPacketHandler<SendOutPokemonPacket> 
             return
         }
         val state = pokemon.state
-        if(player.vehicle != null && player.vehicle is PokemonEntity) {
-            val mount = player.vehicle as PokemonEntity
+        if(player.vehicle != null && player.vehicle is RideablePokemonEntity) {
+            val mount = player.vehicle as RideablePokemonEntity
             if (mount.isOwner(player) && mount.pokemon.state is SentOutState && mount.pokemon == party.get(slot)){
                 player.playSound(CobblemonSounds.PC_DROP, SoundCategory.PLAYERS, 0.4F, 1F)
                 player.dismountVehicle()

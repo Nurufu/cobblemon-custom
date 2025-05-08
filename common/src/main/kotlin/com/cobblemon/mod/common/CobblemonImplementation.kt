@@ -14,6 +14,7 @@ import com.cobblemon.mod.common.api.net.NetworkPacket
 import com.cobblemon.mod.common.api.net.ServerNetworkPacketHandler
 import com.cobblemon.mod.common.api.tags.CobbleRideTags
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity
 import com.mojang.brigadier.arguments.ArgumentType
 import net.minecraft.advancement.criterion.Criterion
 import net.minecraft.block.ComposterBlock
@@ -201,8 +202,8 @@ interface CobblemonImplementation {
     }
 
     fun shouldRenderStaminaBar(player: PlayerEntity): Boolean {
-        return if (player.vehicle is PokemonEntity) {
-            val mount = (player.vehicle as PokemonEntity)
+        return if (player.vehicle is RideablePokemonEntity) {
+            val mount = (player.vehicle as RideablePokemonEntity)
             mount.canSprint && mount.canExhaust && mount.isLogicalSideForUpdatingMovement
         } else false
     }

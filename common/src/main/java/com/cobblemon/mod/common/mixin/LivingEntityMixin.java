@@ -9,7 +9,7 @@
 package com.cobblemon.mod.common.mixin;
 
 import com.cobblemon.mod.common.api.pokemon.effect.ShoulderEffectRegistry;
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
+import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -33,7 +33,7 @@ public abstract class LivingEntityMixin {
             )
     )
     private void modifyFluidSpeed(LivingEntity instance, float v, Vec3d vec3) {
-        if (instance instanceof PokemonEntity) {
+        if (instance instanceof RideablePokemonEntity) {
             // Since fluid movement is likely balanced around players, base player movement speed is used as a basis
             float speedRatio = instance.getMovementSpeed() / 0.1F;
             instance.updateVelocity(v * speedRatio, vec3);

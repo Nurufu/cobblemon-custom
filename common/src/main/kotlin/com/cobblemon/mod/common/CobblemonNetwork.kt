@@ -37,6 +37,7 @@ import com.cobblemon.mod.common.client.net.settings.SendServerSettingsHandler
 import com.cobblemon.mod.common.client.net.settings.ServerSettingsPacketHandler
 import com.cobblemon.mod.common.client.net.sound.UnvalidatedPlaySoundS2CPacketHandler
 import com.cobblemon.mod.common.client.net.spawn.SpawnExtraDataEntityHandler
+import com.cobblemon.mod.common.client.net.spawn.SpawnRidePokemonHandler
 import com.cobblemon.mod.common.client.net.starter.StarterUIPacketHandler
 import com.cobblemon.mod.common.client.net.storage.RemoveClientPokemonHandler
 import com.cobblemon.mod.common.client.net.storage.SwapClientPokemonHandler
@@ -79,6 +80,7 @@ import com.cobblemon.mod.common.net.messages.client.sound.UnvalidatedPlaySoundS2
 import com.cobblemon.mod.common.net.messages.client.spawn.SpawnGenericBedrockPacket
 import com.cobblemon.mod.common.net.messages.client.spawn.SpawnPokeballPacket
 import com.cobblemon.mod.common.net.messages.client.spawn.SpawnPokemonPacket
+import com.cobblemon.mod.common.net.messages.client.spawn.SpawnRidePokemonPacket
 import com.cobblemon.mod.common.net.messages.client.starter.OpenStarterUIPacket
 import com.cobblemon.mod.common.net.messages.client.starter.SetClientPlayerDataPacket
 import com.cobblemon.mod.common.net.messages.client.storage.RemoveClientPokemonPacket
@@ -186,6 +188,7 @@ object CobblemonNetwork : NetworkManager {
         this.createClientBound(SendServerSettingsPacket.ID, SendServerSettingsPacket::decode, SendServerSettingsHandler())
         this.createClientBound(RideableSpeciesRegistrySyncPacket.ID, RideableSpeciesRegistrySyncPacket::decode, DataRegistrySyncPacketHandler())
         this.createClientBound(UpdatePokemonBehaviourPacket.ID, UpdatePokemonBehaviourPacket::decode, UpdatePokemonBehaviourHandler())
+        this.createClientBound(SpawnRidePokemonPacket.ID, SpawnRidePokemonPacket::decode, SpawnRidePokemonHandler())
 
         // Pokemon Update Packets
         this.createClientBound(FriendshipUpdatePacket.ID, FriendshipUpdatePacket::decode, PokemonUpdatePacketHandler())
