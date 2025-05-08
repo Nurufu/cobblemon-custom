@@ -55,7 +55,6 @@ import com.cobblemon.mod.common.api.types.tera.TeraType
 import com.cobblemon.mod.common.api.types.tera.TeraTypes
 import com.cobblemon.mod.common.config.CobblemonConfig
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
-import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity
 import com.cobblemon.mod.common.entity.pokemon.effects.IllusionEffect
 import com.cobblemon.mod.common.net.messages.client.PokemonUpdatePacket
 import com.cobblemon.mod.common.net.messages.client.effect.SpawnSnowstormEntityParticlePacket
@@ -483,7 +482,7 @@ open class Pokemon : ShowdownIdentifiable {
     fun sendOut(level: ServerWorld, position: Vec3d, illusion: IllusionEffect?, mutation: (PokemonEntity) -> Unit = {}): PokemonEntity? {
         CobblemonEvents.POKEMON_SENT_PRE.postThen(PokemonSentPreEvent(this, level, position)) {
             SeasonFeatureHandler.updateSeason(this, level, position.toBlockPos())
-            val entity = RideablePokemonEntity(level, this)
+            val entity = PokemonEntity(level, this)
             illusion?.start(entity)
             val sentOut = entity.setPositionSafely(position)
             //If sendout failed, fall back
@@ -493,7 +492,7 @@ open class Pokemon : ShowdownIdentifiable {
             mutation(entity)
             level.spawnEntity(entity)
             state = SentOutState(entity)
-            return RideablePokemonEntity(level, this)
+            return PokemonEntity(level, this)
         }
         return null
     }

@@ -16,6 +16,7 @@
     "SoundSystemMixin",
     "accessor.KeyBindingAccessor",
     "client.ClientPlayNetworkHandlerMixin",
+    "client.GuiMixin",
     "client.LocalPlayerMixin",
     "invoker.ClientPlayNetworkHandlerInvoker",
     "pokeball.ItemRendererMixin"

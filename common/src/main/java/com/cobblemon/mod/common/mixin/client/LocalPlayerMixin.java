@@ -1,9 +1,12 @@
 package com.cobblemon.mod.common.mixin.client;
 
-import com.cobblemon.mod.common.entity.pokemon.RideablePokemonEntity;
+import com.cobblemon.mod.common.Cobblemon;
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
+import com.cobblemon.mod.common.net.messages.client.pokemon.ai.ClientMoveBehaviour;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.Input;
 import net.minecraft.client.network.ClientPlayerEntity;
+import org.apache.logging.log4j.Logger;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -30,7 +33,7 @@ public abstract class LocalPlayerMixin {
     )
     private void setRidePokemonInputs(CallbackInfo ci) {
         ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
-        if (player.getVehicle() instanceof RideablePokemonEntity pokemon && pokemon.isLogicalSideForUpdatingMovement()) {
+        if (player.getVehicle() instanceof PokemonEntity pokemon && pokemon.isLogicalSideForUpdatingMovement()) {
             pokemon.setRideDescending(this.input.sneaking);
             pokemon.setRideSprinting(this.client.options.sprintKey.isPressed());
         }

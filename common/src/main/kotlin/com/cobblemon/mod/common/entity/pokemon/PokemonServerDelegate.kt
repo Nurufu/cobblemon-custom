@@ -15,7 +15,6 @@ import com.cobblemon.mod.common.api.pokemon.PokemonProperties
 import com.cobblemon.mod.common.api.pokemon.stats.Stats
 import com.cobblemon.mod.common.api.pokemon.status.Statuses
 import com.cobblemon.mod.common.battles.BattleRegistry
-import com.cobblemon.mod.common.client.gui.RideStaminaOverlay
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity.Companion.MOVING
 import com.cobblemon.mod.common.pokemon.Pokemon
