@@ -1,6 +1,7 @@
 package com.cobblemon.mod.common.net.messages.server.pokemon.update
 
 import com.cobblemon.mod.common.api.net.NetworkPacket
+import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.network.PacketByteBuf
 import com.cobblemon.mod.common.util.rideableResource
 
@@ -16,7 +17,7 @@ class SetRidePokemonExhaustPacket(
     }
 
     companion object {
-        val ID = rideableResource("set_ride_state")
+        val ID = cobblemonResource("set_ride_state")
         fun decode(buffer: PacketByteBuf) = SetRidePokemonExhaustPacket(
             buffer.readInt(), buffer.readBoolean()
         )

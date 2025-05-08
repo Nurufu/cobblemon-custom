@@ -1,6 +1,7 @@
 package com.cobblemon.mod.common.net.messages.server.pokemon.sync
 
 import com.cobblemon.mod.common.api.net.NetworkPacket
+import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.network.PacketByteBuf
 import com.cobblemon.mod.common.util.rideableResource
 
@@ -14,7 +15,7 @@ class GetRidePokemonPassengersPacket(
     }
 
     companion object {
-        val ID = rideableResource("get_ride_passengers")
+        val ID = cobblemonResource("get_ride_passengers")
         fun decode(buffer: PacketByteBuf) = GetRidePokemonPassengersPacket(
             buffer.readInt()
         )

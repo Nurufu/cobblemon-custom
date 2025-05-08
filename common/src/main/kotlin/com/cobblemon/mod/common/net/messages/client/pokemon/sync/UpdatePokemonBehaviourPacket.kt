@@ -3,6 +3,7 @@ package com.cobblemon.mod.common.net.messages.client.pokemon.sync
 import com.cobblemon.mod.common.api.net.NetworkPacket
 import net.minecraft.network.PacketByteBuf
 import com.cobblemon.mod.common.net.messages.client.pokemon.ai.ClientMoveBehaviour
+import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.rideableResource
 
 class UpdatePokemonBehaviourPacket(
@@ -17,7 +18,7 @@ class UpdatePokemonBehaviourPacket(
     }
 
     companion object {
-        val ID = rideableResource("update_ride_behaviour")
+        val ID = cobblemonResource("update_ride_behaviour")
         fun decode(buffer: PacketByteBuf) = UpdatePokemonBehaviourPacket(
             buffer.readInt(),
             ClientMoveBehaviour.decode(buffer),

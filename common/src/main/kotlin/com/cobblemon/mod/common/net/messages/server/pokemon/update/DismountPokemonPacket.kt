@@ -1,6 +1,7 @@
 package com.cobblemon.mod.common.net.messages.server.pokemon.update
 
 import com.cobblemon.mod.common.api.net.NetworkPacket
+import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.network.PacketByteBuf
 import com.cobblemon.mod.common.util.rideableResource
 
@@ -14,7 +15,7 @@ class DismountPokemonPacket(
     }
 
     companion object {
-        val ID = rideableResource("dismount_pokemon")
+        val ID = cobblemonResource("dismount_pokemon")
         fun decode(buffer: PacketByteBuf) = DismountPokemonPacket(
             buffer.readInt()
         )

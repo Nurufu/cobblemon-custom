@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.api.pokemon.RideablePokemonSpecies
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.util.Identifier
 import com.cobblemon.mod.common.pokemon.RideableSpecies
+import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.rideableResource
 
 class RideableSpeciesRegistrySyncPacket(species: Collection<RideableSpecies>) :
@@ -45,7 +46,7 @@ class RideableSpeciesRegistrySyncPacket(species: Collection<RideableSpecies>) :
     }
 
     companion object {
-        val ID: Identifier = rideableResource("species_sync")
+        val ID: Identifier = cobblemonResource("species_sync")
 
         @JvmStatic
         fun decode(buffer: PacketByteBuf): RideableSpeciesRegistrySyncPacket =
