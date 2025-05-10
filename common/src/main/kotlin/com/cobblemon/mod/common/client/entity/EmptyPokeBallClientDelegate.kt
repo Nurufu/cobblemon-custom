@@ -8,18 +8,14 @@
 
 package com.cobblemon.mod.common.client.entity
 
-import com.bedrockk.molang.runtime.value.DoubleValue
 import com.cobblemon.mod.common.api.entity.EntitySideDelegate
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.reactive.SettableObservable
 import com.cobblemon.mod.common.api.reactive.SimpleObservable
-import com.cobblemon.mod.common.api.scheduling.SchedulingTracker
 import com.cobblemon.mod.common.client.render.pokeball.PokeBallPoseableState
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity.CaptureState
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity.CaptureState.NOT
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import net.minecraft.entity.data.TrackedData
 
 class EmptyPokeBallClientDelegate : PokeBallPoseableState(), EntitySideDelegate<EmptyPokeBallEntity> {
@@ -40,11 +36,7 @@ class EmptyPokeBallClientDelegate : PokeBallPoseableState(), EntitySideDelegate<
         this.currentEntity = entity
         age = entity.age
         initSubscriptions()
-        this.runtime.environment.getQueryStruct().addFunctions(mapOf(
-            "pokeball_type" to java.util.function.Function {
-                return@Function DoubleValue(currentEntity.pokeBall.name.toString())
-            }
-        ))
+        this.runtime.environment.query.addFunctions(getEntity().struct.functions)
     }
 
     override fun tick(entity: EmptyPokeBallEntity) {

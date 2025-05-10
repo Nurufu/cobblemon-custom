@@ -1,11 +1,13 @@
 package com.cobblemon.mod.common.net.messages.client.pokemon.ai
 
+import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.pokemon.ai.FlyBehaviour
+import com.cobblemon.mod.common.util.asExpressionLike
 import net.minecraft.network.PacketByteBuf
 
 class ClientFlyBehaviour(
     val canFly: Boolean = false,
-    val flySpeedHorizontal: Float = 0.3F
+    val flySpeedHorizontal: ExpressionLike = "0.3".asExpressionLike()
 ) {
     constructor(flyBehaviour: FlyBehaviour) : this(
         flyBehaviour.canFly,
@@ -20,7 +22,7 @@ class ClientFlyBehaviour(
     companion object {
         fun decode(buffer: PacketByteBuf) = ClientFlyBehaviour(
             buffer.readBoolean(),
-            buffer.readFloat()
+            buffer.readString().asExpressionLike()
         )
     }
 }

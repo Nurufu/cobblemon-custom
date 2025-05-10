@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.pokemon.ai
 
+import com.cobblemon.mod.common.util.asExpressionLike
 import net.minecraft.fluid.Fluid
 import net.minecraft.registry.tag.FluidTags
 import net.minecraft.registry.tag.TagKey
@@ -17,7 +18,7 @@ class SwimBehaviour {
     val hurtByLava = true
     val canSwimInWater = true
     val canSwimInLava = true
-    val swimSpeed = 0.3F
+    val swimSpeed = "0.3".asExpressionLike()
     val canBreatheUnderwater = false
     val canBreatheUnderlava = false
     val canWalkOnWater = false

@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.client.gui.startselection.widgets.preview
 
 import com.cobblemon.mod.common.client.gui.drawProfilePokemon
 import com.cobblemon.mod.common.client.gui.summary.widgets.SoundlessWidget
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
 import com.cobblemon.mod.common.pokemon.RenderablePokemon
 import com.cobblemon.mod.common.util.math.fromEulerXYZDegrees
 import net.minecraft.client.gui.DrawContext
@@ -33,6 +34,7 @@ class StarterRoundabout(
     private val clickAction: (mouseX: Double, mouseY: Double) -> Unit = { _, _ -> },
     private val rotationVector: Vector3f
 ): SoundlessWidget(pX, pY, pWidth, pHeight, Text.literal("StarterRoundabout")) {
+    val state = FloatingState()
 
     companion object {
         const val MODEL_WIDTH = 30
@@ -69,7 +71,7 @@ class StarterRoundabout(
             renderablePokemon = pokemon,
             matrixStack = matrices,
             rotation = Quaternionf().fromEulerXYZDegrees(rotationVector),
-            state = null,
+            state = state,
             scale = 18F,
             partialTicks = delta
         )

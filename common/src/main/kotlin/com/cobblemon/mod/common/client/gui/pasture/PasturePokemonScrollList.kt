@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.client.gui.drawProfilePokemon
 import com.cobblemon.mod.common.client.gui.pc.StorageSlot
 import com.cobblemon.mod.common.client.gui.summary.widgets.PartySlotWidget
 import com.cobblemon.mod.common.client.render.drawScaledText
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
 import com.cobblemon.mod.common.client.render.renderScaledGuiItemIcon
 import com.cobblemon.mod.common.net.messages.client.pasture.OpenPasturePacket
 import com.cobblemon.mod.common.net.messages.server.pasture.UnpasturePokemonPacket
@@ -151,6 +152,7 @@ class PasturePokemonScrollList(
 
     class PastureSlot(val pokemon: OpenPasturePacket.PasturePokemonDataDTO, private val parent: PastureWidget) : Entry<PastureSlot>() {
         val client: MinecraftClient = MinecraftClient.getInstance()
+        val state = FloatingState()
 
         fun isOwned() = client.player?.uuid == pokemon.playerId
         fun canUnpasture() = isOwned() || parent.pasturePCGUIConfiguration.permissions.canUnpastureOthers
@@ -204,7 +206,7 @@ class PasturePokemonScrollList(
                 aspects = pokemon.aspects,
                 matrixStack = matrixStack,
                 rotation = Quaternionf().fromEulerXYZDegrees(Vector3f(13F, 35F, 0F)),
-                state = null,
+                state = state,
                 partialTicks = partialTicks,
                 scale = 4.5F
             )

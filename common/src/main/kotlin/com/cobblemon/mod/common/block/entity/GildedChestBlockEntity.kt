@@ -129,12 +129,12 @@ class GildedChestBlockEntity(pos: BlockPos, state: BlockState, val type: Type = 
     override fun onSyncedBlockEvent(type: Int, data: Int): Boolean {
         if (type == 1) {
             val isNowOpen = data > 0
-            val wasOpen = poseableState.currentPose == "OPEN"
+            val wasOpen = poseableState.currentPose == "open"
             val model = poseableState.currentModel ?: return true
             if (isNowOpen && !wasOpen) {
-                model.moveToPose(null, poseableState, model.getPose("OPEN")!!)
+                model.moveToPose(poseableState, model.poses["open"]!!)
             } else if (!isNowOpen && wasOpen) {
-                model.moveToPose(null, poseableState, model.getPose("CLOSED")!!)
+                model.moveToPose(poseableState, model.poses["closed"]!!)
             }
             return true
         }

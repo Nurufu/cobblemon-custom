@@ -11,7 +11,6 @@ package com.cobblemon.mod.common.client.render.models.blockbench
 import com.bedrockk.molang.runtime.MoLangRuntime
 import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.setup
 import com.cobblemon.mod.common.client.ClientMoLangFunctions.setupClient
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatefulAnimation
@@ -19,22 +18,30 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.Statel
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.quirk.SimpleQuirk
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.util.asExpressionLike
-import com.cobblemon.mod.common.util.normalizeToArray
-import com.cobblemon.mod.common.util.resolveBoolean
-import com.cobblemon.mod.common.util.resolveObject
-import com.cobblemon.mod.common.util.singularToPluralList
+import com.cobblemon.mod.common.util.*
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.google.gson.JsonPrimitive
 import net.minecraft.entity.Entity
 import net.minecraft.util.math.Vec3d
+import kotlin.collections.List
+import kotlin.collections.component1
+import kotlin.collections.component2
+import kotlin.collections.emptyList
+import kotlin.collections.find
+import kotlin.collections.map
+import kotlin.collections.mapNotNull
+import kotlin.collections.mutableMapOf
+import kotlin.collections.plus
+import kotlin.collections.set
+import kotlin.collections.toList
+import kotlin.collections.toTypedArray
 
 class JsonPose<T : Entity>(model: PoseableEntityModel<T>, json: JsonObject) {
     class JsonPoseTransition(val from: String, val to: String, val animation: ExpressionLike)
 
     val runtime = MoLangRuntime().setup().setupClient().also {
-        it.environment.getQueryStruct().addFunctions(model.functions.functions)
+        it.environment.query.addFunctions(model.functions.functions)
     }
 
     val condition: ExpressionLike = json.singularToPluralList("condition").get("conditions")?.normalizeToArray()?.map { it.asString }?.asExpressionLike() ?: "true".asExpressionLike()
@@ -87,7 +94,7 @@ class JsonPose<T : Entity>(model: PoseableEntityModel<T>, json: JsonObject) {
 
         json as JsonObject
         json.singularToPluralList("animation")
-        val animations: (state: PoseableEntityState<T>) -> List<StatefulAnimation<T, *>> = { _ ->
+        val animations: (state: PosableState<T>) -> List<StatefulAnimation<T, *>> = { _ ->
             (json.get("animations")?.normalizeToArray()?.asJsonArray ?: JsonArray()).map { animJson ->
                 try {
                     val expr = animJson.asString.asExpressionLike()

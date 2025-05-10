@@ -8,7 +8,6 @@
 
 package com.cobblemon.mod.common.client.render
 
-import com.bedrockk.molang.runtime.struct.VariableStruct
 import com.bedrockk.molang.runtime.value.DoubleValue
 import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.ModAPI
@@ -19,7 +18,6 @@ import com.cobblemon.mod.common.util.resolveBoolean
 import com.cobblemon.mod.common.util.resolveDouble
 import com.mojang.blaze3d.platform.GlStateManager
 import com.mojang.blaze3d.systems.RenderSystem
-import kotlin.math.abs
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.particle.Particle
 import net.minecraft.client.particle.ParticleTextureSheet
@@ -39,6 +37,7 @@ import org.joml.AxisAngle4d
 import org.joml.Quaterniond
 import org.joml.Vector3d
 import org.joml.Vector3f
+import kotlin.math.abs
 
 class SnowstormParticle(
     val storm: ParticleStorm,
@@ -61,12 +60,10 @@ class SnowstormParticle(
 
     var texture = storm.effect.particle.texture
 
-    var variableStruct = (storm.runtime.environment.structs["variable"] as VariableStruct);
-
-    val random1 = variableStruct.map["particle_random_1"]
-    val random2 = variableStruct.map["particle_random_2"]
-    val random3 = variableStruct.map["particle_random_3"]
-    val random4 = variableStruct.map["particle_random_4"]
+    val random1 = storm.runtime.environment.variable.map["particle_random_1"]
+    val random2 = storm.runtime.environment.variable.map["particle_random_2"]
+    val random3 = storm.runtime.environment.variable.map["particle_random_3"]
+    val random4 = storm.runtime.environment.variable.map["particle_random_4"]
 
     var localX = x - storm.getX()
     var localY = y - storm.getY()
@@ -110,10 +107,10 @@ class SnowstormParticle(
     }
 
     private fun applyRandoms() {
-        variableStruct.setDirectly("particle_random_1", random1)
-        variableStruct.setDirectly("particle_random_2", random2)
-        variableStruct.setDirectly("particle_random_3", random3)
-        variableStruct.setDirectly("particle_random_4", random4)
+        storm.runtime.environment.variable.setDirectly("particle_random_1", random1)
+        storm.runtime.environment.variable.setDirectly("particle_random_2", random2)
+        storm.runtime.environment.variable.setDirectly("particle_random_3", random3)
+        storm.runtime.environment.variable.setDirectly("particle_random_4", random4)
     }
 
     init {
@@ -514,8 +511,8 @@ class SnowstormParticle(
 
 
     private fun setParticleAgeInRuntime() {
-        variableStruct.setDirectly("particle_age", DoubleValue(age / 20.0))
-        variableStruct.setDirectly("particle_lifetime", DoubleValue(maxAge / 20.0))
+        storm.runtime.environment.variable.setDirectly("particle_age", DoubleValue(age / 20.0))
+        storm.runtime.environment.variable.setDirectly("particle_lifetime", DoubleValue(maxAge / 20.0))
     }
 
     override fun getType() = particleTextureSheet

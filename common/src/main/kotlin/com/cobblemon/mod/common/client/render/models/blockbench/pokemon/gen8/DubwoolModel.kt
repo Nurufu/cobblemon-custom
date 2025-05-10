@@ -8,7 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
@@ -138,11 +138,11 @@ class DubwoolModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quadr
 
     override fun getFaintAnimation(
             pokemonEntity: PokemonEntity,
-            state: PoseableEntityState<PokemonEntity>
+            state: PosableState<PokemonEntity>
     ) = if (state.isPosedIn(standing, walk, shearedwalk, shearedstanding, sleep)) bedrockStateful("dubwool", "faint") else null
 
     override fun getEatAnimation(
         pokemonEntity: PokemonEntity,
-        state: PoseableEntityState<PokemonEntity>
+        state: PosableState<PokemonEntity>
     ) = if (state.isNotPosedIn(sleep, shearedsleep)) bedrockStateful("dubwool", "eat") else null
 }

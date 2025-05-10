@@ -103,7 +103,7 @@ class SteadyParticleEmitterRate(
         // The emitting rates are all per second, but this runs every tick. Presents some difficulties.
 
         val max = runtime.resolveDouble(maximum).toInt()
-        val variables = runtime.environment.structs["variable"] as VariableStruct
+        val variables = runtime.environment.variable
 
         /*
          * The strategy is that per tick it might be calculated to be 1.2 particles. We can't spawn a fifth

@@ -8,7 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
@@ -81,7 +81,7 @@ class AmpharosModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     }
     override fun getFaintAnimation(
         pokemonEntity: PokemonEntity,
-        state: PoseableEntityState<PokemonEntity>
+        state: PosableState<PokemonEntity>
     ) = if (state.isPosedIn(standing, walking, sleep)) bedrockStateful("ampharos", "faint") else
         if (state.isPosedIn(battleidle)) bedrockStateful("ampharos", "battle_faint")
         else null

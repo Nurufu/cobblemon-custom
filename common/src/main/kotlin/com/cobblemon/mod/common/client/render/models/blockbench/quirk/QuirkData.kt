@@ -9,7 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.quirk
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.PrimaryAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatefulAnimation
 import net.minecraft.entity.Entity
@@ -18,7 +18,7 @@ open class QuirkData<T : Entity> {
     val animations = mutableListOf<StatefulAnimation<T, *>>()
     var primaryAnimation: PrimaryAnimation<T>? = null
 
-    open fun run(entity: T?, model: PoseableEntityModel<T>, state: PoseableEntityState<T>, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
+    open fun run(entity: T?, model: PoseableEntityModel<T>, state: PosableState<T>, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
         if (primaryAnimation != null && state.primaryAnimation != primaryAnimation) {
             primaryAnimation = null
         }

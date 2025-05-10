@@ -1,12 +1,14 @@
 package com.cobblemon.mod.common.net.messages.client.pokemon.ai
 
+import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.pokemon.ai.WalkBehaviour
+import com.cobblemon.mod.common.util.asExpressionLike
 import net.minecraft.network.PacketByteBuf
 
 class ClientWalkBehaviour(
     val canWalk: Boolean = true,
     val avoidsLand: Boolean = false,
-    var walkSpeed: Float = 0.35F
+    var walkSpeed: ExpressionLike = "0.35".asExpressionLike()
 ) {
     constructor(walkBehaviour: WalkBehaviour) : this(
         walkBehaviour.canWalk,
@@ -24,7 +26,7 @@ class ClientWalkBehaviour(
         fun decode(buffer: PacketByteBuf) = ClientWalkBehaviour(
             buffer.readBoolean(),
             buffer.readBoolean(),
-            buffer.readFloat()
+            buffer.readString().asExpressionLike()
         )
     }
 }

@@ -1,6 +1,8 @@
 package com.cobblemon.mod.common.net.messages.client.pokemon.ai
 
+import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.pokemon.ai.SwimBehaviour
+import com.cobblemon.mod.common.util.asExpressionLike
 import net.minecraft.network.PacketByteBuf
 
 class ClientSwimBehaviour(
@@ -8,7 +10,7 @@ class ClientSwimBehaviour(
     val hurtByLava: Boolean = true,
     val canSwimInWater: Boolean = true,
     val canSwimInLava: Boolean = true,
-    val swimSpeed: Float = 0.3F,
+    val swimSpeed: ExpressionLike = "0.3".asExpressionLike(),
     val canBreatheUnderwater: Boolean = false,
     val canBreatheUnderlava: Boolean = false,
     val canWalkOnWater: Boolean = false,
@@ -44,7 +46,7 @@ class ClientSwimBehaviour(
             buffer.readBoolean(),
             buffer.readBoolean(),
             buffer.readBoolean(),
-            buffer.readFloat(),
+            buffer.readString().asExpressionLike(),
             buffer.readBoolean(),
             buffer.readBoolean(),
             buffer.readBoolean(),

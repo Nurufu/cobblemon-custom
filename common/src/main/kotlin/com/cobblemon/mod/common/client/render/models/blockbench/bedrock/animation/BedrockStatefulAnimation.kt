@@ -9,9 +9,8 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.bedrock.animation
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatefulAnimation
-import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatelessAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.ModelFrame
 import net.minecraft.entity.Entity
 
@@ -28,18 +27,18 @@ open class BedrockStatefulAnimation<T : Entity>(
     var startedSeconds = -1F
     override val duration = animation.animationLength.toFloat()
     override var enduresPrimaryAnimations = false
-    private var afterAction: (T, PoseableEntityState<T>) -> Unit = { _, _ -> }
+    private var afterAction: (T, PosableState<T>) -> Unit = { _, _ -> }
 
     override val isTransform = false
 
-    fun andThen(action: (entity: T, PoseableEntityState<T>) -> Unit) = this.also {
+    fun andThen(action: (entity: T, PosableState<T>) -> Unit) = this.also {
         it.afterAction = action
     }
 
     override fun run(
         entity: T?,
         model: PoseableEntityModel<T>,
-        state: PoseableEntityState<T>,
+        state: PosableState<T>,
         limbSwing: Float,
         limbSwingAmount: Float,
         ageInTicks: Float,
@@ -58,7 +57,7 @@ open class BedrockStatefulAnimation<T : Entity>(
         }
     }
 
-    override fun applyEffects(entity: T, state: PoseableEntityState<T>, previousSeconds: Float, newSeconds: Float) {
+    override fun applyEffects(entity: T, state: PosableState<T>, previousSeconds: Float, newSeconds: Float) {
         if(startedSeconds == -1F){
             startedSeconds = state.animationSeconds
         }

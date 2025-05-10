@@ -41,7 +41,7 @@ import com.cobblemon.mod.common.client.entity.PokemonClientDelegate
 import com.cobblemon.mod.common.client.settings.ClientSettings
 import com.cobblemon.mod.common.client.settings.ServerSettings
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.Poseable
+import com.cobblemon.mod.common.entity.PosableEntity
 import com.cobblemon.mod.common.entity.generic.GenericBedrockEntity
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity
 import com.cobblemon.mod.common.entity.pokemon.ai.PokemonMoveControl
@@ -127,7 +127,7 @@ open class PokemonEntity(
     world: World,
     pokemon: Pokemon = Pokemon(),
     type: EntityType<out PokemonEntity> = CobblemonEntities.POKEMON,
-) : TameableShoulderEntity(type, world), Poseable, Shearable, Schedulable {
+) : TameableShoulderEntity(type, world), PosableEntity, Shearable, Schedulable {
     companion object {
         @JvmStatic val SPECIES = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.STRING)
         @JvmStatic val NICKNAME = DataTracker.registerData(PokemonEntity::class.java, TrackedDataHandlerRegistry.TEXT_COMPONENT)
@@ -1359,12 +1359,7 @@ open class PokemonEntity(
             ) > this.swimHeight))
                     //return (double)this.getEyeHeight() < 0.4 ? (double)0.0F : 0.4;
 
-//            Cobblemon.LOGGER.info("shrug: ${(this.isInLava && !moveBehaviour.swim.canBreatheUnderlava) ||
-//                (((moveBehaviour.swim.canSwimInWater && !moveBehaviour.swim.canBreatheUnderwater) ||
-//                        (isAbleToDive() && isOnWaterSurface() && !isRideDescending))
-//                        && this.isTouchingWater && this.getFluidHeight(
-//                    FluidTags.WATER
-//                ) > this.swimHeight)}")
+            Cobblemon.LOGGER.info("Sink: ${shouldSinkInWater})")
 
             // Sprint control logic
             val shouldBeSprinting = canSprint && (isTouchingWater || isFlying() || config.sprinting.canSprintOnLand)

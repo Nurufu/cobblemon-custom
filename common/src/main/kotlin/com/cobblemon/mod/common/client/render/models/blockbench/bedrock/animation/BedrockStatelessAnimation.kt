@@ -9,7 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.bedrock.animation
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatelessAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.ModelFrame
 import net.minecraft.entity.Entity
@@ -28,11 +28,11 @@ class BedrockStatelessAnimation<T: Entity>(frame: ModelFrame, val animation: Bed
     override val targetFrame: Class<ModelFrame> = ModelFrame::class.java
     val particleKeyFrames = animation.effects.filterIsInstance<BedrockParticleKeyframe>()
 
-    override fun setAngles(entity: T?, model: PoseableEntityModel<T>, state: PoseableEntityState<T>?, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
+    override fun setAngles(entity: T?, model: PoseableEntityModel<T>, state: PosableState<T>?, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
         animation.run(model, state, state?.animationSeconds ?: 0F, intensity)
     }
 
-    override fun applyEffects(entity: T, state: PoseableEntityState<T>, previousSeconds: Float, newSeconds: Float) {
+    override fun applyEffects(entity: T, state: PosableState<T>, previousSeconds: Float, newSeconds: Float) {
         val effectiveAnimationLength = animation.animationLength.takeUnless { it <= 0 }?.toFloat() ?: animation.effects.maxOfOrNull { it.seconds }?.takeIf { it != 0F }
         val (loopedPreviousSeconds, loopedNewSeconds) = if (effectiveAnimationLength != null) {
             (previousSeconds % effectiveAnimationLength) to (newSeconds % effectiveAnimationLength)

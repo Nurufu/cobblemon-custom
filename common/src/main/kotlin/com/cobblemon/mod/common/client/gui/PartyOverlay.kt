@@ -10,7 +10,7 @@ package com.cobblemon.mod.common.client.gui
 
 import com.cobblemon.mod.common.CobblemonItems
 import com.cobblemon.mod.common.api.gui.blitk
-import com.cobblemon.mod.common.api.gui.drawPortraitPokemon
+import com.cobblemon.mod.common.api.gui.drawPosablePortrait
 import com.cobblemon.mod.common.api.text.darkGray
 import com.cobblemon.mod.common.api.text.red
 import com.cobblemon.mod.common.api.text.text
@@ -23,6 +23,8 @@ import com.cobblemon.mod.common.client.keybind.keybinds.HidePartyBinding
 import com.cobblemon.mod.common.client.keybind.keybinds.SummaryBinding
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.render.getDepletableRedGreen
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
 import com.cobblemon.mod.common.client.render.renderScaledGuiItemIcon
 import com.cobblemon.mod.common.pokemon.Gender
 import com.cobblemon.mod.common.util.cobblemonResource
@@ -52,6 +54,7 @@ class PartyOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.ge
         private val genderIconMale = cobblemonResource("textures/gui/party/party_gender_male.png")
         private val genderIconFemale = cobblemonResource("textures/gui/party/party_gender_female.png")
         private val portraitBackground = cobblemonResource("textures/gui/party/party_slot_portrait_background.png")
+        val state = FloatingState()
     }
 
     private val screenExemptions: List<Class<out Screen>> = listOf(
@@ -148,7 +151,16 @@ class PartyOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.ge
                     0.0
                 )
 
-                drawPortraitPokemon(pokemon.species, pokemon.aspects, matrices, partialTicks = partialDeltaTicks)
+                drawPosablePortrait(
+                    identifier = pokemon.species.resourceIdentifier,
+                    aspects = pokemon.aspects,
+                    matrixStack = matrices,
+                    partialTicks = 0F, // partialDeltaTicks, //Before you get any funny ideas about party animated pokemon, make sure they each get their own state instead of sharing.
+                    contextScale = pokemon.form.baseScale,
+                    repository = PokemonModelRepository,
+                    state = state
+                )
+
                 matrices.pop()
                 context.disableScissor()
             }

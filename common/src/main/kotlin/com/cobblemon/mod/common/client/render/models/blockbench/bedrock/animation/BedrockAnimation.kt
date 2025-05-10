@@ -10,27 +10,17 @@ package com.cobblemon.mod.common.client.render.models.blockbench.bedrock.animati
 
 import com.bedrockk.molang.Expression
 import com.bedrockk.molang.runtime.MoLangRuntime
-import com.bedrockk.molang.runtime.MoParams
-import com.bedrockk.molang.runtime.MoScope
-import com.bedrockk.molang.runtime.struct.QueryStruct
 import com.bedrockk.molang.runtime.value.DoubleValue
-import com.bedrockk.molang.runtime.value.MoValue
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.snowstorm.BedrockParticleEffect
-import com.cobblemon.mod.common.api.text.text
 import com.cobblemon.mod.common.client.particle.ParticleStorm
 import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
-import com.cobblemon.mod.common.util.asExpression
-import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
 import com.cobblemon.mod.common.util.getString
 import com.cobblemon.mod.common.util.math.geometry.toRadians
 import com.cobblemon.mod.common.util.resolve
 import com.cobblemon.mod.common.util.resolveDouble
-import java.util.SortedMap
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.model.ModelPart
 import net.minecraft.client.sound.PositionedSoundInstance
@@ -42,6 +32,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.crash.CrashException
 import net.minecraft.util.crash.CrashReport
 import net.minecraft.util.math.Vec3d
+import java.util.*
 
 data class BedrockAnimationGroup(
     val formatVersion: String,
@@ -49,7 +40,7 @@ data class BedrockAnimationGroup(
 )
 
 abstract class BedrockEffectKeyframe(val seconds: Float) {
-    abstract fun <T : Entity> run(entity: T, state: PoseableEntityState<T>)
+    abstract fun <T : Entity> run(entity: T, state: PosableState<T>)
 }
 
 class BedrockParticleKeyframe(
@@ -72,7 +63,7 @@ class BedrockParticleKeyframe(
         }
     }
 
-    override fun <T : Entity> run(entity: T, state: PoseableEntityState<T>) {
+    override fun <T : Entity> run(entity: T, state: PosableState<T>) {
         val world = entity.world as? ClientWorld ?: return
         val matrixWrapper = state.locatorStates[locator] ?: state.locatorStates["root"]!!
         check(matrixWrapper != state.locatorStates["root"]) {return}
@@ -84,7 +75,7 @@ class BedrockParticleKeyframe(
         val particleRuntime = MoLangRuntime()
 
         // Share the query struct from the entity so the particle can query entity properties
-        particleRuntime.environment.structs["query"] = state.runtime.environment.getQueryStruct()
+        particleRuntime.environment.query = state.runtime.environment.query
 
         val storm = ParticleStorm(
             effect = effect,
@@ -108,7 +99,7 @@ class BedrockSoundKeyframe(
     seconds: Float,
     val sound: Identifier
 ): BedrockEffectKeyframe(seconds) {
-    override fun <T : Entity> run(entity: T, state: PoseableEntityState<T>) {
+    override fun <T : Entity> run(entity: T, state: PosableState<T>) {
         val soundEvent = SoundEvent.of(sound) // Means we don't need to setup a sound registry entry for every single thing
         if (soundEvent != null) {
             MinecraftClient.getInstance().soundManager.play(
@@ -131,7 +122,7 @@ class BedrockInstructionKeyframe(
     seconds: Float,
     val expressions: List<Expression>
 ): BedrockEffectKeyframe(seconds) {
-    override fun <T : Entity> run(entity: T, state: PoseableEntityState<T>) {
+    override fun <T : Entity> run(entity: T, state: PosableState<T>) {
         expressions.forEach { expression -> state.runtime.resolve(expression) }
     }
 }
@@ -142,16 +133,16 @@ data class BedrockAnimation(
     val effects: List<BedrockEffectKeyframe>,
     val boneTimelines: Map<String, BedrockBoneTimeline>
 ) {
-    companion object {
-        val sharedRuntime = MoLangRuntime().also {
-            val zero = DoubleValue(0.0)
-            it.environment.getQueryStruct().addFunctions(mapOf(
-                "anim_time" to java.util.function.Function { return@Function zero }
-            ))
-        }
-    }
+//    companion object {
+//        val sharedRuntime = MoLangRuntime().also {
+//            val zero = DoubleValue(0.0)
+//            getQueryStruct().addFunctions(mapOf(
+//                "anim_time" to java.util.function.Function { return@Function zero }
+//            ))
+//        }
+//    }
 
-    fun run(model: PoseableEntityModel<*>, state: PoseableEntityState<*>?, animationSeconds: Float, intensity: Float): Boolean {
+    fun run(model: PoseableEntityModel<*>, state: PosableState<*>, animationSeconds: Float, intensity: Float): Boolean {
         var animationSeconds = animationSeconds
         if (shouldLoop) {
             animationSeconds %= animationLength.toFloat()
@@ -159,11 +150,13 @@ data class BedrockAnimation(
             return false
         }
 
+        val runtime = state.runtime
+
         boneTimelines.forEach { (boneName, timeline) ->
             val part = model.relevantPartsByName[boneName] ?: if (boneName == "root_part") (model.rootPart as ModelPart) else null
             if (part !== null) {
                 if (!timeline.position.isEmpty()) {
-                    val position = timeline.position.resolve(animationSeconds.toDouble(), state?.runtime ?: sharedRuntime).multiply(intensity.toDouble())
+                    val position = timeline.position.resolve(animationSeconds.toDouble(), runtime).multiply(intensity.toDouble())
                     part.apply {
                         pivotX += position.x.toFloat()
                         pivotY += position.y.toFloat()
@@ -173,7 +166,7 @@ data class BedrockAnimation(
 
                 if (!timeline.rotation.isEmpty()) {
                     try {
-                        val rotation = timeline.rotation.resolve(animationSeconds.toDouble(), state?.runtime ?: sharedRuntime).multiply(intensity.toDouble())
+                        val rotation = timeline.rotation.resolve(animationSeconds.toDouble(), runtime).multiply(intensity.toDouble())
                         part.apply {
                             pitch += rotation.x.toFloat().toRadians()
                             yaw += rotation.y.toFloat().toRadians()
@@ -193,7 +186,7 @@ data class BedrockAnimation(
                 }
 
                 if (!timeline.scale.isEmpty()) {
-                    var scale = timeline.scale.resolve(animationSeconds.toDouble(), state?.runtime ?: sharedRuntime)
+                    var scale = timeline.scale.resolve(animationSeconds.toDouble(), runtime).multiply(intensity.toDouble())
                     val deviation = scale.multiply(-1.0).add(1.0, 1.0, 1.0).multiply(intensity.toDouble())
                     scale = deviation.subtract(1.0, 1.0, 1.0).multiply(-1.0)
                     part.xScale *= scale.x.toFloat()
@@ -205,7 +198,7 @@ data class BedrockAnimation(
         return true
     }
 
-    fun <T : Entity> applyEffects(entity: T, state: PoseableEntityState<T>, previousSeconds: Float, newSeconds: Float) {
+    fun <T : Entity> applyEffects(entity: T, state: PosableState<T>, previousSeconds: Float, newSeconds: Float) {
         val effectCondition: (effectKeyframe: BedrockEffectKeyframe) -> Boolean =
             if (previousSeconds > newSeconds) {
                 { it.seconds >= previousSeconds || it.seconds <= newSeconds }

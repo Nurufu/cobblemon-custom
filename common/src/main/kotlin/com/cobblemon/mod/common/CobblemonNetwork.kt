@@ -182,11 +182,6 @@ object CobblemonNetwork : NetworkManager {
     fun sendPacketToPlayers(players: Iterable<ServerPlayerEntity>, packet: NetworkPacket<*>) = players.forEach { sendPacketToPlayer(it, packet) }
 
     override fun registerClientBound() {
-        //Ride Packets
-        this.createClientBound(SendServerSettingsPacket.ID, SendServerSettingsPacket::decode, SendServerSettingsHandler())
-        this.createClientBound(RideableSpeciesRegistrySyncPacket.ID, RideableSpeciesRegistrySyncPacket::decode, DataRegistrySyncPacketHandler())
-        this.createClientBound(UpdatePokemonBehaviourPacket.ID, UpdatePokemonBehaviourPacket::decode, UpdatePokemonBehaviourHandler())
-
         // Pokemon Update Packets
         this.createClientBound(FriendshipUpdatePacket.ID, FriendshipUpdatePacket::decode, PokemonUpdatePacketHandler())
         this.createClientBound(MoveSetUpdatePacket.ID, MoveSetUpdatePacket::decode, PokemonUpdatePacketHandler())
@@ -330,15 +325,14 @@ object CobblemonNetwork : NetworkManager {
         // Dialogue packets
         this.createClientBound(DialogueClosedPacket.ID, DialogueClosedPacket::decode, DialogueClosedHandler)
         this.createClientBound(DialogueOpenedPacket.ID, DialogueOpenedPacket::decode, DialogueOpenedHandler)
+
+        //Ride Packets
+        this.createClientBound(SendServerSettingsPacket.ID, SendServerSettingsPacket::decode, SendServerSettingsHandler())
+        this.createClientBound(RideableSpeciesRegistrySyncPacket.ID, RideableSpeciesRegistrySyncPacket::decode, DataRegistrySyncPacketHandler())
+        this.createClientBound(UpdatePokemonBehaviourPacket.ID, UpdatePokemonBehaviourPacket::decode, UpdatePokemonBehaviourHandler())
     }
 
     override fun registerServerBound() {
-        //Ride Packets
-        this.createServerBound(SetRidePokemonExhaustPacket.ID, SetRidePokemonExhaustPacket::decode, SetRidePokemonExhaustHandler())
-        this.createServerBound(GetRidePokemonPassengersPacket.ID, GetRidePokemonPassengersPacket::decode, GetRidePokemonPassengersHandler())
-        this.createServerBound(DismountPokemonPacket.ID, DismountPokemonPacket::decode, DismountPokemonHandler())
-        this.createServerBound(GetRidePokemonBehaviourPacket.ID, GetRidePokemonBehaviourPacket::decode, GetRidePokemonBehaviourHandler())
-
         // Pokemon Update Packets
         this.createServerBound(SetNicknamePacket.ID, SetNicknamePacket::decode, SetNicknameHandler)
 
@@ -411,6 +405,12 @@ object CobblemonNetwork : NetworkManager {
         // Dialogue packets
         this.createServerBound(EscapeDialoguePacket.ID, EscapeDialoguePacket::decode, EscapeDialogueHandler)
         this.createServerBound(InputToDialoguePacket.ID, InputToDialoguePacket::decode, InputToDialogueHandler)
+
+        //Ride Packets
+        this.createServerBound(SetRidePokemonExhaustPacket.ID, SetRidePokemonExhaustPacket::decode, SetRidePokemonExhaustHandler())
+        this.createServerBound(GetRidePokemonPassengersPacket.ID, GetRidePokemonPassengersPacket::decode, GetRidePokemonPassengersHandler())
+        this.createServerBound(DismountPokemonPacket.ID, DismountPokemonPacket::decode, DismountPokemonHandler())
+        this.createServerBound(GetRidePokemonBehaviourPacket.ID, GetRidePokemonBehaviourPacket::decode, GetRidePokemonBehaviourHandler())
     }
 
     private inline fun <reified T : NetworkPacket<T>> createClientBound(identifier: Identifier, noinline decoder: (PacketByteBuf) -> T, handler: ClientNetworkPacketHandler<T>) {

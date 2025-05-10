@@ -9,7 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.animation
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.ModelFrame
 import net.minecraft.entity.Entity
 
@@ -24,11 +24,11 @@ import net.minecraft.entity.Entity
 abstract class StatelessAnimation<T : Entity, F : ModelFrame>(val frame: F) {
     abstract val targetFrame: Class<F>
     open var labels: Set<String> = setOf()
-    protected abstract fun setAngles(entity: T?, model: PoseableEntityModel<T>, state: PoseableEntityState<T>?, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float)
+    protected abstract fun setAngles(entity: T?, model: PoseableEntityModel<T>, state: PosableState<T>?, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float)
 
-    fun apply(entity: T?, model: PoseableEntityModel<T>, state: PoseableEntityState<T>?, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
+    fun apply(entity: T?, model: PoseableEntityModel<T>, state: PosableState<T>?, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
         setAngles(entity, model, state, limbSwing, limbSwingAmount, ageInTicks, headYaw, headPitch, intensity)
     }
 
-    open fun applyEffects(entity: T, state: PoseableEntityState<T>, previousSeconds: Float, newSeconds: Float) {}
+    open fun applyEffects(entity: T, state: PosableState<T>, previousSeconds: Float, newSeconds: Float) {}
 }

@@ -12,7 +12,7 @@ import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.client.entity.PokemonClientDelegate
 import com.cobblemon.mod.common.client.render.models.blockbench.JsonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.JsonPoseableEntityModel
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatefulAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.ModelFrame
@@ -99,7 +99,7 @@ class JsonPokemonPoseableModel(rootPart: Bone) : PokemonPoseableModel(), HeadedF
     val faint: Supplier<StatefulAnimation<PokemonEntity, ModelFrame>>? = null
     val cry: Supplier<StatefulAnimation<PokemonEntity, ModelFrame>>? = null
 
-    override fun getFaintAnimation(pokemonEntity: PokemonEntity, state: PoseableEntityState<PokemonEntity>) = faint?.get()
+    override fun getFaintAnimation(pokemonEntity: PokemonEntity, state: PosableState<PokemonEntity>) = faint?.get()
     override val cryAnimation = CryProvider { _, _ -> cry?.get() }
 
     object JsonModelExclusion: ExclusionStrategy {

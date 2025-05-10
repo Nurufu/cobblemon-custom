@@ -8,7 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.repository
 
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatefulAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.fossil.FossilModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.JsonPokemonPoseableModel
@@ -61,7 +61,7 @@ object FossilModelRepository : VaryingModelRepository<Entity, FossilModel>() {
             // borrowed code from JsonPokemonPoseableModel's PoseAdapter Deserializer
             val tankQuirks = (jsonObject.get("quirks")?.asJsonArray ?: JsonArray()).map { json ->
                 json as JsonObject
-                val quirkAnimations: (state: PoseableEntityState<Entity>) -> List<StatefulAnimation<Entity, *>> = { _ ->
+                val quirkAnimations: (state: PosableState<Entity>) -> List<StatefulAnimation<Entity, *>> = { _ ->
                     (json.get("animations")?.asJsonArray ?: JsonArray()).mapNotNull { animJson ->
                         val animString = animJson.asString
 

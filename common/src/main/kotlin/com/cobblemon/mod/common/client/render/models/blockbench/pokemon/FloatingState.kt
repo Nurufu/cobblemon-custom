@@ -9,23 +9,23 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon
 
 import com.cobblemon.mod.common.api.scheduling.ClientTaskTracker
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 
 /**
- * A [PoseableEntityState] that exists even without an entity or age-based state. This is
+ * A [PosableState] that exists even without an entity or age-based state. This is
  * for when a Pokémon needs to be continuously animated from GUIs and there isn't an entity
  * to attach state to. It has no age, and updating the partial ticks will increment rather
  * than replace.
  *
  * What to look out for: Don't run updatePartialTicks multiple times in a single frame. For
- * other [PoseableEntityState] this is fine as it just replaces what was there before, but
+ * other [PosableState] this is fine as it just replaces what was there before, but
  * since this is incremental it would actually mess up the animation speeds.
  *
  * @author Hiroku
  * @since May 1st, 2022
  */
-class PokemonFloatingState : PoseableEntityState<PokemonEntity>() {
+class FloatingState : PosableState<PokemonEntity>() {
     override fun getEntity() = null
     override val schedulingTracker = ClientTaskTracker
     override fun updatePartialTicks(partialTicks: Float) {

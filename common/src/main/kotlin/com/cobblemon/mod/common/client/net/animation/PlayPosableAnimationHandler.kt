@@ -9,8 +9,8 @@
 package com.cobblemon.mod.common.client.net.animation
 
 import com.cobblemon.mod.common.api.net.ClientNetworkPacketHandler
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
-import com.cobblemon.mod.common.entity.Poseable
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
+import com.cobblemon.mod.common.entity.PosableEntity
 import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
 import com.cobblemon.mod.common.util.asExpression
 import com.cobblemon.mod.common.util.resolve
@@ -20,9 +20,9 @@ object PlayPosableAnimationHandler : ClientNetworkPacketHandler<PlayPoseableAnim
     override fun handle(packet: PlayPoseableAnimationPacket, client: MinecraftClient) {
         val world = client.world ?: return
         val entity = world.getEntityById(packet.entityId) ?: return
-        if (entity is Poseable) {
+        if (entity is PosableEntity) {
             val delegate = entity.delegate
-            if (delegate is PoseableEntityState<*>) {
+            if (delegate is PosableState<*>) {
                 for (expr in packet.expressions) {
                     delegate.runtime.resolve(expr.asExpression())
                 }

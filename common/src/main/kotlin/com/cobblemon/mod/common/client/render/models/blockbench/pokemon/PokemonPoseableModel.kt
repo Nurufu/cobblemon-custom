@@ -10,7 +10,7 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon
 
 import com.cobblemon.mod.common.client.entity.PokemonClientDelegate
 import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatefulAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatelessAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.ModelFrame
@@ -67,12 +67,12 @@ abstract class PokemonPoseableModel : PoseableEntityModel<PokemonEntity>() {
 
     open fun getFaintAnimation(
         pokemonEntity: PokemonEntity,
-        state: PoseableEntityState<PokemonEntity>
+        state: PosableState<PokemonEntity>
     ): StatefulAnimation<PokemonEntity, ModelFrame>? = null
 
     open fun getEatAnimation(
         pokemonEntity: PokemonEntity,
-        state: PoseableEntityState<PokemonEntity>
+        state: PosableState<PokemonEntity>
     ): StatefulAnimation<PokemonEntity, ModelFrame>? = null
 
     override fun getOverlayTexture(entity: Entity?): Int {
@@ -102,5 +102,5 @@ typealias PokemonPose = Pose<PokemonEntity, ModelFrame>
 
 @FunctionalInterface
 fun interface CryProvider {
-    operator fun invoke(entity: PokemonEntity, state: PoseableEntityState<PokemonEntity>): StatefulAnimation<PokemonEntity, ModelFrame>?
+    operator fun invoke(entity: PokemonEntity, state: PosableState<PokemonEntity>): StatefulAnimation<PokemonEntity, ModelFrame>?
 }

@@ -9,7 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.animation
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.addRotation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.ModelFrame
@@ -48,7 +48,7 @@ class BipedWalkAnimation<T : Entity>(
     )
 
     override val targetFrame: Class<ModelFrame> = ModelFrame::class.java
-    override fun setAngles(entity: T?, model: PoseableEntityModel<T>, state: PoseableEntityState<T>?, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
+    override fun setAngles(entity: T?, model: PoseableEntityModel<T>, state: PosableState<T>?, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
         rightLeg?.addRotation(X_AXIS, MathHelper.cos(limbSwing * periodMultiplier + Math.PI.toFloat()) * limbSwingAmount * amplitudeMultiplier * intensity)
         leftLeg?.addRotation(X_AXIS, MathHelper.cos(limbSwing * periodMultiplier) * limbSwingAmount * amplitudeMultiplier * intensity)
     }

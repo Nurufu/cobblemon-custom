@@ -14,14 +14,11 @@ import com.bedrockk.molang.runtime.value.DoubleValue
 import com.bedrockk.molang.runtime.value.MoValue
 import com.bedrockk.molang.runtime.value.StringValue
 import com.cobblemon.mod.common.Cobblemon.LOGGER
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunction
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.molang.ObjectValue
-import com.cobblemon.mod.common.api.text.text
 import com.cobblemon.mod.common.client.particle.BedrockParticleEffectRepository
 import com.cobblemon.mod.common.client.particle.ParticleStorm
-import com.cobblemon.mod.common.client.entity.GenericBedrockClientDelegate
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.setup
 import com.cobblemon.mod.common.api.scheduling.Schedulable
 import com.cobblemon.mod.common.client.ClientMoLangFunctions.setupClient
@@ -36,12 +33,8 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.ModelFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.client.render.models.blockbench.quirk.ModelQuirk
 import com.cobblemon.mod.common.client.render.models.blockbench.quirk.QuirkData
-import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.WaveFunction
-import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.WaveFunctions
-import com.cobblemon.mod.common.entity.Poseable
-import com.cobblemon.mod.common.util.asExpression
+import com.cobblemon.mod.common.entity.PosableEntity
 import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
-import com.cobblemon.mod.common.util.resolve
 import java.util.concurrent.ConcurrentLinkedQueue
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.sound.PositionedSoundInstance
@@ -61,11 +54,11 @@ import net.minecraft.util.math.Vec3d
  * @author Hiroku
  * @since December 5th, 2021
  */
-abstract class PoseableEntityState<T : Entity> : Schedulable {
+abstract class PosableState<T : Entity> : Schedulable {
     var currentModel: PoseableEntityModel<T>? = null
         set(value) {
             field = value
-            runtime.environment.getQueryStruct().addFunctions(value?.functions?.functions ?: hashMapOf())
+            getQueryStruct().addFunctions(value?.functions?.functions ?: hashMapOf())
         }
     var currentPose: String? = null
     /** A kind of cache for the current aspects being rendered. It's a bit sloppily maintained but necessary. */
@@ -76,9 +69,9 @@ abstract class PoseableEntityState<T : Entity> : Schedulable {
     val poseParticles = mutableListOf<BedrockParticleKeyframe>()
     val runtime = MoLangRuntime().setup().setupClient().also { runtime ->
         val reusableAnimTime = DoubleValue(0.0) // This gets called 500 million times so use a mutable value for runtime
-        runtime.environment.getQueryStruct().addFunctions(mapOf(
+        getQueryStruct().addFunctions(mapOf(
             "anim_time" to java.util.function.Function { return@Function reusableAnimTime.also { it.value = animationSeconds.toDouble() } },
-            "pose_type" to java.util.function.Function { return@Function StringValue((getEntity() as Poseable).getCurrentPoseType().name) },
+            "pose_type" to java.util.function.Function { return@Function StringValue((getEntity() as PosableEntity).getCurrentPoseType().name) },
             "pose" to java.util.function.Function { _ -> return@Function StringValue(currentPose ?: "") },
             "has_entity" to java.util.function.Function { _ -> return@Function DoubleValue(getEntity() != null) },
             "sound" to java.util.function.Function { params ->
@@ -133,7 +126,7 @@ abstract class PoseableEntityState<T : Entity> : Schedulable {
                     val matrixWrapper = locatorStates[locator] ?: locatorStates["root"]!!
 
                     val particleRuntime = MoLangRuntime().setup().setupClient()
-                    particleRuntime.environment.getQueryStruct().addFunction("entity") { runtime.environment.getQueryStruct() }
+                    getQueryStruct().addFunction("entity") { getQueryStruct() }
 
                     val storm = ParticleStorm(
                         effect = effect,
@@ -258,7 +251,7 @@ abstract class PoseableEntityState<T : Entity> : Schedulable {
         locatorStates.values.toList().forEach { it.updatePosition(position) }
     }
 
-    fun addStatefulAnimation(animation: StatefulAnimation<T, *>, whenComplete: (state: PoseableEntityState<T>) -> Unit = {}) {
+    fun addStatefulAnimation(animation: StatefulAnimation<T, *>, whenComplete: (state: PosableState<T>) -> Unit = {}) {
         this.statefulAnimations.add(animation)
         val duration = animation.duration
         if (duration > 0F) {

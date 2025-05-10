@@ -11,7 +11,7 @@ package com.cobblemon.mod.common.client.battle
 import com.cobblemon.mod.common.api.pokemon.PokemonProperties
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.api.pokemon.stats.Stat
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonFloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
 import com.cobblemon.mod.common.pokemon.Gender
 import com.cobblemon.mod.common.pokemon.Species
 import com.cobblemon.mod.common.pokemon.status.PersistentStatus
@@ -52,6 +52,6 @@ class ClientBattlePokemon(
     val gender: Gender
         get() = properties.gender ?: Gender.GENDERLESS
 
-    var state = PokemonFloatingState()
+    var state = FloatingState()
 
 }

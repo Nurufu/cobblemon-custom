@@ -16,7 +16,7 @@ import com.cobblemon.mod.common.api.net.serializers.StringSetDataSerializer
 import com.cobblemon.mod.common.api.scheduling.Schedulable
 import com.cobblemon.mod.common.api.scheduling.SchedulingTracker
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.Poseable
+import com.cobblemon.mod.common.entity.PosableEntity
 import com.cobblemon.mod.common.net.messages.client.spawn.SpawnGenericBedrockPacket
 import com.cobblemon.mod.common.util.DataKeys
 import com.cobblemon.mod.common.util.cobblemonResource
@@ -24,7 +24,6 @@ import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityDimensions
 import net.minecraft.entity.EntityPose
 import net.minecraft.entity.data.DataTracker
-import net.minecraft.entity.data.TrackedData
 import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtList
@@ -33,7 +32,7 @@ import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket
 import net.minecraft.util.Identifier
 import net.minecraft.world.World
 
-class GenericBedrockEntity(world: World) : Entity(CobblemonEntities.GENERIC_BEDROCK_ENTITY, world), Poseable, Schedulable {
+class GenericBedrockEntity(world: World) : Entity(CobblemonEntities.GENERIC_BEDROCK_ENTITY, world), PosableEntity, Schedulable {
     companion object {
         val CATEGORY = DataTracker.registerData(GenericBedrockEntity::class.java, IdentifierDataSerializer)
         val ASPECTS = DataTracker.registerData(GenericBedrockEntity::class.java, StringSetDataSerializer)

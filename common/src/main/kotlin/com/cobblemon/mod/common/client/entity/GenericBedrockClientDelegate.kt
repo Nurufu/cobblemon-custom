@@ -9,12 +9,12 @@
 package com.cobblemon.mod.common.client.entity
 
 import com.cobblemon.mod.common.api.entity.EntitySideDelegate
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.GenericBedrockEntityModelRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.entity.generic.GenericBedrockEntity
 
-class GenericBedrockClientDelegate : EntitySideDelegate<GenericBedrockEntity>, PoseableEntityState<GenericBedrockEntity>() {
+class GenericBedrockClientDelegate : EntitySideDelegate<GenericBedrockEntity>, PosableState<GenericBedrockEntity>() {
     lateinit var currentEntity: GenericBedrockEntity
     override val schedulingTracker
         get() = getEntity().schedulingTracker
@@ -28,11 +28,13 @@ class GenericBedrockClientDelegate : EntitySideDelegate<GenericBedrockEntity>, P
 
         val model = currentModel!!
         model.context.put(RenderContext.ENTITY, entity)
-        currentModel!!.updateLocators(this)
+        currentModel!!.updateLocators(entity, this)
         updateLocatorPosition(entity.pos)
 
         val currentPoseType = entity.getCurrentPoseType()
-        val pose = this.currentModel!!.poses.values.firstOrNull { currentPoseType in it.poseTypes && (it.condition == null || it.condition.invoke(entity)) }
+        // Doing this awful thing because otherwise evolution particle won't start until the client looks at it. Which sucks slightly more than this.
+        val pose = this.currentModel!!.getFirstSuitablePose(this, currentPoseType)
+        doLater { setPose(pose.poseName) }
         if (pose != null) {
             doLater { setPose(pose.poseName) }
         }

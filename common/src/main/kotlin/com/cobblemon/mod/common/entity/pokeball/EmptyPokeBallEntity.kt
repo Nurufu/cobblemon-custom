@@ -8,7 +8,6 @@
 
 package com.cobblemon.mod.common.entity.pokeball
 
-import com.bedrockk.molang.runtime.struct.QueryStruct
 import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.CobblemonEntities.EMPTY_POKEBALL
 import com.cobblemon.mod.common.CobblemonNetwork
@@ -17,7 +16,6 @@ import com.cobblemon.mod.common.api.events.CobblemonEvents
 import com.cobblemon.mod.common.api.events.pokeball.PokeBallCaptureCalculatedEvent
 import com.cobblemon.mod.common.api.events.pokeball.ThrownPokeballHitEvent
 import com.cobblemon.mod.common.api.events.pokemon.PokemonCapturedEvent
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
 import com.cobblemon.mod.common.api.net.serializers.StringSetDataSerializer
 import com.cobblemon.mod.common.api.net.serializers.Vec3DataSerializer
 import com.cobblemon.mod.common.api.pokeball.PokeBalls
@@ -38,7 +36,7 @@ import com.cobblemon.mod.common.client.particle.BedrockParticleEffectRepository
 import com.cobblemon.mod.common.client.particle.ParticleStorm
 import com.cobblemon.mod.common.client.render.MatrixWrapper
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.Poseable
+import com.cobblemon.mod.common.entity.PosableEntity
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.entity.pokemon.PokemonServerDelegate
 import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
@@ -73,9 +71,8 @@ import net.minecraft.util.math.MathHelper.PI
 import net.minecraft.util.math.Vec3d
 import net.minecraft.world.World
 import java.util.concurrent.CompletableFuture
-import kotlin.reflect.jvm.internal.impl.resolve.constants.StringValue
 
-class EmptyPokeBallEntity : ThrownItemEntity, Poseable, WaterDragModifier, Schedulable {
+class EmptyPokeBallEntity : ThrownItemEntity, PosableEntity, WaterDragModifier, Schedulable {
     enum class CaptureState {
         NOT,
         HIT,

@@ -8,7 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen5
 
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
@@ -74,6 +74,6 @@ class CofagrigusModel (root: ModelPart) : PokemonPoseableModel() {
 
     override fun getFaintAnimation(
             pokemonEntity: PokemonEntity,
-            state: PoseableEntityState<PokemonEntity>
+            state: PosableState<PokemonEntity>
     ) = if (state.isNotPosedIn(sleep)) bedrockStateful("cofagrigus", "faint") else null
 }

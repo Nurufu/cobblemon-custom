@@ -9,12 +9,11 @@
 package com.cobblemon.mod.common.client.gui.dialogue
 
 import com.cobblemon.mod.common.Cobblemon
-import com.cobblemon.mod.common.api.gui.drawPortraitPokemon
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.client.entity.PokemonClientDelegate
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonFloatingState
-import com.cobblemon.mod.common.entity.Poseable
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
+import com.cobblemon.mod.common.entity.PosableEntity
 import java.util.UUID
 import kotlin.math.atan
 import net.minecraft.client.MinecraftClient
@@ -68,12 +67,13 @@ class PlayerRenderableFace(val playerId: UUID) : RenderableFace {
     }
 }
 
-class ReferenceRenderableFace(entity: Poseable): RenderableFace {
-    val state = entity.delegate as PoseableEntityState<*>
+class ReferenceRenderableFace(val entity: PosableEntity): RenderableFace {
+    val state = entity.delegate as PosableState
     override fun render(drawContext: DrawContext, partialTicks: Float) {
         val state = this.state
         if (state is PokemonClientDelegate) {
-            drawPortraitPokemon(
+            state.currentAspects = state.currentEntity.pokemon.aspects
+            drawPosablePortrait(
                 species = state.currentEntity.pokemon.species,
                 aspects = state.currentEntity.pokemon.aspects,
                 matrixStack = drawContext.matrices,
@@ -85,7 +85,7 @@ class ReferenceRenderableFace(entity: Poseable): RenderableFace {
 }
 
 class ArtificialRenderableFace(
-    modelType: String,
+    val modelType: String,
     val identifier: Identifier,
     val aspects: Set<String>
 ): RenderableFace {
@@ -93,16 +93,13 @@ class ArtificialRenderableFace(
         Cobblemon.LOGGER.error("Unable to find species for $identifier for a dialogue face. Defaulting to first species.")
         PokemonSpecies.species.first()
     }
-    val state: PoseableEntityState<*> = if (modelType == "pokemon") {
-        PokemonFloatingState()
-    } else {
-        throw IllegalArgumentException("Unknown model type: $modelType")
-    }
+    val state = FloatingState()
 
     override fun render(drawContext: DrawContext, partialTicks: Float) {
         val state = this.state
-        if (state is PokemonFloatingState) {
-            drawPortraitPokemon(
+        state.currentAspects = aspects
+        if (modelType == "pokemon") {
+            drawPosablePortrait(
                 species = species,
                 aspects = aspects,
                 matrixStack = drawContext.matrices,

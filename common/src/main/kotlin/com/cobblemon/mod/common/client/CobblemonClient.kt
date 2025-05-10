@@ -67,6 +67,14 @@ object CobblemonClient {
     /** If true then we won't bother them anymore about choosing a starter even if it's a thing they can do. */
     var checkedStarterScreen = false
     var requests = ClientPlayerActionRequests()
+    var posableModelRepositories = listOf(
+        PokemonModelRepository,
+        PokeBallModelRepository,
+        //NPCModelRepository,
+        FossilModelRepository,
+        BlockEntityModelRepository,
+        GenericBedrockEntityModelRepository
+    )
 
 
     val overlay: PartyOverlay by lazy { PartyOverlay() }
@@ -263,6 +271,9 @@ object CobblemonClient {
         this.implementation.registerEntityRenderer(CobblemonEntities.GENERIC_BEDROCK_ENTITY, ::GenericBedrockRenderer)
         LOGGER.info("Registering PokeRod Bobber renderer")
         this.implementation.registerEntityRenderer(CobblemonEntities.POKE_BOBBER) { ctx -> PokeBobberEntityRenderer(ctx) }
+//        LOGGER.info("Registering NPC renderer")
+//        this.implementation.registerEntityRenderer(CobblemonEntities.NPC, ::NPCRenderer)
+
     }
 
     fun reloadCodedAssets(resourceManager: ResourceManager) {
@@ -270,14 +281,9 @@ object CobblemonClient {
         BedrockParticleEffectRepository.loadEffects(resourceManager)
         BedrockAnimationRepository.loadAnimations(
             resourceManager = resourceManager,
-            directories = PokemonModelRepository.animationDirectories + PokeBallModelRepository.animationDirectories + FossilModelRepository.animationDirectories + BlockEntityModelRepository.animationDirectories + GenericBedrockEntityModelRepository.animationDirectories
+            directories = posableModelRepositories.flatMap { it.animationDirectories }
         )
-        PokemonModelRepository.reload(resourceManager)
-        PokeBallModelRepository.reload(resourceManager)
-        BerryModelRepository.reload(resourceManager)
-        FossilModelRepository.reload(resourceManager)
-        BlockEntityModelRepository.reload(resourceManager)
-        GenericBedrockEntityModelRepository.reload(resourceManager)
+        posableModelRepositories.forEach { it.reload(resourceManager) }
         MiscModelRepository.reload(resourceManager)
         LOGGER.info("Loaded assets")
     }

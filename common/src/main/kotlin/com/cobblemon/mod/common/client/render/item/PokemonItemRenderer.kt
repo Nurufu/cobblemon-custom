@@ -8,15 +8,13 @@
 
 package com.cobblemon.mod.common.client.render.item
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
+import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.item.PokemonItem
 import com.cobblemon.mod.common.util.math.fromEulerXYZDegrees
-import net.minecraft.client.render.DiffuseLighting
-import net.minecraft.client.render.LightmapTextureManager
-import net.minecraft.client.render.OverlayTexture
-import net.minecraft.client.render.VertexConsumer
-import net.minecraft.client.render.VertexConsumerProvider
+import net.minecraft.client.render.*
 import net.minecraft.client.render.model.json.ModelTransformationMode
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
@@ -24,20 +22,38 @@ import org.joml.Quaternionf
 import org.joml.Vector3f
 
 class PokemonItemRenderer : CobblemonBuiltinItemRenderer {
+    val context = RenderContext().also {
+        it.put(RenderContext.RENDER_STATE, RenderContext.RenderState.PROFILE)
+        it.put(RenderContext.DO_QUIRKS, false)
+    }
+
     override fun render(stack: ItemStack, mode: ModelTransformationMode, matrices: MatrixStack, vertexConsumers: VertexConsumerProvider, light: Int, overlay: Int) {
         val pokemonItem = stack.item as? PokemonItem ?: return
         val (species, aspects) = pokemonItem.getSpeciesAndAspects(stack) ?: return
 
+        val state = FloatingState()
+
         matrices.push()
         val model = PokemonModelRepository.getPoser(species.resourceIdentifier, aspects)
-        val renderLayer = model.getLayer(PokemonModelRepository.getTexture(species.resourceIdentifier, aspects, 0F))
+        model.context = context
+        context.put(RenderContext.RENDER_STATE, RenderContext.RenderState.PROFILE)
+        context.put(RenderContext.SPECIES, species.resourceIdentifier)
+        context.put(RenderContext.ASPECTS, aspects)
+        context.put(RenderContext.POSABLE_STATE, state)
+        state.currentModel = model
+        state.currentAspects = aspects
+
+        val renderLayer = RenderLayer.getEntityCutout(PokemonModelRepository.getTexture(species.resourceIdentifier, aspects, 0F))
+
 
         val transformations = positions[mode]!!
 
         DiffuseLighting.enableGuiDepthLighting()
         matrices.scale(transformations.scale.x, transformations.scale.y, transformations.scale.z)
         matrices.translate(transformations.translation.x, transformations.translation.y, transformations.translation.z)
-        model.setupAnimStateless(PoseType.PROFILE)
+        state.setPoseToFirstSuitable(PoseType.PORTRAIT)
+        model.applyAnimations(null, state, 0F, 0F, 0F, 0F, 0F)
+
         matrices.translate(model.profileTranslation.x, model.profileTranslation.y,  model.profileTranslation.z - 4.0)
         matrices.scale(model.profileScale, model.profileScale, 0.15F)
 
@@ -54,8 +70,8 @@ class PokemonItemRenderer : CobblemonBuiltinItemRenderer {
 
         // x = red, y = green, z = blue, w = alpha
         val tint = pokemonItem.tint(stack)
-        model.withLayerContext(vertexConsumers, null, PokemonModelRepository.getLayers(species.resourceIdentifier, aspects)) {
-            model.render(matrices, vertexConsumer, packedLight, OverlayTexture.DEFAULT_UV, tint.x, tint.y, tint.z, tint.w)
+        model.withLayerContext(vertexConsumers, state, PokemonModelRepository.getLayers(species.resourceIdentifier, aspects)) {
+            model.render(context, matrices, vertexConsumer, packedLight, OverlayTexture.DEFAULT_UV, tint.x, tint.y, tint.z, tint.w)
         }
 
         model.setDefault()

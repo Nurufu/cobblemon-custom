@@ -11,6 +11,7 @@ package com.cobblemon.mod.common.client.gui.trade
 import com.cobblemon.mod.common.api.gui.blitk
 import com.cobblemon.mod.common.client.gui.drawProfilePokemon
 import com.cobblemon.mod.common.client.render.drawScaledText
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
 import com.cobblemon.mod.common.client.render.renderScaledGuiItemIcon
 import com.cobblemon.mod.common.net.messages.client.trade.TradeStartedPacket
 import com.cobblemon.mod.common.pokemon.Gender
@@ -32,7 +33,7 @@ open class PartySlot(
     private val isOpposing: Boolean = false,
     onPress: PressAction
 ) : ButtonWidget(x, y, SIZE, SIZE, Text.literal("PartySlot"), onPress, DEFAULT_NARRATION_SUPPLIER) {
-
+    val state = FloatingState()
     companion object {
         const val SIZE = 25
 
@@ -75,7 +76,7 @@ open class PartySlot(
                 renderablePokemon = pokemon.asRenderablePokemon(),
                 matrixStack = matrices,
                 rotation = Quaternionf().fromEulerXYZDegrees(Vector3f(13F, 35F, 0F)),
-                state = null,
+                state = state,
                 scale = 4.5F,
                 partialTicks = delta
             )

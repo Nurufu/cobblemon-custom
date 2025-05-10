@@ -9,7 +9,7 @@
 package com.cobblemon.mod.common.client.render.layer
 
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonFloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.pokemon.FormData
@@ -101,7 +101,7 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
             matrixStack.scale(scale, scale, scale)
 
             val model = PokemonModelRepository.getPoser(shoulderData.species.resourceIdentifier, shoulderData.aspects)
-            val state = PokemonFloatingState()
+            val state = FloatingState()
             state.updatePartialTicks(ageInTicks + partialTicks)
             val vertexConsumer = buffer.getBuffer(model.getLayer(PokemonModelRepository.getTexture(shoulderData.species.resourceIdentifier, shoulderData.aspects, state.animationSeconds)))
             val i = LivingEntityRenderer.getOverlay(livingEntity, 0.0f)

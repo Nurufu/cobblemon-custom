@@ -13,7 +13,7 @@ import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.client.battle.ClientBattlePokemon
 import com.cobblemon.mod.common.client.battle.animations.MoveTileOffscreenAnimation
 import com.cobblemon.mod.common.client.battle.animations.SwapAndMoveTileOnscreenAnimation
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonFloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
 import com.cobblemon.mod.common.net.messages.client.battle.BattleSwitchPokemonPacket
 import net.minecraft.client.MinecraftClient
 
@@ -42,7 +42,7 @@ object BattleSwitchPokemonHandler : ClientNetworkPacketHandler<BattleSwitchPokem
                         statChanges = statChanges
                     ).also {
                         it.actor = actor
-                        it.state = PokemonFloatingState()
+                        it.state = FloatingState()
                     }
                 }
             )
