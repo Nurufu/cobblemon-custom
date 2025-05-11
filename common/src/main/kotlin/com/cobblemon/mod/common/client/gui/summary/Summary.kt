@@ -27,6 +27,8 @@ import com.cobblemon.mod.common.client.CobblemonResources
 import com.cobblemon.mod.common.client.blitRideIcon
 import com.cobblemon.mod.common.client.gui.ExitButton
 import com.cobblemon.mod.common.client.gui.TypeIcon
+import com.cobblemon.mod.common.client.gui.pc.PCGUI
+import com.cobblemon.mod.common.client.gui.pc.PCGUI.Companion
 import com.cobblemon.mod.common.client.gui.summary.widgets.EvolutionSelectScreen
 import com.cobblemon.mod.common.client.gui.summary.widgets.ModelWidget
 import com.cobblemon.mod.common.client.gui.summary.widgets.NicknameEntryWidget
@@ -426,6 +428,7 @@ class Summary private constructor(party: Collection<Pokemon?>, private val edita
         val y = (height - BASE_HEIGHT) / 2
         val matrices = context.matrices
 
+
         // Render Portrait Background
         blitk(
                 matrixStack = matrices,
@@ -524,6 +527,22 @@ class Summary private constructor(party: Collection<Pokemon?>, private val edita
                 y = y + 4.5,
                 shadow = true
         )
+
+        // Ride icon
+        val ride = RideablePokemonSpecies.getByName(this.selectedPokemon.species.showdownId())
+        if (ride != null) {
+            if(ride.getForm(this.selectedPokemon.form.name).enabled) {
+                blitRideIcon(
+                    matrices,
+                    cobblemonResource("textures/gui/summary/ride-icon.png"),
+                    (x + 56) / SCALE,
+                    (y + 101) / SCALE,
+                    32,
+                    16,
+                    SCALE
+                )
+            }
+        }
 
         // Shiny Icon
         if (selectedPokemon.shiny) {

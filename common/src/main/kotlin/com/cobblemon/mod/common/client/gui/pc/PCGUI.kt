@@ -338,6 +338,22 @@ class PCGUI(
                 )
             }
 
+            // Ride icon
+            val ride = RideablePokemonSpecies.getByName(pokemon.species.showdownId())
+            if (ride != null) {
+                if(ride.getForm(pokemon.form.name).enabled) {
+                    blitRideIcon(
+                        matrices,
+                        cobblemonResource("textures/gui/summary/ride-icon.png"),
+                        (x + 56) / SCALE,
+                        (y + 95.5) / SCALE,
+                        32,
+                        16,
+                        SCALE
+                    )
+                }
+            }
+
             // Held Item
             val heldItem = pokemon.heldItemNoCopy()
             val itemX = x + 3
