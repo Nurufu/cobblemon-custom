@@ -14,7 +14,7 @@ import com.cobblemon.mod.common.api.moves.animations.ActionEffectContext
 import com.cobblemon.mod.common.api.moves.animations.EntityProvider
 import com.cobblemon.mod.common.api.moves.animations.UsersProvider
 import com.cobblemon.mod.common.api.scheduling.delayedFuture
-import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
+import com.cobblemon.mod.common.net.messages.client.animation.PlayPosableAnimationPacket
 import com.cobblemon.mod.common.util.asExpressionLike
 import java.util.concurrent.CompletableFuture
 import net.minecraft.server.world.ServerWorld
@@ -45,7 +45,7 @@ class AnimationActionEffectKeyframe : ConditionalActionEffectKeyframe(), EntityC
         for (entity in entities) {
             val world = entity.world as ServerWorld
             val players = world.getPlayers { it.distanceTo(entity) <= visibilityRange }
-            val pkt = PlayPoseableAnimationPacket(entity.id, animation = animation, expressions = expressions)
+            val pkt = PlayPosableAnimationPacket(entity.id, animation = animation, expressions = expressions)
             players.forEach { it.sendPacket(pkt) }
         }
 

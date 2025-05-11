@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.util
 
+import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
@@ -70,4 +71,8 @@ fun JsonObject.getFirst(vararg names: String): JsonElement? {
         }
     }
     return null
+}
+
+fun JsonArray.asExpressionLike(): ExpressionLike {
+    return map { it.asString }.asExpressionLike()
 }

@@ -9,14 +9,14 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class HorseaModel(root: ModelPart) : PokemonPoseableModel() {
+class HorseaModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("horsea")
 
     override var portraitScale = 2.5F
@@ -25,12 +25,12 @@ class HorseaModel(root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 0.85F
     override var profileTranslation = Vec3d(-0.03, 0.5, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var float: PokemonPose
-    lateinit var swim: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var float: Pose
+    lateinit var swim: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("horsea", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("horsea", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("horsea", "blink") }
@@ -38,7 +38,7 @@ class HorseaModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "standing",
             poseType = PoseType.STAND,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("horsea", "ground_idle")
             )
         )
@@ -47,7 +47,7 @@ class HorseaModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "walk",
             poseType = PoseType.WALK,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("horsea", "ground_walk")
             )
         )
@@ -56,7 +56,7 @@ class HorseaModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "float",
             poseTypes = UI_POSES + PoseType.FLOAT,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("horsea", "water_idle")
             )
         )
@@ -65,7 +65,7 @@ class HorseaModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "swim",
             poseType = PoseType.SWIM,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("horsea", "water_swim")
             )
         )
@@ -73,6 +73,6 @@ class HorseaModel(root: ModelPart) : PokemonPoseableModel() {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("horsea", "faint") else null
 }

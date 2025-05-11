@@ -12,15 +12,15 @@ import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class LotadModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
+class LotadModel (root: ModelPart) : PokemonPosableModel(root), QuadrupedFrame {
     override val rootPart = root.registerChildWithAllChildren("lotad")
 
     override val foreLeftLeg = getPart("leg_left")
@@ -34,17 +34,17 @@ class LotadModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
     override var profileScale = 1.0F
     override var profileTranslation = Vec3d(0.0, 0.25, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var waterstanding: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var waterwalk: PokemonPose
-    lateinit var floating: PokemonPose
-    lateinit var swim: PokemonPose
-    lateinit var sleep: PokemonPose
+    lateinit var standing: Pose
+    lateinit var waterstanding: Pose
+    lateinit var walk: Pose
+    lateinit var waterwalk: Pose
+    lateinit var floating: Pose
+    lateinit var swim: Pose
+    lateinit var sleep: Pose
 
     val wateroffset = -2
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("lotad", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("lotad", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("charmander", "blink") }
@@ -54,7 +54,7 @@ class LotadModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
             poseTypes = PoseType.UI_POSES + PoseType.STAND,
             quirks = arrayOf(blink),
             condition = { !it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("lotad", "ground_idle")
             )
         )
@@ -64,7 +64,7 @@ class LotadModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
             poseType = PoseType.STAND,
             quirks = arrayOf(blink),
             condition = { it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("lotad", "water_idle")
             ),
             transformedParts = arrayOf(
@@ -77,7 +77,7 @@ class LotadModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
             poseType = PoseType.WALK,
             quirks = arrayOf(blink),
             condition = { !it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("lotad", "ground_walk"),
             )
         )
@@ -87,7 +87,7 @@ class LotadModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
             poseType = PoseType.WALK,
             quirks = arrayOf(blink),
             condition = { it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("lotad", "water_swim")
             ),
             transformedParts = arrayOf(
@@ -100,7 +100,7 @@ class LotadModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
             quirks = arrayOf(blink),
             poseType = PoseType.FLOAT,
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("lotad", "water_idle"),
             ),
             transformedParts = arrayOf(
@@ -113,7 +113,7 @@ class LotadModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
             quirks = arrayOf(blink),
             poseType = PoseType.SWIM,
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("lotad", "water_swim"),
             ),
             transformedParts = arrayOf(
@@ -126,14 +126,11 @@ class LotadModel (root: ModelPart) : PokemonPoseableModel(), QuadrupedFrame {
             quirks = arrayOf(blink),
             poseType = PoseType.SLEEP,
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("lotad", "sleep"),
             )
         )
 
     }
-    override fun getFaintAnimation(
-        pokemonEntity: PokemonEntity,
-        state: PosableState<PokemonEntity>
-    ) = if (state.isNotPosedIn(sleep)) bedrockStateful("lotad", "faint") else null
+    override fun getFaintAnimation(state: PosableState) = if (state.isNotPosedIn(sleep)) bedrockStateful("lotad", "faint") else null
 }

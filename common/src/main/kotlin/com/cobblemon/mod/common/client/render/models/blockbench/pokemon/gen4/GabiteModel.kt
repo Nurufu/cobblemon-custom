@@ -12,13 +12,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class GabiteModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class GabiteModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("gabite")
     override val head = getPart("head")
     override val rightArm = getPart("arm_right")
@@ -32,11 +33,11 @@ class GabiteModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedF
     override var profileScale = 0.8F
     override var profileTranslation = Vec3d(0.0, 0.55, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var battleidle: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var battleidle: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("gabite", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("gabite", "cry") }
 
     override fun registerPoses() {
 
@@ -48,7 +49,7 @@ class GabiteModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedF
             transformTicks = 10,
             condition = { !it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("gabite", "ground_idle")
             )
@@ -59,7 +60,7 @@ class GabiteModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedF
             poseTypes = PoseType.MOVING_POSES,
             transformTicks = 5,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("gabite", "ground_walk")
             )
@@ -71,7 +72,7 @@ class GabiteModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedF
             transformTicks = 10,
             quirks = arrayOf(blink),
             condition = { it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("gabite", "battle_idle")
             )

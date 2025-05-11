@@ -13,16 +13,15 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class InfernapeModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class InfernapeModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("infernape")
     override val head = getPart("head_ai")
 
@@ -37,11 +36,11 @@ class InfernapeModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
     override var profileScale = 0.5F
     override var profileTranslation = Vec3d(0.0, 1.0, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var battleidle: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var battleidle: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("infernape", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("infernape", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("infernape", "blink") }
@@ -49,7 +48,7 @@ class InfernapeModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
                 poseName = "standing",
                 poseTypes = STATIONARY_POSES + UI_POSES,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         singleBoneLook(),
                         bedrock("infernape", "ground_idle")
                 )
@@ -59,15 +58,12 @@ class InfernapeModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
                 poseName = "walk",
                 poseTypes = MOVING_POSES,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         singleBoneLook(),
                         bedrock("infernape", "ground_walk")
                 )
         )
     }
 
-    override fun getFaintAnimation(
-        pokemonEntity: PokemonEntity,
-        state: PosableState<PokemonEntity>
-    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("infernape", "faint") else null
+    override fun getFaintAnimation(state: PosableState) = if (state.isPosedIn(standing, walk)) bedrockStateful("infernape", "faint") else null
 }

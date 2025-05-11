@@ -12,13 +12,13 @@ import com.cobblemon.mod.common.api.entity.EntitySideDelegate
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
 import com.cobblemon.mod.common.api.reactive.SettableObservable
 import com.cobblemon.mod.common.api.reactive.SimpleObservable
-import com.cobblemon.mod.common.client.render.pokeball.PokeBallPoseableState
+import com.cobblemon.mod.common.client.render.pokeball.PokeBallPosableState
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity.CaptureState
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity.CaptureState.NOT
 import net.minecraft.entity.data.TrackedData
 
-class EmptyPokeBallClientDelegate : PokeBallPoseableState(), EntitySideDelegate<EmptyPokeBallEntity> {
+class EmptyPokeBallClientDelegate : PokeBallPosableState(), EntitySideDelegate<EmptyPokeBallEntity> {
     override val stateEmitter: SettableObservable<CaptureState> = SettableObservable(NOT)
     override val shakeEmitter = SimpleObservable<Unit>()
 

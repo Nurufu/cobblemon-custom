@@ -10,11 +10,10 @@ package com.cobblemon.mod.common.client.gui.startselection.widgets.preview
 
 import com.cobblemon.mod.common.client.gui.drawProfilePokemon
 import com.cobblemon.mod.common.client.gui.summary.widgets.SoundlessWidget
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
 import com.cobblemon.mod.common.pokemon.RenderablePokemon
 import com.cobblemon.mod.common.util.math.fromEulerXYZDegrees
 import net.minecraft.client.gui.DrawContext
-import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import org.joml.Quaternionf
 import org.joml.Vector3f

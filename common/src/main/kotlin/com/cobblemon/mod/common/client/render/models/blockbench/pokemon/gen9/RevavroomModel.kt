@@ -9,13 +9,13 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen9
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class RevavroomModel (root: ModelPart) : PokemonPoseableModel() {
+class RevavroomModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("revavroom")
 
     override var portraitScale = 3.1F
@@ -24,17 +24,17 @@ class RevavroomModel (root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 0.9F
     override var profileTranslation = Vec3d(-0.2, 0.3, 1.1)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var sleep: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var sleep: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("revavroom", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("revavroom", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("revavroom", "blink") }
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("revavroom", "sleep"))
+            animations = arrayOf(bedrock("revavroom", "sleep"))
         )
 
         standing = registerPose(
@@ -42,7 +42,7 @@ class RevavroomModel (root: ModelPart) : PokemonPoseableModel() {
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("revavroom", "ground_idle")
             )
         )
@@ -52,7 +52,7 @@ class RevavroomModel (root: ModelPart) : PokemonPoseableModel() {
             poseTypes = PoseType.MOVING_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("revavroom", "ground_walk")
             )
         )

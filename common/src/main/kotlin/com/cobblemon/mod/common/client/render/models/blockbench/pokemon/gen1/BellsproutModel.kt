@@ -10,15 +10,15 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class BellsproutModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class BellsproutModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("bellsprout")
     override val head = getPart("head")
 
@@ -28,10 +28,10 @@ class BellsproutModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.75F
     override var profileTranslation = Vec3d(0.0, 0.64, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("bellsprout", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("bellsprout", "cry") }
 
 
     override fun registerPoses() {
@@ -39,7 +39,7 @@ class BellsproutModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "standing",
             poseTypes = STATIONARY_POSES + UI_POSES,
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("bellsprout", "ground_idle")
             )
@@ -49,7 +49,7 @@ class BellsproutModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "walk",
             poseTypes = MOVING_POSES,
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("bellsprout", "ground_idle")
                 //bedrock("bellsprout", "ground_walk")
@@ -59,6 +59,6 @@ class BellsproutModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("bellsprout", "faint") else null
 }

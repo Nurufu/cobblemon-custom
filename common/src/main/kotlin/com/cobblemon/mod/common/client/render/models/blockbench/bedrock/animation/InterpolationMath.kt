@@ -89,16 +89,4 @@ private fun catmullrom(t: Double, p0: Double, p1: Double, p2: Double, p3: Double
     return (2 * p1 - 2 * p2 + v0 + v1) * t3 + (-3 * p1 + 3 * p2 - 2 * v0 - v1) * t2 + v0 * t + p1
 }
 
-private fun Vector3d.get(axis: Int) : Double {
-    return when (axis) {
-        X_AXIS -> this.x
-        Y_AXIS -> this.y
-        Z_AXIS -> this.z
-        else -> throw IllegalStateException()
-    }
-}
-
-private data class Vector2d(
-        val a: Double,
-        val b: Double
-)
+private data class Vector2d(val a: Double, val b: Double)

@@ -10,13 +10,14 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class ArctovishModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("arctovish")
     override val head = getPart("head")
 
@@ -26,18 +27,18 @@ class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.35F
     override var profileTranslation = Vec3d(0.0, 1.25, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var water_sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var float: PokemonPose
-    lateinit var swim: PokemonPose
-    lateinit var battleidle: PokemonPose
-    lateinit var ui_poses: PokemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var water_sleep: CobblemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var float: CobblemonPose
+    lateinit var swim: CobblemonPose
+    lateinit var battleidle: CobblemonPose
+    lateinit var ui_poses: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, pose ->
+    override val cryAnimation = CryProvider {
         when {
-            pose.isPosedIn(float, swim ) -> bedrockStateful("arctovish", "water_cry")
+            it.isPosedIn(float, swim ) -> bedrockStateful("arctovish", "water_cry")
             else -> bedrockStateful("arctovish", "cry")
         }
     }
@@ -51,7 +52,7 @@ class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseType = PoseType.SLEEP,
             condition = { !it.isTouchingWater },
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("arctovish", "sleep")
             )
         )
@@ -61,7 +62,7 @@ class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
                 poseType = PoseType.SLEEP,
                 condition = { it.isTouchingWater },
                 transformTicks = 10,
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("arctovish", "water_sleep")
                 )
         )
@@ -71,7 +72,7 @@ class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.STATIONARY_POSES - PoseType.UI_POSES - PoseType.FLOAT,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("arctovish", "ground_idle")
             )
         )
@@ -81,7 +82,7 @@ class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
                 poseTypes = PoseType.UI_POSES,
                 transformTicks = 10,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("arctovish", "water_idle")
                 )
         )
@@ -91,7 +92,7 @@ class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.MOVING_POSES - PoseType.SWIM,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("arctovish", "ground_walk")
             )
         )
@@ -101,7 +102,7 @@ class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseType = PoseType.FLOAT,
             transformTicks = 10,
             quirks = arrayOf(blink, waterquirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("arctovish", "water_idle")
             )
         )
@@ -111,7 +112,7 @@ class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseType = PoseType.SWIM,
             transformTicks = 10,
             quirks = arrayOf(blink, waterquirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("arctovish", "water_swim")
             )
         )
@@ -119,6 +120,6 @@ class ArctovishModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("arctovish", "faint") else null
 }

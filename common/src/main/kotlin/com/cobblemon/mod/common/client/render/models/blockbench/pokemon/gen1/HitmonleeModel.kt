@@ -12,17 +12,17 @@ import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class HitmonleeModel(root: ModelPart) : PokemonPoseableModel(), BipedFrame, BimanualFrame {
+class HitmonleeModel(root: ModelPart) : PokemonPosableModel(root), BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("hitmonlee")
 
     override val leftArm = getPart("arm_left")
@@ -36,19 +36,19 @@ class HitmonleeModel(root: ModelPart) : PokemonPoseableModel(), BipedFrame, Bima
     override var profileScale = 0.9F
     override var profileTranslation = Vec3d(0.0, 0.47, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var battleidle: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var sleep: Pose
+    lateinit var battleidle: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("hitmonlee", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("hitmonlee", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("hitmonlee", "blink")}
 
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("hitmonlee", "sleep"))
+            animations = arrayOf(bedrock("hitmonlee", "sleep"))
         )
 
         standing = registerPose(
@@ -57,7 +57,7 @@ class HitmonleeModel(root: ModelPart) : PokemonPoseableModel(), BipedFrame, Bima
             transformTicks = 5,
             condition = { !it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("hitmonlee", "ground_idle")
             )
         )
@@ -67,7 +67,7 @@ class HitmonleeModel(root: ModelPart) : PokemonPoseableModel(), BipedFrame, Bima
             poseTypes = MOVING_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("hitmonlee", "ground_walk")
             )
         )
@@ -78,14 +78,11 @@ class HitmonleeModel(root: ModelPart) : PokemonPoseableModel(), BipedFrame, Bima
             transformTicks = 10,
             quirks = arrayOf(blink),
             condition = { it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("hitmonlee", "battle_idle")
             )
         )
     }
 
-    override fun getFaintAnimation(
-        pokemonEntity: PokemonEntity,
-        state: PosableState<PokemonEntity>
-    ) = bedrockStateful("hitmonlee", "faint")
+    override fun getFaintAnimation(state: PosableState) = bedrockStateful("hitmonlee", "faint")
 }

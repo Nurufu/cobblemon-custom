@@ -15,5 +15,5 @@ import net.minecraft.entity.Entity
 interface HeadedFrame : ModelFrame {
     val head: Bone
 
-    fun <T : Entity> singleBoneLook(invertX: Boolean = false, invertY: Boolean = false, disableX: Boolean = false, disableY: Boolean = false, pitchMultiplier: Float? = null, yawMultiplier: Float? = null, maxPitch: Float? = null, minPitch: Float? = null, maxYaw: Float? = null, minYaw: Float? = null) = SingleBoneLookAnimation<T>(this, invertX, invertY, disableX, disableY, pitchMultiplier, yawMultiplier, maxPitch, minPitch, maxYaw, minYaw)
+    fun singleBoneLook(invertX: Boolean = false, invertY: Boolean = false, disableX: Boolean = false, disableY: Boolean = false, pitchMultiplier: Float? = null, yawMultiplier: Float? = null, maxPitch: Float? = null, minPitch: Float? = null, maxYaw: Float? = null, minYaw: Float? = null) = SingleBoneLookAnimation(this, invertX, invertY, disableX, disableY, pitchMultiplier, yawMultiplier, maxPitch, minPitch, maxYaw, minYaw)
 }

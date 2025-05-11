@@ -26,9 +26,8 @@ import com.cobblemon.mod.common.client.particle.BedrockParticleEffectRepository
 import com.cobblemon.mod.common.client.particle.ParticleStorm
 import com.cobblemon.mod.common.client.render.MatrixWrapper
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
+import com.cobblemon.mod.common.client.render.models.blockbench.animation.ActiveAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.PrimaryAnimation
-import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatefulAnimation
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
 import com.cobblemon.mod.common.client.render.pokemon.PokemonRenderer.Companion.ease
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
@@ -48,7 +47,7 @@ import net.minecraft.util.Hand
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.Vec3d
 
-class PokemonClientDelegate : PosableState<PokemonEntity>(), PokemonSideDelegate {
+class PokemonClientDelegate : PosableState(), PokemonSideDelegate {
     companion object {
         const val BEAM_SHRINK_TIME = 0.4F
         const val BEAM_EXTEND_TIME = 0.2F
@@ -93,7 +92,7 @@ class PokemonClientDelegate : PosableState<PokemonEntity>(), PokemonSideDelegate
     val secondsSinceLastShinyParticle: Float
         get() = (System.currentTimeMillis() - lastShinyParticle) / 1000F
 
-    private var cryAnimation: StatefulAnimation<PokemonEntity, *>? = null
+    private var cryAnimation: ActiveAnimation? = null
 
     private var scaleAnimTask: ScheduledTask? = null
 
@@ -333,36 +332,6 @@ class PokemonClientDelegate : PosableState<PokemonEntity>(), PokemonSideDelegate
         ))
     }
 
-    override fun initialize(entity: PokemonEntity) {
-        this.currentEntity = entity
-        this.age = entity.age
-
-        this.runtime.environment.query.addFunctions(mapOf(
-            "in_battle" to java.util.function.Function {
-                return@Function DoubleValue(currentEntity.isBattling)
-            },
-            "shiny" to java.util.function.Function {
-                return@Function DoubleValue(currentEntity.pokemon.shiny)
-            },
-            "form" to java.util.function.Function {
-                return@Function StringValue(currentEntity.pokemon.form.name)
-            },
-            "width" to java.util.function.Function {
-                return@Function DoubleValue(currentEntity.boundingBox.xLength)
-            },
-            "height" to java.util.function.Function {
-                return@Function DoubleValue(currentEntity.boundingBox.yLength)
-            },
-            "weight" to java.util.function.Function {
-                return@Function DoubleValue(currentEntity.pokemon.species.weight.toDouble())
-            },
-            "friendship" to java.util.function.Function {
-                return@Function DoubleValue(currentEntity.pokemon.friendship.toDouble())
-            }
-        ))
-    }
-
-
     override fun tick(entity: PokemonEntity) {
         updateLocatorPosition(entity.pos)
         incrementAge(entity)
@@ -421,9 +390,9 @@ class PokemonClientDelegate : PosableState<PokemonEntity>(), PokemonSideDelegate
 
     override fun handleStatus(status: Byte) {
         if (status == 10.toByte()) {
-            val model = (currentModel ?: return) as PokemonPoseableModel
-            val animation = model.getEatAnimation(currentEntity, this) ?: return
-            statefulAnimations.add(animation)
+            val model = (currentModel ?: return)
+            val animation = model.getEatAnimation(this) ?: return
+            activeAnimations.add(animation)
         }
     }
 
@@ -433,18 +402,16 @@ class PokemonClientDelegate : PosableState<PokemonEntity>(), PokemonSideDelegate
 
     fun cry() {
         val model = currentModel ?: return
-        if (model is PokemonPoseableModel) {
-            if (cryAnimation != null && (cryAnimation in statefulAnimations || cryAnimation == primaryAnimation)) {
+            if (cryAnimation != null && (cryAnimation in activeAnimations || cryAnimation == primaryAnimation)) {
                 return
             }
 
-            val animation = model.cryAnimation(currentEntity, this) ?: return
+            val animation = model.cryAnimation(this) ?: return
             if (animation is PrimaryAnimation) {
                 addPrimaryAnimation(animation)
             } else {
-                statefulAnimations.add(animation)
+                activeAnimations.add(animation)
             }
             cryAnimation = animation
         }
     }
-}

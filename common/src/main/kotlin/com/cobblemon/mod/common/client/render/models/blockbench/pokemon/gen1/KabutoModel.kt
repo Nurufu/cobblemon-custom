@@ -9,15 +9,15 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class KabutoModel(root: ModelPart) : PokemonPoseableModel() {
+class KabutoModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("kabuto")
 
     override var portraitScale = 3.3F
@@ -26,10 +26,10 @@ class KabutoModel(root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 1.6F
     override var profileTranslation = Vec3d(0.0, -0.6, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("kabuto", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("kabuto", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("kabuto", "blink") }
@@ -39,7 +39,7 @@ class KabutoModel(root: ModelPart) : PokemonPoseableModel() {
             poseTypes = STATIONARY_POSES + UI_POSES,
             quirks = arrayOf(blink),
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("kabuto", "ground_idle")
             )
         )
@@ -49,7 +49,7 @@ class KabutoModel(root: ModelPart) : PokemonPoseableModel() {
             poseTypes = MOVING_POSES,
             quirks = arrayOf(blink),
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("kabuto", "ground_walk")
             )
         )
@@ -57,6 +57,6 @@ class KabutoModel(root: ModelPart) : PokemonPoseableModel() {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("kabuto", "faint") else null
 }

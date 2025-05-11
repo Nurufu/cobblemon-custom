@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.render.generic
 
 import com.cobblemon.mod.common.client.entity.GenericBedrockClientDelegate
+import com.cobblemon.mod.common.client.render.models.blockbench.generic.PosableGenericEntityModel
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.GenericBedrockEntityModelRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
 import com.cobblemon.mod.common.entity.generic.GenericBedrockEntity
@@ -34,7 +35,7 @@ class GenericBedrockRenderer(context: EntityRendererFactory.Context) : EntityRen
         poseStack.scale(1.0F, -1.0F, 1.0F)
         poseStack.scale(entity.scale, entity.scale, entity.scale)
         poseStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(yaw))
-        val vertexConsumer = buffer.getBuffer(RenderLayer.getEntityCutout(entity))
+        val vertexConsumer = buffer.getBuffer(RenderLayer.getEntityCutout(getTexture(entity)))
 
         val state = entity.delegate as GenericBedrockClientDelegate
         state.updatePartialTicks(partialTicks)

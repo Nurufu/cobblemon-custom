@@ -10,8 +10,8 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen5
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BiWingedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.cosineFunction
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.sineFunction
@@ -20,7 +20,7 @@ import com.cobblemon.mod.common.util.math.geometry.toRadians
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class HydreigonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class HydreigonModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("hydreigon")
     override val head = getPart("neck")
 
@@ -30,10 +30,10 @@ class HydreigonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.58F
     override var profileTranslation = Vec3d(-0.06, 1.2, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
-//    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("hydreigon", "cry") }
+//    override val cryAnimation = CryProvider { bedrockStateful("hydreigon", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("hydreigon", "blink") }
@@ -61,22 +61,22 @@ class HydreigonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             quirks = arrayOf(blink),
                 transformTicks = 10,
             poseTypes = PoseType.UI_POSES + PoseType.STATIONARY_POSES,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("hydreigon", "air_idle"),
                     wingFrame1.wingFlap(
                             flapFunction = sineFunction(verticalShift = -25F.toRadians(), period = 1.5F, amplitude = 0.8F),
-                            timeVariable = { state, _, ageInTicks -> state?.animationSeconds ?: ageInTicks },
+                            timeVariable = { state, _, _ -> state.animationSeconds },
                             axis = ModelPartTransformation.Y_AXIS
                     ),
                     wingFrame2.wingFlap(
                             flapFunction = cosineFunction(verticalShift = -25F.toRadians(), period = 2F, amplitude = 0.65F),
-                            timeVariable = { state, _, ageInTicks -> 0.01F + (state?.animationSeconds ?: (ageInTicks / 200)) },
+                            timeVariable = { state, _, _ -> 0.01F + state.animationSeconds },
                             axis = ModelPartTransformation.Y_AXIS
                     ),
                     wingFrame3.wingFlap(
                             flapFunction = sineFunction(verticalShift = -25F.toRadians(), period = 2F, amplitude = 0.5F),
-                            timeVariable = { state, _, ageInTicks -> 0.01F + (state?.animationSeconds ?: (ageInTicks / 400)) },
+                            timeVariable = { state, _, _ -> 0.01F + state.animationSeconds },
                             axis = ModelPartTransformation.Y_AXIS
                     )
             )
@@ -87,22 +87,22 @@ class HydreigonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             quirks = arrayOf(blink),
                 transformTicks = 10,
             poseTypes = PoseType.MOVING_POSES,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("hydreigon", "air_fly"),
                     wingFrame1.wingFlap(
                             flapFunction = sineFunction(verticalShift = -25F.toRadians(), period = 2F, amplitude = 0.5F),
-                            timeVariable = { state, _, ageInTicks -> state?.animationSeconds ?: ageInTicks },
+                            timeVariable = { state, _, _ -> state.animationSeconds },
                             axis = ModelPartTransformation.Y_AXIS
                     ),
                     wingFrame2.wingFlap(
                             flapFunction = cosineFunction(verticalShift = -25F.toRadians(), period = 2F, amplitude = 0.65F),
-                            timeVariable = { state, _, ageInTicks -> 0.01F + (state?.animationSeconds ?: (ageInTicks / 20)) },
+                            timeVariable = { state, _, _ -> 0.01F + state.animationSeconds },
                             axis = ModelPartTransformation.Y_AXIS
                     ),
                     wingFrame3.wingFlap(
                             flapFunction = sineFunction(verticalShift = -25F.toRadians(), period = 1.5F, amplitude = 0.8F),
-                            timeVariable = { state, _, ageInTicks -> 0.01F + (state?.animationSeconds ?: (ageInTicks / 40)) },
+                            timeVariable = { state, _, _ -> 0.01F + state.animationSeconds },
                             axis = ModelPartTransformation.Y_AXIS
                     )
                 //bedrock("hydreigon", "ground_walk")
@@ -112,6 +112,6 @@ class HydreigonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("hydreigon", "faint") else null
 }

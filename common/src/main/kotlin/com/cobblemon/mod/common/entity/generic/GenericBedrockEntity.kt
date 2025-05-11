@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.entity.generic
 
+import com.bedrockk.molang.runtime.struct.QueryStruct
 import com.cobblemon.mod.common.CobblemonEntities
 import com.cobblemon.mod.common.CobblemonNetwork
 import com.cobblemon.mod.common.api.net.serializers.IdentifierDataSerializer
@@ -49,6 +50,8 @@ class GenericBedrockEntity(world: World) : Entity(CobblemonEntities.GENERIC_BEDR
         GenericBedrockServerDelegate()
     }
 
+    override val struct: QueryStruct = QueryStruct(hashMapOf())
+
     var category: Identifier
         get() = this.dataTracker.get(CATEGORY)
         set(value) {
@@ -81,6 +84,10 @@ class GenericBedrockEntity(world: World) : Entity(CobblemonEntities.GENERIC_BEDR
         }
 
     var syncAge = false
+
+    init {
+        addPosableFunctions(struct)
+    }
 
     override fun initDataTracker() {
         this.dataTracker.startTracking(CATEGORY, cobblemonResource("generic"))

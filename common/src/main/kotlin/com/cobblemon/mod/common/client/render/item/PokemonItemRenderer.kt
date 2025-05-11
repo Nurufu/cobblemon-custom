@@ -8,7 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.item
 
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.entity.PoseType

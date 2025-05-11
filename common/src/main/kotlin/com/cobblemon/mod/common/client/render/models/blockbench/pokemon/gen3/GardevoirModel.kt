@@ -8,19 +8,16 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
-import com.cobblemon.mod.common.client.render.models.blockbench.animation.BimanualSwingAnimation
-import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
-import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class GardevoirModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class GardevoirModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("gardevoir")
     override val head = getPart("head")
 
@@ -30,12 +27,12 @@ class GardevoirModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.65F
     override var profileTranslation = Vec3d(0.0, 0.76, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var battleidle: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var battleidle: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("gardevoir", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("gardevoir", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("gardevoir", "blink") }
@@ -43,7 +40,7 @@ class GardevoirModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
         sleep = registerPose(
             poseName = "sleep",
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("gardevoir", "sleep")
             )
@@ -54,7 +51,7 @@ class GardevoirModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             condition = { !it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("gardevoir", "ground_idle")
             )
@@ -64,7 +61,7 @@ class GardevoirModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("gardevoir", "ground_walk")
             )
@@ -75,7 +72,7 @@ class GardevoirModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.STATIONARY_POSES,
             condition = { it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("gardevoir", "battle_idle")
             )
@@ -84,6 +81,6 @@ class GardevoirModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("gardevoir", "faint") else null
 }

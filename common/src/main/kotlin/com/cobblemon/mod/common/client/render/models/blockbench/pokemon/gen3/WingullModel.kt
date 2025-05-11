@@ -12,14 +12,15 @@ import com.cobblemon.mod.common.client.render.models.blockbench.createTransforma
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BiWingedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWingedFrame {
+class WingullModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, BiWingedFrame {
     override val rootPart = root.registerChildWithAllChildren("wingull")
     override val leftWing = getPart("wing_left")
     override val rightWing = getPart("wing_right")
@@ -32,16 +33,16 @@ class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWin
     override var profileScale = 0.85F
     override var profileTranslation = Vec3d(0.0, 0.5, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var stand: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var hover: PokemonPose
-    lateinit var fly: PokemonPose
-    lateinit var water_surface_idle: PokemonPose
-    lateinit var water_surface_swim: PokemonPose
-    lateinit var water_surface_sleep: PokemonPose
+    lateinit var sleep: Pose
+    lateinit var stand: Pose
+    lateinit var walk: Pose
+    lateinit var hover: Pose
+    lateinit var fly: Pose
+    lateinit var water_surface_idle: Pose
+    lateinit var water_surface_swim: Pose
+    lateinit var water_surface_sleep: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("wingull", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("wingull", "cry") }
 
     val wateroffset = -9
 
@@ -51,14 +52,14 @@ class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWin
             poseName = "non_water_sleep",
             poseType = PoseType.SLEEP,
             condition = { !it.isTouchingWater },
-            idleAnimations = arrayOf(bedrock("wingull", "sleep"))
+            animations = arrayOf(bedrock("wingull", "sleep"))
         )
 
         water_surface_sleep = registerPose(
             poseName = "water_surface_sleep",
             poseType = PoseType.SLEEP,
             condition = { it.isTouchingWater },
-            idleAnimations = arrayOf(bedrock("wingull", "surfacewater_sleep")),
+            animations = arrayOf(bedrock("wingull", "surfacewater_sleep")),
             transformedParts = arrayOf(
                 rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, wateroffset)
             )
@@ -70,7 +71,7 @@ class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWin
             transformTicks = 10,
             quirks = arrayOf(blink),
             condition = { !it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("wingull", "ground_idle")
             )
         )
@@ -81,7 +82,7 @@ class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWin
             transformTicks = 10,
             condition = { !it.isTouchingWater },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("pelipper", "air_idle")
             )
         )
@@ -92,7 +93,7 @@ class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWin
             transformTicks = 10,
             condition = { !it.isTouchingWater },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("pelipper", "air_fly")
             )
         )
@@ -103,7 +104,7 @@ class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWin
             transformTicks = 10,
             condition = { !it.isTouchingWater },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("wingull", "ground_walk")
             )
         )
@@ -113,7 +114,7 @@ class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWin
             poseTypes = PoseType.STATIONARY_POSES,
             quirks = arrayOf(blink),
             condition = { it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("wingull", "surfacewater_idle"),
             ),
             transformedParts = arrayOf(
@@ -126,7 +127,7 @@ class WingullModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BiWin
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
             condition = { it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("wingull", "surfacewater_swim"),
             ),
             transformedParts = arrayOf(

@@ -20,6 +20,7 @@ import com.cobblemon.mod.common.entity.pokemon.PokemonEntity.Companion.MOVING
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.SentOutState
+import com.cobblemon.mod.common.util.getIsSubmerged
 import com.cobblemon.mod.common.util.playSoundServer
 import com.cobblemon.mod.common.util.server
 import com.cobblemon.mod.common.util.update

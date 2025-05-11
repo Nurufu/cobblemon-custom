@@ -14,12 +14,11 @@ import com.cobblemon.mod.common.api.scheduling.Schedulable
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.pokeball.AncientPokeBallModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pokeball.PokeBallModel
-import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity
 import kotlin.random.Random
 
 @Suppress("NAME_SHADOWING")
-abstract class PokeBallPoseableState : PosableState<EmptyPokeBallEntity>(), Schedulable {
+abstract class PokeBallPosableState : PosableState(), Schedulable {
     abstract val stateEmitter: SettableObservable<EmptyPokeBallEntity.CaptureState>
     abstract val shakeEmitter: Observable<Unit>
     private val group: String
@@ -34,10 +33,9 @@ abstract class PokeBallPoseableState : PosableState<EmptyPokeBallEntity>(), Sche
                         after(seconds = 0.2F) {
                             if (model is PokeBallModel && stateEmitter.get() == EmptyPokeBallEntity.CaptureState.HIT) {
                                 doLater latest@{
-                                    val entity = model.context.request(RenderContext.ENTITY) as EmptyPokeBallEntity? ?: return@latest
-                                    model.moveToPose(entity, this, model.open)
+                                    model.moveToPose(this, model.poses["open"]!!)
                                     after(seconds = 1.75F) {
-                                        model.moveToPose(entity, this, model.shut)
+                                        model.moveToPose(this, model.poses["shut"]!!)
                                     }
                                 }
                             }
@@ -48,28 +46,28 @@ abstract class PokeBallPoseableState : PosableState<EmptyPokeBallEntity>(), Sche
                 EmptyPokeBallEntity.CaptureState.FALL -> {}
                 EmptyPokeBallEntity.CaptureState.SHAKE -> {
                     doLater {
-                        setStatefulAnimations(currentModel!!.bedrockStateful(group, "bounce"))
+                        setActiveAnimations(currentModel!!.bedrockStateful(group, "bounce"))
                     }
                     shakeEmitter
                         .pipe(Observable.emitWhile { stateEmitter.get() == EmptyPokeBallEntity.CaptureState.SHAKE })
                         .subscribe {
                             val bob = "bob${Random.Default.nextInt(6) + 1}"
-                            doLater { setStatefulAnimations(currentModel!!.bedrockStateful(group, bob)) }
+                            doLater { setActiveAnimations(currentModel!!.bedrockStateful(group, bob)) }
                         }
                 }
                 EmptyPokeBallEntity.CaptureState.CAPTURED -> {
                     doLater {
-                        setStatefulAnimations(currentModel!!.bedrockStateful(group, "capture"))
+                        setActiveAnimations(currentModel!!.bedrockStateful(group, "capture"))
                     }
                 }
                 EmptyPokeBallEntity.CaptureState.CAPTURED_CRITICAL -> {
                     doLater {
-                        setStatefulAnimations(currentModel!!.bedrockStateful(group, "critical"))
+                        setActiveAnimations(currentModel!!.bedrockStateful(group, "critical"))
                     }
                 }
                 EmptyPokeBallEntity.CaptureState.BROKEN_FREE -> {
                     doLater {
-                        setStatefulAnimations(currentModel!!.bedrockStateful(group, "break"))
+                        setActiveAnimations(currentModel!!.bedrockStateful(group, "break"))
                     }
                 }
                 else -> {}

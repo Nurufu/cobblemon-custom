@@ -21,7 +21,7 @@ object RunPosableMoLangHandler : ClientNetworkPacketHandler<RunPosableMoLangPack
         val world = client.world ?: return
         val entity = world.getEntityById(packet.entityId) ?: return
         if (entity is PosableEntity) {
-            val state = entity.delegate as? PosableState<*> ?: return
+            val state = entity.delegate as? PosableState ?: return
             for (expression in packet.expressions.map { it.asExpression() }) {
                 state.runtime.resolve(expression)
             }

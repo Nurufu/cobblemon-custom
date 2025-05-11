@@ -11,14 +11,14 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class PolitoedModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame {
+class PolitoedModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
     override val rootPart = root.registerChildWithAllChildren("politoed")
     override val head = getPart("head")
 
@@ -31,18 +31,18 @@ class PolitoedModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
     override var profileScale = 1.1F
     override var profileTranslation = Vec3d(0.0, 0.1, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walking: PokemonPose
-    lateinit var float: PokemonPose
-    lateinit var swim: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walking: Pose
+    lateinit var float: Pose
+    lateinit var swim: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("politoed", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("politoed", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(
             poseName = "standing",
             poseTypes = UI_POSES + PoseType.STAND,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("politoed", "ground_idle")
             )
@@ -51,7 +51,7 @@ class PolitoedModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
         walking = registerPose(
             poseName = "walking",
             poseType = PoseType.WALK,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("politoed", "ground_idle")
             )
@@ -60,7 +60,7 @@ class PolitoedModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
         float = registerPose(
             poseName = "float",
             poseTypes = setOf(PoseType.FLOAT, PoseType.HOVER),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("politoed", "water_idle")
             )
@@ -69,7 +69,7 @@ class PolitoedModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
         swim = registerPose(
             poseName = "swim",
             poseTypes = setOf(PoseType.SWIM, PoseType.FLY),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("politoed", "water_swim")
             )
@@ -78,6 +78,6 @@ class PolitoedModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
 
     //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("politoed", "faint") else null
 }

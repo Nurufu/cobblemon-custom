@@ -30,8 +30,6 @@ import com.cobblemon.mod.common.client.render.pokemon.PokemonRenderer
 import com.cobblemon.mod.common.client.sound.battle.BattleMusicController
 import com.cobblemon.mod.common.client.starter.ClientPlayerData
 import com.cobblemon.mod.common.client.storage.ClientStorageManager
-import com.cobblemon.mod.common.client.tooltips.CobblemonTooltipGenerator
-import com.cobblemon.mod.common.client.tooltips.FishingRodTooltipGenerator
 import com.cobblemon.mod.common.client.tooltips.TooltipManager
 import com.cobblemon.mod.common.client.trade.ClientTrade
 import com.cobblemon.mod.common.data.CobblemonDataProvider
@@ -41,7 +39,6 @@ import com.cobblemon.mod.common.item.PokeBallItem
 import com.cobblemon.mod.common.net.messages.server.pokemon.sync.GetRidePokemonBehaviourPacket
 import com.cobblemon.mod.common.net.messages.server.pokemon.sync.GetRidePokemonPassengersPacket
 import com.cobblemon.mod.common.platform.events.PlatformEvents
-import com.cobblemon.mod.common.util.isLookingAt
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.render.RenderLayer
@@ -55,7 +52,6 @@ import net.minecraft.client.render.entity.model.PlayerEntityModel
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.resource.ResourceManager
-import net.minecraft.util.math.Box
 
 object CobblemonClient {
 
@@ -111,7 +107,6 @@ object CobblemonClient {
         Berries.observable.subscribe {
             BerryModelRepository.patchModels()
         }
-        this.registerTooltipManagers()
 
         LOGGER.info("Registering custom BuiltinItemRenderers")
         CobblemonBuiltinItemRendererRegistry.register(CobblemonItems.POKEMON_MODEL, PokemonItemRenderer())
@@ -121,14 +116,6 @@ object CobblemonClient {
             val lines = event.lines
             TooltipManager.generateTooltips(stack, lines, Screen.hasShiftDown())
         }
-        PlatformEvents.CLIENT_TICK_POST.subscribe { event ->
-            val player = event.client.player
-            val nearbyShinies = player?.world?.getOtherEntities(player, Box.of(player.pos, 16.0,16.0,16.0)) { (it is PokemonEntity) && it.pokemon.shiny }
-                nearbyShinies?.firstOrNull() {player.isLookingAt(it) && !player.isSpectator}.let {
-                    if(it is PokemonEntity)
-                        it.delegate.spawnShinyParticle(player!!)
-                }
-        }
 
         PlatformEvents.RIGHT_CLICK_ENTITY.subscribe {
             if (it.entity is PokemonEntity) {
@@ -136,12 +123,6 @@ object CobblemonClient {
                 GetRidePokemonBehaviourPacket(it.entity.id).sendToServer()
             }
         }
-    }
-
-    private fun registerTooltipManagers() {
-        TooltipManager.registerTooltipGenerator(CobblemonTooltipGenerator)
-//        TooltipManager.registerTooltipGenerator(FishingBaitTooltipGenerator)
-        TooltipManager.registerTooltipGenerator(FishingRodTooltipGenerator)
     }
 
     fun registerFlywheelRenderers() {
@@ -278,12 +259,16 @@ object CobblemonClient {
 
     fun reloadCodedAssets(resourceManager: ResourceManager) {
         LOGGER.info("Loading assets...")
+        // Particles come first because animations need them.
         BedrockParticleEffectRepository.loadEffects(resourceManager)
+        // Animations come next because models need them.
         BedrockAnimationRepository.loadAnimations(
             resourceManager = resourceManager,
             directories = posableModelRepositories.flatMap { it.animationDirectories }
         )
         posableModelRepositories.forEach { it.reload(resourceManager) }
+
+        BerryModelRepository.reload(resourceManager)
         MiscModelRepository.reload(resourceManager)
         LOGGER.info("Loaded assets")
     }

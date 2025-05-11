@@ -12,13 +12,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class NatuModel(root: ModelPart) : PokemonPoseableModel(), BipedFrame, HeadedFrame {
+class NatuModel(root: ModelPart) : PokemonPosableModel(root), BipedFrame, HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("natu")
     override val head = getPart("torso")
 
@@ -31,16 +32,16 @@ class NatuModel(root: ModelPart) : PokemonPoseableModel(), BipedFrame, HeadedFra
     override var profileScale = 1.09F
     override var profileTranslation = Vec3d(0.0, 0.03, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var sleep: PokemonPose
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("natu", "cry") }
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var sleep: Pose
+    override val cryAnimation = CryProvider { bedrockStateful("natu", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("natu", "blink") }
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("natu", "sleep")
             )
         )
@@ -48,7 +49,7 @@ class NatuModel(root: ModelPart) : PokemonPoseableModel(), BipedFrame, HeadedFra
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(pitchMultiplier = 0.5F, yawMultiplier = 0F),
                 bedrock("natu", "ground_idle")
             )
@@ -57,7 +58,7 @@ class NatuModel(root: ModelPart) : PokemonPoseableModel(), BipedFrame, HeadedFra
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(pitchMultiplier = 0.5F, yawMultiplier = 0F),
                 bedrock("natu", "ground_idle"),
                 BipedWalkAnimation(this, periodMultiplier = 0.8F, amplitudeMultiplier = 0.6F)

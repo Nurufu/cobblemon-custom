@@ -82,7 +82,7 @@ abstract class PosableEntityModel<T : Entity>(
     open fun setupEntityTypeContext(entity: Entity?) {
         entity?.let {
             context.put(RenderContext.ENTITY, entity)
-            if (it is PoseableEntity) {
+            if (it is PosableEntity) {
                 context.put(RenderContext.POSABLE_STATE, it.delegate as PosableState)
             }
         }

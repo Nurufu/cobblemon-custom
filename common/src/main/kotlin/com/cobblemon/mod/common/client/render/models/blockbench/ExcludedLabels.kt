@@ -7,4 +7,6 @@
  */
 
 package com.cobblemon.mod.common.client.render.models.blockbench
-class RangeOfMotion(var low: Float, var high: Float)
+
+/** A wrapping object so MoLang can return an ObjectValue of this type and have instance checks work. */
+class ExcludedLabels(val labels: List<String>)

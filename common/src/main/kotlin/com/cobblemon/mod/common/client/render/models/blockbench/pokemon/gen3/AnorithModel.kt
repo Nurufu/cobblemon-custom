@@ -10,14 +10,17 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
+import com.cobblemon.mod.common.util.isSubmergedInWater
+import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
+class AnorithModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("anorith")
 
     override var portraitTranslation = Vec3d(-0.14, -1.56, 0.0)
@@ -26,27 +29,27 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
     override var profileTranslation = Vec3d(-0.05, -0.19, 0.0)
     override var profileScale = 1.03F
 
-    lateinit var standing: PokemonPose
-    lateinit var walking: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var ui_poses: PokemonPose
-    lateinit var battleidle: PokemonPose
-    lateinit var water_surface_sleep: PokemonPose
-    lateinit var water_sleep: PokemonPose
-    lateinit var water_surface_idle: PokemonPose
-    lateinit var water_idle: PokemonPose
-    lateinit var water_surface_battleidle: PokemonPose
-    lateinit var water_battleidle: PokemonPose
-    lateinit var water_surface_swim: PokemonPose
-    lateinit var water_swim:PokemonPose
-    lateinit var shoulderLeft: PokemonPose
-    lateinit var shoulderRight: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walking: CobblemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var ui_poses: CobblemonPose
+    lateinit var battleidle: CobblemonPose
+    lateinit var water_surface_sleep: CobblemonPose
+    lateinit var water_sleep: CobblemonPose
+    lateinit var water_surface_idle: CobblemonPose
+    lateinit var water_idle: CobblemonPose
+    lateinit var water_surface_battleidle: CobblemonPose
+    lateinit var water_battleidle: CobblemonPose
+    lateinit var water_surface_swim: CobblemonPose
+    lateinit var water_swim: CobblemonPose
+    lateinit var shoulderLeft: CobblemonPose
+    lateinit var shoulderRight: CobblemonPose
 
     val shoulderOffset = 5.5
     val wateroffset = -4.5
     val watersurfaceoffset = 1
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("anorith", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("anorith", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("anorith", "blink") }
@@ -55,7 +58,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 poseName = "ui_poses",
                 poseTypes = PoseType.UI_POSES,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "summary_idle")
                 )
         )
@@ -64,7 +67,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 poseName = "sleep",
                 poseType = PoseType.SLEEP,
                 condition = { !it.isTouchingWater },
-                idleAnimations = arrayOf(bedrock("anorith", "sleep")
+                animations = arrayOf(bedrock("anorith", "sleep")
                 )
         )
 
@@ -72,7 +75,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 poseName = "water_surface_sleep",
                 poseType = PoseType.SLEEP,
                 condition = { !it.isSubmergedInWater && it.isTouchingWater },
-                idleAnimations = arrayOf(bedrock("anorith", "water_sleep")
+                animations = arrayOf(bedrock("anorith", "water_sleep")
                 ),
                 transformedParts = arrayOf(
                         rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, watersurfaceoffset)
@@ -83,7 +86,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 poseName = "water_sleep",
                 poseType = PoseType.SLEEP,
                 condition = { it.isSubmergedInWater && it.isTouchingWater },
-                idleAnimations = arrayOf(bedrock("anorith", "water_sleep")),
+                animations = arrayOf(bedrock("anorith", "water_sleep")),
                 transformedParts = arrayOf(
                         rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, wateroffset)
                 )
@@ -95,7 +98,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 transformTicks = 10,
                 condition = { !it.isBattling && !it.isTouchingWater},
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "ground_idle")
             )
         )
@@ -106,7 +109,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 condition = { !it.isSubmergedInWater && it.isTouchingWater && !it.isBattling},
                 transformTicks = 10,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "water_idle")
                 ),
                 transformedParts = arrayOf(
@@ -120,7 +123,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 condition = { it.isSubmergedInWater && it.isTouchingWater && !it.isBattling},
                 transformTicks = 10,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "water_idle")
                 ),
                 transformedParts = arrayOf(
@@ -134,7 +137,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 transformTicks = 10,
                 quirks = arrayOf(blink),
                 condition = { it.isBattling && !it.isTouchingWater},
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "battle_idle")
                 )
         )
@@ -145,7 +148,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 condition = { !it.isSubmergedInWater && it.isTouchingWater && it.isBattling},
                 transformTicks = 10,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "water_battle_idle")
                 ),
                 transformedParts = arrayOf(
@@ -159,7 +162,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 condition = { it.isSubmergedInWater && it.isTouchingWater && it.isBattling},
                 transformTicks = 10,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "water_battle_idle")
                 ),
                 transformedParts = arrayOf(
@@ -173,7 +176,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 quirks = arrayOf(blink),
                 condition = { !it.isSubmergedInWater && !it.isTouchingWater },
                 transformTicks = 10,
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "ground_walk")
             )
         )
@@ -184,7 +187,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 quirks = arrayOf(blink),
                 condition = { !it.isSubmergedInWater && it.isTouchingWater},
                 transformTicks = 10,
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "water_swim")
                 ),
                 transformedParts = arrayOf(
@@ -198,7 +201,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
                 quirks = arrayOf(blink),
                 condition = { it.isSubmergedInWater && it.isTouchingWater },
                 transformTicks = 10,
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "water_swim")
                 ),
                 transformedParts = arrayOf(
@@ -209,7 +212,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
         shoulderLeft = registerPose(
                 poseType = PoseType.SHOULDER_LEFT,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "shoulder_left")
                 ),
                 transformedParts = arrayOf(
@@ -222,7 +225,7 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
         shoulderRight = registerPose(
                 poseType = PoseType.SHOULDER_RIGHT,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("anorith", "shoulder_right")
                 ),
                 transformedParts = arrayOf(
@@ -234,6 +237,6 @@ class AnorithModel (root: ModelPart) : PokemonPoseableModel() {
     }
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walking)) bedrockStateful("anorith", "faint") else null
 }

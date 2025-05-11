@@ -13,13 +13,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class DewottModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class DewottModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("dewott")
     override val head = getPart("head")
     override val rightArm = getPart("arm_right")
@@ -36,12 +37,12 @@ class DewottModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biped
     override var profileScale = 0.7F
     override var profileTranslation = Vec3d(0.0, 0.69, 0.0)
 
-    lateinit var battleidle: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var battleidle: Pose
+    lateinit var sleep: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("dewott", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("dewott", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("dewott", "blink") }
@@ -56,7 +57,7 @@ class DewottModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biped
                 scalchop_body_left.createTransformation().withVisibility(visibility = true)
 
             ),
-            idleAnimations = arrayOf(bedrock("dewott", "sleep"))
+            animations = arrayOf(bedrock("dewott", "sleep"))
         )
 
         standing = registerPose(
@@ -71,7 +72,7 @@ class DewottModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biped
                 scalchop_body_right.createTransformation().withVisibility(visibility = true),
                 scalchop_body_left.createTransformation().withVisibility(visibility = true)
             ),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("dewott", "ground_idle")
             )
@@ -89,7 +90,7 @@ class DewottModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biped
                 scalchop_body_right.createTransformation().withVisibility(visibility = true),
                 scalchop_body_left.createTransformation().withVisibility(visibility = true)
             ),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("dewott", "ground_walk")
             )
@@ -107,7 +108,7 @@ class DewottModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biped
                 scalchop_body_right.createTransformation().withVisibility(visibility = false),
                 scalchop_body_left.createTransformation().withVisibility(visibility = false)
             ),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("dewott", "ground_idle")
             )

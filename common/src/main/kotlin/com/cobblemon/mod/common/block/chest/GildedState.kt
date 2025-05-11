@@ -12,7 +12,7 @@ import com.cobblemon.mod.common.api.scheduling.SchedulingTracker
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import net.minecraft.entity.Entity
 
-class GildedState : PosableState<Entity>() {
+class GildedState : PosableState() {
     override fun getEntity() = null
 
     init {

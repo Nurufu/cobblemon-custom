@@ -14,15 +14,15 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class AlakazamModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class AlakazamModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("alakazam")
     override val head = getPart("head")
 
@@ -37,11 +37,11 @@ class AlakazamModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
     override var profileScale = 0.73F
     override var profileTranslation = Vec3d(0.0, 0.65, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var sleep: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("alakazam", "cry") }
+    override val cryAnimation = CryProvider{bedrockStateful("alakazam", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("alakazam", "blink")}
@@ -50,7 +50,7 @@ class AlakazamModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
             poseTypes = STATIONARY_POSES + UI_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook() ,
                 bedrock("alakazam", "ground_idle")
             )
@@ -61,7 +61,7 @@ class AlakazamModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
             poseTypes = MOVING_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("alakazam", "ground_idle"),
                 BipedWalkAnimation(this, periodMultiplier = 0.6F, amplitudeMultiplier = 0.9F),
@@ -72,6 +72,6 @@ class AlakazamModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("alakazam", "faint") else null
 }

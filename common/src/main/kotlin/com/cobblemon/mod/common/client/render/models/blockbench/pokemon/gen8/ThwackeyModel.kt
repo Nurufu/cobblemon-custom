@@ -13,13 +13,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ThwackeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class ThwackeyModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("thwackey")
     override val head = getPart("head")
 
@@ -38,11 +39,11 @@ class ThwackeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
     override var profileScale = 0.65F
     override var profileTranslation = Vec3d(0.0, 0.76, 0.0)
 
-    lateinit var battleidle: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var battleidle: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("thwackey", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("thwackey", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("thwackey", "blink") }
@@ -57,7 +58,7 @@ class ThwackeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
                 stick_left.createTransformation().withVisibility(visibility = true),
                 stick_right.createTransformation().withVisibility(visibility = true)
             ),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("thwackey", "ground_idle")
             )
@@ -73,7 +74,7 @@ class ThwackeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
                 stick_left.createTransformation().withVisibility(visibility = true),
                 stick_right.createTransformation().withVisibility(visibility = true)
             ),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("thwackey", "ground_walk")
             )
@@ -91,7 +92,7 @@ class ThwackeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
                 stick_left.createTransformation().withVisibility(visibility = true),
                 stick_right.createTransformation().withVisibility(visibility = true)
             ),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("thwackey", "ground_idle")
             )

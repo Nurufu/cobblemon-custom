@@ -8,13 +8,13 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen5
 
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class JoltikModel(root: ModelPart) : PokemonPoseableModel() {
+class JoltikModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("joltik")
 
     override var portraitScale = 3.5F
@@ -23,8 +23,8 @@ class JoltikModel(root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 1.0F
     override var profileTranslation = Vec3d(0.0, 0.25, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
     override fun registerPoses() {
         val blink1 = quirk { bedrockStateful("joltik", "blink1") }
@@ -34,7 +34,7 @@ class JoltikModel(root: ModelPart) : PokemonPoseableModel() {
                 poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
                 transformTicks = 10,
                 quirks = arrayOf(blink1, blink2),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("joltik", "ground_idle")
                 )
         )
@@ -44,7 +44,7 @@ class JoltikModel(root: ModelPart) : PokemonPoseableModel() {
                 poseTypes = PoseType.MOVING_POSES,
                 transformTicks = 10,
                 quirks = arrayOf(blink1, blink2),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("joltik", "ground_walk")
                 )
         )

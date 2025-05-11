@@ -8,17 +8,17 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 
-import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
-import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ObstagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class ObstagoonModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("obstagoon")
     override val head = getPart("head")
 
@@ -28,12 +28,12 @@ class ObstagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.5F
     override var profileTranslation = Vec3d(0.0, 0.9, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var battleidle: PokemonPose
+    lateinit var sleep: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var battleidle: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("obstagoon", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("obstagoon", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("obstagoon", "blink") }
@@ -41,7 +41,7 @@ class ObstagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
         sleep = registerPose(
             poseName = "sleep",
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("obstagoon", "sleep"))
+            animations = arrayOf(bedrock("obstagoon", "sleep"))
         )
 
         standing = registerPose(
@@ -49,7 +49,7 @@ class ObstagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             condition = { !it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("obstagoon", "ground_idle")
             )
@@ -59,7 +59,7 @@ class ObstagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("obstagoon", "ground_walk")
             )
@@ -70,7 +70,7 @@ class ObstagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.STATIONARY_POSES,
             quirks = arrayOf(blink),
             condition = { it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("obstagoon", "battle_idle")
             )
@@ -79,6 +79,6 @@ class ObstagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("obstagoon", "faint") else null
 }

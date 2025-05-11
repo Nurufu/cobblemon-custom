@@ -8,6 +8,9 @@
 
 package com.cobblemon.mod.common.entity.pokemon
 
+import com.bedrockk.molang.runtime.struct.QueryStruct
+import com.bedrockk.molang.runtime.value.DoubleValue
+import com.bedrockk.molang.runtime.value.StringValue
 import com.cobblemon.mod.common.*
 import com.cobblemon.mod.common.CobblemonNetwork.sendPacket
 import com.cobblemon.mod.common.api.drop.DropTable
@@ -18,6 +21,7 @@ import com.cobblemon.mod.common.api.events.entity.PokemonEntitySaveEvent
 import com.cobblemon.mod.common.api.events.entity.PokemonEntitySaveToWorldEvent
 import com.cobblemon.mod.common.api.events.pokemon.ShoulderMountEvent
 import com.cobblemon.mod.common.api.interaction.PokemonEntityInteraction
+import com.cobblemon.mod.common.api.molang.MoLangFunctions.addStandardFunctions
 import com.cobblemon.mod.common.api.net.serializers.PoseTypeDataSerializer
 import com.cobblemon.mod.common.api.net.serializers.StringSetDataSerializer
 import com.cobblemon.mod.common.api.pokemon.RideablePokemonSpecies
@@ -50,7 +54,7 @@ import com.cobblemon.mod.common.entity.pokemon.ai.goals.*
 import com.cobblemon.mod.common.entity.pokemon.effects.EffectTracker
 import com.cobblemon.mod.common.entity.pokemon.effects.IllusionEffect
 import com.cobblemon.mod.common.mixin.accessor.LivingEntityAccessor
-import com.cobblemon.mod.common.net.messages.client.animation.PlayPoseableAnimationPacket
+import com.cobblemon.mod.common.net.messages.client.animation.PlayPosableAnimationPacket
 import com.cobblemon.mod.common.net.messages.client.pokemon.ai.ClientMoveBehaviour
 import com.cobblemon.mod.common.net.messages.client.sound.UnvalidatedPlaySoundS2CPacket
 import com.cobblemon.mod.common.net.messages.client.spawn.SpawnPokemonPacket
@@ -251,6 +255,26 @@ open class PokemonEntity(
     /** The form exposed to the client and used for calculating hitbox and height. */
     val exposedForm: FormData get() = this.effects.mockEffect?.exposedForm ?: this.pokemon.form
 
+    override val struct: QueryStruct = QueryStruct(hashMapOf())
+        .addStandardFunctions()
+        .addFunction("in_battle") { DoubleValue(isBattling) }
+        .addFunction("is_wild") { DoubleValue(pokemon.isWild()) }
+        .addFunction("is_shiny") { DoubleValue(pokemon.shiny) }
+        .addFunction("form") { StringValue(pokemon.form.name) }
+        .addFunction("width") { DoubleValue(boundingBox.xLength) }
+        .addFunction("height") { DoubleValue(boundingBox.yLength) }
+        .addFunction("horizontal_velocity") { DoubleValue(velocity.horizontalLength()) }
+        .addFunction("vertical_velocity") { DoubleValue(velocity.y) }
+        .addFunction("weight") { DoubleValue(pokemon.species.weight.toDouble()) }
+        .addFunction("is_moving") { DoubleValue((moveControl as? PokemonMoveControl)?.isMoving == true) }
+        .addFunction("is_underwater") { DoubleValue(getIsSubmerged()) }
+        .addFunction("is_flying") { DoubleValue(getBehaviourFlag(PokemonBehaviourFlag.FLYING)) }
+        .addFunction("is_passenger") { DoubleValue(hasVehicle()) }
+        .addFunction("entity_width") { DoubleValue(boundingBox.xLength) }
+        .addFunction("entity_height") { DoubleValue(boundingBox.yLength) }
+        .addFunction("entity_size") { DoubleValue(boundingBox.run { if (xLength > yLength) xLength else yLength }) }
+        .addFunction("entity_radius") { DoubleValue(boundingBox.run { if (xLength > yLength) xLength else yLength } / 2) }
+        .addFunction("has_aspect") { DoubleValue(it.getString(0) in aspects) }
 
     // Riding
 
@@ -1156,7 +1180,7 @@ open class PokemonEntity(
 
     fun cry() {
         if(this.isSilent) return
-        val pkt = PlayPoseableAnimationPacket(id, setOf("cry"), emptySet())
+        val pkt = PlayPosableAnimationPacket(id, setOf("cry"), emptySet())
         world.getEntitiesByClass(ServerPlayerEntity::class.java, Box.of(pos, 64.0, 64.0, 64.0), { true }).forEach {
             it.sendPacket(pkt)
         }
@@ -1506,7 +1530,7 @@ open class PokemonEntity(
     fun isFlying() = this.getBehaviourFlag(PokemonBehaviourFlag.FLYING)
     fun couldStopFlying() = isFlying() && !behaviour.moving.walk.avoidsLand && behaviour.moving.walk.canWalk
     fun isFalling() = this.fallDistance > 0 && this.world.getBlockState(this.blockPos.down()).isAir && !this.isFlying()
-    fun getIsSubmerged() = isInLava || isSubmergedInWater
+    //fun getIsSubmerged() = isInLava || isSubmergedInWater
     override fun getCurrentPoseType(): PoseType = this.dataTracker.get(POSE_TYPE)
 
     /**

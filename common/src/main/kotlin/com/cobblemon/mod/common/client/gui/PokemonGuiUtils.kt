@@ -20,7 +20,10 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.render.DiffuseLighting
 import net.minecraft.client.render.LightmapTextureManager
 import net.minecraft.client.render.OverlayTexture
+import net.minecraft.client.render.RenderLayer
+import net.minecraft.client.render.RenderLayers
 import net.minecraft.client.util.math.MatrixStack
+import net.minecraft.scoreboard.ScoreboardCriterion.RenderType
 import net.minecraft.util.Identifier
 import org.joml.Quaternionf
 import org.joml.Vector3f
@@ -29,7 +32,7 @@ fun drawProfilePokemon(
     renderablePokemon: RenderablePokemon,
     matrixStack: MatrixStack,
     rotation: Quaternionf,
-    state: PosableState<PokemonEntity>?,
+    state: PosableState,
     partialTicks: Float,
     scale: Float = 20F
 ) = drawProfilePokemon(
@@ -54,6 +57,7 @@ fun drawProfilePokemon(
     val model = PokemonModelRepository.getPoser(species, aspects)
     val texture = PokemonModelRepository.getTexture(species, aspects, state.animationSeconds)
 
+    val context = RenderContext()
     model.context = context
     PokemonModelRepository.getTextureNoSubstitute(species, aspects, 0f).let { context.put(RenderContext.TEXTURE, it) }
 
@@ -63,6 +67,7 @@ fun drawProfilePokemon(
     context.put(RenderContext.RENDER_STATE, RenderContext.RenderState.PROFILE)
     context.put(RenderContext.POSABLE_STATE, state)
 
+    val renderType = RenderLayer.getEntityCutout(texture)
 
     RenderSystem.applyModelViewMatrix()
     matrixStack.scale(scale, scale, -scale)

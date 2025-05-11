@@ -14,15 +14,15 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ChesnaughtModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class ChesnaughtModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("chesnaught")
     override val head = getPart("head")
     override val rightArm = getPart("arm_right")
@@ -37,10 +37,10 @@ class ChesnaughtModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
     override var profileTranslation = Vec3d(0.0, 0.85, 0.0)
 
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("chesnaught", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("chesnaught", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("chesnaught", "blink")}
@@ -49,7 +49,7 @@ class ChesnaughtModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
             poseName = "standing",
             poseTypes = STATIONARY_POSES + UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("chesnaught", "ground_idle")
             )
@@ -59,7 +59,7 @@ class ChesnaughtModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
             poseName = "walk",
             poseTypes = MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 BimanualSwingAnimation(this),
                 BipedWalkAnimation(this),

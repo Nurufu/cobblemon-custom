@@ -9,13 +9,13 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen9
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class VaroomModel (root: ModelPart) : PokemonPoseableModel() {
+class VaroomModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("varoom")
 
     override var portraitScale = 3.0F
@@ -24,17 +24,17 @@ class VaroomModel (root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 1.1F
     override var profileTranslation = Vec3d(0.0, 0.0, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var sleep: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var sleep: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("varoom", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("varoom", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("varoom", "blink") }
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("varoom", "sleep"))
+            animations = arrayOf(bedrock("varoom", "sleep"))
         )
 
         standing = registerPose(
@@ -42,7 +42,7 @@ class VaroomModel (root: ModelPart) : PokemonPoseableModel() {
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             transformTicks = 0,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("varoom", "ground_idle")
             )
         )
@@ -52,7 +52,7 @@ class VaroomModel (root: ModelPart) : PokemonPoseableModel() {
             poseTypes = PoseType.MOVING_POSES,
             transformTicks = 0,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("varoom", "ground_walk")
             )
         )

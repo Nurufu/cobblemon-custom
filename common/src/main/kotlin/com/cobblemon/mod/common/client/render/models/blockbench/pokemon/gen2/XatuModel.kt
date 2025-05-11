@@ -12,16 +12,17 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.WingFl
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BiWingedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.sineFunction
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.math.geometry.toRadians
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class XatuModel(root: ModelPart) : PokemonPoseableModel(), BiWingedFrame, HeadedFrame {
+class XatuModel(root: ModelPart) : PokemonPosableModel(root), BiWingedFrame, HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("xatu")
     override val head = getPart("head")
 
@@ -34,19 +35,19 @@ class XatuModel(root: ModelPart) : PokemonPoseableModel(), BiWingedFrame, Headed
     override var profileScale = 0.69F
     override var profileTranslation = Vec3d(0.0, 0.75, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walking: PokemonPose
-    lateinit var hover: PokemonPose
-    lateinit var sleep: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walking: Pose
+    lateinit var hover: Pose
+    lateinit var sleep: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("xatu", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("xatu", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("xatu", "blink") }
 
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("xatu", "sleep")
             )
         )
@@ -54,7 +55,7 @@ class XatuModel(root: ModelPart) : PokemonPoseableModel(), BiWingedFrame, Headed
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES - PoseType.HOVER,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(minPitch = -15F, maxPitch = 0F),
                 bedrock("xatu", "ground_idle")
             )
@@ -64,12 +65,12 @@ class XatuModel(root: ModelPart) : PokemonPoseableModel(), BiWingedFrame, Headed
             poseName = "walking",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(minPitch = -15F, maxPitch = 0F),
                 bedrock("xatu", "air_idle"),
                 WingFlapIdleAnimation(this,
                     flapFunction = sineFunction(verticalShift = -10F.toRadians(), period = 0.9F, amplitude = 0.6F),
-                    timeVariable = { state, _, _ -> state?.animationSeconds ?: 0F },
+                    timeVariable = { state, _, _ -> state.animationSeconds },
                     axis = ModelPartTransformation.Y_AXIS
                 )
             )
@@ -79,12 +80,12 @@ class XatuModel(root: ModelPart) : PokemonPoseableModel(), BiWingedFrame, Headed
             poseName = "hover",
             poseType = PoseType.HOVER,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(minPitch = -15F, maxPitch = 0F),
                 bedrock("xatu", "air_idle"),
                 WingFlapIdleAnimation(this,
                     flapFunction = sineFunction(verticalShift = -10F.toRadians(), period = 0.9F, amplitude = 0.6F),
-                    timeVariable = { state, _, _ -> state?.animationSeconds ?: 0F },
+                    timeVariable = { state, _, _ -> state.animationSeconds },
                     axis = ModelPartTransformation.Y_AXIS
                 )
             )
@@ -93,6 +94,6 @@ class XatuModel(root: ModelPart) : PokemonPoseableModel(), BiWingedFrame, Headed
 
     //override fun getFaintAnimation(
     //    pokemonEntity: PokemonEntity,
-    //    state: PoseableEntityState<PokemonEntity>
+    //    state: PosableState<PokemonEntity>
     //) = if (state.isPosedIn(standing, sleep)) bedrockStateful("xatu", "faint") else null
 }

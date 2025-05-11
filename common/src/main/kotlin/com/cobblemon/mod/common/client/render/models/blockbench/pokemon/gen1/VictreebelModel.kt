@@ -9,15 +9,15 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class VictreebelModel(root: ModelPart) : PokemonPoseableModel() {
+class VictreebelModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("victreebel")
 
     override var portraitScale = 2.0F
@@ -26,17 +26,17 @@ class VictreebelModel(root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 0.92F
     override var profileTranslation = Vec3d(0.0, 0.35, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("victreebel", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("victreebel", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(
             poseName = "standing",
             poseTypes = STATIONARY_POSES + UI_POSES,
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("victreebel", "ground_idle")
             )
         )
@@ -45,7 +45,7 @@ class VictreebelModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "walk",
             poseTypes = MOVING_POSES,
             transformTicks = 10,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("victreebel", "ground_idle")
                 //bedrock("victreebel", "ground_walk")
             )
@@ -54,6 +54,6 @@ class VictreebelModel(root: ModelPart) : PokemonPoseableModel() {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("victreebel", "faint") else null
 }

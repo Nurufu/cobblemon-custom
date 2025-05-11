@@ -12,13 +12,13 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class HeatmorModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class HeatmorModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("heatmor")
     override val head = getPart("head")
 
@@ -33,24 +33,24 @@ class HeatmorModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
     override var profileScale = 0.9F
     override var profileTranslation = Vec3d(0.0, 0.4, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var sleep: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var sleep: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("heatmor", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("heatmor", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("heatmor", "blink") }
             sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("heatmor", "sleep"))
+            animations = arrayOf(bedrock("heatmor", "sleep"))
         )
 
         standing = registerPose(
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("heatmor", "ground_idle")
             )
@@ -60,7 +60,7 @@ class HeatmorModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("heatmor", "ground_walk")
             )

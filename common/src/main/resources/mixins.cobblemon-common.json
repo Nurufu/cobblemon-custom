@@ -16,7 +16,6 @@
     "SoundSystemMixin",
     "accessor.KeyBindingAccessor",
     "client.ClientPlayNetworkHandlerMixin",
-    "client.GuiMixin",
     "client.LocalPlayerMixin",
     "invoker.ClientPlayNetworkHandlerInvoker",
     "pokeball.ItemRendererMixin"
@@ -40,7 +39,6 @@
     "accessor.BoatEntityAccessor",
     "accessor.EntryListWidgetAccessor",
     "accessor.LivingEntityAccessor",
-    "accessor.SpawnExtraDataEntityPacketAccessor",
     "accessor.StatusEffectInstanceAccessor",
     "entity.TameableEntityMixin",
     "invoker.AdornRegisterInvoker",

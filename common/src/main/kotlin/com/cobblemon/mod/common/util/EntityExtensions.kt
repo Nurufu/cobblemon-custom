@@ -244,6 +244,8 @@ fun Entity.closestPosition(positions: Iterable<BlockPos>, filter: (BlockPos) -> 
     return closest
 }
 
+fun Entity.getIsSubmerged() = isInLava || isSubmergedInWater
+
 fun <T> DataTracker.update(data: TrackedData<T>, mutator: (T) -> T) {
     val value = get(data)
     val newValue = mutator(value)

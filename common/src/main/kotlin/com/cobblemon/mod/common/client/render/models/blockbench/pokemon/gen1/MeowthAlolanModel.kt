@@ -14,8 +14,8 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
@@ -23,7 +23,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class MeowthAlolanModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class MeowthAlolanModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("meowth_alolan")
     override val head = getPart("head")
 
@@ -38,11 +38,11 @@ class MeowthAlolanModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, 
     override var profileScale = 0.8F
     override var profileTranslation = Vec3d(0.0, 0.54, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("meowth_alolan", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("meowth_alolan", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("meowth_alolan", "blink") }
@@ -50,7 +50,7 @@ class MeowthAlolanModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, 
             poseName = "standing",
             poseTypes = STATIONARY_POSES + UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("meowth_alolan", "ground_idle")
             )
@@ -58,14 +58,14 @@ class MeowthAlolanModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, 
 
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("meowth_alolan", "sleep"))
+            animations = arrayOf(bedrock("meowth_alolan", "sleep"))
         )
 
         walk = registerPose(
             poseName = "walk",
             poseTypes = MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 BipedWalkAnimation(this, periodMultiplier = .7F),
                 BimanualSwingAnimation(this),
@@ -77,6 +77,6 @@ class MeowthAlolanModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, 
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("meowth_alolan", "faint") else null
 }

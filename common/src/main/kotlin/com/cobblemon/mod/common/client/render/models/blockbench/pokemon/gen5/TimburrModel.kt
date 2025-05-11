@@ -13,14 +13,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.Primar
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class TimburrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame {
+class TimburrModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
     override val rootPart = root.registerChildWithAllChildren("timburr")
     override val head = getPart("head")
 
@@ -33,12 +33,12 @@ class TimburrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
     override var profileScale = 0.65F
     override var profileTranslation = Vec3d(0.0, 0.76, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var battleidle: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var battleidle: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("timburr", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("timburr", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("timburr", "blink") }
@@ -47,7 +47,7 @@ class TimburrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
         sleep = registerPose(
             poseName = "sleep",
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("timburr", "sleep")
             )
         )
@@ -57,7 +57,7 @@ class TimburrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             condition = { !it.isBattling },
             quirks = arrayOf(blink, quirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("timburr", "ground_idle")
             )
@@ -67,7 +67,7 @@ class TimburrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("timburr", "ground_walk")
             )
@@ -78,15 +78,12 @@ class TimburrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
             poseTypes = PoseType.STATIONARY_POSES,
             quirks = arrayOf(blink),
             condition = { it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("timburr", "battle_idle")
             )
         )
     }
 
-    override fun getFaintAnimation(
-        pokemonEntity: PokemonEntity,
-        state: PosableState<PokemonEntity>
-    ) = bedrockStateful("timburr", "faint")
+    override fun getFaintAnimation(state: PosableState) = bedrockStateful("timburr", "faint")
 }

@@ -14,13 +14,13 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ExploudModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class ExploudModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("exploud")
     override val head = getPart("head")
 
@@ -35,16 +35,16 @@ class ExploudModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
     override var profileScale = 0.65F
     override var profileTranslation = Vec3d(0.0, 0.76, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("exploud", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("exploud", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("exploud", "idle")
             )
         )
@@ -52,7 +52,7 @@ class ExploudModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
         walk = registerPose(
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("exploud", "idle"),
                 BipedWalkAnimation(this, periodMultiplier = 0.6F, amplitudeMultiplier = 0.9F),
                 BimanualSwingAnimation(this, swingPeriodMultiplier = 0.6F, amplitudeMultiplier = 0.9F)

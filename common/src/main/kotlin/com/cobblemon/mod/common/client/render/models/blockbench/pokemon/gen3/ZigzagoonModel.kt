@@ -12,14 +12,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ZigzagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class ZigzagoonModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("zigzagoon")
     override val head = getPart("head")
 
@@ -29,24 +29,24 @@ class ZigzagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 1.0F
     override var profileTranslation = Vec3d(0.0, 0.2, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walking: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var battleidle: PokemonPose
-    lateinit var shoulderLeft: PokemonPose
-    lateinit var shoulderRight: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walking: Pose
+    lateinit var sleep: Pose
+    lateinit var battleidle: Pose
+    lateinit var shoulderLeft: Pose
+    lateinit var shoulderRight: Pose
 
     val shoulderOffsetX = 0
     val shoulderOffsetY = 0
     val shoulderOffsetZ = -0.5
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("zigzagoon", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("zigzagoon", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("zigzagoon", "blink") }
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("zigzagoon", "sleep"))
+            animations = arrayOf(bedrock("zigzagoon", "sleep"))
         )
 
         standing = registerPose(
@@ -55,7 +55,7 @@ class ZigzagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             transformTicks = 10,
             condition = { !it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("zigzagoon", "ground_idle")
             )
@@ -66,7 +66,7 @@ class ZigzagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.MOVING_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("zigzagoon", "ground_walk")
             )
@@ -78,7 +78,7 @@ class ZigzagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             transformTicks = 10,
             quirks = arrayOf(blink),
             condition = { it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("zigzagoon", "battle_idle")
             )
@@ -87,7 +87,7 @@ class ZigzagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
         shoulderLeft = registerPose(
             poseType = PoseType.SHOULDER_LEFT,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("zigzagoon", "shoulder_left")
             ),
@@ -99,7 +99,7 @@ class ZigzagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
         shoulderRight = registerPose(
             poseType = PoseType.SHOULDER_RIGHT,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("zigzagoon", "shoulder_right")
             ),
@@ -108,8 +108,5 @@ class ZigzagoonModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             )
         )
     }
-    override fun getFaintAnimation(
-        pokemonEntity: PokemonEntity,
-        state: PosableState<PokemonEntity>
-    ) = if (state.isPosedIn(standing, walking, battleidle, sleep)) bedrockStateful("zigzagoon", "faint") else null
+    override fun getFaintAnimation(state: PosableState) = if (state.isPosedIn(standing, walking, battleidle, sleep)) bedrockStateful("zigzagoon", "faint") else null
 }

@@ -8,13 +8,13 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen7
 
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class MorelullModel(root: ModelPart) : PokemonPoseableModel() {
+class MorelullModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("morelull")
 
     override var portraitScale = 5.0F
@@ -23,7 +23,7 @@ class MorelullModel(root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 1.0F
     override var profileTranslation = Vec3d(0.0, 0.25, 0.0)
 
-    lateinit var standing: PokemonPose
+    lateinit var standing: Pose
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("morelull", "blink") }
@@ -32,7 +32,7 @@ class MorelullModel(root: ModelPart) : PokemonPoseableModel() {
                 poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
                 quirks = arrayOf(blink),
                 transformTicks = 10,
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("morelull", "ground_idle")
                 )
         )

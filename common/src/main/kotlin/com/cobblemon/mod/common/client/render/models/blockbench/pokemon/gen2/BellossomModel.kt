@@ -10,8 +10,8 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.SHOULDER_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
@@ -19,7 +19,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class BellossomModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class BellossomModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("bellossom")
     override val head = getPart("head")
 
@@ -29,10 +29,10 @@ class BellossomModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 1.0F
     override var profileTranslation = Vec3d(0.0, 0.21, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("bellossom", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("bellossom", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("bellossom", "blink") }
@@ -41,7 +41,7 @@ class BellossomModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = STATIONARY_POSES + UI_POSES + SHOULDER_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("bellossom", "ground_idle"),
                 singleBoneLook()
             )
@@ -52,7 +52,7 @@ class BellossomModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = MOVING_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("bellossom", "ground_idle"),
                 bedrock("bellossom", "ground_walk"),
                 singleBoneLook()
@@ -62,6 +62,6 @@ class BellossomModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("bellossom", "faint") else null
 }

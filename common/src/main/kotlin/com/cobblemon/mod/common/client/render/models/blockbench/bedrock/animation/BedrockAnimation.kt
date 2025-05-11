@@ -11,16 +11,17 @@ package com.cobblemon.mod.common.client.render.models.blockbench.bedrock.animati
 import com.bedrockk.molang.Expression
 import com.bedrockk.molang.runtime.MoLangRuntime
 import com.bedrockk.molang.runtime.value.DoubleValue
+import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.api.snowstorm.BedrockParticleEffect
 import com.cobblemon.mod.common.client.particle.ParticleStorm
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.util.getString
 import com.cobblemon.mod.common.util.math.geometry.toRadians
-import com.cobblemon.mod.common.util.resolve
 import com.cobblemon.mod.common.util.resolveDouble
+import java.util.SortedMap
+import java.util.TreeMap
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.model.ModelPart
 import net.minecraft.client.sound.PositionedSoundInstance
@@ -32,7 +33,6 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.crash.CrashException
 import net.minecraft.util.crash.CrashReport
 import net.minecraft.util.math.Vec3d
-import java.util.*
 
 data class BedrockAnimationGroup(
     val formatVersion: String,
@@ -40,7 +40,7 @@ data class BedrockAnimationGroup(
 )
 
 abstract class BedrockEffectKeyframe(val seconds: Float) {
-    abstract fun <T : Entity> run(entity: T, state: PosableState<T>)
+    abstract fun run(entity: Entity, state: PosableState)
 }
 
 class BedrockParticleKeyframe(
@@ -63,10 +63,9 @@ class BedrockParticleKeyframe(
         }
     }
 
-    override fun <T : Entity> run(entity: T, state: PosableState<T>) {
+    override fun run(entity: Entity, state: PosableState) {
         val world = entity.world as? ClientWorld ?: return
         val matrixWrapper = state.locatorStates[locator] ?: state.locatorStates["root"]!!
-        check(matrixWrapper != state.locatorStates["root"]) {return}
 
         if (this in state.poseParticles) {
             return
@@ -92,14 +91,14 @@ class BedrockParticleKeyframe(
         state.poseParticles.add(this)
         storm.runtime.execute(this.scripts)
         storm.spawn()
-        }
+    }
 }
 
 class BedrockSoundKeyframe(
     seconds: Float,
     val sound: Identifier
 ): BedrockEffectKeyframe(seconds) {
-    override fun <T : Entity> run(entity: T, state: PosableState<T>) {
+    override fun run(entity: Entity, state: PosableState) {
         val soundEvent = SoundEvent.of(sound) // Means we don't need to setup a sound registry entry for every single thing
         if (soundEvent != null) {
             MinecraftClient.getInstance().soundManager.play(
@@ -120,10 +119,10 @@ class BedrockSoundKeyframe(
 
 class BedrockInstructionKeyframe(
     seconds: Float,
-    val expressions: List<Expression>
+    val expressions: ExpressionLike
 ): BedrockEffectKeyframe(seconds) {
-    override fun <T : Entity> run(entity: T, state: PosableState<T>) {
-        expressions.forEach { expression -> state.runtime.resolve(expression) }
+    override fun run(entity: Entity, state: PosableState) {
+        expressions.resolve(state.runtime)
     }
 }
 
@@ -133,16 +132,10 @@ data class BedrockAnimation(
     val effects: List<BedrockEffectKeyframe>,
     val boneTimelines: Map<String, BedrockBoneTimeline>
 ) {
-//    companion object {
-//        val sharedRuntime = MoLangRuntime().also {
-//            val zero = DoubleValue(0.0)
-//            getQueryStruct().addFunctions(mapOf(
-//                "anim_time" to java.util.function.Function { return@Function zero }
-//            ))
-//        }
-//    }
+    /** Useful to have, gets set after loading the animation. */
+    var name: String = ""
 
-    fun run(model: PoseableEntityModel<*>, state: PosableState<*>, animationSeconds: Float, intensity: Float): Boolean {
+    fun run(context: RenderContext, model: PosableModel, state: PosableState, animationSeconds: Float, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, intensity: Float): Boolean {
         var animationSeconds = animationSeconds
         if (shouldLoop) {
             animationSeconds %= animationLength.toFloat()
@@ -151,6 +144,10 @@ data class BedrockAnimation(
         }
 
         val runtime = state.runtime
+
+        runtime.environment.setSimpleVariable("limb_swing", DoubleValue(limbSwing.toDouble()))
+        runtime.environment.setSimpleVariable("limb_swing_amount", DoubleValue(limbSwingAmount.toDouble()))
+        runtime.environment.setSimpleVariable("age_in_ticks", DoubleValue(ageInTicks.toDouble()))
 
         boneTimelines.forEach { (boneName, timeline) ->
             val part = model.relevantPartsByName[boneName] ?: if (boneName == "root_part") (model.rootPart as ModelPart) else null
@@ -173,12 +170,10 @@ data class BedrockAnimation(
                             roll += rotation.z.toFloat().toRadians()
                         }
                     } catch (e: Exception) {
-                        val exception = IllegalStateException("Bad animation for species: ${((model.context.request(RenderContext.ENTITY))!! as PokemonEntity).pokemon.species.name}", e)
+                        val exception = IllegalStateException("Bad animation for entity: ${(model.context.request(RenderContext.ENTITY))!!.displayName.string}", e)
                         val crash = CrashReport("Cobblemon encountered an unexpected crash", exception)
                         val section = crash.addElement("Animation Details")
-                        state?.let {
-                            section.add("Pose", state.currentPose!!)
-                        }
+                        section.add("Pose", state.currentPose!!)
                         section.add("Bone", boneName)
 
                         throw CrashException(crash)
@@ -186,19 +181,28 @@ data class BedrockAnimation(
                 }
 
                 if (!timeline.scale.isEmpty()) {
-                    var scale = timeline.scale.resolve(animationSeconds.toDouble(), runtime).multiply(intensity.toDouble())
-                    val deviation = scale.multiply(-1.0).add(1.0, 1.0, 1.0).multiply(intensity.toDouble())
-                    scale = deviation.subtract(1.0, 1.0, 1.0).multiply(-1.0)
-                    part.xScale *= scale.x.toFloat()
-                    part.yScale *= scale.y.toFloat()
-                    part.zScale *= scale.z.toFloat()
+                    var scale = timeline.scale.resolve(animationSeconds.toDouble(), runtime)
+                    // If the goal is to make the invisible then kick that into gear after 0.5. Maybe could work better somehow else.
+                    if (scale == Vec3d.ZERO && intensity > 0.5) {
+                        part.xScale *= scale.x.toFloat()
+                        part.yScale *= scale.y.toFloat()
+                        part.zScale *= scale.z.toFloat()
+                    } else {
+                        // The deviation from 1 is what we want to multiply by the intensity of the animation.
+                        val deviation = scale.multiply(-1.0).add(1.0, 1.0, 1.0)
+                        val weakenedDeviation = deviation.multiply(intensity.toDouble())
+                        scale = weakenedDeviation.subtract(1.0, 1.0, 1.0).multiply(-1.0)
+                        part.xScale *= scale.x.toFloat()
+                        part.yScale *= scale.y.toFloat()
+                        part.zScale *= scale.z.toFloat()
+                    }
                 }
             }
         }
         return true
     }
 
-    fun <T : Entity> applyEffects(entity: T, state: PosableState<T>, previousSeconds: Float, newSeconds: Float) {
+    fun applyEffects(entity: Entity, state: PosableState, previousSeconds: Float, newSeconds: Float) {
         val effectCondition: (effectKeyframe: BedrockEffectKeyframe) -> Boolean =
             if (previousSeconds > newSeconds) {
                 { it.seconds >= previousSeconds || it.seconds <= newSeconds }
@@ -246,7 +250,7 @@ class MolangBoneValue(
     }
 
 }
-class BedrockKeyFrameBoneValue : HashMap<Double, BedrockAnimationKeyFrame>(), BedrockBoneValue {
+class BedrockKeyFrameBoneValue : TreeMap<Double, BedrockAnimationKeyFrame>(), BedrockBoneValue {
     fun SortedMap<Double, BedrockAnimationKeyFrame>.getAtIndex(index: Int?): BedrockAnimationKeyFrame? {
         if (index == null) return null
         val key = this.keys.elementAtOrNull(index)
@@ -254,17 +258,15 @@ class BedrockKeyFrameBoneValue : HashMap<Double, BedrockAnimationKeyFrame>(), Be
     }
 
     override fun resolve(time: Double, runtime: MoLangRuntime): Vec3d {
-        val sortedTimeline = toSortedMap()
-
-        var afterIndex : Int? = sortedTimeline.keys.indexOfFirst { it > time }
+        var afterIndex : Int? = keys.indexOfFirst { it > time }
         if (afterIndex == -1) afterIndex = null
         val beforeIndex = when (afterIndex) {
-            null -> sortedTimeline.size - 1
+            null -> size - 1
             0 -> null
             else -> afterIndex - 1
         }
-        val after = sortedTimeline.getAtIndex(afterIndex)
-        val before = sortedTimeline.getAtIndex(beforeIndex)
+        val after = getAtIndex(afterIndex)
+        val before = getAtIndex(beforeIndex)
 
         val afterData = after?.pre?.resolve(time, runtime) ?: Vec3d.ZERO
         val beforeData = before?.post?.resolve(time, runtime) ?: Vec3d.ZERO
@@ -274,9 +276,9 @@ class BedrockKeyFrameBoneValue : HashMap<Double, BedrockAnimationKeyFrame>(), Be
                 when {
                     before != null && after != null -> {
                         val beforePlusIndex = if (beforeIndex == null || beforeIndex == 0) null else beforeIndex - 1
-                        val beforePlus = sortedTimeline.getAtIndex(beforePlusIndex)
+                        val beforePlus = getAtIndex(beforePlusIndex)
                         val afterPlusIndex = if (afterIndex == null || afterIndex == size - 1) null else afterIndex + 1
-                        val afterPlus = sortedTimeline.getAtIndex(afterPlusIndex)
+                        val afterPlus = getAtIndex(afterPlusIndex)
                         return catmullromLerp(beforePlus, before, after, afterPlus, time, runtime)
                     }
                     before != null -> return beforeData

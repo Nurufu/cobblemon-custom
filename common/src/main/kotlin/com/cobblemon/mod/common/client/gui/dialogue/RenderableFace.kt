@@ -9,10 +9,12 @@
 package com.cobblemon.mod.common.client.gui.dialogue
 
 import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.api.gui.drawPosablePortrait
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.client.entity.PokemonClientDelegate
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
 import com.cobblemon.mod.common.entity.PosableEntity
 import java.util.UUID
 import kotlin.math.atan
@@ -74,8 +76,10 @@ class ReferenceRenderableFace(val entity: PosableEntity): RenderableFace {
         if (state is PokemonClientDelegate) {
             state.currentAspects = state.currentEntity.pokemon.aspects
             drawPosablePortrait(
-                species = state.currentEntity.pokemon.species,
+                identifier = state.currentEntity.pokemon.species.resourceIdentifier,
                 aspects = state.currentEntity.pokemon.aspects,
+                repository = PokemonModelRepository,
+                contextScale = state.currentEntity.pokemon.form.baseScale,
                 matrixStack = drawContext.matrices,
                 state = state,
                 partialTicks = 0F // It's already being rendered potentially so we don't need to tick the state.
@@ -100,10 +104,12 @@ class ArtificialRenderableFace(
         state.currentAspects = aspects
         if (modelType == "pokemon") {
             drawPosablePortrait(
-                species = species,
+                identifier = species.resourceIdentifier,
                 aspects = aspects,
                 matrixStack = drawContext.matrices,
+                contextScale = species.getForm(aspects).baseScale,
                 state = state,
+                repository = PokemonModelRepository,
                 partialTicks = partialTicks
             )
         }

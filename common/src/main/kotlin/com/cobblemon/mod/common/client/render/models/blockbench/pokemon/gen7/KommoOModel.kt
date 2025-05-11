@@ -8,18 +8,18 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen7
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.BimanualSwingAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class KommoOModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BimanualFrame {
+class KommoOModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("kommo_o")
 
     override val leftArm = getPart("arm_right")
@@ -33,10 +33,10 @@ class KommoOModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, Bimanu
     override var profileScale = 0.39F
     override var profileTranslation = Vec3d(0.0, 1.16, -6.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("kommo-o", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("kommo-o", "cry") }
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("kommo-o", "blink") }
 
@@ -44,7 +44,7 @@ class KommoOModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, Bimanu
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("kommo-o", "ground_idle")
             )
         )
@@ -53,7 +53,7 @@ class KommoOModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, Bimanu
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("kommo-o", "ground_idle"),
                 BipedWalkAnimation(this,0.6F, 1F),
                 BimanualSwingAnimation(this, 0.6F, 1F)

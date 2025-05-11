@@ -174,9 +174,9 @@ class RestorationTankRenderer(ctx: BlockEntityRendererFactory.Context) : BlockEn
                     limbSwingAmount = 0F,
                     ageInTicks = state.animationSeconds * 20
                 )
-                model.render(context, vertexConsumer, light, overlay, 1.0f, 1.0f, 1.0f, 1.0f)
+                model.render(context, matrices, vertexConsumer, light, overlay, 1.0f, 1.0f, 1.0f, 1.0f)
                 model.withLayerContext(vertexConsumers, state, FossilModelRepository.getLayers(fossil.identifier, aspects)) {
-                    model.render(context, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
+                    model.render(context, matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
                 }
                 model.setDefault()
                 matrices.pop()

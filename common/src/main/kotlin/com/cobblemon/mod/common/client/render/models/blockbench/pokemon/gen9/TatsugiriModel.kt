@@ -10,13 +10,13 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen9
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class TatsugiriModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class TatsugiriModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("tatsugiri")
     override val head = getPart("head")
 
@@ -26,17 +26,17 @@ class TatsugiriModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 1.4F
     override var profileTranslation = Vec3d(0.0, -0.3, 0.0)
 
-    lateinit var swimming: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var swimming: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("tatsugiri", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("tatsugiri", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("tatsugiri", "ground_idle")
             )
@@ -45,7 +45,7 @@ class TatsugiriModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
         walk = registerPose(
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("tatsugiri", "ground_idle")
             )
@@ -54,7 +54,7 @@ class TatsugiriModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
         swimming = registerPose(
             poseName = "swimming",
             poseTypes = PoseType.SWIMMING_POSES,
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("tatsugiri", "water_idle")
             )
         )

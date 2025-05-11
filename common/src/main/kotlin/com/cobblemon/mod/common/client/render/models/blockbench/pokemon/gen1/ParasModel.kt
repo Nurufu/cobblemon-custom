@@ -11,18 +11,17 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.SHOULDER_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ParasModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class ParasModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("paras")
     override val head = getPart("head")
 
@@ -32,11 +31,11 @@ class ParasModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.7F
     override var profileTranslation = Vec3d(0.0, 0.6, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var sleep: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("paras", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("paras", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("paras", "blink") }
@@ -45,7 +44,7 @@ class ParasModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = STATIONARY_POSES + UI_POSES + SHOULDER_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("paras", "ground_idle"),
                 singleBoneLook()
             )
@@ -53,7 +52,7 @@ class ParasModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("paras", "sleep"))
+            animations = arrayOf(bedrock("paras", "sleep"))
         )
 
         walk = registerPose(
@@ -61,15 +60,12 @@ class ParasModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = MOVING_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("paras", "ground_walk"),
                 singleBoneLook()
             )
         )
     }
 
-    override fun getFaintAnimation(
-        pokemonEntity: PokemonEntity,
-        state: PosableState<PokemonEntity>,
-    ) = bedrockStateful("paras", "faint")
+    override fun getFaintAnimation(state: PosableState) = bedrockStateful("paras", "faint")
 }

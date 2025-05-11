@@ -9,15 +9,16 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.util.isBattling
+import com.cobblemon.mod.common.util.isSubmergedInWater
+import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
+class ChinchouModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("chinchou")
 
     override var portraitScale = 1.75F
@@ -26,16 +27,16 @@ class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 0.65F
     override var profileTranslation = Vec3d(-0.05, 0.45, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var floating: PokemonPose
-    lateinit var swimming: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var watersleep: PokemonPose
-    lateinit var battleidle: PokemonPose
-    lateinit var waterbattleidle: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var floating: CobblemonPose
+    lateinit var swimming: CobblemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var watersleep: CobblemonPose
+    lateinit var battleidle: CobblemonPose
+    lateinit var waterbattleidle: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("chinchou", "cry") }
+//    override val cryAnimation = CryProvider { bedrockStateful("chinchou", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("chinchou", "blink")}
@@ -46,14 +47,14 @@ class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
             poseName = "sleeping",
             poseType = PoseType.SLEEP,
             condition = { !it.isTouchingWater },
-            idleAnimations = arrayOf(bedrock("chinchou", "sleep"))
+            animations = arrayOf(bedrock("chinchou", "sleep"))
         )
 
         watersleep = registerPose(
             poseName = "water_sleeping",
             poseType = PoseType.SLEEP,
             condition = { it.isTouchingWater },
-            idleAnimations = arrayOf(bedrock("chinchou", "water_sleep"))
+            animations = arrayOf(bedrock("chinchou", "water_sleep"))
         )
 
         standing = registerPose(
@@ -62,7 +63,7 @@ class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
             transformTicks = 10,
             condition = { !it.isBattling && !it.isTouchingWater && !it.isSubmergedInWater},
             quirks = arrayOf(blink, idleQuirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("chinchou", "ground_idle")
             )
         )
@@ -73,7 +74,7 @@ class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
             poseType = PoseType.WALK,
             condition = { !it.isTouchingWater && !it.isSubmergedInWater},
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("chinchou", "ground_walk")
             )
         )
@@ -84,7 +85,7 @@ class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
             poseType = PoseType.FLOAT,
             condition = { it.isTouchingWater },
             quirks = arrayOf(blink, waterQuirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("chinchou", "water_idle")
             )
         )
@@ -95,7 +96,7 @@ class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
             condition = { it.isTouchingWater },
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("chinchou", "water_swim"),
             )
         )
@@ -106,7 +107,7 @@ class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
             transformTicks = 10,
             quirks = arrayOf(blink),
             condition = { it.isBattling && !it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("chinchou", "battle_idle")
             )
         )
@@ -117,13 +118,10 @@ class ChinchouModel (root: ModelPart) : PokemonPoseableModel() {
             transformTicks = 10,
             quirks = arrayOf(blink),
             condition = { it.isBattling && it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("chinchou", "water_battle_idle")
             )
         )
     }
-    override fun getFaintAnimation(
-        pokemonEntity: PokemonEntity,
-        state: PosableState<PokemonEntity>
-    ) = if (state.isPosedIn(standing, walk, battleidle, sleep)) bedrockStateful("chinchou", "faint") else if (state.isPosedIn( waterbattleidle, watersleep, floating, swimming )) bedrockStateful("chinchou", "water_faint") else null
+    override fun getFaintAnimation(state: PosableState) = if (state.isPosedIn(standing, walk, battleidle, sleep)) bedrockStateful("chinchou", "faint") else if (state.isPosedIn( waterbattleidle, watersleep, floating, swimming )) bedrockStateful("chinchou", "water_faint") else null
 }

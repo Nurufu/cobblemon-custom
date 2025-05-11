@@ -10,13 +10,13 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class DrakloakModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class DrakloakModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("drakloak")
     override val head = getPart("head")
 
@@ -26,10 +26,10 @@ class DrakloakModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.64F
     override var profileTranslation = Vec3d(0.0, 0.76, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("drakloak", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("drakloak", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("drakloak", "blink") }
@@ -38,7 +38,7 @@ class DrakloakModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("drakloak", "ground_idle")
             )
@@ -48,7 +48,7 @@ class DrakloakModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("drakloak", "ground_idle")
             )
@@ -57,6 +57,6 @@ class DrakloakModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("drakloak", "faint") else null
 }

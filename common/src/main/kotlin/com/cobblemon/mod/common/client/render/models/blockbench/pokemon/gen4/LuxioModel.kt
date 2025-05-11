@@ -8,17 +8,17 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class LuxioModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, QuadrupedFrame {
+class LuxioModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
     override val rootPart = root.registerChildWithAllChildren("luxio")
     override val head = getPart("head")
 
@@ -33,24 +33,24 @@ class LuxioModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quadru
     override var profileScale = 0.7F
     override var profileTranslation = Vec3d(0.0, 0.7, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var sleep: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var sleep: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("luxio", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("luxio", "cry") }
 
     override fun registerPoses() {
 //        val blink = quirk { bedrockStateful("luxio", "blink") }
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("luxio", "sleep"))
+            animations = arrayOf(bedrock("luxio", "sleep"))
         )
 
         standing = registerPose(
             poseName = "standing",
             poseTypes = PoseType.UI_POSES + PoseType.STATIONARY_POSES,
 //            quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("luxio", "idle")
             )
@@ -60,7 +60,7 @@ class LuxioModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quadru
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
 //            quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 QuadrupedWalkAnimation(this, periodMultiplier = 1.1F),
                 singleBoneLook(),
                 bedrock("luxio", "idle")
@@ -70,6 +70,6 @@ class LuxioModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quadru
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("luxio", "faint") else null
 }

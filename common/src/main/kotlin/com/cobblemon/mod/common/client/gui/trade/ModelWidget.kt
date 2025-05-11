@@ -10,7 +10,7 @@ package com.cobblemon.mod.common.client.gui.trade
 
 import com.cobblemon.mod.common.client.gui.drawProfilePokemon
 import com.cobblemon.mod.common.client.gui.summary.widgets.SoundlessWidget
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
 import com.cobblemon.mod.common.pokemon.RenderablePokemon
 import com.cobblemon.mod.common.util.math.fromEulerXYZDegrees
 import net.minecraft.client.gui.DrawContext

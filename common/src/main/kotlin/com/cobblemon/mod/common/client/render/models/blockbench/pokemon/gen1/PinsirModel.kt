@@ -9,16 +9,18 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class PinsirModel(root: ModelPart) : PokemonPoseableModel() {
+class PinsirModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("pinsir")
 
     override var portraitScale = 1.6F
@@ -27,19 +29,19 @@ class PinsirModel(root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 0.65F
     override var profileTranslation = Vec3d(0.0, 0.75, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var battleidle: PokemonPose
-    lateinit var sleep: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var battleidle: Pose
+    lateinit var sleep: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("pinsir", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("pinsir", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("pinsir", "blink")}
         sleep = registerPose(
             poseName = "sleep",
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("pinsir", "sleep"))
+            animations = arrayOf(bedrock("pinsir", "sleep"))
         )
 
         standing = registerPose(
@@ -48,7 +50,7 @@ class PinsirModel(root: ModelPart) : PokemonPoseableModel() {
             transformTicks = 10,
             condition = { !it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("pinsir", "ground_idle")
             )
         )
@@ -58,7 +60,7 @@ class PinsirModel(root: ModelPart) : PokemonPoseableModel() {
             poseTypes = MOVING_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("pinsir", "ground_walk")
             )
         )
@@ -69,12 +71,12 @@ class PinsirModel(root: ModelPart) : PokemonPoseableModel() {
             condition = { it.isBattling },
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(bedrock("pinsir", "battle_idle"))
+            animations = arrayOf(bedrock("pinsir", "battle_idle"))
         )
     }
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("pinsir", "faint") else null
 }

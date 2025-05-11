@@ -8,19 +8,18 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
-import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
-import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class VenonatModel(root: ModelPart) : PokemonPoseableModel() {
+class VenonatModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("venonat")
 
     override var portraitScale = 1.66F
@@ -29,12 +28,12 @@ class VenonatModel(root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 0.86F
     override var profileTranslation = Vec3d(0.0, 0.43, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var battleidle: PokemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var battleidle: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("venonat", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("venonat", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("venonat", "blink") }
@@ -44,14 +43,14 @@ class VenonatModel(root: ModelPart) : PokemonPoseableModel() {
         sleep = registerPose(
             poseType = PoseType.SLEEP,
             quirks = arrayOf(quirk1, quirk2),
-            idleAnimations = arrayOf(bedrock("venonat", "sleep"))
+            animations = arrayOf(bedrock("venonat", "sleep"))
         )
         standing = registerPose(
             poseName = "standing",
             poseTypes = STATIONARY_POSES + UI_POSES,
             condition = { !it.isBattling },
             quirks = arrayOf(blink, quirk1, quirk2),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("venonat", "ground_idle")
             )
         )
@@ -60,7 +59,7 @@ class VenonatModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "walk",
             poseTypes = MOVING_POSES,
             quirks = arrayOf(blink, quirk1, quirk2),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("venonat", "ground_walk")
             )
         )
@@ -71,7 +70,7 @@ class VenonatModel(root: ModelPart) : PokemonPoseableModel() {
             transformTicks = 10,
             quirks = arrayOf(blink, quirk1, quirk2),
             condition = { it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("venonat", "battle_idle")
             )
         )
@@ -79,6 +78,6 @@ class VenonatModel(root: ModelPart) : PokemonPoseableModel() {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("venonat", "faint") else null
 }

@@ -9,7 +9,6 @@
 package com.cobblemon.mod.common.client.gui.battle
 
 import com.cobblemon.mod.common.api.gui.blitk
-import com.cobblemon.mod.common.api.gui.drawPortraitPokemon
 import com.cobblemon.mod.common.api.gui.drawPosablePortrait
 import com.cobblemon.mod.common.api.scheduling.Schedulable
 import com.cobblemon.mod.common.api.scheduling.SchedulingTracker
@@ -39,9 +38,6 @@ import com.cobblemon.mod.common.util.battleLang
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.lang
 import com.mojang.blaze3d.systems.RenderSystem
-import java.lang.Double.max
-import java.lang.Double.min
-import java.util.UUID
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.hud.InGameHud
@@ -55,6 +51,9 @@ import net.minecraft.text.MutableText
 import net.minecraft.util.math.MathHelper.ceil
 import net.minecraft.util.math.RotationAxis
 import org.joml.Vector3f
+import java.lang.Double.max
+import java.lang.Double.min
+import java.util.*
 
 class BattleOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.getInstance().itemRenderer), Schedulable {
     companion object {
@@ -178,7 +177,7 @@ class BattleOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.g
             displayName = battlePokemon.displayName,
             gender = battlePokemon.gender,
             status = battlePokemon.status,
-            state = PosableState,
+            state = battlePokemon.state,
             colour = Triple(r, g, b),
             opacity = opacity.toFloat(),
             ballState = activeBattlePokemon.ballCapturing,
@@ -200,7 +199,7 @@ class BattleOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.g
         displayName: MutableText,
         gender: Gender,
         status: PersistentStatus?,
-        state: PosableState<PokemonEntity>?,
+        state: PosableState,
         colour: Triple<Float, Float, Float>?,
         opacity: Float,
         ballState: ClientBallDisplay? = null,

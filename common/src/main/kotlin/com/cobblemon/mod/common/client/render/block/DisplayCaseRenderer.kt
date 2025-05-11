@@ -12,7 +12,7 @@ import com.cobblemon.mod.common.CobblemonBlocks
 import com.cobblemon.mod.common.CobblemonItems
 import com.cobblemon.mod.common.block.DisplayCaseBlock
 import com.cobblemon.mod.common.block.entity.DisplayCaseBlockEntity
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.entity.PoseType

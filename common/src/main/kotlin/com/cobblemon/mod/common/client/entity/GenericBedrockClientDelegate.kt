@@ -14,7 +14,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.repository.Gener
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.entity.generic.GenericBedrockEntity
 
-class GenericBedrockClientDelegate : EntitySideDelegate<GenericBedrockEntity>, PosableState<GenericBedrockEntity>() {
+class GenericBedrockClientDelegate : EntitySideDelegate<GenericBedrockEntity>, PosableState() {
     lateinit var currentEntity: GenericBedrockEntity
     override val schedulingTracker
         get() = getEntity().schedulingTracker

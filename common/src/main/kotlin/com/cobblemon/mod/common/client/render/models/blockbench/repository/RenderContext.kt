@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.repository
 
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.util.asResource
 import com.google.gson.reflect.TypeToken
 import net.minecraft.entity.Entity
@@ -24,6 +25,16 @@ class RenderContext {
     // A map to store data values associated with keys
     private val context: MutableMap<Key<*>, Any?> = mutableMapOf()
 
+    var entity: Entity?
+        get() = this.request(ENTITY)
+        set(value) {
+            if (value == null) {
+                this.pop(ENTITY)
+            } else {
+                this.put(ENTITY, value)
+            }
+        }
+
     /**
      * Retrieves a value from the context associated with the provided key.
      *
@@ -33,7 +44,7 @@ class RenderContext {
      * @since 1.4.0
      */
     @Suppress("UNCHECKED_CAST")
-    fun <T : Any> request(key: Key<T>): T? = this.context[key] as T?
+    fun <T : Any> request(key: Key<T>): T? = this.context[key] as? T?
 
     /**
      * Retrieves a value from the context associated with the provided key, assuming the value exists.
@@ -97,7 +108,9 @@ class RenderContext {
         PORTRAIT(true),
 
         //Profile rendering mode (GUI-based).
-        PROFILE(true)
+        PROFILE(true),
+        RESURRECTION_MACHINE(false),
+        BLOCK(false)
     }
 
     // Predefined keys for common data types
@@ -128,9 +141,19 @@ class RenderContext {
         val ASPECTS: Key<Set<String>> = key("species".asResource())
 
         /**
+         * Key to access whether or not quirks are enabled for this context. It is implied as true when it's null
+         */
+        val DO_QUIRKS: Key<Boolean> = key("do_quirks".asResource())
+
+        /**
          * Key to access the rendering state, indicating the active rendering mode.
          */
         val RENDER_STATE: Key<RenderState> = key("state".asResource())
+
+        /**
+         * Key to access the posable state of the thing being drawn.
+         */
+        val POSABLE_STATE: Key<PosableState> = key("posable_state".asResource())
 
         /**
          * Creates a new Key instance with the provided identifier and TypeToken.

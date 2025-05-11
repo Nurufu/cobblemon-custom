@@ -20,40 +20,42 @@ import com.bedrockk.molang.runtime.value.StringValue
 import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.api.battles.model.PokemonBattle
 import com.cobblemon.mod.common.api.dialogue.PlayerDialogueFaceProvider
-import com.cobblemon.mod.common.api.dialogue.ReferenceDialogueFaceProvider
 import com.cobblemon.mod.common.api.scripting.CobblemonScripts
 import com.cobblemon.mod.common.api.text.text
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.WaveFunctions
-import com.cobblemon.mod.common.entity.npc.NPCEntity
-import com.cobblemon.mod.common.net.messages.client.effect.RunPosableMoLangPacket
-import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
-import com.cobblemon.mod.common.util.getBooleanOrNull
-import com.cobblemon.mod.common.util.getDoubleOrNull
-import com.cobblemon.mod.common.util.isInt
-import com.cobblemon.mod.common.util.itemRegistry
-import com.cobblemon.mod.common.util.worldRegistry
+import com.cobblemon.mod.common.util.*
 import com.mojang.datafixers.util.Either
 import net.minecraft.block.Block
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.damage.DamageTypes
 import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.nbt.NbtCompound
-import net.minecraft.nbt.NbtDouble
-import net.minecraft.nbt.NbtElement
-import net.minecraft.nbt.NbtList
-import net.minecraft.nbt.NbtString
+import net.minecraft.nbt.*
 import net.minecraft.registry.Registry
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
 import net.minecraft.registry.entry.RegistryEntry
 import net.minecraft.registry.tag.TagKey
 import net.minecraft.server.network.ServerPlayerEntity
-import net.minecraft.server.world.ServerWorld
 import net.minecraft.util.Identifier
 import net.minecraft.world.World
 import net.minecraft.world.biome.Biome
 import net.minecraft.world.dimension.DimensionType
+import kotlin.collections.HashMap
+import kotlin.collections.Map
+import kotlin.collections.component1
+import kotlin.collections.component2
+import kotlin.collections.flatMap
+import kotlin.collections.forEach
+import kotlin.collections.forEachIndexed
+import kotlin.collections.hashMapOf
+import kotlin.collections.map
+import kotlin.collections.mapNotNull
+import kotlin.collections.mutableListOf
+import kotlin.collections.random
+import kotlin.collections.set
+import kotlin.collections.toList
+import kotlin.collections.toMap
 
 /**
  * Holds a bunch of useful MoLang trickery that can be used or extended in API
@@ -172,40 +174,40 @@ object MoLangFunctions {
             map.put("velocity_z") { _ -> DoubleValue(entity.velocity.z) }
             map.put("horizontal_velocity") { _ -> DoubleValue(entity.velocity.horizontalLength()) }
             map.put("is_on_ground") { _ -> DoubleValue(entity.isOnGround) }
-            map.put("world") { _ -> entity.world.worldRegistry.getEntry(entity.world).asWorldMoLangValue() }
+            map.put("world") { _ -> (entity.world.registryManager.get(RegistryKeys.WORLD)) }
             map.put("biome") { _ -> entity.world.getBiome(entity.blockPos).asBiomeMoLangValue() }
             map
         }
     )
-    val npcFunctions = mutableListOf<(NPCEntity) -> HashMap<String, java.util.function.Function<MoParams, Any>>>(
-        { npc ->
-            val map = hashMapOf<String, java.util.function.Function<MoParams, Any>>()
-            map.put("class") { StringValue(npc.npc.resourceIdentifier.toString()) }
-            map.put("name") { StringValue(npc.name.string) }
-            map.put("face") { ObjectValue(ReferenceDialogueFaceProvider(npc.id)) }
-            map.put("in_battle") { DoubleValue(npc.isInBattle()) }
-            map.put("run_script_on_client") { params ->
-                val world = npc.world
-                if (world is ServerWorld) {
-                    val script = params.getString(0)
-                    val packet = RunPosableMoLangPacket(npc.id, setOf("q.run_script('$script')"))
-                    packet.sendToPlayers(world.players.toList())
-                }
-                Unit
-            }
-            map.put("run_script") { params ->
-                val script = params.getString(0).asIdentifierDefaultingNamespace()
-                val environment = params.environment
-                val runtime = MoLangRuntime()
-                runtime.environment.query = environment.query
-                runtime.environment.variable = environment.variable
-                runtime.environment.context = environment.context
-                CobblemonScripts.run(script, runtime) ?: DoubleValue(0)
-            }
-            map.put("environment") { _ -> npc.runtime.environment }
-            map
-        }
-    )
+//    val npcFunctions = mutableListOf<(NPCEntity) -> HashMap<String, java.util.function.Function<MoParams, Any>>>(
+//        { npc ->
+//            val map = hashMapOf<String, java.util.function.Function<MoParams, Any>>()
+//            map.put("class") { StringValue(npc.npc.resourceIdentifier.toString()) }
+//            map.put("name") { StringValue(npc.name.string) }
+//            map.put("face") { ObjectValue(ReferenceDialogueFaceProvider(npc.id)) }
+//            map.put("in_battle") { DoubleValue(npc.isInBattle()) }
+//            map.put("run_script_on_client") { params ->
+//                val world = npc.world
+//                if (world is ServerWorld) {
+//                    val script = params.getString(0)
+//                    val packet = RunPosableMoLangPacket(npc.id, setOf("q.run_script('$script')"))
+//                    packet.sendToPlayers(world.players.toList())
+//                }
+//                Unit
+//            }
+//            map.put("run_script") { params ->
+//                val script = params.getString(0).asIdentifierDefaultingNamespace()
+//                val environment = params.environment
+//                val runtime = MoLangRuntime()
+//                runtime.environment.query = environment.query
+//                runtime.environment.variable = environment.variable
+//                runtime.environment.context = environment.context
+//                CobblemonScripts.run(script, runtime) ?: DoubleValue(0)
+//            }
+//            map.put("environment") { _ -> npc.runtime.environment }
+//            map
+//        }
+//    )
 
     val battleFunctions = mutableListOf<(PokemonBattle) -> HashMap<String, java.util.function.Function<MoParams, Any>>>(
         { battle ->
@@ -234,15 +236,15 @@ object MoLangFunctions {
         return value
     }
 
-    fun NPCEntity.asMoLangValue(): ObjectValue<NPCEntity> {
-        val value = ObjectValue(
-            obj = this,
-            stringify = { it.name.string }
-        )
-        value.addFunctions(entityFunctions.flatMap { it(this).entries.map { it.key to it.value } }.toMap())
-        value.addFunctions(npcFunctions.flatMap { it(this).entries.map { it.key to it.value } }.toMap())
-        return value
-    }
+//    fun NPCEntity.asMoLangValue(): ObjectValue<NPCEntity> {
+//        val value = ObjectValue(
+//            obj = this,
+//            stringify = { it.name.string }
+//        )
+//        value.addFunctions(entityFunctions.flatMap { it(this).entries.map { it.key to it.value } }.toMap())
+//        value.addFunctions(npcFunctions.flatMap { it(this).entries.map { it.key to it.value } }.toMap())
+//        return value
+//    }
 
     fun PokemonBattle.asMoLangValue(): ObjectValue<PokemonBattle> {
         val value = ObjectValue(

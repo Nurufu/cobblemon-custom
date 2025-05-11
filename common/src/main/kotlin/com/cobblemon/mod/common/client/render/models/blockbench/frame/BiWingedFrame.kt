@@ -18,9 +18,10 @@ interface BiWingedFrame : ModelFrame {
     val leftWing: ModelPart
     val rightWing: ModelPart
 
-    fun <T : Entity> wingFlap(
+    fun wingFlap(
         flapFunction: WaveFunction,
-        timeVariable: (state: PosableState<T>?, limbSwing: Float, ageInTicks: Float) -> Float?,
+        timeVariable: (state: PosableState, limbSwing: Float, ageInTicks: Float) -> Float?,
+
         axis: Int
     ) = WingFlapIdleAnimation(
         frame = this,

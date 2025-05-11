@@ -8,19 +8,20 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.BimanualSwingAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class LucarioModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class LucarioModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("lucario")
     override val head = getPart("head")
 
@@ -35,11 +36,11 @@ class LucarioModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
     override var profileScale = 0.6F
     override var profileTranslation = Vec3d(0.0, 0.83, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var battleIdle: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var battleIdle: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("lucario", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("lucario", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("lucario", "blink") }
@@ -48,7 +49,7 @@ class LucarioModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             condition = { !it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("lucario", "ground_idle")
             )
@@ -58,7 +59,7 @@ class LucarioModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("lucario", "ground_idle"),
                 BimanualSwingAnimation(this),
@@ -71,7 +72,7 @@ class LucarioModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bipe
             poseTypes = PoseType.STATIONARY_POSES,
             condition = { it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("lucario", "ground_idle"),
                 bedrock("lucario", "battle_idle_aura_left"),

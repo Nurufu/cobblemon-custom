@@ -30,7 +30,7 @@ class GildedChestBlockRenderer(context: BlockEntityRendererFactory.Context) : Bl
         overlay: Int
     ) {
         val aspects = emptySet<String>()
-        val state = entity.posableState
+        val state = entity.poseableState
         state.updatePartialTicks(tickDelta)
 
         val poserId = entity.type.poserId

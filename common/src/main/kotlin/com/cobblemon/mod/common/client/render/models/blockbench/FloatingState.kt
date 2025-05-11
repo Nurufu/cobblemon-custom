@@ -6,10 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package com.cobblemon.mod.common.client.render.models.blockbench.pokemon
+package com.cobblemon.mod.common.client.render.models.blockbench
 
 import com.cobblemon.mod.common.api.scheduling.ClientTaskTracker
-import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 
 /**
@@ -25,7 +24,7 @@ import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
  * @author Hiroku
  * @since May 1st, 2022
  */
-class FloatingState : PosableState<PokemonEntity>() {
+class FloatingState : PosableState() {
     override fun getEntity() = null
     override val schedulingTracker = ClientTaskTracker
     override fun updatePartialTicks(partialTicks: Float) {

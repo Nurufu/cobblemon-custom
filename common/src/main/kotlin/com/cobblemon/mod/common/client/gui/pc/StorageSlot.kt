@@ -8,21 +8,18 @@
 
 package com.cobblemon.mod.common.client.gui.pc
 
-import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.Cobblemon.config
 import com.cobblemon.mod.common.api.gui.blitk
 import com.cobblemon.mod.common.client.gui.drawProfilePokemon
 import com.cobblemon.mod.common.client.gui.pasture.PasturePCGUIConfiguration
 import com.cobblemon.mod.common.client.render.drawScaledText
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.FloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
 import com.cobblemon.mod.common.client.render.renderScaledGuiItemIcon
 import com.cobblemon.mod.common.pokemon.Gender
 import com.cobblemon.mod.common.pokemon.Pokemon
-import com.cobblemon.mod.common.pokemon.RenderablePokemon
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.lang
 import com.cobblemon.mod.common.util.math.fromEulerXYZDegrees
-import com.mojang.blaze3d.systems.RenderSystem
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.widget.ButtonWidget
@@ -217,7 +214,7 @@ open class StorageSlot(
             renderablePokemon = pokemon.asRenderablePokemon(),
             matrixStack = matrices,
             rotation = Quaternionf().fromEulerXYZDegrees(Vector3f(13F, 35F, 0F)),
-            state = null,
+            state = state,
             partialTicks = partialTicks,
             scale = 4.5F
         )

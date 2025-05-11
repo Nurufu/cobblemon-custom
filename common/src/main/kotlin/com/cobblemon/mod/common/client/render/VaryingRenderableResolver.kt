@@ -8,7 +8,7 @@
 
 package com.cobblemon.mod.common.client.render
 
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Bone
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.VaryingModelRepository
 import com.cobblemon.mod.common.util.adapters.IdentifierAdapter
@@ -18,11 +18,10 @@ import com.cobblemon.mod.common.util.adapters.Vector4fAdapter
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.google.gson.GsonBuilder
 import com.google.gson.annotations.SerializedName
-import kotlin.math.floor
-import net.minecraft.entity.Entity
 import net.minecraft.util.Identifier
 import org.joml.Vector3f
 import org.joml.Vector4f
+import kotlin.math.floor
 
 /**
  * All the information required for rendering a Pokémon/Poké Ball/NPC with aspects.
@@ -92,7 +91,7 @@ class VaryingRenderableResolver<T : PosableModel>(
             .create()
     }
 
-    fun initialize(repository: VaryingModelRepository<E, M>) {
+    fun initialize(repository: VaryingModelRepository<T>) {
         this.repository = repository
         posers.clear()
         getAllModels().forEach { identifier ->

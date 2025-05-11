@@ -12,8 +12,8 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.WaveAn
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.WaveSegment
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.sineFunction
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
@@ -22,7 +22,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class BasculinModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class BasculinModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("basculin")
     override val head = getPart("head")
 
@@ -32,14 +32,14 @@ class BasculinModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.8F
     override var profileTranslation = Vec3d(0.0, 0.5, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
     val tail = getPart("tail_fin")
 
     val wtail = WaveSegment(tail, 7F)
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("basculin", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("basculin", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("basculin", "blink") }
@@ -48,7 +48,7 @@ class BasculinModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "standing",
             poseTypes = STATIONARY_POSES + UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("basculin", "water_idle")
             )
@@ -58,11 +58,10 @@ class BasculinModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "walk",
             poseTypes = MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("basculin", "water_idle"),
                 WaveAnimation(
-                    frame = this,
                     waveFunction = sineFunction(
                         period = 8F,
                         amplitude = 0.4F
@@ -83,6 +82,6 @@ class BasculinModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("basculin", "faint") else null
 }

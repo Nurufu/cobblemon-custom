@@ -8,31 +8,36 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.bedrock.animation
 
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
+import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
-import com.cobblemon.mod.common.client.render.models.blockbench.animation.StatelessAnimation
-import com.cobblemon.mod.common.client.render.models.blockbench.frame.ModelFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.animation.PoseAnimation
+import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import net.minecraft.entity.Entity
 
 /**
  * Animation that analyzes a [BedrockAnimation] and applies transformations to the model based on
  * the given animation time.
  *
- * @param frame The model frame to apply the animation to
  * @param animation The [BedrockAnimation] to be played
  *
  * @author landonjw
  * @since January 5th, 2022
  */
-class BedrockStatelessAnimation<T: Entity>(frame: ModelFrame, val animation: BedrockAnimation) : StatelessAnimation<T, ModelFrame>(frame) {
-    override val targetFrame: Class<ModelFrame> = ModelFrame::class.java
+class BedrockPoseAnimation(val animation: BedrockAnimation) : PoseAnimation() {
     val particleKeyFrames = animation.effects.filterIsInstance<BedrockParticleKeyframe>()
 
-    override fun setAngles(entity: T?, model: PoseableEntityModel<T>, state: PosableState<T>?, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
-        animation.run(model, state, state?.animationSeconds ?: 0F, intensity)
+    init {
+        if (animation.animationLength != -1.0 && !animation.shouldLoop) {
+            Cobblemon.LOGGER.error("Found animation that is not set to loop and has a set length but is being used in an idle animation. This will cause things like T-posing! ${animation.name}")
+        }
     }
 
-    override fun applyEffects(entity: T, state: PosableState<T>, previousSeconds: Float, newSeconds: Float) {
+    override fun setAngles(context: RenderContext, model: PosableModel, state: PosableState, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, headYaw: Float, headPitch: Float, intensity: Float) {
+        animation.run(context, model, state, state.animationSeconds, limbSwing, limbSwingAmount, ageInTicks, intensity)
+    }
+
+    override fun applyEffects(entity: Entity, state: PosableState, previousSeconds: Float, newSeconds: Float) {
         val effectiveAnimationLength = animation.animationLength.takeUnless { it <= 0 }?.toFloat() ?: animation.effects.maxOfOrNull { it.seconds }?.takeIf { it != 0F }
         val (loopedPreviousSeconds, loopedNewSeconds) = if (effectiveAnimationLength != null) {
             (previousSeconds % effectiveAnimationLength) to (newSeconds % effectiveAnimationLength)

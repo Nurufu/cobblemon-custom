@@ -12,14 +12,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class FarfetchdGalarianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame {
+class FarfetchdGalarianModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
     override val rootPart = root.registerChildWithAllChildren("farfetchd")
     override val head = getPart("neck")
 
@@ -32,10 +32,10 @@ class FarfetchdGalarianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFr
     override var profileScale = 1.1F
     override var profileTranslation = Vec3d(-0.1, 0.1, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("farfetchd_galar", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("farfetchd_galar", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("farfetchd_galar", "blink") }
@@ -44,7 +44,7 @@ class FarfetchdGalarianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFr
             poseTypes = PoseType.STATIONARY_POSES + UI_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("farfetchd_galar", "ground_idle")
             )
@@ -55,7 +55,7 @@ class FarfetchdGalarianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFr
             poseTypes = PoseType.MOVING_POSES,
             transformTicks = 5,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("farfetchd_galar", "ground_idle"),
                 BipedWalkAnimation(this, periodMultiplier = 0.6F, amplitudeMultiplier = 0.9F),
@@ -65,6 +65,6 @@ class FarfetchdGalarianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFr
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("farfetchd_galar", "faint") else null
 }

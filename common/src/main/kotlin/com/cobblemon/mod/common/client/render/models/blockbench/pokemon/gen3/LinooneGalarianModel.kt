@@ -8,17 +8,17 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class LinooneGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, QuadrupedFrame {
+class LinooneGalarianModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
     override val rootPart = root.registerChildWithAllChildren("linoone_galarian")
     override val head = getPart("head")
 
@@ -33,10 +33,10 @@ class LinooneGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFra
     override var profileScale = 0.9F
     override var profileTranslation = Vec3d(0.0, 0.38, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("lineoone_galarian", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("lineoone_galarian", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("linoone_galarian", "blink") }
@@ -44,7 +44,7 @@ class LinooneGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFra
             poseName = "standing",
             poseTypes = PoseType.UI_POSES + PoseType.STAND,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("linoone_galarian", "ground_idle")
             )
@@ -54,7 +54,7 @@ class LinooneGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFra
             poseName = "walk",
             poseType = PoseType.WALK,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 QuadrupedWalkAnimation(this, periodMultiplier = 1.1F),
                 singleBoneLook(),
                 bedrock("linoone_galarian", "ground_idle")
@@ -64,6 +64,6 @@ class LinooneGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFra
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("linoone_galarian", "faint") else null
 }

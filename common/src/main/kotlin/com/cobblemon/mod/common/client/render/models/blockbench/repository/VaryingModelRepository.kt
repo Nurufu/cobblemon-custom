@@ -8,31 +8,54 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.repository
 
+import com.bedrockk.molang.Expression
 import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.client.render.ModelLayer
 import com.cobblemon.mod.common.client.render.ModelVariationSet
 import com.cobblemon.mod.common.client.render.VaryingRenderableResolver
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
+import com.cobblemon.mod.common.client.render.models.blockbench.JsonModelAdapter
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
+import com.cobblemon.mod.common.client.render.models.blockbench.PoseAdapter
 import com.cobblemon.mod.common.client.render.models.blockbench.TexturedModel
+import com.cobblemon.mod.common.client.render.models.blockbench.bedrock.animation.BedrockAnimationRepository
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Bone
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.client.util.exists
+import com.cobblemon.mod.common.util.adapters.ExpressionAdapter
+import com.cobblemon.mod.common.util.adapters.ExpressionLikeAdapter
+import com.cobblemon.mod.common.util.adapters.Vec3dAdapter
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.endsWith
 import com.cobblemon.mod.common.util.fromJson
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
 import java.io.File
 import java.nio.charset.StandardCharsets
 import java.util.function.BiFunction
 import java.util.function.Function
 import net.minecraft.client.model.ModelPart
-import net.minecraft.entity.Entity
 import net.minecraft.resource.Resource
 import net.minecraft.resource.ResourceManager
 import net.minecraft.util.Identifier
 import net.minecraft.util.Pair
+import net.minecraft.util.math.Vec3d
 
-abstract class VaryingModelRepository<E : Entity, M : PoseableEntityModel<E>> {
-    val posers = mutableMapOf<Identifier, (Bone) -> M>()
-    val variations = mutableMapOf<Identifier, VaryingRenderableResolver<E, M>>()
+/**
+ * A repository for [PosableModel]s. Can be parameterized with [PosableModel] itself or a subclass.
+ * This will handle the loading of all factors of [PosableModel]s, including variations, posers, models, and indirectly
+ * the animations by providing directories for the [BedrockAnimationRepository] to read from. This class will also
+ * hang onto poser instances for reuse.
+ *
+ * @author Hiroku
+ * @since February 28th, 2023
+ */
+abstract class VaryingModelRepository<T : PosableModel> {
+    abstract val poserClass: Class<T>
+    val posers = mutableMapOf<Identifier, (Bone) -> T>()
+    val variations = mutableMapOf<Identifier, VaryingRenderableResolver<T>>()
     val texturedModels = mutableMapOf<Identifier, (isForLivingEntityRenderer: Boolean) -> Bone>()
 
     abstract val title: String
@@ -45,12 +68,59 @@ abstract class VaryingModelRepository<E : Entity, M : PoseableEntityModel<E>> {
     /** When using the living entity renderer in Java Edition, a root joint 24F (1.5) Y offset is necessary. I've no fucking idea why. */
     abstract val isForLivingEntityRenderer: Boolean
 
-    abstract fun loadJsonPoser(json: String): (Bone) -> M
+    val gson: Gson by lazy {
+        GsonBuilder()
+            .setPrettyPrinting()
+            .disableHtmlEscaping()
+            .registerTypeAdapter(Vec3d::class.java, Vec3dAdapter)
+            .registerTypeAdapter(Expression::class.java, ExpressionAdapter)
+            .registerTypeAdapter(ExpressionLike::class.java, ExpressionLikeAdapter)
+            .also { configureGson(it) }
+            .create()
+    }
+
+    lateinit var adapter: JsonModelAdapter<T>
+
+    open fun conditionParser(json: JsonObject): List<(PosableState) -> Boolean> = emptyList()
+
+    private fun GsonBuilder.setupGsonForJsonPosableModels(
+        adapter: JsonModelAdapter<T>,
+        poseConditionReader: (JsonObject) -> List<(PosableState) -> Boolean> = { emptyList() }
+    ): GsonBuilder {
+        return this
+            .excludeFieldsWithModifiers()
+            .registerTypeAdapter(Pose::class.java, PoseAdapter(poseConditionReader) { adapter.model!! })
+            .registerTypeAdapter(
+                poserClass,
+                adapter
+            )
+    }
+
+    private fun createAdapter(): JsonModelAdapter<T> {
+        return JsonModelAdapter { poserClass.getConstructor(Bone::class.java).newInstance(it) }
+    }
+
+    open fun configureGson(gsonBuilder: GsonBuilder) {
+        adapter = createAdapter()
+        gsonBuilder.setupGsonForJsonPosableModels(adapter) { json -> conditionParser(json) }
+    }
+
+    open fun loadJsonPoser(json: String): (Bone) -> T {
+        // Faster to deserialize during asset load rather than rerunning this every time a poser is constructed.
+        val jsonObject = gson.fromJson(json, JsonObject::class.java)
+        return {
+            adapter.modelPart = it
+            gson.fromJson(jsonObject, poserClass).also {
+                it.poses.forEach { (poseName, pose) -> pose.poseName = poseName }
+            }
+        }
+    }
 
     fun registerPosers(resourceManager: ResourceManager) {
         posers.clear()
         registerInBuiltPosers()
         registerJsonPosers(resourceManager)
+        Cobblemon.LOGGER.info("Loaded ${posers.size} $title posers.")
     }
 
     abstract fun registerInBuiltPosers()
@@ -69,11 +139,12 @@ abstract class VaryingModelRepository<E : Entity, M : PoseableEntityModel<E>> {
         }
     }
 
-    fun inbuilt(name: String, model: (ModelPart) -> M) {
+    fun inbuilt(name: String, model: (ModelPart) -> T) {
         posers[cobblemonResource(name)] = { bone -> model.invoke(bone as ModelPart) }
     }
 
     fun registerVariations(resourceManager: ResourceManager) {
+        var variationCount = 0
         val nameToModelVariationSets = mutableMapOf<Identifier, MutableList<ModelVariationSet>>()
         for (directory in variationDirectories) {
             resourceManager
@@ -83,6 +154,7 @@ abstract class VaryingModelRepository<E : Entity, M : PoseableEntityModel<E>> {
                         val json = String(stream.readAllBytes(), StandardCharsets.UTF_8)
                         val modelVariationSet = VaryingRenderableResolver.GSON.fromJson<ModelVariationSet>(json)
                         nameToModelVariationSets.getOrPut(modelVariationSet.name) { mutableListOf() }.add(modelVariationSet)
+                        variationCount += modelVariationSet.variations.size
                     }
                 }
         }
@@ -93,6 +165,8 @@ abstract class VaryingModelRepository<E : Entity, M : PoseableEntityModel<E>> {
         }
 
         variations.values.forEach { it.initialize(this) }
+
+        Cobblemon.LOGGER.info("Loaded $variationCount $title variations.")
     }
 
     fun registerModels(resourceManager: ResourceManager) {
@@ -113,15 +187,15 @@ abstract class VaryingModelRepository<E : Entity, M : PoseableEntityModel<E>> {
     }
 
     fun reload(resourceManager: ResourceManager) {
+        Cobblemon.LOGGER.info("Loading $title assets...")
         this.variations.clear()
         this.posers.clear()
-        Cobblemon.LOGGER.info("Loading $title models...")
         registerModels(resourceManager)
         registerPosers(resourceManager)
         registerVariations(resourceManager)
     }
 
-    fun getPoser(name: Identifier, aspects: Set<String>): M {
+    fun getPoser(name: Identifier, aspects: Set<String>): T {
         try {
             val poser = this.variations[name]?.getPoser(aspects)
             if (poser != null) {

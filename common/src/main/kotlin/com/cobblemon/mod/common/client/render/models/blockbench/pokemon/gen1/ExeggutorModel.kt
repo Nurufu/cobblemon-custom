@@ -12,16 +12,18 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.Single
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ExeggutorModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame {
+class ExeggutorModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
     override val rootPart = root.registerChildWithAllChildren("exeggutor")
     override val head = getPart("head")
 
@@ -43,12 +45,12 @@ class ExeggutorModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
     override var profileScale = 0.45F
     override var profileTranslation = Vec3d(0.0, 1.1, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var battleidle: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var sleep: Pose
+    lateinit var battleidle: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("exeggutor", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("exeggutor", "cry") }
 
     override fun registerPoses() {
         val blink1 = quirk { bedrockStateful("exeggutor", "blink") }
@@ -56,7 +58,7 @@ class ExeggutorModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
         val blink3 = quirk { bedrockStateful("exeggutor", "blink3") }
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("exeggutor", "sleep"))
+            animations = arrayOf(bedrock("exeggutor", "sleep"))
         )
 
         standing = registerPose(
@@ -64,7 +66,7 @@ class ExeggutorModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
             poseTypes = STATIONARY_POSES + UI_POSES,
             quirks = arrayOf(blink1, blink2, blink3),
             condition = { !it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 SingleBoneLookAnimation(head2, false, false, disableX = false, disableY = false),
                 SingleBoneLookAnimation(head3, false, false, disableX = false, disableY = false),
@@ -77,7 +79,7 @@ class ExeggutorModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
             poseTypes = MOVING_POSES,
             quirks = arrayOf(blink1, blink2, blink3),
             condition = { !it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 SingleBoneLookAnimation(head2, false, false, disableX = false, disableY = false),
                 SingleBoneLookAnimation(head3, false, false, disableX = false, disableY = false),
@@ -91,7 +93,7 @@ class ExeggutorModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
             transformTicks = 10,
             quirks = arrayOf(blink1, blink2, blink3),
             condition = { it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("exeggutor", "battle_idle")
             )
@@ -101,6 +103,6 @@ class ExeggutorModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
 
     //override fun getFaintAnimation(
     //    pokemonEntity: PokemonEntity,
-    //    state: PoseableEntityState<PokemonEntity>
+    //    state: PosableState<PokemonEntity>
     //) = bedrockStateful("exeggutor", "faint")
 }
