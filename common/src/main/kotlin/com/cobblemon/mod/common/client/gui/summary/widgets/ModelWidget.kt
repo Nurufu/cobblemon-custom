@@ -9,10 +9,9 @@
 package com.cobblemon.mod.common.client.gui.summary.widgets
 
 import com.cobblemon.mod.common.client.gui.drawProfilePokemon
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonFloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
 import com.cobblemon.mod.common.pokemon.RenderablePokemon
 import com.cobblemon.mod.common.util.math.fromEulerXYZDegrees
-import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.text.Text
 import org.joml.Quaternionf
@@ -31,7 +30,7 @@ class ModelWidget(
         var render = true
     }
 
-    var state = PokemonFloatingState()
+    var state = FloatingState()
     val rotVec = Vector3f(13F, rotationY, 0F)
 
     override fun renderButton(context: DrawContext, pMouseX: Int, pMouseY: Int, partialTicks: Float) {

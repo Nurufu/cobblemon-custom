@@ -12,13 +12,13 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.Quadru
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ZoruaHisuianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, QuadrupedFrame {
+class ZoruaHisuianModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
     override val rootPart = root.registerChildWithAllChildren("zorua")
     override val head = getPart("head")
 
@@ -33,10 +33,10 @@ class ZoruaHisuianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame,
     override var profileTranslation = Vec3d(0.0, 0.62, -6.0)
     override var profileScale = 0.82F
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("zorua_hisuian", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("zorua_hisuian", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("zorua_hisuian", "blink") }
@@ -45,7 +45,7 @@ class ZoruaHisuianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame,
             poseName = "standing",
             poseTypes = PoseType.UI_POSES + PoseType.STATIONARY_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("zorua_hisuian", "ground_idle")
             )
@@ -55,7 +55,7 @@ class ZoruaHisuianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame,
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 QuadrupedWalkAnimation(this, periodMultiplier = 1.1F),
                 singleBoneLook(),
                 bedrock("zorua_hisuian", "ground_idle")
@@ -65,6 +65,6 @@ class ZoruaHisuianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame,
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("zorua_hisuian", "faint") else null
 }

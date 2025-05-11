@@ -10,12 +10,10 @@ package com.cobblemon.mod.common.api.gui
 
 import com.cobblemon.mod.common.api.text.font
 import com.cobblemon.mod.common.client.gui.battle.BattleOverlay.Companion.PORTRAIT_DIAMETER
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
-import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
+import com.cobblemon.mod.common.client.render.models.blockbench.repository.VaryingModelRepository
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
-import com.cobblemon.mod.common.pokemon.Species
 import com.mojang.blaze3d.platform.GlStateManager
 import com.mojang.blaze3d.systems.RenderSystem
 import net.minecraft.client.MinecraftClient
@@ -25,6 +23,7 @@ import net.minecraft.client.render.DiffuseLighting
 import net.minecraft.client.render.GameRenderer
 import net.minecraft.client.render.LightmapTextureManager
 import net.minecraft.client.render.OverlayTexture
+import net.minecraft.client.render.RenderLayer
 import net.minecraft.client.render.Tessellator
 import net.minecraft.client.render.VertexFormat
 import net.minecraft.client.render.VertexFormats
@@ -37,6 +36,7 @@ import net.minecraft.util.math.RotationAxis
 import org.joml.Matrix4f
 import org.joml.Vector3f
 
+@JvmOverloads
 fun blitk(
     matrixStack: MatrixStack,
     texture: Identifier? = null,
@@ -100,6 +100,7 @@ fun drawRectangle(
     BufferRenderer.drawWithGlobalProgram(bufferbuilder.end())
 }
 
+@JvmOverloads
 fun drawCenteredText(
     context: DrawContext,
     font: Identifier? = null,
@@ -114,6 +115,7 @@ fun drawCenteredText(
     context.drawText(textRenderer, comp, x.toInt() - textRenderer.getWidth(comp) / 2, y.toInt(), colour, shadow)
 }
 
+@JvmOverloads
 fun drawText(
     context: DrawContext,
     font: Identifier? = null,
@@ -145,6 +147,7 @@ fun drawText(
     return isHovered
 }
 
+@JvmOverloads
 fun drawText(
     context: DrawContext,
     text: OrderedText,
@@ -163,6 +166,7 @@ fun drawText(
     context.drawText(textRenderer, text, tweakedX.toInt(), y.toInt(), colour, shadow)
 }
 
+@JvmOverloads
 fun drawString(
     context: DrawContext,
     text: String,
@@ -181,40 +185,47 @@ fun drawString(
     context.drawText(textRenderer, comp, x.toInt(), y.toInt(), colour, shadow)
 }
 
-fun drawPortraitPokemon(
-    species: Species,
+@JvmOverloads
+fun drawPosablePortrait(
+    identifier: Identifier,
     aspects: Set<String>,
     matrixStack: MatrixStack,
     scale: Float = 13F,
+    contextScale: Float = 1F,
     reversed: Boolean = false,
-    state: PoseableEntityState<PokemonEntity>? = null,
-    partialTicks: Float
+    state: PosableState,
+    repository: VaryingModelRepository<*>,
+    partialTicks: Float,
+    limbSwing: Float = 0F,
+    limbSwingAmount: Float = 0F,
+    ageInTicks: Float = 0F,
+    headYaw: Float = 0F,
+    headPitch: Float = 0F
 ) {
-    val model = PokemonModelRepository.getPoser(species.resourceIdentifier, aspects)
-    val texture = PokemonModelRepository.getTexture(species.resourceIdentifier, aspects, state?.animationSeconds ?: 0F)
+    val model = repository.getPoser(identifier, aspects)
+    state.currentAspects = aspects
+    state.currentModel = model
+    val texture = repository.getTexture(identifier, aspects, state.animationSeconds)
 
     val context = RenderContext()
-    PokemonModelRepository.getTextureNoSubstitute(species.resourceIdentifier, aspects, 0f).let { it -> context.put(RenderContext.TEXTURE, it) }
-    context.put(RenderContext.SCALE, species.getForm(aspects).baseScale)
-    context.put(RenderContext.SPECIES, species.resourceIdentifier)
+    model.context = context
+    repository.getTextureNoSubstitute(identifier, aspects, 0f).let { context.put(RenderContext.TEXTURE, it) }
+    context.put(RenderContext.SCALE, contextScale)
+    context.put(RenderContext.SPECIES, identifier)
     context.put(RenderContext.ASPECTS, aspects)
+    context.put(RenderContext.POSABLE_STATE, state)
 
-    val renderType = model.getLayer(texture)
+    val renderType = RenderLayer.getEntityCutout(texture)
 
     RenderSystem.applyModelViewMatrix()
     val quaternion1 = RotationAxis.POSITIVE_Y.rotationDegrees(-32F * if (reversed) -1F else 1F)
     val quaternion2 = RotationAxis.POSITIVE_X.rotationDegrees(5F)
 
-    if (state == null) {
-        model.setupAnimStateless(setOf(PoseType.PORTRAIT, PoseType.PROFILE))
-    } else {
-        val originalPose = state.currentPose
-        model.getPose(PoseType.PORTRAIT)?.let { state.setPose(it.poseName) }
-        state.timeEnteredPose = 0F
-        state.updatePartialTicks(partialTicks)
-        model.setupAnimStateful(null, state, 0F, 0F, 0F, 0F, 0F)
-        originalPose?.let { state.setPose(it) }
-    }
+    val originalPose = state.currentPose
+    state.setPoseToFirstSuitable(PoseType.PORTRAIT)
+    state.updatePartialTicks(partialTicks)
+    model.applyAnimations(null, state, limbSwing, limbSwingAmount, ageInTicks, headYaw, headPitch)
+    originalPose?.let { state.setPose(it) }
 
     matrixStack.push()
     matrixStack.translate(0.0, PORTRAIT_DIAMETER.toDouble() + 2.0, 0.0)
@@ -234,7 +245,7 @@ fun drawPortraitPokemon(
     val buffer = immediate.getBuffer(renderType)
     val packedLight = LightmapTextureManager.pack(11, 7)
 
-    model.withLayerContext(immediate, state, PokemonModelRepository.getLayers(species.resourceIdentifier, aspects)) {
+    model.withLayerContext(immediate, state, repository.getLayers(identifier, aspects)) {
         model.render(context, matrixStack, buffer, packedLight, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
         immediate.draw()
     }
@@ -242,5 +253,62 @@ fun drawPortraitPokemon(
     matrixStack.pop()
     model.setDefault()
 
+    DiffuseLighting.enableGuiDepthLighting()
+}
+
+fun drawProfile(
+    repository: VaryingModelRepository<*>,
+    resourceIdentifier: Identifier,
+    aspects: Set<String>,
+    matrixStack: MatrixStack,
+    state: PosableState,
+    partialTicks: Float,
+    scale: Float = 20F
+) {
+    val model = repository.getPoser(resourceIdentifier, aspects)
+    val texture = repository.getTexture(resourceIdentifier, aspects, state.animationSeconds)
+
+    val context = RenderContext()
+    model.context = context
+    repository.getTextureNoSubstitute(resourceIdentifier, aspects, 0f).let { context.put(RenderContext.TEXTURE, it) }
+    context.put(RenderContext.SCALE, 1F)
+    context.put(RenderContext.SPECIES, resourceIdentifier)
+    context.put(RenderContext.ASPECTS, aspects)
+    context.put(RenderContext.POSABLE_STATE, state)
+    state.currentAspects = aspects
+    state.currentModel = model
+
+    val renderType = RenderLayer.getEntityCutout(texture)//model.getLayer(texture)
+
+    RenderSystem.applyModelViewMatrix()
+    matrixStack.scale(scale, scale, -scale)
+
+    state.setPoseToFirstSuitable(PoseType.PORTRAIT)
+    state.updatePartialTicks(partialTicks)
+    model.applyAnimations(null, state, 0F, 0F, 0F, 0F, 0F)
+    matrixStack.translate(model.profileTranslation.x, model.profileTranslation.y,  model.profileTranslation.z - 4.0)
+    matrixStack.scale(model.profileScale, model.profileScale, 1 / model.profileScale)
+//    matrixStack.multiply(rotation)
+    val quaternion1 = RotationAxis.POSITIVE_Y.rotationDegrees(-32F * if (false) -1F else 1F)
+    val quaternion2 = RotationAxis.POSITIVE_X.rotationDegrees(5F)
+    matrixStack.multiply(quaternion1)
+    matrixStack.multiply(quaternion2)
+    DiffuseLighting.method_34742()
+    val entityRenderDispatcher = MinecraftClient.getInstance().entityRenderDispatcher
+    entityRenderDispatcher.setRenderShadows(true)
+
+    val bufferSource = MinecraftClient.getInstance().bufferBuilders.entityVertexConsumers
+    val buffer = bufferSource.getBuffer(renderType)
+    val light1 = Vector3f(-1F, 1F, 1.0F)
+    val light2 = Vector3f(1.3F, -1F, 1.0F)
+    RenderSystem.setShaderLights(light1, light2)
+    val packedLight = LightmapTextureManager.pack(11, 7)
+
+    model.withLayerContext(bufferSource, state, repository.getLayers(resourceIdentifier, aspects)) {
+        model.render(context, matrixStack, buffer, packedLight, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
+        bufferSource.draw()
+    }
+    model.setDefault()
+    entityRenderDispatcher.setRenderShadows(true)
     DiffuseLighting.enableGuiDepthLighting()
 }

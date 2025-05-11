@@ -12,7 +12,6 @@ import com.bedrockk.molang.runtime.struct.QueryStruct
 import com.bedrockk.molang.runtime.value.DoubleValue
 import com.bedrockk.molang.runtime.value.StringValue
 import com.cobblemon.mod.common.api.molang.ExpressionLike
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.moves.animations.ActionEffectContext
 import net.minecraft.entity.Entity
 
@@ -26,7 +25,7 @@ interface EntityConditionalActionEffectKeyframe {
     val entityCondition: ExpressionLike
     fun test(context: ActionEffectContext, entity: Entity, isUser: Boolean): Boolean {
         // TODO this should use the entity's own query struct
-        context.runtime.environment.getQueryStruct().addFunction("entity") {
+        context.runtime.environment.query.addFunction("entity") {
             QueryStruct(hashMapOf())
                 .addFunction("uuid") { StringValue(entity.uuidAsString) }
                 .addFunction("is_user") { DoubleValue(isUser) }

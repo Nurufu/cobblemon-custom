@@ -8,17 +8,17 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class LuxrayModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, QuadrupedFrame {
+class LuxrayModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
     override val rootPart = root.registerChildWithAllChildren("luxray")
     override val head = getPart("head")
 
@@ -33,10 +33,10 @@ class LuxrayModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quadr
     override var profileScale = 0.66F
     override var profileTranslation = Vec3d(0.0, 0.7, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("luxray", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("luxray", "cry") }
 
     override fun registerPoses() {
 //        val blink = quirk { bedrockStateful("luxray", "blink") }
@@ -44,7 +44,7 @@ class LuxrayModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quadr
             poseName = "standing",
             poseTypes = PoseType.UI_POSES + PoseType.STATIONARY_POSES,
 //            quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("luxray", "ground_idle")
             )
@@ -54,7 +54,7 @@ class LuxrayModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quadr
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
 //            quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 QuadrupedWalkAnimation(this, periodMultiplier = 1.1F),
                 bedrock("luxray", "ground_idle"),
                 singleBoneLook()
@@ -65,6 +65,6 @@ class LuxrayModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quadr
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("luxray", "faint") else null
 }

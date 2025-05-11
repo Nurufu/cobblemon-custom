@@ -15,17 +15,12 @@ import com.cobblemon.mod.common.api.battles.interpreter.BattleMessage
 import com.cobblemon.mod.common.api.battles.interpreter.Effect
 import com.cobblemon.mod.common.api.battles.model.PokemonBattle
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addStandardFunctions
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.moves.Moves
 import com.cobblemon.mod.common.api.moves.animations.ActionEffectContext
 import com.cobblemon.mod.common.api.moves.animations.TargetsProvider
 import com.cobblemon.mod.common.api.moves.animations.UsersProvider
 import com.cobblemon.mod.common.battles.ShowdownInterpreter
-import com.cobblemon.mod.common.battles.dispatch.CauserInstruction
-import com.cobblemon.mod.common.battles.dispatch.GO
-import com.cobblemon.mod.common.battles.dispatch.InstructionSet
-import com.cobblemon.mod.common.battles.dispatch.InterpreterInstruction
-import com.cobblemon.mod.common.battles.dispatch.UntilDispatch
+import com.cobblemon.mod.common.battles.dispatch.*
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon
 import com.cobblemon.mod.common.pokemon.evolution.progress.UseMoveEvolutionProgress
 import com.cobblemon.mod.common.util.battleLang
@@ -89,7 +84,7 @@ class MoveInstruction(
             userPokemon.effectedPokemon.entity?.let { UsersProvider(it) }?.let(providers::add)
             targetPokemon?.effectedPokemon?.entity?.let { TargetsProvider(it) }?.let(providers::add)
             val runtime = MoLangRuntime().also {
-                battle.addQueryFunctions(it.environment.getQueryStruct()).addStandardFunctions()
+                battle.addQueryFunctions(it.environment.query).addStandardFunctions()
             }
 
             actionEffect ?: return@dispatch GO
@@ -102,7 +97,7 @@ class MoveInstruction(
             val subsequentInstructions = instructionSet.findInstructionsCausedBy(this)
             val missedTargets = subsequentInstructions.filterIsInstance<MissInstruction>().mapNotNull { it.target }
 
-            runtime.environment.getQueryStruct().addFunction("missed") { params ->
+            runtime.environment.query.addFunction("missed") { params ->
                 if (params.params.size == 0) {
                     return@addFunction DoubleValue(missedTargets.isNotEmpty())
                 } else {
@@ -112,7 +107,7 @@ class MoveInstruction(
             }
 
             val hurtTargets = subsequentInstructions.filterIsInstance<DamageInstruction>().mapNotNull { it.expectedTarget }
-            runtime.environment.getQueryStruct().addFunction("hurt") { params ->
+            runtime.environment.query.addFunction("hurt") { params ->
                 if (params.params.size == 0) {
                     return@addFunction DoubleValue(hurtTargets.isNotEmpty())
                 } else {
@@ -121,8 +116,8 @@ class MoveInstruction(
                 }
             }
 
-            runtime.environment.getQueryStruct().addFunction("move") { move.struct }
-            runtime.environment.getQueryStruct().addFunction("instruction_id") { StringValue(cobblemonResource("move").toString()) }
+            runtime.environment.query.addFunction("move") { move.struct }
+            runtime.environment.query.addFunction("instruction_id") { StringValue(cobblemonResource("move").toString()) }
 
             this.future = actionEffect.run(context)
             holds = context.holds // Reference so future things can check on this action effect's holds

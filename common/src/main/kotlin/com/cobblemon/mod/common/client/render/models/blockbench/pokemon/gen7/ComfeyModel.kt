@@ -11,14 +11,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.createTransforma
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ComfeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BimanualFrame {
+class ComfeyModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("comfey")
     override val head = getPart("spin")
     override val rightArm = getPart("arm_right")
@@ -30,21 +30,21 @@ class ComfeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biman
     override var profileScale = 0.5F
     override var profileTranslation = Vec3d(0.1, 1.0, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var shoulderLeft: PokemonPose
-    lateinit var shoulderRight: PokemonPose
+    lateinit var sleep: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var shoulderLeft: Pose
+    lateinit var shoulderRight: Pose
 
     val shoulderOffset = 1.5
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("comfey", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("comfey", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("comfey", "blink")}
         sleep = registerPose(
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("comfey", "sleep"))
+            animations = arrayOf(bedrock("comfey", "sleep"))
         )
 
         standing = registerPose(
@@ -52,7 +52,7 @@ class ComfeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biman
             poseTypes = PoseType.UI_POSES + PoseType.STATIONARY_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("comfey", "ground_idle")
             )
@@ -63,7 +63,7 @@ class ComfeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biman
             poseTypes = PoseType.MOVING_POSES,
             transformTicks = 5,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("comfey", "ground_walk")
             )
@@ -72,7 +72,7 @@ class ComfeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biman
         shoulderLeft = registerPose(
             poseType = PoseType.SHOULDER_LEFT,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("comfey", "shoulder_left")
             ),
             transformedParts = arrayOf(
@@ -83,7 +83,7 @@ class ComfeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biman
         shoulderRight = registerPose(
             poseType = PoseType.SHOULDER_RIGHT,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("comfey", "shoulder_right")
             ),
             transformedParts = arrayOf(
@@ -91,8 +91,5 @@ class ComfeyModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Biman
             )
         )
     }
-/*    override fun getFaintAnimation(
-        pokemonEntity: PokemonEntity,
-        state: PoseableEntityState<PokemonEntity>
-    ) = if (state.isNotPosedIn(sleep)) bedrockStateful("comfey", "faint") else null */
+/*    override fun getFaintAnimation(state: PosableState) = if (state.isNotPosedIn(sleep)) bedrockStateful("comfey", "faint") else null */
 }

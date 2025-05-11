@@ -20,12 +20,11 @@ import com.cobblemon.mod.common.api.dialogue.input.ActiveInput
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addStandardFunctions
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.asMoLangValue
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.setup
 import com.cobblemon.mod.common.api.scheduling.ServerRealTimeTaskTracker
 import com.cobblemon.mod.common.net.messages.client.dialogue.DialogueOpenedPacket
-import java.util.UUID
 import net.minecraft.server.network.ServerPlayerEntity
+import java.util.*
 
 /**
  * An active instance of [Dialogue]. Bound to a player. These all need to be created through DialogueManager
@@ -42,7 +41,7 @@ class ActiveDialogue(var playerEntity: ServerPlayerEntity, var dialogueReference
     var activeInput = ActiveInput(this, currentPage.input)
 
     init {
-        runtime.environment.getQueryStruct().addFunctions(
+        runtime.environment.query.addFunctions(
             mapOf(
                 "dialogue" to java.util.function.Function { _ -> toMoLangStruct() },
                 "player" to java.util.function.Function { _ -> playerStruct }

@@ -15,6 +15,7 @@ import com.cobblemon.mod.common.client.gui.drawProfilePokemon
 import com.cobblemon.mod.common.client.gui.summary.Summary
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.render.getDepletableRedGreen
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
 import com.cobblemon.mod.common.client.render.renderScaledGuiItemIcon
 import com.cobblemon.mod.common.pokemon.Gender
 import com.cobblemon.mod.common.pokemon.Pokemon
@@ -36,7 +37,7 @@ class PartySlotWidget(
     private val index: Int,
     private val isClientPartyMember: Boolean,
 ) : SoundlessWidget(pX.toInt(), pY.toInt(), WIDTH, HEIGHT, Text.literal("PartyMember")) {
-
+    val state = FloatingState()
     companion object {
         const val WIDTH = 46
         const val HEIGHT = 27
@@ -156,7 +157,7 @@ class PartySlotWidget(
                 aspects = slotPokemon.aspects.toSet(),
                 matrixStack = matrices,
                 rotation = Quaternionf().fromEulerXYZDegrees(Vector3f(13F, 35F, 0F)),
-                state = null,
+                state = state,
                 scale = 4.5F,
                 partialTicks = delta
             )

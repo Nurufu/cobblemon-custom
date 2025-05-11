@@ -10,13 +10,13 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen6
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class DragalgeModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class DragalgeModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("dragalge")
     override val head = getPart("head")
 
@@ -26,10 +26,10 @@ class DragalgeModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.7F
     override var profileTranslation = Vec3d(0.0, 1.0, -6.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("dragalge", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("dragalge", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("dragalge", "blink") }
@@ -37,7 +37,7 @@ class DragalgeModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("dragalge", "water_idle")
             )
         )
@@ -46,7 +46,7 @@ class DragalgeModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("dragalge", "water_idle")
             )
         )

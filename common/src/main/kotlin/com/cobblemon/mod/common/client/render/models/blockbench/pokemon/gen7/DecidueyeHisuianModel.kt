@@ -15,8 +15,8 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BiWingedFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.sineFunction
 import com.cobblemon.mod.common.entity.PoseType
@@ -27,7 +27,7 @@ import com.cobblemon.mod.common.util.math.geometry.toRadians
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class DecidueyeHisuianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BiWingedFrame {
+class DecidueyeHisuianModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BiWingedFrame {
     override val rootPart = root.registerChildWithAllChildren("decidueye_hisui")
     override val head = getPart("head")
 
@@ -47,12 +47,12 @@ class DecidueyeHisuianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFra
     override var profileTranslation = Vec3d(0.0, 1.0299999999999998, 0.0)
     override var profileScale = 0.46999997F
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var hover: PokemonPose
-    lateinit var fly: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var hover: CobblemonPose
+    lateinit var fly: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("decidueye", "hisuian_cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("decidueye", "hisuian_cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("decidueye", "blink") }
@@ -67,7 +67,7 @@ class DecidueyeHisuianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFra
                         arrow.createTransformation().withVisibility(visibility = false)
                 ),
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         singleBoneLook(),
                         bedrock("decidueye", "ground_idle")
                 )
@@ -84,7 +84,7 @@ class DecidueyeHisuianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFra
                         arrow.createTransformation().withVisibility(visibility = false)
                 ),
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         singleBoneLook(),
                         BipedWalkAnimation(this),
                         bedrock("decidueye", "ground_idle")
@@ -103,11 +103,11 @@ class DecidueyeHisuianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFra
                 ),
                 transformTicks = 10,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("decidueye", "air_idle"),
                         WingFlapIdleAnimation(this,
                                 flapFunction = sineFunction(verticalShift = -10F.toRadians(), period = 0.9F, amplitude = 0.6F),
-                                timeVariable = { state, _, _ -> state?.animationSeconds ?: 0F },
+                                timeVariable = { state, _, _ -> state.animationSeconds },
                                 axis = ModelPartTransformation.Y_AXIS
                         )
                 )
@@ -125,11 +125,11 @@ class DecidueyeHisuianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFra
                 ),
                 transformTicks = 10,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("decidueye", "air_fly"),
                         WingFlapIdleAnimation(this,
                                 flapFunction = sineFunction(verticalShift = -14F.toRadians(), period = 0.9F, amplitude = 0.9F),
-                                timeVariable = { state, _, _ -> state?.animationSeconds ?: 0F },
+                                timeVariable = { state, _, _ -> state.animationSeconds },
                                 axis = ModelPartTransformation.Y_AXIS
                         )
                 )
@@ -138,6 +138,6 @@ class DecidueyeHisuianModel(root: ModelPart) : PokemonPoseableModel(), HeadedFra
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("decidueye", "faint") else null
 }

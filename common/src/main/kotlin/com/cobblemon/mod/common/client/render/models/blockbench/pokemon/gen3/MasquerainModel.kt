@@ -8,15 +8,15 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class MasquerainModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class MasquerainModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("masquerain")
     override val head = getPart("head")
 
@@ -26,10 +26,10 @@ class MasquerainModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.6F
     override var profileTranslation = Vec3d(0.0, 0.7, 0.0)
 
-    lateinit var walk: PokemonPose
-    lateinit var standing: PokemonPose
+    lateinit var walk: Pose
+    lateinit var standing: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("masquerain", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("masquerain", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("masquerain", "blink") }
@@ -38,7 +38,7 @@ class MasquerainModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("masquerain", "ground_idle")
             )
@@ -48,7 +48,7 @@ class MasquerainModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.MOVING_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("masquerain", "ground_walk")
             )

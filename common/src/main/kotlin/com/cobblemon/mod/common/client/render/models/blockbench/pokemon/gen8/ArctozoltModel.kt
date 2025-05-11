@@ -11,14 +11,17 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
+import com.cobblemon.mod.common.util.isSubmergedInWater
+import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class ArctozoltModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("arctozolt")
     override val head = getPart("head_ai")
 
@@ -28,18 +31,18 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileTranslation = Vec3d(0.02, 0.95, 0.0)
     override var profileScale = 0.33F
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var float: PokemonPose
-    lateinit var swim: PokemonPose
-    lateinit var surfacefloat: PokemonPose
-    lateinit var surfaceswim: PokemonPose
-    lateinit var battleidle: PokemonPose
-    lateinit var water_sleep: PokemonPose
-    lateinit var surface_sleep: PokemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var float: CobblemonPose
+    lateinit var swim: CobblemonPose
+    lateinit var surfacefloat: CobblemonPose
+    lateinit var surfaceswim: CobblemonPose
+    lateinit var battleidle: CobblemonPose
+    lateinit var water_sleep: CobblemonPose
+    lateinit var surface_sleep: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("arctozolt", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("arctozolt", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("arctozolt", "blink") }
@@ -50,7 +53,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
                 poseType = PoseType.SLEEP,
                 condition = { !it.isTouchingWater },
                 transformTicks = 10,
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("arctozolt", "sleep")
                 )
         )
@@ -60,7 +63,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
                 poseType = PoseType.SLEEP,
                 condition = { !it.isSubmergedInWater && it.isTouchingWater},
                 transformTicks = 10,
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("arctozolt", "surfacewater_sleep")
                 )
         )
@@ -70,7 +73,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
                 poseType = PoseType.SLEEP,
                 condition = { it.isTouchingWater && it.isSubmergedInWater},
                 transformTicks = 10,
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         bedrock("arctozolt", "surfacewater_sleep")
                 ),
                 transformedParts = arrayOf(
@@ -84,7 +87,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             condition = { !it.isBattling && !it.isTouchingWater},
             transformTicks = 10,
             quirks = arrayOf(blink, quirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("arctozolt", "ground_idle")
             )
@@ -96,7 +99,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             condition = { !it.isTouchingWater },
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("arctozolt", "ground_walk")
             )
@@ -108,7 +111,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             condition = { it.isSubmergedInWater },
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("arctozolt", "water_idle")
             )
@@ -120,7 +123,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             condition = { it.isSubmergedInWater },
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("arctozolt", "water_swim")
             )
@@ -132,7 +135,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             condition = { !it.isSubmergedInWater && it.isTouchingWater },
             transformTicks = 10,
             quirks = arrayOf(blink, quirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("arctozolt", "surfacewater_idle")
             )
@@ -144,7 +147,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             condition = { !it.isSubmergedInWater && it.isTouchingWater },
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("arctozolt", "surfacewater_swim")
             )
@@ -156,7 +159,7 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             condition = { it.isBattling },
             transformTicks = 10,
             quirks = arrayOf(blink, quirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("arctozolt", "battle_idle")
             )
@@ -165,6 +168,6 @@ class ArctozoltModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("arctozolt", "faint") else null
 }

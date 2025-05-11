@@ -50,7 +50,7 @@ dependencies {
     // modCompileOnly(libs.flywheelFabric)
 
     modCompileOnly("de.erdbeerbaerlp:dcintegration.common:3.0.7")
-
+    compileOnly("io.github.llamalad7:mixinextras-common:0.4.1")
     // Showdown
     modCompileOnly(libs.graal)
 

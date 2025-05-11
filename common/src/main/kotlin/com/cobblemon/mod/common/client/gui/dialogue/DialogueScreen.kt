@@ -14,26 +14,15 @@ import com.cobblemon.mod.common.api.dialogue.ArtificialDialogueFaceProvider
 import com.cobblemon.mod.common.api.dialogue.PlayerDialogueFaceProvider
 import com.cobblemon.mod.common.api.dialogue.ReferenceDialogueFaceProvider
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.setup
 import com.cobblemon.mod.common.api.net.NetworkPacket
 import com.cobblemon.mod.common.client.ClientMoLangFunctions.setupClient
-import com.cobblemon.mod.common.client.gui.dialogue.widgets.DialogueBox
-import com.cobblemon.mod.common.client.gui.dialogue.widgets.DialogueFaceWidget
-import com.cobblemon.mod.common.client.gui.dialogue.widgets.DialogueNameWidget
-import com.cobblemon.mod.common.client.gui.dialogue.widgets.DialogueOptionWidget
-import com.cobblemon.mod.common.client.gui.dialogue.widgets.DialogueTextInputWidget
-import com.cobblemon.mod.common.client.gui.dialogue.widgets.DialogueTimerWidget
-import com.cobblemon.mod.common.entity.Poseable
+import com.cobblemon.mod.common.client.gui.dialogue.widgets.*
+import com.cobblemon.mod.common.entity.PosableEntity
 import com.cobblemon.mod.common.net.messages.client.dialogue.dto.DialogueDTO
 import com.cobblemon.mod.common.net.messages.client.dialogue.dto.DialogueInputDTO
 import com.cobblemon.mod.common.net.messages.server.dialogue.EscapeDialoguePacket
-import com.cobblemon.mod.common.util.asExpression
-import com.cobblemon.mod.common.util.asExpressionLike
-import com.cobblemon.mod.common.util.asExpressions
-import com.cobblemon.mod.common.util.asTranslated
-import com.cobblemon.mod.common.util.cobblemonResource
-import com.cobblemon.mod.common.util.resolve
+import com.cobblemon.mod.common.util.*
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
@@ -47,7 +36,7 @@ class DialogueScreen(var dialogueDTO: DialogueDTO) : Screen("gui.dialogue".asTra
             is ReferenceDialogueFaceProvider -> {
                 key to DialogueRenderableSpeaker(
                     name = name,
-                    face = ReferenceRenderableFace(MinecraftClient.getInstance().world?.getEntityById(face.entityId) as? Poseable ?: return@mapNotNull null)
+                    face = ReferenceRenderableFace(MinecraftClient.getInstance().world?.getEntityById(face.entityId) as? PosableEntity ?: return@mapNotNull null)
                 )
             }
             else -> key to DialogueRenderableSpeaker(name, null)
@@ -109,7 +98,7 @@ class DialogueScreen(var dialogueDTO: DialogueDTO) : Screen("gui.dialogue".asTra
         super.init()
 
         runtime.environment
-            .getQueryStruct()
+            .query
             .addFunctions(
                 dialogueMolangFunctions
                     .flatMap { it(this@DialogueScreen).entries }

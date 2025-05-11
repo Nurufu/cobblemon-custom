@@ -17,7 +17,7 @@ architectury-plugin = "3.4-SNAPSHOT"
 
 
 # Common
-molang = "1.1.11"
+molang = "1.1.18"
 graal = "22.3.0"
 icu4j = "71.1"
 jei-api = "15.2.0.25"

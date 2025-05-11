@@ -10,18 +10,17 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
-import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class NidoranmModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, QuadrupedFrame {
+class NidoranmModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
     override val rootPart = root.registerChildWithAllChildren("nidoran_m")
     override val head = getPart("head")
     override val foreLeftLeg = getPart("leg_front_left")
@@ -35,11 +34,11 @@ class NidoranmModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quad
     override var profileScale = 1.05F
     override var profileTranslation = Vec3d(0.03, 0.11, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var sleep: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("nidoranm", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("nidoranm", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("nidoranm", "blink") }
@@ -48,7 +47,7 @@ class NidoranmModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quad
                 poseTypes = STATIONARY_POSES + UI_POSES,
                 transformTicks = 10,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         singleBoneLook(),
                         bedrock("nidoranm", "idle")
                 )
@@ -59,7 +58,7 @@ class NidoranmModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quad
                 poseTypes = MOVING_POSES,
                 transformTicks = 10,
                 quirks = arrayOf(blink),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         singleBoneLook(),
                         bedrock("nidoranm", "idle"),
                         QuadrupedWalkAnimation(this)
@@ -69,6 +68,6 @@ class NidoranmModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Quad
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("nidoranm", "faint") else null
 }

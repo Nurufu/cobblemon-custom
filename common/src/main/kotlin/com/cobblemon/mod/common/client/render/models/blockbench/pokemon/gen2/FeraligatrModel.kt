@@ -8,20 +8,22 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.util.isBattling
+import com.cobblemon.mod.common.util.isSubmergedInWater
+import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class FeraligatrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame {
+class FeraligatrModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
     override val rootPart = root.registerChildWithAllChildren("feraligatr")
     override val head = getPart("head")
 
@@ -34,19 +36,19 @@ class FeraligatrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
     override var profileScale = 0.6F
     override var profileTranslation = Vec3d(0.0, 0.8, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var floating: PokemonPose
-    lateinit var swimming: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var watersleep: PokemonPose
-    lateinit var battleidle: PokemonPose
-    lateinit var water_surface_idle: PokemonPose
-    lateinit var water_surface_swim: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var floating: Pose
+    lateinit var swimming: Pose
+    lateinit var sleep: Pose
+    lateinit var watersleep: Pose
+    lateinit var battleidle: Pose
+    lateinit var water_surface_idle: Pose
+    lateinit var water_surface_swim: Pose
 
     val wateroffset = -10
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("feraligatr", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("feraligatr", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("feraligatr", "blink")}
@@ -55,23 +57,23 @@ class FeraligatrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
             poseName = "sleeping",
             poseType = PoseType.SLEEP,
             condition = { !it.isTouchingWater },
-            idleAnimations = arrayOf(bedrock("feraligatr", "sleep"))
+            animations = arrayOf(bedrock("feraligatr", "sleep"))
         )
 
         watersleep = registerPose(
             poseName = "water_sleeping",
             poseType = PoseType.SLEEP,
             condition = { it.isTouchingWater },
-            idleAnimations = arrayOf(bedrock("feraligatr", "water_sleep"))
+            animations = arrayOf(bedrock("feraligatr", "water_sleep"))
         )
 
         standing = registerPose(
             poseName = "standing",
             poseTypes = PoseType.UI_POSES + PoseType.STAND,
             transformTicks = 10,
-            condition = { !it.isBattling && !it.isTouchingWater && !it.isSubmergedInWater},
+            condition = { !it.isBattling && !it.isTouchingWater && !it.isSubmergedInWater },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("feraligatr", "ground_idle")
             )
@@ -81,9 +83,9 @@ class FeraligatrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
             poseName = "walk",
             transformTicks = 10,
             poseType = PoseType.WALK,
-            condition = { !it.isTouchingWater && !it.isSubmergedInWater},
+            condition = { !it.isTouchingWater && !it.isSubmergedInWater },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("feraligatr", "ground_walk")
             )
@@ -95,7 +97,7 @@ class FeraligatrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
             poseType = PoseType.FLOAT,
             condition = { it.isSubmergedInWater },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("feraligatr", "water_idle")
             )
@@ -107,7 +109,7 @@ class FeraligatrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
             condition = { it.isSubmergedInWater },
             poseType = PoseType.SWIM,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("feraligatr", "water_swim"),
             )
@@ -119,7 +121,7 @@ class FeraligatrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
             transformTicks = 10,
             quirks = arrayOf(blink),
             condition = { it.isBattling && !it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("feraligatr", "battle_idle")
             )
@@ -130,13 +132,11 @@ class FeraligatrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
             poseTypes = PoseType.STATIONARY_POSES,
             quirks = arrayOf(blink),
             condition = { !it.isSubmergedInWater && it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("feraligatr", "watersurface_idle"),
             ),
-            transformedParts = arrayOf(
-                rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, wateroffset)
-            )
+            transformedParts = arrayOf(rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, wateroffset))
         )
 
         water_surface_swim = registerPose(
@@ -144,17 +144,12 @@ class FeraligatrModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, B
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
             condition = { !it.isSubmergedInWater && it.isTouchingWater },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("feraligatr", "watersurface_swim"),
             ),
-            transformedParts = arrayOf(
-                rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, wateroffset)
-            )
+            transformedParts = arrayOf(rootPart.createTransformation().addPosition(ModelPartTransformation.Y_AXIS, wateroffset))
         )
     }
-    override fun getFaintAnimation(
-        pokemonEntity: PokemonEntity,
-        state: PoseableEntityState<PokemonEntity>
-    ) = if (state.isPosedIn(standing, walk, battleidle, sleep)) bedrockStateful("feraligatr", "faint") else if (state.isPosedIn(water_surface_idle, water_surface_swim, watersleep )) bedrockStateful("feraligatr", "faint") else null
+    override fun getFaintAnimation(state: PosableState) = if (state.isPosedIn(standing, walk, battleidle, sleep)) bedrockStateful("feraligatr", "faint") else if (state.isPosedIn(water_surface_idle, water_surface_swim, watersleep )) bedrockStateful("feraligatr", "faint") else null
 }

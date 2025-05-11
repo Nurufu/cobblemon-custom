@@ -13,13 +13,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class HakamoOModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BimanualFrame {
+class HakamoOModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("hakamo_o")
 
     override val leftArm = getPart("arm_right")
@@ -33,10 +34,10 @@ class HakamoOModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, Biman
     override var profileScale = 0.58F
     override var profileTranslation = Vec3d(0.0, 0.88, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("hakamo-o", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("hakamo-o", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("hakamo-o", "blink") }
@@ -45,7 +46,7 @@ class HakamoOModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, Biman
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("hakamo-o", "ground_idle")
             )
         )
@@ -54,7 +55,7 @@ class HakamoOModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, Biman
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("hakamo-o", "ground_idle"),
                 BipedWalkAnimation(this,0.6F, 1F),
                 BimanualSwingAnimation(this, 0.6F, 1F)

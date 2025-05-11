@@ -9,8 +9,10 @@
 package com.cobblemon.mod.common.client.render.layer
 
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonFloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
+import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.pokemon.FormData
 import com.cobblemon.mod.common.pokemon.Pokemon
@@ -19,6 +21,7 @@ import com.cobblemon.mod.common.util.DataKeys
 import com.cobblemon.mod.common.util.isPokemonEntity
 import java.util.UUID
 import net.minecraft.client.render.OverlayTexture
+import net.minecraft.client.render.RenderLayer
 import net.minecraft.client.render.VertexConsumerProvider
 import net.minecraft.client.render.entity.LivingEntityRenderer
 import net.minecraft.client.render.entity.feature.FeatureRenderer
@@ -33,6 +36,14 @@ import net.minecraft.util.Pair
 import net.minecraft.util.math.RotationAxis
 
 class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRendererContext<T, PlayerEntityModel<T>>) : FeatureRenderer<T, PlayerEntityModel<T>>(renderLayerParent) {
+    val context = RenderContext().also {
+        it.put(RenderContext.RENDER_STATE, RenderContext.RenderState.WORLD)
+    }
+
+    var leftState = FloatingState()
+    var lastRenderedLeft: ShoulderData? = null
+    var rightState = FloatingState()
+    var lastRenderedRight: ShoulderData? = null
 
     override fun render(
         matrixStack: MatrixStack,
@@ -48,6 +59,14 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
     ) {
         this.render(matrixStack, buffer, packedLight, livingEntity, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, true)
         this.render(matrixStack, buffer, packedLight, livingEntity, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, false)
+    }
+
+    fun makeState(model: PosableModel, aspects: Set<String>, leftShoulder: Boolean): FloatingState {
+        val state = FloatingState()
+        state.currentModel = model
+        state.currentAspects = aspects
+        state.setPoseToFirstSuitable(if (leftShoulder) PoseType.SHOULDER_LEFT else PoseType.SHOULDER_RIGHT)
+        return state
     }
 
     private fun render(
@@ -82,6 +101,10 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
                 // Could be null
                 shoulderData = (if (pLeftShoulder) cache.lastKnownLeft else cache.lastKnownRight) ?: return
             }
+            val model = PokemonModelRepository.getPoser(shoulderData.species.resourceIdentifier, shoulderData.aspects)
+            context.put(RenderContext.SPECIES, shoulderData.species.resourceIdentifier)
+            context.put(RenderContext.ASPECTS, shoulderData.aspects)
+
             val scale = shoulderData.form.baseScale * shoulderData.scaleModifier
             val width = shoulderData.form.hitbox.width
             val offset = width / 2 - 0.7
@@ -100,18 +123,24 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
 
             matrixStack.scale(scale, scale, scale)
 
-            val model = PokemonModelRepository.getPoser(shoulderData.species.resourceIdentifier, shoulderData.aspects)
-            val state = PokemonFloatingState()
-            state.updatePartialTicks(ageInTicks + partialTicks)
-            val vertexConsumer = buffer.getBuffer(model.getLayer(PokemonModelRepository.getTexture(shoulderData.species.resourceIdentifier, shoulderData.aspects, state.animationSeconds)))
+            val state = if (pLeftShoulder && shoulderData != lastRenderedLeft) {
+                leftState = makeState(model, shoulderData.aspects, true)
+                lastRenderedLeft = shoulderData
+                leftState
+            } else if (!pLeftShoulder && shoulderData != lastRenderedRight) {
+                rightState = makeState(model, shoulderData.aspects, false)
+                lastRenderedRight = shoulderData
+                rightState
+            } else {
+                if (pLeftShoulder) leftState else rightState
+            }
+            state.updatePartialTicks(partialTicks)
+            context.put(RenderContext.POSABLE_STATE, state)
+            state.currentModel = model
+            val vertexConsumer = buffer.getBuffer(RenderLayer.getEntityCutout(PokemonModelRepository.getTexture(shoulderData.species.resourceIdentifier, shoulderData.aspects, state.animationSeconds)))
             val i = LivingEntityRenderer.getOverlay(livingEntity, 0.0f)
 
-            val pose = model.poses.values
-                .firstOrNull { (if (pLeftShoulder) PoseType.SHOULDER_LEFT else PoseType.SHOULDER_RIGHT) in it.poseTypes  }
-                ?: model.poses.values.first()
-            state.setPose(pose.poseName)
-            state.timeEnteredPose = 0F
-            model.setupAnimStateful(
+            model.applyAnimations(
                 entity = null,
                 state = state,
                 headYaw = netHeadYaw,
@@ -120,9 +149,9 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
                 limbSwingAmount = limbSwingAmount,
                 ageInTicks = livingEntity.age.toFloat()
             )
-            model.render(matrixStack, vertexConsumer, packedLight, i, 1.0f, 1.0f, 1.0f, 1.0f)
+            model.render(context, matrixStack, vertexConsumer, packedLight, i, 1.0f, 1.0f, 1.0f, 1.0f)
             model.withLayerContext(buffer, state, PokemonModelRepository.getLayers(shoulderData.species.resourceIdentifier, shoulderData.aspects)) {
-                model.render(matrixStack, vertexConsumer, packedLight, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
+                model.render(context, matrixStack, vertexConsumer, packedLight, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
             }
             model.setDefault()
             matrixStack.pop()

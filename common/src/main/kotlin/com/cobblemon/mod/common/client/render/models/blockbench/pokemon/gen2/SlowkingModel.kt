@@ -10,14 +10,16 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
+import com.cobblemon.mod.common.util.isBattling
+import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class SlowkingModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class SlowkingModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("slowking")
     override val head = getPart("head")
 
@@ -27,13 +29,13 @@ class SlowkingModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.8F
     override var profileTranslation = Vec3d(0.0, 0.55, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var float: PokemonPose
-    lateinit var swim: PokemonPose
-    lateinit var battleidle: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var float: Pose
+    lateinit var swim: Pose
+    lateinit var battleidle: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("slowking", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("slowking", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("slowking", "blink") }
@@ -44,7 +46,7 @@ class SlowkingModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = UI_POSES + PoseType.STAND,
             quirks = arrayOf(blink, blink2),
             condition = { !it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("slowking", "ground_idle")
             )
@@ -54,7 +56,7 @@ class SlowkingModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "walk",
             poseType = PoseType.WALK,
             quirks = arrayOf(blink, blink2),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("slowking", "ground_walk")
             )
@@ -64,7 +66,7 @@ class SlowkingModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "float",
             poseType = PoseType.FLOAT,
             quirks = arrayOf(blink, blink2),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("slowking", "water_idle")
             )
@@ -74,7 +76,7 @@ class SlowkingModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "swim",
             poseType = PoseType.SWIM,
             quirks = arrayOf(blink, blink2),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("slowking", "water_swim")
             )
@@ -85,8 +87,8 @@ class SlowkingModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseTypes = PoseType.STATIONARY_POSES,
             transformTicks = 10,
             quirks = arrayOf(blink, blink2),
-            condition = { it.isBattling && it.isTouchingWater},
-            idleAnimations = arrayOf(
+            condition = { it.isBattling && it.isTouchingWater },
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("slowking", "battle_idle")
             )
@@ -95,6 +97,6 @@ class SlowkingModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("slowking", "faint") else null
 }

@@ -9,13 +9,19 @@
 package com.cobblemon.mod.common.net.serverhandling.storage
 
 import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.net.ServerNetworkPacketHandler
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.net.messages.server.SendOutPokemonPacket
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
+import com.cobblemon.mod.common.pokemon.activestate.SentOutState
 import com.cobblemon.mod.common.pokemon.activestate.ShoulderedState
+import com.cobblemon.mod.common.util.playSoundServer
 import com.cobblemon.mod.common.util.raycastSafeSendout
 import net.minecraft.server.MinecraftServer
 import net.minecraft.server.network.ServerPlayerEntity
+import net.minecraft.server.world.ServerWorld
+import net.minecraft.sound.SoundCategory
 import net.minecraft.world.RaycastContext
 
 object SendOutPokemonHandler : ServerNetworkPacketHandler<SendOutPokemonPacket> {
@@ -31,6 +37,14 @@ object SendOutPokemonHandler : ServerNetworkPacketHandler<SendOutPokemonPacket> 
             return
         }
         val state = pokemon.state
+        if(player.vehicle != null && player.vehicle is PokemonEntity) {
+            val mount = player.vehicle as PokemonEntity
+            if (mount.isOwner(player) && mount.pokemon.state is SentOutState && mount.pokemon == party.get(slot)){
+                player.playSound(CobblemonSounds.PC_DROP, SoundCategory.PLAYERS, 0.4F, 1F)
+                player.dismountVehicle()
+                return
+            }
+        }
         if (state is ShoulderedState || state !is ActivePokemonState) {
             val position = player.raycastSafeSendout(pokemon, 12.0, 5.0, RaycastContext.FluidHandling.ANY)
 

@@ -68,10 +68,10 @@ import com.cobblemon.mod.common.pokemon.evolution.progress.DamageTakenEvolutionP
 import com.cobblemon.mod.common.pokemon.evolution.progress.RecoilEvolutionProgress
 import com.cobblemon.mod.common.pokemon.feature.SeasonFeatureHandler
 import com.cobblemon.mod.common.pokemon.misc.GimmighoulStashHandler
+import com.cobblemon.mod.common.pokemon.properties.BattleCloneProperty
 import com.cobblemon.mod.common.pokemon.properties.UncatchableProperty
 import com.cobblemon.mod.common.pokemon.status.PersistentStatus
 import com.cobblemon.mod.common.pokemon.status.PersistentStatusContainer
-import com.cobblemon.mod.common.pokemon.properties.BattleCloneProperty
 import com.cobblemon.mod.common.util.*
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -492,7 +492,7 @@ open class Pokemon : ShowdownIdentifiable {
             mutation(entity)
             level.spawnEntity(entity)
             state = SentOutState(entity)
-            return entity
+            return PokemonEntity(level, this)
         }
         return null
     }
@@ -566,7 +566,6 @@ open class Pokemon : ShowdownIdentifiable {
         mutation: (PokemonEntity) -> Unit = {}
     ): CompletableFuture<PokemonEntity> {
         val future = CompletableFuture<PokemonEntity>()
-
         // get the current position of the cobblemon on the players shoulder
         val isLeftShoulder = (state as ShoulderedState).isLeftShoulder
         val arbitraryXOffset = player.width * 0.3 + this.form.hitbox.width * 0.3

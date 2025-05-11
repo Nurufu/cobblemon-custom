@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.api.entity
 
+import com.bedrockk.molang.runtime.struct.QueryStruct
 import net.minecraft.entity.Entity
 import net.minecraft.entity.data.TrackedData
 
@@ -18,4 +19,5 @@ interface EntitySideDelegate<T : Entity> {
     fun initialize(entity: T) {}
     fun tick(entity: T) {}
     fun onTrackedDataSet(data: TrackedData<*>) {}
+    fun addToStruct(struct: QueryStruct) {}
 }

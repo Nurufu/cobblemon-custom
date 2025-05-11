@@ -21,17 +21,20 @@ import java.lang.IllegalArgumentException
 import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.api.molang.ListExpression
+import com.cobblemon.mod.common.api.molang.MoLangFunctions.asMoLangValue
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.setup
 import com.cobblemon.mod.common.api.molang.ObjectValue
 import com.cobblemon.mod.common.api.molang.SingleExpression
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon
 import com.cobblemon.mod.common.pokemon.Pokemon
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.util.math.Vec3d
 
 val genericRuntime = MoLangRuntime().setup()
 
-fun MoLangRuntime.resolve(expression: Expression): MoValue = try {
-    expression.evaluate(MoScope(), environment)
+fun MoLangRuntime.resolve(expression: Expression, context: Map<String, MoValue> = emptyMap()): MoValue = try {
+    //expression.evaluate(MoScope(), environment)
+    execute(expression, context)
 } catch (e: Exception) {
     throw IllegalArgumentException("Unable to parse expression: ${expression.getString()}", e)
 }
@@ -100,6 +103,7 @@ fun MoLangRuntime.resolveFloat(expression: Expression, pokemon: BattlePokemon): 
 
 
 fun Expression.getString() = originalString ?: "0"
+fun Double.asExpressionLike() = SingleExpression(NumberExpression(this))
 fun Double.asExpression() = NumberExpression(this)
 fun String.asExpression() = try {
     MoLang.createParser(if (this == "") "0.0" else this).parseExpression()
@@ -148,3 +152,13 @@ fun List<Expression>.resolveObject(runtime: MoLangRuntime) = resolve(runtime) as
 fun MoParams.getStringOrNull(index: Int) = if (params.size > index) getString(index) else null
 fun MoParams.getDoubleOrNull(index: Int) = if (params.size > index) getDouble(index) else null
 fun MoParams.getBooleanOrNull(index: Int) = if (params.size > index) getDouble(index) == 1.0 else null
+
+fun MoLangRuntime.withQueryValue(name: String, value: MoValue): MoLangRuntime {
+    environment.query.functions.put(name) { value }
+    return this
+}
+
+fun MoLangRuntime.withPlayerValue(name: String = "player", value: PlayerEntity) = withQueryValue(name, value.asMoLangValue())
+
+//fun MoLangRuntime.withPokemonValue(name: String = "pokemon", value: Pokemon) = withQueryValue(name, value.asMoLangValue())
+//fun MoLangRuntime.withNPCValue(name: String = "npc", value: NPCEntity) = withQueryValue(name, value.struct)

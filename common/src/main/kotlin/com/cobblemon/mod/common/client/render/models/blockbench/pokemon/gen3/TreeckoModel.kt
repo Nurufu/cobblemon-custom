@@ -10,13 +10,13 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class TreeckoModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
+class TreeckoModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("treecko")
     override val head = getPart("head")
 
@@ -26,11 +26,11 @@ class TreeckoModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     override var profileScale = 0.74F
     override var profileTranslation = Vec3d(0.0, 0.6, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("treecko", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("treecko", "cry") }
 
     override fun registerPoses() {
         //sleep = registerPose(
@@ -43,7 +43,7 @@ class TreeckoModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES + PoseType.SLEEP,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("treecko", "ground_idle")
             )
@@ -53,7 +53,7 @@ class TreeckoModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("treecko", "ground_walk"),
             )
@@ -61,6 +61,6 @@ class TreeckoModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame {
     }
     //override fun getFaintAnimation(
     //    pokemonEntity: PokemonEntity,
-    //    state: PoseableEntityState<PokemonEntity>
+    //    state: PosableState<PokemonEntity>
     //) = if (state.isNotPosedIn(sleep)) bedrockStateful("treecko", "faint") else null
 }

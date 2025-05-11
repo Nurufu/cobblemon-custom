@@ -12,7 +12,6 @@ import com.bedrockk.molang.runtime.MoLangRuntime
 import com.bedrockk.molang.runtime.value.StringValue
 import com.cobblemon.mod.common.api.battles.model.PokemonBattle
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addStandardFunctions
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import net.minecraft.util.Identifier
 import java.util.concurrent.CompletableFuture
 
@@ -32,8 +31,8 @@ interface ActionEffectInstruction : InterpreterInstruction {
     override fun invoke(battle: PokemonBattle) {
         preActionEffect(battle)
         val runtime = MoLangRuntime()
-        battle.addQueryFunctions(runtime.environment.getQueryStruct())
-        runtime.environment.getQueryStruct().addStandardFunctions()
+        battle.addQueryFunctions(runtime.environment.query)
+        runtime.environment.query.addStandardFunctions()
         addMolangQueries(runtime)
         runActionEffect(battle, runtime)
         postActionEffect(battle)
@@ -44,8 +43,7 @@ interface ActionEffectInstruction : InterpreterInstruction {
     fun postActionEffect(battle: PokemonBattle)
 
     fun addMolangQueries(runtime: MoLangRuntime) {
-        runtime.environment.getQueryStruct()
-            .addFunction("instruction_id") { StringValue(id.toString()) }
+        runtime.environment.query.addFunction("instruction_id") { StringValue(id.toString()) }
     }
 
 }

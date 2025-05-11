@@ -8,17 +8,17 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
-import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class RapidashGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, QuadrupedFrame {
+class RapidashGalarianModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
     override val rootPart = root.registerChildWithAllChildren("rapidash_galar")
     override val head = getPart("neck")
 
@@ -33,11 +33,13 @@ class RapidashGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFr
     override var profileScale = 0.67F
     override var profileTranslation = Vec3d(0.0, 0.72, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var battle_idle: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var battle_idle: CobblemonPose
+    lateinit var fly: CobblemonPose
+    lateinit var hover: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("rapidash_galar", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("rapidash_galar", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("rapidash_galar", "blink") }
@@ -46,7 +48,7 @@ class RapidashGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFr
             poseTypes = PoseType.UI_POSES + PoseType.STATIONARY_POSES,
             quirks = arrayOf(blink),
             condition = { !it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("rapidash_galar", "ground_idle"),
                 bedrock("rapidash_galar", "hair")
@@ -57,9 +59,32 @@ class RapidashGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFr
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("rapidash_galar", "ground_walk"),
+                bedrock("rapidash_galar", "hair")
+            )
+        )
+
+        fly = registerPose(
+            poseName = "fly",
+            poseTypes = PoseType.FLYING_POSES,
+            quirks = arrayOf(blink),
+            animations = arrayOf(
+                singleBoneLook(),
+                bedrock("rapidash_galar", "ground_walk"),
+                bedrock("rapidash_galar", "hair")
+            )
+        )
+
+        hover = registerPose(
+            poseName = "hover",
+            poseTypes = PoseType.FLYING_POSES + PoseType.HOVER,
+            quirks = arrayOf(blink),
+            condition = { !it.isBattling },
+            animations = arrayOf(
+                singleBoneLook(),
+                bedrock("rapidash_galar", "ground_idle"),
                 bedrock("rapidash_galar", "hair")
             )
         )
@@ -68,7 +93,7 @@ class RapidashGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFr
             poseName = "battle_idle",
             poseTypes = PoseType.STATIONARY_POSES,
             condition = { it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("rapidash_galar", "battle_idle"),
                 bedrock("rapidash_galar", "hair")
@@ -78,6 +103,6 @@ class RapidashGalarianModel (root: ModelPart) : PokemonPoseableModel(), HeadedFr
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("rapidash_galar", "faint") else null
 }

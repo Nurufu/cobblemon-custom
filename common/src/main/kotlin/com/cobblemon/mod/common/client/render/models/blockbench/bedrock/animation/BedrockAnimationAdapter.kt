@@ -12,6 +12,7 @@ import com.bedrockk.molang.MoLang
 import com.cobblemon.mod.common.Cobblemon.LOGGER
 import com.cobblemon.mod.common.client.particle.BedrockParticleEffectRepository
 import com.cobblemon.mod.common.util.asExpression
+import com.cobblemon.mod.common.util.asExpressionLike
 import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
 import com.google.gson.JsonArray
 import com.google.gson.JsonDeserializationContext
@@ -84,11 +85,7 @@ object BedrockAnimationAdapter : JsonDeserializer<BedrockAnimation> {
                 effects.add(
                     BedrockInstructionKeyframe(
                         seconds = frame.toFloat(),
-                        expressions = if (effectJson is JsonArray) {
-                            effectJson.asJsonArray.map { it.asString.let { if (it.endsWith(";")) it.substring(0, it.length - 1) else it }.asExpression() }
-                        } else {
-                            listOf(effectJson.asString.asExpression())
-                        }
+                        expressions = if (effectJson is JsonArray) effectJson.asExpressionLike() else effectJson.asString.asExpressionLike()
                     )
                 )
             }

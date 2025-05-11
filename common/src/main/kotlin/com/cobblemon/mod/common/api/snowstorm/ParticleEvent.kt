@@ -10,7 +10,6 @@ package com.cobblemon.mod.common.api.snowstorm
 
 import com.bedrockk.molang.runtime.MoLangRuntime
 import com.cobblemon.mod.common.api.molang.ExpressionLike
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.setup
 import com.cobblemon.mod.common.api.net.Decodable
 import com.cobblemon.mod.common.api.net.Encodable
@@ -100,7 +99,7 @@ class ParticleEvent(
                 sourceAlive = storm.sourceAlive,
                 sourceVisible = storm.sourceVisible,
                 onDespawn = {},
-                runtime = MoLangRuntime().setup().also { it.environment.structs["query"] = storm.runtime.environment.getQueryStruct() },
+                runtime = MoLangRuntime().setup().also { it.environment.query = storm.runtime.environment.query },
                 entity = storm.entity
             )
 

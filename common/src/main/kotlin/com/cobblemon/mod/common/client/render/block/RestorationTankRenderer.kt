@@ -13,6 +13,7 @@ import com.cobblemon.mod.common.block.entity.RestorationTankBlockEntity
 import com.cobblemon.mod.common.block.multiblock.FossilMultiblockStructure
 import com.cobblemon.mod.common.client.CobblemonBakingOverrides
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.FossilModelRepository
+import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.WaveFunction
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.parabolaFunction
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.rerange
@@ -30,6 +31,11 @@ import net.minecraft.util.math.Direction
 import net.minecraft.util.math.RotationAxis
 
 class RestorationTankRenderer(ctx: BlockEntityRendererFactory.Context) : BlockEntityRenderer<RestorationTankBlockEntity> {
+    val context = RenderContext().also {
+        it.put(RenderContext.DO_QUIRKS, true)
+        it.put(RenderContext.RENDER_STATE, RenderContext.RenderState.RESURRECTION_MACHINE)
+    }
+
     override fun render(
         entity: RestorationTankBlockEntity,
         tickDelta: Float,
@@ -65,7 +71,9 @@ class RestorationTankRenderer(ctx: BlockEntityRendererFactory.Context) : BlockEn
             return
         }
 
-        if (struct.isRunning() or (struct.hasCreatedPokemon)) renderFetus(entity, tickDelta, matrices, vertexConsumers, light, overlay)
+        if (struct.isRunning() or (struct.hasCreatedPokemon)) {
+            renderFetus(entity, tickDelta, matrices, vertexConsumers, light, overlay)
+        }
 
         matrices.push()
         val transparentBuffer = vertexConsumers.getBuffer(RenderLayer.getTranslucent())
@@ -107,6 +115,7 @@ class RestorationTankRenderer(ctx: BlockEntityRendererFactory.Context) : BlockEn
 
         val completionPercentage = (1 - timeRemaining / FossilMultiblockStructure.TIME_TO_TAKE.toFloat()).coerceIn(0F, 1F)
         val fossilFetusModel = FossilModelRepository.getPoser(fossil.identifier, aspects)
+        fossilFetusModel.context = context
 
         val embryo1Scale = EMBRYO_CURVE_1(completionPercentage)
         val embryo2Scale = EMBRYO_CURVE_2(completionPercentage)
@@ -125,11 +134,10 @@ class RestorationTankRenderer(ctx: BlockEntityRendererFactory.Context) : BlockEn
             val texture = FossilModelRepository.getTexture(identifier, aspects, state.animationSeconds)
 
             if (scale > 0F) {
-                val vertexConsumer = vertexConsumers.getBuffer(model.getLayer(texture))
-                val pose = model.poses.values.first()
+                val vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(texture))
                 state.currentModel = model
-                state.setPose(pose.poseName)
-                state.timeEnteredPose = 0F
+                state.currentAspects = aspects
+                state.setPoseToFirstSuitable()
 
                 val scale = if (timeRemaining == 0) {
                     model.maxScale
@@ -148,10 +156,16 @@ class RestorationTankRenderer(ctx: BlockEntityRendererFactory.Context) : BlockEn
                     matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90F))
                 }
 
+                model.context = context
+                context.put(RenderContext.TEXTURE, texture)
+                context.put(RenderContext.SPECIES, fossil.identifier)
+                context.put(RenderContext.RENDER_STATE, RenderContext.RenderState.RESURRECTION_MACHINE)
+                context.put(RenderContext.POSABLE_STATE, state)
+
                 matrices.push()
                 matrices.scale(scale, scale, scale)
                 matrices.translate(0.0, model.yGrowthPoint.toDouble(), 0.0)
-                model.setupAnimStateful(
+                model.applyAnimations(
                     entity = null,
                     state = state,
                     headYaw = 0F,
@@ -160,9 +174,9 @@ class RestorationTankRenderer(ctx: BlockEntityRendererFactory.Context) : BlockEn
                     limbSwingAmount = 0F,
                     ageInTicks = state.animationSeconds * 20
                 )
-                model.render(matrices, vertexConsumer, light, overlay, 1.0f, 1.0f, 1.0f, 1.0f)
+                model.render(context, matrices, vertexConsumer, light, overlay, 1.0f, 1.0f, 1.0f, 1.0f)
                 model.withLayerContext(vertexConsumers, state, FossilModelRepository.getLayers(fossil.identifier, aspects)) {
-                    model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
+                    model.render(context, matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
                 }
                 model.setDefault()
                 matrices.pop()

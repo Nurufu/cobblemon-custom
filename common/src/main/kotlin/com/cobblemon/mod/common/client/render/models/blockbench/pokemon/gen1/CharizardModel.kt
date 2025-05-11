@@ -14,18 +14,19 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation.Companion.Y_AXIS
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import com.cobblemon.mod.common.util.asExpressionLike
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class CharizardModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame, BiWingedFrame {
+class CharizardModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame, BiWingedFrame {
     override val rootPart = root.registerChildWithAllChildren("charizard")
     override val head = getPart("head_ai")
     override val rightArm = getPart("arm_right")
@@ -41,17 +42,17 @@ class CharizardModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
     override var profileScale = 0.55F
     override var profileTranslation = Vec3d(0.05, 0.93, 0.0)
 
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var flyIdle: PokemonPose
-    lateinit var fly: PokemonPose
+    lateinit var sleep: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var flyIdle: Pose
+    lateinit var fly: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("charizard", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("charizard", "cry") }
 
     override fun registerPoses() {
-        animations["physical"] = "q.bedrock_primary('charizard', 'physical', 'look', q.curve('symmetrical_wide'))".asExpressionLike()
-        animations["special"] = "q.bedrock_primary('charizard', 'special', 'look', q.curve('symmetrical_wide'))".asExpressionLike()
+        animations["physical"] = "q.bedrock_primary('charizard', 'physical', q.exclude_labels('look'), q.curve('symmetrical_wide'))".asExpressionLike()
+        animations["special"] = "q.bedrock_primary('charizard', 'special', q.exclude_labels('look'), q.curve('symmetrical_wide'))".asExpressionLike()
         animations["status"] = "q.bedrock_primary('charizard', 'status', q.curve('symmetrical_wide'))".asExpressionLike()
         animations["recoil"] = "q.bedrock_stateful('charizard', 'recoil')".asExpressionLike()
         animations["cry"] = "q.bedrock_stateful('charizard', 'cry')".asExpressionLike()
@@ -62,8 +63,8 @@ class CharizardModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
         sleep = registerPose(
             poseType = PoseType.SLEEP,
             quirks = arrayOf(blink),
-            animations = mutableMapOf("faint" to faint),
-            idleAnimations = arrayOf(bedrock("charizard", "sleep"))
+            namedAnimations = mutableMapOf("faint" to faint),
+            animations = arrayOf(bedrock("charizard", "sleep"))
         )
 
         standing = registerPose(
@@ -71,8 +72,8 @@ class CharizardModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
             poseTypes = STATIONARY_POSES - PoseType.HOVER + UI_POSES,
             quirks = arrayOf(blink),
             condition = { !it.isBattling },
-            animations = mutableMapOf("faint" to faint),
-            idleAnimations = arrayOf(
+            namedAnimations = mutableMapOf("faint" to faint),
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("charizard", "ground_idle")
             )
@@ -82,8 +83,8 @@ class CharizardModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
             poseTypes = setOf(PoseType.STAND),
             poseName = "battle_standing",
             condition = { it.isBattling },
-            animations = mutableMapOf("faint" to faint),
-            idleAnimations = arrayOf(
+            namedAnimations = mutableMapOf("faint" to faint),
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("charizard", "battle_idle")
             )
@@ -93,8 +94,8 @@ class CharizardModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
             poseName = "walk",
             poseTypes = MOVING_POSES - PoseType.FLY,
             quirks = arrayOf(blink),
-            animations = mutableMapOf("faint" to faint),
-            idleAnimations = arrayOf(
+            namedAnimations = mutableMapOf("faint" to faint),
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("charizard", "ground_idle"),
                 bedrock("charizard", "ground_walk")
@@ -105,7 +106,7 @@ class CharizardModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
             poseName = "hover",
             poseType = PoseType.HOVER,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("charizard", "air_idle")
             ),
@@ -116,7 +117,7 @@ class CharizardModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame, Bip
             poseName = "fly",
             poseType = PoseType.FLY,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("charizard", "air_fly")
             ),

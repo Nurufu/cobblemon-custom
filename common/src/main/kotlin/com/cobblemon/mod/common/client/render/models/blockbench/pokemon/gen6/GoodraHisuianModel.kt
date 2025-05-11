@@ -14,13 +14,13 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class GoodraHisuianModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame, BimanualFrame, HeadedFrame {
+class GoodraHisuianModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, BimanualFrame, HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("goodra_hisuian")
     override val head = getPart("head_ai")
 
@@ -35,10 +35,10 @@ class GoodraHisuianModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame,
     override var profileScale = 0.41F
     override var profileTranslation = Vec3d(0.04, 1.24, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("goodra_hisuian", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("goodra_hisuian", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("goodra_hisuian", "blink") }
@@ -47,7 +47,7 @@ class GoodraHisuianModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame,
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("goodra_hisuian", "ground_idle")
             )
@@ -57,7 +57,7 @@ class GoodraHisuianModel (root: ModelPart) : PokemonPoseableModel(), BipedFrame,
             poseName = "walk",
             poseTypes = PoseType.MOVING_POSES,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                     singleBoneLook(),
                     bedrock("goodra_hisuian", "ground_idle"),
                     BipedWalkAnimation(this, periodMultiplier = 0.6F, amplitudeMultiplier = 0.9F),

@@ -9,7 +9,7 @@
 package com.cobblemon.mod.common.client.gui.battle
 
 import com.cobblemon.mod.common.api.gui.blitk
-import com.cobblemon.mod.common.api.gui.drawPortraitPokemon
+import com.cobblemon.mod.common.api.gui.drawPosablePortrait
 import com.cobblemon.mod.common.api.scheduling.Schedulable
 import com.cobblemon.mod.common.api.scheduling.SchedulingTracker
 import com.cobblemon.mod.common.api.text.bold
@@ -23,8 +23,10 @@ import com.cobblemon.mod.common.client.keybind.boundKey
 import com.cobblemon.mod.common.client.keybind.keybinds.PartySendBinding
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.render.getDepletableRedGreen
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityState
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokeBallModelRepository
+import com.cobblemon.mod.common.client.render.models.blockbench.repository.PokemonModelRepository
+import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.sineFunction
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity
@@ -36,9 +38,6 @@ import com.cobblemon.mod.common.util.battleLang
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.lang
 import com.mojang.blaze3d.systems.RenderSystem
-import java.lang.Double.max
-import java.lang.Double.min
-import java.util.UUID
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.hud.InGameHud
@@ -46,11 +45,15 @@ import net.minecraft.client.gui.screen.ChatScreen
 import net.minecraft.client.render.DiffuseLighting
 import net.minecraft.client.render.LightmapTextureManager
 import net.minecraft.client.render.OverlayTexture
+import net.minecraft.client.render.RenderLayer
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.MutableText
 import net.minecraft.util.math.MathHelper.ceil
 import net.minecraft.util.math.RotationAxis
 import org.joml.Vector3f
+import java.lang.Double.max
+import java.lang.Double.min
+import java.util.*
 
 class BattleOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.getInstance().itemRenderer), Schedulable {
     companion object {
@@ -196,7 +199,7 @@ class BattleOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.g
         displayName: MutableText,
         gender: Gender,
         status: PersistentStatus?,
-        state: PoseableEntityState<PokemonEntity>?,
+        state: PosableState,
         colour: Triple<Float, Float, Float>?,
         opacity: Float,
         ballState: ClientBallDisplay? = null,
@@ -238,11 +241,13 @@ class BattleOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.g
             )
         } else {
             matrixStack.push()
-            drawPortraitPokemon(
-                species = species,
+            drawPosablePortrait(
+                identifier = species.resourceIdentifier,
                 aspects = aspects,
                 matrixStack = matrixStack,
                 scale = 18F * (ballState?.scale ?: 1F),
+                contextScale = species.getForm(aspects).baseScale,
+                repository = PokemonModelRepository,
                 reversed = reversed,
                 state = state,
                 partialTicks = partialTicks
@@ -391,18 +396,19 @@ class BattleOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.g
         partialTicks: Float,
         reversed: Boolean = false
     ) {
+        val context = RenderContext()
         val model = PokeBallModelRepository.getPoser(state.pokeBall.name, state.aspects)
         val texture = PokeBallModelRepository.getTexture(state.pokeBall.name, state.aspects, state.animationSeconds)
-        val renderType = model.getLayer(texture)
+        val renderType = RenderLayer.getEntityCutout(texture)//model.getLayer(texture)
 
         RenderSystem.applyModelViewMatrix()
         val quaternion1 = RotationAxis.POSITIVE_Y.rotationDegrees(-32F * if (reversed) -1F else 1F)
         val quaternion2 = RotationAxis.POSITIVE_X.rotationDegrees(5F)
 
-        model.getPose(PoseType.PORTRAIT)?.let { state.setPose(it.poseName) }
-        state.timeEnteredPose = 0F
+        state.currentModel = model
+        state.setPoseToFirstSuitable(PoseType.PORTRAIT)
         state.updatePartialTicks(partialTicks)
-        model.setupAnimStateful(null, state, 0F, 0F, 0F, 0F, 0F)
+        model.applyAnimations(null, state, 0F, 0F, 0F, 0F, 0F)
 
         matrixStack.scale(scale, scale, -scale)
         matrixStack.translate(0.0, 5.5, -4.0)
@@ -421,7 +427,7 @@ class BattleOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.g
         val immediate = MinecraftClient.getInstance().bufferBuilders.entityVertexConsumers
         val buffer = immediate.getBuffer(renderType)
         val packedLight = LightmapTextureManager.pack(11, 7)
-        model.render(matrixStack, buffer, packedLight, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
+        model.render(context, matrixStack, buffer, packedLight, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F)
 
         immediate.draw()
 

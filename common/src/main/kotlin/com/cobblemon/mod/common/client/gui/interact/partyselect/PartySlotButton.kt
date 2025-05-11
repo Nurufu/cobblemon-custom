@@ -17,7 +17,7 @@ import com.cobblemon.mod.common.client.gui.drawProfilePokemon
 import com.cobblemon.mod.common.client.gui.summary.widgets.PartySlotWidget
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.render.getDepletableRedGreen
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonFloatingState
+import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
 import com.cobblemon.mod.common.client.render.renderScaledGuiItemIcon
 import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
 import com.cobblemon.mod.common.util.cobblemonResource
@@ -53,7 +53,7 @@ class PartySlotButton(
         const val SCALE = 0.5F
     }
 
-    val state = PokemonFloatingState()
+    val state = FloatingState()
 
     private val renderablePokemon = pokemon.asRenderablePokemon().also { it.aspects = aspects }
 

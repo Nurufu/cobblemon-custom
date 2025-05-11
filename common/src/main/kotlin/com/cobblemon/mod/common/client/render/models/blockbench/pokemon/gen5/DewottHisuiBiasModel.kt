@@ -13,13 +13,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class DewottHisuiBiasModel (root: ModelPart) : PokemonPoseableModel(), HeadedFrame, BipedFrame, BimanualFrame {
+class DewottHisuiBiasModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
     override val rootPart = root.registerChildWithAllChildren("dewott_hisui_bias")
     override val head = getPart("head")
     override val rightArm = getPart("arm_right")
@@ -36,12 +37,12 @@ class DewottHisuiBiasModel (root: ModelPart) : PokemonPoseableModel(), HeadedFra
     override var profileScale = 0.7F
     override var profileTranslation = Vec3d(0.0, 0.69, 0.0)
 
-    lateinit var battleidle: PokemonPose
-    lateinit var sleep: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
+    lateinit var battleidle: CobblemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("dewott_hisui_bias", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("dewott_hisui_bias", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("dewott_hisui_bias", "blink") }
@@ -56,7 +57,7 @@ class DewottHisuiBiasModel (root: ModelPart) : PokemonPoseableModel(), HeadedFra
                         scalchop_body_left.createTransformation().withVisibility(visibility = true)
 
                 ),
-                idleAnimations = arrayOf(bedrock("dewott_hisui_bias", "sleep"))
+                animations = arrayOf(bedrock("dewott_hisui_bias", "sleep"))
         )
 
         standing = registerPose(
@@ -71,7 +72,7 @@ class DewottHisuiBiasModel (root: ModelPart) : PokemonPoseableModel(), HeadedFra
                         scalchop_body_right.createTransformation().withVisibility(visibility = true),
                         scalchop_body_left.createTransformation().withVisibility(visibility = true)
                 ),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         singleBoneLook(),
                         bedrock("dewott_hisui_bias", "ground_idle")
                 )
@@ -89,7 +90,7 @@ class DewottHisuiBiasModel (root: ModelPart) : PokemonPoseableModel(), HeadedFra
                         scalchop_body_right.createTransformation().withVisibility(visibility = true),
                         scalchop_body_left.createTransformation().withVisibility(visibility = true)
                 ),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         singleBoneLook(),
                         bedrock("dewott_hisui_bias", "ground_walk")
                 )
@@ -107,7 +108,7 @@ class DewottHisuiBiasModel (root: ModelPart) : PokemonPoseableModel(), HeadedFra
                         scalchop_body_right.createTransformation().withVisibility(visibility = false),
                         scalchop_body_left.createTransformation().withVisibility(visibility = false)
                 ),
-                idleAnimations = arrayOf(
+                animations = arrayOf(
                         singleBoneLook(),
                         bedrock("dewott_hisui_bias", "ground_idle")
                 )

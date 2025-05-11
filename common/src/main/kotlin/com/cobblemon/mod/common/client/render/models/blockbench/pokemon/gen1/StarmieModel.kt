@@ -9,14 +9,15 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class StarmieModel(root: ModelPart) : PokemonPoseableModel() {
+class StarmieModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("starmie")
 
     override var portraitScale = 2.0F
@@ -25,14 +26,14 @@ class StarmieModel(root: ModelPart) : PokemonPoseableModel() {
     override var profileScale = 1.4F
     override var profileTranslation = Vec3d(0.0, -0.24, 0.0)
 
-    lateinit var battleidle: PokemonPose
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var swim: PokemonPose
-    lateinit var float: PokemonPose
-    lateinit var sleep: PokemonPose
+    lateinit var battleidle: Pose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var swim: Pose
+    lateinit var float: Pose
+    lateinit var sleep: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("starmie", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("starmie", "cry") }
 
     override fun registerPoses() {
 
@@ -40,7 +41,7 @@ class StarmieModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "standing",
             poseType = PoseType.STAND,
             condition = { !it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("starmie", "ground_idle")
             )
         )
@@ -49,7 +50,7 @@ class StarmieModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "walk",
             poseType = PoseType.WALK,
             condition = { !it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("starmie", "ground_walk")
             )
         )
@@ -58,7 +59,7 @@ class StarmieModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "float",
             poseTypes = UI_POSES + PoseType.FLOAT,
             condition = { !it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("starmie", "water_idle")
             )
         )
@@ -67,7 +68,7 @@ class StarmieModel(root: ModelPart) : PokemonPoseableModel() {
             poseName = "swim",
             poseType = PoseType.SWIM,
             condition = { !it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("starmie", "water_swim")
             )
         )
@@ -75,7 +76,7 @@ class StarmieModel(root: ModelPart) : PokemonPoseableModel() {
         sleep = registerPose(
             poseName = "sleep",
             poseType = PoseType.SLEEP,
-            idleAnimations = arrayOf(bedrock("starmie", "sleep"))
+            animations = arrayOf(bedrock("starmie", "sleep"))
         )
 
         battleidle = registerPose(
@@ -83,7 +84,7 @@ class StarmieModel(root: ModelPart) : PokemonPoseableModel() {
             poseTypes = PoseType.STATIONARY_POSES,
             transformTicks = 10,
             condition = { it.isBattling },
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 bedrock("starmie", "battle_idle")
             )
 
@@ -92,6 +93,6 @@ class StarmieModel(root: ModelPart) : PokemonPoseableModel() {
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("starmie", "faint") else null
 }

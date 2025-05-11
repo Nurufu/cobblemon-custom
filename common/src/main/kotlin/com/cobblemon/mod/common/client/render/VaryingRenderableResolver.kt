@@ -8,7 +8,7 @@
 
 package com.cobblemon.mod.common.client.render
 
-import com.cobblemon.mod.common.client.render.models.blockbench.PoseableEntityModel
+import com.cobblemon.mod.common.client.render.models.blockbench.PosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Bone
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.VaryingModelRepository
 import com.cobblemon.mod.common.util.adapters.IdentifierAdapter
@@ -18,11 +18,10 @@ import com.cobblemon.mod.common.util.adapters.Vector4fAdapter
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.google.gson.GsonBuilder
 import com.google.gson.annotations.SerializedName
-import kotlin.math.floor
-import net.minecraft.entity.Entity
 import net.minecraft.util.Identifier
 import org.joml.Vector3f
 import org.joml.Vector4f
+import kotlin.math.floor
 
 /**
  * All the information required for rendering a Pokémon/Poké Ball/NPC with aspects.
@@ -30,12 +29,12 @@ import org.joml.Vector4f
  * @author Hiroku
  * @since May 14th, 2022
  */
-class VaryingRenderableResolver<E : Entity, M : PoseableEntityModel<E>>(
+class VaryingRenderableResolver<T : PosableModel>(
     val name: Identifier,
     val variations: MutableList<ModelAssetVariation>
 ) {
-    lateinit var repository: VaryingModelRepository<E, M>
-    val posers = mutableMapOf<Pair<Identifier, Identifier>, M>()
+    lateinit var repository: VaryingModelRepository<T>
+    val posers = mutableMapOf<Pair<Identifier, Identifier>, T>()
     val models = mutableMapOf<Identifier, Bone>()
 
     fun getResolvedPoser(aspects: Set<String>): Identifier {
@@ -92,7 +91,7 @@ class VaryingRenderableResolver<E : Entity, M : PoseableEntityModel<E>>(
             .create()
     }
 
-    fun initialize(repository: VaryingModelRepository<E, M>) {
+    fun initialize(repository: VaryingModelRepository<T>) {
         this.repository = repository
         posers.clear()
         getAllModels().forEach { identifier ->
@@ -104,7 +103,7 @@ class VaryingRenderableResolver<E : Entity, M : PoseableEntityModel<E>>(
         }
     }
 
-    fun getPoser(aspects: Set<String>): M {
+    fun getPoser(aspects: Set<String>): T {
         val poserName = getResolvedPoser(aspects)
         val poserSupplier = repository.posers[poserName] ?: throw IllegalStateException("No poser found for name: $poserName for $name")
         val modelName = getResolvedModel(aspects)
@@ -166,7 +165,7 @@ class ModelAssetVariation(
 
 /**
  * Given the animation seconds, returns a texture to use. Only implemented
- * by [StaticModelTextureSupplier], [FallbackModelTextureSupplier] and [AnimatedModelTextureSupplier].
+ * by [StaticModelTextureSupplier] and [AnimatedModelTextureSupplier].
  *
  * @author Hiroku
  * @since February 6th, 2023

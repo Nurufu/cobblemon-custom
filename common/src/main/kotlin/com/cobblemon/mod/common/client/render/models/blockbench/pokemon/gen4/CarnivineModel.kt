@@ -10,17 +10,18 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPoseableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
-import com.cobblemon.mod.common.entity.PoseType.Companion.ALL_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
-class CarnivineModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame{
+class CarnivineModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame{
     override val rootPart = root.registerChildWithAllChildren("carnivine")
     override val head = getPart("head")
 
@@ -30,13 +31,13 @@ class CarnivineModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame{
     override var profileScale = 0.5F
     override var profileTranslation = Vec3d(0.0, 0.98, 0.0)
 
-    lateinit var standing: PokemonPose
-    lateinit var walk: PokemonPose
-    lateinit var hover: PokemonPose
-    lateinit var flying: PokemonPose
-    lateinit var battle_idle: PokemonPose
+    lateinit var standing: Pose
+    lateinit var walk: Pose
+    lateinit var hover: Pose
+    lateinit var flying: Pose
+    lateinit var battle_idle: Pose
 
-    override val cryAnimation = CryProvider { _, _ -> bedrockStateful("carnivine", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("carnivine", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("carnivine", "blink") }
@@ -46,7 +47,7 @@ class CarnivineModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame{
             poseTypes = STATIONARY_POSES + UI_POSES - PoseType.HOVER,
             condition = { !it.isBattling },
             quirks = arrayOf(blink, idleQuirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("carnivine", "ground_idle")
             )
@@ -57,7 +58,7 @@ class CarnivineModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame{
             poseTypes = MOVING_POSES - PoseType.FLY,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("carnivine", "ground_walk")
             )
@@ -68,7 +69,7 @@ class CarnivineModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame{
             poseType = PoseType.HOVER,
             transformTicks = 10,
             quirks = arrayOf(blink, idleQuirk),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("carnivine", "air_idle")
             )
@@ -79,7 +80,7 @@ class CarnivineModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame{
             poseType = PoseType.FLY,
             transformTicks = 10,
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("carnivine", "air_fly")
             )
@@ -91,7 +92,7 @@ class CarnivineModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame{
             transformTicks = 10,
             condition = { it.isBattling },
             quirks = arrayOf(blink),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("carnivine", "battle_idle")
             )
@@ -100,6 +101,6 @@ class CarnivineModel(root: ModelPart) : PokemonPoseableModel(), HeadedFrame{
 
 //    override fun getFaintAnimation(
 //        pokemonEntity: PokemonEntity,
-//        state: PoseableEntityState<PokemonEntity>
+//        state: PosableState<PokemonEntity>
 //    ) = if (state.isPosedIn(standing, walk)) bedrockStateful("carnivine", "faint") else null
 }

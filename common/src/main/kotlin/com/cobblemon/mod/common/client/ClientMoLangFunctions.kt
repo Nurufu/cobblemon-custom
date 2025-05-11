@@ -13,7 +13,6 @@ import com.bedrockk.molang.runtime.MoParams
 import com.bedrockk.molang.runtime.value.MoValue
 import com.bedrockk.molang.runtime.value.StringValue
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.addFunctions
-import com.cobblemon.mod.common.api.molang.MoLangFunctions.getQueryStruct
 import com.cobblemon.mod.common.api.text.text
 import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
 import net.minecraft.client.MinecraftClient
@@ -42,7 +41,7 @@ object ClientMoLangFunctions {
     )
 
     fun MoLangRuntime.setupClient(): MoLangRuntime {
-        environment.getQueryStruct().addFunctions(clientFunctions)
+        environment.query.addFunctions(clientFunctions)
         return this
     }
 }

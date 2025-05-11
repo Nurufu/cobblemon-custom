@@ -13,7 +13,7 @@ import com.cobblemon.mod.common.api.moves.animations.ActionEffectContext
 import com.cobblemon.mod.common.api.moves.animations.EntityProvider
 import com.cobblemon.mod.common.api.moves.animations.UsersProvider
 import com.cobblemon.mod.common.api.scheduling.delayedFuture
-import com.cobblemon.mod.common.entity.Poseable
+import com.cobblemon.mod.common.entity.PosableEntity
 import com.cobblemon.mod.common.net.messages.client.effect.SpawnSnowstormEntityParticlePacket
 import com.cobblemon.mod.common.util.asExpressionLike
 import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
@@ -44,7 +44,7 @@ class EntityParticlesActionEffectKeyframe : ConditionalActionEffectKeyframe(), E
             effect
         }?.asIdentifierDefaultingNamespace() ?: return skip()
 
-        entities.filter { it is Poseable }.forEach { entity ->
+        entities.filter { it is PosableEntity }.forEach { entity ->
             val packet = SpawnSnowstormEntityParticlePacket(effectIdentifier, entity.id, listOf(locator))
             val players = (entity.world as ServerWorld).getPlayers { it.distanceTo(entity) <= visibilityRange }
             packet.sendToPlayers(players)

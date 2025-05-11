@@ -40,6 +40,13 @@
         "special_defence": 0,
         "speed": 0
       },
+      "behaviour": {
+        "moving": {
+          "fly": {
+            "canFly": true
+          }
+        }
+      },
       "experienceGroup": "medium_slow",
       "eggCycles": 25,
       "eggGroups": ["field"],

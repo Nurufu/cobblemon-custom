@@ -26,6 +26,9 @@
         "canSwimInWater": true,
         "canBreatheUnderwater": true,
         "canWalkOnWater": true
+      },
+      "fly": {
+        "canFly": true
       }
     },
     "resting": {

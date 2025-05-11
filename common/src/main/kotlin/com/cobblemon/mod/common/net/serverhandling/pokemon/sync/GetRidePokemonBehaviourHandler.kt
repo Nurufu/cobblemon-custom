@@ -1,0 +1,30 @@
+/*
+ * Copyright (C) 2023 Cobblemon Contributors
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+package com.cobblemon.mod.common.net.serverhandling.pokemon.sync
+
+import com.cobblemon.mod.common.CobblemonNetwork
+import com.cobblemon.mod.common.api.net.ServerNetworkPacketHandler
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
+import com.cobblemon.mod.common.net.messages.client.pokemon.ai.ClientMoveBehaviour
+import com.cobblemon.mod.common.net.messages.client.pokemon.sync.UpdatePokemonBehaviourPacket
+import com.cobblemon.mod.common.net.messages.server.pokemon.sync.GetRidePokemonBehaviourPacket
+import net.minecraft.server.MinecraftServer
+import net.minecraft.server.network.ServerPlayerEntity
+
+class GetRidePokemonBehaviourHandler : ServerNetworkPacketHandler<GetRidePokemonBehaviourPacket> {
+
+    override fun handle(packet: GetRidePokemonBehaviourPacket, server: MinecraftServer, player: ServerPlayerEntity) {
+        val entity = player.serverWorld.getEntityById(packet.pokemonID)
+        if (entity is PokemonEntity) {
+            val behaviour = ClientMoveBehaviour(entity.exposedForm.behaviour.moving)
+            entity.moveBehaviour = behaviour
+            CobblemonNetwork.sendPacketToPlayer(player, UpdatePokemonBehaviourPacket(packet.pokemonID, behaviour))
+        }
+    }
+}
