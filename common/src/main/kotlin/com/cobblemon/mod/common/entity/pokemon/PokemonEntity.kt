@@ -489,7 +489,7 @@ open class PokemonEntity(
      * Prevents flying type Pokémon from taking fall damage.
      */
     override fun handleFallDamage(fallDistance: Float, damageMultiplier: Float, damageSource: DamageSource?): Boolean {
-        return if (ElementalTypes.FLYING in pokemon.types || pokemon.ability.name == "levitate" || pokemon.species.behaviour.moving.fly.canFly) {
+        return if (ElementalTypes.FLYING in pokemon.types || pokemon.ability.name == "levitate" || pokemon.species.behaviour.moving.fly.canFly || this.hasPassengers()) {
             false
         } else {
             val flag = super.handleFallDamage(fallDistance, damageMultiplier, damageSource)
