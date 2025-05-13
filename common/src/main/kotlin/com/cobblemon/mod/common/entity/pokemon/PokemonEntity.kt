@@ -1474,11 +1474,6 @@ open class PokemonEntity(
                 this.setVelocity(this.velocity.x, 0.0, this.velocity.z)
                 rideMomentumStop = false
             }
-            //Stop momentum for X/Z axis and stop sprint
-            if(!MinecraftClient.getInstance().options.leftKey.isPressed && !MinecraftClient.getInstance().options.rightKey.isPressed && !MinecraftClient.getInstance().options.forwardKey.isPressed && !MinecraftClient.getInstance().options.backKey.isPressed ) {
-                this.setVelocity(0.0, this.velocity.y, 0.0)
-                this.isRideSprinting = false
-            }
         }
 
         return Vec3d
