@@ -40,7 +40,9 @@ public abstract class LocalPlayerMixin {
         ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
         if (player.getVehicle() instanceof PokemonEntity pokemon && pokemon.isLogicalSideForUpdatingMovement()) {
             pokemon.setRideDescending(this.input.sneaking);
-            pokemon.setRideSprinting(this.client.options.sprintKey.isPressed());
+            if(this.client.options.sprintKey.isPressed()) {
+                pokemon.setRideSprinting(true);
+            }
         }
     }
 }
