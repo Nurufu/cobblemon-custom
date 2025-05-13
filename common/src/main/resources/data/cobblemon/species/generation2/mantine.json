@@ -36,6 +36,9 @@
         "swimSpeed": 0.3,
         "canSwimInWater": true,
         "canBreatheUnderwater": true
+      },
+      "fly": {
+        "canFly": true
       }
     },
     "resting": {

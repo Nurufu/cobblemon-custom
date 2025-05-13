@@ -40,7 +40,7 @@ data class BedrockAnimationGroup(
 )
 
 abstract class BedrockEffectKeyframe(val seconds: Float) {
-    abstract fun run(entity: Entity, state: PosableState)
+    abstract fun run(entity: Entity?, state: PosableState)
 }
 
 class BedrockParticleKeyframe(
@@ -63,7 +63,8 @@ class BedrockParticleKeyframe(
         }
     }
 
-    override fun run(entity: Entity, state: PosableState) {
+    override fun run(entity: Entity?, state: PosableState) {
+        entity ?: return
         val world = entity.world as? ClientWorld ?: return
         val matrixWrapper = state.locatorStates[locator] ?: state.locatorStates["root"]!!
 
@@ -98,21 +99,24 @@ class BedrockSoundKeyframe(
     seconds: Float,
     val sound: Identifier
 ): BedrockEffectKeyframe(seconds) {
-    override fun run(entity: Entity, state: PosableState) {
-        val soundEvent = SoundEvent.of(sound) // Means we don't need to setup a sound registry entry for every single thing
+    override fun run(entity: Entity?, state: PosableState) {
+        val soundEvent =
+            SoundEvent.of(sound) // Means we don't need to setup a sound registry entry for every single thing
         if (soundEvent != null) {
-            MinecraftClient.getInstance().soundManager.play(
-                PositionedSoundInstance(
-                    soundEvent,
-                    SoundCategory.NEUTRAL,
-                    1F,
-                    1F,
-                    entity.world.random,
-                    entity.x,
-                    entity.y,
-                    entity.z
+            if (entity != null) {
+                MinecraftClient.getInstance().soundManager.play(
+                    PositionedSoundInstance(
+                        soundEvent,
+                        SoundCategory.NEUTRAL,
+                        1F,
+                        1F,
+                        entity.world.random,
+                        entity.x,
+                        entity.y,
+                        entity.z
+                    )
                 )
-            )
+            }
         }
     }
 }
@@ -121,7 +125,7 @@ class BedrockInstructionKeyframe(
     seconds: Float,
     val expressions: ExpressionLike
 ): BedrockEffectKeyframe(seconds) {
-    override fun run(entity: Entity, state: PosableState) {
+    override fun run(entity: Entity?, state: PosableState) {
         expressions.resolve(state.runtime)
     }
 }

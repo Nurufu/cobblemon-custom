@@ -40,5 +40,5 @@ interface ActiveAnimation {
     ): Boolean
 
     /** Applies animation effects, such as particle effects. These can occur on tick, therefore not necessarily on screen. */
-    fun applyEffects(entity: Entity, state: PosableState, previousSeconds: Float, newSeconds: Float) {}
+    fun applyEffects(entity: Entity?, state: PosableState, previousSeconds: Float, newSeconds: Float) {}
 }

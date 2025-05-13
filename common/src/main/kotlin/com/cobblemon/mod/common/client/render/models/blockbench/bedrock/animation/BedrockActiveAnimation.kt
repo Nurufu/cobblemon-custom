@@ -29,8 +29,7 @@ open class BedrockActiveAnimation(
     override val duration = animation.animationLength.toFloat()
     private var afterAction: (RenderContext, PosableState) -> Unit = { _, _ -> }
 
-    override val isTransition: Boolean
-        get() = isTransformAnimation
+    override val isTransition: Boolean = false
 
     fun andThen(action: (context: RenderContext, PosableState) -> Unit) = this.also {
         it.afterAction = action
@@ -58,7 +57,11 @@ open class BedrockActiveAnimation(
         }
     }
 
-    override fun applyEffects(entity: Entity, state: PosableState, previousSeconds: Float, newSeconds: Float) {
+    override fun applyEffects(entity: Entity?, state: PosableState, previousSeconds: Float, newSeconds: Float) {
+        entity ?: return
+        if (startedSeconds == -1F) {
+            startedSeconds = state.animationSeconds
+        }
         val previousSecondsOffset = previousSeconds - startedSeconds
         val currentSecondsOffset = newSeconds - startedSeconds
         animation.applyEffects(entity, state, previousSecondsOffset, currentSecondsOffset)
