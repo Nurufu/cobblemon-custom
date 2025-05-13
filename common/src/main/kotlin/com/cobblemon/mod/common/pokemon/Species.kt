@@ -180,8 +180,8 @@ class Species : ClientDataSynchronizer<Species>, ShowdownIdentifiable {
         buffer.writeString(this.name)
         buffer.writeInt(this.nationalPokedexNumber)
         buffer.writeMap(this.baseStats,
-            { keyBuffer, stat -> Cobblemon.statProvider.encode(keyBuffer, stat)},
-            { valueBuffer, value -> valueBuffer.writeSizedInt(IntSize.U_SHORT, value) }
+            { _, stat -> Cobblemon.statProvider.encode(buffer, stat)},
+            { _, value -> buffer.writeSizedInt(IntSize.U_SHORT, value) }
         )
         // ToDo remake once we have custom typing support
         buffer.writeString(this.primaryType.name)
@@ -211,8 +211,8 @@ class Species : ClientDataSynchronizer<Species>, ShowdownIdentifiable {
         this.name = buffer.readString()
         this.nationalPokedexNumber = buffer.readInt()
         this.baseStats.putAll(buffer.readMap(
-            { keyBuffer -> Cobblemon.statProvider.decode(keyBuffer) },
-            { valueBuffer -> valueBuffer.readSizedInt(IntSize.U_SHORT) })
+            { _ -> Cobblemon.statProvider.decode(buffer) },
+            { _ -> buffer.readSizedInt(IntSize.U_SHORT) })
         )
         this.primaryType = ElementalTypes.getOrException(buffer.readString())
         this.secondaryType = buffer.readNullable { pb -> ElementalTypes.getOrException(pb.readString()) }

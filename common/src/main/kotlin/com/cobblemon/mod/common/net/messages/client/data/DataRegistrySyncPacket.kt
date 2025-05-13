@@ -20,7 +20,7 @@ abstract class DataRegistrySyncPacket<T, N : NetworkPacket<N>>(private val regis
         buffer.writeCollection(this.registryEntries, this::encodeEntry)
     }
 
-    internal fun decodeBuffer(buffer: PacketByteBuf) {
+    internal open fun decodeBuffer(buffer: PacketByteBuf) {
         this.buffer = buffer
         buffer.retain()
     }

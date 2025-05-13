@@ -21,7 +21,7 @@ class RideableSpeciesRegistrySyncPacket(species: Collection<RideableSpecies>) :
     override val id = ID
 
 //    // Manually redeclared here, to bypass internal check from external module
-//    override fun decodeBuffer(buffer: PacketByteBuf) {
+//    fun decodeBuffer(buffer: PacketByteBuf) {
 //        val size = buffer.readInt()
 //        val newBuffer = PacketByteBuf(buffer.readBytes(size))
 //        this.buffer = newBuffer
@@ -54,7 +54,7 @@ class RideableSpeciesRegistrySyncPacket(species: Collection<RideableSpecies>) :
     }
 
     companion object {
-        val ID: Identifier = cobblemonResource("species_sync")
+        val ID: Identifier = cobblemonResource("rideable_species_sync")
 
         @JvmStatic
         fun decode(buffer: PacketByteBuf): RideableSpeciesRegistrySyncPacket =

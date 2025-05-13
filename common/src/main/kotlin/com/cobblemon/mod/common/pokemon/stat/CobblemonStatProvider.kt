@@ -13,18 +13,14 @@ import com.cobblemon.mod.common.api.pokemon.stats.StatProvider
 import com.cobblemon.mod.common.api.pokemon.stats.StatTypeAdapter
 import com.cobblemon.mod.common.api.pokemon.stats.Stats
 import com.cobblemon.mod.common.net.IntSize
-import com.cobblemon.mod.common.pokemon.EVs
-import com.cobblemon.mod.common.pokemon.FormData
-import com.cobblemon.mod.common.pokemon.IVs
-import com.cobblemon.mod.common.pokemon.Pokemon
-import com.cobblemon.mod.common.pokemon.Species
+import com.cobblemon.mod.common.pokemon.*
 import com.cobblemon.mod.common.pokemon.adapters.CobblemonStatTypeAdapter
 import com.cobblemon.mod.common.util.readSizedInt
 import com.cobblemon.mod.common.util.writeSizedInt
-import kotlin.math.truncate
-import kotlin.random.Random
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.util.Identifier
+import kotlin.math.truncate
+import kotlin.random.Random
 
 /**
  * The default implementation of a [StatProvider].
@@ -35,9 +31,9 @@ import net.minecraft.util.Identifier
 object CobblemonStatProvider : StatProvider {
 
     override val typeAdapter: StatTypeAdapter = CobblemonStatTypeAdapter
-    private val stats = Stats.values().associateBy { it.identifier }
-    private val ordinalToStat = Stats.values().associateBy { it.ordinal }
-    private val identifierToOrdinal = Stats.values().associate { it.identifier to it.ordinal }
+    private val stats = Stats.entries.associateBy { it.identifier }
+    private val ordinalToStat = Stats.entries.associateBy { it.ordinal }
+    private val identifierToOrdinal = Stats.entries.associate { it.identifier to it.ordinal }
 
     override fun all(): Collection<Stat> = Stats.ALL
 
@@ -86,7 +82,6 @@ object CobblemonStatProvider : StatProvider {
     }
 
     override fun getStatForPokemon(pokemon: Pokemon, stat: Stat): Int {
-        val stats = pokemon.form.baseStats
         val iv = pokemon.ivs.getOrDefault(stat)
         val base = pokemon.form.baseStats[stat]!!
         val ev = pokemon.evs.getOrDefault(stat)
