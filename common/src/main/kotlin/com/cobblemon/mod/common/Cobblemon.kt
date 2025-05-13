@@ -200,7 +200,35 @@ object Cobblemon {
             playerData.get(it).sendToPlayer(it)
             starterHandler.handleJoin(it)
             it.requestWallpapers()
-            ServerSettingsPacket(this.config.preventCompletePartyDeposit, this.config.displayEntityLevelLabel).sendToPlayer(it)
+            ServerSettingsPacket(
+                this.config.preventCompletePartyDeposit,
+                this.config.displayEntityLevelLabel,
+                this.config.General().globalBaseSpeedModifier,
+                this.config.General().globalLandSpeedModifier,
+                this.config.General().globalWaterSpeedModifier,
+                this.config.General().globalAirSpeedModifier,
+                this.config.General().underwaterSpeedModifier,
+                this.config.General().waterVerticalClimbSpeed,
+                this.config.General().airVerticalClimbSpeed,
+                this.config.General().rideSpeedLimit,
+                this.config.General().isWaterBreathingShared,
+                this.config.Restrictions().blacklistedDimensions,
+                this.config.speedStat.affectsSpeed,
+                this.config.speedStat.minStatThreshold,
+                this.config.speedStat.maxStatThreshold,
+                this.config.speedStat.minSpeedModifier,
+                this.config.speedStat.maxSpeedModifier,
+                this.config.sprinting.canSprint,
+                this.config.sprinting.rideSprintSpeed,
+                this.config.sprinting.canSprintOnLand,
+                this.config.sprinting.canSprintInWater,
+                this.config.sprinting.canSprintInAir,
+                this.config.sprinting.canExhaust,
+                this.config.sprinting.maxStamina,
+                this.config.sprinting.recoveryTime,
+                this.config.sprinting.recoveryDelay,
+                this.config.sprinting.exhaustionSpeed,
+                this.config.sprinting.exhaustionDuration).sendToPlayer(it)
         }
         PlatformEvents.SERVER_PLAYER_LOGOUT.subscribe {
             PCLinkManager.removeLink(it.player.uuid)

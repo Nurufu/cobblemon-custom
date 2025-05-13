@@ -340,6 +340,7 @@ class PokemonClientDelegate : PosableState(), PokemonSideDelegate {
             lastShinyParticle = System.currentTimeMillis()
         }
         getClientShinyPokemon()
+        if(MinecraftClient.getInstance().player?.hasVehicle() == true && MinecraftClient.getInstance().player?.vehicle is PokemonEntity) stopMomentum(entity)
     }
 
     override fun addToStruct(struct: QueryStruct) {
@@ -347,6 +348,15 @@ class PokemonClientDelegate : PosableState(), PokemonSideDelegate {
         struct.addFunctions(functions.functions)
         struct.addFunctions(ClientMoLangFunctions.clientFunctions)
         runtime.environment.query = struct
+    }
+
+    fun stopMomentum(pkmn: PokemonEntity){
+        val client = MinecraftClient.getInstance().options
+        if(!client.leftKey.isPressed && !client.backKey.isPressed && !client.forwardKey.isPressed && !client.rightKey.isPressed)
+        {
+            pkmn.setVelocity(0.0, pkmn.velocity.y, 0.0)
+            pkmn.isRideSprinting = false
+        }
     }
 
 

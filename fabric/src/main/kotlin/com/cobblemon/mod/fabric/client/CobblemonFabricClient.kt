@@ -16,6 +16,7 @@ import com.cobblemon.mod.common.client.CobblemonClient.reloadCodedAssets
 import com.cobblemon.mod.common.client.gui.RideStaminaOverlay
 import com.cobblemon.mod.common.client.keybind.CobblemonKeyBinds
 import com.cobblemon.mod.common.client.render.atlas.CobblemonAtlases
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.particle.CobblemonParticles
 import com.cobblemon.mod.common.particle.SnowstormParticleType
 import com.cobblemon.mod.common.platform.events.ClientPlayerEvent
@@ -41,6 +42,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper
 import net.minecraft.block.Block
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType
+import net.minecraft.client.MinecraftClient
 import net.minecraft.client.color.block.BlockColorProvider
 import net.minecraft.client.color.item.ItemColorProvider
 import net.minecraft.client.model.TexturedModelData

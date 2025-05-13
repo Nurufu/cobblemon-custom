@@ -327,7 +327,9 @@ object CobblemonNetwork : NetworkManager {
         this.createClientBound(DialogueOpenedPacket.ID, DialogueOpenedPacket::decode, DialogueOpenedHandler)
 
         //Ride Packets
-        this.createClientBound(SendServerSettingsPacket.ID, SendServerSettingsPacket::decode, SendServerSettingsHandler())
+        //Merged with vanilla serversettings packet
+        //this.createClientBound(SendServerSettingsPacket.ID, SendServerSettingsPacket::decode, SendServerSettingsHandler())
+
         this.createClientBound(RideableSpeciesRegistrySyncPacket.ID, RideableSpeciesRegistrySyncPacket::decode, DataRegistrySyncPacketHandler())
         this.createClientBound(UpdatePokemonBehaviourPacket.ID, UpdatePokemonBehaviourPacket::decode, UpdatePokemonBehaviourHandler())
     }
