@@ -330,6 +330,9 @@ class PokemonServerDelegate : PokemonSideDelegate {
     }
 
     fun updatePoseType() {
+        if (!entity.enablePoseTypeRecalculation) {
+            return
+        }
         val isSleeping = entity.pokemon.status?.status == Statuses.SLEEP && entity.behaviour.resting.canSleep
         val isMoving = entity.dataTracker.get(MOVING)
         val isPassenger = entity.hasVehicle()

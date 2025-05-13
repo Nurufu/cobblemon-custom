@@ -158,9 +158,8 @@ class PartyOverlay : InGameHud(MinecraftClient.getInstance(), MinecraftClient.ge
                     partialTicks = 0F, // partialDeltaTicks, //Before you get any funny ideas about party animated pokemon, make sure they each get their own state instead of sharing.
                     contextScale = pokemon.form.baseScale,
                     repository = PokemonModelRepository,
-                    state = FloatingState()
+                    state = state
                 )
-
                 matrices.pop()
                 context.disableScissor()
             }

@@ -75,6 +75,7 @@ import com.cobblemon.mod.common.util.*
 import com.cobblemon.mod.common.util.math.geometry.toRadians
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
 import com.google.common.collect.UnmodifiableIterator
+import net.minecraft.client.MinecraftClient
 import net.minecraft.entity.*
 import net.minecraft.entity.ai.control.MoveControl
 import net.minecraft.entity.ai.goal.EatGrassGoal
@@ -217,6 +218,8 @@ open class PokemonEntity(
 
     var queuedToDespawn = false
 
+    var enablePoseTypeRecalculation = true
+
     /**
      * The amount of steps this entity has traveled.
      */
@@ -309,6 +312,7 @@ open class PokemonEntity(
         get() = controllingPassenger != null && (controllingPassenger as LivingEntityAccessor).jumping
     var isRideDescending: Boolean = false
     var isRideSprinting: Boolean = false
+    var rideMomentumStop: Boolean = false
 
 
     init {
@@ -606,8 +610,16 @@ open class PokemonEntity(
         nbt.putBoolean(DataKeys.POKEMON_PINGED, dataTracker.get(PINGED))
         nbt.putBoolean(DataKeys.POKEMON_SHINED, dataTracker.get(SHINED))
 
+        if(!enablePoseTypeRecalculation) {
+            nbt.putBoolean(DataKeys.POKEMON_RECALCULATE_POSE, enablePoseTypeRecalculation)
+        }
+
         // save active effects
         nbt.put(DataKeys.ENTITY_EFFECTS, effects.saveToNbt())
+
+        if (nbt.contains(DataKeys.POKEMON_RECALCULATE_POSE)) {
+            enablePoseTypeRecalculation = nbt.getBoolean(DataKeys.POKEMON_RECALCULATE_POSE)
+        }
 
         CobblemonEvents.POKEMON_ENTITY_SAVE.post(PokemonEntitySaveEvent(this, nbt))
 
@@ -766,10 +778,10 @@ open class PokemonEntity(
         val colorFeatureType = SpeciesFeatures.getFeaturesFor(pokemon.species).find { it is ChoiceSpeciesFeatureProvider && DataKeys.CAN_BE_COLORED in it.keys }
         val colorFeature = pokemon.getFeature<StringSpeciesFeature>(DataKeys.CAN_BE_COLORED)
 
-        //Mount?
+        //Mount
         val result = super.interactMob(player, hand)
         if (result == ActionResult.PASS && Cobblemon.implementation.canInteractToMount(player, hand, this)) {
-            if (!this.hasPassengers() && this.canBeRiddenBy(player)) {
+            if (!this.hasPassengers() && this.canBeRiddenBy(player) && this.isOwner(player)) {
                 this.doPlayerRide(player)
                 return ActionResult.success(world.isClient())
             } else if (this.hasPassengers() && this.isOwner(player)
@@ -1383,8 +1395,6 @@ open class PokemonEntity(
             ) > this.swimHeight))
                     //return (double)this.getEyeHeight() < 0.4 ? (double)0.0F : 0.4;
 
-            Cobblemon.LOGGER.info("Sink: ${shouldSinkInWater})")
-
             // Sprint control logic
             val shouldBeSprinting = canSprint && (isTouchingWater || isFlying() || config.sprinting.canSprintOnLand)
                     && (!isTouchingWater || config.sprinting.canSprintInWater) && (!isFlying() || config.sprinting.canSprintInAir)
@@ -1454,8 +1464,19 @@ open class PokemonEntity(
                     ).toFloat()
             if (isRideAscending && !isRideDescending) {
                 Vec3d = Vec3d.add(0.0, verticalSpeed.toDouble(), 0.0)
+                rideMomentumStop = true
             } else if (isRideDescending && !isRideAscending) {
                 Vec3d = Vec3d.add(0.0, -verticalSpeed.toDouble(), 0.0)
+                rideMomentumStop = true
+            }
+            //Stop momentum for (de)ascending
+            else if (!isRideAscending && !isRideDescending && rideMomentumStop) {
+                this.setVelocity(this.velocity.x, 0.0, this.velocity.z)
+                rideMomentumStop = false
+            }
+            //Stop momentum for X/Z axis
+            if(!MinecraftClient.getInstance().options.leftKey.isPressed && !MinecraftClient.getInstance().options.rightKey.isPressed && !MinecraftClient.getInstance().options.forwardKey.isPressed && !MinecraftClient.getInstance().options.backKey.isPressed ) {
+                this.setVelocity(0.0, this.velocity.y, 0.0)
             }
         }
 
