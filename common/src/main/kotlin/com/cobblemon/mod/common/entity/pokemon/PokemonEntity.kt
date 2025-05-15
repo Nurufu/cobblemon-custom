@@ -44,8 +44,8 @@ import com.cobblemon.mod.common.block.entity.PokemonPastureBlockEntity
 import com.cobblemon.mod.common.client.entity.PokemonClientDelegate
 import com.cobblemon.mod.common.client.settings.ClientSettings
 import com.cobblemon.mod.common.client.settings.ServerSettings
-import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PosableEntity
+import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.generic.GenericBedrockEntity
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity
 import com.cobblemon.mod.common.entity.pokemon.ai.PokemonMoveControl
@@ -75,7 +75,6 @@ import com.cobblemon.mod.common.util.*
 import com.cobblemon.mod.common.util.math.geometry.toRadians
 import com.cobblemon.mod.common.world.gamerules.CobblemonGameRules
 import com.google.common.collect.UnmodifiableIterator
-import net.minecraft.client.MinecraftClient
 import net.minecraft.entity.*
 import net.minecraft.entity.ai.control.MoveControl
 import net.minecraft.entity.ai.goal.EatGrassGoal
@@ -313,6 +312,8 @@ open class PokemonEntity(
     var isRideDescending: Boolean = false
     var isRideSprinting: Boolean = false
     var rideMomentumStop: Boolean = false
+    val getMaxPassengers: Int = 2
+    val canAddPassenger: Boolean = this.passengerList.size < this.getMaxPassengers
 
 
     init {
@@ -770,6 +771,39 @@ open class PokemonEntity(
         return !hasPassengers() && pokemon.form.shoulderMountable
     }
 
+    override fun updatePassengerPosition(passenger: Entity, positionUpdater: PositionUpdater) {
+        if (this.hasPassenger(passenger)) {
+            var f: Float = 0.0F
+            val g = ((if (this.isRemoved) 0.01 else this.mountedHeightOffset) + passenger.heightOffset).toFloat()
+            if (passengerList.size > 1) {
+                val i = passengerList.indexOf(passenger)
+                f = if (i == 0) {
+                    0.2f
+                } else {
+                    -0.6f
+                }
+
+            }
+
+            val vec3d = (Vec3d(
+                f.toDouble(),
+                0.0,
+                0.0
+            )).rotateY(-this.yaw * (Math.PI.toFloat() / 180f) - (Math.PI.toFloat() / 2f))
+            positionUpdater.accept(passenger, this.x + vec3d.x, this.y + g.toDouble(), this.z + vec3d.z)
+            this.copyEntityData(passenger)
+        }
+    }
+
+    private fun copyEntityData(entity: Entity) {
+        entity.bodyYaw = yaw
+        val f = MathHelper.wrapDegrees(entity.yaw - this.yaw)
+        val g = MathHelper.clamp(f, -105.0f, 105.0f)
+        entity.prevYaw += g - f
+        entity.yaw = entity.yaw + g - f
+        entity.headYaw = entity.yaw
+    }
+
     override fun interactMob(player: PlayerEntity, hand: Hand) : ActionResult {
         if (!this.isBattling && this.isBattleClone()) {
             return ActionResult.FAIL
@@ -781,7 +815,7 @@ open class PokemonEntity(
         //Mount
         val result = super.interactMob(player, hand)
         if (result == ActionResult.PASS && Cobblemon.implementation.canInteractToMount(player, hand, this)) {
-            if (!this.hasPassengers() && this.canBeRiddenBy(player) && this.isOwner(player)) {
+            if (this.passengerList.size < 2 && this.canBeRiddenBy(player)) {
                 this.doPlayerRide(player)
                 return ActionResult.success(world.isClient())
             } else if (this.hasPassengers() && this.isOwner(player)
@@ -1253,7 +1287,7 @@ open class PokemonEntity(
     }
 
     private fun canBeRiddenBy(player: PlayerEntity): Boolean =
-        rideData != null && rideData!!.enabled && (canBeControlledBy(player) || !this.isBattling) && isAllowedDimension()
+        rideData != null && rideData!!.enabled && (this.passengerList.size < 2 || !this.isBattling) && isAllowedDimension()
 
     private fun isAllowedDimension() = !config.restrictions.blacklistedDimensions.contains(
         world.dimension.toString()
@@ -1345,9 +1379,9 @@ open class PokemonEntity(
         entity is PlayerEntity && this.isOwner(entity)
 
     private fun doPlayerRide(player: PlayerEntity) {
-        player.yaw = yaw
-        player.pitch = pitch
         if (!world.isClient()) {
+            player.yaw = yaw
+            player.pitch = pitch
             player.startRiding(this)
         }
     }

@@ -43,6 +43,10 @@ object SendOutPokemonHandler : ServerNetworkPacketHandler<SendOutPokemonPacket> 
                 player.playSound(CobblemonSounds.PC_DROP, SoundCategory.PLAYERS, 0.4F, 1F)
                 player.dismountVehicle()
                 return
+            } else if (!mount.isOwner(player)) {
+                player.playSound(CobblemonSounds.PC_DROP, SoundCategory.PLAYERS, 0.4F, 1F)
+                player.dismountVehicle()
+                return
             }
         }
         if (state is ShoulderedState || state !is ActivePokemonState) {
