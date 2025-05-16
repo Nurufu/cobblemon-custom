@@ -1287,7 +1287,7 @@ open class PokemonEntity(
     }
 
     private fun canBeRiddenBy(player: PlayerEntity): Boolean =
-        rideData != null && rideData!!.enabled && (this.passengerList.size < 2 || !this.isBattling) && isAllowedDimension()
+        rideData != null && rideData!!.enabled && (this.passengerList.size < 2 || !this.isBattling) && isAllowedDimension() && this.ownerUuid != null
 
     private fun isAllowedDimension() = !config.restrictions.blacklistedDimensions.contains(
         world.dimension.toString()
