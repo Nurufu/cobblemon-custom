@@ -21,6 +21,10 @@ import net.minecraft.state.property.Properties
 import net.minecraft.util.math.RotationAxis
 
 class GildedChestBlockRenderer(context: BlockEntityRendererFactory.Context) : BlockEntityRenderer<GildedChestBlockEntity> {
+    val context = RenderContext().also {
+        it.put(RenderContext.RENDER_STATE, RenderContext.RenderState.BLOCK)
+        it.put(RenderContext.DO_QUIRKS, true)
+    }
     override fun render(
         entity: GildedChestBlockEntity,
         tickDelta: Float,
@@ -36,14 +40,13 @@ class GildedChestBlockRenderer(context: BlockEntityRendererFactory.Context) : Bl
         val poserId = entity.type.poserId
 
         val model = BlockEntityModelRepository.getPoser(poserId, aspects)
+        model.context = context
         val texture = BlockEntityModelRepository.getTexture(poserId, aspects, state.animationSeconds)
         val vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(texture))
         model.bufferProvider = vertexConsumers
         state.currentModel = model
         state.currentAspects = aspects
 
-        val context = RenderContext()
-        context.put(RenderContext.RENDER_STATE, RenderContext.RenderState.BLOCK)
         context.put(RenderContext.ASPECTS, aspects)
         context.put(RenderContext.TEXTURE, texture)
         context.put(RenderContext.SPECIES, poserId)
