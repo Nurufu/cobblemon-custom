@@ -1376,13 +1376,13 @@ open class PokemonEntity(
     }
 
     private fun canBeControlledBy(entity: LivingEntity): Boolean =
-        entity is PlayerEntity && this.isOwner(entity)
+        entity is PlayerEntity || this.isOwner(entity)
 
     private fun doPlayerRide(player: PlayerEntity) {
         if (!world.isClient()) {
             player.yaw = yaw
             player.pitch = pitch
-            player.startRiding(this)
+            player.startRiding(this, true)
         }
     }
 
