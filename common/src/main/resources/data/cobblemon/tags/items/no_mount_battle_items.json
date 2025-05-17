@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "values": [
+    "cobblemon:ancient_poke_ball",
+    "cobblemon:ancient_citrine_ball",
+    "cobblemon:ancient_verdant_ball",
+    "cobblemon:ancient_azure_ball",
+    "cobblemon:ancient_roseate_ball",
+    "cobblemon:ancient_slate_ball",
+    "cobblemon:ancient_ivory_ball",
+    "cobblemon:ancient_great_ball",
+    "cobblemon:ancient_ultra_ball",
+    "cobblemon:ancient_feather_ball",
+    "cobblemon:ancient_wing_ball",
+    "cobblemon:ancient_jet_ball",
+    "cobblemon:ancient_heavy_ball",
+    "cobblemon:ancient_leaden_ball",
+    "cobblemon:ancient_gigaton_ball",
+    "cobblemon:ancient_origin_ball",
+    {
+      "id": "#cobblemon:apricorn_poke_balls",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:ancient_poke_balls",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:ability_changers",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:berries",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:evolution_stones",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:experience_candies",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:feathers",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:mints",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:poke_balls",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:remedies",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:potions",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:revives",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:teacups",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:teapots",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:vitamins",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:x_items",
+      "replace": false
+    },
+    {
+      "id": "#cobblemon:evolution_items",
+      "replace": false
+    }
+  ]
+}
