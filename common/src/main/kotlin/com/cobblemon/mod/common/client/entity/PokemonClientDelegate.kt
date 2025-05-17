@@ -354,7 +354,7 @@ class PokemonClientDelegate : PosableState(), PokemonSideDelegate {
         val client = MinecraftClient.getInstance().options
         if(!client.leftKey.isPressed && !client.backKey.isPressed && !client.forwardKey.isPressed && !client.rightKey.isPressed)
         {
-            pkmn.setVelocity(0.0, pkmn.velocity.y, 0.0)
+            pkmn.setVelocity(pkmn.velocity.x.times(1.0), pkmn.velocity.y, pkmn.velocity.z.times(1.0))
             pkmn.isRideSprinting = false
         }
     }

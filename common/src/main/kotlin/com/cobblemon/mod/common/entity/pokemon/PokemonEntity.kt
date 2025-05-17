@@ -1497,15 +1497,15 @@ open class PokemonEntity(
                     }
                     ).toFloat()
             if (isRideAscending && !isRideDescending) {
-                Vec3d = Vec3d.add(0.0, verticalSpeed.toDouble(), 0.0)
+                if(this.isOnGround) Vec3d = Vec3d.add(0.0, verticalSpeed.toDouble().times(2), 0.0) else Vec3d = Vec3d.add(0.0, verticalSpeed.toDouble(), 0.0)
                 rideMomentumStop = true
             } else if (isRideDescending && !isRideAscending) {
-                Vec3d = Vec3d.add(0.0, -verticalSpeed.toDouble(), 0.0)
+                if(this.velocity.y >= 0.0) Vec3d = Vec3d.add(0.0, -verticalSpeed.toDouble().times(4), 0.0) else Vec3d = Vec3d.add(0.0, -verticalSpeed.toDouble(), 0.0)
                 rideMomentumStop = true
             }
             //Stop momentum for (de)ascending
             else if (!isRideAscending && !isRideDescending && rideMomentumStop) {
-                this.setVelocity(this.velocity.x, 0.0, this.velocity.z)
+                if(this.velocity.y > 0) this.setVelocity(this.velocity.x, this.velocity.y.times(0.3), this.velocity.z) else this.setVelocity(this.velocity.x, this.velocity.y.times(0.15), this.velocity.z)
                 rideMomentumStop = false
             }
         }
