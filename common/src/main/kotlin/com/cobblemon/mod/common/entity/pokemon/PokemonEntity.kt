@@ -61,10 +61,7 @@ import com.cobblemon.mod.common.net.messages.client.spawn.SpawnPokemonPacket
 import com.cobblemon.mod.common.net.messages.client.ui.InteractPokemonUIPacket
 import com.cobblemon.mod.common.net.messages.server.pokemon.update.SetRidePokemonExhaustPacket
 import com.cobblemon.mod.common.net.serverhandling.storage.SendOutPokemonHandler.SEND_OUT_DURATION
-import com.cobblemon.mod.common.pokemon.FormData
-import com.cobblemon.mod.common.pokemon.Pokemon
-import com.cobblemon.mod.common.pokemon.RideableFormData
-import com.cobblemon.mod.common.pokemon.Species
+import com.cobblemon.mod.common.pokemon.*
 import com.cobblemon.mod.common.pokemon.activestate.ActivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.InactivePokemonState
 import com.cobblemon.mod.common.pokemon.activestate.ShoulderedState
@@ -773,26 +770,65 @@ open class PokemonEntity(
 
     override fun updatePassengerPosition(passenger: Entity, positionUpdater: PositionUpdater) {
         if (this.hasPassenger(passenger)) {
-            var f: Float = 0.0F
             val g = ((if (this.isRemoved) 0.01 else this.mountedHeightOffset) + passenger.heightOffset).toFloat()
-            if (passengerList.size > 1) {
-                val i = passengerList.indexOf(passenger)
-                f = if (i == 0) {
-                    0.2f
-                } else {
-                    -0.6f
+//            val offsets = rideData?.offsets ?: hashMapOf()
+//            var offset = offsets[RiderOffsetType.DEFAULT] ?: Vec3d.ZERO
+//            fun hasOffset(name: RiderOffsetType): Boolean = offsets[name] != null
+//
+//            if (isFlying() && isInPoseOfType(PoseType.HOVER) && hasOffset(RiderOffsetType.HOVERING)) {
+//                offsets[RiderOffsetType.HOVERING]?.let { offset = offset.add(it) }
+//            } else if (isFlying() && hasOffset(RiderOffsetType.FLYING)) {
+//                offsets[RiderOffsetType.FLYING]?.let { offset = offset.add(it) }
+//            } else if (isSubmergedInWater && isInPoseOfType(PoseType.FLOAT) && hasOffset(RiderOffsetType.SUSPENDED)) {
+//                offsets[RiderOffsetType.SUSPENDED]?.let { offset = offset.add(it) }
+//            } else if (isSubmergedInWater && hasOffset(RiderOffsetType.DIVING)) {
+//                offsets[RiderOffsetType.DIVING]?.let { offset = offset.add(it) }
+//            } else if (isOnWaterSurface() && isInPoseOfType(PoseType.STAND) && hasOffset(RiderOffsetType.FLOATING)) {
+//                offsets[RiderOffsetType.FLOATING]?.let { offset = offset.add(it) }
+//            } else if (isOnWaterSurface() && hasOffset(RiderOffsetType.SWIMMING)) {
+//                offsets[RiderOffsetType.SWIMMING]?.let { offset = offset.add(it) }
+//            } else if (isInPoseOfType(PoseType.WALK) && hasOffset(RiderOffsetType.WALKING)) {
+//                offsets[RiderOffsetType.WALKING]?.let { offset = offset.add(it) }
+//            }
+//
+//
+//            val vec3d = offset.rotateY(-this.yaw * (Math.PI.toFloat() / 180f) - (Math.PI.toFloat() / 2f))
+                var f: Float = 0.0F
+                if (passengerList.size > 1) {
+                    val i = passengerList.indexOf(passenger)
+                    f = if (i == 0) {
+                        0.2f
+                    } else {
+                        -0.6f
+                    }
+
                 }
 
-            }
-
-            val vec3d = (Vec3d(
-                f.toDouble(),
-                0.0,
-                0.0
-            )).rotateY(-this.yaw * (Math.PI.toFloat() / 180f) - (Math.PI.toFloat() / 2f))
-            positionUpdater.accept(passenger, this.x + vec3d.x, this.y + g.toDouble(), this.z + vec3d.z)
-            this.copyEntityData(passenger)
+                val vec3d = (Vec3d(
+                    f.toDouble(),
+                    0.0,
+                    0.0
+                )).rotateY(-this.yaw * (Math.PI.toFloat() / 180f) - (Math.PI.toFloat() / 2f))
+                positionUpdater.accept(passenger, this.x + vec3d.x, this.y + g.toDouble(), this.z + vec3d.z)
+                this.copyEntityData(passenger)
         }
+    }
+
+    override fun onPassengerLookAround(passenger: Entity) {
+        if (this.controllingPassenger != passenger) {
+            this.clampPassengerYaw(passenger)
+        }
+    }
+
+    fun clampPassengerYaw(passenger: Entity){
+        passenger.bodyYaw = yaw
+        val f = passenger.yaw
+        val g = MathHelper.wrapDegrees(f - this.yaw)
+        val h = MathHelper.clamp(g, -160.0f, 160.0f)
+        passenger.prevYaw += h - g
+        val i = f + h - g
+        passenger.yaw = i
+        passenger.headYaw = i
     }
 
     private fun copyEntityData(entity: Entity) {

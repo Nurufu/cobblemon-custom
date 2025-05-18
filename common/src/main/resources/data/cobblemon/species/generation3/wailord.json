@@ -173,7 +173,7 @@
   "baseScale": 2.5,
   "hitbox": {
     "width": 3.2,
-    "height": 2.1,
+    "height": 3.1,
     "fixed": false
   },
   "baseFriendship": 50,

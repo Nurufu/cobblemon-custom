@@ -76,7 +76,7 @@ object PartySendBinding : CobblemonBlockingKeyBinding(
             val pokemon = CobblemonClient.storage.myParty.get(CobblemonClient.storage.selectedSlot)
             if (pokemon != null && pokemon.currentHealth > 0) {
                 val targetEntity = player.traceFirstEntityCollision(entityClass = LivingEntity::class.java, ignoreEntity = player)
-                if (targetEntity == null || (targetEntity is PokemonEntity && targetEntity.ownerUuid == player.uuid)) {
+                if (targetEntity == null || (targetEntity is PokemonEntity && targetEntity.ownerUuid != null)) {
                     sendPacketToServer(SendOutPokemonPacket(CobblemonClient.storage.selectedSlot))
                 }
                 else {
