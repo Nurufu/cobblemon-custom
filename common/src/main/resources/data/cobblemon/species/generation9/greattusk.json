@@ -103,6 +103,11 @@
     "gen9",
     "paradox"
   ],
+  "hitbox": {
+    "width": 3,
+    "height": 4.5,
+    "fixed": false
+  },
   "aspects": [],
   "height": 22,
   "weight": 3200,

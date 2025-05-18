@@ -163,6 +163,13 @@
     "tutor:twister",
     "tutor:worryseed"
   ],
+  "behaviour": {
+    "moving": {
+      "fly": {
+        "canFly": true
+      }
+    }
+  },
   "labels": [
     "gen3"
   ],

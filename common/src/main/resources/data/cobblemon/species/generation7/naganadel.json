@@ -16,6 +16,13 @@
         }
       ]
     },
+  "behaviour": {
+    "moving": {
+      "fly": {
+        "canFly": true
+      }
+    }
+  },
     "baseStats": {
       "hp": 73,
       "attack": 73,
