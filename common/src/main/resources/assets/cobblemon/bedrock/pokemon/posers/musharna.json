@@ -4,7 +4,9 @@
     "portraitTranslation": [ -0.2, 1.0, 0 ],
     "profileScale": 0.7,
     "profileTranslation": [ 0, 1.4, 0 ],
-  "cry":  "bedrock(musharna, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('musharna', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

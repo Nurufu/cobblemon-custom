@@ -3,7 +3,9 @@
   "portraitTranslation": [-0.45, 1, 0],
   "profileScale": 0.65,
   "profileTranslation": [0, 0.8, 0],
-  "cry":  "bedrock(toedscruel, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('toedscruel', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

@@ -3,7 +3,9 @@
     "portraitTranslation": [ -0.1, 2.5, 0 ],
     "profileScale": 0.25,
     "profileTranslation": [ 0, 1.5, 0 ],
-  "cry":  "bedrock(ragingbolt, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('ragingbolt', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

@@ -4,8 +4,10 @@
     "portraitTranslation": [ -0.4, -0.6, 0 ],
     "profileScale": 0.9,
     "profileTranslation": [ 0, 0.4, 0 ],
-    "faint": "bedrock(glameow, faint)",
-  "cry": "bedrock(glameow, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('glameow', 'cry')",
+    "faint": "q.bedrock_primary('glameow', 'faint')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

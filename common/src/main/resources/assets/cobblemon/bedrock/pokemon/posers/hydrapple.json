@@ -4,8 +4,10 @@
   "portraitTranslation": [ -0.1, 3.4, 0 ],
   "profileScale": 0.5,
   "profileTranslation": [ 0, 0.9, 0 ],
-  "cry":  "bedrock(hydrapple, cry)",
-  "faint": "bedrock(hydrapple, sleep)",
+  "animations": {
+    "cry": "q.bedrock_stateful('hydrapple', 'cry')",
+    "faint": "q.bedrock_primary('hydrapple', 'faint')"
+  },
   "poses": {
     "battle-idle": {
       "poseName": "battle-idle",

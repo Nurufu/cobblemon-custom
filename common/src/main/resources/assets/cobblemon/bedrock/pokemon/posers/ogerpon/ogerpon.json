@@ -4,8 +4,10 @@
   "portraitTranslation": [ -0.5, 1.0, 0 ],
   "profileScale": 0.7,
   "profileTranslation": [ 0, 0.8, 0 ],
-  "cry": "bedrock(ogerpon, cry)",
-  "faint": "bedrock(ogerpon, sleep)",
+  "animations": {
+    "cry": "q.bedrock_stateful('ogerpon', 'cry')",
+    "faint": "q.bedrock_primary('ogerpon', 'sleep')"
+  },
   "poses": {
     "battle-idle": {
       "poseName": "battle-idle",

@@ -12,7 +12,9 @@
     1.03,
     0
   ],
-  "cry": "bedrock(alakazam_mega, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('alakazam_mega', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

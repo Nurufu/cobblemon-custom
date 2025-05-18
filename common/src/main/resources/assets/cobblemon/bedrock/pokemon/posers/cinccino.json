@@ -4,7 +4,9 @@
     "portraitTranslation": [ -0.2, -1.2, 0 ],
     "profileScale": 0.9,
     "profileTranslation": [ 0, 0.4, 0 ],
-  "cry":  "bedrock(cinccino, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('cinccino', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

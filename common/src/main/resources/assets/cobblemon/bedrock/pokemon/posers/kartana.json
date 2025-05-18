@@ -3,8 +3,10 @@
     "portraitTranslation": [ 0.2, 0.3, 0 ],
     "profileScale": 0.75,
     "profileTranslation": [ 0, 0.75, 0 ],
-    "faint": "bedrock(kartana, sleep)",
-  "cry": "bedrock(kartana, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('kartana', 'cry')",
+    "faint": "q.bedrock_primary('kartana', 'sleep')"
+  },
     "poses": {
 
       "standing": {

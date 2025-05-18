@@ -4,7 +4,9 @@
   "portraitTranslation": [ -1.4,0.8, 0],
   "profileScale": 0.4,
   "profileTranslation": [ 0, 1.2, 0],
-  "cry": "bedrock(volcanion, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('volcanion', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

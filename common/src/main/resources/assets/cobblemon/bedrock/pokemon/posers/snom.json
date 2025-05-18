@@ -3,8 +3,10 @@
     "portraitTranslation": [ 0.1, -4.4, 0 ],
     "profileScale": 1.25,
     "profileTranslation": [ 0.05, -0.2, 0 ],
-    "faint": "bedrock(snom, sleep)",
-  "cry":  "bedrock(snom, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('snom', 'cry')",
+    "faint": "q.bedrock_primary('snom', 'sleep')"
+  },
     "poses": {
 
       "standing": {

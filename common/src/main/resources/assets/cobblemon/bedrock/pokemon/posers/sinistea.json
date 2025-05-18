@@ -3,8 +3,10 @@
     "portraitTranslation": [ -0.2, -2.75, 0 ],
     "profileScale": 1.25,
     "profileTranslation": [ 0, -0.1, 0 ],
-    "faint": "bedrock(sinistea, sleep)",
-  "cry":  "bedrock(sinistea, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('sinistea', 'cry')",
+    "faint": "q.bedrock_primary('sinistea', 'faint')"
+  },
     "poses": {
 
       "standing": {

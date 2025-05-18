@@ -2,10 +2,12 @@
     "head": "head",
     "portraitScale": 0.8,
     "portraitTranslation": [-1, 1.4, 0],
-    "profileScale": .3,
+    "profileScale": 0.3,
     "profileTranslation": [0.2, 1.2, 0],
-    "faint": "bedrock(avalugg, faint)",
-    "cry":  "bedrock(avalugg, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('avalugg', 'cry')",
+    "faint": "q.bedrock_primary('avalugg', 'faint')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

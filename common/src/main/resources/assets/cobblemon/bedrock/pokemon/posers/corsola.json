@@ -4,8 +4,10 @@
   "portraitTranslation": [-0.1, -0.20, 0],
   "profileScale": 0.85,
   "profileTranslation": [0, 0.55, 0],
-  "faint": "bedrock(corsola_galar, sleep)",
-  "cry":  "bedrock(corsola, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('corsola_galar', 'cry')",
+    "faint": "q.bedrock_primary('corsola', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

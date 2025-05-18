@@ -4,8 +4,10 @@
     "portraitTranslation": [ -0.25, 0.75, 0 ],
     "profileScale": 0.5,
     "profileTranslation": [ 0, 1.0, 0 ],
-    "faint": "bedrock(frosmoth, sleep)",
-  "cry":  "bedrock(frosmoth, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('frosmoth', 'cry')",
+    "faint": "q.bedrock_primary('frosmoth', 'faint')"
+  },
     "poses": {
 
       "standing": {

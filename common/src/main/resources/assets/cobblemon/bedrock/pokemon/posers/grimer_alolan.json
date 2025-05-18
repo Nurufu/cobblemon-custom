@@ -3,8 +3,10 @@
   "portraitTranslation": [ -0.25, 0, 0 ],
   "profileScale": 0.75,
   "profileTranslation": [ -0.05, 0.5, 0 ],
-    "faint": "bedrock(grimer_alolan, faint)",
-  "cry":  "bedrock(grimer_alolan, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('grimer_alolan', 'cry')",
+    "faint": "q.bedrock_primary('grimer_alolan', 'faint')"
+  },
     "poses": {
 
       "standing": {

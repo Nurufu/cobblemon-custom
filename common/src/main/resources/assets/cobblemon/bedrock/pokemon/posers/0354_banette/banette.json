@@ -4,8 +4,10 @@
     "portraitTranslation": [ -0.15, -1.25, 0 ],
     "profileScale": 1,
     "profileTranslation": [ 0, 0.25, 0 ],
-    "faint": "bedrock(banette, sleep)",
-    "cry": "bedrock(banette, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('banette', 'cry')",
+    "faint": "q.bedrock_primary('banette', 'sleep')"
+  },
     "poses": {
 
       "standing": {

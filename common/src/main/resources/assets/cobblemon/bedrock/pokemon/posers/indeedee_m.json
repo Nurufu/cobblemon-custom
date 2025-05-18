@@ -4,11 +4,9 @@
     "portraitTranslation": [ -0.1, 1.35, 0 ],
     "profileScale": 0.7,
     "profileTranslation": [ 0, 0.8, 0 ],
-    "faint": "bedrock(indeedee_m, faint)",
-	"cry":"bedrock(indeedee_m, cry)",
 	"animations": {
-		"faint": "bedrock(indeedee_m, faint)",
-		"cry":"bedrock(indeedee_m, cry)",
+		"faint": "q.bedrock_primary('indeedee_m', 'faint')",
+		"cry":"q.bedrock_stateful('indeedee_m', 'cry')",
 		"physical": "q.bedrock_primary('indeedee_m', 'physical', q.curve('symmetrical_wide'))"
     },  
     "poses": {

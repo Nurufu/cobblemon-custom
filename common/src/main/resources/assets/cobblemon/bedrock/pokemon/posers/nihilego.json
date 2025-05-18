@@ -4,7 +4,9 @@
     "portraitTranslation": [ -0.2, 2.8, 0 ],
     "profileScale": 0.4,
     "profileTranslation": [ 0, 1.4, 0 ],
-  "cry": "bedrock(nihilego, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('nihilego', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

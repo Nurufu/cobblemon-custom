@@ -4,7 +4,9 @@
     "portraitTranslation": [ 0, -1.4, 0 ],
     "profileScale": 1.0,
     "profileTranslation": [ 0, 0.3, 0 ],
-  "cry":  "bedrock(screamtail, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('screamtail', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

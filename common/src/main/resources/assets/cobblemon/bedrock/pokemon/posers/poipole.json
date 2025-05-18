@@ -4,7 +4,9 @@
     "portraitTranslation": [ -0.1, 0.4, 0 ],
     "profileScale": 0.9,
     "profileTranslation": [ 0, 0.5, 0 ],
-	"cry":  "bedrock(poipole, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('poipole', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

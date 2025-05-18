@@ -3,8 +3,10 @@
   "portraitTranslation": [ 0, 0.6, 0],
   "profileScale": 0.5,
   "profileTranslation": [ 0, 1.1, 0],
-  "cry": "bedrock(glalie, cry)",
-  "faint": "bedrock(glalie, faint, true)",
+  "animations": {
+    "cry": "q.bedrock_stateful('glalie', 'cry')",
+    "faint": "q.bedrock_primary('glalie', 'faint')"
+  },
   "poses": {
 	  "battle-idle":{
 	  "poseName": "battle-idle",

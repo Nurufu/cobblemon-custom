@@ -4,8 +4,10 @@
   "portraitTranslation": [0.2, -1.85, 0],
   "profileScale": 1.5,
   "profileTranslation": [0, -0.5, 0],
-  "faint": "bedrock(capsakid, faint)",
-  "cry":  "bedrock(capsakid, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('capsakid', 'cry')",
+    "faint": "q.bedrock_primary('capsakid', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

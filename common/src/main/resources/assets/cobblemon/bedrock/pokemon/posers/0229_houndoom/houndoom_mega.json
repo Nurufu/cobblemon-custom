@@ -4,7 +4,9 @@
     "portraitTranslation": [ -0.4, 1.8, 0 ],
     "profileScale": 0.50,
     "profileTranslation": [ 0, 1.08, 0 ],
-    "cry": "bedrock(houndoom_mega, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('houndoom_mega', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

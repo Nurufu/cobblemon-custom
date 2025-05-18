@@ -4,8 +4,10 @@
    "portraitTranslation":[ -0.1, 1.8, 0 ],
    "profileScale":0.5,
    "profileTranslation":[ -0.05, 1.1, 0 ],
-   "faint":"bedrock(leavanny, faint)",
-   "cry":"bedrock(leavanny, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('leavanny', 'cry')",
+    "faint": "q.bedrock_primary('leavanny', 'faint')"
+  },
    "poses":{
 	  "battle-idle": {
        "poseName": "battle-idle",

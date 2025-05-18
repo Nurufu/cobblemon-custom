@@ -11,7 +11,9 @@
       0.25,
       0
    ],
-  "cry":  "bedrock(vullaby, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('vullaby', 'cry')"
+  },
    "poses":{
       "standing":{
          "poseName":"standing",

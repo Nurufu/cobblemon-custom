@@ -11,7 +11,9 @@
       1,
       0
    ],
- "cry": "bedrock(mandibuzz, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('mandibuzz', 'cry')"
+  },
    "poses":{
       "standing":{
          "poseName":"standing",

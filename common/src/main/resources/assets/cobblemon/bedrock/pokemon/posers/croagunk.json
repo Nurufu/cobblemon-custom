@@ -4,8 +4,10 @@
   "portraitTranslation": [0.15, 0, 0],
   "profileScale": 1,
   "profileTranslation": [0, 0.15, 0],
-  "faint": "bedrock(croagunk, faint)",
-  "cry":  "bedrock(croagunk, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('croagunk', 'cry')",
+    "faint": "q.bedrock_primary('croagunk', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

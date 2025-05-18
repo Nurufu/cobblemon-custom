@@ -3,7 +3,9 @@
   "portraitTranslation": [-0.349, 0.79, 0],
   "profileScale": 0.56,
   "profileTranslation": [0, 0.87, 0],
-  "cry": "bedrock(manectric_mega, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('manectric_mega', 'cry')"
+  },
   "poses": {
     "battle-standing": {
       "poseTypes": ["STAND"],

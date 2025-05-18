@@ -4,8 +4,10 @@
     "portraitTranslation": [ -0.1, 1.35, 0 ],
     "profileScale": 0.7,
     "profileTranslation": [ 0, 0.8, 0 ],
-    "faint": "bedrock(indeedee_f, faint)",
-	"cry":"bedrock(indeedee_f, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('indeedee_f', 'cry')",
+    "faint": "q.bedrock_primary('indeedee_f', 'faint')"
+  },
     "poses": {
 	  "battle-idle": {
        "poseName": "battle-idle",

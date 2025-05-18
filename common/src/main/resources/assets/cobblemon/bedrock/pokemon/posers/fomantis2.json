@@ -4,8 +4,10 @@
   "portraitTranslation": [ 0.1, -0.5, 0 ],
   "profileScale": 1.1,
   "profileTranslation": [ 0, 0.1, 0 ],
-  "faint": "bedrock(fomantis, faint, true)",
-  "cry": "bedrock(fomantis, cry)",
+	"animations": {
+		"cry": "q.bedrock_stateful('fomantis', 'cry')",
+		"faint": "q.bedrock_primary('fomantis', 'faint')"
+	},
   "poses": {
 	"battle-idle":{
 	  "poseName": "battle-idle",

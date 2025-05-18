@@ -4,8 +4,10 @@
     "portraitTranslation": [ 0, -1.3, 0.5 ],
     "profileScale": 1,
     "profileTranslation": [ 0, -0.1, -1 ],
-    "faint": "bedrock(wurmple, faint)",
-    "cry": "bedrock(wurmple, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('wurmple', 'cry')",
+    "faint": "q.bedrock_primary('wurmple', 'faint')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

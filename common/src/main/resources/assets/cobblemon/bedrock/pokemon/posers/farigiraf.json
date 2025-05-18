@@ -4,8 +4,10 @@
   "portraitTranslation": [ -1, 4.3, 0 ],
   "profileScale": 0.33,
   "profileTranslation": [ 0, 1.35, 0 ],
-  "faint": "bedrock(farigiraf, faint)",
-  "cry": "bedrock(farigiraf, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('farigiraf', 'cry')",
+    "faint": "q.bedrock_primary('farigiraf', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

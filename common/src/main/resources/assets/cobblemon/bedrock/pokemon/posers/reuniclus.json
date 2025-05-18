@@ -4,8 +4,10 @@
     "portraitTranslation": [ -0.2, 0.75, 0 ],
     "profileScale": 0.6,
     "profileTranslation": [ 0, 1.1, 0 ],
-    "faint": "bedrock(reuniclus, faint)",
-  "cry":  "bedrock(reuniclus, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('reuniclus', 'cry')",
+    "faint": "q.bedrock_primary('reuniclus', 'faint')"
+  },
     "poses": {
 
       "standing": {

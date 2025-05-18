@@ -4,7 +4,9 @@
     "portraitTranslation": [ -0.6, -0.4, 0 ],
     "profileScale": 0.9,
     "profileTranslation": [ 0, 0.4, 0 ],
-	"cry":  "bedrock(shaymin_sky, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('shaymin_sky', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

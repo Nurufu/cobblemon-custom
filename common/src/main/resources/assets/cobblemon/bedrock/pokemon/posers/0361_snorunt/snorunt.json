@@ -3,8 +3,10 @@
   "portraitTranslation": [ 0, -0.3, 0],
   "profileScale": 1,
   "profileTranslation": [ 0, 0.3, 0],
-  "cry": "bedrock(snorunt, cry)",
-  "faint": "bedrock(snorunt, faint, true)",
+  "animations": {
+    "cry": "q.bedrock_stateful('snorunt', 'cry')",
+    "faint": "q.bedrock_primary('snorunt', 'faint')"
+  },
   "poses": {
 	  "battle-idle":{
 	  "poseName": "battle-idle",

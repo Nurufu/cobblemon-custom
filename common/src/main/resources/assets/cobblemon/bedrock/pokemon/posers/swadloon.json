@@ -4,8 +4,10 @@
     "portraitTranslation": [ -0.05, -0.3, 0 ],
     "profileScale": 0.8,
     "profileTranslation": [ -0.05, 0.55, 0 ],
-    "faint": "bedrock(swadloon, faint)",
-  "cry":  "bedrock(swadloon, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('swadloon', 'cry')",
+    "faint": "q.bedrock_primary('swadloon', 'faint')"
+  },
     "poses": {
 
       "standing": {

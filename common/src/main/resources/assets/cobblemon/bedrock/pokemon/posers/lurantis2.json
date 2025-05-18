@@ -4,8 +4,10 @@
   "portraitTranslation": [ 0.1, 1, 0 ],
   "profileScale": 0.75,
   "profileTranslation": [ 0, 0.75, 0 ],
-  "faint": "bedrock(lurantis, faint, true)",
-  "cry": "bedrock(lurantis, cry, true)",
+  "animations": {
+    "cry": "q.bedrock_stateful('lurantis', 'cry')",
+    "faint": "q.bedrock_primary('lurantis', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

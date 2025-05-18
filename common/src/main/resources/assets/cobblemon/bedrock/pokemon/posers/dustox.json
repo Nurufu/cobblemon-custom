@@ -4,8 +4,10 @@
     "portraitTranslation": [ 0, 1, 0 ],
     "profileScale": 0.75,
     "profileTranslation": [ 0, 1.1, -1 ],
-    "faint": "bedrock(dustox, faint)",
-    "cry": "bedrock(dustox, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('dustox', 'cry')",
+    "faint": "q.bedrock_primary('dustox', 'faint')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

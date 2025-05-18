@@ -12,7 +12,9 @@
         0.4,
         0
     ],
-  "cry":  "bedrock(eelektrik, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('eelektrik', 'cry')"
+  },
     "poses": {
         "standing": {
             "poseName": "standing",

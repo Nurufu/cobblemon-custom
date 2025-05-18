@@ -3,8 +3,10 @@
   "portraitTranslation": [-0.38, 0.8, 6.69],
   "profileScale": 0.25,
   "profileTranslation": [0.0, 1.2, -10.0],
-  "cry": "bedrock(wailord, cry)",
-  "faint": "bedrock(wailord, faint, true)",
+  "animations": {
+    "cry": "q.bedrock_stateful('wailord', 'cry')",
+    "faint": "q.bedrock_primary('wailord', 'faint')"
+  },
   "poses": {
 	  "battle-idle":{
 	  "poseName": "battle-idle",

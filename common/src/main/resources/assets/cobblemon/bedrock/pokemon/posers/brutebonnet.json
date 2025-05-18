@@ -5,7 +5,9 @@
 	"portraitTranslation": [0, 0.1, 0],
 	"profileScale": 0.8,
 	"profileTranslation": [0, 0.6, -0.3],
-	"cry": "bedrock(brutebonnet, cry)",
+	"animations": {
+		"cry": "q.bedrock_stateful('brutebonnet', 'cry')"
+	},
 	"poses": {
 		"standing": {
 			"poseName": "standing",

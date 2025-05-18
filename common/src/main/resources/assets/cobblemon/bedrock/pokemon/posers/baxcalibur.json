@@ -3,7 +3,9 @@
   "portraitTranslation": [ -0.5, 3.25, 0.0],
   "profileScale": 0.5,
   "profileTranslation": [0, 1.1, 0.0],
-  "cry":  "bedrock(baxcalibur, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('azurill', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

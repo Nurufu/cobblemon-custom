@@ -4,7 +4,9 @@
   "portraitTranslation": [ -0.2, 2.40, 0 ],
   "profileScale": 0.5,
   "profileTranslation": [ -0.1, 1.1, 0 ],
-  "cry":  "bedrock(scizor_mega, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('scizor_mega', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

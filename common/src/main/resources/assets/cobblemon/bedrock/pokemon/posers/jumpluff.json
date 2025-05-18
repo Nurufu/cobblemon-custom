@@ -4,8 +4,10 @@
     "portraitTranslation": [ -0.15, -0.1, 0 ],
     "profileScale": 0.8,
     "profileTranslation": [ 0, 0.65, 0 ],
-    "faint": "bedrock(jumpluff, faint)",
-  "cry":  "bedrock(jumpluff, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('jumpluff', 'cry')",
+    "faint": "q.bedrock_primary('jumpluff', 'faint')"
+  },
     "poses": {
 
       "standing": {

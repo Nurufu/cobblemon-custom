@@ -4,8 +4,10 @@
   "portraitTranslation": [0.2, -0.7, 0],
   "profileScale": 1,
   "profileTranslation": [0, 0.15, 0],
-  "faint": "bedrock(drilbur, faint)",
-  "cry":  "bedrock(drilbur, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('drilbur', 'cry')",
+    "faint": "q.bedrock_primary('drilbur', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

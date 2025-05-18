@@ -4,7 +4,9 @@
     "portraitTranslation": [ 0.2, -1.6, 0 ],
     "profileScale": 0.8,
     "profileTranslation": [ 0, 0.3, 0 ],
-  "cry":  "bedrock(foongus, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('foongus', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

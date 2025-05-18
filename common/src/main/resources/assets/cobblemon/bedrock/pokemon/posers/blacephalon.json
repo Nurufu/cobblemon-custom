@@ -4,7 +4,9 @@
     "portraitTranslation": [ 0, 8.6, 0 ],
     "profileScale": 0.3,
     "profileTranslation": [ 0, 1.4, 0 ],
-    "cry": "bedrock(blacephalon, cry, true)",
+  "animations": {
+    "cry": "q.bedrock_stateful('blacephalon', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

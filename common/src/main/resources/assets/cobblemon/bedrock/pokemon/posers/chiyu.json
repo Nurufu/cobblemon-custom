@@ -4,7 +4,9 @@
     "portraitTranslation": [ 0, -1, 0 ],
     "profileScale": 1,
     "profileTranslation": [ -0.1, 0.25, 0 ],
-  "cry": "bedrock(chiyu, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('chiyu', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

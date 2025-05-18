@@ -11,7 +11,9 @@
       0.3,
       0
    ],
-   "cry":  "bedrock(pawmo, cry)",
+   "animations": {
+      "cry": "q.bedrock_stateful('pawmo', 'cry')"
+   },
    "poses":{
       "standing":{
          "poseName":"standing",

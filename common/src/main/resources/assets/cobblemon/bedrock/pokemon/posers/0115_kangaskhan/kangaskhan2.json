@@ -4,7 +4,9 @@
   "portraitTranslation": [ 0, 2.7, 0 ],
   "profileScale": 0.71,
   "profileTranslation": [ 0, 0.8, 0 ],
-  "cry":  "bedrock(kangaskhan2, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('kangaskhan2', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

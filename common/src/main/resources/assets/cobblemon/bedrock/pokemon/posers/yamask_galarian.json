@@ -3,8 +3,10 @@
     "portraitTranslation": [ -0.15, -0.45, 0.0 ],
     "profileScale": 0.7,
     "profileTranslation": [ 0.0, 0.7, 0.0 ],
-    "faint": "bedrock(yamask_galarian, sleep)",
-  "cry":  "bedrock(yamask_galarian, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('yamask_galarian', 'cry')",
+    "faint": "q.bedrock_primary('yamask_galarian', 'sleep')"
+  },
     "poses": {
 
       "standing": {

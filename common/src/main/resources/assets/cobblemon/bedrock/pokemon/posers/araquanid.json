@@ -4,8 +4,10 @@
   "portraitTranslation": [ -0.2, -0.55, 0 ],
   "profileScale": 1,
   "profileTranslation": [ 0, 0.15, 0 ],
-  "faint": "bedrock(araquanid, faint)",
-  "cry":  "bedrock(araquanid, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('araquanid', 'cry')",
+    "faint": "q.bedrock_primary('araquanid', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

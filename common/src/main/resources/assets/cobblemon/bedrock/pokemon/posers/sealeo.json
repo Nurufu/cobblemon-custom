@@ -4,7 +4,9 @@
   "portraitTranslation": [ -0.37, -0.27, 0 ],
   "profileScale": 0.85,
   "profileTranslation": [ -0.2, 0.1, 0 ],
-  "cry": "bedrock(sealeo, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('sealeo', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

@@ -4,8 +4,10 @@
   "portraitTranslation": [-0.25, 0.2, 0],
   "profileScale": 1,
   "profileTranslation": [-0.2, 0.15, 0],
-  "faint": "bedrock(scovillain, faint)",
-  "cry":  "bedrock(scovillain, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('scovillain', 'cry')",
+    "faint": "q.bedrock_primary('scovillain', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

@@ -4,8 +4,10 @@
     "portraitTranslation": [ -1.0, 2.9, 0 ],
     "profileScale": 0.35,
     "profileTranslation": [ -0.1, 1.2, 0 ],
-    "faint": "bedrock(runerigus, sleep)",
-  "cry":  "bedrock(runerigus, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('runerigus', 'cry')",
+    "faint": "q.bedrock_primary('runerigus', 'sleep')"
+  },
     "poses": {
 
       "standing": {

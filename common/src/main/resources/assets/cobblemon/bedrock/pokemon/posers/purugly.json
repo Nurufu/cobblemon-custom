@@ -4,8 +4,10 @@
     "portraitTranslation": [ -0.8, 0.1, 0 ],
     "profileScale": 0.7,
     "profileTranslation": [ 0, 0.6, 0 ],
-    "faint": "bedrock(purugly, faint)",
-  "cry":  "bedrock(purugly, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('purugly', 'cry')",
+    "faint": "q.bedrock_primary('purugly', 'faint')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

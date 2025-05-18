@@ -4,7 +4,9 @@
   "portraitTranslation": [ -0.1, 1.3, 0 ],
   "profileScale": 0.9,
   "profileTranslation": [ 0, 0.9, 0 ],
-  "cry":  "bedrock(orbeetle, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('orbeetle', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

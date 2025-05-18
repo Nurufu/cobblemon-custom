@@ -3,8 +3,10 @@
     "portraitTranslation": [ 0.10, 1.50, 0 ],
     "profileScale": 0.5,
     "profileTranslation": [ 0.05, 1.0, 0 ],
-    "faint": "bedrock(altaria_mega, sleep)",
-    "cry": "bedrock(altaria_mega, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('altaria_mega', 'cry')",
+    "faint": "q.bedrock_primary('altaria_mega', 'sleep')"
+  },
     "poses": {
 
       "standing": {

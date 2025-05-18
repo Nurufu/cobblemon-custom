@@ -12,7 +12,9 @@
         1.2,
         0
     ],
-    "cry": "bedrock(fluttermane, cry)",
+    "animations": {
+        "cry": "q.bedrock_stateful('fluttermane', 'cry')"
+    },
     "poses": {
         "standing": {
             "poseName": "standing",

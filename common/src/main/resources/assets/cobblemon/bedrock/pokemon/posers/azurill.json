@@ -3,8 +3,10 @@
   "portraitTranslation": [ 0, -2, 0 ],
   "profileScale": 1.5,
   "profileTranslation": [ 0, -0.5, 0 ],
-  "faint": "bedrock(azurill, faint)",
-  "cry":  "bedrock(azurill, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('azurill', 'cry')",
+    "faint": "q.bedrock_primary('azurill', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

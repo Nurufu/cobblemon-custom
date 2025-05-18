@@ -4,7 +4,9 @@
   "portraitTranslation": [ -0.5, 2.85, 0 ],
   "profileScale": 0.65,
   "profileTranslation": [ 0, 1, 0 ],
-  "cry": "bedrock(zapdos_galar, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('zapdos_galar', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

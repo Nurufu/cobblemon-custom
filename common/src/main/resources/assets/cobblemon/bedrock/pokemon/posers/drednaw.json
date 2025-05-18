@@ -4,7 +4,9 @@
     "portraitTranslation": [ -0.37, -0.27, 0 ],
     "profileScale": 0.8,
     "profileTranslation": [ 0, 0.3, 0 ],
-    "cry": "bedrock(drednaw, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('drednaw', 'cry')"
+  },
     "poses": {
       "standing": {
         "poseName": "standing",

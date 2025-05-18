@@ -4,8 +4,10 @@
   "portraitTranslation": [ 0, 0.9, 0 ],
   "profileScale": 0.8,
   "profileTranslation": [ 0, 0.7, 0 ],
-  "faint": "bedrock(diancie, faint, true)",
-  "cry": "bedrock(diancie, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('diancie', 'cry')",
+    "faint": "q.bedrock_primary('diancie', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

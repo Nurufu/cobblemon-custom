@@ -9,7 +9,9 @@
   "portraitTranslation": [0.2, -1.06, 0.0],
   "profileScale": 0.72,
   "profileTranslation": [-0.05, 0.53, 0.0],
-  "cry": "bedrock(mawilemega, cry)",
+  "animations": {
+    "cry": "q.bedrock_stateful('mawilemega', 'cry')"
+  },
   "poses": {
     "battle-standing": {
       "poseTypes": ["STAND", "WALK"],

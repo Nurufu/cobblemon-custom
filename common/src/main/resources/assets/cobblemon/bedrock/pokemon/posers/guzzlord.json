@@ -4,8 +4,10 @@
   "portraitTranslation": [ -0.5, 4.5, 0 ],
   "profileScale": 0.09,
   "profileTranslation": [ 0, 1.625, 0 ],
-  "faint": "bedrock(guzzlord, faint)",
-  "cry": "bedrock(guzzlord, cry",
+  "animations": {
+    "cry": "q.bedrock_stateful('guzzlord', 'cry')",
+    "faint": "q.bedrock_primary('guzzlord', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",
