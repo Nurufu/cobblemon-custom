@@ -4,7 +4,7 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:pidgey",
+      "poser": "cobblemon:pidgey2",
       "model": "cobblemon:pidgey.geo",
       "texture": "cobblemon:textures/pokemon/0016_pidgey/pidgey.png",
       "layers": []

@@ -341,6 +341,10 @@ class PokemonClientDelegate : PosableState(), PokemonSideDelegate {
         }
         getClientShinyPokemon()
         if(MinecraftClient.getInstance().player?.hasVehicle() == true && MinecraftClient.getInstance().player?.vehicle is PokemonEntity) stopMomentum(entity)
+        if(MinecraftClient.getInstance().player?.hasVehicle() == true)
+        {
+            Cobblemon.LOGGER.info("X: ${entity.velocity.x} | Y: ${entity.velocity.y} | Z: ${entity.velocity.z}")
+        }
     }
 
     override fun addToStruct(struct: QueryStruct) {
@@ -354,7 +358,9 @@ class PokemonClientDelegate : PosableState(), PokemonSideDelegate {
         val client = MinecraftClient.getInstance().options
         if(!client.leftKey.isPressed && !client.backKey.isPressed && !client.forwardKey.isPressed && !client.rightKey.isPressed)
         {
-            pkmn.setVelocity(pkmn.velocity.x.times(1.0), pkmn.velocity.y, pkmn.velocity.z.times(1.0))
+            val pkmnX: Double = if(pkmn.velocity.x > 0.70) 0.70 else if (pkmn.velocity.x < -0.70) -0.70 else pkmn.velocity.x
+            val pkmnZ: Double = if(pkmn.velocity.z > 0.70) 0.70 else if (pkmn.velocity.z < -0.70) -0.70 else pkmn.velocity.z
+            pkmn.setVelocity(pkmnX, pkmn.velocity.y, pkmnZ)
             pkmn.isRideSprinting = false
         }
     }
