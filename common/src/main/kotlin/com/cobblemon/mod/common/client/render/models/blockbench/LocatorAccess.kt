@@ -96,6 +96,14 @@ class LocatorAccess(
             state.getOrPut("middle") { MatrixWrapper() }.updateMatrix(matrixStack.peek().positionMatrix)
             matrixStack.pop()
 
+            // If we have the entity, put in a "top" locator for top center of hitbox.
+            matrixStack.push()
+            matrixStack.translate(0.0, -entity.boundingBox.yLength, 0.0)
+            matrixStack.scale(-1F, -1F, 1F)
+            state.getOrPut("top") { MatrixWrapper() }.updateMatrix(matrixStack.peek().positionMatrix)
+            matrixStack.pop()
+
+
         }
 
         for ((name, locator) in locators) {

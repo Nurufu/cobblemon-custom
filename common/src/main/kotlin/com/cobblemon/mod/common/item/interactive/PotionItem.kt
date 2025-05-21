@@ -17,10 +17,7 @@ import com.cobblemon.mod.common.battles.pokemon.BattlePokemon
 import com.cobblemon.mod.common.item.CobblemonItem
 import com.cobblemon.mod.common.item.battle.BagItem
 import com.cobblemon.mod.common.pokemon.Pokemon
-import com.cobblemon.mod.common.util.asExpression
-import com.cobblemon.mod.common.util.genericRuntime
-import com.cobblemon.mod.common.util.giveOrDropItemStack
-import com.cobblemon.mod.common.util.resolveInt
+import com.cobblemon.mod.common.util.*
 import java.lang.Integer.min
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack

@@ -39,7 +39,12 @@ open class AbilityTypeChanger<T : PotentialAbility>(
         val possible = this.queryPossible(pokemon)
         val picked = possible.randomOrNull() ?: return false
         val old = pokemon.ability.template
-        pokemon.updateAbility(picked.first.create(forced = false))
+        val priority = when (type) {
+            HiddenAbilityType -> if (currentType == HiddenAbilityType) Priority.LOWEST else Priority.LOW
+            CommonAbilityType -> Priority.LOWEST
+            else -> Priority.LOWEST
+        }
+        pokemon.updateAbility(picked.first.create(forced = false, priority = priority))
         //Cobblemon.LOGGER.info("${pokemon.updateAbility(picked.first.create(forced = false, priority = picked.second))}")
         pokemon.ability.forced = false
         return pokemon.ability.template != old

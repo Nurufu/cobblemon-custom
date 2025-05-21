@@ -54,7 +54,9 @@ object LootInjector {
         LootTables.SIMPLE_DUNGEON_CHEST,
         LootTables.SPAWN_BONUS_CHEST,
         LootTables.STRONGHOLD_CORRIDOR_CHEST,
-        LootTables.WOODLAND_MANSION_CHEST
+        LootTables.WOODLAND_MANSION_CHEST,
+        LootTables.FISHING_TREASURE_GAMEPLAY,
+        LootTables.FISHING_JUNK_GAMEPLAY
     ).apply { addAll(villageHouseLootTables) }
 
     /**

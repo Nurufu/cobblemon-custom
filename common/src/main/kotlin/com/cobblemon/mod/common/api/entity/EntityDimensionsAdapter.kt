@@ -12,6 +12,7 @@ import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
+import com.google.gson.JsonPrimitive
 import com.google.gson.JsonSerializationContext
 import com.google.gson.JsonSerializer
 import java.lang.reflect.Type
@@ -28,6 +29,10 @@ object EntityDimensionsAdapter : JsonSerializer<EntityDimensions>, JsonDeseriali
     const val WIDTH = "width"
     const val HEIGHT = "height"
 
+    val templates = mutableMapOf(
+        "player" to { EntityDimensions(0.6F, 1.8F, false) }
+    )
+
     override fun serialize(dimensions: EntityDimensions, type: Type, ctx: JsonSerializationContext): JsonElement {
         val json = JsonObject()
         json.addProperty(WIDTH, dimensions.width)
@@ -36,6 +41,9 @@ object EntityDimensionsAdapter : JsonSerializer<EntityDimensions>, JsonDeseriali
     }
 
     override fun deserialize(json: JsonElement, type: Type, ctx: JsonDeserializationContext): EntityDimensions {
+        if (json is JsonPrimitive) {
+            return templates[json.asString]?.invoke() ?: throw IllegalStateException("Dimensions provided by template name $json but no such template is set.")
+        }
         json as JsonObject
         return EntityDimensions(json.get(WIDTH).asFloat, json.get(HEIGHT).asFloat, false)
     }

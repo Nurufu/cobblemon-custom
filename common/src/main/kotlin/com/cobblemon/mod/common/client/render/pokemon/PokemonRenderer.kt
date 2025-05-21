@@ -85,11 +85,11 @@ class PokemonRenderer(
         buffer: VertexConsumerProvider,
         packedLight: Int
     ) {
+        val clientDelegate = entity.delegate as PokemonClientDelegate
         shadowRadius = min((entity.boundingBox.maxX - entity.boundingBox.minX), (entity.boundingBox.maxZ) - (entity.boundingBox.minZ)).toFloat() / 1.5F * (entity.delegate as PokemonClientDelegate).entityScaleModifier
         model.posableModel = PokemonModelRepository.getPoser(entity.pokemon.species.resourceIdentifier, entity.aspects)
         model.posableModel.context = context
         model.setupEntityTypeContext(entity)
-        val clientDelegate = entity.delegate as PokemonClientDelegate
         val modelNow = model.posableModel
         clientDelegate.updatePartialTicks(partialTicks)
 

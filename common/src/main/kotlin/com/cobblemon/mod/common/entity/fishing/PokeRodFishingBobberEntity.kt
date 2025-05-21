@@ -96,8 +96,8 @@ class PokeRodFishingBobberEntity(type: EntityType<out PokeRodFishingBobberEntity
     var inOpenWater = true
     private var hookedEntity: Entity? = null
     var state = State.FLYING
-    var luckOfTheSeaLevel = 0
-    var lureLevel = 0
+    private var luckOfTheSeaLevel = 0
+    private var lureLevel = 0
     private var typeCaught= "ITEM"
     private var chosenBucket = Cobblemon.bestSpawner.config.buckets[0] // default to first rarity bucket
     private val pokemonSpawnChance = 85 // chance a Pokemon will be fished up % out of 100

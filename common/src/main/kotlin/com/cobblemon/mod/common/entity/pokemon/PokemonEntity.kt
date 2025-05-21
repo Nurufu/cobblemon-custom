@@ -317,6 +317,7 @@ open class PokemonEntity(
         delegate.initialize(this)
         delegate.changePokemon(pokemon)
         calculateDimensions()
+        addPosableFunctions(struct)
     }
 
     override fun initDataTracker() {
@@ -1162,6 +1163,10 @@ open class PokemonEntity(
             }
         }
         return false
+    }
+
+    override fun getOwner(): LivingEntity? {
+        return pokemon.getOwnerPlayer()
     }
 
     fun offerHeldItem(player: PlayerEntity, stack: ItemStack): Boolean {

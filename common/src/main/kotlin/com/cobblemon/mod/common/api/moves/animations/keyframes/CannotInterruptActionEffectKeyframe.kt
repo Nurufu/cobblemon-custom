@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture
 
 class CannotInterruptActionEffectKeyframe : ConditionalActionEffectKeyframe() {
     override fun playWhenTrue(context: ActionEffectContext): CompletableFuture<Unit> {
-        context.canBeInterrupted = false
+        context.canBeInterrupted = true
         return CompletableFuture.completedFuture(Unit)
     }
 }

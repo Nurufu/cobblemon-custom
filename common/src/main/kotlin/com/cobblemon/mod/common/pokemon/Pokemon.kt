@@ -416,14 +416,29 @@ open class Pokemon : ShowdownIdentifiable {
 
     fun asRenderablePokemon() = RenderablePokemon(species, aspects)
 
+    /**
+     * A set of aspects that were not calculated and must always be a part of the Pokémon's aspect list. This is the
+     * appropriate way to force an aspect onto a Pokémon. Updating this set will recalculate [aspects] and sync these
+     * to the client, as well as any form updates that may be necessary. The forced aspects are persisted to both JSON
+     * and NBT.
+     */
     var forcedAspects = setOf<String>()
-        set(value){
+        set(value) {
             field = value
             updateAspects()
         }
 
+    /**
+     * This is a list of simple flag-based discriminators that can contribute to making a Pokémon unique. This set
+     * in particular is the master list of aspects for this [Pokemon], and is made up of both [forcedAspects] (a set
+     * which is decisive and not the result of any calculations) and a collection of aspects that were calculated from
+     * [AspectProvider]s.
+     *
+     * You should NOT be setting this directly because this property only exists to essentially cache the results of
+     * [AspectProvider]s. If you want to force an aspect, update [forcedAspects].
+     */
     var aspects = setOf<String>()
-        set(value) {
+        private set(value) {
             if (field != value) {
                 field = value
                 if (!isClient) {
@@ -433,6 +448,7 @@ open class Pokemon : ShowdownIdentifiable {
             }
         }
 
+    /** If you're not a Cobblemon dev you should probably leave this right alone. */
     internal var isClient = false
     val storeCoordinates = SettableObservable<StoreCoordinates<*>?>(null)
 
@@ -443,7 +459,7 @@ open class Pokemon : ShowdownIdentifiable {
 
     val preEvolution: PreEvolution? get() = this.form.preEvolution
 
-    // Lazy due to leaking this
+    // Lazy due to leaking 'this'
     /**
      * Provides the sided [EvolutionController]s, these operations can be done safely with a simple side check.
      * This can be done beforehand or using [EvolutionProxy.isClient].
@@ -452,6 +468,10 @@ open class Pokemon : ShowdownIdentifiable {
 
     val customProperties = mutableListOf<CustomPokemonProperty>()
 
+    /**
+     * Arbitrary data compound. Be aware that updating this is not enough for a Pokémon to be recognized as dirty
+     * and in need of saving. Emit to [anyChangeObservable] if you are making a change otherwise you'll see reversions.
+     */
     var persistentData: NbtCompound = NbtCompound()
         private set
 
@@ -849,7 +869,7 @@ open class Pokemon : ShowdownIdentifiable {
             nbt.putString(DataKeys.POKEMON_ORIGINAL_TRAINER, originalTrainer)
         }
         nbt.putString(DataKeys.POKEMON_ORIGINAL_TRAINER_TYPE, originalTrainerType.name)
-        nbt.put(DataKeys.POKEMON_FORCED_ASPECTS, NbtList().also { it.addAll(forcedAspects.map { NbtString.of(it)})})
+        nbt.put(DataKeys.POKEMON_FORCED_ASPECTS, NbtList().also { it.addAll(forcedAspects.map { NbtString.of(it) }) })
         return nbt
     }
 
@@ -1231,12 +1251,11 @@ open class Pokemon : ShowdownIdentifiable {
         get() = form.moves.getLevelUpMovesUpTo(level) + benchedMoves.map { it.moveTemplate } + form.moves.evolutionMoves
 
     fun updateAspects() {
+        aspects = emptySet()
         /*
          * We don't want to run this for client representations of Pokémon as they won't always have the same
          * aspect providers, and we want the server side to entirely manage them anyway.
          */
-        aspects = emptySet()
-
         if (!isClient) {
             aspects = AspectProvider.providers.flatMap { it.provide(this) }.toSet()
         }

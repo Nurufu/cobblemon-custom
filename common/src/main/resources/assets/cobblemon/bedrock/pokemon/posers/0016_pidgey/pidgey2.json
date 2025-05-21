@@ -36,7 +36,7 @@
       },
       "sleep": {
         "poseTypes": ["SLEEP"],
-        "animations": ["q.bedrock('pidgey', 'sleep_PLACEHOLDER'"]
+        "animations": ["q.bedrock('pidgey', 'sleep_PLACEHOLDER')"]
       }
     }
   }

@@ -174,7 +174,7 @@ object MoLangFunctions {
             map.put("velocity_z") { _ -> DoubleValue(entity.velocity.z) }
             map.put("horizontal_velocity") { _ -> DoubleValue(entity.velocity.horizontalLength()) }
             map.put("is_on_ground") { _ -> DoubleValue(entity.isOnGround) }
-            map.put("world") { _ -> (entity.world.registryManager.get(RegistryKeys.WORLD)) }
+            map.put("world") { _ -> entity.world.worldRegistry.getEntry(entity.world).asWorldMoLangValue() }
             map.put("biome") { _ -> entity.world.getBiome(entity.blockPos).asBiomeMoLangValue() }
             map
         }

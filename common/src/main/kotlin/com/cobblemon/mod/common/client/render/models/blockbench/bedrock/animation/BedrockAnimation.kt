@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.client.particle.ParticleStorm
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.RenderContext
+import com.cobblemon.mod.common.util.genericRuntime
 import com.cobblemon.mod.common.util.getString
 import com.cobblemon.mod.common.util.math.geometry.toRadians
 import com.cobblemon.mod.common.util.resolveDouble
@@ -40,7 +41,7 @@ data class BedrockAnimationGroup(
 )
 
 abstract class BedrockEffectKeyframe(val seconds: Float) {
-    abstract fun run(entity: Entity?, state: PosableState)
+    abstract fun run(entity: Entity, state: PosableState)
 }
 
 class BedrockParticleKeyframe(
@@ -63,8 +64,7 @@ class BedrockParticleKeyframe(
         }
     }
 
-    override fun run(entity: Entity?, state: PosableState) {
-        entity ?: return
+    override fun run(entity: Entity, state: PosableState) {
         val world = entity.world as? ClientWorld ?: return
         val matrixWrapper = state.locatorStates[locator] ?: state.locatorStates["root"]!!
 
@@ -99,24 +99,22 @@ class BedrockSoundKeyframe(
     seconds: Float,
     val sound: Identifier
 ): BedrockEffectKeyframe(seconds) {
-    override fun run(entity: Entity?, state: PosableState) {
+    override fun run(entity: Entity, state: PosableState) {
         val soundEvent =
             SoundEvent.of(sound) // Means we don't need to setup a sound registry entry for every single thing
         if (soundEvent != null) {
-            if (entity != null) {
-                MinecraftClient.getInstance().soundManager.play(
-                    PositionedSoundInstance(
-                        soundEvent,
-                        SoundCategory.NEUTRAL,
-                        1F,
-                        1F,
-                        entity.world.random,
-                        entity.x,
-                        entity.y,
-                        entity.z
-                    )
+            MinecraftClient.getInstance().soundManager.play(
+                PositionedSoundInstance(
+                    soundEvent,
+                    SoundCategory.NEUTRAL,
+                    1F,
+                    1F,
+                    entity.world.random,
+                    entity.x,
+                    entity.y,
+                    entity.z
                 )
-            }
+            )
         }
     }
 }
@@ -125,7 +123,7 @@ class BedrockInstructionKeyframe(
     seconds: Float,
     val expressions: ExpressionLike
 ): BedrockEffectKeyframe(seconds) {
-    override fun run(entity: Entity?, state: PosableState) {
+    override fun run(entity: Entity, state: PosableState) {
         expressions.resolve(state.runtime)
     }
 }
@@ -136,6 +134,20 @@ data class BedrockAnimation(
     val effects: List<BedrockEffectKeyframe>,
     val boneTimelines: Map<String, BedrockBoneTimeline>
 ) {
+    fun checkForErrors() {
+        boneTimelines.forEach { (_, timeline) ->
+            if (!timeline.position.isEmpty()) {
+                timeline.position.resolve(2.0, genericRuntime)
+            }
+            if (!timeline.rotation.isEmpty()) {
+                timeline.rotation.resolve(2.0, genericRuntime)
+            }
+            if (!timeline.scale.isEmpty()) {
+                timeline.scale.resolve(2.0, genericRuntime)
+            }
+        }
+    }
+
     /** Useful to have, gets set after loading the animation. */
     var name: String = ""
 

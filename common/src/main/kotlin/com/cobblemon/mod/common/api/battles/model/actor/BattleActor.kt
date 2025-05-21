@@ -145,4 +145,7 @@ abstract class BattleActor(
     }
     open fun awardExperience(battlePokemon: BattlePokemon, experience: Int) {}
     open fun sendUpdate(packet: NetworkPacket<*>) {}
+
+    open fun win(otherWinners: List<BattleActor>, losers: List<BattleActor>) {}
+    open fun lose(winners: List<BattleActor>, otherLosers: List<BattleActor>) {}
 }

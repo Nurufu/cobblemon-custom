@@ -187,16 +187,16 @@ abstract class PosableState : Schedulable {
                 val particleRuntime = MoLangRuntime().setup().setupClient()
                 particleRuntime.environment.query.addFunction("entity") { runtime.environment.query }
 
-                val storm = ParticleStorm(
-                    effect = effect,
-                    entity = entity,
-                    matrixWrapper = matrixWrapper,
-                    world = world,
-                    runtime = particleRuntime,
-                    sourceVelocity = { entity.velocity },
-                    sourceAlive = { !entity.isRemoved },
-                    sourceVisible = { !entity.isInvisible }
-                )
+                    val storm = ParticleStorm(
+                        effect = effect,
+                        entity = entity,
+                        matrixWrapper = matrixWrapper,
+                        world = world,
+                        runtime = particleRuntime,
+                        sourceVelocity = { entity.velocity },
+                        sourceAlive = { !entity.isRemoved },
+                        sourceVisible = { !entity.isInvisible }
+                    )
 
                 storm.spawn()
             }
@@ -232,6 +232,11 @@ abstract class PosableState : Schedulable {
             primaryAnimation.afterAction.accept(Unit)
         }
     }
+
+    fun getMatchingLocators(locator: String): List<String> {
+        return locatorStates.keys.filter { it.matches("${locator}[0-9]*".toRegex()) }
+    }
+
 
     /** Decides how an update to partial ticks should be applied to the state. See [FloatingState] for how it could happen. */
     abstract fun updatePartialTicks(partialTicks: Float)
@@ -365,6 +370,8 @@ abstract class PosableState : Schedulable {
 
         currentModel?.let { model ->
             val pose = currentPose?.let { model.poses[it] }
+            allActiveAnimations.forEach { it.applyEffects(entity, this, previousSeconds, newSeconds) }
+            primaryAnimation?.animation?.applyEffects(entity, this, previousSeconds, newSeconds)
             // Effects start playing from pose animations as long as the intensity is above 0.5. Pretty sloppy honestly.
             pose?.animations
                 ?.filter { shouldIdleRun(it, 0.5F) && it.condition(this) }

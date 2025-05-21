@@ -25,7 +25,7 @@ open class BedrockActiveAnimation(
     val animation: BedrockAnimation,
 ) : ActiveAnimation {
     var startedSeconds = -1F
-    var isTransformAnimation = false
+    override var enduresPrimaryAnimations: Boolean = false
     override val duration = animation.animationLength.toFloat()
     private var afterAction: (RenderContext, PosableState) -> Unit = { _, _ -> }
 

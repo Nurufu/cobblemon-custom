@@ -30,6 +30,7 @@ class EntityParticlesActionEffectKeyframe : ConditionalActionEffectKeyframe(), E
     override val entityCondition = "q.entity.is_user".asExpressionLike()
     var effect: String? = null
     var locator: String = "root"
+    var locators: List<String> = listOf("target")
     val delay: ExpressionLike = "0".asExpressionLike()
     val visibilityRange = 200
 
@@ -45,11 +46,11 @@ class EntityParticlesActionEffectKeyframe : ConditionalActionEffectKeyframe(), E
         }?.asIdentifierDefaultingNamespace() ?: return skip()
 
         entities.filter { it is PosableEntity }.forEach { entity ->
-            val packet = SpawnSnowstormEntityParticlePacket(effectIdentifier, entity.id, listOf(locator))
+            val packet = SpawnSnowstormEntityParticlePacket(effectIdentifier, entity.id, (locators + locator).toList())
             val players = (entity.world as ServerWorld).getPlayers { it.distanceTo(entity) <= visibilityRange }
             packet.sendToPlayers(players)
         }
 
-        return delayedFuture(seconds = delay.resolveFloat(context.runtime), serverThread = true)
+        return delayedFuture(seconds = delay.resolveFloat(context.runtime))
     }
 }

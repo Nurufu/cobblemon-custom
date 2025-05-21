@@ -9,15 +9,15 @@
 package com.cobblemon.mod.common.entity
 
 import com.bedrockk.molang.runtime.struct.QueryStruct
+import com.bedrockk.molang.runtime.value.StringValue
 import com.cobblemon.mod.common.api.entity.EntitySideDelegate
-import kotlin.reflect.jvm.internal.impl.resolve.constants.StringValue
 
 interface PosableEntity {
     fun getCurrentPoseType(): PoseType
     val delegate: EntitySideDelegate<*>
     val struct: QueryStruct
 
-    fun addPosableFunctions(struct: QueryStruct){
+    fun addPosableFunctions(struct: QueryStruct) {
         struct.addFunction("pose_type") { StringValue(getCurrentPoseType().name) }
         delegate.addToStruct(struct)
     }
