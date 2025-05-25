@@ -66,6 +66,7 @@ fun drawProfilePokemon(
     context.put(RenderContext.ASPECTS, aspects)
     context.put(RenderContext.RENDER_STATE, RenderContext.RenderState.PROFILE)
     context.put(RenderContext.POSABLE_STATE, state)
+    context.put(RenderContext.DO_QUIRKS, false)
 
     state.currentModel = model
     state.currentAspects = aspects

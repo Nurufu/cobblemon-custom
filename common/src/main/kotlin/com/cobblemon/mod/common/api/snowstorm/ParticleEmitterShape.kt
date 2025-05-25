@@ -231,18 +231,42 @@ class BoxParticleEmitterShape(
         val sizes = runtime.resolveVec3d(boxSize).multiply(2.0).add(0.0001, 0.0001, 0.0001)
         val disposition = if (surfaceOnly) {
             when (Random.Default.nextInt(6)) {
-                0 -> Vec3d(-1/2.0 * sizes.x, Random.Default.nextDouble(sizes.y) - sizes.y / 2.0, Random.Default.nextDouble(sizes.z) - sizes.z / 2.0)
-                1 -> Vec3d(1/2.0 * sizes.x, Random.Default.nextDouble(sizes.y) - sizes.y / 2.0, Random.Default.nextDouble(sizes.z) - sizes.z / 2.0)
-                2 -> Vec3d(Random.Default.nextDouble(sizes.x) - sizes.x / 2.0, -1/2.0 * sizes.y, Random.Default.nextDouble(sizes.z) - sizes.z / 2.0)
-                3 -> Vec3d(Random.Default.nextDouble(sizes.x) - sizes.x / 2.0, 1/2.0 * sizes.y, Random.Default.nextDouble(sizes.z) - sizes.z / 2.0)
-                4 -> Vec3d(Random.Default.nextDouble(sizes.x) - sizes.x / 2.0, Random.Default.nextDouble(sizes.y) - sizes.y / 2.0, -1/2.0 * sizes.z)
-                else -> Vec3d(Random.Default.nextDouble(sizes.x) - sizes.x / 2.0, Random.Default.nextDouble(sizes.y) - sizes.y / 2.0, 1/2.0 * sizes.z)
+                0 -> Vec3d(
+                    -1 / 2.0 * sizes.x,
+                    Random.nextDouble(sizes.y) - sizes.y / 2.0,
+                    Random.nextDouble(sizes.z) - sizes.z / 2.0
+                )
+                1 -> Vec3d(
+                    1 / 2.0 * sizes.x,
+                    Random.nextDouble(sizes.y) - sizes.y / 2.0,
+                    Random.nextDouble(sizes.z) - sizes.z / 2.0
+                )
+                2 -> Vec3d(
+                    Random.nextDouble(sizes.x) - sizes.x / 2.0,
+                    -1 / 2.0 * sizes.y,
+                    Random.nextDouble(sizes.z) - sizes.z / 2.0
+                )
+                3 -> Vec3d(
+                    Random.nextDouble(sizes.x) - sizes.x / 2.0,
+                    1 / 2.0 * sizes.y,
+                    Random.nextDouble(sizes.z) - sizes.z / 2.0
+                )
+                4 -> Vec3d(
+                    Random.nextDouble(sizes.x) - sizes.x / 2.0,
+                    Random.nextDouble(sizes.y) - sizes.y / 2.0,
+                    -1 / 2.0 * sizes.z
+                )
+                else -> Vec3d(
+                    Random.nextDouble(sizes.x) - sizes.x / 2.0,
+                    Random.nextDouble(sizes.y) - sizes.y / 2.0,
+                    1 / 2.0 * sizes.z
+                )
             }
         } else {
             Vec3d(
-                Random.Default.nextDouble(sizes.x) - sizes.x / 2,
-                Random.Default.nextDouble(sizes.y) - sizes.y / 2,
-                Random.Default.nextDouble(sizes.z) - sizes.z / 2
+                Random.nextDouble(sizes.x) - sizes.x / 2,
+                Random.nextDouble(sizes.y) - sizes.y / 2,
+                Random.nextDouble(sizes.z) - sizes.z / 2
             )
         }
 

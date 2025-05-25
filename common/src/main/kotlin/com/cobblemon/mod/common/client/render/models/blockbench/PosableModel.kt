@@ -552,6 +552,11 @@ open class PosableModel(@Transient override val rootPart: Bone) : ModelFrame {
         }
     }
 
+    fun registerPartAndAllNamedChildren(name: String, bone: Bone) {
+        if (bone is ModelPart) registerRelevantPart(name, bone)
+        loadAllNamedChildren(bone)
+    }
+
     fun registerRelevantPart(name: String, part: ModelPart): ModelPart {
         val default = ModelPartTransformation.derive(part)
         relevantPartsByName[name] = part

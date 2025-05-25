@@ -125,6 +125,7 @@ class RotateYCameraMode : ParticleCameraMode {
         val i = if (angle == 0F) 0F else MathHelper.lerp(deltaTicks, prevAngle, angle)
         val q2 = RotationAxis.POSITIVE_Y.rotationDegrees(-cameraYaw)
         q2.hamiltonProduct(RotationAxis.POSITIVE_Z.rotationDegrees(i))
+        q2.hamiltonProduct(RotationAxis.POSITIVE_Y.rotationDegrees(180F))
         return q2
     }
 
