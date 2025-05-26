@@ -11,17 +11,21 @@ package com.cobblemon.mod.common.command
 
 import com.cobblemon.mod.common.api.permission.CobblemonPermissions
 import com.cobblemon.mod.common.api.storage.pc.PCPosition
+import com.cobblemon.mod.common.api.text.red
+import com.cobblemon.mod.common.util.commandLang
 import com.cobblemon.mod.common.util.pc
 import com.cobblemon.mod.common.util.permission
 import com.mojang.brigadier.Command
 import com.mojang.brigadier.CommandDispatcher
 import com.mojang.brigadier.arguments.IntegerArgumentType
+import com.mojang.brigadier.exceptions.SimpleCommandExceptionType
 import net.minecraft.server.command.CommandManager
 import net.minecraft.server.command.ServerCommandSource
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Text
 
 object MassEmptyBoxCommand {
+    private val CANNOT_EMPTY = { box0: Int, box1: Int -> commandLang("pokebox.cannot_empty", box0, box1) }
 
     fun register(dispatcher: CommandDispatcher<ServerCommandSource>){
         dispatcher.register(
@@ -45,6 +49,8 @@ object MassEmptyBoxCommand {
         val playerPc = player.pc()
         val box = playerPc.boxes[box1-1]
         val boxx = playerPc.boxes[box2-1]
+
+        if(box.boxNumber > boxx.boxNumber) throw SimpleCommandExceptionType(CANNOT_EMPTY(box.boxNumber+1, boxx.boxNumber+1).red()).create()
 
         for(i in box.boxNumber..boxx.boxNumber){
             for(x in 0..29){

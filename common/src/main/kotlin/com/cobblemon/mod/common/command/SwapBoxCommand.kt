@@ -33,7 +33,7 @@ import net.minecraft.server.network.ServerPlayerEntity
 object SwapBoxCommand {
     private val BOX_DOES_NOT_EXIST = { boxNo: Int -> commandLang("pokebox.box_does_not_exist", boxNo) }
     private val CANNOT_RENAME_BOX = { name: String -> commandLang("renamebox.cannot_rename_box", name) }
-    private val CANNOT_SWAP = { box0: Int, box1: Int -> commandLang("pokebox.cannot_swap", box0, box1)}
+    val CANNOT_CHANGE_WALLPAPER = { name: String -> commandLang("changewallpaper.cannot_change_wallpaper", name) }
     fun register(dispatcher: CommandDispatcher<ServerCommandSource>) {
         dispatcher.register(CommandManager.literal("swapbox")
             .permission(CobblemonPermissions.SWAP_BOX)
@@ -55,13 +55,11 @@ object SwapBoxCommand {
         val playerPc = player.pc()
         val box0 = playerPc.boxes[box-1]
         val box1 = playerPc.boxes[box2-1]
-        val s = box0.name.toString()
-        val s2 = box1.name.toString()
+        val s = if(box0.name.toString() != "null") box0.name.toString() else "Box ${box0.boxNumber+1}"
+        val s2 = if(box1.name.toString() != "null") box1.name.toString() else "Box ${box1.boxNumber+1}"
         val w = box0.wallpaper
         val w2 = box1.wallpaper
         var i = 0
-
-        if(box0.boxNumber > box1.boxNumber) throw SimpleCommandExceptionType(CANNOT_SWAP(box0.boxNumber+1, box1.boxNumber+1).red()).create()
 
         while(i<30) {
             CobblemonEvents.SWAP_PC_BOX_EVENT_PRE.postThen(

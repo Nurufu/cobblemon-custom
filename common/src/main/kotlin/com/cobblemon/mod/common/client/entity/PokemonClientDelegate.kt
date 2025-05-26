@@ -341,10 +341,10 @@ class PokemonClientDelegate : PosableState(), PokemonSideDelegate {
         }
         getClientShinyPokemon()
         if(MinecraftClient.getInstance().player?.hasVehicle() == true && MinecraftClient.getInstance().player?.vehicle is PokemonEntity) stopMomentum(entity)
-        if(MinecraftClient.getInstance().player?.hasVehicle() == true)
-        {
-            Cobblemon.LOGGER.info("X: ${entity.velocity.x} | Y: ${entity.velocity.y} | Z: ${entity.velocity.z}")
-        }
+//        if(MinecraftClient.getInstance().player?.hasVehicle() == true)
+//        {
+//            Cobblemon.LOGGER.info("X: ${entity.velocity.x} | Y: ${entity.velocity.y} | Z: ${entity.velocity.z}")
+//        }
     }
 
     override fun addToStruct(struct: QueryStruct) {
