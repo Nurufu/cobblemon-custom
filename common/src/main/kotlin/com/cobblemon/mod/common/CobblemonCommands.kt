@@ -56,6 +56,7 @@ object CobblemonCommands {
         MassEmptyBoxCommand.register(dispatcher)
         BugReportCommand.register(dispatcher)
         WebDexCommand.register(dispatcher)
+        ForcedAspectFixCommand.register(dispatcher)
 
 
         // Possibly lock down registration if and only if under dev environment or running in an environment

@@ -26,11 +26,10 @@ import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Text
 
 object ForcedAspectFixCommand {
-    private val CANNOT_EMPTY = { box0: Int, box1: Int -> commandLang("pokebox.cannot_empty", box0, box1) }
 
     fun register(dispatcher: CommandDispatcher<ServerCommandSource>){
         dispatcher.register(
-            CommandManager.literal("emptyboxes")
+            CommandManager.literal("aspectfix")
                 .permission(CobblemonPermissions.EMPTY_BOXES)
                         .executes { context ->
                             val player = context.source.playerOrThrow
@@ -46,7 +45,9 @@ object ForcedAspectFixCommand {
         playerPc.boxes.forEach { box ->
             for (i in 0 until POKEMON_PER_BOX) {
                 box[i]?.forcedAspects?.forEach {
-                    //if(it == "male") box[i].forcedAspects.
+                    if(it == "male") box[i]?.forcedAspects = box[i]?.forcedAspects?.minus("male")!!
+                    if(it == "female") box[i]?.forcedAspects = box[i]?.forcedAspects?.minus("female")!!
+                    if(it == "shiny") box[i]?.forcedAspects = box[i]?.forcedAspects?.minus("shiny")!!
                 }
             }
         }
