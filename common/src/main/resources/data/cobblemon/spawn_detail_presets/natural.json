@@ -1,6 +1,7 @@
 {
   "condition": {
     "neededBaseBlocks": [
+		"create:limestone",
       "minecraft:big_dripleaf",
 	  "minecraft:lily_pad",
 	  "minecraft:moss_block",
