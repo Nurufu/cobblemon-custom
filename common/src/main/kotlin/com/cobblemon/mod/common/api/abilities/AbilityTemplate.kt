@@ -22,14 +22,14 @@ import com.mojang.serialization.Codec
  */
 class AbilityTemplate(
     val name: String = "",
-    var builder: (AbilityTemplate, forced: Boolean, priority: Priority) -> Ability = { template, forced, priority -> Ability(template, forced, priority) },
+    var builder: (AbilityTemplate, forced: Boolean) -> Ability = { template, forced -> Ability(template, forced) },
     val displayName: String = "cobblemon.ability.$name",
     val description: String = "cobblemon.ability.$name.desc"
 ) {
     /**
      * Returns the Ability or if applicable the extension connected to this template
      */
-    fun create(forced: Boolean = false, priority: Priority = Priority.LOWEST) = builder(this, forced, priority)
+    fun create(forced: Boolean = false) = builder(this, forced)
 
     /**
      * Returns the Ability and loads the given NBT Tag into it.
