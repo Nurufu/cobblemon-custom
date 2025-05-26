@@ -124,7 +124,6 @@ object PokemonModelRepository : VaryingModelRepository<PokemonPosableModel>() {
         inbuilt("kabuto", ::KabutoModel)
         inbuilt("kabutops", ::KabutopsModel)
         inbuilt("kadabra", ::KadabraModel)
-        inbuilt("kangaskhan", ::KangaskhanModel)
         inbuilt("kingler", ::KinglerModel)
         inbuilt("koffing", ::KoffingModel)
         inbuilt("krabby", ::KrabbyModel)

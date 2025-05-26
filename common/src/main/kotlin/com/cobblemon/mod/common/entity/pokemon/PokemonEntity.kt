@@ -1267,7 +1267,7 @@ open class PokemonEntity(
 
     fun cry() {
         if(this.isSilent) return
-        val pkt = PlayPosableAnimationPacket(id, setOf("cry"), emptySet())
+        val pkt = PlayPosableAnimationPacket(id, setOf("cry"), listOf())
         world.getEntitiesByClass(ServerPlayerEntity::class.java, Box.of(pos, 64.0, 64.0, 64.0), { true }).forEach {
             it.sendPacket(pkt)
         }
@@ -1447,7 +1447,23 @@ open class PokemonEntity(
 
         // If shared water breathing is allowed, check mount and apply if it has the effect
         if (moveBehaviour.swim.canBreatheUnderwater && config.general.isWaterBreathingShared) {
-            player.addStatusEffect(StatusEffectInstance(StatusEffects.WATER_BREATHING, 60, 0, false, false, false))
+            if(this.passengerList.size > 1) {
+                this.passengerList.forEach { p ->
+                    p as PlayerEntity
+                    p.addStatusEffect(StatusEffectInstance(StatusEffects.WATER_BREATHING, 60, 0, false, false, false))
+                }
+            } else {
+                    player.addStatusEffect(
+                        StatusEffectInstance(
+                            StatusEffects.WATER_BREATHING,
+                            60,
+                            0,
+                            false,
+                            false,
+                            false
+                        )
+                    )
+                }
         }
 
         if (this.isLogicalSideForUpdatingMovement) {

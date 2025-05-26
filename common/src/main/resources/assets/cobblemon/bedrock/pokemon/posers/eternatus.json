@@ -1,9 +1,10 @@
 {
   "head": "looky",
-  "portraitScale": 0.4,
-  "portraitTranslation": [-0.3, 1.8, 0],
-  "profileScale": 0.4,
-  "profileTranslation": [0, 2.2, 0],
+  "portraitScale": 0.489,
+  "portraitTranslation": [-0.72, 2.189, 0],
+  "profileScale": 0.26,
+  "profileTranslation": [-0.04, 1.59, 0],
+  "rootBone": "eternatus",
   "animations": {
     "faint": "q.bedrock_primary('eternatus', 'faint', q.curve('one'))",
     "cry": "q.bedrock_stateful('eternatus', 'cry')",

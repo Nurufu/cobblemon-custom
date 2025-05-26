@@ -1,9 +1,9 @@
 {
     "head": "head",
     "portraitScale": 1.75,
-    "portraitTranslation": [ -1.17, 3.07, 0 ],
+    "portraitTranslation": [ -1.17, 1.15, 0 ],
     "profileScale": 0.36,
-    "profileTranslation": [ -0.11, 1.41, 0 ],
+    "profileTranslation": [ -0.09, 0.889, 0 ],
     "animations": {
       "cry": "q.bedrock_stateful('yveltal', 'cry')",
       "faint": "q.bedrock_primary('yveltal', 'faint')"

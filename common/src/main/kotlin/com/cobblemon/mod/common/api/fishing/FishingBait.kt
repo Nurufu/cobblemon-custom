@@ -53,11 +53,6 @@ data class FishingBait(
                 return Effect(type, subcategory, chance, value)
 
             }
-
-            val BLANK_BAIT = FishingBait(
-                cobblemonResource("blank"),
-                emptyList()
-            )
         }
     }
 

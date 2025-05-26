@@ -28,7 +28,7 @@
       "times": "day"
     }
   },
-  "catchRate": 30,
+  "catchRate": 36,
   "maleRatio": 0.5,
   "shoulderMountable": false,
   "baseExperienceYield": 177,

@@ -29,7 +29,7 @@
     "special_defence": 50,
     "speed": 50
   },
-  "catchRate": 30,
+  "catchRate": 36,
   "maleRatio": 0.5,
   "shoulderMountable": false,
   "baseExperienceYield": 187,

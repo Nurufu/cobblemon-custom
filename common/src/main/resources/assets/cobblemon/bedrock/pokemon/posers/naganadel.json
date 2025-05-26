@@ -1,8 +1,9 @@
 {
   "portraitScale": 2,
   "portraitTranslation": [-1.8,4.4, 0],
-  "profileScale": 0.6,
-  "profileTranslation": [0, 1.4, -1.8],
+  "profileScale": 0.37,
+  "profileTranslation": [0, 1.53, -1.8],
+  "rootBone": "naganadel",
   "animations": {
     "cry": "q.bedrock_stateful('naganadel', 'cry')",
     "recoil": "q.bedrock_stateful('naganadel', 'recoil')",

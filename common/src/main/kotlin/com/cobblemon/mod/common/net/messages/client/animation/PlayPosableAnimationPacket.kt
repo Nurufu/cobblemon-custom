@@ -23,7 +23,7 @@ import net.minecraft.util.Identifier
 class PlayPosableAnimationPacket(
     val entityId: Int,
     val animation: Set<String>,
-    val expressions: Set<String>
+    val expressions: List<String>
 ) : NetworkPacket<PlayPosableAnimationPacket> {
     override val id: Identifier = ID
 
@@ -32,7 +32,7 @@ class PlayPosableAnimationPacket(
         fun decode(buffer: PacketByteBuf) = PlayPosableAnimationPacket(
             buffer.readInt(),
             buffer.readList { buffer.readString() }.toSet(),
-            buffer.readList { buffer.readString() }.toSet()
+            buffer.readList { buffer.readString() }.toList()
         )
     }
 

@@ -42,7 +42,7 @@
       "light": "0-4"
     }
   },
-  "catchRate": 30,
+  "catchRate": 36,
   "maleRatio": 0.5,
   "shoulderMountable": false,
   "baseExperienceYield": 180,

@@ -60,7 +60,7 @@ object CobblemonSounds : PlatformRegistry<Registry<SoundEvent>, RegistryKey<Regi
     @JvmField
     val POKE_BALL_CAPTURE_SUCCEEDED = this.create("poke_ball.capture_succeeded")
     @JvmField
-    val POKE_BALL_CAPTURE_STARTED = this.create("poke_ball.cature_started")
+    val POKE_BALL_CAPTURE_STARTED = this.create("poke_ball.capture_started")
     @JvmField
     val POKE_BALL_SHAKE = this.create("poke_ball.shake")
     @JvmField

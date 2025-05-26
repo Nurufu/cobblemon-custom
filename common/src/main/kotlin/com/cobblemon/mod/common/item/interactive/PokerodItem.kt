@@ -77,6 +77,16 @@ class PokerodItem(val pokeRodId: Identifier, settings: Settings?) : FishingRodIt
             }
         }
 
+        fun getBaitOnRod(stack: ItemStack): FishingBait? {
+            val nbt = stack.orCreateNbt
+            if (nbt.contains(NBT_KEY_BAIT)) {
+                val b = Identifier.of("cobblemon", ItemStack.fromNbt(nbt.getCompound(NBT_KEY_BAIT)).item.translationKey)
+                return if(b != null) FishingBait(b, getBaitEffects(stack)) else ItemStack.EMPTY as FishingBait?
+            } else {
+                return ItemStack.EMPTY as FishingBait?
+            }
+        }
+
         fun consumeBait(stack: ItemStack){
             CobblemonEvents.BAIT_CONSUMED.postThen(BaitConsumedEvent(stack), { event -> }, {
                 val baitStack = getBait(stack)
@@ -115,6 +125,16 @@ class PokerodItem(val pokeRodId: Identifier, settings: Settings?) : FishingRodIt
             }
             return effects
         }
+
+        fun setBaitEffects(stack: ItemStack, effects: List<FishingBait.Effect>) {
+            val nbt = stack.orCreateNbt
+            val nbtList = NbtList()
+            for (effect in effects) {
+                nbtList.add(effect.toNbt())
+            }
+            nbt.put(NBT_KEY_BAIT_EFFECTS, nbtList)
+        }
+
 
     }
 
@@ -208,8 +228,8 @@ class PokerodItem(val pokeRodId: Identifier, settings: Settings?) : FishingRodIt
 //                }
 //            }
 //
-//            // set the bait and bait effects on the bobber
-//            setBait(itemStack, offHandItem.copyWithCount(1))
+            // set the bait and bait effects on the bobber
+            setBaitEffects(itemStack, FishingBaits.getFromItemStack(getBait(itemStack))?.effects ?: emptyList())
 //
 //            // remove 1 bait from the offhand
 //            offHandItem.shrink(1)

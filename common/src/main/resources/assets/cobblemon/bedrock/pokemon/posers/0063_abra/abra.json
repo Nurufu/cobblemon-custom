@@ -1,8 +1,8 @@
 {
-  "portraitScale": 2.8,
-  "portraitTranslation": [0.0, -0.55, 0],
+  "portraitScale": 2.67,
+  "portraitTranslation": [0.01, -1.73, 0],
   "profileScale": 0.85,
-  "profileTranslation": [0.0, 0.54, 0],
+  "profileTranslation": [0.0, 0.309, 0],
   "rootBone": "abra",
   "animations": {
     "faint": "q.bedrock_stateful('abra', 'faint')",

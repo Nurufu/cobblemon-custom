@@ -4,6 +4,7 @@
     "portraitTranslation": [ -0.2, -0.3, 0 ],
     "profileScale": 0.9,
     "profileTranslation": [ 0, 0.4, 0 ],
+    "rootBone": "sinistcha",
   "animations": {
     "cry": "q.bedrock_stateful('sinistcha', 'cry')"
   },

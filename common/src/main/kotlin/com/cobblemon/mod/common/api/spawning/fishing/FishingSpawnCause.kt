@@ -136,8 +136,9 @@ class FishingSpawnCause(
     }
 
     val rodItem = rodStack.item as? PokerodItem
-    val bait = Identifier.of("cobblemon", PokerodItem.getBait(rodStack).name.toString())
-            ?.let { FishingBait(it, PokerodItem.getBaitEffects(rodStack)) }
+//    val bait = Identifier.of("cobblemon", PokerodItem.getBait(rodStack).name.toString())
+//            ?.let { FishingBait(it, PokerodItem.getBaitEffects(rodStack)) }
+    val bait = PokerodItem.getBaitOnRod(rodStack)
 
     override fun affectSpawn(entity: Entity) {
         super.affectSpawn(entity)
