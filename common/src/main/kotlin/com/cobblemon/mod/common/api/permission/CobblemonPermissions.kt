@@ -77,6 +77,10 @@ object CobblemonPermissions {
     val CLEAR_PARTY = this.create("${COMMAND_PREFIX}clearparty", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
     val CLEAR_PC = this.create("${COMMAND_PREFIX}clearpc", PermissionLevel.CHEAT_COMMANDS_AND_COMMAND_BLOCKS)
 
+    val BUG = this.create("${COMMAND_PREFIX}report", PermissionLevel.NONE)
+
+    val DEX = this.create("${COMMAND_PREFIX}webdex", PermissionLevel.NONE)
+
     fun all(): Iterable<Permission> = this.permissions
 
     private fun create(node: String, level: PermissionLevel): Permission {
