@@ -19,6 +19,7 @@ import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.Species
 import com.cobblemon.mod.common.util.DataKeys
 import com.cobblemon.mod.common.util.isPokemonEntity
+import net.minecraft.client.MinecraftClient
 import java.util.UUID
 import net.minecraft.client.render.OverlayTexture
 import net.minecraft.client.render.RenderLayer
@@ -61,10 +62,8 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
         this.render(matrixStack, buffer, packedLight, livingEntity, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, false)
     }
 
-    fun makeState(model: PosableModel, aspects: Set<String>, leftShoulder: Boolean): FloatingState {
-        val state = FloatingState()
+    fun configureState(state: FloatingState, model: PosableModel, leftShoulder: Boolean): FloatingState {
         state.currentModel = model
-        state.currentAspects = aspects
         state.setPoseToFirstSuitable(if (leftShoulder) PoseType.SHOULDER_LEFT else PoseType.SHOULDER_RIGHT)
         return state
     }
@@ -101,14 +100,19 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
                 // Could be null
                 shoulderData = (if (pLeftShoulder) cache.lastKnownLeft else cache.lastKnownRight) ?: return
             }
-            val model = PokemonModelRepository.getPoser(shoulderData.species.resourceIdentifier, shoulderData.aspects)
+
+            var state = FloatingState()
+            state.currentAspects = shoulderData.aspects
+            val model = PokemonModelRepository.getPoser(shoulderData.species.resourceIdentifier, state.currentAspects)
+            model.context = context
             context.put(RenderContext.SPECIES, shoulderData.species.resourceIdentifier)
             context.put(RenderContext.ASPECTS, shoulderData.aspects)
 
             model.context = context
             val scale = shoulderData.form.baseScale * shoulderData.scaleModifier
             val width = shoulderData.form.hitbox.width
-            val offset = width / 2 - 0.7
+            val heightOffset = -1.5 * scale
+            val widthOffset = width / 2 - 0.7
             // If they're sneaking, the pokemon needs to rotate a little bit and push forward
             // Shoulders move a bit when sneaking which is why the translation is necessary.
             // Shoulder exact rotation according to MC code is 0.5 radians, the -0.15 is eyeballed though.
@@ -117,19 +121,19 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
                 matrixStack.translate(0F, 0F, -0.15F)
             }
             matrixStack.translate(
-                if (pLeftShoulder) -offset else offset,
-                (if (livingEntity.isSneaking) -1.3 else -1.5) * scale,
+                if (pLeftShoulder) -widthOffset else widthOffset,
+                (if (livingEntity.isSneaking) heightOffset + 0.2 else heightOffset),
                 0.0
             )
 
             matrixStack.scale(scale, scale, scale)
 
-            val state = if (pLeftShoulder && shoulderData != lastRenderedLeft) {
-                leftState = makeState(model, shoulderData.aspects, true)
+            state = if (pLeftShoulder && shoulderData != lastRenderedLeft) {
+                leftState = configureState(state, model, true)
                 lastRenderedLeft = shoulderData
                 leftState
             } else if (!pLeftShoulder && shoulderData != lastRenderedRight) {
-                rightState = makeState(model, shoulderData.aspects, false)
+                rightState = configureState(state, model, false)
                 lastRenderedRight = shoulderData
                 rightState
             } else {
@@ -174,7 +178,6 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
         }
         val species = PokemonSpecies.getByIdentifier(Identifier(shoulderNbt.getString(DataKeys.SHOULDER_SPECIES)))
             ?: return null
-
         val formName = shoulderNbt.getString(DataKeys.SHOULDER_FORM)
         val form = species.forms.firstOrNull { it.name == formName } ?: species.standardForm
         val aspects = shoulderNbt.getList(DataKeys.SHOULDER_ASPECTS, NbtElement.STRING_TYPE.toInt()).map { it.asString() }.toSet()
@@ -209,6 +212,17 @@ class PokemonOnShoulderRenderer<T : PlayerEntity>(renderLayerParent: FeatureRend
         fun shoulderDataOf(player: PlayerEntity): Pair<ShoulderData?, ShoulderData?> {
             val cache = playerCache[player.uuid] ?: return Pair(null, null)
             return Pair(cache.lastKnownLeft, cache.lastKnownRight)
+        }
+
+        /**
+         * Clears the cache for the respective player.
+         * This is required to be done whenever a Pokémon changes in any way (form, evolution, etc.)
+         *
+         * @param player The player whose cache to clear
+         */
+        @JvmStatic
+        fun clearCache(player: PlayerEntity) {
+            playerCache.remove(player.uuid)
         }
 
     }

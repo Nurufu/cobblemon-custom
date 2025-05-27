@@ -438,7 +438,7 @@ open class Pokemon : ShowdownIdentifiable {
      * [AspectProvider]s. If you want to force an aspect, update [forcedAspects].
      */
     var aspects = setOf<String>()
-        private set(value) {
+        set(value) {
             if (field != value) {
                 field = value
                 if (!isClient) {

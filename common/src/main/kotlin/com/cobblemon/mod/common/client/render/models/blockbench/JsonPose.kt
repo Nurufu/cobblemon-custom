@@ -56,9 +56,9 @@ class JsonPose(model: PosableModel, json: JsonObject) {
 
     val poseName = json.get("poseName")?.asString ?: "pose"
     val poseTypes = (json.get("poseTypes")?.asJsonArray?.map { name ->
-        PoseType.values().find { it.name.lowercase() == name.asString.lowercase() }
+        PoseType.entries.find { it.name.lowercase() == name.asString.lowercase() }
             ?: throw IllegalArgumentException("Unknown pose type ${name.asString}")
-    } ?: emptyList()) + if (json.get("allPoseTypes")?.asBoolean == true) PoseType.values().toList() else emptyList()
+    } ?: emptyList()) + if (json.get("allPoseTypes")?.asBoolean == true) PoseType.entries else emptyList()
     val transformTicks = json.get("transformTicks")?.asInt ?: 10
     val transformedParts = json.get("transformedParts")?.asJsonArray?.map {
         it as JsonObject
