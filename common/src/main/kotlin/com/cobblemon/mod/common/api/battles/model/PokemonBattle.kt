@@ -23,6 +23,7 @@ import com.cobblemon.mod.common.api.events.CobblemonEvents
 import com.cobblemon.mod.common.api.events.battles.BattleFledEvent
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.asMoLangValue
 import com.cobblemon.mod.common.api.net.NetworkPacket
+import com.cobblemon.mod.common.api.storage.party.PlayerPartyStore
 import com.cobblemon.mod.common.api.tags.CobblemonItemTags
 import com.cobblemon.mod.common.api.text.red
 import com.cobblemon.mod.common.api.text.yellow
@@ -48,12 +49,14 @@ import com.cobblemon.mod.common.pokemon.evolution.progress.LastBattleCriticalHit
 import com.cobblemon.mod.common.pokemon.evolution.requirements.DefeatRequirement
 import com.cobblemon.mod.common.util.battleLang
 import com.cobblemon.mod.common.util.getPlayer
+import com.cobblemon.mod.common.util.giveOrDropItemStack
 import java.io.File
 import java.util.UUID
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentLinkedDeque
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Text
+import net.minecraft.util.Identifier
 
 /**
  * Individual battle instance
@@ -74,6 +77,8 @@ open class PokemonBattle(
 
     val onEndHandlers: MutableList<(PokemonBattle) -> Unit> = mutableListOf()
 
+    val battlePartyStores = mutableListOf<PlayerPartyStore>()
+
     init {
         side1.battle = this
         side2.battle = this
@@ -84,6 +89,7 @@ open class PokemonBattle(
                     .filterIsInstance<LastBattleCriticalHitsEvolutionProgress>()
                     .forEach { it.reset() }
             }
+            actor.setupStruct()
         }
     }
 
@@ -261,6 +267,13 @@ open class PokemonBattle(
                     }
                 }
             }
+//            if(actor.itemsUsed.isNotEmpty() && actor.getPlayerUUIDs().count() > 0) {
+//                val player = actor.getPlayerUUIDs().first().getPlayer()
+//                player?.level()?.itemRegistry.let { registry ->
+//                    actor.itemsUsed.mapNotNull { registry?.get(Identifier.tryBySeparator(it.itemName.substringAfter('.'), '.')) }
+//                            .forEach { player?.giveOrDropItemStack(ItemStack(it))}
+//                }
+//            }
         }
         // Heal Mon if wild
         actors.filter { it.type == ActorType.WILD }
@@ -347,6 +360,13 @@ open class PokemonBattle(
     fun dispatchToFront(dispatcher: () -> DispatchResult) {
         dispatches.addFirst(BattleDispatch { dispatcher() })
 
+    }
+
+    fun dispatchWaitingToFront(delaySeconds: Float = 1F, dispatcher: () -> Unit) {
+        dispatches.addFirst(BattleDispatch {
+            dispatcher()
+            WaitDispatch(delaySeconds)
+        })
     }
 
     fun dispatchGo(dispatcher: () -> Unit) {

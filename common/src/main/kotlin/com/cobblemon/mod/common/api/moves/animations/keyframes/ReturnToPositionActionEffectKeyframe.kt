@@ -56,7 +56,7 @@ class ReturnToPositionActionEffectKeyframe : ActionEffectKeyframe {
             }
         )
 
-        after(seconds = timeout.resolveFloat(context.runtime)) {
+        after(seconds = timeout.resolveFloat(context.runtime), serverThread = true) {
             if (!future.isDone && !timedOut) {
                 timedOut = true
                 timeoutEffect.run(context).thenApply { future.complete(Unit) }

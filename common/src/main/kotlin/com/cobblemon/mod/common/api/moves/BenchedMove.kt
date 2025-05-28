@@ -30,6 +30,14 @@ class BenchedMoves : Iterable<BenchedMove> {
         emit = previousEmit
     }
 
+    fun copyFrom(other: BenchedMoves) {
+        doWithoutEmitting {
+            clear()
+            other.forEach { add(it) }
+        }
+        update()
+    }
+
     fun doThenEmit(action: () -> Unit) {
         doWithoutEmitting(action)
         update()

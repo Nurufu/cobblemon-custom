@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.entity.PosableEntity
 import com.cobblemon.mod.common.net.messages.client.effect.SpawnSnowstormEntityParticlePacket
 import com.cobblemon.mod.common.util.asExpressionLike
 import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
+import com.mongodb.internal.connection.Server
 import java.util.concurrent.CompletableFuture
 import net.minecraft.server.world.ServerWorld
 
@@ -30,7 +31,6 @@ class EntityParticlesActionEffectKeyframe : ConditionalActionEffectKeyframe(), E
     override val entityCondition = "q.entity.is_user".asExpressionLike()
     var effect: String? = null
     var locator: String = "root"
-    var locators: List<String> = listOf("target")
     val delay: ExpressionLike = "0".asExpressionLike()
     val visibilityRange = 200
 
@@ -46,11 +46,11 @@ class EntityParticlesActionEffectKeyframe : ConditionalActionEffectKeyframe(), E
         }?.asIdentifierDefaultingNamespace() ?: return skip()
 
         entities.filter { it is PosableEntity }.forEach { entity ->
-            val packet = SpawnSnowstormEntityParticlePacket(effectIdentifier, entity.id, (locators + locator).toList())
+            val packet = SpawnSnowstormEntityParticlePacket(effectIdentifier, entity.id, listOf(locator))
             val players = (entity.world as ServerWorld).getPlayers { it.distanceTo(entity) <= visibilityRange }
             packet.sendToPlayers(players)
         }
 
-        return delayedFuture(seconds = delay.resolveFloat(context.runtime))
+        return delayedFuture(seconds = delay.resolveFloat(context.runtime), serverThread = true)
     }
 }

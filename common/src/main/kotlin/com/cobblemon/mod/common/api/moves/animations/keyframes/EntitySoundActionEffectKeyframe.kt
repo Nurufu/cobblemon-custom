@@ -45,6 +45,6 @@ class EntitySoundActionEffectKeyframe : ConditionalActionEffectKeyframe(), Entit
             entity.playSound(soundEvent, 1f, 1f)
         }
 
-        return delayedFuture(seconds = delay.resolveFloat(context.runtime))
+        return delayedFuture(seconds = delay.resolveFloat(context.runtime), serverThread = true)
     }
 }
