@@ -20,6 +20,7 @@ import com.cobblemon.mod.common.command.ChangeBoxWallpaperPlayerCommand.CANNOT_C
 import com.cobblemon.mod.common.net.messages.client.storage.pc.RenamePCBoxPacket
 import com.cobblemon.mod.common.net.messages.client.storage.pc.wallpaper.ChangePCBoxWallpaperPacket
 import com.cobblemon.mod.common.util.commandLang
+import com.cobblemon.mod.common.util.lang
 import com.cobblemon.mod.common.util.pc
 import com.cobblemon.mod.common.util.permission
 import com.mojang.brigadier.Command
@@ -121,6 +122,7 @@ object SwapBoxCommand {
                 throw SimpleCommandExceptionType(CANNOT_CHANGE_WALLPAPER(w.toString()).red()).create()
             }
         )
+        player.sendMessage(lang("box.swapped", box0.boxNumber + 1, box1.boxNumber + 1))
         return Command.SINGLE_SUCCESS
     }
 }
