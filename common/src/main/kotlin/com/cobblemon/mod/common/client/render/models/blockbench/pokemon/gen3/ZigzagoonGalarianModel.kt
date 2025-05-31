@@ -29,7 +29,7 @@ class ZigzagoonGalarianModel (root: ModelPart) : PokemonPosableModel(root), Head
     override val hindRightLeg = getPart("leg_back_right")
 
     override var portraitScale = 2.55F
-    override var portraitTranslation = Vec3d(-0.5, -2.2, 0.0)
+    override var portraitTranslation = Vec3d(-0.249, -2.07, 0.0)
 
     override var profileScale = 1.0F
     override var profileTranslation = Vec3d(0.0, 0.2, 0.0)

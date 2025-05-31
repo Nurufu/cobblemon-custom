@@ -1,9 +1,9 @@
 {
     "head": "head",
 	"portraitScale": 2.4,
-    "portraitTranslation": [ -0.1, 0, 0 ],
+    "portraitTranslation": [ 0.18, -0.44, 0 ],
     "profileScale": 0.9,
-    "profileTranslation": [ 0, 0.6, 0 ],
+    "profileTranslation": [ 0, 0.509, 0 ],
   "animations": {
     "cry": "q.bedrock_stateful('celebi', 'cry')"
   },
