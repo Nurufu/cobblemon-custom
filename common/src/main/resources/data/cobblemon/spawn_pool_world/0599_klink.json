@@ -52,9 +52,6 @@
         {
             "id": "klink-3",
             "pokemon": "klink",
-            "presets": [
-                "natural"
-            ],
             "type": "pokemon",
             "context": "grounded",
             "bucket": "common",
