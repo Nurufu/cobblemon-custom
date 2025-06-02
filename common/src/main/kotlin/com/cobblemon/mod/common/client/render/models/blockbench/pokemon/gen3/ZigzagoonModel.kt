@@ -24,7 +24,7 @@ class ZigzagoonModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame 
     override val head = getPart("head")
 
     override var portraitScale = 2.4F
-    override var portraitTranslation = Vec3d(-0.4, -2.2, 0.0)
+    override var portraitTranslation = Vec3d(-0.249, -2.07, 0.0)
 
     override var profileScale = 1.0F
     override var profileTranslation = Vec3d(0.0, 0.2, 0.0)

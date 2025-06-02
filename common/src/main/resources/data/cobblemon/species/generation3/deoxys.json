@@ -574,7 +574,8 @@
     "amount": 1,
     "entries": [
       {
-        "item": "minecraft:eye_of_ender"
+        "item": "minecraft:eye_of_ender",
+        "quantityRange": "3-5"
       }
     ]
   }
