@@ -393,6 +393,7 @@ class EmptyPokeBallEntity : ThrownItemEntity, PosableEntity, WaterDragModifier, 
         world.playSoundServer(pos, CobblemonSounds.POKE_BALL_OPEN, volume = 0.8F)
 
         after(seconds = 1F) {
+            pokemon.beamMode = 0
             pokemon.busyLocks.remove(this)
             captureFuture.complete(false)
             world.sendParticlesServer(ParticleTypes.CLOUD, pos, 20, Vec3d(0.0, 0.2, 0.0), 0.05)
