@@ -37,7 +37,7 @@ sourceSets {
 repositories {
     maven(url = "${rootProject.projectDir}/deps")
     mavenLocal()
-    mavenCentral()
+    maven("https://oss.sonatype.org/content/repositories/snapshots")
     maven(url = "https://api.modrinth.com/maven")
     maven (url = "https://repo.erdbeerbaerlp.de/repository/maven-public/")
 }
