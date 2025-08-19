@@ -25,8 +25,8 @@ class FlareonModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(-0.6, -0.45, 0.0)
 
-    override var profileScale = 0.9F
-    override var profileTranslation = Vec3d(0.0, 0.36, 0.0)
+    override var profileScale = 0.79F
+    override var profileTranslation = Vec3d(0.0, 0.56, 0.0)
 
     lateinit var standing: Pose
     lateinit var walk: Pose

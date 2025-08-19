@@ -24,8 +24,8 @@ class BayleefModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var portraitScale = 1.8F
     override var portraitTranslation = Vec3d(-0.5, 0.7, 0.0)
 
-    override var profileScale = 0.71F
-    override var profileTranslation = Vec3d(0.0, 0.65, 0.0)
+    override var profileScale = 0.63F
+    override var profileTranslation = Vec3d(0.0, 0.85, 0.0)
 
     lateinit var standing: Pose
     lateinit var walking: Pose

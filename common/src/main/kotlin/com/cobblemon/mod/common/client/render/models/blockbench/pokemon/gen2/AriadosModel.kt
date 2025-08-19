@@ -23,8 +23,8 @@ class AriadosModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var portraitScale = 2.5F
     override var portraitTranslation = Vec3d(-0.45, -2.0, 0.0)
 
-    override var profileScale = 0.9F
-    override var profileTranslation = Vec3d(-0.1, 0.27, 0.0)
+    override var profileScale = 0.82F
+    override var profileTranslation = Vec3d(0.039, 0.4, 0.0)
 
     lateinit var standing: Pose
     lateinit var walk: Pose

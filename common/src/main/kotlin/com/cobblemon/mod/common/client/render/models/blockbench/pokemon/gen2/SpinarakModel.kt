@@ -24,7 +24,7 @@ class SpinarakModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var portraitTranslation = Vec3d(-0.35, -2.65, 0.0)
 
     override var profileScale = 1.1F
-    override var profileTranslation = Vec3d(-0.1, 0.0, 0.0)
+    override var profileTranslation = Vec3d(-0.01, 0.0, 0.0)
 
     lateinit var standing: Pose
     lateinit var walk: Pose

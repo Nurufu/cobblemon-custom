@@ -31,7 +31,7 @@ class TropiusModel  (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
     override var portraitTranslation = Vec3d(-1.23, 5.01, 0.0)
 
     override var profileScale = 0.28F
-    override var profileTranslation = Vec3d(0.0, 1.26, 0.0)
+    override var profileTranslation = Vec3d(0.07, 1.34, 0.0)
 
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose

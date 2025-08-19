@@ -2,7 +2,7 @@
   "portraitScale": 1.44,
   "portraitTranslation": [-0.4, -0.6, 0.0],
   "profileScale": 0.9,
-  "profileTranslation": [0.12, 0.33, 0.0],
+  "profileTranslation": [-0.049, 0.33, 0.0],
     "rootBone": "trapinch",
     "animations": {
       "cry": "q.bedrock_stateful('trapinch', 'cry')"

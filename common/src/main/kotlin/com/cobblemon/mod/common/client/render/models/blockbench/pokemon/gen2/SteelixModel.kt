@@ -27,8 +27,8 @@ class SteelixModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var portraitScale = 0.7F
     override var portraitTranslation = Vec3d(-0.7, 1.8, 0.0)
 
-    override var profileScale = 0.4F
-    override var profileTranslation = Vec3d(-0.1, 1.1, -6.0)
+    override var profileScale = 0.36F
+    override var profileTranslation = Vec3d(-0.06, 1.19, -6.0)
 
     lateinit var standing: Pose
     lateinit var walking: Pose

@@ -22,8 +22,8 @@ class CrobatModel(root: ModelPart) : PokemonPosableModel(root) {
     override var portraitScale = 1.2F
     override var portraitTranslation = Vec3d(-0.1, 1.8, 0.0)
 
-    override var profileScale = 0.5F
-    override var profileTranslation = Vec3d(0.0, 1.2, 0.0)
+    override var profileScale = 0.37F
+    override var profileTranslation = Vec3d(0.0, 1.34, 0.0)
 
     lateinit var sleep: Pose
     lateinit var standing: Pose

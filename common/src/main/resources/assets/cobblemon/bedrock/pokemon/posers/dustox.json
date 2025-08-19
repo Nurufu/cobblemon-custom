@@ -1,9 +1,9 @@
 {
     "head": "dustox",
-    "portraitScale": 1,
-    "portraitTranslation": [ 0, 0.369, 0 ],
+    "portraitScale": 1.91,
+    "portraitTranslation": [ -0.28, 1.099, 0 ],
     "profileScale": 0.66,
-    "profileTranslation": [ 0, 0.659, -1 ],
+    "profileTranslation": [ 0, 1.249, -1 ],
   "animations": {
     "cry": "q.bedrock_stateful('dustox', 'cry')",
     "faint": "q.bedrock_primary('dustox', 'faint')"

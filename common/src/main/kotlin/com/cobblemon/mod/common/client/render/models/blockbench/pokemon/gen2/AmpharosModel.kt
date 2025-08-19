@@ -25,8 +25,8 @@ class AmpharosModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var portraitScale = 1.9F
     override var portraitTranslation = Vec3d(-0.15, 2.2, 0.0)
 
-    override var profileScale = 0.55F
-    override var profileTranslation = Vec3d(0.0, 0.9, 0.0)
+    override var profileScale = 0.49F
+    override var profileTranslation = Vec3d(0.0, 0.99, 0.0)
 
     lateinit var standing: Pose
     lateinit var walking: Pose

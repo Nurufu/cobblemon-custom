@@ -2,8 +2,8 @@
   "head": "head",
   "portraitScale": 2.65,
   "portraitTranslation": [ 0, 2.7, 0 ],
-  "profileScale": 0.71,
-  "profileTranslation": [ 0, 0.8, 0 ],
+  "profileScale": 0.52,
+  "profileTranslation": [ 0, 0.96, 0 ],
   "animations": {
     "cry": "q.bedrock_stateful('kangaskhan2', 'cry')"
   },
