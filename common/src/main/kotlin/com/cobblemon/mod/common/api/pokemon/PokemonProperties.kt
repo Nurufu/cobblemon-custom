@@ -386,6 +386,11 @@ open class PokemonProperties {
         return this.commonMatches(pokemonEntity.pokemon) && this.customProperties.none { !it.matches(pokemonEntity) }
     }
 
+    fun matches(properties: PokemonProperties): Boolean {
+        return properties.asString() == this.asString()
+    }
+
+
     private fun commonMatches(pokemon: Pokemon): Boolean {
         level?.takeIf { it != pokemon.level }?.let { return false }
         shiny?.takeIf { it != pokemon.shiny }?.let { return false }

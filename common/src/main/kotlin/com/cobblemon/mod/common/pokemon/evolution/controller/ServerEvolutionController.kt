@@ -41,6 +41,13 @@ class ServerEvolutionController(
     private val evolutions = hashSetOf<Evolution>()
     private val progress = arrayListOf<EvolutionProgress<*>>()
 
+    init {
+        this.progress.removeIf { !it.shouldKeep(this.pokemon) }
+        val pokemonEvolutions = this.pokemon.evolutions.map { it.id }.toSet()
+        this.evolutions.removeIf { !pokemonEvolutions.contains(it.toString().lowercase()) }
+        this.evolutions.forEach { this.findEvolutionFromId(it.toString())?.let(this::silentAdd) }
+    }
+
     override val size: Int
         get() = this.evolutions.size
 
@@ -174,6 +181,19 @@ class ServerEvolutionController(
         }
         return false
     }
+
+    // Silently add evolution to the controller
+    // used during data loading to ensure the server doesn't send update packets before the client is ready
+    fun silentAdd(element: Evolution): Boolean {
+        // Removes duplicate evolutions that result in the same outcome, keeping only the most recent evolution.
+        // For example, Karrablast can evolve via trade or link cable, which otherwise creates duplicate
+        // entries in the summary screen.
+        val duplicatedEvolutions = this.filter { element.result.matches(it.result) }
+        duplicatedEvolutions.forEach { it -> this.remove(it) }
+
+        return this.evolutions.add(element)
+    }
+
 
     override fun addAll(elements: Collection<Evolution>): Boolean {
         var result = false

@@ -30,8 +30,8 @@ class YanmegaModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var portraitScale = 1.6F
     override var portraitTranslation = Vec3d(-0.55, -0.9, 0.0)
 
-    override var profileScale = 0.61F
-    override var profileTranslation = Vec3d(0.0, 0.8, 0.0)
+    override var profileScale = 0.47F
+    override var profileTranslation = Vec3d(0.01, 0.86, 0.0)
 
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose

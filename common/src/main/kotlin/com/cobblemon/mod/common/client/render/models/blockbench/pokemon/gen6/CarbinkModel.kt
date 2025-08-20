@@ -21,10 +21,10 @@ class CarbinkModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("carbink")
 
     override var portraitScale = 1.8F
-    override var portraitTranslation = Vec3d(0.0, 0.2, 0.0)
+    override var portraitTranslation = Vec3d(0.0, 0.109, 0.0)
 
     override var profileScale = 0.85F
-    override var profileTranslation = Vec3d(0.0, 0.7, 0.0)
+    override var profileTranslation = Vec3d(0.0, 0.449, 0.0)
 
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose

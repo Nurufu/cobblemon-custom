@@ -1,8 +1,8 @@
 {
   "portraitScale": 1,
-  "portraitTranslation": [-1.5, 1, -10],
-  "profileScale": 0.4,
-  "profileTranslation": [0, 1, -10],
+  "portraitTranslation": [-1.5, 0.719, -10],
+  "profileScale": 0.31,
+  "profileTranslation": [0, 1.32, -10],
   "animations": {
     "faint": "q.bedrock_primary('kyurem', 'faint', q.curve('one'))",
     "cry": "q.bedrock_primary('kyurem', 'cry', q.curve('symmetrical_wide'))",

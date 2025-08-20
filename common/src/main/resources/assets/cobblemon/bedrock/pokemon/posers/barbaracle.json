@@ -1,8 +1,8 @@
 {
   "portraitScale": 1.4,
   "portraitTranslation": [-0.2, 1.6, 0],
-  "profileScale": 0.6,
-  "profileTranslation": [-0.1, 0.9, 0],
+  "profileScale": 0.51,
+  "profileTranslation": [-0.06, 0.95, 0],
   "animations": {
     "physical": "q.bedrock_primary('barbaracle', 'physical', q.curve('symmetrical_wide'))",
     "faint": "q.bedrock_primary('barbaracle', 'faint', q.curve('symmetrical_wide'))",

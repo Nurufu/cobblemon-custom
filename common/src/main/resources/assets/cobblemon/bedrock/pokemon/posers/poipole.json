@@ -1,9 +1,9 @@
 {
     "head": "head",
-	"portraitScale": 2.5,
+	"portraitScale": 2.32,
     "portraitTranslation": [ -0.1, 0.4, 0 ],
-    "profileScale": 0.9,
-    "profileTranslation": [ 0, 0.5, 0 ],
+    "profileScale": 0.8,
+    "profileTranslation": [ 0, 0.7, 0 ],
   "animations": {
     "cry": "q.bedrock_stateful('poipole', 'cry')"
   },

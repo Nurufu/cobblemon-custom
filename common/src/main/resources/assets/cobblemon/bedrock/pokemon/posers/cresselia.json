@@ -1,8 +1,8 @@
 {
     "portraitScale": 2.0,
     "portraitTranslation": [ -1.25, 1.65, 0 ],
-    "profileScale": 0.6,
-    "profileTranslation": [ 0.05, 0.75, 0 ],
+    "profileScale": 0.46,
+    "profileTranslation": [ 0.04, 1.04, 0 ],
   "animations": {
     "cry": "q.bedrock_stateful('cresselia', 'cry')"
   },

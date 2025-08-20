@@ -1,9 +1,9 @@
 {
   "head": "looky",
-  "portraitScale": 1,
-  "portraitTranslation": [-0.5, 3.5, 0],
-  "profileScale": 0.3,
-  "profileTranslation": [0, 1.5, 0],
+  "portraitScale": 1.469,
+  "portraitTranslation": [-1.04, 4.16, 0],
+  "profileScale": 0.22,
+  "profileTranslation": [0, 1.4, 0],
   "animations": {
     "faint": "q.bedrock_primary('zekrom', 'faint', q.curve('one'))",
     "cry": "q.bedrock_primary('zekrom', 'cry', q.curve('symmetrical_wide'))",

@@ -21,8 +21,8 @@ class AegislashModel(root: ModelPart) : PokemonPosableModel(root) {
     override var portraitScale = 3.0F
     override var portraitTranslation = Vec3d(-0.2, 1.3, 0.0)
 
-    override var profileScale = 0.65F
-    override var profileTranslation = Vec3d(0.0, 0.85, 0.0)
+    override var profileScale = 0.56F
+    override var profileTranslation = Vec3d(0.0, 1.03, 0.0)
 
     lateinit var standing: Pose
     lateinit var walk: Pose

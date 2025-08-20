@@ -22,8 +22,8 @@ class ScolipedeModel (root: ModelPart) : PokemonPosableModel(root) {
     override var portraitScale = 1.3F
     override var portraitTranslation = Vec3d(-0.9, 2.5, 0.0)
 
-    override var profileScale = 0.4F
-    override var profileTranslation = Vec3d(0.0, 1.1, 0.0)
+    override var profileScale = 0.37F
+    override var profileTranslation = Vec3d(-0.01, 1.19, 0.0)
 
     lateinit var sleep: Pose
     lateinit var standing: Pose

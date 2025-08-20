@@ -3,7 +3,7 @@
     "portraitScale": 1.3,
     "portraitTranslation": [ -0.05, -0.3, 0 ],
     "profileScale": 0.8,
-    "profileTranslation": [ -0.05, 0.55, 0 ],
+    "profileTranslation": [ -0.009, 0.439, 0 ],
   "animations": {
     "cry": "q.bedrock_stateful('swadloon', 'cry')",
     "faint": "q.bedrock_primary('swadloon', 'faint')"

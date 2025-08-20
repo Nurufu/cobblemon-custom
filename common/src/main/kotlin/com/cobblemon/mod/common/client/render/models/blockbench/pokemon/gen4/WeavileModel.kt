@@ -32,8 +32,8 @@ class WeavileModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
     override var portraitScale = 2.3F
     override var portraitTranslation = Vec3d(-0.25, 0.0, 0.0)
 
-    override var profileScale = 1.0F
-    override var profileTranslation = Vec3d(0.0, 0.3, 0.0)
+    override var profileScale = 0.75F
+    override var profileTranslation = Vec3d(0.0, 0.66, 0.0)
 
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose

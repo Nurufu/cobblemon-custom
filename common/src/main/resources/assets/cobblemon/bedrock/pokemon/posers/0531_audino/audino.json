@@ -2,8 +2,8 @@
  "head": "head",
  "portraitScale": 1.5,
  "portraitTranslation": [ 0, 0.8, 0 ],
- "profileScale": 0.8,
- "profileTranslation": [ 0, 0.7, 0 ],
+ "profileScale": 0.72,
+ "profileTranslation": [ 0, 0.72, 0 ],
   "animations": {
     "cry": "q.bedrock_stateful('audino', 'cry')",
     "faint": "q.bedrock_primary('audino', 'faint')"
