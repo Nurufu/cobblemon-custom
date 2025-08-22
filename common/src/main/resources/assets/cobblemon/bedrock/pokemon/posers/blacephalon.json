@@ -1,9 +1,9 @@
 {
     "head": "head",
-	"portraitScale": 0.85,
-    "portraitTranslation": [ -0.9, 4.27, 0 ],
+	"portraitScale": 1,
+    "portraitTranslation": [ -0.15, 5.17, 0 ],
     "profileScale": 0.22,
-    "profileTranslation": [ 0, 1.42, 0 ],
+    "profileTranslation": [ 0, 1.48, 0 ],
   "animations": {
     "cry": "q.bedrock_stateful('blacephalon', 'cry')"
   },

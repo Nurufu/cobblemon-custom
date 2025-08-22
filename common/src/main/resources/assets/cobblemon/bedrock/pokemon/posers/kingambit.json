@@ -1,8 +1,8 @@
 {
-  "portraitScale": 0.6,
-  "portraitTranslation": [0, 1, 0],
-  "profileScale": 0.4,
-  "profileTranslation": [0, 1, 0],
+  "portraitScale": 1.589,
+  "portraitTranslation": [-0.25, 2.18, 0],
+  "profileScale": 0.32,
+  "profileTranslation": [0, 1.27, 0],
   "animations": {
     "faint": "q.bedrock_primary('kingambit', 'faint', q.curve('one'))",
     "cry": "q.bedrock_stateful('kingambit', 'cry')",

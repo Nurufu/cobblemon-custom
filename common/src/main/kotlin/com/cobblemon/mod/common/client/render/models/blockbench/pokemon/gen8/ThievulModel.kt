@@ -28,10 +28,10 @@ class ThievulModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Q
     override val hindRightLeg = getPart("leg_back_right")
 
     override var portraitScale = 2.0F
-    override var portraitTranslation = Vec3d(-0.7, 1.11, 0.0)
+    override var portraitTranslation = Vec3d(-0.7, 1.26, 0.0)
 
-    override var profileScale = 0.65F
-    override var profileTranslation = Vec3d(0.0, 0.7, 0.0)
+    override var profileScale = 0.58F
+    override var profileTranslation = Vec3d(0.0, 0.9, 0.0)
 
     lateinit var standing: Pose
     lateinit var walk: Pose

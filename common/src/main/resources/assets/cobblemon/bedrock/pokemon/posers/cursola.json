@@ -3,8 +3,8 @@
 	"head": "head",
 	"portraitScale": 1.7,
 	"portraitTranslation": [-0.1, 1.3, 0],
-	"profileScale": 0.7,
-	"profileTranslation": [0.0, 0.8, 0],
+	"profileScale": 0.56,
+	"profileTranslation": [0.0, 0.99, 0],
 	"animations": {
 		"cry": "q.bedrock_stateful('cursola', 'cry')"
 	},

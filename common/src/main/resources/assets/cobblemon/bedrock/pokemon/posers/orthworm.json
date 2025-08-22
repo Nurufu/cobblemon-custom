@@ -1,9 +1,9 @@
 {
   "head": "bone",
   "portraitScale": 2.929,
-  "portraitTranslation": [-0.979, -3.739, 0],
+  "portraitTranslation": [-1.809, -0.859, 0],
   "profileScale": 0.75,
-  "profileTranslation": [-0.18, 0.09, 0],
+  "profileTranslation": [-1.809, -0.859, 0],
   "animations": {
     "cry": "q.bedrock_stateful('orthworm', 'cry')"
   },

@@ -24,11 +24,11 @@ import net.minecraft.util.math.Vec3d
 class CetitanModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("cetitan")
 
-    override var portraitScale = 0.55F
-    override var portraitTranslation = Vec3d(-0.4, 1.0, 0.0)
+    override var portraitScale = 0.939F
+    override var portraitTranslation = Vec3d(-0.309, 1.17, 0.0)
 
-    override var profileScale = 0.4F
-    override var profileTranslation = Vec3d(-0.1, 1.1, -6.0)
+    override var profileScale = 0.27F
+    override var profileTranslation = Vec3d(0.079, 1.31, -6.0)
 
     lateinit var standing: Pose
     lateinit var walking: Pose

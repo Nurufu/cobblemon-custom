@@ -28,8 +28,8 @@ class ArctozoltModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame 
     override var portraitTranslation = Vec3d(-0.45, 2.15, 0.0)
     override var portraitScale = 0.85F
 
-    override var profileTranslation = Vec3d(0.02, 0.95, 0.0)
-    override var profileScale = 0.33F
+    override var profileTranslation = Vec3d(-0.06, 1.15, 0.0)
+    override var profileScale = 0.369F
 
     lateinit var sleep: CobblemonPose
     lateinit var standing: CobblemonPose

@@ -2,7 +2,7 @@
   "portraitScale": 1.7,
   "portraitTranslation": [-0.3, 0.7, 0],
   "profileScale": 0.6,
-  "profileTranslation": [0, 0.7, 0],
+  "profileTranslation": [0, 0.83, 0],
   "animations": {
     "faint": "q.bedrock_primary('ironbundle', 'faint', q.curve('one'))",
     "cry": "q.bedrock_stateful('ironbundle', 'cry')",

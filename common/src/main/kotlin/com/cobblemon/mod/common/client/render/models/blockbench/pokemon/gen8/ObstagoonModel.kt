@@ -23,10 +23,10 @@ class ObstagoonModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame 
     override val head = getPart("head")
 
     override var portraitScale = 1.7F
-    override var portraitTranslation = Vec3d(-1.1, 1.9, 0.0)
+    override var portraitTranslation = Vec3d(-0.919, 2.17, 0.0)
 
-    override var profileScale = 0.5F
-    override var profileTranslation = Vec3d(0.0, 0.9, 0.0)
+    override var profileScale = 0.44F
+    override var profileTranslation = Vec3d(0.0, 1.09, 0.0)
 
     lateinit var sleep: Pose
     lateinit var standing: Pose

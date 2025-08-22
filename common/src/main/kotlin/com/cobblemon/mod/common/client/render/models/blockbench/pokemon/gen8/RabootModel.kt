@@ -24,8 +24,8 @@ class RabootModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var portraitScale = 2.5F
     override var portraitTranslation = Vec3d(-0.15, 0.3, 0.0)
 
-    override var profileScale = 0.8F
-    override var profileTranslation = Vec3d(0.0, 0.56, 0.0)
+    override var profileScale = 0.7F
+    override var profileTranslation = Vec3d(0.0, 0.73, 0.0)
 
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose

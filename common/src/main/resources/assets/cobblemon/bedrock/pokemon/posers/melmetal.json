@@ -2,8 +2,8 @@
     "head": "head",
 	"portraitScale": 2.3,
     "portraitTranslation": [ -0.6, 5.0, 0 ],
-    "profileScale": 0.32,
-    "profileTranslation": [ 0, 1.2, 0 ],
+    "profileScale": 0.31,
+    "profileTranslation": [ 0.07, 1.25, 0 ],
   "animations": {
     "cry": "q.bedrock_stateful('melmetal', 'cry')"
   },

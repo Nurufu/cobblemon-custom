@@ -1,8 +1,8 @@
 {
   "portraitScale": 2.6,
-  "portraitTranslation": [-0.25, -1.41, 0.0],
-  "profileScale": 0.62,
-  "profileTranslation": [0.07, 0.85, 0],
+  "portraitTranslation": [0.02, -0.519, 0.0],
+  "profileScale": 0.58,
+  "profileTranslation": [0.07, 1.07, 0],
   "animations": {
     "cry": "q.bedrock_stateful('eldegoss', 'cry')",
     "recoil": "q.bredrock_stateful('eldegoss', 'recoil')"

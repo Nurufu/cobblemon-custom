@@ -35,8 +35,8 @@ class RillaboomModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame,
     override var portraitScale = 2.3F
     override var portraitTranslation = Vec3d(-0.85, 1.65, 0.0)
 
-    override var profileScale = 0.65F
-    override var profileTranslation = Vec3d(0.0, 0.76, 0.0)
+    override var profileScale = 0.55F
+    override var profileTranslation = Vec3d(0.0, 0.99, 0.0)
 
     lateinit var battleidle: Pose
     lateinit var standing: Pose

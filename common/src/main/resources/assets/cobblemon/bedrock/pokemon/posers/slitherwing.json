@@ -1,8 +1,8 @@
 {
-  "portraitScale": 1,
-  "portraitTranslation": [-0.3, 0, 0],
-  "profileScale": 0.6,
-  "profileTranslation": [0, 0.8, 0],
+  "portraitScale": 1.48,
+  "portraitTranslation": [-0.84, -0.68, 0],
+  "profileScale": 0.44,
+  "profileTranslation": [0, 1.1, 0],
   "animations": {
     "faint": "q.bedrock_primary('slitherwing', 'faint', q.curve('one'))",
     "cry": "q.bedrock_stateful('slitherwing', 'cry')",
