@@ -43,8 +43,10 @@ import net.minecraft.sound.SoundCategory
 import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Vec3d
 import java.util.*
+import kotlin.concurrent.schedule
 
 
 /** Handles purely server logic for a Pokémon */
@@ -176,18 +178,21 @@ class PokemonServerDelegate : PokemonSideDelegate {
 //        }
 
         if(entity.pokemon.isWild() && entity.pokemon.aspects.contains("shiny") && !entity.shined && !entity.isBattling){
-            if (shinyNotif(entity)) {
-                entity.shined = true
-                entity.setPersistent()
-            }
+            if(entity.ticksLived > 1)
+                if (shinyNotif(entity)) {
+                    entity.shined = true
+                    entity.setPersistent()
+                }
+
         }
 
         if(entity.pokemon.isWild() && !entity.pinged && !entity.isBattling && (entity.pokemon.isLegendary() || entity.pokemon.isMythical() || entity.pokemon.isUltraBeast()))
         {
-            if (legeNotif(entity)) {
-                entity.pinged = true
-                entity.setPersistent()
-            }
+            if(entity.ticksLived > 1)
+                if (legeNotif(entity)) {
+                    entity.pinged = true
+                    entity.setPersistent()
+                }
         }
 
         entity.dataTracker.update(PokemonEntity.BATTLE_ID) { opt ->

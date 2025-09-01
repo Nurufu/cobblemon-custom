@@ -105,6 +105,7 @@ import com.mongodb.client.MongoClient
 import com.mongodb.client.MongoClients
 import net.minecraft.client.MinecraftClient
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer
+import net.minecraft.entity.Entity
 import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.item.Items
 import net.minecraft.item.NameTagItem
@@ -266,10 +267,9 @@ object Cobblemon {
         PlatformEvents.RIGHT_CLICK_BLOCK.subscribe { AdvancementHandler.onTumbleStonePlaced(it) }
 
         PlatformEvents.CHANGE_DIMENSION.subscribe {
-            if(it.player.vehicle is PokemonEntity){
-                it.player.dismountVehicle()
-            }
-            it.player.party().forEach { pokemon -> pokemon.entity?.recallWithAnimation() }
+            it.player.party().forEach { pokemon ->
+                pokemon.recall()
+                pokemon.entity?.remove(Entity.RemovalReason.DISCARDED)}
         }
 
         TrackedDataHandlerRegistry.register(Vec3DataSerializer)

@@ -553,7 +553,7 @@ open class PokemonEntity(
         val owner = owner
         val future = CompletableFuture<Pokemon>()
         if (dataTracker.get(PHASING_TARGET_ID) == -1 && owner != null) {
-            owner.getWorld().playSoundServer(pos, CobblemonSounds.POKE_BALL_RECALL, volume = 0.6F)
+            owner.world.playSoundServer(pos, CobblemonSounds.POKE_BALL_RECALL, volume = 0.6F)
             dataTracker.set(PHASING_TARGET_ID, owner.id)
             dataTracker.set(BEAM_MODE, 3)
             val state = pokemon.state
