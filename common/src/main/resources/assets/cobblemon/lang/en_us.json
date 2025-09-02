@@ -6658,5 +6658,9 @@
   "key.cobbleride.categories.cobbleride": "Cobblemon: Ride On!",
   "key.cobbleride.ascend": "Ascend / Fly",
   "key.cobbleride.descend": "Descend / Dive",
-  "key.cobbleride.sprint": "Sprint"
+  "key.cobbleride.sprint": "Sprint",
+  "item.simplehats.nuthat": ":seedlet:",
+  "item.simplehats.wizardhat": "Wizard Hat",
+  "item.simplehats.mudkiphat": "Mudkip Chomp Hat",
+  "item.simplehats.yellinghat": ":YELLING:"
 }
