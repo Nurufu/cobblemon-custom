@@ -750,6 +750,7 @@ object CobblemonBlocks : PlatformRegistry<Registry<Block>, RegistryKey<Registry<
             stage, height, xzOffset, nextStage))
     }
 
+
     private val berries = mutableMapOf<Identifier, BerryBlock>()
 
     val AGUAV_BERRY = this.berryBlock("aguav")
