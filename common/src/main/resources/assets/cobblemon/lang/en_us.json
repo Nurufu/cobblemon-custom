@@ -910,8 +910,9 @@
   "block.cobblemon.black_tumblestone_block": "Block of Black Tumblestone",
 
   "cobblemon.overflow_no_pc": "Your party was full and you don't have a PC!",
-  "cobblemon.overflow_no_space": "Your party was full and so was %1$s!",
+  "cobblemon.overflow_no_space": "§cWARNING!§r Your party was full and so was %1$s!",
   "cobblemon.overflow_to_pc": "Your party was full! %1$s has been added to %2$s.",
+  "cobblemon.overflow_pc_now_full": "§cWARNING! %1$s is now full!",
   "cobblemon.your_pc": "Your PC",
   "cobblemon.command.pokespawn.invalid-pokemon": "Invalid Pokémon name",
   "cobblemon.command.pokespawn.invalid-move": "Invalid move name",

@@ -20,6 +20,11 @@ import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.activestate.ShoulderedState
 import com.cobblemon.mod.common.pokemon.evolution.variants.LevelUpEvolution
 import com.cobblemon.mod.common.util.*
+import de.erdbeerbaerlp.dcintegration.common.DiscordIntegration
+import de.erdbeerbaerlp.dcintegration.common.storage.Configuration
+import de.erdbeerbaerlp.dcintegration.common.storage.linking.LinkManager
+import de.erdbeerbaerlp.dcintegration.common.util.DiscordMessage
+import de.erdbeerbaerlp.dcintegration.common.util.TextColors
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Text
@@ -78,6 +83,38 @@ open class PlayerPartyStore(
                 false
             } else {
                 player?.sendMessage(lang("overflow_to_pc", pokemon.species.translatedName, pc.name))
+                if (pc.getFirstAvailablePosition() == null) {
+                    player?.sendMessage(lang("overflow_pc_now_full", pc.name))
+
+                    try {
+                        var embedBuilder = Configuration.instance().embedMode.chatMessages.toEmbed()
+                        if (player != null) {
+                            embedBuilder = embedBuilder.setColor(TextColors.generateFromUUID(player.uuid))
+                            embedBuilder = embedBuilder.setAuthor(
+                                player.name.string,
+                                null,
+                                Configuration.instance().webhook.playerAvatarURL.replace("%uuid%", player.uuidAsString)
+                                    .replace("%uuid_dashless%", player.uuidAsString.replace("-", ""))
+                                    .replace("%name%", player.name.string)
+                                    .replace("%randomUUID%", UUID.randomUUID().toString())
+                            )
+                                .setDescription(
+                                    "WARNING! ${player.displayName.string}'s PC is now full!"
+                                )
+                            DiscordIntegration.INSTANCE.sendMessage(
+                                DiscordMessage(embedBuilder.build()), DiscordIntegration.INSTANCE.getChannel(
+                                    Configuration.instance().advanced.chatOutputChannelID
+                                )
+                            )
+                            if (LinkManager.isPlayerLinked(player.uuid)) {
+                                val pLink = LinkManager.getLink(null, player.uuid)
+                                val dc = DiscordIntegration.INSTANCE.getMemberById(pLink.discordID.toLongOrNull())
+
+                                DiscordIntegration.INSTANCE.sendMessage("<@${dc.id}>")
+                            }
+                        }
+                    } catch (e: NoClassDefFoundError) {null}
+                }
                 true
             }
         }
