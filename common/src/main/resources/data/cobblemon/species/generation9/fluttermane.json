@@ -28,6 +28,13 @@
   "experienceGroup": "slow",
   "eggCycles": 50,
   "eggGroups": ["undiscovered"],
+  "behavior": {
+    "moving": {
+      "fly": {
+        "canFly": true
+      }
+    }
+  },
   "moves": [
     "1:astonish",
     "1:confuseray",

@@ -128,7 +128,15 @@
   "height": 13,
   "weight": 602,
   "preEvolution": "finizen",
-  "evolutions": [],
+  "evolutions":[
+    {
+      "id":"hero",
+      "variant": "level_up",
+      "result": "palafin hero=true",
+      "consumeHeldItem": false,
+      "requirements":[]
+    }
+  ],
   "cannotDynamax": false,
   "forms": [
     {
@@ -136,6 +144,15 @@
       "primaryType": "water",
       "abilities": [
         "zerotohero"
+      ],
+      "evolutions":[
+        {
+          "id":"hero_revert",
+          "variant": "level_up",
+          "result": "palafin hero=false",
+          "consumeHeldItem": false,
+          "requirements":[]
+        }
       ],
       "baseStats": {
         "hp": 100,

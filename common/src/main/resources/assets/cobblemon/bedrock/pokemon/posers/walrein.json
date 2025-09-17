@@ -27,6 +27,18 @@
       "transformTicks": 10,
       "poseTypes": [ "WALK" ],
       "animations": [ "bedrock(walrein, ground_walk)" ]
+    },
+    "swimming": {
+      "poseName":  "swimming",
+      "transformTicks": 10,
+      "poseTypes": [ "SWIM" ],
+      "animations": ["bedrock(walrein, ground_walk)"]
+    },
+    "floating": {
+      "poseName": "floating",
+      "transformTicks" : 10,
+      "poseTypes": ["FLOAT"],
+      "animations": ["bedrock(walrein, ground_idle)"]
     }
   }
 }
