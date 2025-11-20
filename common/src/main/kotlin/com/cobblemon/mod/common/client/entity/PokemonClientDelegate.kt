@@ -176,7 +176,7 @@ class PokemonClientDelegate : PosableState(), PokemonSideDelegate {
                                     /// create end rod particles in a 0.1 radius around the soundPos with a count of 50 and a random velocity of 0.1
                                     sendOutPosition?.let{
                                         val newPos = it.add(sendOutOffset)
-                                        val ballType = currentEntity.pokemon.caughtBall.name.path.toLowerCase().replace("_","")
+                                        val ballType = currentEntity.pokemon.caughtBall.name.path.lowercase().replace("_","")
                                         val mode = if(currentEntity.isBattling) "battle" else "casual"
                                         val sendflash = BedrockParticleEffectRepository.getEffect(cobblemonResource("${ballType}/${mode}/sendflash"))
                                         sendflash?.let { effect ->
