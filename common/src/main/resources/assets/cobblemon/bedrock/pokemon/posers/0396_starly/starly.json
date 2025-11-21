@@ -16,8 +16,15 @@
       ]
     },
     "standing": {
-      "poseTypes": ["STAND", "NONE", "WALK", "SWIM"],
+      "poseTypes": ["STAND", "NONE", "SWIM"],
       "animations": ["q.look('head_ai')", "q.bedrock('starly', 'ground_idle')"],
+      "quirks": [
+        "q.bedrock_quirk('starly', 'blink')"
+      ]
+    },
+    "walking": {
+      "postTypes": ["WALK"],
+      "animations": ["q.look('head_ai)", "q.bedrock('starly', 'ground_walk')"],
       "quirks": [
         "q.bedrock_quirk('starly', 'blink')"
       ]
