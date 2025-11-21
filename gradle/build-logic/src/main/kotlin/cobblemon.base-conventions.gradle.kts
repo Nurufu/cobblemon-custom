@@ -8,7 +8,6 @@
  *
  */
 
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import utilities.ACCESS_WIDENER
 
@@ -55,7 +54,6 @@ loom {
     accessWidenerPath.set(project(":common").file(ACCESS_WIDENER))
 
     mixin {
-        useLegacyMixinAp = true
         defaultRefmapName.set("cobblemon-${project.name}-refmap.json")
     }
 }
@@ -67,15 +65,12 @@ dependencies {
 
 tasks {
     withType<JavaCompile> {
-        options.encoding = "UTF-8"
-        options.release.set(17)
         options.compilerArgs.add("-Xlint:-processing,-classfile,-serial")
     }
 
     withType<KotlinCompile> {
-        compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
+        kotlinOptions.jvmTarget = "17"
     }
-
 
     withType<Jar> {
         from(rootProject.file("LICENSE"))

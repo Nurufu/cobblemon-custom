@@ -9,28 +9,22 @@
 package com.cobblemon.mod.common.item
 
 import com.cobblemon.mod.common.CobblemonItems
-import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.pokemon.PokemonProperties
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.RenderablePokemon
 import com.cobblemon.mod.common.pokemon.Species
 import com.cobblemon.mod.common.util.DataKeys
-import net.minecraft.block.Block
-import net.minecraft.block.FacingBlock
 import net.minecraft.item.ItemStack
-import net.minecraft.item.ItemUsageContext
 import net.minecraft.nbt.NbtElement
 import net.minecraft.nbt.NbtList
 import net.minecraft.nbt.NbtString
-import net.minecraft.sound.SoundCategory
 import net.minecraft.text.Text
-import net.minecraft.util.ActionResult
 import net.minecraft.util.Identifier
 import net.minecraft.util.InvalidIdentifierException
 import org.joml.Vector4f
 
-class PokemonItem(val block: Block) : CobblemonItem(Settings().maxCount(1)) {
+class PokemonItem : CobblemonItem(Settings().maxCount(1)) {
 
     override fun getName(stack: ItemStack): Text = this.species(stack)?.translatedName ?: super.getName(stack)
 
@@ -41,25 +35,6 @@ class PokemonItem(val block: Block) : CobblemonItem(Settings().maxCount(1)) {
             this.species = species
             this.forcedAspects = aspects
         }
-    }
-
-    override fun useOnBlock(context: ItemUsageContext): ActionResult {
-        if (context.player == null) return ActionResult.FAIL
-
-        val state = context.world.getBlockState(context.blockPos)
-        val world = context.world
-        val pos = context.blockPos
-        val direction = context.side
-
-        if (state.isSideSolidFullSquare(world, pos, direction)) {
-            if (!world.getBlockState(pos.offset(direction)).isAir) return ActionResult.FAIL
-            if (!context.player!!.isCreative) context.stack.decrement(1)
-            world.setBlockState(pos.offset(direction), block.defaultState.with(FacingBlock.FACING, direction))
-            world.playSound(null, pos, CobblemonSounds.TUMBLESTONE_PLACE, SoundCategory.BLOCKS)
-            return ActionResult.SUCCESS
-        }
-
-        return ActionResult.FAIL
     }
 
     fun getSpeciesAndAspects(stack: ItemStack): Pair<Species, Set<String>>? {

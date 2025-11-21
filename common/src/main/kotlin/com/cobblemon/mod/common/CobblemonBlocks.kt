@@ -750,9 +750,6 @@ object CobblemonBlocks : PlatformRegistry<Registry<Block>, RegistryKey<Registry<
             stage, height, xzOffset, nextStage))
     }
 
-//    private fun pokemonBlock(name: String, height: Int, zxOffset: Int) : Block {
-//        return this.create(name, pokemonBlock())
-//    }
 
     private val berries = mutableMapOf<Identifier, BerryBlock>()
 

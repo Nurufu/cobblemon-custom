@@ -55,7 +55,7 @@ object FishingBaitTooltipGenerator : TooltipGenerator() {
                         effectSubcategory
                     ).displayName
 
-                    "gender_chance" -> Genders[Gender.valueOf(effectSubcategory.uppercase())]
+                    "gender_chance" -> Genders[Gender.valueOf(effectSubcategory.toUpperCase())]
 
                     "typing" -> ElementalTypes.get(effectSubcategory)?.displayName
 
