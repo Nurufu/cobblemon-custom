@@ -6663,5 +6663,10 @@
   "item.simplehats.nuthat": ":seedlet:",
   "item.simplehats.wizardhat": "Wizard Hat",
   "item.simplehats.mudkiphat": "Mudkip Chomp Hat",
-  "item.simplehats.yellinghat": ":YELLING:"
+  "item.simplehats.yellinghat": ":YELLING:",
+  "item.simplehats.1cake": "1 Cake",
+  "item.simplehats.10cakes": "1 10s Cakes",
+  "item.simplehats.20cakes": "2 10s Cakes",
+  "item.simplehats.30cakes": "3 10s Cakes",
+  "item.simplehats.40cakes": "4 10s Cakes... Terrible"
 }
