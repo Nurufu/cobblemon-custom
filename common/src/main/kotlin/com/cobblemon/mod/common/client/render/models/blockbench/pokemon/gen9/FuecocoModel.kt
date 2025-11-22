@@ -8,9 +8,11 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen9
 
+import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation.Companion.X_AXIS
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
@@ -34,7 +36,12 @@ class FuecocoModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     lateinit var sleep: Pose
     lateinit var battleidle: Pose
 
+    lateinit var shoulderLeft: Pose
+    lateinit var shoulderRight: Pose
+
     override val cryAnimation = CryProvider { bedrockStateful("fuecoco", "cry") }
+
+    val shoulderOffset = 4
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("fuecoco", "blink") }
@@ -74,6 +81,30 @@ class FuecocoModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
             animations = arrayOf(
                 singleBoneLook(disableY = true),
                 bedrock("fuecoco", "battle_idle")
+            )
+        )
+
+        shoulderLeft = registerPose(
+            poseType = PoseType.SHOULDER_LEFT,
+            quirks = arrayOf(blink),
+            animations = arrayOf(
+                singleBoneLook(),
+                bedrock("fuecoco", "shoulder_left")
+            ),
+            transformedParts = arrayOf(
+                rootPart.createTransformation().addPosition(X_AXIS, shoulderOffset)
+            )
+        )
+
+        shoulderRight = registerPose(
+            poseType = PoseType.SHOULDER_RIGHT,
+            quirks = arrayOf(blink),
+            animations = arrayOf(
+                singleBoneLook(),
+                bedrock("fuecoco", "shoulder_right")
+            ),
+            transformedParts = arrayOf(
+                rootPart.createTransformation().addPosition(X_AXIS, -shoulderOffset)
             )
         )
     }

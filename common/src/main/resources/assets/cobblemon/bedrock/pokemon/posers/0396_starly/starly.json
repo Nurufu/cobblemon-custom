@@ -23,22 +23,22 @@
       ]
     },
     "walking": {
-      "postTypes": ["WALK"],
-      "animations": ["q.look('head_ai)", "q.bedrock('starly', 'ground_walk')"],
+      "poseTypes": ["WALK"],
+      "animations": ["q.look('head_ai')", "q.bedrock('starly', 'ground_walk')"],
       "quirks": [
         "q.bedrock_quirk('starly', 'blink')"
       ]
     },
     "hover": {
       "poseTypes": ["HOVER"],
-      "animatinos": ["q.look('head_ai')", "q.bedrock('starly', 'air_idle')"],
+      "animations": ["q.look('head_ai')", "q.bedrock('starly', 'air_idle')"],
       "quirks": [
         "q.bedrock_quirk('starly', 'blink')"
       ]
     },
     "fly": {
       "poseTypes": ["FLY"],
-      "animatinos": ["q.look('head_ai')", "q.bedrock('starly', 'air_fly')"],
+      "animations": ["q.look('head_ai')", "q.bedrock('starly', 'air_fly')"],
       "quirks": [
         "q.bedrock_quirk('starly', 'blink')"
       ]

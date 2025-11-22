@@ -1,11 +1,11 @@
 {
     "head": "head",
-	"portraitScale": 0.8,
-    "portraitTranslation": [ -0.2, 2.8, 0 ],
-    "profileScale": 0.4,
-    "profileTranslation": [ 0, 1.4, 0 ],
+	"portraitScale": 1.6,
+    "portraitTranslation": [ -0.2, -0.2, 0 ],
+    "profileScale": 0.65,
+    "profileTranslation": [ 0, 0.75, 0 ],
   "animations": {
-    "cry": "q.bedrock_stateful('nihilego', 'cry')"
+    "cry": "q.bedrock_stateful('fuecoco', 'cry')"
   },
     "poses": {
       "standing": {
@@ -17,38 +17,47 @@
           "PORTRAIT",
           "PROFILE"
         ],
+        "isBattle": false,
         "animations": [
-          "bedrock(nihilego, ground_idle)"
+          "bedrock(fuecoco, ground_idle)"
         ]
+      },
+      "battle_idle": {
+        "poseName": "standing",
+        "poseTypes": [
+          "STAND"
+        ],
+        "isBattle": true,
+        "animations": ["bedrock(fuecoco, battle_idle)"]
       },
       "walking": {
         "poseName": "walking",
         "transformTicks": 10,
         "poseTypes": [ "WALK" ],
-        "animations": [ "bedrock(nihilego, ground_walk)" 
+        "animations": [ "bedrock(fuecoco, ground_walk)"
 		]
 		},
     "flying": {
       "poseName": "flying",
       "transformTicks": 10,
       "poseTypes": [ "FLY" ],
-      "animations": [ "bedrock(nihilego, ground_walk)" 
+      "animations": [ "bedrock(fuecoco, ground_walk)"
 	  ]
     },
 	"hovering": {
       "poseName": "hovering",
       "transformTicks": 10,
       "poseTypes": [ "HOVER" ],
-      "animations": [ "bedrock(nihilego, ground_idle)" 
+      "animations": [ "bedrock(fuecoco, ground_idle)"
 	  ]
       },
       "leftshoulder": {
         "poseTypes": ["SHOULDER_LEFT"],
-        "animations": ["q.bedrock('nihilego', 'shoulder_left')"]
+        "animations": ["q.look('fuecoco')", "q.bedrock('fuecoco', 'shoulder_left')"]
       },
       "rightshoulder": {
         "poseTypes": ["SHOULDER_RIGHT"],
-        "animations": ["q.bedrock('nihilego', 'shoulder_right')"]
+        "animations": ["q.bedrock('fuecoco', 'shoulder_right')"]
       }
     }
   }

@@ -76,6 +76,15 @@
      "animations": [
        "bedrock(fluttermane, sleep)"
      ]
+   },
+   "flying": {
+    "poseTypes": [
+    "FLY",
+    "HOVER"
+    ],
+    "animations":[
+        "bedrock(fluttermane, flying)"
+    ]
    }
     }
 }

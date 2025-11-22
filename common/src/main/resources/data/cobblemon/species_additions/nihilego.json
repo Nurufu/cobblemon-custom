@@ -22,6 +22,7 @@
 			}
         }
     },
+    "shoulderMountable": true,
     "baseScale": 0.8,
     "hitbox": {
         "width": 1.0,

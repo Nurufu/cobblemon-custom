@@ -4,7 +4,7 @@
 	"parent": "simplehats:item/hatparent",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "1cake",
+		"0": "simplehats:item/hats/1cake",
 		"particle": "1cake"
 	},
 	"elements": [

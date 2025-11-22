@@ -14,8 +14,15 @@
         "quirks": ["q.bedrock_quirk('pidgey', 'blink')"]
       },
       "standing": {
-        "poseTypes": ["STAND", "NONE", "WALK"],
+        "poseTypes": ["STAND", "NONE"],
         "animations": ["q.look('head_ai')", "q.bedrock('pidgey', 'ground_idle')"],
+        "quirks": [
+          "q.bedrock_quirk('pidgey', 'blink')"
+        ]
+      },
+      "walking": {
+        "poseTypes": ["WALK"],
+        "animations": ["q.look('head_ai')", "q.bedrock('pidgey', 'ground_walk')"],
         "quirks": [
           "q.bedrock_quirk('pidgey', 'blink')"
         ]

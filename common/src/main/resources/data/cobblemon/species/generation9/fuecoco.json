@@ -28,6 +28,7 @@
   "maleRatio": 0.875,
   "baseExperienceYield": 62,
   "baseFriendship": 50,
+  "shoulderMountable": true,
   "evYield": {
     "hp": 1,
     "attack": 0,

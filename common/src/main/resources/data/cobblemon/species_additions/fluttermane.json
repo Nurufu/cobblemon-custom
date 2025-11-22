@@ -25,7 +25,7 @@
     "baseScale": 0.7,
     "hitbox": {
         "width": 0.5,
-        "height": 1.4,
+        "height": 2.1,
         "fixed": false
     }
 }

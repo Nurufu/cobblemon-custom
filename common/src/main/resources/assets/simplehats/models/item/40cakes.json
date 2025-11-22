@@ -4,7 +4,7 @@
 	"parent": "simplehats:item/hatparent",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "1cake",
+		"0": "simplehats:item/hats/1cake",
 		"particle": "1cake"
 	},
 	"elements": [
@@ -6788,8 +6788,8 @@
 		},
 		"gui": {
 			"rotation": [27.65, -28.91, 14.28],
-			"translation": [-2.25, -0.75, 0],
-			"scale": [0.35, 0.35, 0.35]
+			"translation": [0, -0.75, 0],
+			"scale": [0.24, 0.35, 0.35]
 		},
 		"head": {
 			"rotation": [0, 90, 0],
