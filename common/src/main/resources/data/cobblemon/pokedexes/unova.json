@@ -1,0 +1,22 @@
+{
+  "displayName": "cobblemon.pokedex.unova",
+  "startingValue": 0,
+  "pokemon": [
+    {
+      "name": "cobblemon:victini",
+      "formName": "normal"
+    },
+    {
+      "name": "cobblemon:snivy",
+      "formName": "normal"
+    },
+    {
+      "name": "cobblemon:servine",
+      "formName": "normal"
+    },
+    {
+      "name": "cobblemon:serperior",
+      "formName": "normal"
+    }
+  ]
+}

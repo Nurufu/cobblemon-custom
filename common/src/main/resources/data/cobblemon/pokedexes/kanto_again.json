@@ -1,0 +1,13 @@
+{
+  "displayName": "cobblemon.pokedex.kanto",
+  "pokemon": [
+    {
+      "name": "cobblemon:raticae",
+      "formName": "alola"
+    },
+    {
+      "name": "cobblemon:raichu",
+      "formName": "alola"
+    }
+  ]
+}

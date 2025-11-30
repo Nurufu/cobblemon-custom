@@ -1,0 +1,17 @@
+{
+  "displayName": "cobblemon.pokedex.test",
+  "startingValue": 5,
+  "pokemon": [
+    {
+      "name": "cobblemon:pikachu",
+      "formName": "normal"
+    },
+    {
+      "name": "cobblemon:raichu",
+      "formNames": [
+        "normal",
+        "alola"
+      ]
+    }
+  ]
+}

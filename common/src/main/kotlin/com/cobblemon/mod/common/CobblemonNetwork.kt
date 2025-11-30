@@ -238,6 +238,8 @@ object CobblemonNetwork : NetworkManager {
         this.createClientBound(SummaryUIPacket.ID, SummaryUIPacket::decode, SummaryUIPacketHandler)
         this.createClientBound(InteractPokemonUIPacket.ID, InteractPokemonUIPacket::decode, InteractPokemonUIPacketHandler)
         this.createClientBound(PlayerInteractOptionsPacket.ID, PlayerInteractOptionsPacket::decode, PlayerInteractOptionsHandler)
+        this.createClientBound(PokedexUIPacket.ID, PokedexUIPacket::decode, PokedexUIPacketHandler)
+
 
         // Starter packets
         this.createClientBound(OpenStarterUIPacket.ID, OpenStarterUIPacket::decode, StarterUIPacketHandler)
