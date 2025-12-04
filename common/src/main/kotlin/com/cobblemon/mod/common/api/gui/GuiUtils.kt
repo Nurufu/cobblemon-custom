@@ -100,7 +100,6 @@ fun drawRectangle(
     BufferRenderer.drawWithGlobalProgram(bufferbuilder.end())
 }
 
-@JvmOverloads
 fun drawCenteredText(
     context: DrawContext,
     font: Identifier? = null,
@@ -115,7 +114,20 @@ fun drawCenteredText(
     context.drawText(textRenderer, comp, x.toInt() - textRenderer.getWidth(comp) / 2, y.toInt(), colour, shadow)
 }
 
-@JvmOverloads
+fun drawTextJustifiedRight(
+    context: DrawContext,
+    font: Identifier? = null,
+    text: MutableText,
+    x: Number,
+    y: Number,
+    colour: Int,
+    shadow: Boolean = true
+) {
+    val comp = (text as MutableText).let { if (font != null) it.font(font) else it }
+    val textRenderer = MinecraftClient.getInstance().textRenderer
+    context.drawText(textRenderer, comp, x.toInt() - textRenderer.getWidth(comp), y.toInt(), colour, shadow)
+}
+
 fun drawText(
     context: DrawContext,
     font: Identifier? = null,
@@ -166,7 +178,6 @@ fun drawText(
     context.drawText(textRenderer, text, tweakedX.toInt(), y.toInt(), colour, shadow)
 }
 
-@JvmOverloads
 fun drawString(
     context: DrawContext,
     text: String,

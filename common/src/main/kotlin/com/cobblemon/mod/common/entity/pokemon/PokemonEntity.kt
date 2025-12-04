@@ -1084,8 +1084,6 @@ open class PokemonEntity(
             return false
         } else if (health <= 0F || isDead) {
             return false
-        } else if (player.isPartyBusy()) {
-            return false
         }
 
         return true

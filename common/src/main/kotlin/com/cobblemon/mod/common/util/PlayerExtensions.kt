@@ -51,8 +51,8 @@ fun ServerPlayerEntity.closeDialogue() {
 fun ServerPlayerEntity.openDialogue(dialogue: Dialogue) {
     DialogueManager.startDialogue(this, dialogue)
 }
-fun ServerPlayerEntity.extraData(key: String) = Cobblemon.playerData.get(this).extraData[key]
-fun ServerPlayerEntity.hasKeyItem(key: Identifier) = Cobblemon.playerData.get(this).keyItems.contains(key)
+fun ServerPlayerEntity.extraData(key: String) = Cobblemon.playerDataManager.getGenericData(this).extraData[key]
+fun ServerPlayerEntity.hasKeyItem(key: Identifier) = Cobblemon.playerDataManager.getGenericData(this).keyItems.contains(key)
 fun UUID.getPlayer() = server()?.playerManager?.getPlayer(this)
 
 fun ServerPlayerEntity.requestWallpapers() {
@@ -372,11 +372,4 @@ fun PlayerEntity.giveOrDropItemStack(stack: ItemStack, playSound: Boolean = true
 }
 
 /** Retrieves the battle theme associated with this player, or the default PVP theme if null. */
-fun ServerPlayerEntity.getBattleTheme() = Cobblemon.playerData.get(this).battleTheme?.let { Registries.SOUND_EVENT.get(it) } ?: CobblemonSounds.PVP_BATTLE
-
-/** Checks if any [PokemonEntity]s belonging to a player's party has any busy locks. */
-fun PlayerEntity.isPartyBusy() =
-    if (this.world.isClient())
-        CobblemonClient.storage.myParty.find { it?.entity?.isBusy == true } != null
-    else
-        Cobblemon.storage.getParty(this.uuid).find { it.entity?.isBusy == true} != null
+fun ServerPlayerEntity.getBattleTheme() = Cobblemon.playerDataManager.getGenericData(this).battleTheme?.let { Registries.SOUND_EVENT.get(it) } ?: CobblemonSounds.PVP_BATTLE

@@ -9,7 +9,7 @@
 package com.cobblemon.mod.common.command
 
 import com.cobblemon.mod.common.api.permission.CobblemonPermissions
-import com.cobblemon.mod.common.command.argument.PokemonArgumentType
+import com.cobblemon.mod.common.command.argument.SpeciesArgumentType
 import com.cobblemon.mod.common.pokemon.FormData
 import com.cobblemon.mod.common.util.permission
 import com.mojang.brigadier.Command
@@ -25,7 +25,7 @@ object ChangeScaleAndSize {
         val command = CommandManager.literal("changescaleandsize")
             .permission(CobblemonPermissions.CHANGE_SCALE_AND_SIZE)
             .then(
-                CommandManager.argument("pokemon", PokemonArgumentType.pokemon())
+                CommandManager.argument("pokemon", SpeciesArgumentType.species())
                     .then(
                         CommandManager.argument("scale", FloatArgumentType.floatArg())
                             .then(CommandManager.argument("width", FloatArgumentType.floatArg())
@@ -38,7 +38,7 @@ object ChangeScaleAndSize {
     }
 
     private fun execute(context: CommandContext<ServerCommandSource>) : Int {
-        val pkm = PokemonArgumentType.getPokemon(context, "pokemon")
+        val pkm = SpeciesArgumentType.getPokemon(context, "pokemon")
         val scale = FloatArgumentType.getFloat(context, "scale")
         val width = FloatArgumentType.getFloat(context, "width")
         val height = FloatArgumentType.getFloat(context, "height")

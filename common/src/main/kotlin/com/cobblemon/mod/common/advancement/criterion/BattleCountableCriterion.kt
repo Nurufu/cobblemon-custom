@@ -41,7 +41,7 @@ class BattleCountableCriterionCondition(id: Identifier, predicate: LootContextPr
 
     override fun matches(player: ServerPlayerEntity, context: BattleCountableContext): Boolean {
         var typeCheck = false
-        val advancementData = Cobblemon.playerData.get(player).advancementData
+        val advancementData = Cobblemon.playerDataManager.getGenericData(player).advancementData
         if (battleTypes.isEmpty() || battleTypes.contains("any")) {
             typeCheck = true
         }

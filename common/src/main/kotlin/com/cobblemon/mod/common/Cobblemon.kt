@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common
 
 import com.cobblemon.mod.common.CobblemonBuildDetails.smallCommitHash
+//import com.cobblemon.mod.common.api.storage.player.factory.MongoPlayerDataStoreFactory
 import com.cobblemon.mod.common.advancement.CobblemonCriteria
 import com.cobblemon.mod.common.advancement.criterion.EvolvePokemonContext
 import com.cobblemon.mod.common.api.Priority
@@ -18,11 +19,13 @@ import com.cobblemon.mod.common.api.drop.CommandDropEntry
 import com.cobblemon.mod.common.api.drop.DropEntry
 import com.cobblemon.mod.common.api.drop.ItemDropEntry
 import com.cobblemon.mod.common.api.events.CobblemonEvents
+import com.cobblemon.mod.common.api.events.CobblemonEvents.BATTLE_STARTED_POST
 import com.cobblemon.mod.common.api.events.CobblemonEvents.BATTLE_VICTORY
 import com.cobblemon.mod.common.api.events.CobblemonEvents.DATA_SYNCHRONIZED
 import com.cobblemon.mod.common.api.events.CobblemonEvents.EVOLUTION_COMPLETE
 import com.cobblemon.mod.common.api.events.CobblemonEvents.LEVEL_UP_EVENT
 import com.cobblemon.mod.common.api.events.CobblemonEvents.POKEMON_CAPTURED
+import com.cobblemon.mod.common.api.events.CobblemonEvents.STARTER_CHOSEN
 import com.cobblemon.mod.common.api.events.CobblemonEvents.TRADE_COMPLETED
 import com.cobblemon.mod.common.api.net.serializers.IdentifierDataSerializer
 import com.cobblemon.mod.common.api.net.serializers.PoseTypeDataSerializer
@@ -63,9 +66,11 @@ import com.cobblemon.mod.common.api.storage.factory.FileBackedPokemonStoreFactor
 import com.cobblemon.mod.common.api.storage.molang.NbtMoLangDataStoreFactory
 import com.cobblemon.mod.common.api.storage.pc.PCStore
 import com.cobblemon.mod.common.api.storage.pc.link.PCLinkManager
-import com.cobblemon.mod.common.api.storage.player.PlayerDataStoreManager
-import com.cobblemon.mod.common.api.storage.player.factory.JsonPlayerDataStoreFactory
-import com.cobblemon.mod.common.api.storage.player.factory.MongoPlayerDataStoreFactory
+import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreManager
+import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreType
+import com.cobblemon.mod.common.api.storage.player.adapter.PlayerDataJsonBackend
+import com.cobblemon.mod.common.api.storage.player.adapter.PokedexDataNbtBackend
+import com.cobblemon.mod.common.api.storage.player.factory.CachedPlayerDataStoreFactory
 import com.cobblemon.mod.common.api.tags.CobblemonEntityTypeTags
 import com.cobblemon.mod.common.api.tags.CobblemonItemTags
 import com.cobblemon.mod.common.battles.*
@@ -79,6 +84,7 @@ import com.cobblemon.mod.common.config.starter.StarterConfig
 import com.cobblemon.mod.common.data.CobblemonDataProvider
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.events.AdvancementHandler
+import com.cobblemon.mod.common.events.PokedexHandler
 import com.cobblemon.mod.common.events.ServerTickHandler
 import com.cobblemon.mod.common.item.PokeBallItem
 import com.cobblemon.mod.common.net.messages.client.settings.ServerSettingsPacket
@@ -152,7 +158,7 @@ object Cobblemon {
     val battleRegistry = BattleRegistry
     var storage = PokemonStoreManager()
     var molangData = NbtMoLangDataStoreFactory
-    lateinit var playerData: PlayerDataStoreManager
+    lateinit var playerDataManager: PlayerInstancedDataStoreManager
     lateinit var starterConfig: StarterConfig
     val dataProvider: DataProvider = CobblemonDataProvider
     var permissionValidator: PermissionValidator by Delegates.observable(LaxPermissionValidator().also { it.initialize() }) { _, _, newValue -> newValue.initialize() }
@@ -198,7 +204,7 @@ object Cobblemon {
 
         DATA_SYNCHRONIZED.subscribe {
             storage.onPlayerDataSync(it)
-            playerData.get(it).sendToPlayer(it)
+            playerDataManager.syncAllToPlayer(it)
             starterHandler.handleJoin(it)
             it.requestWallpapers()
             ServerSettingsPacket(
@@ -235,7 +241,7 @@ object Cobblemon {
             PCLinkManager.removeLink(it.player.uuid)
             BattleRegistry.getBattleByParticipatingPlayer(it.player)?.stop()
             storage.onPlayerDisconnect(it.player)
-            playerData.onPlayerDisconnect(it.player)
+            playerDataManager.onPlayerDisconnect(it.player)
             TradeManager.onLogoff(it.player)
             if (it.player.vehicle is PokemonEntity) {
                 it.player.dismountVehicle()
@@ -332,16 +338,21 @@ object Cobblemon {
         }
         PlatformEvents.SERVER_STARTING.subscribe { event ->
             val server = event.server
-            playerData = PlayerDataStoreManager().also { it.setup(server) }
+            playerDataManager = PlayerInstancedDataStoreManager().also { it.setup(server) }
 
             val mongoClient: MongoClient?
 
             val pokemonStoreRoot = server.getSavePath(WorldSavePath.ROOT).resolve("pokemon").toFile()
             val storeAdapter = when (config.storageFormat) {
                 "nbt", "json" -> {
-                    val jsonFactory = JsonPlayerDataStoreFactory()
-                    jsonFactory.setup(server)
-                    playerData.setFactory(jsonFactory)
+                    val generalJsonFactory = CachedPlayerDataStoreFactory(PlayerDataJsonBackend())
+                    generalJsonFactory.setup(server)
+
+                    val pokedexNbtFactory = CachedPlayerDataStoreFactory(PokedexDataNbtBackend())
+                    pokedexNbtFactory.setup(server)
+
+                    playerDataManager.setFactory(generalJsonFactory, PlayerInstancedDataStoreType.GENERAL)
+                    playerDataManager.setFactory(pokedexNbtFactory, PlayerInstancedDataStoreType.POKEDEX)
 
                     if (config.storageFormat == "nbt") {
                         NBTStoreAdapter(pokemonStoreRoot.absolutePath, useNestedFolders = true, folderPerClass = true)
@@ -354,7 +365,9 @@ object Cobblemon {
                     }
                 }
 
+                /*
                 "mongodb" -> {
+                    /*
                     try {
                         Class.forName("com.mongodb.client.MongoClient")
 
@@ -363,13 +376,17 @@ object Cobblemon {
                             .build()
                         mongoClient = MongoClients.create(mongoClientSettings)
                         val mongoFactory = MongoPlayerDataStoreFactory(mongoClient, config.mongoDBDatabaseName)
-                        playerData.setFactory(mongoFactory)
+                        playerData.setFactory(mongoFactory, PlayerInstancedDataStoreType.GENERAL)
                         MongoDBStoreAdapter(mongoClient, config.mongoDBDatabaseName)
                     } catch (e: ClassNotFoundException) {
                         LOGGER.error("MongoDB driver not found.")
                         throw e
                     }
+
+                     */
                 }
+
+                 */
 
                 else -> throw IllegalArgumentException("Unsupported storageFormat: ${config.storageFormat}")
             }
@@ -387,15 +404,22 @@ object Cobblemon {
 
         PlatformEvents.SERVER_STOPPED.subscribe {
             storage.unregisterAll()
-            playerData.saveAll()
+            playerDataManager.saveAllStores()
         }
         PlatformEvents.SERVER_STARTED.subscribe {
             bestSpawner.onServerStarted()
             battleRegistry.onServerStarted()
         }
         PlatformEvents.SERVER_TICK_POST.subscribe { ServerTickHandler.onTick(it.server) }
-        POKEMON_CAPTURED.subscribe { AdvancementHandler.onCapture(it) }
-        POKEMON_CAPTURED.subscribe { PokedexHandler.onCapture(it)}
+        POKEMON_CAPTURED.subscribe {
+            PokedexHandler.onCapture(it)
+            AdvancementHandler.onCapture(it)
+        }
+
+        STARTER_CHOSEN.subscribe {
+            PokedexHandler.onStarterSelect(it)
+        }
+
 //        EGG_HATCH.subscribe { AdvancementHandler.onHatch(it) }
         BATTLE_VICTORY.subscribe { AdvancementHandler.onWinBattle(it) }
         EVOLUTION_COMPLETE.subscribe(Priority.LOWEST) { event ->
@@ -428,13 +452,18 @@ object Cobblemon {
                     properties.apply(product)
                     product.caughtBall = (pokeball as PokeBallItem).pokeBall
                     pokemon.storeCoordinates.get()?.store?.add(product)
-                    CobblemonCriteria.EVOLVE_POKEMON.trigger(player, EvolvePokemonContext(event.pokemon.preEvolution!!.species.resourceIdentifier, product.species.resourceIdentifier, playerData.get(player).advancementData.totalEvolvedCount))
+                    CobblemonCriteria.EVOLVE_POKEMON.trigger(player, EvolvePokemonContext(event.pokemon.preEvolution!!.species.resourceIdentifier, product.species.resourceIdentifier, playerDataManager.getGenericData(player).advancementData.totalEvolvedCount))
                 }
             }
         }
         LEVEL_UP_EVENT.subscribe { AdvancementHandler.onLevelUp(it) }
-        TRADE_COMPLETED.subscribe { AdvancementHandler.onTradeCompleted(it) }
-        TRADE_COMPLETED.subscribe { PokedexHandler.onTrade(it) }
+        TRADE_COMPLETED.subscribe {
+            AdvancementHandler.onTradeCompleted(it)
+            PokedexHandler.onTrade(it)
+        }
+        BATTLE_STARTED_POST.subscribe {
+            PokedexHandler.onBattleStart(it)
+        }
 
         BagItems.observable.subscribe {
             LOGGER.info("Starting dummy Showdown battle to force it to pre-load data.")
@@ -443,14 +472,10 @@ object Cobblemon {
                 BattleSide(PokemonBattleActor(UUID.randomUUID(), BattlePokemon(Pokemon().initialize()), -1F)),
                 BattleSide(PokemonBattleActor(UUID.randomUUID(), BattlePokemon(Pokemon().initialize()), -1F)),
                 true
-            ).ifSuccessful {
-                it.mute = true
-            }.ifErrored {
-                val errors = it.errors.joinToString("\n") { it.javaClass.name }
-                LOGGER.error("Failed to start dummy Showdown battle: $errors")
-            }
+            ).ifSuccessful { it.mute = true }
         }
 
+        //CobblemonSherds.registerSherds()
     }
 
     fun getLevel(dimension: RegistryKey<World>): World? {
@@ -548,13 +573,14 @@ object Cobblemon {
     }
 
     private fun registerArgumentTypes() {
-        this.implementation.registerCommandArgument(cobblemonResource("pokemon"), PokemonArgumentType::class, ConstantArgumentSerializer.of(PokemonArgumentType::pokemon))
+        this.implementation.registerCommandArgument(cobblemonResource("pokemon"), SpeciesArgumentType::class, ConstantArgumentSerializer.of(SpeciesArgumentType::species))
         this.implementation.registerCommandArgument(cobblemonResource("pokemon_properties"), PokemonPropertiesArgumentType::class, ConstantArgumentSerializer.of(PokemonPropertiesArgumentType::properties))
         this.implementation.registerCommandArgument(cobblemonResource("spawn_bucket"), SpawnBucketArgumentType::class, ConstantArgumentSerializer.of(SpawnBucketArgumentType::spawnBucket))
         this.implementation.registerCommandArgument(cobblemonResource("move"), MoveArgumentType::class, ConstantArgumentSerializer.of(MoveArgumentType::move))
         this.implementation.registerCommandArgument(cobblemonResource("party_slot"), PartySlotArgumentType::class, ConstantArgumentSerializer.of(PartySlotArgumentType::partySlot))
         this.implementation.registerCommandArgument(cobblemonResource("pokemon_store"), PokemonStoreArgumentType::class, ConstantArgumentSerializer.of(PokemonStoreArgumentType::pokemonStore))
         this.implementation.registerCommandArgument(cobblemonResource("dialogue"), DialogueArgumentType::class, ConstantArgumentSerializer.of(DialogueArgumentType::dialogue))
+        this.implementation.registerCommandArgument(cobblemonResource("form"), FormArgumentType::class, ConstantArgumentSerializer.of(FormArgumentType::form))
     }
 
 }

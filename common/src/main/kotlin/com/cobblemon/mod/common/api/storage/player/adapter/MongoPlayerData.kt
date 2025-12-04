@@ -8,24 +8,12 @@
 
 package com.cobblemon.mod.common.api.storage.player.adapter
 
-import com.cobblemon.mod.common.api.storage.player.PlayerAdvancementData
-import com.cobblemon.mod.common.api.storage.player.PlayerData
-import com.cobblemon.mod.common.api.storage.player.PlayerDataExtension
-import com.cobblemon.mod.common.util.adapters.IdentifierAdapter
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.mongodb.client.MongoClient
-import com.mongodb.client.model.ReplaceOptions
-import net.minecraft.util.Identifier
-import org.bson.Document
-import java.util.UUID
-import kotlin.reflect.KMutableProperty
-import kotlin.reflect.full.memberProperties
-
-class MongoPlayerDataAdapter(
+/*
+class MongoPlayerDataBackend<T : InstancedPlayerData>(
     mongoClient: MongoClient,
-    databaseName: String
-) : PlayerDataStoreAdapter {
+    databaseName: String,
+    val typeToken: TypeToken<T>
+) : PlayerDataStoreBackend<T> {
 
     companion object {
         val gson = GsonBuilder()
@@ -37,30 +25,32 @@ class MongoPlayerDataAdapter(
 
     private val collection = mongoClient.getDatabase(databaseName).getCollection("PlayerDataCollection")
 
-    override fun load(uuid: UUID): PlayerData {
+    override fun load(uuid: UUID): T {
         val filter = Document("uuid", uuid.toString())
         val document = collection.find(filter).first()
 
         return if (document != null) {
             val jsonStr = document.toJson()
-            gson.fromJson(jsonStr, PlayerData::class.java).also {
+            gson.fromJson(jsonStr, typeToken).also {
                 val newProps = it::class.memberProperties.filterIsInstance<KMutableProperty<*>>().filter { member -> member.getter.call(it) == null }
                 if (newProps.isNotEmpty()) {
-                    val defaultData = PlayerData.defaultData(uuid)
+                    val defaultData = GeneralPlayerData.defaultData(uuid)
                     newProps.forEach { member -> member.setter.call(it, member.getter.call(defaultData)) }
                 }
             }
         } else {
-            PlayerData.defaultData(uuid).also(::save)
+            InstancedPlayerData.getDefaultObjectForType(typeToken)
         }
     }
 
-    override fun save(playerData: PlayerData) {
-        val jsonStr = gson.toJson(playerData)
+    override fun save(playerData: T) {
+        val jsonStr = gson.toJson(generalPlayerData)
         val document = Document.parse(jsonStr)
-        document.put("uuid", playerData.uuid.toString())
-        val filter = Document("uuid", playerData.uuid.toString())
+        document.put("uuid", generalPlayerData.uuid.toString())
+        val filter = Document("uuid", generalPlayerData.uuid.toString())
 
         collection.replaceOne(filter, document, ReplaceOptions().upsert(true))
     }
 }
+
+ */

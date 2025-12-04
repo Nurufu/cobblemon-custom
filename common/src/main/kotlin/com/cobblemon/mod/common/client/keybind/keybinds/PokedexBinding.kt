@@ -10,8 +10,7 @@ package com.cobblemon.mod.common.client.keybind.keybinds
 
 import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.client.CobblemonClient
-import com.cobblemon.mod.common.client.gui.pokedex.Pokedex
-import com.cobblemon.mod.common.client.gui.summary.Summary
+import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUI
 import com.cobblemon.mod.common.client.keybind.CobblemonKeyBinding
 import com.cobblemon.mod.common.client.keybind.KeybindCategories
 import net.minecraft.client.util.InputUtil
@@ -24,7 +23,7 @@ object PokedexBinding : CobblemonKeyBinding(
 ) {
     override fun onPress() {
         try {
-            Pokedex.open(CobblemonClient.storage.myPokedex)
+            PokedexGUI.open(CobblemonClient.clientPokedexData, "red")
         } catch (e: Exception) {
             Cobblemon.LOGGER.debug("Failed to open the Pokedex from the Pokedex keybind", e)
         }

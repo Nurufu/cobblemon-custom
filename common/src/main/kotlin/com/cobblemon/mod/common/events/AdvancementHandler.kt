@@ -21,13 +21,14 @@ import com.cobblemon.mod.common.api.events.pokemon.evolution.EvolutionCompleteEv
 import com.cobblemon.mod.common.block.TumblestoneBlock
 import com.cobblemon.mod.common.item.TumblestoneItem
 import com.cobblemon.mod.common.platform.events.ServerPlayerEvent
+import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreType
 import com.cobblemon.mod.common.util.getPlayer
 import java.util.*
 
 object AdvancementHandler {
 
     fun onCapture(event : PokemonCapturedEvent) {
-        val playerData = Cobblemon.playerData.get(event.player)
+        val playerData = Cobblemon.playerDataManager.getGenericData(event.player)
         val advancementData = playerData.advancementData
         advancementData.updateTotalCaptureCount()
         advancementData.updateAspectsCollected(event.player, event.pokemon)
@@ -41,7 +42,7 @@ object AdvancementHandler {
             CobblemonCriteria.CATCH_SHINY_POKEMON.trigger(event.player, advancementData.totalShinyCaptureCount)
         }
         CobblemonCriteria.COLLECT_ASPECT.trigger(event.player, advancementData.aspectsCollected)
-        Cobblemon.playerData.saveSingle(playerData)
+        Cobblemon.playerDataManager.saveSingle(playerData, PlayerInstancedDataStoreType.GENERAL)
     }
 
 //    fun onHatch(event: HatchEggEvent) {
@@ -56,11 +57,11 @@ object AdvancementHandler {
         val player = event.pokemon.getOwnerPlayer()
         if (player != null) {
             if (event.pokemon.preEvolution != null) {
-                val playerData = Cobblemon.playerData.get(player)
+                val playerData = Cobblemon.playerDataManager.getGenericData(player)
                 val advancementData = playerData.advancementData
                 advancementData.updateTotalEvolvedCount()
                 advancementData.updateAspectsCollected(player, event.pokemon)
-                Cobblemon.playerData.saveSingle(playerData)
+                Cobblemon.playerDataManager.saveSingle(playerData, PlayerInstancedDataStoreType.GENERAL)
                 CobblemonCriteria.EVOLVE_POKEMON.trigger(
                     player, EvolvePokemonContext(
                         event.pokemon.preEvolution!!.species.resourceIdentifier,
@@ -82,16 +83,18 @@ object AdvancementHandler {
                 event.winners
                     .flatMap { it.getPlayerUUIDs().mapNotNull(UUID::getPlayer) }
                     .forEach { player ->
-                        val playerData = Cobblemon.playerData.get(player)
+                        val playerData = Cobblemon.playerDataManager.getGenericData(player)
                         val advancementData = playerData.advancementData
                         event.battle.actors.forEach { battleActor ->
                             if (!event.winners.contains(battleActor) && battleActor.type == ActorType.WILD) {
                                 battleActor.pokemonList.forEach { battlePokemon ->
-                                    advancementData.updateTotalDefeatedCount(battlePokemon.originalPokemon)
+                                    battlePokemon.entity?.pokemon?.let {
+                                        advancementData.updateTotalDefeatedCount(it)
+                                    }
                                 }
                             }
                         }
-                        Cobblemon.playerData.saveSingle(playerData)
+                        Cobblemon.playerDataManager.saveSingle(playerData, PlayerInstancedDataStoreType.GENERAL)
                         CobblemonCriteria.DEFEAT_POKEMON.trigger(player, advancementData.totalBattleVictoryCount)
                     }
             }
@@ -99,7 +102,7 @@ object AdvancementHandler {
         event.winners
             .flatMap { it.getPlayerUUIDs().mapNotNull(UUID::getPlayer) }
             .forEach { player ->
-                val playerData = Cobblemon.playerData.get(player)
+                val playerData = Cobblemon.playerDataManager.getGenericData(player)
                 val advancementData = playerData.advancementData
                 advancementData.updateTotalBattleVictoryCount()
                 if (event.battle.isPvW)
@@ -108,7 +111,7 @@ object AdvancementHandler {
                     advancementData.updateTotalPvPBattleVictoryCount()
                 if (event.battle.isPvN)
                     advancementData.updateTotalPvNBattleVictoryCount()
-                Cobblemon.playerData.saveSingle(playerData)
+                Cobblemon.playerDataManager.saveSingle(playerData, PlayerInstancedDataStoreType.GENERAL)
                 CobblemonCriteria.WIN_BATTLE.trigger(player, BattleCountableContext(advancementData.totalBattleVictoryCount, event.battle))
             }
 
@@ -123,21 +126,21 @@ object AdvancementHandler {
         val player2 = event.tradeParticipant2Pokemon.getOwnerPlayer()
         if (player1 != null) {
             CobblemonCriteria.TRADE_POKEMON.trigger(player1, TradePokemonContext(event.tradeParticipant1Pokemon, event.tradeParticipant2Pokemon))
-            val playerData = Cobblemon.playerData.get(player1)
+            val playerData = Cobblemon.playerDataManager.getGenericData(player1)
             val advancementData = playerData.advancementData
             advancementData.updateTotalTradedCount()
             advancementData.updateAspectsCollected(player1, event.tradeParticipant2Pokemon)
             CobblemonCriteria.COLLECT_ASPECT.trigger(player1, advancementData.aspectsCollected)
-            Cobblemon.playerData.saveSingle(playerData)
+            Cobblemon.playerDataManager.saveSingle(playerData, PlayerInstancedDataStoreType.GENERAL)
         }
         if (player2 != null) {
             CobblemonCriteria.TRADE_POKEMON.trigger(player2, TradePokemonContext(event.tradeParticipant2Pokemon, event.tradeParticipant1Pokemon))
-            val playerData = Cobblemon.playerData.get(player2)
+            val playerData = Cobblemon.playerDataManager.getGenericData(player2)
             val advancementData = playerData.advancementData
             advancementData.updateTotalTradedCount()
             advancementData.updateAspectsCollected(player2, event.tradeParticipant1Pokemon)
             CobblemonCriteria.COLLECT_ASPECT.trigger(player2, advancementData.aspectsCollected)
-            Cobblemon.playerData.saveSingle(playerData)
+            Cobblemon.playerDataManager.saveSingle(playerData, PlayerInstancedDataStoreType.GENERAL)
         }
     }
 
