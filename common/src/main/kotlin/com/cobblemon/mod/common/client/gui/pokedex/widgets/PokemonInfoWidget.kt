@@ -40,7 +40,10 @@ import com.cobblemon.mod.common.pokemon.aspects.SHINY_ASPECT
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.lang
 import com.cobblemon.mod.common.util.math.fromEulerXYZDegrees
+import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
+import net.minecraft.client.sound.PositionedSoundInstance
+import net.minecraft.sound.SoundEvent
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
@@ -524,5 +527,9 @@ class PokemonInfoWidget(val pX: Int, val pY: Int, val updateForm: (FormData) -> 
 
     private fun isSelectedPokemonOwned(): Boolean {
         return speciesPokedexEntry?.highestDiscoveryLevel() == PokedexEntryProgress.CAUGHT
+    }
+
+    fun playSound(soundEvent: SoundEvent) {
+        MinecraftClient.getInstance().soundManager.play(PositionedSoundInstance.master(soundEvent, 1.0F))
     }
 }

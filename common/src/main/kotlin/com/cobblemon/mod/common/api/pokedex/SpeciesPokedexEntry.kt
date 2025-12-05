@@ -74,7 +74,6 @@ class SpeciesPokedexEntry(
         if (knowledge != PokedexEntryProgress.CAUGHT) {
             formEntries[formStr]?.knowledge = PokedexEntryProgress.ENCOUNTERED
         }
-
     }
 
     fun starterChosen(event: StarterChosenEvent) {

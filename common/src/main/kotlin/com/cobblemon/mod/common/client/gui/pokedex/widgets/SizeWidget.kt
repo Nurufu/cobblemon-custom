@@ -56,7 +56,7 @@ class SizeWidget(val pX: Int, val pY: Int) : SoundlessWidget(
 
     var renderablePokemon : RenderablePokemon? = null
     var baseScale: Float = 1F
-    var height: Float = 0F
+    var pokemonHeight: Float = 0F
     var weight: Float = 0F
     val species = renderablePokemon!!.species
     var state = FloatingState()
@@ -64,14 +64,14 @@ class SizeWidget(val pX: Int, val pY: Int) : SoundlessWidget(
     override fun renderButton(context: DrawContext, mouseX: Int, mouseY: Int, delta: Float) {
         val matrices = context.matrices
 
-        drawScaledText(
-            context = context,
-            font = CobblemonResources.DEFAULT_LARGE,
-            text = Text.translatable("cobblemon.ui.pokedex.height", (height / 10).toString()).bold(),
-            x = pX + 9,
-            y = pY - 10,
-            shadow = true
-        )
+//        drawScaledText(
+//            context = context,
+//            font = CobblemonResources.DEFAULT_LARGE,
+//            text = Text.translatable("cobblemon.ui.pokedex.height", (height / 10).toString()).bold(),
+//            x = pX + 9,
+//            y = pY - 10,
+//            shadow = true
+//        )
 
         drawScaledTextJustifiedRight(
             context = context,
@@ -89,10 +89,12 @@ class SizeWidget(val pX: Int, val pY: Int) : SoundlessWidget(
             pY + POKEMON_DESCRIPTION_HEIGHT
         )
 
+        val modelScale = 7.5F
+
         matrices.push()
         matrices.translate(
             pX.toDouble() + 50,
-            pY.toDouble() + (POKEMON_DESCRIPTION_HEIGHT / 2) + 10,
+            pY.toDouble() + (POKEMON_DESCRIPTION_HEIGHT / 2) + 18.5 - baseScale * modelScale * 1.5,
             0.0
         )
         drawProfilePokemon(
@@ -101,7 +103,7 @@ class SizeWidget(val pX: Int, val pY: Int) : SoundlessWidget(
             partialTicks = delta,
             rotation = Quaternionf().fromEulerXYZDegrees(Vector3f(0F, 0F, 0F)),
             state = state,
-            scale = 7.5F
+            scale = modelScale
         )
         matrices.pop()
         context.disableScissor()

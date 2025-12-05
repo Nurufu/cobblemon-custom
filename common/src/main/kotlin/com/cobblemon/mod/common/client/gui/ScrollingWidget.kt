@@ -19,7 +19,6 @@ import net.minecraft.util.math.MathHelper
 
 abstract class ScrollingWidget<T : AlwaysSelectedEntryListWidget.Entry<T>>(
     top: Int = 0,
-    val left: Int = 0,
     width: Int = 10,
     height: Int = 10,
     slotHeight: Int = 10,
@@ -157,7 +156,7 @@ abstract class ScrollingWidget<T : AlwaysSelectedEntryListWidget.Entry<T>>(
             val n = this.getRowTop(m)
             val o = this.getRowBottom(m)
             if (o >= this.top && n <= this.bottom) {
-                this.renderEntry(context!!, mouseX, mouseY, delta, m, i, n, j, k)
+                this.renderEntry(context, mouseX, mouseY, delta, m, i, n, j, k)
             }
         }
     }

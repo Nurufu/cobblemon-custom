@@ -25,7 +25,6 @@ import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.SCROLL_SL
 import com.cobblemon.mod.common.client.gui.pokedex.widgets.EntriesScrollingWidget.PokemonScrollSlotRow
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
-import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.pokedex.DexPokemonData
 import com.cobblemon.mod.common.pokemon.RenderablePokemon
 import com.cobblemon.mod.common.util.cobblemonResource
@@ -39,11 +38,9 @@ import net.minecraft.util.math.MathHelper
 import org.joml.Quaternionf
 import org.joml.Vector3f
 
-class EntriesScrollingWidget<PokemonScrollSlotRow : ScrollingWidget.Slot<EntriesScrollingWidget.PokemonScrollSlotRow>>(val pX: Int, val pY: Int, val setPokedexEntry: (DexPokemonData) -> (Unit)
-): ScrollingWidget<EntriesScrollingWidget.PokemonScrollSlotRow>(
+class EntriesScrollingWidget(val pX: Int, val pY: Int, val setPokedexEntry: (DexPokemonData) -> (Unit)): ScrollingWidget<PokemonScrollSlotRow>(
     width = PokedexGUIConstants.HALF_OVERLAY_WIDTH,
     height = SCROLL_BASE_HEIGHT,
-    left = pX,
     top = pY,
     slotHeight = SCROLL_SLOT_SIZE + 2
 ) {

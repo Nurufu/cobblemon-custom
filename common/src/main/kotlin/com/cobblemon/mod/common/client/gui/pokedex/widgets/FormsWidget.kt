@@ -13,15 +13,13 @@ import com.cobblemon.mod.common.api.text.text
 import com.cobblemon.mod.common.client.gui.ScrollingWidget
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants
 import com.cobblemon.mod.common.client.render.drawScaledText
-import com.cobblemon.mod.common.pokemon.FormData
 import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.text.Text
 import kotlin.math.max
 
 class FormsWidget (val pX: Int, val pY: Int, val setFormData : (String) -> (Unit)): ScrollingWidget<FormsWidget.FormSlot>(
-        left = pX,
-        top = pY,
+    top = pY,
         width = PokedexGUIConstants.POKEMON_FORMS_WIDTH,
         height = PokedexGUIConstants.POKEMON_FORMS_HEIGHT,
         slotHeight = 15
