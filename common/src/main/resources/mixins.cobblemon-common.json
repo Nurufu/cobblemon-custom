@@ -15,6 +15,7 @@
     "SoundManagerMixin",
     "SoundSystemMixin",
     "accessor.KeyBindingAccessor",
+    "accessor.EntryListWidgetAccessor",
     "client.ClientPlayNetworkHandlerMixin",
     "client.LocalPlayerMixin",
     "invoker.ClientPlayNetworkHandlerInvoker",

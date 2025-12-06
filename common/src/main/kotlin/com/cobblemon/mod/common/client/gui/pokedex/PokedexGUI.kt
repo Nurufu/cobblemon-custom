@@ -8,7 +8,6 @@
 
 package com.cobblemon.mod.common.client.gui.pokedex
 
-import com.cobblemon.mod.common.CobblemonSounds
 import com.cobblemon.mod.common.api.gui.blitk
 import com.cobblemon.mod.common.api.pokedex.*
 import com.cobblemon.mod.common.api.pokedex.filters.InvisibleFilter
@@ -16,7 +15,6 @@ import com.cobblemon.mod.common.api.pokedex.filters.SearchFilter
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.api.text.bold
 import com.cobblemon.mod.common.api.text.text
-import com.cobblemon.mod.common.block.entity.GildedChestBlockEntity.Companion.playSound
 import com.cobblemon.mod.common.client.CobblemonResources
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.BASE_HEIGHT
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.BASE_WIDTH
@@ -39,8 +37,6 @@ import net.minecraft.client.gui.Drawable
 import net.minecraft.client.gui.Element
 import net.minecraft.client.gui.Selectable
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.sound.PositionedSoundInstance
-import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
@@ -86,7 +82,7 @@ class PokedexGUI private constructor(val pokedex: ClientPokedex, val type: Strin
     private var selectedPokemon: DexPokemonData? = null
     private var selectedForm: FormData? = null
 
-    private lateinit var scrollScreen: EntriesScrollingWidget
+    private lateinit var scrollScreen: EntriesScrollingWidget<EntriesScrollingWidget.PokemonScrollSlotRow>
     private lateinit var pokemonInfoWidget: PokemonInfoWidget
     private lateinit var searchWidget: SearchWidget
 
@@ -233,11 +229,6 @@ class PokedexGUI private constructor(val pokedex: ClientPokedex, val type: Strin
         super.render(context, mouseX, mouseY, delta)
     }
 
-    override fun close() {
-        playSound(CobblemonSounds.POKEDEX_CLOSE)
-        super.close()
-    }
-
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
         if (::pokemonInfoWidget.isInitialized
             && pokemonInfoWidget.isWithinPortraitSpace(mouseX, mouseY)
@@ -246,7 +237,6 @@ class PokedexGUI private constructor(val pokedex: ClientPokedex, val type: Strin
             canDragRender = true
             isDragging = true
             initialDragPosX = mouseX
-            playSound(CobblemonSounds.POKEDEX_CLICK)
         }
         return try {
             super.mouseClicked(mouseX, mouseY, button)
@@ -381,7 +371,7 @@ class PokedexGUI private constructor(val pokedex: ClientPokedex, val type: Strin
         if (element is Drawable && element is Selectable) {
             addDrawableChild(element)
         }
-    if (update) updatetabInfoElement()
+        if (update) updatetabInfoElement()
     }
 
     fun updatetabInfoElement() {
@@ -445,8 +435,4 @@ class PokedexGUI private constructor(val pokedex: ClientPokedex, val type: Strin
     fun canSelectTab(tabIndex: Int): Boolean = (tabIndex != tabInfoIndex) && (pokedex.speciesEntries[selectedPokemon!!.identifier]?.highestDiscoveryLevel() == PokedexEntryProgress.CAUGHT)
 
     override fun shouldPause(): Boolean = false
-
-    fun playSound(soundEvent: SoundEvent) {
-        MinecraftClient.getInstance().soundManager.play(PositionedSoundInstance.master(soundEvent, 1.0F))
-    }
 }
