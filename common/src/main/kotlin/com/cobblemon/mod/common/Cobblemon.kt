@@ -69,7 +69,7 @@ import com.cobblemon.mod.common.api.storage.pc.link.PCLinkManager
 import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreManager
 import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreType
 import com.cobblemon.mod.common.api.storage.player.adapter.PlayerDataJsonBackend
-import com.cobblemon.mod.common.api.storage.player.adapter.PokedexDataNbtBackend
+import com.cobblemon.mod.common.api.storage.player.adapter.DexDataNbtBackend
 import com.cobblemon.mod.common.api.storage.player.factory.CachedPlayerDataStoreFactory
 import com.cobblemon.mod.common.api.tags.CobblemonEntityTypeTags
 import com.cobblemon.mod.common.api.tags.CobblemonItemTags
@@ -348,7 +348,7 @@ object Cobblemon {
                     val generalJsonFactory = CachedPlayerDataStoreFactory(PlayerDataJsonBackend())
                     generalJsonFactory.setup(server)
 
-                    val pokedexNbtFactory = CachedPlayerDataStoreFactory(PokedexDataNbtBackend())
+                    val pokedexNbtFactory = CachedPlayerDataStoreFactory(DexDataNbtBackend())
                     pokedexNbtFactory.setup(server)
 
                     playerDataManager.setFactory(generalJsonFactory, PlayerInstancedDataStoreType.GENERAL)

@@ -9,7 +9,6 @@
 package com.cobblemon.mod.common.net.messages.client.data
 
 import com.cobblemon.mod.common.Cobblemon
-import com.cobblemon.mod.common.api.pokedex.PokedexJSONRegistry
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.pokedex.DexData
 import com.cobblemon.mod.common.pokemon.Species

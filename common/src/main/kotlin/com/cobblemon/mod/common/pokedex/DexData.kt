@@ -9,8 +9,6 @@
 package com.cobblemon.mod.common.pokedex
 
 import com.cobblemon.mod.common.api.data.ClientDataSynchronizer
-import com.cobblemon.mod.common.api.pokedex.PokedexEntryCategory
-import com.cobblemon.mod.common.api.pokedex.PokedexJSONRegistry
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.util.Identifier
 

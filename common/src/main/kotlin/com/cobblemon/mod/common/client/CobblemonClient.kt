@@ -11,7 +11,6 @@ package com.cobblemon.mod.common.client
 import com.cobblemon.mod.common.*
 import com.cobblemon.mod.common.Cobblemon.LOGGER
 import com.cobblemon.mod.common.api.berry.Berries
-import com.cobblemon.mod.common.api.pokedex.ClientPokedex
 import com.cobblemon.mod.common.api.scheduling.ClientTaskTracker
 import com.cobblemon.mod.common.api.storage.player.client.ClientGeneralPlayerData
 import com.cobblemon.mod.common.client.battle.ClientBattle

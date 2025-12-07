@@ -10,7 +10,6 @@ package com.cobblemon.mod.common.pokedex
 
 import com.cobblemon.mod.common.api.net.Decodable
 import com.cobblemon.mod.common.api.net.Encodable
-import com.cobblemon.mod.common.api.pokedex.PokedexEntryCategory
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.pokemon.Species
 import com.cobblemon.mod.common.util.cobblemonResource
