@@ -99,6 +99,6 @@ class PlayerInstancedDataStoreManager {
     }
 
     fun getPokedexData(player: ServerPlayerEntity): DexManager {
-        return get(player, PlayerInstancedDataStoreType.POKEDEX) as PokedexRecord
+        return get(player, PlayerInstancedDataStoreType.POKEDEX) as DexManager
     }
 }

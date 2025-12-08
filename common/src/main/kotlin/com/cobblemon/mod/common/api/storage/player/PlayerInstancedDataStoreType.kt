@@ -8,6 +8,7 @@
 
 package com.cobblemon.mod.common.api.storage.player
 
+import com.cobblemon.mod.common.api.storage.player.client.ClientDexManager
 import com.cobblemon.mod.common.api.storage.player.client.ClientGeneralPlayerData
 import com.cobblemon.mod.common.api.storage.player.client.ClientInstancedPlayerData
 import com.cobblemon.mod.common.net.messages.client.SetClientPlayerDataPacket

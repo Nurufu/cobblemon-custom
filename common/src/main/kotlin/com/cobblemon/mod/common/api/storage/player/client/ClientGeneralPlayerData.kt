@@ -29,7 +29,8 @@ data class ClientGeneralPlayerData(
     var starterSelected: Boolean = false,
     var starterUUID: UUID? = null,
     val battleTheme: Identifier? = null
-) : ClientInstancedPlayerData(false) {
+) : ClientInstancedPlayerData {
+    override val isIncrement = false
 
     override fun encode(buf: PacketByteBuf) {
         buf.writeBoolean(promptStarter)

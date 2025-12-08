@@ -89,7 +89,7 @@ class DexManager(
         if (curKnowledge != PokedexEntryProgress.CAUGHT) {
             entries[NUM_CAUGHT_KEY] = (entries[NUM_SEEN_KEY]?.toInt()?.plus(1)).toString()
         }
-        entries[getKnowledgeKeyForSpecies(species.resourceIdentifier)] = PokedexEntryProgress.CAUGHT.serializedName
+        entries[getKnowledgeKeyForSpecies(species.resourceIdentifier)] = PokedexEntryProgress.CAUGHT.name
     }
 
     companion object {

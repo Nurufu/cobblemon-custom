@@ -13,6 +13,7 @@ import com.cobblemon.mod.common.api.gui.blitk
 import com.cobblemon.mod.common.api.pokedex.PokedexEntryProgress
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.api.text.text
+import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.client.gui.ScrollingWidget
 import com.cobblemon.mod.common.client.gui.drawProfilePokemon
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants
@@ -23,7 +24,7 @@ import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.SCROLL_SL
 import com.cobblemon.mod.common.client.gui.pokedex.widgets.EntriesScrollingWidget.PokemonScrollSlotRow
 import com.cobblemon.mod.common.client.render.drawScaledText
 import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState
-import com.cobblemon.mod.common.pokedex.DexPokemonData
+import com.cobblemon.mod.common.pokedex.scanner.DexPokemonData
 import com.cobblemon.mod.common.pokemon.RenderablePokemon
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.cobblemon.mod.common.util.math.fromEulerXYZDegrees
@@ -45,7 +46,7 @@ class EntriesScrollingWidget<PokemonScrollSlotRow : ScrollingWidget.Slot<Entries
     slotHeight = SCROLL_SLOT_SIZE + 2
 ) {
 
-    fun createEntries(filteredPokedex: Collection<DexPokemonData>, clientPokedex: ClientPokedex) {
+    fun createEntries(filteredPokedex: Collection<DexPokemonData>) {
 
         filteredPokedex.forEachIndexed { index, _ ->
             if ((index + 5) % 5 == 0) {
@@ -54,7 +55,7 @@ class EntriesScrollingWidget<PokemonScrollSlotRow : ScrollingWidget.Slot<Entries
                 for (i in 0..4) {
                     if (index + i < filteredPokedex.size) {
                         val species = filteredPokedex.elementAt(index + i)
-                        val discoveryLevel = clientPokedex.speciesEntries[species.identifier]?.highestDiscoveryLevel() ?: PokedexEntryProgress.NONE
+                        val discoveryLevel = CobblemonClient.clientPokedexData.getKnowledgeForSpecies((species.speciesId))
                         dexDataList.add(species)
                         discoveryLevelList.add(discoveryLevel)
                     }
@@ -149,8 +150,8 @@ class EntriesScrollingWidget<PokemonScrollSlotRow : ScrollingWidget.Slot<Entries
             tickDelta: Float
         ) {
             dexDataList.forEachIndexed { index, dexData ->
-                val species = PokemonSpecies.getByIdentifier(dexData.identifier)
-                var pokemonNumber = PokedexJSONRegistry.getPokemonVisualDexNumber(dexData) //species!!.nationalPokedexNumber.toString()
+                val species = PokemonSpecies.getByIdentifier(dexData.speciesId)
+                var pokemonNumber = "1"
 
                 if (pokemonNumber.toIntOrNull() != null) {
                     while (pokemonNumber.length < 4) pokemonNumber = "0$pokemonNumber"

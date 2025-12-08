@@ -19,6 +19,7 @@ import net.minecraft.network.PacketByteBuf
  * @since February 21, 2024
  * @author Apion
  */
-abstract class ClientInstancedPlayerData(val isIncrement: Boolean) {
-    abstract fun encode(buf: PacketByteBuf)
+interface ClientInstancedPlayerData {
+    val isIncrement: Boolean
+    fun encode(buf: PacketByteBuf)
 }

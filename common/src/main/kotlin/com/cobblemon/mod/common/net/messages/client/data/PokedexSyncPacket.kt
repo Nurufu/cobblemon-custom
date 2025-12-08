@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.net.messages.client.data
 
 import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.api.pokedex.entry.DexEntries
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.pokedex.DexData
 import com.cobblemon.mod.common.pokemon.Species
@@ -40,7 +41,7 @@ class PokedexSyncPacket(dexes: Collection<DexData>) : DataRegistrySyncPacket<Dex
     }
 
     override fun synchronizeDecoded(entries: Collection<DexData>) {
-        PokedexJSONRegistry.reload(entries.associateBy { it.identifier })
+        DexEntries.reload(entries.associateBy { it.identifier })
     }
 
     companion object {
