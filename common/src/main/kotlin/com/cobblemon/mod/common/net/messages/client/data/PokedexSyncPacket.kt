@@ -9,12 +9,12 @@
 package com.cobblemon.mod.common.net.messages.client.data
 
 import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.api.dex.entry.DexEntries
 import com.cobblemon.mod.common.api.pokedex.entry.DexEntries
-import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.pokedex.DexData
-import com.cobblemon.mod.common.pokemon.Species
 import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.network.PacketByteBuf
+import net.minecraft.network.RegistryFriendlyByteBuf
 
 // We do not need to know every single attribute as a client, as such, we only sync the aspects that matter
 class PokedexSyncPacket(dexes: Collection<DexData>) : DataRegistrySyncPacket<DexData, PokedexSyncPacket>(dexes) {

@@ -1,39 +1,36 @@
 package com.cobblemon.mod.common.pokedex.scanner
 
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
-import net.minecraft.world.entity.Entity
-import net.minecraft.world.level.ClipContext
-import net.minecraft.world.phys.AABB
-import net.minecraft.world.phys.EntityHitResult
-import java.util.UUID
+import net.minecraft.entity.Entity
+import net.minecraft.util.math.Box
 
 //Handles the actual raycasting to figure out what pokemon we are looking at
 object PokemonScanner {
     //This basically draws a box around the casting entity, finds all entities in the box, then finds the one that a ray emanating from the player hits first
     fun detectEntity(castingEntity: Entity): Entity? {
-        val eyePos = castingEntity.getEyePosition(1.0F)
-        val lookVec = castingEntity.getViewVector(1.0F)
+        val eyePos = castingEntity.eyePos
+        val lookVec = castingEntity.getRotationVec(1.0F)
         val maxDistance = RAY_LENGTH
         val boundingBoxSize = 12.0
         var closestEntity: Entity? = null
         var closestDistance = maxDistance
 
         // Define a large bounding box around the player
-        val boundingBox = AABB(
+        val boundingBox = Box(
             castingEntity.x - boundingBoxSize, castingEntity.y - boundingBoxSize, castingEntity.z - boundingBoxSize,
             castingEntity.x + boundingBoxSize, castingEntity.y + boundingBoxSize, castingEntity.z + boundingBoxSize
         )
 
         // Get all entities within the boundingBox
-        val entities = castingEntity.level().getEntitiesOfClass(Entity::class.java, boundingBox) { it != castingEntity }
+        val entities = castingEntity.world.getEntitiesByClass(Entity::class.java, boundingBox) { it != castingEntity }
 
         for (entity in entities) {
-            val entityBox: AABB = entity.boundingBox
+            val entityBox: Box = entity.boundingBox
 
             // Calculate the size of the bounding box
-            val boxWidth = entityBox.xsize
-            val boxHeight = entityBox.ysize
-            val boxDepth = entityBox.zsize
+            val boxWidth = entityBox.xLength
+            val boxHeight = entityBox.yLength
+            val boxDepth = entityBox.zLength
 
             val boxVolume = boxWidth * boxHeight * boxDepth
 
@@ -50,13 +47,13 @@ object PokemonScanner {
             val inflationFactor = maxSizeScale + (minSizeScale - maxSizeScale) * Math.exp(-steepCoefficient * normalizedSize)
 
             // Inflate the base bounding box
-            val inflatedBox = entityBox.inflate(
+            val inflatedBox = entityBox.expand(
                 (inflationFactor - 1) * boxWidth / 2,
                 (inflationFactor - 1) * boxHeight / 2,
                 (inflationFactor - 1) * boxDepth / 2
             )
 
-            val intersection = inflatedBox.clip(eyePos, eyePos.add(lookVec.scale(maxDistance)))
+            val intersection = inflatedBox.raycast(eyePos, eyePos.add(lookVec.multiply(maxDistance)))
 
             if (intersection.isPresent) {
                 val distanceToEntity = eyePos.distanceTo(intersection.get())
@@ -75,7 +72,7 @@ object PokemonScanner {
     }
 
     fun isEntityInRange(castingEntity: Entity, targetEntity: Entity): Boolean {
-        return targetEntity.position().distanceTo(castingEntity.position()) <= RAY_LENGTH
+        return targetEntity.pos.distanceTo(castingEntity.pos) <= RAY_LENGTH
     }
 
     val RAY_LENGTH = 10.0

@@ -8,12 +8,10 @@ import com.cobblemon.mod.common.api.pokedex.PokedexEntryProgress
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.net.messages.client.pokedex.ServerConfirmedScanPacket
 import com.cobblemon.mod.common.net.messages.server.pokedex.scanner.FinishScanningPacket
-import com.cobblemon.mod.common.net.messages.server.pokedex.scanner.StartScanningPacket
 import com.cobblemon.mod.common.pokedex.scanner.PlayerScanningDetails
 import com.cobblemon.mod.common.pokedex.scanner.PokedexUsageContext
 import com.cobblemon.mod.common.pokedex.scanner.PokemonScanner
 import net.minecraft.server.MinecraftServer
-import net.minecraft.server.level.ServerPlayer
 import net.minecraft.server.network.ServerPlayerEntity
 
 /**
@@ -28,12 +26,12 @@ object FinishScanningHandler : ServerNetworkPacketHandler<FinishScanningPacket> 
         server: MinecraftServer,
         player: ServerPlayerEntity
     ) {
-        val targetEntity = player.level().getEntity(packet.targetedId) ?: return
+        val targetEntity = player.world.getEntityById(packet.targetedId) ?: return
 
         if (PokemonScanner.isEntityInRange(player, targetEntity)) {
             val inProgressUUID = PlayerScanningDetails.playerToEntityMap[player.uuid]
             val progressTick = PlayerScanningDetails.playerToTickMap[player.uuid]
-            val ticksScan = progressTick?.let { server.tickCount - it } ?: return
+            val ticksScan = progressTick?.let { server.ticks - it } ?: return
             if (targetEntity.uuid == inProgressUUID && ticksScan >= PokedexUsageContext.TICKS_TO_SCAN) {
                 val pokemonEntity = targetEntity as? PokemonEntity ?: return
                 val speciesId = pokemonEntity.pokemon.species.resourceIdentifier

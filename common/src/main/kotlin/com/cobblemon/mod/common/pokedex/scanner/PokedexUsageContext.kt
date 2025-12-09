@@ -15,7 +15,7 @@ import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.network.AbstractClientPlayerEntity
 import net.minecraft.client.network.ClientPlayerEntity
 import net.minecraft.client.render.RenderTickCounter
-import net.minecraft.resources.ResourceLocation
+import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper.clamp
 import kotlin.math.min
 
@@ -76,7 +76,7 @@ class PokedexUsageContext {
         }
     }
 
-    fun openPokedexGUI(user: ClientPlayerEntity, types: PokedexTypes = PokedexTypes.RED, speciesId: ResourceLocation? = null) {
+    fun openPokedexGUI(user: ClientPlayerEntity, types: PokedexTypes = PokedexTypes.RED, speciesId: Identifier? = null) {
         PokedexGUI.open(CobblemonClient.clientPokedexData, types, speciesId)
         user.playSound(CobblemonSounds.POKEDEX_OPEN, 1F, 1F)
     }
@@ -91,7 +91,7 @@ class PokedexUsageContext {
                 focusTicks = 0
                 StartScanningPacket(targetId).sendToServer()
             }
-            user.playSound(CobblemonSounds.POKEDEX_SCAN_LOOP)
+            user.playSound(CobblemonSounds.POKEDEX_SCAN_LOOP, 1F, 1F)
             if (scanningProgress == TICKS_TO_SCAN + 1) {
                 //This ends up sending back a [ServerConfirmedScanPacket] that gets processed by onConfirmedScan
                 FinishScanningPacket(targetId).sendToServer()

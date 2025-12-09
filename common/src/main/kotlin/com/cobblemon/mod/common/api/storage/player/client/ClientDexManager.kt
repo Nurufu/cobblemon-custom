@@ -1,13 +1,9 @@
 package com.cobblemon.mod.common.api.storage.player.client
 
-import com.cobblemon.mod.common.api.dex.AbstractDexManager
-import com.cobblemon.mod.common.api.dex.DexManager
 import com.cobblemon.mod.common.api.pokedex.AbstractDexManager
 import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreType
 import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.net.messages.client.SetClientPlayerDataPacket
-import com.cobblemon.mod.common.util.readString
-import com.cobblemon.mod.common.util.writeString
 import net.minecraft.network.PacketByteBuf
 
 class ClientDexManager(

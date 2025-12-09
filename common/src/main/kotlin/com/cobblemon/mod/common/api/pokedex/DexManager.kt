@@ -5,7 +5,6 @@ import com.cobblemon.mod.common.api.events.pokedex.scanning.PokemonScannedEvent
 import com.cobblemon.mod.common.api.events.pokemon.PokemonCapturedEvent
 import com.cobblemon.mod.common.api.events.pokemon.TradeCompletedEvent
 import com.cobblemon.mod.common.api.events.pokemon.evolution.EvolutionCompleteEvent
-import com.cobblemon.mod.common.api.pokemon.PokemonSpecies.species
 import com.cobblemon.mod.common.api.storage.player.InstancedPlayerData
 import com.cobblemon.mod.common.api.storage.player.client.ClientDexManager
 import com.cobblemon.mod.common.battles.actor.PlayerBattleActor
@@ -15,7 +14,7 @@ import com.cobblemon.mod.common.pokemon.Species
 import com.mojang.serialization.Codec
 import com.mojang.serialization.codecs.PrimitiveCodec
 import com.mojang.serialization.codecs.RecordCodecBuilder
-import java.util.UUID
+import java.util.*
 
 class DexManager(
     override val uuid: UUID,

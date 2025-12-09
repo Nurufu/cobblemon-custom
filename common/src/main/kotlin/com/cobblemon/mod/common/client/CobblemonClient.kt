@@ -42,6 +42,7 @@ import com.cobblemon.mod.common.item.PokeBallItem
 import com.cobblemon.mod.common.net.messages.server.pokemon.sync.GetRidePokemonBehaviourPacket
 import com.cobblemon.mod.common.net.messages.server.pokemon.sync.GetRidePokemonPassengersPacket
 import com.cobblemon.mod.common.platform.events.PlatformEvents
+import com.cobblemon.mod.common.pokedex.scanner.PokedexUsageContext
 import com.cobblemon.mod.common.util.isLookingAt
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
@@ -81,6 +82,7 @@ object CobblemonClient {
 
     val overlay: PartyOverlay by lazy { PartyOverlay() }
     val battleOverlay: BattleOverlay by lazy { BattleOverlay() }
+    val pokedexUsageContext: PokedexUsageContext by lazy { PokedexUsageContext() }
 
     fun onLogin() {
         clientPlayerData = ClientGeneralPlayerData()

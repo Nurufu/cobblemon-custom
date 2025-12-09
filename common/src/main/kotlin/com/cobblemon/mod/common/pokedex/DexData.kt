@@ -9,13 +9,10 @@
 package com.cobblemon.mod.common.pokedex
 
 import com.cobblemon.mod.common.api.data.ClientDataSynchronizer
-import com.cobblemon.mod.common.pokedex.scanner.DexPokemonData
 import net.minecraft.util.Identifier
 
 class DexData (
     var identifier : Identifier,
-    var pokemonList : MutableList<DexPokemonData> = mutableListOf(),
-    var overrideCategories : Boolean = false
     var entryIds: List<Identifier>
 ): ClientDataSynchronizer<DexData> {
 
