@@ -50,6 +50,7 @@ import net.minecraft.world.World
 import net.minecraft.text.Text
 import com.cobblemon.mod.common.api.text.blue
 import com.cobblemon.mod.common.api.text.gray
+import com.cobblemon.mod.common.client.pokedex.PokedexTypes
 
 
 @Suppress("unused")
@@ -155,6 +156,22 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     val ANCIENT_GIGATON_BALL = pokeBallItem(PokeBalls.ANCIENT_GIGATON_BALL)
     @JvmField
     val ANCIENT_ORIGIN_BALL = pokeBallItem(PokeBalls.ANCIENT_ORIGIN_BALL)
+
+    val pokedexes = mutableListOf<PokedexItem>()
+    @JvmField
+    val POKEDEX_RED = pokedexItem(PokedexTypes.RED)
+    @JvmField
+    val POKEDEX_YELLOW = pokedexItem(PokedexTypes.YELLOW)
+    @JvmField
+    val POKEDEX_GREEN = pokedexItem(PokedexTypes.GREEN)
+    @JvmField
+    val POKEDEX_BLUE = pokedexItem(PokedexTypes.BLUE)
+    @JvmField
+    val POKEDEX_PINK = pokedexItem(PokedexTypes.PINK)
+    @JvmField
+    val POKEDEX_BLACK = pokedexItem(PokedexTypes.BLACK)
+    @JvmField
+    val POKEDEX_WHITE = pokedexItem(PokedexTypes.WHITE)
 
     @JvmField
     val VIVICHOKE = compostableItem("vivichoke")
@@ -1209,6 +1226,13 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
         pokeRods.add(item)
         return item
     }
+
+    private fun pokedexItem(type: PokedexTypes): PokedexItem {
+        val item = create("pokedex_${type.name.lowercase()}", PokedexItem(type))
+        pokedexes.add(item)
+        return item
+    }
+
 
     private fun heldItem(name: String, remappedName: String? = null): CobblemonItem = create(
         name,

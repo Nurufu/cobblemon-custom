@@ -8,16 +8,22 @@
 
 package com.cobblemon.mod.common.client.gui.pokedex
 
-import com.cobblemon.mod.common.api.gui.blitk
-import com.cobblemon.mod.common.api.dex.*
+import com.bedrockk.molang.runtime.MoLangRuntime
 import com.cobblemon.mod.common.CobblemonSounds
-import com.cobblemon.mod.common.api.dex.entry.FormDexData
-import com.cobblemon.mod.common.api.pokedex.AbstractDexManager
-import com.cobblemon.mod.common.api.pokedex.PokedexEntryProgress
+import com.cobblemon.mod.common.api.gui.blitk
+import com.cobblemon.mod.common.api.molang.MoLangFunctions.setup
+import com.cobblemon.mod.common.api.pokedex.CaughtCount
+import com.cobblemon.mod.common.api.pokedex.Dexes
+import com.cobblemon.mod.common.api.pokedex.def.PokedexDef
+import com.cobblemon.mod.common.api.pokedex.SeenCount
+import com.cobblemon.mod.common.api.pokedex.entry.BasicPokedexVariation
+import com.cobblemon.mod.common.api.pokedex.entry.DexEntries
+import com.cobblemon.mod.common.api.pokedex.entry.PokedexEntry
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
-import com.cobblemon.mod.common.api.storage.player.client.ClientDexManager
+import com.cobblemon.mod.common.api.storage.player.client.ClientPokedexManager
 import com.cobblemon.mod.common.api.text.bold
 import com.cobblemon.mod.common.api.text.text
+import com.cobblemon.mod.common.client.ClientMoLangFunctions.setupClient
 import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.client.CobblemonResources
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.BASE_HEIGHT
@@ -25,16 +31,14 @@ import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.BASE_WIDT
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.HALF_OVERLAY_WIDTH
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.HEADER_BAR_HEIGHT
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.SCALE
-import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.TAB_DESCRIPTION
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.TAB_ABILITIES
+import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.TAB_DESCRIPTION
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.TAB_ICON_SIZE
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.TAB_SIZE
 import com.cobblemon.mod.common.client.gui.pokedex.PokedexGUIConstants.TAB_STATS
 import com.cobblemon.mod.common.client.gui.pokedex.widgets.*
 import com.cobblemon.mod.common.client.pokedex.PokedexTypes
 import com.cobblemon.mod.common.client.render.drawScaledText
-import com.cobblemon.mod.common.pokedex.scanner.DexPokemonData
-import com.cobblemon.mod.common.pokemon.FormData
 import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
@@ -60,12 +64,16 @@ class PokedexGUI private constructor(
     var initialDragPosX = 0.0
     var canDragRender = false
 
-    private var filteredPokedex: Collection<DexPokemonData> = mutableListOf()
+    private var filteredPokedex: Collection<PokedexDef> = mutableListOf()
     private var seenCount = "0000"
     private var ownedCount = "0000"
 
-    private var selectedPokemon: DexPokemonData? = null
-    private var selectedForm: FormData? = null
+    val runtime = MoLangRuntime().setupClient().setup().also {
+        it.environment.query.addFunction("get_pokedex") { CobblemonClient.clientPokedexData.struct }
+    }
+
+    private var selectedEntry: PokedexEntry? = null
+    private var selectedForm: BasicPokedexVariation? = null
 
     private lateinit var scrollScreen: EntriesScrollingWidget
     private lateinit var pokemonInfoWidget: PokemonInfoWidget
@@ -76,8 +84,8 @@ class PokedexGUI private constructor(
     lateinit var tabInfoElement: Element
     var tabInfoIndex = TAB_DESCRIPTION
 
-    override fun renderBlurredBackground(delta: Float) {}
-    override fun renderMenuBackground(context: DrawContext) {}
+//    override fun renderBlurredBackground(delta: Float) {}
+//    override fun renderMenuBackground(context: DrawContext) {}
 
     public override fun init() {
         super.init()
@@ -88,16 +96,17 @@ class PokedexGUI private constructor(
 
         val pokedex = CobblemonClient.clientPokedexData
 
-        val ownedAmount = pokedex.getValueForKey(AbstractDexManager.NUM_CAUGHT_KEY)?.toInt() ?: 0
+        val ownedAmount = pokedex.getDexCalculatedValue(cobblemonResource("kanto"), CaughtCount)
         ownedCount = ownedAmount.toString()
         while (ownedCount.length < 4) ownedCount = "0$ownedCount"
 
-        seenCount = pokedex.getValueForKey(AbstractDexManager.NUM_SEEN_KEY) ?: "0"
+        //FIXME: This is the caught count, not the s
+        seenCount = pokedex.getDexCalculatedValue(cobblemonResource("kanto"), SeenCount).toString()
         while (seenCount.length < 4) seenCount = "0$seenCount"
 
         //Info Widget
         if (::pokemonInfoWidget.isInitialized) remove(pokemonInfoWidget)
-        pokemonInfoWidget = PokemonInfoWidget(x + 180, y + 28) { formData -> updatePokemonForm(formData) }
+        pokemonInfoWidget = PokemonInfoWidget(x + 180, y + 28) { newForm -> updateSelectedForm(newForm) }
         addDrawableChild(pokemonInfoWidget)
 
         setUpTabs()
@@ -217,16 +226,17 @@ class PokedexGUI private constructor(
         super.render(context, mouseX, mouseY, delta)
     }
 
-    override fun onClose() {
+    override fun close() {
         playSound(CobblemonSounds.POKEDEX_CLOSE)
-        super.onClose()
+        super.close()
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
-        val speciesKnowledge = selectedPokemon?.speciesId?.let { CobblemonClient.clientPokedexData.getKnowledgeForSpecies(it) }
+        val canDisplayEntry = selectedForm?.conditions?.all { it.resolveBoolean(runtime) }
+
         if (::pokemonInfoWidget.isInitialized
             && pokemonInfoWidget.isWithinPortraitSpace(mouseX, mouseY)
-            && speciesKnowledge != PokedexEntryProgress.NONE
+            && canDisplayEntry == true
         ) {
             canDragRender = true
             isDragging = true
@@ -262,31 +272,33 @@ class PokedexGUI private constructor(
         val x = (width - BASE_WIDTH) / 2
         val y = (height - BASE_HEIGHT) / 2
 
-        filteredPokedex = filterPokedex()
+        filteredPokedex = listOf(Dexes.dexEntryMap[cobblemonResource("kanto")]!!)
 
         //Scroll Screen
         if (::scrollScreen.isInitialized) remove(scrollScreen)
-        scrollScreen = EntriesScrollingWidget(x + 26, y + 39) { setSelectedPokemon(it) }
-        scrollScreen.createEntries(filteredPokedex)
+        scrollScreen = EntriesScrollingWidget(x + 26, y + 39) { setSelectedEntry(it) }
+        val entries = filteredPokedex
+            .flatMap { it.entries }
+            .mapNotNull { DexEntries.entries[it] }
+        scrollScreen.createEntries(entries)
         addDrawableChild(scrollScreen)
 
         if (filteredPokedex.isNotEmpty()) {
             if (init && initSpecies != null) {
-                setSelectedPokemon(initSpecies)
+                setSelectedEntry(entries.first { it.id == initSpecies })
             } else {
-                setSelectedPokemon(filteredPokedex.first())
+                setSelectedEntry(entries.first())
             }
         }
     }
 
-    fun filterPokedex(): Collection<DexPokemonData> {
-        val dexEntries = Dexes.entries[cobblemonResource("johto")]?.entries
-        val result = mutableListOf<DexPokemonData>()
-        dexEntries?.forEachIndexed { i, pokemon ->
-            result.add(DexPokemonData(pokemon.entryId, pokemon.extraData.map { it as FormDexData }.toMutableList(), i.toString()))
-        }
-        return result
+    /*
+    fun filterPokedex(): Collection<DexEntry> {
+        val dexEntries =
+        return dexEntries!!
     }
+
+     */
 
     /*
     fun getFilters(): Collection<EntryFilter> {
@@ -299,17 +311,12 @@ class PokedexGUI private constructor(
     }
      */
 
-    fun setSelectedPokemon(dexPokemonData: DexPokemonData) {
-        selectedPokemon = dexPokemonData
-        selectedForm = PokemonSpecies.getByIdentifier(selectedPokemon!!.speciesId)?.standardForm
+    fun setSelectedEntry(newSelectedEntry: PokedexEntry) {
+        selectedEntry = newSelectedEntry
+        selectedForm = (newSelectedEntry.variations.get(0) as BasicPokedexVariation)
 
-        pokemonInfoWidget.setPokemon(selectedPokemon!!)
+        pokemonInfoWidget.setDexEntry(selectedEntry!!)
         displaytabInfoElement(tabInfoIndex)
-    }
-
-    fun setSelectedPokemon(species: Identifier) {
-        val selectedPokemon = filteredPokedex.find { it.speciesId == species } ?: return
-        setSelectedPokemon(selectedPokemon)
     }
 
     fun setUpTabs() {
@@ -334,7 +341,7 @@ class PokedexGUI private constructor(
 
     fun displaytabInfoElement(tabIndex: Int, update: Boolean = true) {
         if (tabButtons.isNotEmpty() && tabButtons.size > tabIndex) {
-            tabButtons.forEachIndexed { index, tab -> tab.isWidgetActive = index == tabIndex }
+            tabButtons.forEachIndexed { index, tab -> tab.isActive = index == tabIndex }
         }
 
         if (tabInfoIndex == TAB_ABILITIES && tabInfoElement is AbilitiesWidget) {
@@ -370,19 +377,20 @@ class PokedexGUI private constructor(
     }
 
     fun updateTabInfoElement() {
-        val species = selectedPokemon?.speciesId?.let { PokemonSpecies.getByIdentifier(it) }
-        val knowledgeLevel = selectedPokemon?.speciesId?.let { CobblemonClient.clientPokedexData.getKnowledgeForSpecies(it) }
+        val species = selectedEntry?.id?.let { PokemonSpecies.getByIdentifier(it) }
+        val aspectSet = selectedForm?.aspects?.split(" ")?.toSet()
+        val canDisplay = selectedForm?.conditions?.all { it.resolveBoolean(runtime) } == true
         val textToShowInDescription = mutableListOf<String>()
 
-        if (species != null && knowledgeLevel == PokedexEntryProgress.CAUGHT) {
-            val form = selectedForm ?: species.standardForm
+        if (canDisplay && species != null && aspectSet != null) {
+            val form = species.getForm(aspectSet)
             when (tabInfoIndex) {
                 TAB_DESCRIPTION -> {
                     textToShowInDescription.addAll(species.pokedex)
                     (tabInfoElement as DescriptionWidget).showPlaceholder = false
                 }
                 TAB_ABILITIES -> {
-                    (tabInfoElement as AbilitiesWidget).abilitiesList = form.abilities.map { ability -> ability.template }
+                    (tabInfoElement as AbilitiesWidget).abilitiesList = form.abilities.map { ability -> ability.template }!!
                     (tabInfoElement as AbilitiesWidget).selectedAbilitiesIndex = 0
                     (tabInfoElement as AbilitiesWidget).setAbility()
                     (tabInfoElement as AbilitiesWidget).scrollAmount = 0.0
@@ -420,18 +428,16 @@ class PokedexGUI private constructor(
         }
     }
 
-    fun updatePokemonForm(formData: FormData) {
-        selectedForm = formData
+    fun updateSelectedForm(newForm: BasicPokedexVariation) {
+        selectedForm = newForm
         displaytabInfoElement(tabInfoIndex)
     }
 
-    fun canSelectTab(tabIndex: Int): Boolean = (tabIndex != tabInfoIndex) && (selectedPokemon?.speciesId?.let {
-        CobblemonClient.clientPokedexData.getKnowledgeForSpecies(
-            it
-        )
-    } == PokedexEntryProgress.CAUGHT)
+    fun canSelectTab(tabIndex: Int): Boolean {
+        return selectedForm?.conditions?.all { it.resolveBoolean(runtime) } == true && (tabIndex != tabInfoIndex)
+    }
 
-    override fun isPauseScreen(): Boolean = false
+    override fun shouldPause(): Boolean = false
 
     fun playSound(soundEvent: SoundEvent) {
         MinecraftClient.getInstance().soundManager.play(PositionedSoundInstance.master(soundEvent, 1.0F))
@@ -454,7 +460,7 @@ class PokedexGUI private constructor(
         /**
          * Attempts to open this screen for a client.
          */
-        fun open(pokedex: ClientDexManager, type: PokedexTypes, species: Identifier? = null) {
+        fun open(pokedex: ClientPokedexManager, type: PokedexTypes, species: Identifier? = null) {
             val mc = MinecraftClient.getInstance()
             val screen = PokedexGUI(type, species)
             mc.setScreen(screen)

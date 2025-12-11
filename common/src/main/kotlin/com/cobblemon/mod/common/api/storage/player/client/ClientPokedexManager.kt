@@ -1,0 +1,44 @@
+package com.cobblemon.mod.common.api.storage.player.client
+
+import com.cobblemon.mod.common.api.pokedex.AbstractPokedexManager
+import com.cobblemon.mod.common.api.pokedex.SpeciesDexRecord
+import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreType
+import com.cobblemon.mod.common.client.CobblemonClient
+import com.cobblemon.mod.common.net.messages.client.SetClientPlayerDataPacket
+import com.cobblemon.mod.common.pokemon.Species
+import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
+import net.minecraft.network.PacketByteBuf
+import net.minecraft.util.Identifier
+
+class ClientPokedexManager(
+    override val speciesRecords: MutableMap<Identifier, SpeciesDexRecord>,
+) : AbstractPokedexManager(), ClientInstancedPlayerData {
+    override fun encode(buf: PacketByteBuf) {
+        buf.writeMap(
+            speciesRecords,
+            { _, key -> buf.writeString(key.toString()) },
+            { _, value -> value.encode(buf) }
+        )
+    }
+
+    companion object {
+        fun decode(buf: PacketByteBuf): SetClientPlayerDataPacket {
+            val map = buf.readMap(
+                { buf.readString().asIdentifierDefaultingNamespace() },
+                { SpeciesDexRecord().also { it.decode(buf) } }
+            )
+            return SetClientPlayerDataPacket(PlayerInstancedDataStoreType.POKEDEX, ClientPokedexManager(map))
+        }
+
+        fun runAction(data: ClientInstancedPlayerData) {
+            if (data !is ClientPokedexManager) return
+            CobblemonClient.clientPokedexData = data
+        }
+
+        fun runIncremental(data: ClientInstancedPlayerData) {
+            if (data !is ClientPokedexManager) return
+            CobblemonClient.clientPokedexData.speciesRecords.putAll(data.speciesRecords)
+        }
+
+    }
+}

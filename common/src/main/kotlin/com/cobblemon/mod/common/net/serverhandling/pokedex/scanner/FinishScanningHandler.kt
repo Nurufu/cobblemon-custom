@@ -35,16 +35,16 @@ object FinishScanningHandler : ServerNetworkPacketHandler<FinishScanningPacket> 
             if (targetEntity.uuid == inProgressUUID && ticksScan >= PokedexUsageContext.TICKS_TO_SCAN) {
                 val pokemonEntity = targetEntity as? PokemonEntity ?: return
                 val speciesId = pokemonEntity.pokemon.species.resourceIdentifier
-                val curKnowledge = Cobblemon.playerDataManager
-                    .getPokedexData(player)
-                    .speciesEntries[speciesId]
-                    ?.highestDiscoveryLevel() ?: PokedexEntryProgress.NONE
-                CobblemonEvents.POKEMON_SCANNED.post(PokemonScannedEvent(player, pokemonEntity))
-                val newKnowledge = Cobblemon.playerDataManager
-                    .getPokedexData(player)
-                    .speciesEntries[speciesId]
-                    ?.highestDiscoveryLevel() ?: PokedexEntryProgress.ENCOUNTERED
-                ServerConfirmedScanPacket(curKnowledge, newKnowledge, speciesId).sendToPlayer(player)
+//                val curKnowledge = Cobblemon.playerDataManager
+//                    .getPokedexData(player)
+//                    .speciesEntries[speciesId]
+//                    ?.highestDiscoveryLevel() ?: PokedexEntryProgress.NONE
+//                CobblemonEvents.POKEMON_SCANNED.post(PokemonScannedEvent(player, pokemonEntity))
+//                val newKnowledge = Cobblemon.playerDataManager
+//                    .getPokedexData(player)
+//                    .speciesEntries[speciesId]
+//                    ?.highestDiscoveryLevel() ?: PokedexEntryProgress.ENCOUNTERED
+//                ServerConfirmedScanPacket(curKnowledge, newKnowledge, speciesId).sendToPlayer(player)
             }
         }
     }

@@ -6,11 +6,10 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package com.cobblemon.mod.common.api.dex.entry
+package com.cobblemon.mod.common.api.pokedex.entry
 
 import com.cobblemon.mod.common.api.data.JsonDataRegistry
 import com.cobblemon.mod.common.api.molang.ExpressionLike
-import com.cobblemon.mod.common.api.pokedex.entry.DexEntry
 import com.cobblemon.mod.common.api.reactive.SimpleObservable
 import com.cobblemon.mod.common.util.adapters.ExpressionLikeAdapter
 import com.cobblemon.mod.common.util.cobblemonResource
@@ -21,7 +20,7 @@ import net.minecraft.resource.ResourceType
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
 
-object DexEntries : JsonDataRegistry<DexEntry> {
+object DexEntries : JsonDataRegistry<PokedexEntry> {
     override val id = cobblemonResource("dex_entries")
     override val type = ResourceType.SERVER_DATA
 
@@ -31,12 +30,12 @@ object DexEntries : JsonDataRegistry<DexEntry> {
         .registerTypeAdapter(ExpressionLike::class.java, ExpressionLikeAdapter)
         .create()
 
-    override val typeToken: TypeToken<DexEntry> = TypeToken.get(DexEntry::class.java)
+    override val typeToken: TypeToken<PokedexEntry> = TypeToken.get(PokedexEntry::class.java)
     override val resourcePath = "dex_entries"
 
-    lateinit var entries: Map<Identifier, DexEntry>
+    lateinit var entries: Map<Identifier, PokedexEntry>
 
-    override fun reload(data: Map<Identifier, DexEntry>) {
+    override fun reload(data: Map<Identifier, PokedexEntry>) {
         entries = data
     }
 

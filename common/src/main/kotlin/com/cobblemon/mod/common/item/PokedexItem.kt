@@ -19,7 +19,7 @@ import net.minecraft.util.Hand
 import net.minecraft.util.TypedActionResult
 import net.minecraft.world.World
 
-class PokedexItem(val type: PokedexTypes) : CobblemonItem(Settings()) {
+class PokedexItem(val type: PokedexTypes) : CobblemonItem(Settings().maxCount(1)) {
 
     override fun getMaxUseTime(stack: ItemStack): Int = 72000
 

@@ -8,7 +8,7 @@
 
 package com.cobblemon.mod.common.api.storage.player
 
-import com.cobblemon.mod.common.api.pokedex.DexManager
+import com.cobblemon.mod.common.api.pokedex.PokedexManager
 import com.cobblemon.mod.common.api.scheduling.ScheduledTask
 import com.cobblemon.mod.common.api.scheduling.ServerTaskTracker
 import net.minecraft.entity.player.PlayerEntity
@@ -98,7 +98,7 @@ class PlayerInstancedDataStoreManager {
         return get(player, PlayerInstancedDataStoreType.GENERAL) as GeneralPlayerData
     }
 
-    fun getPokedexData(player: ServerPlayerEntity): DexManager {
-        return get(player, PlayerInstancedDataStoreType.POKEDEX) as DexManager
+    fun getPokedexData(player: ServerPlayerEntity): PokedexManager {
+        return get(player, PlayerInstancedDataStoreType.POKEDEX) as PokedexManager
     }
 }

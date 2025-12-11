@@ -31,7 +31,7 @@ class ClientBattle(
             if (value != null) {
                 val wildMonProps = value.activePokemon[0].battlePokemon?.properties
                 wildMonProps?.let { props ->
-                    val wildSpecies = PokemonSpecies.getByName(props.aspects!!)!!
+                    val wildSpecies = PokemonSpecies.getByName(props.species!!)!!
                     knowledge = CobblemonClient.clientPokedexData.getKnowledgeForSpecies(wildSpecies.resourceIdentifier)
                 } ?: PokedexEntryProgress.NONE
             }
@@ -39,6 +39,8 @@ class ClientBattle(
                 knowledge = PokedexEntryProgress.NONE
             }
         }
+    var knowledge = PokedexEntryProgress.NONE
+
     val sides: Array<ClientBattleSide>
         get() = arrayOf(side1, side2)
 

@@ -30,7 +30,6 @@ data class ClientGeneralPlayerData(
     var starterUUID: UUID? = null,
     val battleTheme: Identifier? = null
 ) : ClientInstancedPlayerData {
-    override val isIncrement = false
 
     override fun encode(buf: PacketByteBuf) {
         buf.writeBoolean(promptStarter)

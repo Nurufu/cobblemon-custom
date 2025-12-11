@@ -11,6 +11,8 @@ package com.cobblemon.mod.common.api.storage.party
 import com.cobblemon.mod.common.Cobblemon
 import com.cobblemon.mod.common.advancement.CobblemonCriteria
 import com.cobblemon.mod.common.advancement.criterion.PartyCheckContext
+import com.cobblemon.mod.common.api.events.CobblemonEvents
+import com.cobblemon.mod.common.api.events.pokemon.PokemonGainedEvent
 import com.cobblemon.mod.common.api.pokemon.evolution.Evolution
 import com.cobblemon.mod.common.api.pokemon.evolution.PassiveEvolution
 import com.cobblemon.mod.common.api.storage.pc.PCStore
@@ -67,7 +69,7 @@ open class PlayerPartyStore(
         }
         pokemon.refreshOriginalTrainer()
 
-        return if (super.add(pokemon)) {
+        val added = if (super.add(pokemon)) {
             pokemon.getOwnerPlayer()?.let { CobblemonCriteria.PARTY_CHECK.trigger(it, PartyCheckContext(this)) }
             true
         } else {
@@ -118,6 +120,11 @@ open class PlayerPartyStore(
                 true
             }
         }
+        if(added){
+            CobblemonEvents.POKEMON_GAINED.post(PokemonGainedEvent(playerUUID, pokemon))
+        }
+
+        return added
     }
 
     /**

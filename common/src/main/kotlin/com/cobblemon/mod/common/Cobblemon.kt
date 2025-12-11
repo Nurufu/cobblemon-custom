@@ -411,59 +411,6 @@ object Cobblemon {
             battleRegistry.onServerStarted()
         }
         PlatformEvents.SERVER_TICK_POST.subscribe { ServerTickHandler.onTick(it.server) }
-        POKEMON_CAPTURED.subscribe {
-            PokedexHandler.onCapture(it)
-            AdvancementHandler.onCapture(it)
-        }
-
-        STARTER_CHOSEN.subscribe {
-            PokedexHandler.onStarterSelect(it)
-        }
-
-//        EGG_HATCH.subscribe { AdvancementHandler.onHatch(it) }
-        BATTLE_VICTORY.subscribe { AdvancementHandler.onWinBattle(it) }
-        EVOLUTION_COMPLETE.subscribe(Priority.LOWEST) { event ->
-            AdvancementHandler.onEvolve(event)
-            PokedexHandler.onEvolve(event)
-            val pokemon = event.pokemon
-            val ninjaskIdentifier = cobblemonResource("ninjask")
-            // Ensure the config option is enabled and that the result was a ninjask and that shedinja exists
-            if (this.config.ninjaskCreatesShedinja && pokemon.species.resourceIdentifier == ninjaskIdentifier && PokemonSpecies.getByIdentifier(Pokemon.SHEDINJA) != null) {
-                val player = pokemon.getOwnerPlayer() ?: return@subscribe
-                if (player.isCreative || player.inventory.containsAny { it.item is PokeBallItem }) {
-                    var pokeball = Items.AIR
-                    player.inventory.combinedInventory.forEach {
-                        it.forEach {
-                            itemStack -> if (itemStack.item is PokeBallItem && pokeball == Items.AIR) {
-                                pokeball = itemStack.item as PokeBallItem
-                            }
-                        }
-                    }
-                    if (!player.isCreative) {
-                        player.inventory.removeAmountIf(1) { it.item is PokeBallItem }
-                    }
-                    if (pokeball == Items.AIR) {
-                        pokeball = CobblemonItems.POKE_BALL
-                    }
-                    val properties = event.evolution.result.copy()
-                    properties.species = Pokemon.SHEDINJA.toString()
-                    val product = pokemon.clone()
-                    product.removeHeldItem()
-                    properties.apply(product)
-                    product.caughtBall = (pokeball as PokeBallItem).pokeBall
-                    pokemon.storeCoordinates.get()?.store?.add(product)
-                    CobblemonCriteria.EVOLVE_POKEMON.trigger(player, EvolvePokemonContext(event.pokemon.preEvolution!!.species.resourceIdentifier, product.species.resourceIdentifier, playerDataManager.getGenericData(player).advancementData.totalEvolvedCount))
-                }
-            }
-        }
-        LEVEL_UP_EVENT.subscribe { AdvancementHandler.onLevelUp(it) }
-        TRADE_COMPLETED.subscribe {
-            AdvancementHandler.onTradeCompleted(it)
-            PokedexHandler.onTrade(it)
-        }
-        BATTLE_STARTED_POST.subscribe {
-            PokedexHandler.onBattleStart(it)
-        }
 
         BagItems.observable.subscribe {
             LOGGER.info("Starting dummy Showdown battle to force it to pre-load data.")
@@ -474,8 +421,12 @@ object Cobblemon {
                 true
             ).ifSuccessful { it.mute = true }
         }
+        registerEventHandlers()
+    }
 
-        //CobblemonSherds.registerSherds()
+    fun registerEventHandlers(){
+        AdvancementHandler.registerListeners()
+        PokedexHandler.registerListeners()
     }
 
     fun getLevel(dimension: RegistryKey<World>): World? {

@@ -20,6 +20,5 @@ import net.minecraft.network.PacketByteBuf
  * @author Apion
  */
 interface ClientInstancedPlayerData {
-    val isIncrement: Boolean
     fun encode(buf: PacketByteBuf)
 }
