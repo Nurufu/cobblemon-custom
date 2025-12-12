@@ -14,6 +14,7 @@ import com.cobblemon.mod.common.api.scheduling.ServerTaskTracker
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.server.MinecraftServer
 import net.minecraft.server.network.ServerPlayerEntity
+import java.util.UUID
 
 /**
  * Manages all types of [InstancedPlayerData]
@@ -56,12 +57,17 @@ class PlayerInstancedDataStoreManager {
             .build()
     }
 
-    fun get(player: PlayerEntity, dataType: PlayerInstancedDataStoreType): InstancedPlayerData {
+    fun get(playerId: UUID, dataType: PlayerInstancedDataStoreType): InstancedPlayerData {
         if (!factories.contains(dataType)) {
             throw UnsupportedOperationException("No factory registered for $dataType")
         }
-        return factories[dataType]!!.getForPlayer(player)
+        return factories[dataType]!!.getForPlayer(playerId)
     }
+
+    fun get(player: PlayerEntity, dataType: PlayerInstancedDataStoreType): InstancedPlayerData {
+        return get(player.uuid, dataType)
+    }
+
     fun saveAllOfOneType(dataType: PlayerInstancedDataStoreType) {
         if (!factories.contains(dataType)) {
             throw UnsupportedOperationException("No factory registered for $dataType")
@@ -95,10 +101,19 @@ class PlayerInstancedDataStoreManager {
     }
 
     fun getGenericData(player: ServerPlayerEntity): GeneralPlayerData {
-        return get(player, PlayerInstancedDataStoreType.GENERAL) as GeneralPlayerData
+        return getGenericData(player.uuid)
+    }
+
+    fun getGenericData(playerId: UUID): GeneralPlayerData {
+        return get(playerId, PlayerInstancedDataStoreType.GENERAL) as GeneralPlayerData
     }
 
     fun getPokedexData(player: ServerPlayerEntity): PokedexManager {
-        return get(player, PlayerInstancedDataStoreType.POKEDEX) as PokedexManager
+        return getPokedexData(player.uuid)
     }
+
+    fun getPokedexData(playerId: UUID): PokedexManager {
+        return get(playerId, PlayerInstancedDataStoreType.POKEDEX) as PokedexManager
+    }
+
 }

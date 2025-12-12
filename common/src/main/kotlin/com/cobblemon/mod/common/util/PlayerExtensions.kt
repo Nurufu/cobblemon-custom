@@ -41,6 +41,7 @@ import kotlin.math.min
 // Stuff like getting their party
 fun ServerPlayerEntity.party() = Cobblemon.storage.getParty(this)
 fun ServerPlayerEntity.pc() = Cobblemon.storage.getPC(this.uuid)
+fun ServerPlayerEntity.pokedex() = Cobblemon.playerDataManager.getPokedexData(this)
 val ServerPlayerEntity.activeDialogue: ActiveDialogue?
     get() = DialogueManager.activeDialogues[uuid]
 val ServerPlayerEntity.isInDialogue: Boolean

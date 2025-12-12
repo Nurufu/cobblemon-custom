@@ -17,7 +17,7 @@ import net.minecraft.util.Identifier
 /**
  * A list of dex entries
  */
-class PokedexDef: ClientDataSynchronizer<PokedexDef> {
+class SimplePokedexDef: ClientDataSynchronizer<SimplePokedexDef> {
     val id = cobblemonResource("blank")
     val entries = mutableListOf<Identifier>()
 
@@ -26,7 +26,7 @@ class PokedexDef: ClientDataSynchronizer<PokedexDef> {
         return entries as List<PokedexEntry>
     }
 
-    override fun shouldSynchronize(other: PokedexDef) = true
+    override fun shouldSynchronize(other: SimplePokedexDef) = true
 
     override fun decode(buffer: PacketByteBuf) {
         val size = buffer.readInt()

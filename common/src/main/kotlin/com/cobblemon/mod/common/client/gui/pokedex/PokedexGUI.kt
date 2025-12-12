@@ -14,7 +14,7 @@ import com.cobblemon.mod.common.api.gui.blitk
 import com.cobblemon.mod.common.api.molang.MoLangFunctions.setup
 import com.cobblemon.mod.common.api.pokedex.CaughtCount
 import com.cobblemon.mod.common.api.pokedex.Dexes
-import com.cobblemon.mod.common.api.pokedex.def.PokedexDef
+import com.cobblemon.mod.common.api.pokedex.def.SimplePokedexDef
 import com.cobblemon.mod.common.api.pokedex.SeenCount
 import com.cobblemon.mod.common.api.pokedex.entry.BasicPokedexVariation
 import com.cobblemon.mod.common.api.pokedex.entry.DexEntries
@@ -64,7 +64,7 @@ class PokedexGUI private constructor(
     var initialDragPosX = 0.0
     var canDragRender = false
 
-    private var filteredPokedex: Collection<PokedexDef> = mutableListOf()
+    private var filteredPokedex: Collection<SimplePokedexDef> = mutableListOf()
     private var seenCount = "0000"
     private var ownedCount = "0000"
 

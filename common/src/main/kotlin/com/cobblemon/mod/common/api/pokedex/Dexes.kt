@@ -9,7 +9,7 @@
 package com.cobblemon.mod.common.api.pokedex
 
 import com.cobblemon.mod.common.api.data.JsonDataRegistry
-import com.cobblemon.mod.common.api.pokedex.def.PokedexDef
+import com.cobblemon.mod.common.api.pokedex.def.SimplePokedexDef
 import com.cobblemon.mod.common.api.pokedex.entry.DexEntries
 import com.cobblemon.mod.common.api.pokedex.entry.PokedexEntry
 import com.cobblemon.mod.common.api.reactive.SimpleObservable
@@ -24,7 +24,7 @@ import net.minecraft.resource.ResourceType
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
 
-object Dexes : JsonDataRegistry<PokedexDef> {
+object Dexes : JsonDataRegistry<SimplePokedexDef> {
     override val id = cobblemonResource("dexes")
     override val type = ResourceType.SERVER_DATA
     override val observable = SimpleObservable<Dexes>()
@@ -35,15 +35,15 @@ object Dexes : JsonDataRegistry<PokedexDef> {
         .setPrettyPrinting()
         .create()
 
-    override val typeToken: TypeToken<PokedexDef> = TypeToken.get(PokedexDef::class.java)
+    override val typeToken: TypeToken<SimplePokedexDef> = TypeToken.get(SimplePokedexDef::class.java)
     override val resourcePath = "dexes"
 
     //Maps a dex id to its PokedexDef
-    val dexEntryMap = mutableMapOf<Identifier, PokedexDef>()
+    val dexEntryMap = mutableMapOf<Identifier, SimplePokedexDef>()
     //Map dex id to map of pokedex entry id -> entry map
     val entries = mutableMapOf<Identifier, Map<Identifier, PokedexEntry>>()
 
-    override fun reload(data: Map<Identifier, PokedexDef>) {
+    override fun reload(data: Map<Identifier, SimplePokedexDef>) {
         data.forEach { (location, entry) ->
             val entryMap = entry.entries
                 .map { DexEntries.entries[it] ?: throw IllegalArgumentException("Unknown dex entry $it") }

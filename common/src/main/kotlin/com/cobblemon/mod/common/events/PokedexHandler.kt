@@ -17,27 +17,10 @@ object PokedexHandler : EventHandler {
     }
 
     fun onPokemonGained(event: PokemonGainedEvent) {
-        //We should make it so this works for offline players better
-        val player = event.playerId.getPlayer() ?: return
-        val playerPokedex = Cobblemon.playerDataManager.getPokedexData(player)
-        playerPokedex.catch(event.pokemon)
-        player.sendPacket(SetClientPlayerDataPacket(
-            PlayerInstancedDataStoreType.POKEDEX,
-            playerPokedex.toClientData()
-        ))
-
+        Cobblemon.playerDataManager.getPokedexData(event.playerId).catch(event.pokemon)
     }
 
     fun onPokemonSeen(event: PokemonSeenEvent) {
-        val player = event.playerId.getPlayer() ?: return
-        val playerPokedex = Cobblemon.playerDataManager.getPokedexData(player)
-        playerPokedex.encounter(event.pokemon)
-        player.sendPacket(
-            SetClientPlayerDataPacket(
-                PlayerInstancedDataStoreType.POKEDEX,
-                playerPokedex.toClientData()
-            )
-        )
-
+        Cobblemon.playerDataManager.getPokedexData(event.playerId).encounter(event.pokemon)
     }
 }
