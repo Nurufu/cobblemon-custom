@@ -16,38 +16,11 @@ import net.minecraft.util.Identifier
 class PokedexEntry(
     val id: Identifier,
     val speciesId: Identifier,
-    val displayAspects: MutableSet<String> = mutableSetOf(),
-    val conditionAspects: MutableSet<String> = mutableSetOf(),
+    val displayAspects: Set<String> = emptySet(),
+    val conditionAspects: Set<String> = emptySet(),
     val forms: MutableList<PokedexForm> = mutableListOf(),
-    val variations: MutableList<PokedexCosmeticVariation>
+    val variations: List<PokedexCosmeticVariation>
 ) {
-    fun clone() = PokedexEntry(
-        id,
-        speciesId,
-        displayAspects,
-        conditionAspects,
-        forms.map { it.clone() }.toMutableList(),
-        variations.map { it.clone() }.toMutableList()
-    )
-
-    fun combinedWith(other: PokedexEntry): PokedexEntry {
-        val copy = clone()
-        other.forms.forEach { form ->
-            if (form.displayForm !in copy.forms.map { it.displayForm }) {
-                copy.forms.add(form.clone())
-            } else {
-                copy.forms.find { it.displayForm == form.displayForm }!!.unlockForms.addAll(form.unlockForms)
-            }
-        }
-        other.variations.forEach { variation ->
-            if (variation.displayName !in copy.variations.map { it.displayName }) {
-                copy.variations.add(variation.clone())
-            }
-        }
-
-        return copy
-    }
-
     fun encode(buf: PacketByteBuf) {
         buf.writeIdentifier(id)
         buf.writeIdentifier(speciesId)
@@ -63,8 +36,8 @@ class PokedexEntry(
         fun decode(buffer: PacketByteBuf): PokedexEntry {
             val id = buffer.readIdentifier()
             val entryId = buffer.readIdentifier()
-            val displayAspects = buffer.readList { buffer.readString() }.toMutableSet()
-            val conditionAspects = buffer.readList { buffer.readString() }.toMutableSet()
+            val displayAspects = buffer.readList { buffer.readString() }.toSet()
+            val conditionAspects = buffer.readList { buffer.readString() }.toSet()
             val forms = buffer.readList {
                 val form = PokedexForm()
                 form.displayForm = buffer.readString()
@@ -75,6 +48,11 @@ class PokedexEntry(
             return PokedexEntry(id, entryId, displayAspects, conditionAspects, forms, variations)
         }
     }
+
+    fun isVisible(dexData: AbstractPokedexManager): Boolean {
+        val speciesRecord = dexData.getSpeciesRecord(speciesId) ?: return false
+        return conditionAspects.all(speciesRecord::hasAspect) && speciesRecord.hasAtLeast(PokedexEntryProgress.ENCOUNTERED)
+    }
 }
 
 class PokedexForm {
@@ -82,11 +60,6 @@ class PokedexForm {
     var unlockForms: MutableSet<String> = mutableSetOf()
 
     fun getKnowledge(speciesId: Identifier, dexData: AbstractPokedexManager) = unlockForms
-        .maxOfOrNull { dexData.getSpeciesRecord(speciesId)?.getFormRecord(it)?.knowledge ?: PokedexEntryProgress.NONE }
+        .maxOfOrNull { dexData.getSpeciesRecord(speciesId)?.getKnowledge() ?: PokedexEntryProgress.NONE }
         ?: PokedexEntryProgress.NONE
-
-    fun clone() = PokedexForm().also {
-        it.displayForm = displayForm
-        it.unlockForms.addAll(unlockForms)
-    }
 }

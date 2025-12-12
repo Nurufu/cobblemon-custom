@@ -104,6 +104,8 @@ class SpeciesDexRecord {
     fun getAspects(): Set<String> = this.aspects
     fun hasAspect(aspect: String) = aspect in aspects
     fun getKnowledge() = formRecords.values.maxOfOrNull { it.knowledge } ?: PokedexEntryProgress.NONE
+    fun hasAtLeast(knowledge: PokedexEntryProgress) = getKnowledge().ordinal >= knowledge.ordinal
+    fun hasSeenForm(formName: String) = formRecords.entries.any { it.key.equals(formName, ignoreCase = true) && it.value.knowledge != PokedexEntryProgress.NONE }
 
     fun encode(buffer: PacketByteBuf) {
         buffer.writeCollection(aspects) { _, it -> buffer.writeString(it) }

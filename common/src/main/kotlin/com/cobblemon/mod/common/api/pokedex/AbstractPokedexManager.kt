@@ -91,6 +91,12 @@ abstract class AbstractPokedexManager {
         globalCalculatedValues.clear()
     }
 
+    fun clearCalculatedValues() {
+        dexCalculatedValues.clear()
+        globalCalculatedValues.clear()
+    }
+
+
     fun <T : Any> getDexCalculatedValue(dex: Identifier, calculatedPokedexValue: PokedexValueCalculator<T>): T {
         val existingValue = dexCalculatedValues[dex]?.get(calculatedPokedexValue) as? T
         if (existingValue != null) {

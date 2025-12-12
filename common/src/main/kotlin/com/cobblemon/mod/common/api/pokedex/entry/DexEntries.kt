@@ -33,11 +33,22 @@ object DexEntries : JsonDataRegistry<PokedexEntry> {
     override val typeToken: TypeToken<PokedexEntry> = TypeToken.get(PokedexEntry::class.java)
     override val resourcePath = "dex_entries"
 
-    lateinit var entries: Map<Identifier, PokedexEntry>
+    val entries = mutableMapOf<Identifier, PokedexEntry>()
 
     override fun reload(data: Map<Identifier, PokedexEntry>) {
-        entries = data
+        data.forEach { _, entry ->
+            entries[entry.speciesId] = entry
+            if (entry.forms.isEmpty()) {
+                entry.forms.add(PokedexForm())
+            }
+            entry.forms.forEach {
+                if (it.unlockForms.isEmpty()) {
+                    it.unlockForms = mutableSetOf(it.displayForm)
+                }
+            }
+        }
     }
+
 
     override val observable = SimpleObservable<DexEntries>()
     override fun sync(player: ServerPlayerEntity) {

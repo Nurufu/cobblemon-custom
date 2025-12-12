@@ -1,3 +1,11 @@
+/*
+ * Copyright (C) 2023 Cobblemon Contributors
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package com.cobblemon.mod.common.api.storage.player.client
 
 import com.cobblemon.mod.common.api.pokedex.AbstractPokedexManager
@@ -5,7 +13,6 @@ import com.cobblemon.mod.common.api.pokedex.SpeciesDexRecord
 import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreType
 import com.cobblemon.mod.common.client.CobblemonClient
 import com.cobblemon.mod.common.net.messages.client.SetClientPlayerDataPacket
-import com.cobblemon.mod.common.pokemon.Species
 import com.cobblemon.mod.common.util.asIdentifierDefaultingNamespace
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.util.Identifier
@@ -38,7 +45,7 @@ class ClientPokedexManager(
         fun runIncremental(data: ClientInstancedPlayerData) {
             if (data !is ClientPokedexManager) return
             CobblemonClient.clientPokedexData.speciesRecords.putAll(data.speciesRecords)
+            CobblemonClient.clientPokedexData.clearCalculatedValues()
         }
-
     }
 }

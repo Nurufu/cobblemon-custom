@@ -8,13 +8,13 @@
 
 package com.cobblemon.mod.common.pokedex
 
-import com.cobblemon.mod.common.api.pokedex.entry.BasicPokedexVariation
+import com.cobblemon.mod.common.api.pokedex.entry.PokedexForm
 import com.cobblemon.mod.common.util.cobblemonResource
 import net.minecraft.util.Identifier
 
 class DexPokemonData(
     val speciesId : Identifier = cobblemonResource("bulbasaur"),
-    val forms : MutableList<BasicPokedexVariation> = mutableListOf(),
+    val forms : MutableList<PokedexForm> = mutableListOf(),
     val dexNum: String
 ) {
 

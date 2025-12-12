@@ -109,8 +109,8 @@ class EntriesScrollingWidget(val pX: Int, val pY: Int, val setPokedexEntry: (Pok
         )
     }
 
-    override fun getEntry(index: Int): EntriesScrollingWidget.PokemonScrollSlotRow {
-        return children()[index] as EntriesScrollingWidget.PokemonScrollSlotRow
+    override fun getEntry(index: Int): PokemonScrollSlotRow {
+        return children()[index] as PokemonScrollSlotRow
     }
 
     class PokemonScrollSlotRow(
@@ -154,8 +154,11 @@ class EntriesScrollingWidget(val pX: Int, val pY: Int, val setPokedexEntry: (Pok
 
                 val speciesNumber = pokemonNumber.text()
                 val discoveryLevel = discoveryLevelList[index]
-                val firstVisibleForm = CobblemonClient.clientPokedexData.getEncounteredForms(dexData).firstOrNull()
+//                val drawConditions = dexData.displayConditions ?: emptyList()// ?: (dexData.formVariations[dexData.displayEntry] as BasicPokedexFormVariation).conditions
+                val speciesRecord = CobblemonClient.clientPokedexData.speciesRecords[dexData.speciesId]
+                val firstVisibleForm = speciesRecord?.let { record -> dexData.forms.firstOrNull { it.unlockForms.any(record::hasSeenForm) } }
                 val shouldDrawMon = firstVisibleForm != null//drawConditions.all { it.resolveBoolean(runtime) }
+
 
                 if (species == null) return@forEachIndexed
 
@@ -196,10 +199,10 @@ class EntriesScrollingWidget(val pX: Int, val pY: Int, val setPokedexEntry: (Pok
                         startPosX + SCROLL_SLOT_SIZE - 1,
                         startPosY + SCROLL_SLOT_SIZE - 2
                     )
-                    val aspectsToDraw = (dexData.displayAspects + formAspects + (firstVisibleGender ?: Gender.GENDERLESS).name.lowercase()).toMutableSet()
-                    if (firstVisibleShiny) {
-                        aspectsToDraw.add("shiny")
-                    }
+                    val aspectsToDraw = dexData.displayAspects + firstVisibleForm.displayForm
+//                    if (firstVisibleShiny) {
+//                        aspectsToDraw.add("shiny")
+//                    }
                     matrices.push()
                     matrices.translate(startPosX + (SCROLL_SLOT_SIZE / 2.0), startPosY + 1.0, 0.0)
                     matrices.scale(2.5F, 2.5F, 1F)
