@@ -52,7 +52,7 @@ class EntriesScrollingWidget(val pX: Int, val pY: Int, val setPokedexEntry: (Pok
     fun createEntries(filteredPokedex: Collection<PokedexEntry>) {
         filteredPokedex.chunked(5).forEachIndexed { index, listChunk ->
             val discoveryList = listChunk.map {
-                CobblemonClient.clientPokedexData.getKnowledgeForSpecies(it.speciesId)
+                CobblemonClient.clientPokedexData.getHighestKnowledgeFor(it)
             }.toMutableList()
             val newEntry = PokemonScrollSlotRow(
                 listChunk.toMutableList(),

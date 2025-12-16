@@ -58,7 +58,7 @@ class PokedexManager(
                 PrimitiveCodec.STRING.fieldOf("uuid").forGetter { it.uuid.toString() },
                 Codec.unboundedMap(Identifier.CODEC, SpeciesDexRecord.CODEC).fieldOf("speciesRecords").forGetter { it.speciesRecords }
             ).apply(instance) { uuid, map ->
-                PokedexManager(UUID.fromString(uuid), map)
+                PokedexManager(UUID.fromString(uuid), map.toMutableMap()).also { dex -> dex.speciesRecords.forEach { (key, value) -> value.initialize(dex, key) }}
             }
         }
     }

@@ -11,6 +11,7 @@ package com.cobblemon.mod.common.api.pokedex.entry
 import com.cobblemon.mod.common.api.data.JsonDataRegistry
 import com.cobblemon.mod.common.api.molang.ExpressionLike
 import com.cobblemon.mod.common.api.reactive.SimpleObservable
+import com.cobblemon.mod.common.net.messages.client.data.DexEntrySyncPacket
 import com.cobblemon.mod.common.util.adapters.ExpressionLikeAdapter
 import com.cobblemon.mod.common.util.cobblemonResource
 import com.google.gson.Gson
@@ -36,8 +37,8 @@ object DexEntries : JsonDataRegistry<PokedexEntry> {
     val entries = mutableMapOf<Identifier, PokedexEntry>()
 
     override fun reload(data: Map<Identifier, PokedexEntry>) {
-        data.forEach { _, entry ->
-            entries[entry.speciesId] = entry
+        data.forEach { (_, entry) ->
+            entries[entry.id] = entry
             if (entry.forms.isEmpty()) {
                 entry.forms.add(PokedexForm())
             }
@@ -52,6 +53,6 @@ object DexEntries : JsonDataRegistry<PokedexEntry> {
 
     override val observable = SimpleObservable<DexEntries>()
     override fun sync(player: ServerPlayerEntity) {
-
+        DexEntrySyncPacket(entries.values).sendToPlayer(player)
     }
 }

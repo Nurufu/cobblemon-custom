@@ -84,7 +84,7 @@ class SpeciesDexRecord {
     internal fun wouldBeDifferent(pokemon: Pokemon) = pokemon.aspects.any { it !in aspects }
 
     fun getOrCreateFormRecord(formName: String): FormDexRecord {
-        return formRecords.getOrPut(formName) {
+        return formRecords.getOrPut(formName.lowercase()) {
             val record = FormDexRecord()
             record.initialize(this)
             onFormRecordUpdated(record)
@@ -94,7 +94,7 @@ class SpeciesDexRecord {
     }
 
     fun getFormRecord(formName: String): FormDexRecord? {
-        return formRecords[formName]
+        return formRecords[formName.lowercase()]
     }
 
     fun deleteFormRecord(formName: String) {

@@ -197,14 +197,16 @@ class PokemonInfoWidget(val pX: Int, val pY: Int, val updateForm: (PokedexForm) 
             shadow = true
         )
 
-        drawScaledText(
-            context = context,
-            font = CobblemonResources.DEFAULT_LARGE,
-            text = speciesName.bold(),
-            x = pX + 26,
-            y = pY + 1,
-            colour = 0x606B6E
-        )
+        if(hasKnowledge) {
+            drawScaledText(
+                context = context,
+                font = CobblemonResources.DEFAULT_LARGE,
+                text = speciesName.bold(),
+                x = pX + 26,
+                y = pY + 1,
+                colour = 0x606B6E
+            )
+        }
 
         // Caught icon
         if (isSelectedPokemonOwned()) {
@@ -296,7 +298,7 @@ class PokemonInfoWidget(val pX: Int, val pY: Int, val updateForm: (PokedexForm) 
                 drawScaledTextJustifiedRight(
                     context = context,
                     font = CobblemonResources.DEFAULT_LARGE,
-                    text = Text.translatable("cobblemon.ui.pokedex.info.unimplemented").bold(),
+                    text = lang("ui.pokedex.info.unimplemented").bold(),
                     x = pX + 136,
                     y = pY + 15,
                     shadow = true
@@ -427,7 +429,11 @@ class PokemonInfoWidget(val pX: Int, val pY: Int, val updateForm: (PokedexForm) 
             }
             selectedFormIndex = 0
 
-            if(visibleForms.isNotEmpty()) updateAspects()
+            if(visibleForms.isNotEmpty()) {
+                updateAspects()
+            } else {
+                type = arrayOf(null, null)
+            }
         }
     }
 
