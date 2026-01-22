@@ -331,8 +331,10 @@
 				}
 			}
 		},
-		"animation.screamtail.sleep": {
+		"animation.screamtail.sleep":
+        {
 			"animation_length": 31.58333,
+            "loop": true,
 			"bones": {
 				"body": {
 					"rotation": [-2.5, 0, 0],

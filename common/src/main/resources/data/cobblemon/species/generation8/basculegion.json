@@ -126,7 +126,7 @@
   "evolutions": [],
   "forms": [
     {
-      "name": "F",
+      "name": "Female",
       "primaryType": "water",
       "secondaryType": "ghost",
       "abilities": [

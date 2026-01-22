@@ -16,6 +16,7 @@
       "texture": "cobblemon:textures/pokemon/0666_vivillon/vivillon_shiny.png"
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-archipelago"
       ],
@@ -27,6 +28,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-continental"
       ],
@@ -38,6 +40,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-elegant"
       ],
@@ -49,6 +52,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-fancy"
       ],
@@ -60,6 +64,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-garden"
       ],
@@ -71,6 +76,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-high-plains"
       ],
@@ -82,6 +88,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-icy-snow"
       ],
@@ -93,6 +100,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-jungle"
       ],
@@ -104,6 +112,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-marine"
       ],
@@ -115,6 +124,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-meadow"
       ],
@@ -126,6 +136,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-modern"
       ],
@@ -137,6 +148,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-modern"
       ],
@@ -148,6 +160,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-monsoon"
       ],
@@ -159,6 +172,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-ocean"
       ],
@@ -170,6 +184,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-poke-ball"
       ],
@@ -181,6 +196,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-polar"
       ],
@@ -192,6 +208,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-river"
       ],
@@ -203,6 +220,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-sandstorm"
       ],
@@ -214,6 +232,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-savanna"
       ],
@@ -225,6 +244,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-sun"
       ],
@@ -236,6 +256,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-tundra"
       ],
@@ -247,6 +268,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-inferno"
       ],
@@ -258,6 +280,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-void"
       ],
@@ -269,6 +292,7 @@
       ]
     },
     {
+      "model": "cobblemon:vivillon.geo",
       "aspects": [
         "vivillon-wings-forsaken"
       ],

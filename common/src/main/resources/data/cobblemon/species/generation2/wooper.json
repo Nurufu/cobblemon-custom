@@ -22,6 +22,10 @@
   "shoulderMountable": true,
   "forms": [
     {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
       "name": "Paldea",
       "primaryType": "poison",
       "secondaryType": "ground",

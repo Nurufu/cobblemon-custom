@@ -20,6 +20,15 @@
   "maleRatio": 0.5,
   "shoulderMountable": false,
   "forms": [
+      {
+        "name": "Female",
+        "aspects": ["female"]
+      },
+      {
+        "name": "Valencian",
+        "aspects": ["valencian"],
+        "preEvolution": "metapod"
+      },
     {
       "name": "Gmax",
       "primaryType": "bug",

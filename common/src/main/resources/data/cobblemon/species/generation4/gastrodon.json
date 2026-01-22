@@ -172,5 +172,11 @@
   "height": 9,
   "weight": 299,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "forms": [
+    {
+      "name": "West",
+      "aspects": ["west-sea"]
+    }
+  ]
 }

@@ -128,6 +128,12 @@
     "special_defence": 0,
     "speed": 0
   },
+  "forms": [
+    {
+      "name": "Female",
+      "aspects": ["female"]
+    }
+  ],
   "height": 15,
   "weight": 815,
   "aspects": [],

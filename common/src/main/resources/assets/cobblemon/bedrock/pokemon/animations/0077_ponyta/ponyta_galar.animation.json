@@ -426,7 +426,7 @@
 			"bones": {
 				"body": {
 					"rotation": ["-math.sin(q.anim_time*90*8+20)*2-2", 0, 0],
-					"position": [0, "math.clamp(math.sin(q.anim_time*90*8-110)*1.5,0,3)+math.clamp(math.sin(q.anim_time*90*8-110)*0.4,-3)", 0]
+					"position": [0, "math.clamp(math.sin(q.anim_time*90*8-110)*1.5,0,3)+math.clamp(math.sin(q.anim_time*90*8-110)*0.4,-3,1)", 0]
 				},
 				"torso": {
 					"rotation": ["-math.sin(q.anim_time*90*8+20)*6", "-math.sin(q.anim_time*90*8+60)*0.4", 0]

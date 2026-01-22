@@ -197,5 +197,15 @@
   "height": 12,
   "weight": 186,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "forms": [
+    {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
+      "name": "Valencian",
+      "aspects": ["valencian"]
+    }
+  ]
 }

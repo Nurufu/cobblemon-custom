@@ -27,6 +27,18 @@
           "emissive": true
         }
       ]
+    },
+    {
+      "aspects": ["pumpkin-size-small"],
+      "model": "cobblemon:pumpkaboo.geo"
+    },
+    {
+      "aspects": ["pumpkin-size-large"],
+      "model": "cobblemon:pumpkaboo.geo"
+    },
+    {
+      "aspects": ["pumpkin-size-super"],
+      "model": "cobblemon:pumpkaboo.geo"
     }
   ]
 }

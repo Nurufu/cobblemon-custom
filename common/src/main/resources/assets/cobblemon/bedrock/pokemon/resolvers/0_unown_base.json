@@ -5,7 +5,7 @@
         {
             "aspects": [],
             "poser": "cobblemon:unown",
-            "model": "cobblemon:unown_j.geo",
+            "model": "cobblemon:unown_a.geo",
             "texture": "cobblemon:textures/pokemon/0201_unown/unown.png",
             "layers": [        {
           "name": "emissive",

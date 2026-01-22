@@ -50,5 +50,115 @@
         "quantityRange": "0-1"
       }
     ]
-  }
+  },
+  "forms": [
+    {
+      "name": "B",
+      "aspects": ["letter-b"]
+    },
+    {
+      "name": "C",
+      "aspects": ["letter-c"]
+    },
+    {
+      "name": "D",
+      "aspects": ["letter-d"]
+    },
+    {
+      "name": "E",
+      "aspects": ["letter-e"]
+    },
+    {
+      "name": "F",
+      "aspects": ["letter-f"]
+    },
+    {
+      "name": "G",
+      "aspects": ["letter-g"]
+    },
+    {
+      "name": "H",
+      "aspects": ["letter-h"]
+    },
+    {
+      "name": "I",
+      "aspects": ["letter-i"]
+    },
+    {
+      "name": "J",
+      "aspects": ["letter-j"]
+    },
+    {
+      "name": "K",
+      "aspects": ["letter-k"]
+    },
+    {
+      "name": "L",
+      "aspects": ["letter-l"]
+    },
+    {
+      "name": "M",
+      "aspects": ["letter-m"]
+    },
+    {
+      "name": "N",
+      "aspects": ["letter-n"]
+    },
+    {
+      "name": "O",
+      "aspects": ["letter-o"]
+    },
+    {
+      "name": "P",
+      "aspects": ["letter-p"]
+    },
+    {
+      "name": "Q",
+      "aspects": ["letter-q"]
+    },
+    {
+      "name": "R",
+      "aspects": ["letter-r"]
+    },
+    {
+      "name": "S",
+      "aspects": ["letter-s"]
+    },
+    {
+      "name": "T",
+      "aspects": ["letter-t"]
+    },
+    {
+      "name": "U",
+      "aspects": ["letter-u"]
+    },
+    {
+      "name": "V",
+      "aspects": ["letter-v"]
+    },
+    {
+      "name": "W",
+      "aspects": ["letter-w"]
+    },
+    {
+      "name": "X",
+      "aspects": ["letter-x"]
+    },
+    {
+      "name": "Y",
+      "aspects": ["letter-y"]
+    },
+    {
+      "name": "Z",
+      "aspects": ["letter-z"]
+    },
+    {
+      "name": "!",
+      "aspects": ["letter-exclamation"]
+    },
+    {
+      "name": "?",
+      "aspects": ["letter-question"]
+    }
+  ]
 }

@@ -27,6 +27,18 @@
           "emissive": true
         }
       ]
+    },
+    {
+      "aspects": ["pumpkin-size-small"],
+      "model": "cobblemon:gourgeist.geo"
+    },
+    {
+      "aspects": ["pumpkin-size-large"],
+      "model": "cobblemon:gourgeist.geo"
+    },
+    {
+      "aspects": ["pumpkin-size-super"],
+      "model": "cobblemon:gourgeist.geo"
     }
   ]
 }

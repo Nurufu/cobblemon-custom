@@ -253,5 +253,11 @@
   "height": 16,
   "weight": 756,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "forms": [
+    {
+      "name": "Female",
+      "aspects": ["female"]
+    }
+  ]
 }

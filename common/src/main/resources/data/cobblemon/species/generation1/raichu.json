@@ -48,6 +48,10 @@
   "shoulderMountable": false,
   "forms": [
     {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
       "name": "Alola",
       "primaryType": "electric",
       "secondaryType": "psychic",

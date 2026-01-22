@@ -33,6 +33,102 @@
   "shoulderMountable": false,
   "forms": [
     {
+      "name": "Blue",
+      "aspects": ["flower-blue"],
+      "evolutions": [
+        {
+          "id": "floette_florges",
+          "variant": "item_interact",
+          "result": "florges",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:shiny_stone"
+        }
+      ],
+      "preEvolution": "flabebe"
+    },
+    {
+      "name": "Orange",
+      "aspects": ["flower-orange"],
+      "evolutions": [
+        {
+          "id": "floette_florges",
+          "variant": "item_interact",
+          "result": "florges",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:shiny_stone"
+        }
+      ],
+      "preEvolution": "flabebe"
+    },
+    {
+      "name": "Yellow",
+      "aspects": ["flower-yellow"],
+      "evolutions": [
+        {
+          "id": "floette_florges",
+          "variant": "item_interact",
+          "result": "florges",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:shiny_stone"
+        }
+      ],
+      "preEvolution": "flabebe"
+    },
+    {
+      "name": "White",
+      "aspects": ["flower-white"],
+      "evolutions": [
+        {
+          "id": "floette_florges",
+          "variant": "item_interact",
+          "result": "florges",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:shiny_stone"
+        }
+      ],
+      "preEvolution": "flabebe"
+    },
+    {
+      "name": "Red",
+      "aspects": ["flower-red"],
+      "evolutions": [
+        {
+          "id": "floette_florges",
+          "variant": "item_interact",
+          "result": "florges",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:shiny_stone"
+        }
+      ],
+      "preEvolution": "flabebe"
+    },
+    {
+      "name": "Pink",
+      "aspects": ["flower-pink"],
+      "evolutions": [
+        {
+          "id": "floette_florges",
+          "variant": "item_interact",
+          "result": "florges",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:shiny_stone"
+        }
+      ],
+      "preEvolution": "flabebe"
+    },
+    {
       "name": "Eternal",
       "primaryType": "fairy",
       "abilities": [
@@ -124,7 +220,8 @@
         "mythical"
       ],
       "aspects": [
-        "eternal"
+        "eternal",
+        "flower-none"
       ],
       "baseScale": 0.4,
       "hitbox": {

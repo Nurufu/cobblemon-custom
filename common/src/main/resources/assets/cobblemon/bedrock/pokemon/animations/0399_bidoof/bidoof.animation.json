@@ -368,6 +368,7 @@
 		},
 		"animation.bidoof.sleep": {
 			"animation_length": 6.70833,
+            "loop": true,
 			"bones": {
 				"body": {
 					"rotation": [0, 30, 0]

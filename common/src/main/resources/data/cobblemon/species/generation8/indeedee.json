@@ -22,7 +22,7 @@
     "shoulderMountable": false,
     "forms": [
       {
-        "name": "F",
+        "name": "Female",
         "primaryType": "psychic",
         "secondaryType": "normal",
         "abilities": [

@@ -50,6 +50,10 @@
   "shoulderMountable": false,
   "forms": [
     {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
       "name": "Alola",
       "primaryType": "dark",
       "secondaryType": "normal",

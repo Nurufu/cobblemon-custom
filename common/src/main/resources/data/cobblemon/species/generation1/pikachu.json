@@ -54,6 +54,10 @@
   "shoulderMountable": true,
   "forms": [
     {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
       "name": "Cosplay",
       "primaryType": "electric",
       "abilities": [

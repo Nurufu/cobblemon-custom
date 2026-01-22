@@ -11,21 +11,25 @@
     },
     {
       "aspects": ["squawkabilly-color-blue"],
+      "model": "cobblemon:squawkabilly.geo",
       "texture": "cobblemon:textures/pokemon/0931_squawkabilly/squawkabilly_blue.png",
       "layers": []
     },
     {
       "aspects": ["squawkabilly-color-gray"],
+      "model": "cobblemon:squawkabilly.geo",
       "texture": "cobblemon:textures/pokemon/0931_squawkabilly/squawkabilly_gray.png",
       "layers": []
     },
     {
       "aspects": ["squawkabilly-color-green"],
+      "model": "cobblemon:squawkabilly.geo",
       "texture": "cobblemon:textures/pokemon/0931_squawkabilly/squawkabilly_green.png",
       "layers": []
     },
     {
       "aspects": ["squawkabilly-color-yellow"],
+      "model": "cobblemon:squawkabilly.geo",
       "texture": "cobblemon:textures/pokemon/0931_squawkabilly/squawkabilly_yellow.png",
       "layers": []
     },

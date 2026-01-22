@@ -6,6 +6,7 @@
       "aspects": [
         "valencian"
       ],
+      "model": "cobblemon:gloom_male.geo",
       "texture": "cobblemon:textures/pokemon/0044_gloom/gloom_valencian.png"
     },
     {

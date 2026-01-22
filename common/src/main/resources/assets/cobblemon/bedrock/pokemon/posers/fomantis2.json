@@ -81,7 +81,7 @@
       "animations": [
 		"look",
 		"bedrock(fomantis, eyes_default)",
-        "bedrock(fomantis, ground_walk, )"
+        "bedrock(fomantis, ground_walk)"
       ],
 	  "quirks":[
 	  {

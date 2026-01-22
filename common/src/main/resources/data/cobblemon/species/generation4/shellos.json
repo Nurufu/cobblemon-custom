@@ -184,5 +184,26 @@
   "height": 3,
   "weight": 63,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "forms": [
+    {
+      "name": "West",
+      "aspects": ["west-sea"],
+      "evolutions": [
+        {
+          "id": "shellos_gastrodon",
+          "variant": "level_up",
+          "result": "gastrodon west-sea",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 30
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

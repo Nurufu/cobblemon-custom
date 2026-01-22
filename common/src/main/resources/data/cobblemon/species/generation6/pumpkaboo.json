@@ -139,7 +139,7 @@
         {
           "id": "pumpkaboo_gourgeist",
           "variant": "trade",
-          "result": "gourgeist pumpkin_size=small",
+          "result": "gourgeist",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": []
@@ -253,7 +253,7 @@
         {
           "id": "pumpkaboo_gourgeist",
           "variant": "trade",
-          "result": "gourgeist pumpkin_size=large",
+          "result": "gourgeist",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": []
@@ -367,7 +367,7 @@
         {
           "id": "pumpkaboo_gourgeist",
           "variant": "trade",
-          "result": "gourgeist pumpkin_size=super",
+          "result": "gourgeist",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": []
@@ -468,7 +468,7 @@
     {
       "id": "pumpkaboo_gourgeist",
       "variant": "trade",
-      "result": "gourgeist pumpkin_size=average",
+      "result": "gourgeist",
       "consumeHeldItem": false,
       "learnableMoves": [],
       "requirements": []

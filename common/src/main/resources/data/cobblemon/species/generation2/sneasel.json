@@ -25,6 +25,10 @@
   "shoulderMountable": false,
   "forms": [
     {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
       "name": "Hisui",
       "primaryType": "fighting",
       "secondaryType": "poison",
@@ -189,6 +193,10 @@
       },
       "cannotDynamax": false,
       "battleOnly": false
+    },
+    {
+      "name": "Hisuian F",
+      "aspects": ["hisuian", "female"]
     }
   ],
   "baseExperienceYield": 86,

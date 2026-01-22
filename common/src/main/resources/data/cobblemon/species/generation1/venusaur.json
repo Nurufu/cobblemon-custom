@@ -33,6 +33,10 @@
   "shoulderMountable": false,
   "forms": [
     {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
       "name": "Mega",
       "primaryType": "grass",
       "secondaryType": "poison",

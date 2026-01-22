@@ -106,24 +106,10 @@
     "gen9"
   ],
   "aspects": [],
-  "height": 10,
-  "weight": 1200,
-  "preEvolution": "lechonk",
-  "evolutions": [],
-  "cannotDynamax": false,
   "forms": [
     {
-      "name": "undecided_temporary_form",
-      "maleRatio": 0.5
-    },
-    {
-      "name": "male",
-      "maleRatio": 1,
-      "aspects": ["male"]
-    },
-    {
-      "name": "female",
-      "primaryType": "normal",
+      "name": "Female",
+      "aspects": ["female"],
       "abilities": [
         "aromaveil",
         "gluttony",
@@ -212,18 +198,14 @@
       ],
       "labels": [
         "gen9"
-      ],
-      "aspects": [
-        "female"
-      ],
-      "height": 10,
-      "weight": 1200,
-      "preEvolution": "lechonk",
-      "evolutions": [],
-      "cannotDynamax": false,
-      "battleOnly": false
+      ]
     }
   ],
+  "height": 10,
+  "weight": 1200,
+  "preEvolution": "lechonk",
+  "evolutions": [],
+  "cannotDynamax": false,
   "baseScale": 1.0,
   "hitbox": {
     "width": 0.8,

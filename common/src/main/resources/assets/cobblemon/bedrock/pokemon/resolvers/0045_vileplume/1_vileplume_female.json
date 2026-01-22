@@ -6,6 +6,7 @@
       "aspects": [
         "female"
       ],
+      "model": "cobblemon:vileplume.geo",
       "texture": "cobblemon:textures/pokemon/0045_vileplume/vileplume_female.png"
     },
     {

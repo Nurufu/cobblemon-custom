@@ -110,5 +110,662 @@
   "height": 9,
   "weight": 100,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "forms": [
+    {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
+      "name": "Apricot Stripes",
+      "aspects": ["magikarp-jump-apricot-stripes"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Apricot Tiger",
+      "aspects": ["magikarp-jump-apricot-tiger"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Apricot zebra",
+      "aspects": ["magikarp-jump-apricot-zebra"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Black Forehead",
+      "aspects": ["magikarp-jump-black-forehead"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Black Mask",
+      "aspects": ["magikarp-jump-black-mask"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blue Raindrops",
+      "aspects": ["magikarp-jump-blue-raindrops"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blue Saucy",
+      "aspects": ["magikarp-jump-blue-saucy"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Brown Stripes",
+      "aspects": ["magikarp-jump-brown-stripes"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Brown Tiger",
+      "aspects": ["magikarp-jump-brown-tiger"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Brown Zebra",
+      "aspects": ["magikarp-jump-brown-zebra"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calico Orange Gold",
+      "aspects": ["magikarp-jump-calico-orange-gold"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calico Orange White",
+      "aspects": ["magikarp-jump-calico-orange-white"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calico Orange White Black",
+      "aspects": ["magikarp-jump-calico-orange-white-black"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calico White Orange",
+      "aspects": ["magikarp-jump-calico-white-orange"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gray Bubbles",
+      "aspects": ["magikarp-jump-gray-bubbles"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gray Diamonds",
+      "aspects": ["magikarp-jump-gray-diamonds"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gray Patches",
+      "aspects": ["magikarp-jump-gray-patches"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orange Dapples",
+      "aspects": ["magikarp-jump-orange-dapples"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orange Forehead",
+      "aspects": ["magikarp-jump-orange-forehead"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orange Mask",
+      "aspects": ["magikarp-jump-orange-mask"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orange Orca",
+      "aspects": ["magikarp-jump-orange-orca"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orange Two-Tone",
+      "aspects": ["magikarp-jump-orange-two-tone"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pink Dapples",
+      "aspects": ["magikarp-jump-pink-dapples"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pink Orca",
+      "aspects": ["magikarp-jump-pink-orca"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pink Two-Tone",
+      "aspects": ["magikarp-jump-pink-two-tone"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Purple Bubbles",
+      "aspects": ["magikarp-jump-purple-bubbles"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Purple Diamonds",
+      "aspects": ["magikarp-jump-purple-diamonds"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Purple Patches",
+      "aspects": ["magikarp-jump-purple-patches"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Skelly",
+      "aspects": ["magikarp-jump-skelly"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Violet Raindrops",
+      "aspects": ["magikarp-jump-violet-raindrops"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Violet Saucy",
+      "aspects": ["magikarp-jump-violet-saucy"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

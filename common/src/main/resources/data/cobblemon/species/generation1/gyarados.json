@@ -21,6 +21,10 @@
   "shoulderMountable": false,
   "forms": [
     {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
       "name": "Mega",
       "primaryType": "water",
       "secondaryType": "dark",
@@ -79,6 +83,161 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Apricot Stripes",
+      "aspects": ["magikarp-jump-apricot-stripes"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Apricot Tiger",
+      "aspects": ["magikarp-jump-apricot-tiger"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Apricot zebra",
+      "aspects": ["magikarp-jump-apricot-zebra"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Black Forehead",
+      "aspects": ["magikarp-jump-black-forehead"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Black Mask",
+      "aspects": ["magikarp-jump-black-mask"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Blue Raindrops",
+      "aspects": ["magikarp-jump-blue-raindrops"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Blue Saucy",
+      "aspects": ["magikarp-jump-blue-saucy"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Brown Stripes",
+      "aspects": ["magikarp-jump-brown-stripes"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Brown Tiger",
+      "aspects": ["magikarp-jump-brown-tiger"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Brown Zebra",
+      "aspects": ["magikarp-jump-brown-zebra"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Calico Orange Gold",
+      "aspects": ["magikarp-jump-calico-orange-gold"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Calico Orange White",
+      "aspects": ["magikarp-jump-calico-orange-white"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Calico Orange White Black",
+      "aspects": ["magikarp-jump-calico-orange-white-black"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Calico White Orange",
+      "aspects": ["magikarp-jump-calico-white-orange"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Gray Bubbles",
+      "aspects": ["magikarp-jump-gray-bubbles"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Gray Diamonds",
+      "aspects": ["magikarp-jump-gray-diamonds"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Gray Patches",
+      "aspects": ["magikarp-jump-gray-patches"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Orange Dapples",
+      "aspects": ["magikarp-jump-orange-dapples"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Orange Forehead",
+      "aspects": ["magikarp-jump-orange-forehead"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Orange Mask",
+      "aspects": ["magikarp-jump-orange-mask"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Orange Orca",
+      "aspects": ["magikarp-jump-orange-orca"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Orange Two-Tone",
+      "aspects": ["magikarp-jump-orange-two-tone"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Pink Dapples",
+      "aspects": ["magikarp-jump-pink-dapples"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Pink Orca",
+      "aspects": ["magikarp-jump-pink-orca"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Pink Two-Tone",
+      "aspects": ["magikarp-jump-pink-two-tone"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Purple Bubbles",
+      "aspects": ["magikarp-jump-purple-bubbles"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Purple Diamonds",
+      "aspects": ["magikarp-jump-purple-diamonds"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Purple Patches",
+      "aspects": ["magikarp-jump-purple-patches"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Skelly",
+      "aspects": ["magikarp-jump-skelly"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Violet Raindrops",
+      "aspects": ["magikarp-jump-violet-raindrops"],
+      "preEvolution": "magikarp"
+    },
+    {
+      "name": "Violet Saucy",
+      "aspects": ["magikarp-jump-violet-saucy"],
+      "preEvolution": "magikarp"
     }
   ],
   "baseExperienceYield": 189,

@@ -35,6 +35,90 @@
   "shoulderMountable": false,
   "forms": [
     {
+      "name": "Archipelago",
+      "aspects": ["vivillon-wings-archipelago"]
+    },
+    {
+      "name": "Continental",
+      "aspects": ["vivillon-wings-continental"]
+    },
+    {
+      "name": "Elegant",
+      "aspects": ["vivillon-wings-elegant"]
+    },
+    {
+      "name": "Garden",
+      "aspects": ["vivillon-wings-garden"]
+    },
+    {
+      "name": "High Plains",
+      "aspects": ["vivillon-wings-high-plains"]
+    },
+    {
+      "name": "Icy Snow",
+      "aspects": ["vivillon-wings-icy-snow"]
+    },
+    {
+      "name": "Jungle",
+      "aspects": ["vivillon-wings-jungle"]
+    },
+    {
+      "name": "Marine",
+      "aspects": ["vivillon-wings-marine"]
+    },
+    {
+      "name": "Meadow",
+      "aspects": ["vivillon-wings-meadow"]
+    },
+    {
+      "name": "Modern",
+      "aspects": ["vivillon-wings-modern"]
+    },
+    {
+      "name": "Monsoon",
+      "aspects": ["vivillon-wings-monsoon"]
+    },
+    {
+      "name": "Ocean",
+      "aspects": ["vivillon-wings-ocean"]
+    },
+    {
+      "name": "Polar",
+      "aspects": ["vivillon-wings-polar"]
+    },
+    {
+      "name": "River",
+      "aspects": ["vivillon-wings-river"]
+    },
+    {
+      "name": "Sandstorm",
+      "aspects": ["vivillon-wings-sandstorm"]
+    },
+    {
+      "name": "Savanna",
+      "aspects": ["vivillon-wings-savanna"]
+    },
+    {
+      "name": "Sun",
+      "aspects": ["vivillon-wings-sun"]
+    },
+    {
+      "name": "Tundra",
+      "aspects": ["vivillon-wings-tundra"]
+    },
+    {
+      "name": "Inferno",
+      "aspects": ["vivillon-wings-inferno"]
+    },
+    {
+      "name": "Void",
+      "aspects": ["vivillon-wings-void"]
+    },
+    {
+      "name": "Forsaken",
+      "aspects": ["vivillon-wings-forsaken"]
+    },
+    {
       "name": "Fancy",
       "primaryType": "bug",
       "secondaryType": "flying",

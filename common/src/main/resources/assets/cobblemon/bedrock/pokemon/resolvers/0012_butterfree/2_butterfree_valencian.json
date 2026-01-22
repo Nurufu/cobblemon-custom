@@ -6,6 +6,7 @@
       "aspects": [
         "valencian"
       ],
+      "model": "cobblemon:butterfree_male.geo",
       "texture": "cobblemon:textures/pokemon/0012_butterfree/butterfree_valencian.png"
     },
     {

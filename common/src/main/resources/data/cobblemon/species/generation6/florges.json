@@ -161,5 +161,37 @@
         "percentage": 10.0
       }
     ]
-  }
+  },
+  "forms": [
+    {
+      "name": "Blue",
+      "aspects": ["flower-blue"],
+      "preEvolution": "floette"
+    },
+    {
+      "name": "Orange",
+      "aspects": ["flower-orange"],
+      "preEvolution": "floette"
+    },
+    {
+      "name": "Yellow",
+      "aspects": ["flower-yellow"],
+      "preEvolution": "floette"
+    },
+    {
+      "name": "White",
+      "aspects": ["flower-white"],
+      "preEvolution": "floette"
+    },
+    {
+      "name": "Red",
+      "aspects": ["flower-red"],
+      "preEvolution": "floette"
+    },
+    {
+      "name": "Pink",
+      "aspects": ["flower-pink"],
+      "preEvolution": "floette"
+    }
+  ]
 }

@@ -211,5 +211,30 @@
   "height": 8,
   "weight": 86,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "forms": [
+    {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
+      "name": "Valencian",
+      "aspects": ["valencian"],
+      "preEvolution": "oddish",
+      "evolutions": [
+        {
+          "id": "gloom_vileplume",
+          "variant": "item_interact",
+          "result": "vileplume",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "petalblizzard"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:leaf_stone"
+        }
+        ]
+    }
+  ]
 }
+

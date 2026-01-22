@@ -6,6 +6,7 @@
       "aspects": [
         "female"
       ],
+      "model": "cobblemon:hippowdon.geo",
       "texture": "cobblemon:textures/pokemon/0450_hippowdon/hippowdon_female.png"
     },
     {

@@ -16,6 +16,7 @@
       "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_shiny.png"
     },
     {
+      "model": "cobblemon:flabebe.geo",
       "aspects": ["flower-blue"],
       "layers": [
         {
@@ -24,6 +25,7 @@
       ]
     },
     {
+      "model": "cobblemon:flabebe.geo",
       "aspects": ["flower-orange"],
       "layers": [
         {
@@ -32,6 +34,7 @@
       ]
     },
     {
+      "model": "cobblemon:flabebe.geo",
       "aspects": ["flower-yellow"],
       "layers": [
         {
@@ -40,6 +43,7 @@
       ]
     },
     {
+      "model": "cobblemon:flabebe.geo",
       "aspects": ["flower-white"],
       "layers": [
         {
@@ -48,6 +52,7 @@
       ]
     },
     {
+      "model": "cobblemon:flabebe.geo",
       "aspects": ["flower-red"],
       "layers": [
         {
@@ -56,6 +61,7 @@
       ]
     },
     {
+      "model": "cobblemon:flabebe.geo",
       "aspects": ["flower-pink"],
       "layers": [
         {

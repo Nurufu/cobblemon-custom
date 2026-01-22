@@ -171,5 +171,11 @@
         "percentage": 10.0
       }
     ]
-  }
+  },
+  "forms": [
+    {
+      "name": "Female",
+      "aspects": ["female"]
+    }
+  ]
 }

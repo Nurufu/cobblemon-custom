@@ -3,6 +3,13 @@
     "order": 0,
     "variations": [
       {
+        "aspects": [],
+        "poser": "cobblemon:pyroar_m",
+        "model": "cobblemon:pyroar_m.geo",
+        "texture": "cobblemon:textures/pokemon/pyroar/pyroar_m.png",
+        "layers": []
+      },
+      {
         "aspects": ["male"],
         "poser": "cobblemon:pyroar_m",
         "model": "cobblemon:pyroar_m.geo",
@@ -16,7 +23,7 @@
           }
         ]},
       {
-        "aspects": [ "male", "shiny" ],
+        "aspects": ["male","shiny"],
         "texture": "cobblemon:textures/pokemon/pyroar/pyroar_m_shiny.png",
         "layers": [
           {

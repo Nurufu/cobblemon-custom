@@ -21,6 +21,10 @@
   "shoulderMountable": true,
   "forms": [
     {
+      "name": "Female",
+      "aspects": ["female"]
+    },
+    {
       "name": "Starter",
       "primaryType": "normal",
       "abilities": [
