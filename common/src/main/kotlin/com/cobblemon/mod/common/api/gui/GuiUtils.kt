@@ -167,6 +167,21 @@ fun drawText(
 }
 
 @JvmOverloads
+fun drawTextJustifiedRight(
+    context: DrawContext,
+    font: Identifier? = null,
+    text: MutableText,
+    x: Number,
+    y: Number,
+    colour: Int,
+    shadow: Boolean = true
+) {
+    val comp = text.let { if (font != null) it.font(font) else it }
+    val font = MinecraftClient.getInstance().textRenderer
+    context.drawText(font, comp, x.toInt() - font.getWidth(comp), y.toInt(), colour, shadow)
+}
+
+@JvmOverloads
 fun drawString(
     context: DrawContext,
     text: String,

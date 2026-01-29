@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.util
 
 import net.minecraft.block.BlockState
+import net.minecraft.enchantment.Enchantment
 import net.minecraft.entity.Entity
 import net.minecraft.item.Item
 import net.minecraft.particle.ParticleEffect
@@ -126,6 +127,8 @@ val World.biomeRegistry: Registry<Biome>
     get() = registryManager.get(RegistryKeys.BIOME)
 val World.worldRegistry: Registry<World>
     get() = registryManager.get(RegistryKeys.WORLD)
+val World.enchantmentRegistry: Registry<Enchantment>
+    get() = registryManager.get(RegistryKeys.ENCHANTMENT)
 
 fun Vec3d.traceDownwards(
     world: World,

@@ -32,6 +32,7 @@ fun drawProfilePokemon(
     renderablePokemon: RenderablePokemon,
     matrixStack: MatrixStack,
     rotation: Quaternionf,
+    poseType: PoseType = PoseType.PROFILE,
     state: PosableState,
     partialTicks: Float,
     scale: Float = 20F
@@ -40,7 +41,8 @@ fun drawProfilePokemon(
     aspects = renderablePokemon.aspects,
     matrixStack = matrixStack,
     rotation = rotation,
-    state = state,
+    poseType = poseType,
+    state = state. also {it.currentAspects = renderablePokemon.aspects },
     partialTicks = partialTicks,
     scale = scale
 )
@@ -50,6 +52,7 @@ fun drawProfilePokemon(
     aspects: Set<String>,
     matrixStack: MatrixStack,
     rotation: Quaternionf,
+    poseType: PoseType = PoseType.PROFILE,
     state: PosableState,
     partialTicks: Float,
     scale: Float = 20F
@@ -76,7 +79,7 @@ fun drawProfilePokemon(
     RenderSystem.applyModelViewMatrix()
     matrixStack.scale(scale, scale, -scale)
 
-    state.setPoseToFirstSuitable(PoseType.PROFILE)
+    state.setPoseToFirstSuitable(poseType)
     state.updatePartialTicks(partialTicks)
     model.applyAnimations(null, state, 0F, 0F, 0F, 0F, 0F)
     matrixStack.translate(model.profileTranslation.x, model.profileTranslation.y,  model.profileTranslation.z - 4.0)
