@@ -4,8 +4,8 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:lapras2",
-      "model": "cobblemon:lapras2.geo",
+      "poser": "cobblemon:lapras",
+      "model": "cobblemon:lapras.geo",
       "texture": "cobblemon:textures/pokemon/0131_lapras/lapras.png",
       "layers": []
     },
