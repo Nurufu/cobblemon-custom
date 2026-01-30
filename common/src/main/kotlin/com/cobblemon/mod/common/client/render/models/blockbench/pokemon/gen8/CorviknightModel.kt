@@ -16,6 +16,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvi
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
@@ -44,6 +45,7 @@ class CorviknightModel (root: ModelPart) : PokemonPosableModel(root), HeadedFram
     lateinit var hover: Pose
     lateinit var fly: Pose
     lateinit var sleep: Pose
+    lateinit var battle: Pose
 
     override val cryAnimation = CryProvider { bedrockStateful("corviknight", "cry") }
 
@@ -120,6 +122,25 @@ class CorviknightModel (root: ModelPart) : PokemonPosableModel(root), HeadedFram
                 singleBoneLook(),
                 bedrock("corviknight", "ground_walk")
             )
+        )
+
+        battle = registerPose(
+            poseName = "battle",
+            poseTypes = PoseType.STATIONARY_POSES,
+            condition = { it.isBattling },
+            quirks = arrayOf(blink),
+            transformTicks = 10,
+            transformedParts = arrayOf(
+                openWingLeft.createTransformation().withVisibility(visibility = false),
+                openWingRight.createTransformation().withVisibility(visibility = false),
+                closedWingLeft.createTransformation().withVisibility(visibility = true),
+                closedWingRight.createTransformation().withVisibility(visibility = true)
+            ),
+            animations = arrayOf(
+                singleBoneLook(),
+                bedrock("corvinight", "battle_idle")
+            )
+
         )
     }
 }

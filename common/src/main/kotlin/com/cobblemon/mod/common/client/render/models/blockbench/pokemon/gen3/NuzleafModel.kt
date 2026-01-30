@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFram
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
+import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
 import net.minecraft.util.math.Vec3d
 
@@ -37,6 +38,7 @@ class NuzleafModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
 
     lateinit var standing: Pose
     lateinit var walk: Pose
+    lateinit var battleIdle: Pose
 
     override val cryAnimation = CryProvider { bedrockStateful("nuzleaf", "cry") }
 
@@ -63,6 +65,18 @@ class NuzleafModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
                 BimanualSwingAnimation(this, swingPeriodMultiplier = 0.6F, amplitudeMultiplier = 0.9F)
                 //bedrock("nuzleaf", "ground_walk")
             )
+        )
+
+        battleIdle = registerPose(
+            poseName = "battle",
+            poseTypes = PoseType.STATIONARY_POSES,
+            condition = { it.isBattling },
+            quirks = arrayOf(blink),
+            animations = arrayOf(
+                singleBoneLook(),
+                bedrock("nuzleaf", "battle_idle")
+            )
+
         )
     }
 }

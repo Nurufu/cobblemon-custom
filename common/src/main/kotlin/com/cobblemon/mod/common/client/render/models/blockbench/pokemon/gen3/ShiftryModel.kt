@@ -48,7 +48,7 @@ class ShiftryModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
             quirks = arrayOf(blink),
             animations = arrayOf(
                 singleBoneLook(),
-                bedrock("shiftry", "idle")
+                bedrock("shiftry", "ground_idle")
             )
         )
 
@@ -58,7 +58,7 @@ class ShiftryModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
             quirks = arrayOf(blink),
             animations = arrayOf(
                 singleBoneLook(),
-                bedrock("shiftry", "idle"),
+                bedrock("shiftry", "ground_idle"),
                 BipedWalkAnimation(this, periodMultiplier = 0.6F, amplitudeMultiplier = 0.9F),
                 BimanualSwingAnimation(this, swingPeriodMultiplier = 0.6F, amplitudeMultiplier = 0.9F)
                 //bedrock("shiftry", "ground_walk")
