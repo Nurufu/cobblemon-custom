@@ -1,14 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-	      "animation.garbodor.cry": {
-        "animation_length": 3,
-        "sound_effects": {
-          "0.2": {
-            "effect": "pokemon.garbodor.cry"
-          }
-        }
-      },
 		"animation.garbodor.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -184,6 +176,13 @@
 				},
 				"eyelid_recoil_right": {
 					"position": [0, 0, -0.1]
+				}
+			}
+		},
+		"animation.garbodor.cry": {
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.garbodor.cry"
 				}
 			}
 		}

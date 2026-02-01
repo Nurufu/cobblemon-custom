@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.malamar.pose": {
+		"animation.malamar.ground_idle": {
 			"loop": true,
 			"bones": {
 				"head_tentacle_front_left": {
@@ -166,6 +166,32 @@
 						"0.125": [0, 0, -0.1],
 						"0.2083": [0, 0, 0]
 					}
+				}
+			}
+		},
+		"animation.malamar.cry": {
+			"animation_length": 1,
+			"bones": {
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-5, 0, 0],
+						"0.75": [-5, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"jaw": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [40, 0, 0],
+						"0.75": [40, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				}
+			},
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.malamar.cry"
 				}
 			}
 		}

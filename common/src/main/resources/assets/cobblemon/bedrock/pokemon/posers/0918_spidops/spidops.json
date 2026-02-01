@@ -1,21 +1,26 @@
 {
-  "portraitScale": 2,
-  "portraitTranslation": [-0.65, -0.5, 0.0],
-  "profileScale": 0.9,
-  "profileTranslation": [0, 0.35, 0],
-  "animations": {
-    "cry": "q.bedrock_stateful('spidops', 'cry')"
-  },
+  "portraitScale": 1.83,
+  "portraitTranslation": [-0.30, 1.82, 0],
+  "profileScale": 0.51,
+  "profileTranslation": [-0.02, 1.03, 0],
+  "rootBone": "spidops",
   "poses": {
     "standing": {
-      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK"],
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
       "animations": [
-        "q.look('head')",
-        "q.bedrock('spidops', 'idle  ')"
+		"q.look('head_ai')",
+        "q.bedrock('spidops', 'idle')"
       ],
-      "quirks": [
+	  "quirks": [
         "q.bedrock_quirk('spidops', 'blink')"
       ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.bedrock('spidops', 'idle')"
+      ],
+	  "quirks": ["q.bedrock_quirk('spidops', 'blink')"]
     }
   }
-}
+ }

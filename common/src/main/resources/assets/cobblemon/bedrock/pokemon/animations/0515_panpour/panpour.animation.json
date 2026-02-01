@@ -1,14 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-      "animation.panpour.cry": {
-        "animation_length": 3,
-        "sound_effects": {
-          "0.2": {
-            "effect": "pokemon.panpour.cry"
-          }
-        }
-      },
 		"animation.panpour.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -310,6 +302,13 @@
 						"0.125": [0, 0, -0.1],
 						"0.1667": [0, 0, 0]
 					}
+				}
+			}
+		},
+		"animation.panpour.cry": {
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.panpour.cry"
 				}
 			}
 		}

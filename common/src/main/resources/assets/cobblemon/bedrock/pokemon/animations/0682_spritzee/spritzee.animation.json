@@ -328,6 +328,14 @@
 					"rotation": [0, 35, 0]
 				}
 			}
+		},
+		"animation.spritzee.cry": {
+			"animation_length": 0.875,
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.spritzee.cry"
+				}
+			}
 		}
 	}
 }

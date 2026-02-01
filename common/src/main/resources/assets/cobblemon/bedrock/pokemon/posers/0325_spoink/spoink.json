@@ -1,21 +1,16 @@
 {
-  "portraitScale": 2,
-  "portraitTranslation": [-0.65, -0.5, 0.0],
-  "profileScale": 0.9,
-  "profileTranslation": [0, 0.35, 0],
-  "animations": {
-    "cry": "q.bedrock_stateful('spoink', 'cry')"
-  },
+  "portraitScale": 1.51,
+  "portraitTranslation": [-0.01, -0.14, 0],
+  "profileScale": 0.54,
+  "profileTranslation": [0, 1, 0],
+  "rootBone": "spoink",
   "poses": {
-    "standing": {
-      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "WALK"],
+    "everything": {
+      "poseTypes": ["STAND", "WALK", "NONE", "PORTRAIT", "PROFILE"],
       "animations": [
-        "q.look('head')",
         "q.bedrock('spoink', 'ground_idle')"
       ],
-      "quirks": [
-        "q.bedrock_quirk('spoink', 'blink')"
-      ]
+      "quirks": ["q.bedrock_quirk('spoink', 'blink')"]
     }
   }
 }
