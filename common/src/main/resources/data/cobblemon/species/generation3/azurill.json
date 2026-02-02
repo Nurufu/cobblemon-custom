@@ -1,179 +1,200 @@
 {
-    "implemented": true,
-    "name": "Azurill",
-    "nationalPokedexNumber": 298,
-    "primaryType": "normal",
-    "secondaryType": "fairy",
-    "abilities": [
-      "thickfat",
-      "hugepower",
-      "h:sapsipper"
-    ],
-    "baseStats": {
-      "hp": 50,
-      "attack": 20,
-      "defence": 40,
-      "special_attack": 20,
-      "special_defence": 40,
-      "speed": 20
-    },
-    "catchRate": 150,
-    "maleRatio": 0.25,
-    "shoulderMountable": false,
-    "baseExperienceYield": 38,
-    "experienceGroup": "fast",
-    "eggCycles": 10,
-    "eggGroups": [
-      "undiscovered"
-    ],
-    "moves": [
-      "1:splash",
-      "1:tailwhip",
-      "1:watergun",
-      "3:helpinghand",
-      "5:watersport",
-      "6:bubblebeam",
-      "7:bubble",
-      "9:charm",
-      "12:slam",
-      "15:bounce",
-      "egg:aquajet",
-      "egg:bellydrum",
-      "egg:bodyslam",
-      "egg:camouflage",
-      "egg:copycat",
-      "egg:encore",
-      "egg:faketears",
-      "egg:muddywater",
-      "egg:perishsong",
-      "egg:present",
-      "egg:refresh",
-      "egg:sing",
-      "egg:slam",
-      "egg:soak",
-      "egg:supersonic",
-      "egg:tickle",
-      "egg:watersport",
-      "tm:alluringvoice",
-      "tm:attract",
-      "tm:blizzard",
-      "tm:bodyslam",
-      "tm:bounce",
-      "tm:brutalswing",
-      "tm:captivate",
-      "tm:charm",
-      "tm:confide",
-      "tm:doubleteam",
-      "tm:drainingkiss",
-      "tm:encore",
-      "tm:endure",
-      "tm:facade",
-      "tm:faketears",
-      "tm:frustration",
-      "tm:hail",
-      "tm:helpinghand",
-      "tm:hiddenpower",
-      "tm:hypervoice",
-      "tm:icebeam",
-      "tm:icywind",
-      "tm:irontail",
-      "tm:lightscreen",
-      "tm:muddywater",
-      "tm:mudshot",
-      "tm:mudslap",
-      "tm:naturalgift",
-      "tm:protect",
-      "tm:raindance",
-      "tm:rest",
-      "tm:return",
-      "tm:round",
-      "tm:scald",
-      "tm:secretpower",
-      "tm:sleeptalk",
-      "tm:snore",
-      "tm:substitute",
-      "tm:surf",
-      "tm:swagger",
-      "tm:takedown",
-      "tm:terablast",
-      "tm:toxic",
-      "tm:uproar",
-      "tm:waterfall",
-      "tm:waterpulse",
-      "tm:whirlpool",
-      "tm:workup",
-      "tutor:bodyslam",
-      "tutor:bounce",
-      "tutor:covet",
-      "tutor:defensecurl",
-      "tutor:doubleedge",
-      "tutor:endure",
-      "tutor:headbutt",
-      "tutor:helpinghand",
-      "tutor:hypervoice",
-      "tutor:icywind",
-      "tutor:irontail",
-      "tutor:knockoff",
-      "tutor:mimic",
-      "tutor:mudslap",
-      "tutor:rollout",
-      "tutor:sleeptalk",
-      "tutor:snore",
-      "tutor:substitute",
-      "tutor:swagger",
-      "tutor:swift",
-      "tutor:uproar",
-      "tutor:waterpulse"
-    ],
-    "labels": [
-      "gen3",
-      "baby"
-    ],
-    "pokedex": [
-      "cobblemon.species.azurill.desc"
-    ],
-    "evolutions": [
-      {
-        "id": "azurill_marill",
-        "variant": "level_up",
-        "result": "marill",
-        "consumeHeldItem": false,
-        "learnableMoves": [],
-        "requirements": [
-          {
-            "variant": "friendship",
-            "amount": 160
-          }
-        ]
+  "implemented": true,
+  "nationalPokedexNumber": 298,
+  "name": "Azurill",
+  "primaryType": "normal",
+  "secondaryType": "fairy",
+  "maleRatio": 0.25,
+  "height": 2,
+  "weight": 20,
+  "pokedex": [
+    "cobblemon.species.azurill.desc"
+  ],
+  "labels": [
+    "gen3",
+    "baby"
+  ],
+  "aspects": [],
+  "abilities": [
+    "thickfat",
+    "hugepower",
+    "h:sapsipper"
+  ],
+  "eggGroups": [
+    "undiscovered"
+  ],
+  "baseStats": {
+    "hp": 50,
+    "attack": 20,
+    "defence": 40,
+    "special_attack": 20,
+    "special_defence": 40,
+    "speed": 20
+  },
+  "evYield": {
+    "hp": 1,
+    "attack": 0,
+    "defence": 0,
+    "special_attack": 0,
+    "special_defence": 0,
+    "speed": 0
+  },
+  "baseExperienceYield": 38,
+  "experienceGroup": "fast",
+  "catchRate": 150,
+  "eggCycles": 10,
+  "baseFriendship": 50,
+  "baseScale": 0.65,
+  "hitbox": {
+    "width": 0.65,
+    "height": 0.65,
+    "fixed": false
+  },
+  "behaviour": {
+    "moving": {
+      "swim": {
+        "swimSpeed": "0.2",
+        "canWalkOnWater": true
       }
-    ],
-    "baseScale": 1,
-    "hitbox": {
-      "width": 1,
-      "height": 1,
-      "fixed": false
     },
-    "baseFriendship": 50,
-    "evYield": {
-      "hp": 1,
-      "attack": 0,
-      "defence": 0,
-      "special_attack": 0,
-      "special_defence": 0,
-      "speed": 0
+    "resting": {
+      "canSleep": true,
+      "light": "0-4",
+      "willSleepOnBed": true,
+      "drowsyChance": 0.0333,
+      "rouseChance": 0.0042
     },
-    "height": 2,
-    "weight": 20,
-    "aspects": [],
-    "cannotDynamax": false,
-    "drops": {
-      "amount": 1,
-      "entries": [
+    "herd": {
+      "maxSize": "4",
+      "toleratedLeaders": [
         {
-          "item": "cobblemon:kebia_berry",
-          "percentage": 2.5
+          "pokemon": "azurill",
+          "tier": 1
+        },
+        {
+          "pokemon": "marill",
+          "tier": 2
+        },
+        {
+          "pokemon": "azumarill",
+          "tier": 3
         }
       ]
     }
-  }
-  
+  },
+  "drops": {
+    "amount": 1,
+    "entries": [
+      {
+        "item": "cobblemon:kebia_berry",
+        "percentage": 2.5
+      }
+    ]
+  },
+  "moves": [
+    "1:splash",
+    "1:tailwhip",
+    "1:bubble",
+    "1:watergun",
+    "1:watersport",
+    "3:helpinghand",
+    "6:bubblebeam",
+    "9:charm",
+    "12:slam",
+    "15:bounce",
+    "egg:aquajet",
+    "egg:bellydrum",
+    "egg:camouflage",
+    "egg:copycat",
+    "egg:perishsong",
+    "egg:present",
+    "egg:refresh",
+    "egg:sing",
+    "egg:soak",
+    "egg:supersonic",
+    "egg:tickle",
+    "egg:watersport",
+    "tm:alluringvoice",
+    "tm:blizzard",
+    "tm:bodyslam",
+    "tm:bounce",
+    "tm:brutalswing",
+    "tm:charm",
+    "tm:covet",
+    "tm:drainingkiss",
+    "tm:encore",
+    "tm:endure",
+    "tm:facade",
+    "tm:faketears",
+    "tm:hail",
+    "tm:headbutt",
+    "tm:helpinghand",
+    "tm:hypervoice",
+    "tm:icebeam",
+    "tm:icywind",
+    "tm:irontail",
+    "tm:lightscreen",
+    "tm:mudshot",
+    "tm:mudslap",
+    "tm:protect",
+    "tm:raindance",
+    "tm:rest",
+    "tm:rollout",
+    "tm:sleeptalk",
+    "tm:substitute",
+    "tm:surf",
+    "tm:takedown",
+    "tm:terablast",
+    "tm:waterfall",
+    "tm:workup",
+    "tutor:bounce",
+    "tutor:covet",
+    "tutor:helpinghand",
+    "tutor:hypervoice",
+    "tutor:icebeam",
+    "tutor:icywind",
+    "tutor:irontail",
+    "tutor:mudslap",
+    "tutor:rest",
+    "tutor:rollout",
+    "tutor:sleeptalk",
+    "legacy:attract",
+    "legacy:captivate",
+    "legacy:confide",
+    "legacy:defensecurl",
+    "legacy:doubleedge",
+    "legacy:doubleteam",
+    "legacy:frustration",
+    "legacy:hiddenpower",
+    "legacy:knockoff",
+    "legacy:mimic",
+    "legacy:muddywater",
+    "legacy:naturalgift",
+    "legacy:return",
+    "legacy:round",
+    "legacy:scald",
+    "legacy:secretpower",
+    "legacy:snore",
+    "legacy:swagger",
+    "legacy:swift",
+    "legacy:toxic",
+    "legacy:uproar",
+    "legacy:waterpulse",
+    "legacy:whirlpool"
+  ],
+  "evolutions": [
+    {
+      "id": "azurill_marill",
+      "variant": "level_up",
+      "result": "marill",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "friendship",
+          "amount": 160
+        }
+      ]
+    }
+  ]
+}
