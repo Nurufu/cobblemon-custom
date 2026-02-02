@@ -4,6 +4,9 @@
   "profileScale": 0.51,
   "profileTranslation": [-0.02, 1.03, 0],
   "rootBone": "spidops",
+    "animations": {
+    "cry": "q.bedrock_stateful('spidops', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],

@@ -4,7 +4,9 @@
   "profileScale": 0.6,
   "profileTranslation": [0, 0.86, 0],
   "rootBone": "vanilluxe",
-  "animations": {},
+    "animations": {
+    "cry": "q.bedrock_stateful('vanilluxe', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": [

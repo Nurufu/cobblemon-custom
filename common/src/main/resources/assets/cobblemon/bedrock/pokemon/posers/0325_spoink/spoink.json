@@ -4,6 +4,9 @@
   "profileScale": 0.54,
   "profileTranslation": [0, 1, 0],
   "rootBone": "spoink",
+  "animations": {
+    "cry": "q.bedrock_stateful('spoink', 'cry')"
+  },
   "poses": {
     "everything": {
       "poseTypes": ["STAND", "WALK", "NONE", "PORTRAIT", "PROFILE"],
