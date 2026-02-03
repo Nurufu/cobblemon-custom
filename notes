@@ -7,22 +7,191 @@ New Pokemon in need of spawn files, posers and resolvers:
 (Check these on cobblemon git to see if they already exist)
 they do ^
 
-elemental monkies 6  511-516
-trubbish line 8      568+
-tarountula line 10   917+
-spoink line 12       325+
-drampa 13            780
-azurill line 16.     183+298
-blitzle line 18.     522+
-silicobra line 20.   843+
-inkay line 22.       686+
-bramblin line 24.    946+
-skovet line 26.      819+
-togepi line 28.      175+468
-furfrou all 9 of em 29 676
-vanillite line 32.   582+
-spritzee line 34.    682+
-swirlix* line 36.    684+
+Remodel list:
+
+1-9 charmander-blastoise
+10-12 caterpie-butterfree
+13-15 weedle-beedrill
+16-18 pidgey-pidgeot
+21-22 spearow-fearow
+25-26 pikachu-raichu (cosplay forms???)
+29-31 nidoran-nidoqueen
+37-38 vulpix-ninetails
+32-34 nidoran-nidoking
+42 golbat
+47 parasect
+50-51 diglett-dugtrio
+35-36 clefairy-clefable
+39-40 jigglypuff-wigglytuff
+43-45 oddish-vileplume
+46-47 paras-parasect
+47-48 venonat-venomoth
+56-57 mankey-primeape
+63-65 abra-alakazam
+69-71 bellsprout-victreebel
+73 tentacruel
+84-85 doduo-dodrio
+86-87 seel-dewgong
+88-89 grimer-muk
+92-94 gastly-gengar
+95 onix
+96-97 drowzee-hypno
+81-82 magnemite-magneton
+102-103 exeggcute-exeggutor
+108 lickitung
+109-110 koffing-weezing
+111-112 rhyhorn-rhydon
+113 chansey
+115 kangaskhan
+116-117 horsea-sedra
+118-119 goldeen-seaking
+120-121 staryu-starmie
+122 mr.mime
+123 scyther
+125 electabuzz
+126 magmar
+127 pinsir
+131 lapras
+132 ditto
+137 porygon
+138-139 omanyte-omastar
+133-136 eevee-flareon
+142 aerodactyl
+149 dragonite
+152-160 chikorita-feraligatr
+161-162 sentret-furret
+163-164 hoothoot-noctowl
+165-166 ledyba-ledian
+167-168 spinarak-ariados
+169 crobat
+170-171 chinchou-lanturn
+172 pichu
+173 cleffa
+174 jigglypuff
+177-178 natu-xatu
+179-181 mareep-ampharos
+182 bellosom
+185 sudowoodo
+190 aipom
+191-192 sunkern-sunflora
+193 yanma
+194-195 wooper-quagsire
+196-197 espeon-umbreon
+198 murkrow
+199 slowking
+200 misdreavus
+202 wobbuffet
+203 girafarig
+204-205 pineco-forretress
+207 gligar
+208 steelix
+209-210 snubull-granbull
+211 qwilfish
+212 scizor
+213 shuckle
+214 heracross
+215 sneasel
+216-217 teddiursa-ursaring
+218-219 slugma-magcargo
+220-221 swinub-piloswine
+222 corsola
+223-224 remoraid-octillery
+225 delibird
+226 mantine
+227 skarmory
+230 kingdra
+231-232 phanpy-donphan
+233 porygon2
+234 stantler
+236 tyrogue
+237 hitmontop
+239 elekid
+240 magby
+241 miltank
+242 blissey
+246-248 larvitar-tyranitar
+252-260 treecko-swampert
+263 zigzagoon
+273-274 seedot-nuzleaf
+276-277 tailow-swellow
+278 wingull
+287-289 slakoth-slaking
+303 mawile
+311 plusle
+312 minun
+319 sharpedo
+320 wailmer
+327 spinda
+330 flygon
+332 cacturne
+341 corphish
+343-344 baltoy-claydol
+357 tropius
+374-376 beldum-metagross
+387-395 turtwig-empoleon
+396-398 starly-staraptor
+406-407 budew-roserade
+417 pachirisu
+422-423 shellos-gastrodon
+424 ambipom
+427-428 buneary-lopunny
+430 honchkrow
+436-437 bronzor-bronzong
+439 mime.jr
+440 happiny
+441 chatot
+443-445 gibile-garchomp
+447-448 riolu-lucario
+461 weavile
+462 magnezone
+470-471 leafeon-glaceon
+476 probopass
+474 porygonZ
+495-503 snivy-samurott
+504-505 patrat-watchog
+508 stoutland
+519-521 pidove-unfezant
+543-544 venipede-whirlpede
+545 scolipede
+550 basculin
+551-553 sandile-krookodile
+554-555 darumaka-darmanitan
+556 maracactus
+561 sigilyph
+587 emolga
+593 jellicent
+605-606 elgyem-beheeyem
+607-609 litwick-chandelure
+621 druddigon
+623 golurk
+626 bouffalant
+628 braviary (+hisuan added)
+633-635 deino-hydreigon
+637 volcarona
+654-655 braixen-delphox
+659-660 bunnelby-diggersby
+679-681 honedge-aegislash
+699 aurorus
+700 silveon
+815 cinderace
+816-818 sobble-inteleon
+827-828 nickit-thievul
+901 ursaluna
+903 sneasler
+916 oinklogne
+924-925 tendemaus-maushold
+937 ceruledge (audio)
+956 espathra
+959 tinkaton
+967 cyclizar
+968 orthworm
+979 annihilape
+981 farigiraf
+982 dudunsparce (might be custom model)
+
+(Up to Aug 6th 2025)
+
+Animation list:
 
 
 need poser updates
@@ -41,6 +210,22 @@ check all for cry animations
 
 Changes:
 
+elemental monkies 6  511-516
+trubbish line 8      568+
+tarountula line 10   917+
+spoink line 12       325+
+drampa 13            780
+azurill line 16.     183+298
+blitzle line 18.     522+
+silicobra line 20.   843+
+inkay line 22.       686+
+bramblin line 24.    946+
+skovet line 26.      819+
+togepi line 28.      175+468
+furfrou all 9 of em 29 676
+vanillite line 32.   582+
+spritzee line 34.    682+
+swirlix* line 36.    684+
 Seedot line - new models
 Rookidee line - new models+animations
 Darumaka - battle idle animation fix
