@@ -4,15 +4,13 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:lopunny2",
-      "model": "cobblemon:lopunny2.geo",
+      "poser": "cobblemon:lopunny",
+      "model": "cobblemon:lopunny.geo",
       "texture": "cobblemon:textures/pokemon/0428_lopunny/lopunny.png",
       "layers": []
     },
     {
-      "aspects": [
-        "shiny"
-      ],
+      "aspects": ["shiny"],
       "texture": "cobblemon:textures/pokemon/0428_lopunny/lopunny_shiny.png"
     }
   ]

@@ -47,7 +47,7 @@ class LotadModel (root: ModelPart) : PokemonPosableModel(root), QuadrupedFrame {
     override val cryAnimation = CryProvider { bedrockStateful("lotad", "cry") }
 
     override fun registerPoses() {
-        val blink = quirk { bedrockStateful("charmander", "blink") }
+        val blink = quirk { bedrockStateful("lotad", "blink") }
 
         standing = registerPose(
             poseName = "standing",

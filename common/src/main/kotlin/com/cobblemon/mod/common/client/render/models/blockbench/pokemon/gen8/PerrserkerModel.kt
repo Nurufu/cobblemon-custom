@@ -13,13 +13,13 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PerrserkerModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -31,6 +31,9 @@ class PerrserkerModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame,
     override val leftArm = getPart("arm_left")
     override val rightArm = getPart("arm_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("perrserker", "cry") }
+
+
     override var portraitScale = 1.6F
     override var portraitTranslation = Vec3d(-0.2, 0.2, 0.0)
 
@@ -40,8 +43,6 @@ class PerrserkerModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame,
 //    lateinit var sleep: Pose
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("perrserker", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("perrserker", "blink") }
@@ -57,7 +58,7 @@ class PerrserkerModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame,
 
 //        sleep = registerPose(
 //            poseType = PoseType.SLEEP,
-//            idleAnimations = arrayOf(bedrock("perrserker", "sleep"))
+//            animations = arrayOf(bedrock("perrserker", "sleep"))
 //        )
 
         walk = registerPose(

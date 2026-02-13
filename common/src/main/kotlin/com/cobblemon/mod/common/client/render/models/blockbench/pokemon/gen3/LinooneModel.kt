@@ -11,16 +11,19 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class LinooneModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("linoone")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("linoone", "cry") }
+
 
     override var portraitScale = 2.5F
     override var portraitTranslation = Vec3d(-0.5, -2.1, 0.0)
@@ -32,8 +35,6 @@ class LinooneModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     lateinit var walking: Pose
     lateinit var sleep: Pose
     lateinit var battleidle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("linoone", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("linoone", "blink") }

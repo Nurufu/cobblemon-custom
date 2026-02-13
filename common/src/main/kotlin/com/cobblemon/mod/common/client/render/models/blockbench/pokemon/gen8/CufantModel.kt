@@ -14,10 +14,14 @@ import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.asExpressionLike
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class CufantModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("cufant")
+
+    override val cryAnimation = CryProvider { bedrockStateful("cufant", "cry") }
+
 
     override var portraitScale = 1.5F
     override var portraitTranslation = Vec3d(-0.32, 0.13, 0.0)

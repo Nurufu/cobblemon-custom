@@ -245,7 +245,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "zubat_golbat",
+          "variant": "level_up",
+          "result": "golbat",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 22
+            }
+          ]
+        }
+      ]
     }
   ]
 }

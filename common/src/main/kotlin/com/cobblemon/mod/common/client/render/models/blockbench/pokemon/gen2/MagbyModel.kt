@@ -15,11 +15,15 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MagbyModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("magby")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("magby", "cry") }
+
 
     override var portraitScale = 2.4F
     override var portraitTranslation = Vec3d(-0.05, -0.45, 0.0)

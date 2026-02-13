@@ -18,6 +18,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PersianAlolanModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -28,6 +29,9 @@ class PersianAlolanModel(root: ModelPart) : PokemonPosableModel(root), HeadedFra
     override val foreRightLeg = getPart("leg_front_right1")
     override val hindLeftLeg = getPart("leg_back_left1")
     override val hindRightLeg = getPart("leg_back_right1")
+
+    override val cryAnimation = CryProvider { bedrockStateful("persian_alolan", "cry") }
+
 
     override var portraitScale = 2.0F
     override var portraitTranslation = Vec3d(-0.76, -0.11, 0.0)

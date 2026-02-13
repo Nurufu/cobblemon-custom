@@ -18,6 +18,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class VulpixAlolanModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -28,6 +29,9 @@ class VulpixAlolanModel(root: ModelPart) : PokemonPosableModel(root), HeadedFram
     override val foreRightLeg = getPart("leg_front_right")
     override val hindLeftLeg = getPart("leg_back_left")
     override val hindRightLeg = getPart("leg_back_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("vulpix_alolan", "cry") }
+
 
     override var portraitScale = 1.7F
     override var portraitTranslation = Vec3d(-0.1, -0.15, 0.0)

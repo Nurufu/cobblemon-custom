@@ -23,6 +23,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.SWIMMING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class GyaradosModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
@@ -55,6 +56,9 @@ class GyaradosModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     val wseg10 = WaveSegment(seg10, 5F)
     val wseg11 = WaveSegment(seg11, 5F)
     val wseg12 = WaveSegment(seg12, 4F)
+
+    override val cryAnimation = CryProvider { bedrockStateful("gyarados", "cry") }
+
 
     override var portraitScale = 1.8F
     override var portraitTranslation = Vec3d(-1.55, 0.35, 0.0)

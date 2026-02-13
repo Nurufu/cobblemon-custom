@@ -11,16 +11,15 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.SingleBoneLookAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class ExeggutorModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -39,18 +38,19 @@ class ExeggutorModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
         override val head: ModelPart = getPart("head3")
     }
 
+    override val cryAnimation = CryProvider { bedrockStateful("exeggutor", "cry") }
+
+
     override var portraitScale = 1.2F
     override var portraitTranslation = Vec3d(-1.0, 1.77, 0.0)
 
     override var profileScale = 0.45F
     override var profileTranslation = Vec3d(0.0, 1.1, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var sleep: Pose
-    lateinit var battleidle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("exeggutor", "cry") }
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var battleidle: CobblemonPose
 
     override fun registerPoses() {
         val blink1 = quirk { bedrockStateful("exeggutor", "blink") }

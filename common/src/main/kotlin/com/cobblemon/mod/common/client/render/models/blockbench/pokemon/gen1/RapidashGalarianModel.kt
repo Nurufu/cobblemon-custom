@@ -36,8 +36,6 @@ class RapidashGalarianModel (root: ModelPart) : PokemonPosableModel(root), Heade
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose
     lateinit var battle_idle: CobblemonPose
-    lateinit var fly: CobblemonPose
-    lateinit var hover: CobblemonPose
 
     override val cryAnimation = CryProvider { bedrockStateful("rapidash_galar", "cry") }
 
@@ -62,29 +60,6 @@ class RapidashGalarianModel (root: ModelPart) : PokemonPosableModel(root), Heade
             animations = arrayOf(
                 singleBoneLook(),
                 bedrock("rapidash_galar", "ground_walk"),
-                bedrock("rapidash_galar", "hair")
-            )
-        )
-
-        fly = registerPose(
-            poseName = "fly",
-            poseTypes = PoseType.FLYING_POSES,
-            quirks = arrayOf(blink),
-            animations = arrayOf(
-                singleBoneLook(),
-                bedrock("rapidash_galar", "ground_walk"),
-                bedrock("rapidash_galar", "hair")
-            )
-        )
-
-        hover = registerPose(
-            poseName = "hover",
-            poseTypes = PoseType.FLYING_POSES + PoseType.HOVER,
-            quirks = arrayOf(blink),
-            condition = { !it.isBattling },
-            animations = arrayOf(
-                singleBoneLook(),
-                bedrock("rapidash_galar", "ground_idle"),
                 bedrock("rapidash_galar", "hair")
             )
         )

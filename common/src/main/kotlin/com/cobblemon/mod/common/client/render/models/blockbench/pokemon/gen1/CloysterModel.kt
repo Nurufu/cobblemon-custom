@@ -14,10 +14,14 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class CloysterModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("cloyster")
+
+    override val cryAnimation = CryProvider { bedrockStateful("cloyster", "cry") }
+
 
     override var portraitScale = 2.0F
     override var portraitTranslation = Vec3d(-0.25, -0.85, 0.0)

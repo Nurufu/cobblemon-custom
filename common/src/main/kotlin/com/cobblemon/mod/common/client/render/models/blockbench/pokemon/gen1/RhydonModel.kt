@@ -19,6 +19,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class RhydonModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -29,6 +30,9 @@ class RhydonModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
     override val rightArm = getPart("rightarm")
     override val leftLeg = getPart("leftleg")
     override val rightLeg = getPart("rightleg")
+
+    override val cryAnimation = CryProvider { bedrockStateful("rhydon", "cry") }
+
 
     override var portraitScale = 1.9F
     override var portraitTranslation = Vec3d(-0.45, 0.8, 0.0)

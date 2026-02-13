@@ -15,11 +15,15 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MagmortarModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("magmortar")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("magmortar", "cry") }
+
 
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(-0.35, 1.2, 0.0)

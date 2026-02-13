@@ -298,7 +298,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "rhydon_rhyperior",
+          "variant": "trade",
+          "result": "rhyperior",
+          "consumeHeldItem": true,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:protector"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

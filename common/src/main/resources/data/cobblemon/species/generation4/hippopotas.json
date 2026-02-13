@@ -191,7 +191,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "hippopotas_hippowdon",
+          "variant": "level_up",
+          "result": "hippowdon",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 34
+            }
+          ]
+        }
+      ]
     }
   ]
 }

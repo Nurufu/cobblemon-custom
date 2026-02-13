@@ -1,33 +1,34 @@
 {
   "portraitScale": 1.4,
-  "portraitTranslation": [-0.1, -0.28, 0.0],
+  "portraitTranslation": [-0.1, -0.28, 0],
   "profileScale": 0.9,
   "profileTranslation": [0, 0.37, 0],
+  "rootBone": "graveler",
   "animations": {
     "cry": "q.bedrock_stateful('graveler', 'cry')",
-    "recoil": "q.bredrock_stateful('graveler', 'recoil')",
-    "status": "q.bredrock_stateful('graveler', 'status')"
+    "recoil": "q.bedrock_stateful('graveler', 'recoil')",
+    "status": "q.bedrock_stateful('graveler', 'status', q.curve('symmetrical_wide'))"
   },
   "poses": {
-    "standing": {
-      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('graveler', 'ground_idle')"
-      ],
-      "quirks": [
-        "q.bedrock_quirk('graveler', 'blink')"
-      ]
-    },
-    "battle": {
+    "battle-standing": {
       "poseTypes": ["STAND"],
       "isBattle": true,
-      "namedAnimations": {
-        "cry": "q.bedrock_stateful('graveler', 'battle_cry')"
-      },
       "animations": [
         "q.look('head')",
         "q.bedrock('graveler', 'battle_idle')"
+      ],
+      "namedAnimations": {
+          "cry": "q.bedrock_stateful('graveler', 'battle_cry')",
+          "recoil": "q.bedrock_stateful('graveler', 'battle_recoil')"
+        },
+      "quirks": ["q.bedrock_quirk('graveler', 'blink')"]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('graveler', 'ground_idle')"
       ],
       "quirks": [
         "q.bedrock_quirk('graveler', 'blink')"
@@ -39,13 +40,23 @@
         "q.look('head')",
         "q.bedrock('graveler', 'ground_walk')"
       ],
-      "quirks": [
-        "q.bedrock_quirk('graveler', 'blink')"
-      ]
-    },
+      "quirks": ["q.bedrock_quirk('graveler', 'blink')"]
+      },
     "sleep": {
       "poseTypes": ["SLEEP"],
+      "isWild": false,
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      },
       "animations": ["q.bedrock('graveler', 'sleep')"]
+    },
+    "wild_sleep": {
+      "poseTypes": ["SLEEP"],
+      "isWild": true,
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      },
+      "animations": ["q.bedrock('graveler', 'wild_sleep')"]
     }
   }
 }

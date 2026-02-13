@@ -4,8 +4,8 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:gengar2",
-      "model": "cobblemon:gengar2.geo",
+      "poser": "cobblemon:gengar",
+      "model": "cobblemon:gengar.geo",
       "texture": "cobblemon:textures/pokemon/0094_gengar/gengar.png",
       "layers": [
         {
@@ -17,9 +17,7 @@
       ]
     },
     {
-      "aspects": [
-        "shiny"
-      ],
+      "aspects": ["shiny"],
       "texture": "cobblemon:textures/pokemon/0094_gengar/gengar_shiny.png",
       "layers": [
         {
@@ -27,6 +25,15 @@
           "texture": "cobblemon:textures/pokemon/0094_gengar/gengar_shiny_emissives.png",
           "emissive": true,
           "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": ["color-green"],
+      "layers": [
+        {
+          "name": "pokemopolis",
+          "texture": "cobblemon:textures/pokemon/0094_gengar/gengar_pokemopolis.png"
         }
       ]
     }

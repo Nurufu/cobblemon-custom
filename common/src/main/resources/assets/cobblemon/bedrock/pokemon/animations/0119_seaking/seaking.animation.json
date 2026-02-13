@@ -1,14 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.seaking.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.seaking.cry"
-				}
-			}
-		},
 		"animation.seaking.ground_idle": {
 			"loop": true,
 			"animation_length": 4,
@@ -2360,6 +2352,14 @@
 				},
 				"pupil_left": {
 					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.seaking.cry": {
+			"animation_length": 1.25,
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.seaking.cry"
 				}
 			}
 		}

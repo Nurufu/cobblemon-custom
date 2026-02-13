@@ -2149,6 +2149,11 @@
 		},
 		"animation.walkingwake.cry": {
 			"animation_length": 1.6667,
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.walkingwake.cry"
+					}
+				},
 			"bones": {
 				"neck2": {
 					"rotation": {
@@ -2189,11 +2194,6 @@
 						"1.3333": [12.5, 0, 0],
 						"1.6667": [0, 0, 0]
 					}
-				}
-			},
-			"sound_effects": {
-				"0.1667": {
-					"effect": "pokemon.walkingwake.cry"
 				}
 			}
 		},

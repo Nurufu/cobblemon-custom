@@ -15,6 +15,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class BeheeyemModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -24,6 +25,9 @@ class BeheeyemModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
     override val leftArm = getPart("arm_left")
     override val rightLeg = getPart("leg_right")
     override val leftLeg = getPart("leg_left")
+
+    override val cryAnimation = CryProvider { bedrockStateful("beheeyem", "cry") }
+
 
     override var portraitScale = 3.0F
     override var portraitTranslation = Vec3d(-0.34, -0.8, 0.0)

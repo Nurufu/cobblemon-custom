@@ -12,7 +12,10 @@
         0.75,
         0
     ],
-    "poses": {
+    "animations": {
+    "cry": "q.bedrock_stateful('calyrex', 'cry')"
+  },
+  "poses": {
         "standing": {
             "poseName": "standing",
             "transformTicks": 10,

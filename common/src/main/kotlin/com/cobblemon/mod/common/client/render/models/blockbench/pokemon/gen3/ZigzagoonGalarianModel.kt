@@ -12,11 +12,11 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.Quadru
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class ZigzagoonGalarianModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -28,8 +28,11 @@ class ZigzagoonGalarianModel (root: ModelPart) : PokemonPosableModel(root), Head
     override val hindLeftLeg = getPart("leg_back_left")
     override val hindRightLeg = getPart("leg_back_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("zigzagoon_galarian", "cry") }
+
+
     override var portraitScale = 2.55F
-    override var portraitTranslation = Vec3d(-0.249, -2.07, 0.0)
+    override var portraitTranslation = Vec3d(-0.5, -2.2, 0.0)
 
     override var profileScale = 1.0F
     override var profileTranslation = Vec3d(0.0, 0.2, 0.0)
@@ -42,8 +45,6 @@ class ZigzagoonGalarianModel (root: ModelPart) : PokemonPosableModel(root), Head
     val shoulderOffsetX = 0
     val shoulderOffsetY = 0
     val shoulderOffsetZ = -0.5
-
-    override val cryAnimation = CryProvider { bedrockStateful("zigzagoon_galarian", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("zigzagoon_galarian", "blink") }

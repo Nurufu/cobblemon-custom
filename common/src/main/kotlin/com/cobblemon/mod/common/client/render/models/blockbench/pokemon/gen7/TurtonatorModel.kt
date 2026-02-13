@@ -13,13 +13,12 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class TurtonatorModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -31,17 +30,18 @@ class TurtonatorModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("turtonator", "cry") }
+
+
     override var portraitScale = 1.62F
     override var portraitTranslation = Vec3d(-1.14, 1.92, 0.0)
 
     override var profileScale = 0.54F
     override var profileTranslation = Vec3d(-0.08, 0.87, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var battleidle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("turtonator", "cry") }
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var battleidle: CobblemonPose
 
 
     override fun registerPoses() {

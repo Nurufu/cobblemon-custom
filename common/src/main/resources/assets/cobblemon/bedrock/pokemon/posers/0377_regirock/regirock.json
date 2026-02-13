@@ -4,6 +4,9 @@
   "profileScale": 0.4,
   "profileTranslation": [-0.02, 1.14, 0],
   "rootBone": "regirock",
+  "animations": {
+    "cry": "q.bedrock_stateful('regirock', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "FLOAT", "PORTRAIT", "PROFILE", "NONE"],

@@ -8,8 +8,10 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 
+import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
@@ -28,6 +30,10 @@ class DreepyModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
 
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose
+    lateinit var shoulderLeft: CobblemonPose
+    lateinit var shoulderRight: CobblemonPose
+
+    var shoulderOffset = 4.5
 
     override val cryAnimation = CryProvider { bedrockStateful("dreepy", "cry") }
 
@@ -52,6 +58,32 @@ class DreepyModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
                 singleBoneLook(),
                 bedrock("dreepy", "ground_idle")
             )
+        )
+
+        shoulderLeft = registerPose(
+                poseType = PoseType.SHOULDER_LEFT,
+                quirks = arrayOf(blink),
+                animations = arrayOf(
+                    singleBoneLook(),
+                    bedrock("dreepy", "ground_idle")
+                ),
+                transformedParts = arrayOf(
+                    rootPart.createTransformation().addPosition(shoulderOffset, -2, 0),
+                    rootPart.createTransformation().addRotationDegrees(ModelPartTransformation.Z_AXIS, 12.5)
+                )
+        )
+
+        shoulderRight = registerPose(
+                poseType = PoseType.SHOULDER_RIGHT,
+                quirks = arrayOf(blink),
+                animations = arrayOf(
+                    singleBoneLook(),
+                    bedrock("dreepy", "ground_idle")
+                ),
+                transformedParts = arrayOf(
+                    rootPart.createTransformation().addPosition(-shoulderOffset, -2, 0),
+                    rootPart.createTransformation().addRotationDegrees(ModelPartTransformation.Z_AXIS, -12.5)
+                )
         )
     }
 

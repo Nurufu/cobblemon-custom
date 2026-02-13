@@ -23,8 +23,8 @@ class TangrowthModel(root: ModelPart) : PokemonPosableModel(root) {
     override var portraitScale = 2.4F
     override var portraitTranslation = Vec3d(-0.3, -0.8, 0.0)
 
-    override var profileScale = 0.91F
-    override var profileTranslation = Vec3d(0.0, 0.32, 0.0)
+    override var profileScale = 1.0F
+    override var profileTranslation = Vec3d(0.0, 0.25, 0.0)
 
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose

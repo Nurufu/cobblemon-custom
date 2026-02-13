@@ -3,10 +3,8 @@
   "order": 1,
   "variations": [
     {
-      "aspects": [
-        "female"
-      ],
-      "model": "cobblemon:garchomp_female2.geo"
+      "aspects": ["female"],
+      "model": "cobblemon:garchomp_female.geo"
     }
   ]
 }

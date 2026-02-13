@@ -6,13 +6,10 @@
       "aspects": [],
       "poser": "cobblemon:rillaboom",
       "model": "cobblemon:rillaboom.geo",
-      "texture": "cobblemon:textures/pokemon/0812_rillaboom/rillaboom.png",
-      "layers": []
+      "texture": "cobblemon:textures/pokemon/0812_rillaboom/rillaboom.png"
     },
     {
-      "aspects": [
-        "shiny"
-      ],
+      "aspects": ["shiny"],
       "texture": "cobblemon:textures/pokemon/0812_rillaboom/rillaboom_shiny.png"
     }
   ]

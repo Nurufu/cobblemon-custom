@@ -2,9 +2,9 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"animation.tentacool.cry": {
-			"animation_length": 3,
+			"animation_length": 1.25,
 			"sound_effects": {
-				"0.2": {
+				"0.0417": {
 					"effect": "pokemon.tentacool.cry"
 				}
 			}

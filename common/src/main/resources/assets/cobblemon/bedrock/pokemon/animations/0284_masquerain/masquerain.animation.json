@@ -159,11 +159,11 @@
 					}
 				}
 			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.masquerain.cry"
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.masquerain.cry"
+					}
 				}
-			}
 		}
 	},
 	"geckolib_format_version": 2

@@ -18,6 +18,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PorygonModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -25,6 +26,9 @@ class PorygonModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
     override val head = getPart("head")
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("porygon", "cry") }
+
 
     override var portraitScale = 2.0F
     override var portraitTranslation = Vec3d(-0.2, 0.5, 0.0)

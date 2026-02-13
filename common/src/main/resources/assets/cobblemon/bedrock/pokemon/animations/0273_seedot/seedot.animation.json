@@ -83,6 +83,11 @@
 						"1.5": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.04": {
+					"effect": "pokemon.seedot.cry"
+				}
 			}
 		},
 		"animation.seedot.happy": {
@@ -147,6 +152,33 @@
 				},
 				"eyelid_emote_outer_right": {
 					"position": [-0.1, 1.7, -0.1]
+				}
+			}
+		},
+		"animation.seedot.new": {
+			"loop": true,
+			"bones": {
+				"torso": {
+					"rotation": [15, 0, 0],
+					"position": [0, -0.5, 0]
+				},
+				"pupil_right": {
+					"position": [0, 0, 0.1]
+				},
+				"pupil_left": {
+					"position": [0, 0, 0.1]
+				},
+				"eyelid_right": {
+					"position": [-0.1, 0, -0.1]
+				},
+				"eyelid_left": {
+					"position": [0.1, 0, -0.1]
+				},
+				"foot_left": {
+					"rotation": [0, -22.5, 0]
+				},
+				"foot_right": {
+					"rotation": [0, 22.5, 0]
 				}
 			}
 		}

@@ -1,0 +1,34 @@
+{
+ "portraitScale": 1.4,
+ "portraitTranslation": [-0.0, 1.85, 0],
+ "profileScale": 0.5,
+ "profileTranslation": [0.0, 0.95, 0],
+  "animations": {
+    "cry": "q.bedrock_stateful('mewtwo', 'cry')",
+    "faint": "q.bedrock_primary('mewtwo', 'faint', q.curve('symmetrical_wide'))",
+    "physical": "q.bedrock_primary('mewtwo', 'physical', q.curve('symmetrical_wide'))",
+    "special": "q.bedrock_primary('mewtwo', 'special', q.curve('symmetrical_wide'))",
+    "recoil": "q.bedrock_primary('mewtwo', 'recoil', q.curve('symmetrical_wide'))"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "animations": ["q.look('head')", "q.bedrock('mewtwo', 'battle_idle')"]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "animations": ["q.look('head')", "q.bedrock('mewtwo', 'ground_idle')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": ["q.look('head')", "q.bedrock('mewtwo', 'ground_walk')"]
+    },
+    "fly": {
+      "poseName": "fly",
+      "poseTypes": ["FLY"],
+      "animations": ["q.look('head')", "q.bedrock('mewtwo', 'air_fly')"]
+    }
+  }
+}

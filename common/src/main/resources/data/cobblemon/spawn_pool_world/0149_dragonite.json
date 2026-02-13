@@ -149,6 +149,153 @@
                     "#cobblemon:is_frozen_ocean"
                 ]
             }
+        },
+        {
+            "id": "dragonite-bundle1",
+            "pokemon": "dragonite cosmetic_item=bundle",
+            "presets": [
+                "natural"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "rare",
+            "level": "55-60",
+            "weight": 0.25,
+            "condition": {
+                "minSkyLight": 0,
+                "maxSkyLight": 7,
+                "biomes": [
+                    "#cobblemon:is_overworld"
+                ],
+                "maxY": 32,
+                "neededNearbyBlocks": [
+                    "#minecraft:water"
+                ]
+            }
+        },
+        {
+            "id": "dragonite-bundle2",
+            "pokemon": "dragonite cosmetic_item=bundle",
+            "presets": [
+                "water",
+                "ocean_ruins"
+            ],
+            "type": "pokemon",
+            "context": "submerged",
+            "bucket": "uncommon",
+            "level": "55-60",
+            "weight": 1.6,
+            "condition": {
+                "canSeeSky": true,
+                "biomes": [
+                    "#cobblemon:is_ocean"
+                ]
+            }
+        },
+        {
+            "id": "dragonite-bundle4",
+            "pokemon": "dragonite cosmetic_item=bundle",
+            "presets": [
+                "natural"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "ultra-rare",
+            "level": "55-60",
+            "weight": 0.4,
+            "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_sky"
+                ],
+                "isRaining": true
+            }
+        },
+        {
+            "id": "dragonite-bundle5",
+            "pokemon": "dragonite cosmetic_item=bundle",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "rare",
+            "level": "55-60",
+            "weight": 0.05,
+            "condition": {
+                "minSkyLight": 0,
+                "maxSkyLight": 7,
+                "biomes": [
+                    "#aether:is_aether",
+                    "#cobblemon:is_overworld"
+                ],
+                "maxY": 32
+            }
+        },
+        {
+            "id": "dragonite-bundle6",
+            "pokemon": "dragonite cosmetic_item=bundle",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "ultra-rare",
+            "level": "55-60",
+            "weight": 0.4,
+            "condition": {
+                "canSeeSky": true,
+                "biomes": [
+                    "#aether:is_aether",
+                    "#cobblemon:is_magical",
+                    "#cobblemon:is_ocean"
+                ]
+            },
+            "anticondition": {
+                "biomes": [
+                    "#cobblemon:is_frozen_ocean"
+                ]
+            }
+        },
+        {
+            "id": "dragonite-bundle7",
+            "pokemon": "dragonite cosmetic_item=bundle",
+            "presets": [
+                "water",
+                "ocean_ruins"
+            ],
+            "type": "pokemon",
+            "context": "submerged",
+            "bucket": "uncommon",
+            "level": "55-60",
+            "weight": 1.6,
+            "condition": {
+                "canSeeSky": false,
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_ocean"
+                ]
+            }
+        },
+        {
+            "id": "dragonite-bundle8",
+            "pokemon": "dragonite cosmetic_item=bundle",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "ultra-rare",
+            "level": "55-60",
+            "weight": 0.4,
+            "condition": {
+                "canSeeSky": false,
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#aether:is_aether",
+                    "#cobblemon:is_magical",
+                    "#cobblemon:is_ocean"
+                ]
+            },
+            "anticondition": {
+                "biomes": [
+                    "#cobblemon:is_frozen_ocean"
+                ]
+            }
         }
     ]
 }

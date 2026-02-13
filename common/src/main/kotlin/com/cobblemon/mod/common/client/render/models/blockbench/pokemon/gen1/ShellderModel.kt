@@ -14,10 +14,14 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class ShellderModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("shellder")
+
+    override val cryAnimation = CryProvider { bedrockStateful("shellder", "cry") }
+
 
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(0.0, -1.7, 0.0)

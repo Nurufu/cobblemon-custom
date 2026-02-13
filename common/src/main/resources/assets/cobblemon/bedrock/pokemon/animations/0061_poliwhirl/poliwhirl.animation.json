@@ -1,14 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.poliwhirl.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.poliwhirl.cry"
-				}
-			}
-		},
 		"animation.poliwhirl.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -450,6 +442,14 @@
 					"rotation": [0, 5, 0]
 				}
 			}
-		}
+		},
+        "animation.poliwhirl.cry": {
+        "animation_length": 1.25,
+        "sound_effects": {
+          "0.0417": {
+            "effect": "pokemon.poliwhirl.cry"
+          }
+        }
+      }
 	}
 }

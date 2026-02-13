@@ -12,13 +12,13 @@ import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class WalkingwakeModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -27,6 +27,9 @@ class WalkingwakeModel (root: ModelPart) : PokemonPosableModel(root), HeadedFram
 
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("walkingwake", "cry") }
+
 
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(-2.5, 2.4, 0.0)
@@ -46,8 +49,6 @@ class WalkingwakeModel (root: ModelPart) : PokemonPosableModel(root), HeadedFram
     //lateinit var shearedstanding: Pose
     //lateinit var shearedwalk: Pose
     val wateroffset = -6
-
-    override val cryAnimation = CryProvider { bedrockStateful("walkingwake", "cry") }
 
     override fun registerPoses() {
         sleep = registerPose(
@@ -130,7 +131,7 @@ class WalkingwakeModel (root: ModelPart) : PokemonPosableModel(root), HeadedFram
             transformedParts = arrayOf(
                 hair.asTransformed().withVisibility(visibility = false)
             ),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("walkingwake", "ground_idle")
             )
@@ -144,7 +145,7 @@ class WalkingwakeModel (root: ModelPart) : PokemonPosableModel(root), HeadedFram
             transformedParts = arrayOf(
                 hair.asTransformed().withVisibility(visibility = false)
             ),
-            idleAnimations = arrayOf(
+            animations = arrayOf(
                 singleBoneLook(),
                 bedrock("walkingwake", "ground_walk")
             )

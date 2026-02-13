@@ -13,10 +13,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MagnetonModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("magneton")
+
+    override val cryAnimation = CryProvider { bedrockStateful("magneton", "cry") }
+
 
     override var portraitScale = 1.2F
     override var portraitTranslation = Vec3d(0.0, 0.2, 0.0)

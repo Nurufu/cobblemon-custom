@@ -12,7 +12,10 @@
         1.5,
         0
     ],
-    "poses": {
+    "animations": {
+    "cry": "q.bedrock_stateful('glastrier', 'cry')"
+  },
+  "poses": {
         "standing": {
             "poseName": "standing",
             "transformTicks": 10,

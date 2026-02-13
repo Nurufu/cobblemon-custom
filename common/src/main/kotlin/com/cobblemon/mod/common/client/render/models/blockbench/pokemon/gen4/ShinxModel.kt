@@ -11,11 +11,11 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class ShinxModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -27,6 +27,9 @@ class ShinxModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Qua
     override val hindLeftLeg = getPart("back_leg_left")
     override val hindRightLeg = getPart("back_leg_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("shinx", "cry") }
+
+
     override var portraitScale = 1.8F
     override var portraitTranslation = Vec3d(-0.6, -0.25, 0.0)
 
@@ -35,8 +38,6 @@ class ShinxModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Qua
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("shinx", "cry") }
 
     override fun registerPoses() {
 //        val blink = quirk { bedrockStateful("shinx", "blink") }

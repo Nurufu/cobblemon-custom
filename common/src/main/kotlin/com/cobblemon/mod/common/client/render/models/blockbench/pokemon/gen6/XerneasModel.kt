@@ -10,11 +10,11 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen6
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class XerneasModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -26,16 +26,17 @@ class XerneasModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Qu
     override val hindLeftLeg = getPart("leg_back_left")
     override val hindRightLeg = getPart("leg_back_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("xerneas", "cry") }
+
+
     override var portraitScale = 2.3F
     override var portraitTranslation = Vec3d(-1.4, 4.4, 0.0)
 
-    override var profileScale = 0.33F
-    override var profileTranslation = Vec3d(0.0, 1.33, 0.0)
+    override var profileScale = 0.35F
+    override var profileTranslation = Vec3d(0.0, 1.2, 0.0)
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("xerneas", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

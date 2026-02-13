@@ -201,7 +201,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "gible_gabite",
+          "variant": "level_up",
+          "result": "gabite",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 24
+            }
+          ]
+        }
+      ]
     }
   ]
 }

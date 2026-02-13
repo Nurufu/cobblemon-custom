@@ -10,13 +10,12 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class NumelModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -28,18 +27,19 @@ class NumelModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Qua
     override val hindLeftLeg = getPart("leg_back_left")
     override val hindRightLeg = getPart("leg_back_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("numel", "cry") }
+
+
     override var portraitScale = 1.8F
     override var portraitTranslation = Vec3d(-0.6, -0.25, 0.0)
 
     override var profileScale = 0.9F
     override var profileTranslation = Vec3d(0.0, 0.35, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var sleep: Pose
-    lateinit var battle_idle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("numel", "cry") }
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var battle_idle: CobblemonPose
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("numel", "blink") }

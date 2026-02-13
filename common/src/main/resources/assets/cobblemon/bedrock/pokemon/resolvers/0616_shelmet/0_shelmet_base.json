@@ -10,9 +10,7 @@
       "layers": []
     },
     {
-      "aspects": [
-        "shiny"
-      ],
+      "aspects": ["shiny"],
       "texture": "cobblemon:textures/pokemon/0616_shelmet/shelmet_shiny.png"
     }
   ]

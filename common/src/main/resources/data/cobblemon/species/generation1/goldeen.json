@@ -230,7 +230,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "goldeen_seaking",
+          "variant": "level_up",
+          "result": "seaking",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 33
+            }
+          ]
+        }
+      ]
     }
   ]
 }

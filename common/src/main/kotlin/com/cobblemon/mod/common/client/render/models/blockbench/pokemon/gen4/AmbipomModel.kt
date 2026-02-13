@@ -31,8 +31,8 @@ class AmbipomModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
     override var portraitScale = 1.8F
     override var portraitTranslation = Vec3d(-0.45, 1.15, 0.0)
 
-    override var profileScale = 0.47F
-    override var profileTranslation = Vec3d(0.06, 1.11, 0.0)
+    override var profileScale = 0.65F
+    override var profileTranslation = Vec3d(0.0, 0.85, 0.0)
 
     lateinit var standing: Pose
     lateinit var walking: Pose

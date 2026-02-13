@@ -12,10 +12,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class LunatoneModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("lunatone")
+
+    override val cryAnimation = CryProvider { bedrockStateful("lunatone", "cry") }
+
 
     override var portraitScale = 1.05F
     override var portraitTranslation = Vec3d(0.23, 0.53, 0.0)

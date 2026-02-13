@@ -66,6 +66,11 @@
 		},
 		"animation.perrserker.cry": {
 			"animation_length": 1.5,
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.perrserker.cry"
+					}
+				},
 			"bones": {
 				"mouth": {
 					"position": {
@@ -186,11 +191,6 @@
 						"0.25": {"pre": [0, 0, 0], "post": [0, 0, -0.1]},
 						"1.25": {"pre": [0, 0, -0.1], "post": [0, 0, 0]}
 					}
-				}
-			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.perrserker.cry"
 				}
 			}
 		}

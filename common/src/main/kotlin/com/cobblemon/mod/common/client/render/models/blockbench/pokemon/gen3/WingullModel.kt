@@ -11,13 +11,13 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BiWingedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class WingullModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, BiWingedFrame {
@@ -26,6 +26,9 @@ class WingullModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, Bi
     override val rightWing = getPart("wing_right")
     override val leftLeg = getPart("foot_left")
     override val rightLeg = getPart("foot_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("wingull", "cry") }
+
 
     override var portraitScale = 3.0F
     override var portraitTranslation = Vec3d(-0.2, -2.8, 0.0)
@@ -41,8 +44,6 @@ class WingullModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, Bi
     lateinit var water_surface_idle: Pose
     lateinit var water_surface_swim: Pose
     lateinit var water_surface_sleep: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("wingull", "cry") }
 
     val wateroffset = -9
 

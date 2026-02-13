@@ -525,11 +525,6 @@
 						"1.9167": [0, 0, 0]
 					}
 				}
-			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.wishiwashi.cry"
-				}
 			}
 		},
 		"animation.wishiwashi_school.pose": {
@@ -627,6 +622,11 @@
 				},
 				"jaw2": {
 					"rotation": [5, 0, 0]
+				}
+			},
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.wishiwashi_school.cry"
 				}
 			}
 		}

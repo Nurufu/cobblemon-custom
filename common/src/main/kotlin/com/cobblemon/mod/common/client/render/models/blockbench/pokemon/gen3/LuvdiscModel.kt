@@ -10,14 +10,17 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class LuvdiscModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("luvdisc")
+
+
+    override val cryAnimation = CryProvider { bedrockStateful("luvdisc", "cry") }
 
 
     override var portraitScale = 6.0F
@@ -31,8 +34,6 @@ class LuvdiscModel (root: ModelPart) : PokemonPosableModel(root) {
     lateinit var walk: Pose
     lateinit var float: Pose
     lateinit var swim: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("luvdisc", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("luvdisc", "blink")}

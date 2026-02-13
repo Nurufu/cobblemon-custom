@@ -11,15 +11,14 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.WingFlapIdleAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BiWingedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.sineFunction
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.math.geometry.toRadians
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class XatuModel(root: ModelPart) : PokemonPosableModel(root), BiWingedFrame, HeadedFrame {
@@ -29,19 +28,19 @@ class XatuModel(root: ModelPart) : PokemonPosableModel(root), BiWingedFrame, Hea
     override val leftWing = getPart("wing_open_left")
     override val rightWing = getPart("wing_open_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("xatu", "cry") }
+
+
     override var portraitScale = 1.91F
     override var portraitTranslation = Vec3d(-0.04, 1.16, 0.0)
 
     override var profileScale = 0.69F
     override var profileTranslation = Vec3d(0.0, 0.75, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walking: Pose
-    lateinit var hover: Pose
-    lateinit var sleep: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("xatu", "cry") }
-
+    lateinit var standing: CobblemonPose
+    lateinit var walking: CobblemonPose
+    lateinit var hover: CobblemonPose
+    lateinit var sleep: CobblemonPose
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("xatu", "blink") }
 

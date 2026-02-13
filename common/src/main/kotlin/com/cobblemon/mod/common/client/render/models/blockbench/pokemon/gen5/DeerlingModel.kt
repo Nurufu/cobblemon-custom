@@ -11,16 +11,19 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen5
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class DeerlingModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
     override val rootPart = root.registerChildWithAllChildren("deerling")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("deerling", "cry") }
+
 
     override var portraitScale = 3.5F
     override var portraitTranslation = Vec3d(-0.55, -1.1, 0.0)
@@ -35,8 +38,6 @@ class DeerlingModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Q
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("deerling", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

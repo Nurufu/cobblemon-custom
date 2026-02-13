@@ -253,7 +253,17 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "kadabra_alakazam",
+          "variant": "trade",
+          "result": "alakazam",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": []
+        }
+      ]
     }
   ]
 }

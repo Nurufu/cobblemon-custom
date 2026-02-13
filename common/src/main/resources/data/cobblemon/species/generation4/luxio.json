@@ -185,7 +185,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "luxio_luxray",
+          "variant": "level_up",
+          "result": "luxray",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 30
+            }
+          ]
+        }
+      ]
     }
   ]
 }

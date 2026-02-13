@@ -4,15 +4,13 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:lucario2",
-      "model": "cobblemon:lucario2.geo",
+      "poser": "cobblemon:lucario",
+      "model": "cobblemon:lucario.geo",
       "texture": "cobblemon:textures/pokemon/0448_lucario/lucario.png",
       "layers": []
     },
     {
-      "aspects": [
-        "shiny"
-      ],
+      "aspects": ["shiny"],
       "texture": "cobblemon:textures/pokemon/0448_lucario/lucario_shiny.png"
     }
   ]

@@ -239,7 +239,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "meditite_medicham",
+          "variant": "level_up",
+          "result": "medicham",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 37
+            }
+          ]
+        }
+      ]
     }
   ]
   }

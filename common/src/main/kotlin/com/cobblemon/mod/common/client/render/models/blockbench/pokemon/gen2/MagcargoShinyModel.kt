@@ -9,7 +9,6 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
@@ -17,11 +16,15 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MagcargoShinyModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("magcargo")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("magcargo", "cry") }
+
 
     override var portraitScale = 1.8F
     override var portraitTranslation = Vec3d(-0.55, 0.1, 0.0)
@@ -32,8 +35,6 @@ class MagcargoShinyModel(root: ModelPart) : PokemonPosableModel(root), HeadedFra
     lateinit var sleep: Pose
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("magcargo_shiny", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("magcargo_shiny", "blink") }

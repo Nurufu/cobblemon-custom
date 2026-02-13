@@ -14,6 +14,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
@@ -37,7 +38,7 @@ class CubchooModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose
 
-//    override val cryAnimation = CryProvider { bedrockStateful("cubchoo", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("cubchoo", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("cubchoo", "blink") }

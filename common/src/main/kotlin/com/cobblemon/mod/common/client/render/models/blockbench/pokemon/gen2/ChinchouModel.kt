@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
@@ -36,7 +37,7 @@ class ChinchouModel (root: ModelPart) : PokemonPosableModel(root) {
     lateinit var battleidle: CobblemonPose
     lateinit var waterbattleidle: CobblemonPose
 
-//    override val cryAnimation = CryProvider { bedrockStateful("chinchou", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("chinchou", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("chinchou", "blink")}

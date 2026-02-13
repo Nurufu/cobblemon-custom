@@ -192,7 +192,24 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "gabite_garchomp",
+          "variant": "level_up",
+          "result": "garchomp",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "crunch"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 48
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -15,11 +15,15 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class RhyperiorModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("rhyperior")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("rhyperior", "cry") }
+
 
     override var portraitScale = 1.9F
     override var portraitTranslation = Vec3d(-0.4, 0.8, 0.0)

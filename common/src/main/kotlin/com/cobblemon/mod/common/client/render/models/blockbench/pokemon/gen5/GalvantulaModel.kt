@@ -12,10 +12,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class GalvantulaModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("galvantula")
+
+    override val cryAnimation = CryProvider { bedrockStateful("galvantula", "cry") }
+
 
     override var portraitScale = 2.0F
     override var portraitTranslation = Vec3d(-0.35, -1.3, 0.0)

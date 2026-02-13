@@ -217,7 +217,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "ledyba_ledian",
+          "variant": "level_up",
+          "result": "ledian",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 18
+            }
+          ]
+        }
+      ]
     }
   ]
 }

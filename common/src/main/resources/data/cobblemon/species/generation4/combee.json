@@ -136,7 +136,28 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "combee_vespiquen",
+          "variant": "level_up",
+          "result": "vespiquen",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "slash"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 21
+            },
+            {
+              "variant": "properties",
+              "target": "gender=female"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

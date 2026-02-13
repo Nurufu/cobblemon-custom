@@ -8,17 +8,20 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class BarraskewdaModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("barraskewda")
+
+    override val cryAnimation = CryProvider { bedrockStateful("barraskewda", "cry") }
+
 
     override var portraitScale = 2.8F
     override var portraitTranslation = Vec3d(-0.7, -2.8, 0.0)
@@ -34,8 +37,6 @@ class BarraskewdaModel (root: ModelPart) : PokemonPosableModel(root) {
     lateinit var watersleep: Pose
     lateinit var battleidle: Pose
     lateinit var waterbattleidle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("barraskewda", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("barraskewda", "blink")}

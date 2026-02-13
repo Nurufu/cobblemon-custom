@@ -1,14 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.goldeen.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.goldeen.cry"
-				}
-			}
-		},
 		"animation.goldeen.render": {
 			"loop": true,
 			"bones": {
@@ -4647,6 +4639,13 @@
 			"bones": {
 				"goldeen": {
 					"position": [0, 0, "20-q.anim_time*20"]
+				}
+			}
+		},
+		"animation.goldeen.cry": {
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.goldeen.cry"
 				}
 			}
 		}

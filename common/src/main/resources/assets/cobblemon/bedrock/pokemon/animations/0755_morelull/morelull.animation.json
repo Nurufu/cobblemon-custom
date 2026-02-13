@@ -48,6 +48,11 @@
 		},
 		"animation.morelull.cry": {
 			"animation_length": 1.5,
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.morelull.cry"
+					}
+				},
 			"bones": {
 				"neck": {
 					"rotation": {
@@ -80,11 +85,6 @@
 						"1.25": [-10, 0, 0],
 						"1.5": [0, 0, 0]
 					}
-				}
-			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.morelull.cry"
 				}
 			}
 		}

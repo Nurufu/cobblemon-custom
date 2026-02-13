@@ -4,8 +4,8 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:claydol2",
-      "model": "cobblemon:claydol2.geo",
+      "poser": "cobblemon:claydol",
+      "model": "cobblemon:claydol.geo",
       "texture": "cobblemon:textures/pokemon/0344_claydol/claydol.png",
       "layers": []
     },

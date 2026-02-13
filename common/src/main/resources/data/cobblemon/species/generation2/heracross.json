@@ -23,7 +23,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "heracross_mega",
+          "variant": "level_up",
+          "result": "heracross mega=true",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "Mega",

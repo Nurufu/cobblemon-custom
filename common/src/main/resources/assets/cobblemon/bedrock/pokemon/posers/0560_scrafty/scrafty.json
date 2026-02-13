@@ -1,10 +1,10 @@
 {
   "portraitScale": 1.84,
   "portraitTranslation": [-0.21, 0.51, 0],
-  "profileScale": 0.76,
-  "profileTranslation": [0.0, 0.69, 0],
+  "profileScale": 0.83,
+  "profileTranslation": [0.0, 0.51, 0],
   "rootBone": "scrafty",
-  "animations": {
+    "animations": {
     "cry": "q.bedrock_stateful('scrafty', 'cry')"
   },
   "poses": {

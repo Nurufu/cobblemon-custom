@@ -27,6 +27,31 @@
                     "#cobblemon:is_spooky"
                 ]
             }
+        },
+        {
+            "id": "sudowoodo-gold-1",
+            "pokemon": "sudowoodo cosmetic_item=gold_armor",
+            "presets": [
+                "natural"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "uncommon",
+            "level": "16-41",
+            "weight": 0.96,
+            "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_forest"
+                ],
+                "isRaining": false
+            },
+            "anticondition": {
+                "biomes": [
+                    "#cobblemon:is_spooky"
+                ]
+            }
         }
     ]
 }

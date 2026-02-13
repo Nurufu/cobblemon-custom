@@ -1,14 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.wigglytuff.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.wigglytuff.cry"
-				}
-			}
-		},
 		"animation.wigglytuff.looking_test": {
 			"loop": true,
 			"animation_length": 2,
@@ -656,6 +648,14 @@
 				},
 				"mouth4": {
 					"position": [0, -1, 0]
+				}
+			}
+		},
+		"animation.wigglytuff.cry": {
+			"animation_length": 1.25,
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.wigglytuff.cry"
 				}
 			}
 		}

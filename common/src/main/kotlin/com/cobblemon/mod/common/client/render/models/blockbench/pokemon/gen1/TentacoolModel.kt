@@ -8,18 +8,20 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class TentacoolModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("tentacool")
+
+    override val cryAnimation = CryProvider { bedrockStateful("tentacool", "cry") }
+
 
     override var portraitScale = 1.2F
     override var portraitTranslation = Vec3d(0.1, 1.1, 0.0)
@@ -27,14 +29,12 @@ class TentacoolModel(root: ModelPart) : PokemonPosableModel(root) {
     override var profileScale = 0.6F
     override var profileTranslation = Vec3d(0.0, 0.8, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var swim: Pose
-    lateinit var float: Pose
-    lateinit var sleep: Pose
-    lateinit var watersleep: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("tentacool", "cry") }
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var swim: CobblemonPose
+    lateinit var float: CobblemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var watersleep: CobblemonPose
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("tentacool", "blink")}

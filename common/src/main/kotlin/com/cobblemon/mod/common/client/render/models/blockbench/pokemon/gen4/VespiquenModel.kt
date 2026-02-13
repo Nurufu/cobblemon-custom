@@ -10,14 +10,17 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class VespiquenModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("vespiquen")
+
+    override val cryAnimation = CryProvider { bedrockStateful("vespiquen", "cry") }
+
 
     override var portraitScale = 1.9F
     override var portraitTranslation = Vec3d(-0.14, 0.8, 0.0)
@@ -29,8 +32,6 @@ class VespiquenModel (root: ModelPart) : PokemonPosableModel(root) {
     lateinit var fly: Pose
     lateinit var sleep: Pose
     lateinit var standing: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("vespiquen", "cry") }
 
     override fun registerPoses() {
         val blink1 = quirk { bedrockStateful("vespiquen", "blink") }

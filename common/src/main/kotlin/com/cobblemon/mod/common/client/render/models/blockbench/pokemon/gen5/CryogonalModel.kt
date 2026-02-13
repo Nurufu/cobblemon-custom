@@ -11,15 +11,18 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen5
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class CryogonalModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("cryogonal")
     override val head = getPart("body")
+
+    override val cryAnimation = CryProvider { bedrockStateful("cryogonal", "cry") }
+
 
     override var portraitScale = 1.4F
     override var portraitTranslation = Vec3d(0.05, 0.61, 0.0)
@@ -30,8 +33,6 @@ class CryogonalModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame 
     lateinit var sleep: Pose
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("cryogonal", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("cryogonal", "blink") }

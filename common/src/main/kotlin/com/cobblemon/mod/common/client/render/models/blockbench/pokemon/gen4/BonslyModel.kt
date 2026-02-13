@@ -10,7 +10,6 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
@@ -19,6 +18,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class BonslyModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -27,6 +27,9 @@ class BonslyModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bip
 
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("bonsly", "cry") }
+
 
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(-0.2, -0.8, 0.0)
@@ -39,8 +42,6 @@ class BonslyModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bip
     lateinit var battleidle: Pose
     lateinit var sleep: Pose
     lateinit var battlesleep: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("bonsly", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("bonsly", "blink") }

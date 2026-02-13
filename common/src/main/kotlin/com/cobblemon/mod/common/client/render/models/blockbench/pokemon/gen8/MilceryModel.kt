@@ -11,16 +11,19 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MilceryModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("milcery")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("milcery", "cry") }
+
 
     override var portraitScale = 3.0F
     override var portraitTranslation = Vec3d(-0.15, -2.8, 0.0)
@@ -35,8 +38,6 @@ class MilceryModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     lateinit var shoulderRight: Pose
 
     val shoulderOffset = 4
-
-    override val cryAnimation = CryProvider { bedrockStateful("milcery", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

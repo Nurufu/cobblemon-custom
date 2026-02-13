@@ -20,6 +20,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.sin
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.math.geometry.toRadians
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class StarlyModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BiWingedFrame {
@@ -30,6 +31,9 @@ class StarlyModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
     override val rightLeg = getPart("leg_right")
     override val head = getPart("head_ai")
     private val tail = getPart("tail")
+
+    override val cryAnimation = CryProvider { bedrockStateful("starly", "cry") }
+
 
     override var portraitScale = 2.8F
     override var portraitTranslation = Vec3d(-0.4, -1.65, 0.0)

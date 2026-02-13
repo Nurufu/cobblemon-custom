@@ -13,10 +13,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPo
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class DarmanitanZenModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("darmanitan")
+
+    override val cryAnimation = CryProvider { bedrockStateful("darmanitan", "cry") }
+
 
     override var portraitScale = 1.05F
     override var portraitTranslation = Vec3d(-0.28, 0.48, 0.0)

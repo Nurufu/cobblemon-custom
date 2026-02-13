@@ -11,7 +11,6 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen1
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
@@ -29,10 +28,10 @@ class PinsirModel(root: ModelPart) : PokemonPosableModel(root) {
     override var profileScale = 0.65F
     override var profileTranslation = Vec3d(0.0, 0.75, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var battleidle: Pose
-    lateinit var sleep: Pose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var battleidle: CobblemonPose
+    lateinit var sleep: CobblemonPose
 
     override val cryAnimation = CryProvider { bedrockStateful("pinsir", "cry") }
 

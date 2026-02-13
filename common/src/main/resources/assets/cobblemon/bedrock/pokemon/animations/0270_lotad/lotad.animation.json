@@ -176,11 +176,11 @@
 					}
 				}
 			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.lotad.cry"
-				}
-			}
+          "sound_effects": {
+            "0.0417": {
+              "effect": "pokemon.lotad.cry"
+            }
+          }
 		},
 		"animation.lotad.faint": {
 			"loop": true,

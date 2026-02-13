@@ -11,12 +11,11 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class NatuModel(root: ModelPart) : PokemonPosableModel(root), BipedFrame, HeadedFrame {
@@ -26,17 +25,18 @@ class NatuModel(root: ModelPart) : PokemonPosableModel(root), BipedFrame, Headed
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("natu", "cry") }
+
+
     override var portraitScale = 2.33F
     override var portraitTranslation = Vec3d(0.04, -1.66, 0.0)
 
     override var profileScale = 1.09F
     override var profileTranslation = Vec3d(0.0, 0.03, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var sleep: Pose
-    override val cryAnimation = CryProvider { bedrockStateful("natu", "cry") }
-
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var sleep: CobblemonPose
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("natu", "blink") }
         sleep = registerPose(

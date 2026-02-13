@@ -5,13 +5,13 @@
 			"loop": true,
 			"bones": {
 				"tail": {
-					"rotation": ["20-math.sin(q.anim_time*90*1.5-30)*3", "0-math.cos(q.anim_time*90*1.5/2-30)*2", 0]
+					"rotation": ["-17.5-math.sin(q.anim_time*90*1.5-30)*3", "-math.cos(q.anim_time*90*1.5/2-30)*2", 0]
 				},
 				"tail2": {
-					"rotation": ["45-math.sin(q.anim_time*90*1.5-90)*3", "0-math.cos(q.anim_time*90*1.5/2-90)*2", 0]
+					"rotation": ["10-math.sin(q.anim_time*90*1.5-90)*3", "0-math.cos(q.anim_time*90*1.5/2-90)*2", 0]
 				},
 				"tail3": {
-					"rotation": ["40-math.sin(q.anim_time*90*1.5-120)*5", "0-math.cos(q.anim_time*90*1.5/2-120)*5", 0]
+					"rotation": ["5-math.sin(q.anim_time*90*1.5-120)*5", "0-math.cos(q.anim_time*90*1.5/2-120)*5", 0]
 				},
 				"torso": {
 					"rotation": ["0-math.sin(q.anim_time*90*1.5)*0.5", "0-math.cos(q.anim_time*90*1.5/2)*1", 0],
@@ -37,13 +37,13 @@
 			"animation_length": 2,
 			"bones": {
 				"tail": {
-					"rotation": ["20-math.sin(q.anim_time*90*2*2-60)*2", "0-math.cos(q.anim_time*90*2-60)*5", 0]
+					"rotation": ["-17.5-math.sin(q.anim_time*90*2*2-60)*2", "-math.cos(q.anim_time*90*2-60)*5", 0]
 				},
 				"tail2": {
-					"rotation": ["35-math.sin(q.anim_time*90*2*2-120)*1", "0-math.cos(q.anim_time*90*2-120)*6", 0]
+					"rotation": ["5-math.sin(q.anim_time*90*2*2-120)*1", "0-math.cos(q.anim_time*90*2-120)*6", 0]
 				},
 				"tail3": {
-					"rotation": ["22.5-math.sin(q.anim_time*90*2*2-180)*4", "0-math.cos(q.anim_time*90*2-160)*6", 0]
+					"rotation": ["17.5-math.sin(q.anim_time*90*2*2-180)*4", "-math.cos(q.anim_time*90*2-160)*6", 0]
 				},
 				"torso": {
 					"rotation": ["0-math.sin(q.anim_time*90*2*2)*1", "0-math.cos(q.anim_time*90*2)*2", "0+math.cos(q.anim_time*90*2)*2"],
@@ -387,8 +387,8 @@
 				}
 			},
 			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.slowpoke.cry"
+				"0.5": {
+					"effect": "pokemon.slowpoke_galarian.cry"
 				}
 			}
 		}

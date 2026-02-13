@@ -15,10 +15,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class WailordModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("wailord")
+    override val cryAnimation = CryProvider { bedrockStateful("wailord", "cry") }
+
+
     override var portraitScale = 0.45F
     override var portraitTranslation = Vec3d(-0.38, 0.8, 6.69)
 

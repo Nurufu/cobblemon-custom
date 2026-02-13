@@ -55,7 +55,40 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "pikachu_alola_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "psychic"
+          ],
+          "requirements": [
+            {
+              "variant": "biome",
+              "biomeCondition": "#cobblemon:evolution/alolan"
+            },
+            {
+              "variant": "biome",
+              "biomeAnticondition": "#minecraft:is_freezing"
+            }
+          ],
+          "requiredContext": "cobblemon:thunder_stone"
+        },
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
     },
     {
       "name": "Cosplay",

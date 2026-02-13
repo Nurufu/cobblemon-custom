@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPo
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class SkarmoryModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, BiWingedFrame, HeadedFrame {
@@ -28,6 +29,9 @@ class SkarmoryModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, B
 
     override val leftWing = getPart("left_wing")
     override val rightWing = getPart("right_wing")
+
+    override val cryAnimation = CryProvider { bedrockStateful("skarmory", "cry") }
+
 
     override var portraitScale = 2.49F
     override var portraitTranslation = Vec3d(-1.05, 1.1, 0.0)

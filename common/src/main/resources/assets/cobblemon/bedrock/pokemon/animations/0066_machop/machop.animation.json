@@ -1,14 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.machop.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.machop.cry"
-				}
-			}
-		},
 		"animation.machop.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -292,6 +284,14 @@
 					}
 				}
 			}
-		}
+		},
+        "animation.machop.cry": {
+        "animation_length": 1.25,
+        "sound_effects": {
+          "0.0417": {
+            "effect": "pokemon.machop.cry"
+          }
+        }
+      }
 	}
 }

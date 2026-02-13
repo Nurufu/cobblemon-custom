@@ -10,15 +10,18 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MasquerainModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("masquerain")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("masquerain", "cry") }
+
 
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(-0.45, -1.0, 0.0)
@@ -28,9 +31,6 @@ class MasquerainModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame 
 
     lateinit var walk: Pose
     lateinit var standing: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("masquerain", "cry") }
-
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("masquerain", "blink") }
         standing = registerPose(

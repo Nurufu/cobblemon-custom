@@ -9,17 +9,20 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen7
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class CrabominableModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("crabominable")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("crabominable", "cry") }
+
 
     override var portraitScale = 1.0F
     override var portraitTranslation = Vec3d(-0.55, 1.65, 0.0)
@@ -29,8 +32,6 @@ class CrabominableModel (root: ModelPart) : PokemonPosableModel(root), HeadedFra
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("crabominable", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

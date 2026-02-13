@@ -660,11 +660,11 @@
 					}
 				}
 			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.ludicolo.cry"
-				}
-			}
+          "sound_effects": {
+            "0.0417": {
+              "effect": "pokemon.ludicolo.cry"
+            }
+          }
 		},
 		"animation.ludicolo.sleep": {
 			"loop": true,

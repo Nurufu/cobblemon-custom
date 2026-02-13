@@ -13,6 +13,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.Active
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
@@ -37,6 +38,8 @@ class GolettModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
     lateinit var standing: Pose
     lateinit var walk: Pose
     lateinit var sleep: Pose
+
+    override val cryAnimation = CryProvider { bedrockStateful("golett", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("golett", "blink") }

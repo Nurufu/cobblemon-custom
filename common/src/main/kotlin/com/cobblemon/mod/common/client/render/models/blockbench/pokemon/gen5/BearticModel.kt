@@ -13,6 +13,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
@@ -37,7 +38,7 @@ class BearticModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose
 
-//    override val cryAnimation = CryProvider { bedrockStateful("beartic", "cry") }
+    override val cryAnimation = CryProvider { bedrockStateful("beartic", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("beartic", "blink") }

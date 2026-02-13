@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.xerneas.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.xerneas.cry"
+				}
+			}
+		},
 		"animation.xerneas.ground_walk": {
 			"loop": true,
 			"bones": {
@@ -220,14 +228,6 @@
 				},
 				"leg_back_left2": {
 					"rotation": ["-0.1*math.sin(q.anim_time*90*2+90)", 0, 0]
-				}
-			}
-		},
-		"animation.xerneas.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.1667": {
-					"effect": "pokemon.xerneas.cry"
 				}
 			}
 		}

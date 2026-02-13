@@ -51,7 +51,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "rattata_raticate",
+          "variant": "level_up",
+          "result": "raticate",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "Alola",

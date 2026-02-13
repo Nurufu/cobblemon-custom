@@ -47,6 +47,14 @@
 				}
 			}
 		},
+		"animation.nidoranm.cry": {
+			"animation_length": 1.2,
+			"sound_effects": {
+				"0.04": {
+					"effect": "pokemon.nidoranm.cry"
+				}
+			}
+		},
 		"animation.nidoranm.blink": {
 			"animation_length": 0.16667,
 			"bones": {
@@ -82,14 +90,6 @@
 				"leg_front_right": {
 					"rotation": [-7.5, 0, 0],
 					"position": [0, -0.25, 0]
-				}
-			}
-		},
-		"animation.nidoranm.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.nidoranm.cry"
 				}
 			}
 		}

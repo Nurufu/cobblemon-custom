@@ -1,14 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.smoochum.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.smoochum.cry"
-				}
-			}
-		},
 		"animation.smoochum.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -23,6 +15,14 @@
 				},
 				"rightleg": {
 					"rotation": [0, 5, 0]
+				}
+			}
+		},
+		"animation.smoochum.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.smoochum.cry"
 				}
 			}
 		}

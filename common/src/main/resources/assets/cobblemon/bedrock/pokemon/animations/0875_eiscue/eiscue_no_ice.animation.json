@@ -399,6 +399,11 @@
 		},
 		"animation.eiscue_no_ice.cry": {
 			"animation_length": 1.2083,
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.eiscue_no_ice.cry"
+					}
+				},
 			"bones": {
 				"torso": {
 					"rotation": {
@@ -427,11 +432,6 @@
 						"1.0": [0, 22.5, 0],
 						"1.2083": [0, 0, 0]
 					}
-				}
-			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.eiscueice.cry"
 				}
 			}
 		},

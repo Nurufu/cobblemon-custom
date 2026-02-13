@@ -9,21 +9,23 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class CarnivineModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame{
     override val rootPart = root.registerChildWithAllChildren("carnivine")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("carnivine", "cry") }
+
 
     override var portraitScale = 1.07F
     override var portraitTranslation = Vec3d(-0.42, 0.9, 0.0)
@@ -31,13 +33,11 @@ class CarnivineModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame{
     override var profileScale = 0.5F
     override var profileTranslation = Vec3d(0.0, 0.98, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var hover: Pose
-    lateinit var flying: Pose
-    lateinit var battle_idle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("carnivine", "cry") }
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var hover: CobblemonPose
+    lateinit var flying: CobblemonPose
+    lateinit var battle_idle: CobblemonPose
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("carnivine", "blink") }

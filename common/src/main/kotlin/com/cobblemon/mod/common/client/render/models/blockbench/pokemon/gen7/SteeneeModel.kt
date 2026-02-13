@@ -13,13 +13,13 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class SteeneeModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BimanualFrame, BipedFrame {
@@ -31,6 +31,9 @@ class SteeneeModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("steenee", "cry") }
+
+
     override var portraitScale = 3.0F
     override var portraitTranslation = Vec3d(-0.2, -0.5, 0.0)
 
@@ -39,8 +42,6 @@ class SteeneeModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("steenee", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("steenee", "blink")}

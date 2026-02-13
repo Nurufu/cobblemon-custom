@@ -1,80 +1,26 @@
 {
-  "portraitScale": 0.8,
-  "portraitTranslation": [ 0, 0.6, 0],
-  "profileScale": 0.5,
-  "profileTranslation": [ 0, 1.1, 0],
+  "portraitScale": 0.82,
+  "portraitTranslation": [-0.14,0.49, 0],
+  "profileScale": 0.50,
+  "profileTranslation": [0, 0.95, 0],
+  "rootBone": "glalie",
   "animations": {
-    "cry": "q.bedrock_stateful('glalie', 'cry')",
-    "faint": "q.bedrock_primary('glalie', 'faint')"
+    "cry": "q.bedrock_stateful('glalie', 'cry')"
   },
   "poses": {
-	  "battle-idle":{
-	  "poseName": "battle-idle",
-      "transformTicks": 10,
-      "poseTypes": [
-		"STAND", 
-		"HOVER"
-	  ],
-	  "isBattle": true,
-	  "animations": 
-    [
-    "bedrock(glalie, battle_idle)","bedrock(glalie, layer_idle)"
-    ],
-	  "quirks":[
-	  {
-		  "name": "blink",
-          "animations": ["bedrock(glalie, blink)"]
-	  }
-	  ]
-	},
     "standing": {
-      "poseName": "standing",
-      "transformTicks": 10,
-	  "isBattle": false,
-      "poseTypes": [
-        "STAND",
-        "PORTRAIT",
-		    "PROFILE",
-		    "HOVER",
-		    "NONE"
-      ],
-      "animations": 
-      [
-      "bedrock(glalie, ground_idle)","bedrock(glalie, layer_idle)"
-      ],  
-	  "quirks": [
-          {
-            "name": "blink",
-            "animations": ["bedrock(glalie, blink)"]
-          }
-	  ]
-  },
-	"moving":{
-		"poseName": "moving",
-		"transformTicks": 10,
-		"poseTypes": [
-        "WALK",
-        "FLY"
-      ],
+      "poseTypes": ["STAND", "HOVER", "NONE", "PORTRAIT", "PROFILE"],
       "animations": [
-        "bedrock(glalie, ground_walk)"
-      ],  
-	  "quirks": [
-          {
-            "name": "blink",
-            "animations": ["bedrock(glalie, blink)"]
-          }
-	  ]
-	},
-	"sleeping":{
-		"poseName": "sleeping",
-		"transformTicks": 10,
-		"poseTypes": [
-        "SLEEP"
+        "q.bedrock('glalie', 'ground_idle')"
       ],
+      "quirks": ["q.bedrock_quirk('glalie', 'blink')"]
+    },
+    "walking": {
+      "poseTypes": ["WALK", "FLY"],
       "animations": [
-        "bedrock(glalie, ground_idle)"
-      ]
-	}
-}
+        "q.bedrock('glalie', 'ground_idle')"
+      ],
+      "quirks": ["q.bedrock_quirk('glalie', 'blink')"]
+    }
+  }
 }

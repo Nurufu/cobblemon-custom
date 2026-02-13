@@ -18,11 +18,15 @@ import com.cobblemon.mod.common.util.asExpressionLike
 import com.cobblemon.mod.common.util.isBattling
 import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class GholdengoModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("gholdengo")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("gholdengo", "cry") }
+
 
     override var portraitScale = 2.6F
     override var portraitTranslation = Vec3d(-0.3, 1.4, 0.0)

@@ -9,16 +9,19 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class GorebyssModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("gorebyss")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("gorebyss", "cry") }
+
 
     override var portraitScale = 2.5F
     override var portraitTranslation = Vec3d(-1.2, -2.1, 0.0)
@@ -29,8 +32,6 @@ class GorebyssModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     lateinit var standing: Pose
     lateinit var floating: Pose
     lateinit var swimming: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("gorebyss", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

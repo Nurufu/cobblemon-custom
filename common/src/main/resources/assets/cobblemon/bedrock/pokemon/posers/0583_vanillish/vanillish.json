@@ -4,7 +4,7 @@
   "profileScale": 0.6,
   "profileTranslation": [0, 0.82, 0],
   "rootBone": "vanillish",
-  "animations": {
+    "animations": {
     "cry": "q.bedrock_stateful('vanillish', 'cry')"
   },
   "poses": {

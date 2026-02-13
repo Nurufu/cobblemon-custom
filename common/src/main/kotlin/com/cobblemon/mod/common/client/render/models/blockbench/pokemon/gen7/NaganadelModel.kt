@@ -19,6 +19,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import com.cobblemon.mod.common.util.math.geometry.toRadians
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class NaganadelModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BiWingedFrame {
@@ -27,6 +28,9 @@ class NaganadelModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
 
     override val leftWing = getPart("wing_left")
     override val rightWing = getPart("wing_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("naganadel", "cry") }
+
 
     override var portraitScale = 2.0F
     override var portraitTranslation = Vec3d(0.0, 4.3, 0.0)

@@ -1,66 +1,64 @@
 {
-  "portraitScale": 1.7,
-  "portraitTranslation": [-0.2, 0.5, 0],
-  "profileScale": 0.8,
-  "profileTranslation": [-0.1, 0.6, 0],
-  "animations": {
-    "faint": "q.bedrock_primary('meditite', 'faint', q.curve('symmetrical_wide'))",
-    "physical": "q.bedrock_primary('meditite', 'physical', q.curve('symmetrical_wide'))",
-    "special": "q.bedrock_primary('meditite', 'special', q.curve('symmetrical_wide'))",
-    "status": "q.bedrock_primary('meditite', 'special', q.curve('symmetrical_wide'))",
-    "recoil": "q.bedrock_primary('meditite', 'recoil', q.curve('symmetrical_wide'))",
+    "portraitScale": 2.06,
+    "portraitTranslation": [-0.3,0.2,1],
+    "profileScale": 0.72,
+    "profileTranslation": [0,0.67,1],
+    "rootBone": "meditite",
+      "animations": {
     "cry": "q.bedrock_stateful('meditite', 'cry')"
   },
-  "poses": {
-    "battle-standing": {
-      "transformTicks": 10,
-      "poseTypes": ["STAND", "WALK"],
-      "isBattle": true,
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('meditite', 'battle_idle')"
-      ]
-    },
-    "standing": {
-      "transformTicks": 10,
-      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
-      "isBattle": false,
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('meditite', 'ground_idle')"
-      ]
-    },
-    "walking": {
-      "transformTicks": 8,
-      "poseTypes": ["WALK"],
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('meditite', 'ground_walk')"
-      ]
-    },
-    "hover": {
-      "transformTicks": 5,
-      "poseTypes": [ "FLY", "HOVER", "FLOAT" ],
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('meditite', 'ground_walk')"
-       ]
-    },
-    "float": {
-      "transformTicks": 5,
-      "poseTypes": ["FLOAT"],
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('meditite', 'ground_walk')"
-      ]
-    },
-    "swim": {
-      "transformTicks": 8,
-      "poseTypes": ["SWIM"],
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('meditite', 'ground_walk')"
-      ]
+    "poses": {
+      "standing": {
+        "poseTypes": [
+          "STAND",
+          "FLOAT",
+          "NONE",
+          "PORTRAIT",
+          "PROFILE"
+        ],
+        "animations": [
+          "q.look('head')",
+          "q.bedrock('meditite', 'ground_idle')",
+          {
+          "condition": "q.is_holding_item",
+          "animation": "q.bedrock('meditite', 'hold_item')"
+          }
+        ],
+        "quirks": [
+          "q.bedrock_quirk('meditite', 'blink')"
+        ]
+      },
+      "walking": {
+        "poseTypes": [
+          "WALK",
+          "SWIM",
+          "FLY"
+        ],
+        "animations": [
+          "q.look('head')",
+          "q.bimanual_swing(0.66, 1.4, 'arm_left', 'arm_right')",
+          "q.biped_walk(0.66, 1.4, 'leg_left', 'leg_right')",
+          "q.bedrock('meditite', 'ground_idle_placeholder')",
+          {
+          "condition": "q.is_holding_item",
+          "animation": "q.bedrock('meditite', 'hold_item')"
+          }
+        ],
+        "quirks": [
+          "q.bedrock_quirk('meditite', 'blink')"
+        ]
+      },
+      "hover": {
+        "poseTypes": ["HOVER"],
+        "animations": [
+          "q.look('head')",
+          "q.bedrock('meditite', 'air_idle')",
+        { 
+        "condition": "q.is_holding_item",
+        "animation": "q.bedrock('meditite', 'hold_item')"
+        }
+        ],
+      "quirks": ["q.bedrock_quirk('meditite', 'blink')"]
+      }
     }
   }
-}

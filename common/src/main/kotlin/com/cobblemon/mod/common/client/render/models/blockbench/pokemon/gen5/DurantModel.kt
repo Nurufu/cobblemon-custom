@@ -9,16 +9,19 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen5
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class DurantModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("durant")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("durant", "cry") }
+
 
     override var portraitScale = 2.8F
     override var portraitTranslation = Vec3d(-0.4, -1.6, 0.0)
@@ -28,8 +31,6 @@ class DurantModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("durant", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("durant", "blink") }

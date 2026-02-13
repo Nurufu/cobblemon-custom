@@ -7,20 +7,11 @@
       "poser": "cobblemon:froslass",
       "model": "cobblemon:froslass.geo",
       "texture": "cobblemon:textures/pokemon/0478_froslass/froslass.png",
-      "layers": [ 
-	  {
-        }
-		]
+      "layers": []
     },
     {
-      "aspects": [
-        "shiny"
-      ],
-      "texture": "cobblemon:textures/pokemon/0478_froslass/froslass_shiny.png",
-      "layers": [
-	   {
-        }
-	  ]
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0478_froslass/froslass_shiny.png"
     }
   ]
 }

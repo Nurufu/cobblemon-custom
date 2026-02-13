@@ -18,6 +18,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MewtwoModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BimanualFrame, BipedFrame {
@@ -27,6 +28,9 @@ class MewtwoModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bim
     override val rightLeg = getPart("leg_right")
     override val leftArm = getPart("arm_left")
     override val rightArm = getPart("arm_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("mewtwo", "cry") }
+
 
     override var portraitScale = 2.8F
     override var portraitTranslation = Vec3d(-0.15, 1.5, 0.0)

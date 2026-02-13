@@ -33,7 +33,7 @@ class BewearModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bip
     override val rightLeg = getPart("leg_right")
 
     override var portraitScale = 1.2F
-    override var portraitTranslation = Vec3d(-0.2,2.2,0.0)
+    override var portraitTranslation = Vec3d(-0.2, 2.2, 0.0)
 
     override var profileScale = 0.45F
     override var profileTranslation = Vec3d(0.0, 1.1, 0.0)

@@ -13,7 +13,6 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.BiWingedFr
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
@@ -35,12 +34,12 @@ class VenomothModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
     override var profileScale = 0.8F
     override var profileTranslation = Vec3d(0.0, 0.6, 0.0)
 
-    lateinit var sleep: Pose
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var battleidle: Pose
-    lateinit var hover: Pose
-    lateinit var flying: Pose
+    lateinit var sleep: CobblemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var battleidle: CobblemonPose
+    lateinit var hover: CobblemonPose
+    lateinit var flying: CobblemonPose
 
     override val cryAnimation = CryProvider { bedrockStateful("venomoth", "cry") }
 

@@ -14,6 +14,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class FurretModel (root: ModelPart) : PokemonPosableModel(root), QuadrupedFrame {
@@ -23,6 +24,9 @@ class FurretModel (root: ModelPart) : PokemonPosableModel(root), QuadrupedFrame 
     override val foreRightLeg = getPart("arm_right")
     override val hindLeftLeg = getPart("leg_left")
     override val hindRightLeg = getPart("leg_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("furret", "cry") }
+
 
     override var portraitScale = 2.1F
     override var portraitTranslation = Vec3d(-0.6, 0.2, 0.0)

@@ -8,22 +8,23 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen7
 
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PyukumukuModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("pyukumuku")
 
+    override val cryAnimation = CryProvider { bedrockStateful("pyukumuku", "cry") }
+
+
     override var portraitScale = 1.65F
     override var portraitTranslation = Vec3d(-0.1, -0.8, 0.0)
     override var profileScale = 1.0F
     override var profileTranslation = Vec3d(0.0, 0.2, 0.0)
-
-    override val cryAnimation = CryProvider { bedrockStateful("pyukumuku", "cry") }
 
 //    lateinit var sleep: Pose
     lateinit var standing: Pose
@@ -31,7 +32,7 @@ class PyukumukuModel(root: ModelPart) : PokemonPosableModel(root) {
     override fun registerPoses() {
 //        sleep = registerPose(
 //            poseType = PoseType.SLEEP,
-//            idleAnimations = arrayOf(bedrock("pyukumuku", "sleep"))
+//            animations = arrayOf(bedrock("pyukumuku", "sleep"))
 //        )
 
         standing = registerPose(

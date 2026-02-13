@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.vibrava.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.vibrava.cry"
+				}
+			}
+		},
 		"animation.vibrava.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -82,14 +90,6 @@
 						"0.125": [-2, 0, 0],
 						"0.1667": [0, 0, 0]
 					}
-				}
-			}
-		},
-		"animation.vibrava.cry": {
-			"animation_length": 1.2,
-			"sound_effects": {
-				"0.04": {
-					"effect": "pokemon.vibrava.cry"
 				}
 			}
 		}

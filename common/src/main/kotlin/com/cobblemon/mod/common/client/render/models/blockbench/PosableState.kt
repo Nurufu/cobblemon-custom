@@ -86,6 +86,13 @@ abstract class PosableState : Schedulable {
     val activeAnimations: MutableList<ActiveAnimation> = mutableListOf()
     /** Any active [ModelQuirk]s and their [QuirkData]. */
     val quirks = mutableMapOf<ModelQuirk<*>, QuirkData>()
+    /** Just some numbers that might be getting arbitrarily set and referenced. */
+    val numbers = mutableMapOf<String, Float>()
+    /**
+     * Markers that have been added to the state this render, cleared when animation is about to start.
+     * This is used to hand basic state from one animation to another.
+     */
+    val renderMarkers = mutableSetOf<String>()
     /**
      * Any particle effect keyframes that are generated from a [Pose] and area active right now. This prevents duplicates
      * for animations that loop and have particle keyframes at some point in time on that loop.

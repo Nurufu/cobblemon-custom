@@ -12,7 +12,6 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
@@ -20,6 +19,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class LickitungModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -30,8 +30,11 @@ class LickitungModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
     override val leftArm = getPart("left_upper_arm")
     override val rightArm = getPart("right_upper_arm")
 
+    override val cryAnimation = CryProvider { bedrockStateful("lickitung", "cry") }
+
+
     override var portraitScale = 2.1F
-    override var portraitTranslation = Vec3d(-0.1, 0.0, 0.0)
+    override var portraitTranslation = Vec3d(-0.19, 0.43, 0.0)
 
     override var profileScale = 0.8F
     override var profileTranslation = Vec3d(0.0, 0.55, 0.0)
@@ -39,8 +42,6 @@ class LickitungModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
     lateinit var standing: Pose
     lateinit var walk: Pose
     lateinit var battleidle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("lickitung", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("lickitung", "blink")}

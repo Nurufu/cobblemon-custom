@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class RhyhornModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -27,6 +28,9 @@ class RhyhornModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Qu
     override val foreRightLeg = getPart("rightfrontleg")
     override val hindLeftLeg = getPart("leftbackleg")
     override val hindRightLeg = getPart("rightbackleg")
+
+    override val cryAnimation = CryProvider { bedrockStateful("rhyhorn", "cry") }
+
 
     override var portraitScale = 2.6F
     override var portraitTranslation = Vec3d(-0.85, -2.2, 0.0)

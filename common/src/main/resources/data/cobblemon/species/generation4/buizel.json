@@ -224,7 +224,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "buizel_floatzel",
+          "variant": "level_up",
+          "result": "floatzel",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 26
+            }
+          ]
+        }
+      ]
     }
   ]
 }

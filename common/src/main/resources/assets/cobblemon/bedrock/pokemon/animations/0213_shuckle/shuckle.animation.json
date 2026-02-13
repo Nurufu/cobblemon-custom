@@ -660,11 +660,11 @@
 					}
 				}
 			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.shuckle.cry"
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.shuckle.cry"
+					}
 				}
 			}
 		}
 	}
-}

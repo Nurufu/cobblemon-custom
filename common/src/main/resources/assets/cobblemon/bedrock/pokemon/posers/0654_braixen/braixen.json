@@ -13,7 +13,13 @@
       "poseTypes": ["STAND"],
       "isBattle": true,
       "animations": ["q.look('head')", "q.bedrock('braixen', 'battle_idle')"],
-      "quirks": ["q.bedrock_quirk('braixen', 'blink')"]
+      "quirks": ["q.bedrock_quirk('braixen', 'blink')"],
+      "transformedParts": [
+        {
+          "part": "hand_wand",
+          "isVisible": true
+        }
+      ]
     },
     "standing": {
       "poseName": "standing",
@@ -32,7 +38,7 @@
       "quirks": ["q.bedrock_quirk('braixen', 'blink')"],
       "transformedParts": [
         {
-          "part": "stick_hand",
+          "part": "hand_wand",
           "isVisible": false
         }
       ]

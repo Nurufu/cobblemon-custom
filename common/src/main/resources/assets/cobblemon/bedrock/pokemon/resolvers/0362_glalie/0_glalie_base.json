@@ -12,17 +12,6 @@
     {
       "aspects": ["shiny"],
       "texture": "cobblemon:textures/pokemon/0362_glalie/glalie_shiny.png"
-    },
-    {
-      "aspects": ["mega"],
-      "model": "cobblemon:glalie_mega.geo",
-      "poser": "cobblemon:glalie_mega",
-      "texture": "cobblemon:textures/pokemon/0362_glalie/glalie_mega.png"
-    },
-    {
-      "aspects": ["mega","shiny"],
-      "model": "cobblemon:glalie_mega.geo",
-      "texture": "cobblemon:textures/pokemon/0362_glalie/glalie_mega_shiny.png"
     }
   ]
 }

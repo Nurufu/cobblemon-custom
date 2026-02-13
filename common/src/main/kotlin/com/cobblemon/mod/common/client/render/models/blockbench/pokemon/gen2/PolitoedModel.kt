@@ -10,12 +10,12 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PolitoedModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -24,6 +24,9 @@ class PolitoedModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
 
     override val leftLeg = getPart("leftleg")
     override val rightLeg = getPart("rightleg")
+
+    override val cryAnimation = CryProvider { bedrockStateful("politoed", "cry") }
+
 
     override var portraitScale = 2.4F
     override var portraitTranslation = Vec3d(-0.04, -0.55, 0.0)
@@ -35,8 +38,6 @@ class PolitoedModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
     lateinit var walking: Pose
     lateinit var float: Pose
     lateinit var swim: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("politoed", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

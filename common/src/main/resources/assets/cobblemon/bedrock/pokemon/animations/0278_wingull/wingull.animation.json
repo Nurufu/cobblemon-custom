@@ -488,7 +488,7 @@
 				}
 			},
 			"sound_effects": {
-				"0.2": {
+				"0.04": {
 					"effect": "pokemon.wingull.cry"
 				}
 			}

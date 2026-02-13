@@ -44,6 +44,18 @@
 			"bones": {
 				"wings_open": {
 					"scale": 0
+				},
+				"armor_open_left": {
+					"position": [-15, 0, 0]
+				},
+				"wing_open_left": {
+					"position": [-15, 0, 0]
+				},
+				"armor_open_right": {
+					"position": [15, 0, 0]
+				},
+				"wing_open_right": {
+					"position": [15, 0, 0]
 				}
 			}
 		},
@@ -245,6 +257,13 @@
 				},
 				"tail_middle": {
 					"rotation": ["(1+math.cos(q.anim_time*90*2-30)*1.2)", 0, 0]
+				},
+				"locator_seat_1": {
+					"rotation": [55, 0, 0],
+					"position": [0, 2, 5]
+				},
+				"locator_seat_2": {
+					"rotation": [55, 0, 0]
 				}
 			}
 		},
@@ -408,6 +427,9 @@
 				},
 				"beard_tuft_right2": {
 					"rotation": [0, 0, "-((-5+math.cos(q.anim_time*90*2-110-50)*10))"]
+				},
+				"locator_seat_1": {
+					"position": [0, 0, 1]
 				}
 			}
 		},
@@ -3120,6 +3142,13 @@
 				},
 				"beard_tuft2": {
 					"rotation": [0, 0, "(math.sin(q.anim_time*90*2-210)*-5)"]
+				},
+				"locator_seat_1": {
+					"rotation": [55, 0, 0],
+					"position": [0, 2, 5]
+				},
+				"locator_seat_2": {
+					"rotation": [45, 0, 0]
 				}
 			}
 		},
@@ -4436,6 +4465,13 @@
 				},
 				"beard_tuft2": {
 					"rotation": [0, 0, "math.sin(q.anim_time*90*4-120)*-10+math.cos(q.anim_time*90*1*24-180+math.random(0,2)*40)*2"]
+				},
+				"locator_seat_1": {
+					"rotation": [25, 0, 0],
+					"position": [0, 1, 3]
+				},
+				"locator_seat_2": {
+					"rotation": [25, 0, 0]
 				}
 			}
 		},
@@ -5329,7 +5365,22 @@
 				},
 				"beard_tuft_right2": {
 					"rotation": [0, 0, "-((5+math.cos(q.anim_time*90*2-30-40)*15+math.cos(q.anim_time*90*1*20+180-40)*1))"]
+				},
+				"locator_seat_1": {
+					"rotation": [52.5, 0, 0],
+					"position": [0, 0.25, 3]
+				},
+				"locator_seat_2": {
+					"rotation": [52.5, 0, 0]
 				}
+			},
+			"sound_effects": {
+				"0.0": {
+					"effect": "steel_wing_flap_large_2"
+				}
+			},
+			"timeline": {
+				"0.0": "q.has_entity ? { q.sound('animation.steel.wing_flap.large'); };"
 			}
 		},
 		"animation.corviknight.air_glide": {
@@ -5602,6 +5653,13 @@
 				},
 				"head_fluff_right2": {
 					"rotation": ["math.cos(q.anim_time*90*1*20+150+math.random(0,10)*10+0)*0.5", 0, 0]
+				},
+				"locator_seat_1": {
+					"rotation": [7.5, 0, 0],
+					"position": [0, 0, 6]
+				},
+				"locator_seat_2": {
+					"rotation": [10, 0, 0]
 				}
 			}
 		},
@@ -7712,7 +7770,22 @@
 							"lerp_mode": "catmullrom"
 						}
 					}
+				},
+				"locator_seat_1": {
+					"rotation": [7.5, 0, 0],
+					"position": [0, 0, 9]
+				},
+				"locator_seat_2": {
+					"rotation": [15, 0, 0]
 				}
+			},
+			"sound_effects": {
+				"0.4167": {
+					"effect": "steel_wing_flap_large_2"
+				}
+			},
+			"timeline": {
+				"0.4167": "q.has_entity ? { q.sound('animation.steel.wing_flap.large'); };"
 			}
 		},
 		"animation.corviknight.cry": {

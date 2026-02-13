@@ -11,11 +11,11 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class WhismurModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -25,6 +25,9 @@ class WhismurModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
     override val leftLeg = getPart("foot_left")
     override val rightLeg = getPart("foot_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("whismur", "cry") }
+
+
     override var portraitScale = 2.3F
     override var portraitTranslation = Vec3d(-0.15, -1.2, 0.0)
 
@@ -33,8 +36,6 @@ class WhismurModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("whismur", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

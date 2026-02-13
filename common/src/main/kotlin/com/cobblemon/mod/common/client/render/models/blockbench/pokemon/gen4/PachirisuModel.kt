@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PachirisuModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -25,6 +26,9 @@ class PachirisuModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
 
     override val leftLeg = getPart("leftfoot")
     override val rightLeg = getPart("rightfoot")
+
+    override val cryAnimation = CryProvider { bedrockStateful("pachirisu", "cry") }
+
 
     override var portraitScale = 2.3F
     override var portraitTranslation = Vec3d(-0.2, -1.1, 0.0)

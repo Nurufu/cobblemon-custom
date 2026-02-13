@@ -234,7 +234,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "golbat_crobat",
+          "variant": "level_up",
+          "result": "crobat",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
     }
   ]
 }

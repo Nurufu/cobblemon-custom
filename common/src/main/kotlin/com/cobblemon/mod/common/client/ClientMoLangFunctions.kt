@@ -122,6 +122,23 @@ object ClientMoLangFunctions {
         }
         }
         },
+        "pitch_tilt" to Function {
+                model -> Function { params ->
+            val bone = params.getStringOrNull(0) ?: "root"
+            val maxChangePerTick = params.getDoubleOrNull(1) ?: 1.5F
+            val minPitch = params.getDoubleOrNull(2) ?: -45F
+            val maxPitch = params.getDoubleOrNull(3) ?: 45F
+            ObjectValue(
+                PitchTiltAnimation(
+                    bone = model.getPart(bone),
+                    minPitch = minPitch.toFloat(),
+                    maxPitch = maxPitch.toFloat(),
+                    maxChangePerTick = maxChangePerTick.toFloat()
+                )
+            )
+        }
+        },
+
         "look" to Function {
                 model -> Function {
                 params -> {

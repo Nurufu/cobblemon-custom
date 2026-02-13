@@ -11,18 +11,21 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.WaveAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.WaveSegment
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.client.render.models.blockbench.wavefunction.sineFunction
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class HuntailModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("huntail")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("huntail", "cry") }
+
 
     override var portraitScale = 2.6F
     override var portraitTranslation = Vec3d(-1.3, -2.5, 0.0)
@@ -47,8 +50,6 @@ class HuntailModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     val tail4Segment = WaveSegment(modelPart = tail4, length = 5F)
     val tail5Segment = WaveSegment(modelPart = tail5, length = 5F)
     val tail6Segment = WaveSegment(modelPart = tail6, length = 5F)
-
-    override val cryAnimation = CryProvider { bedrockStateful("huntail", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

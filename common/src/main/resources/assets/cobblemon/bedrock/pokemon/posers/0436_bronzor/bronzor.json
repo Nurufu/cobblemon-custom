@@ -1,51 +1,39 @@
 {
-    "head": "head",
-    "portraitScale": 1.5,
-    "portraitTranslation": [ -0.2, 0.6, 0 ],
-    "profileScale": 0.7,
-    "profileTranslation": [ 0, 0.75, 0 ],
-    "animations": {
-      "cry": "q.bedrock_stateful('bronzor', 'cry')",
-      "faint": "q.bedrock_primary('bronzor', 'faint')"
+  "portraitScale": 1.5,
+  "portraitTranslation": [0.03, -0.16, 0],
+  "profileScale": 0.67,
+  "profileTranslation": [0, 0.75, 0],
+  "rootBone": "bronzor",
+  "animations": {
+    "cry": "q.bedrock_stateful('bronzor', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "HOVER", "NONE", "PORTRAIT", "PROFILE"],
+      "animations": [
+        "q.look('body')", 
+        "q.bedrock('bronzor', 'ground_idle')"
+      ],
+      "quirks": [
+      "q.bedrock_quirk('bronzor', 'blink')",
+      "q.bedrock_quirk('bronzor', 'idle_quirk')"
+    ]
     },
-    
-    "poses": {
-
-      "standing": {
-        "poseName": "standing",
-        "transformTicks": 10,
-        "poseTypes": [
-          "STAND",
-          "NONE",
-          "PORTRAIT",
-          "PROFILE"
-        ],
-        "animations": [
-          "look",
-          "bedrock(bronzor, ground_idle)"
-        ],
-        "quirks": [
-          {
-            "name": "blink",
-            "animations": ["bedrock(bronzor, blink)"]
-          }
-        ]
-      },
-
-      "walking": {
-        "poseName": "walking",
-        "transformTicks": 10,
-        "poseTypes": [ "WALK" ],
-        "animations": [ 
-          "look",
-          "bedrock(bronzor, ground_walk)"
-        ],
-        "quirks": [
-          {
-            "name": "blink",
-            "animations": ["bedrock(bronzor, blink)"]
-          }
-        ]
-      }
+    "walking": {
+      "poseTypes": ["WALK", "FLY"],
+      "animations": [
+        "q.look('body')", 
+        "q.bedrock('bronzor', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('bronzor', 'blink')"
+      ]
+    },
+    "sleeping": {
+      "poseTypes": ["SLEEP"],
+      "animations": [
+        "q.bedrock('bronzor', 'sleep')"
+      ]
     }
   }
+}

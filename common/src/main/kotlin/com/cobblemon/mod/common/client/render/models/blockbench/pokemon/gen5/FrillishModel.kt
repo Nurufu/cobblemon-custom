@@ -9,17 +9,19 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen5
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class FrillishModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("frillish")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("frillish", "cry") }
+
 
     override var portraitScale = 2.14F
     override var portraitTranslation = Vec3d(-0.2, 0.3, 0.0)
@@ -27,10 +29,8 @@ class FrillishModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var profileScale = 0.73F
     override var profileTranslation = Vec3d(0.0, 0.62, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("frillish", "cry") }
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("frillish", "blink") }

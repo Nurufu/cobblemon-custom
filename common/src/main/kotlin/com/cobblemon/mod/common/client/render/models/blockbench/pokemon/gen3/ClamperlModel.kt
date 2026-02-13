@@ -9,16 +9,19 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen3
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class ClamperlModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("clamperl")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("clamperl", "cry") }
+
 
     override var portraitScale = 3.0F
     override var portraitTranslation = Vec3d(0.0, -2.15, 0.0)
@@ -31,8 +34,6 @@ class ClamperlModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     lateinit var floating: Pose
     lateinit var swimming: Pose
     lateinit var portrait: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("clamperl", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

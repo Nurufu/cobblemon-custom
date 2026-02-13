@@ -299,7 +299,7 @@
 				}
 			},
 			"sound_effects": {
-				"0.2": {
+				"0.25": {
 					"effect": "pokemon.ditto.cry"
 				}
 			}

@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MrmimeModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -24,6 +25,9 @@ class MrmimeModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bip
     override val head = getPart("head")
     override val leftLeg = getPart("leg_left1")
     override val rightLeg = getPart("leg_right1")
+
+    override val cryAnimation = CryProvider { bedrockStateful("mr_mime", "cry") }
+
 
     override var portraitScale = 2.1F
     override var portraitTranslation = Vec3d(-0.15, 1.25, 0.0)

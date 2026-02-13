@@ -17,10 +17,10 @@
     "special_defence": 70,
     "speed": 60
   },
-  "baseScale": 1.2,
+  "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 2.35,
+    "width": 1.4,
+    "height": 3.35,
     "fixed": false
   },
   "catchRate": 45,

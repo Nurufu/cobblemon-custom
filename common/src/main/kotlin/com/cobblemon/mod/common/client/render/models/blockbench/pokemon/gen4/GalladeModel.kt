@@ -26,8 +26,8 @@ class GalladeModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override var portraitScale = 2.6F
     override var portraitTranslation = Vec3d(-0.15, 2.1, 0.0)
 
-    override var profileScale = 0.54F
-    override var profileTranslation = Vec3d(0.0, 0.93, 0.0)
+    override var profileScale = 0.65F
+    override var profileTranslation = Vec3d(0.0, 0.76, 0.0)
 
     lateinit var standing: CobblemonPose
     lateinit var walking: CobblemonPose

@@ -4,54 +4,9 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:floette2",
-      "model": "cobblemon:floette2.geo",
+      "poser": "cobblemon:floette",
+      "model": "cobblemon:floette.geo",
       "texture": "cobblemon:textures/pokemon/0670_floette/floette.png",
-      "layers": []
-    },
-    {
-      "aspects": ["shiny"],
-      "texture": "cobblemon:textures/pokemon/0670_floette/floette_shiny.png"
-    },
-    {
-      "model": "cobblemon:floette2.geo",
-      "aspects": ["flower-blue"],
-      "layers": [
-        {
-          "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_blue.png"
-        }
-      ]
-    },
-    {
-      "model": "cobblemon:floette2.geo",
-      "aspects": ["flower-orange"],
-      "layers": [
-        {
-          "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_orange.png"
-        }
-      ]
-    },
-    {
-      "model": "cobblemon:floette2.geo",
-      "aspects": ["flower-yellow"],
-      "layers": [
-        {
-          "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_yellow.png"
-        }
-      ]
-    },
-    {
-      "model": "cobblemon:floette2.geo",
-      "aspects": ["flower-white"],
-      "layers": [
-        {
-          "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_white.png"
-        }
-      ]
-    },
-    {
-      "model": "cobblemon:floette2.geo",
-      "aspects": ["flower-red"],
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_red.png"
@@ -59,7 +14,62 @@
       ]
     },
     {
-      "model": "cobblemon:floette2.geo",
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/0670_floette/floette_shiny.png"
+    },
+    {
+      "aspects": [
+        "flower-red"
+      ],
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_red.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "flower-blue"
+      ],
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_blue.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "flower-orange"
+      ],
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_orange.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "flower-yellow"
+      ],
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_yellow.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "flower-white"
+      ],
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_white.png"
+        }
+      ]
+    },
+    {
       "aspects": [
         "flower-pink"
       ],
@@ -68,18 +78,6 @@
           "texture": "cobblemon:textures/pokemon/0670_floette/floette_flower_pink.png"
         }
       ]
-    },
-    {
-      "aspects": ["eternal", "flower-none"],
-      "poser": "cobblemon:floette_e",
-      "model": "cobblemon:floette_e.geo",
-      "texture": "cobblemon:textures/pokemon/0670_floette/floette_e.png",
-      "layers": []
-    },
-    {
-      "aspects": ["eternal", "shiny", "flower-none"],
-      "texture": "cobblemon:textures/pokemon/0670_floette/floette_e_shiny.png",
-      "layers": []
     }
   ]
 }

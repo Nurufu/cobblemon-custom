@@ -273,7 +273,24 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "rhyhorn_rhydon",
+          "variant": "level_up",
+          "result": "rhydon",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "hammerarm"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 42
+            }
+          ]
+        }
+      ]
     }
   ]
 }

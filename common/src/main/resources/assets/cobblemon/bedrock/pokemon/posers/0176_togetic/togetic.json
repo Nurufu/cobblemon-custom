@@ -6,7 +6,7 @@
  "rootBone": "togetic",
  "animations": {
    "faint": "q.bedrock_primary('togetic', 'faint', q.curve('one'))",
-   "cry": "q.bedrock_stateful('togetic', 'cry_placeholder')",
+   "cry": "q.bedrock_stateful('togetic', 'cry')",
    "recoil": "q.bedrock_stateful('togetic', 'recoil')"
  },
  "poses": {

@@ -4,15 +4,13 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:surskit2",
-      "model": "cobblemon:surskit2.geo",
+      "poser": "cobblemon:surskit",
+      "model": "cobblemon:surskit.geo",
       "texture": "cobblemon:textures/pokemon/0283_surskit/surskit.png",
       "layers": []
     },
     {
-      "aspects": [
-        "shiny"
-      ],
+      "aspects": ["shiny"],
       "texture": "cobblemon:textures/pokemon/0283_surskit/surskit_shiny.png"
     }
   ]

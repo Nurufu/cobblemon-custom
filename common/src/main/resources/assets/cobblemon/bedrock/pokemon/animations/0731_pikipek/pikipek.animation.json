@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.pikipek.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.pikipek.cry"
+				}
+			}
+		},
 		"animation.pikipek.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -80,14 +88,6 @@
 				},
 				"left_foot": {
 					"rotation": [15, 0, 0]
-				}
-			}
-		},
-		"animation.pikipek.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.pikipek.cry"
 				}
 			}
 		},

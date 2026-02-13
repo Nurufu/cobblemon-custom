@@ -9,18 +9,20 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class CentiskorchModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("centiskorch")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("centiskorch", "cry") }
+
 
     override var portraitScale = 1.4F
     override var portraitTranslation = Vec3d(-0.62, 2.01, 0.0)
@@ -28,12 +30,10 @@ class CentiskorchModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame
     override var profileScale = 0.45F
     override var profileTranslation = Vec3d(0.02, 0.98, 0.0)
 
-    lateinit var sleep: Pose
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var battleidle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("centiskorch", "cry") }
+    lateinit var sleep: CobblemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var battleidle: CobblemonPose
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("centiskorch", "blink") }

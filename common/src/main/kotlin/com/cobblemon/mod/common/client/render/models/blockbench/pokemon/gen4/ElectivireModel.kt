@@ -33,8 +33,8 @@ class ElectivireModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame,
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(-0.65, 1.3, 0.0)
 
-    override var profileScale = 0.56F
-    override var profileTranslation = Vec3d(0.0, 0.90, 0.0)
+    override var profileScale = 0.65F
+    override var profileTranslation = Vec3d(0.0, 0.75, 0.0)
 
     lateinit var standing: CobblemonPose
     lateinit var walk: CobblemonPose

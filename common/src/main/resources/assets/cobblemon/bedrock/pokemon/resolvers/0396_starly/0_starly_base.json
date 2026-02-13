@@ -5,14 +5,12 @@
     {
       "aspects": [],
       "poser": "cobblemon:starly",
-      "model": "cobblemon:starly.geo",
+      "model": "cobblemon:starly_male.geo",
       "texture": "cobblemon:textures/pokemon/0396_starly/starly.png",
       "layers": []
     },
     {
-      "aspects": [
-        "shiny"
-      ],
+      "aspects": ["shiny"],
       "texture": "cobblemon:textures/pokemon/0396_starly/starly_shiny.png"
     }
   ]

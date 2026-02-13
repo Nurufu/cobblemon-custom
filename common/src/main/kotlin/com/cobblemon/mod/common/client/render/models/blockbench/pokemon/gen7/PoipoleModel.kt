@@ -19,6 +19,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PoipoleModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BimanualFrame, BipedFrame {
@@ -30,6 +31,9 @@ class PoipoleModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
 
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("poipole", "cry") }
+
 
     override var portraitScale = 2.5F
     override var portraitTranslation = Vec3d(-0.1, -0.66, 0.0)

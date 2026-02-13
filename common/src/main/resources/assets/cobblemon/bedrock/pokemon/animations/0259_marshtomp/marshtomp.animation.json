@@ -1,14 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.marshtomp.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.marshtomp.cry"
-				}
-			}
-		},
 		"animation.marshtomp.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -80,6 +72,14 @@
 				},
 				"foot_right": {
 					"rotation": [-7.5, 0, -2.5]
+				}
+			}
+		},
+		"animation.marshtomp.cry": {
+			"animation_length": 1.2,
+			"sound_effects": {
+				"0.04": {
+					"effect": "pokemon.marshtomp.cry"
 				}
 			}
 		},

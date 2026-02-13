@@ -1,55 +1,50 @@
 {
-     
-    "portraitScale": 1.4,
-    "portraitTranslation": [ -0.4, 1.8, 0 ],
-    "profileScale": 0.55,
-    "profileTranslation": [ 0, 0.95, 0 ],
+  "portraitScale": 2.04,
+  "portraitTranslation": [ -0.9, 1.52, 0],
+  "profileScale": 0.56,
+  "profileTranslation": [ 0, 0.89, 0],
   "animations": {
     "cry": "q.bedrock_stateful('houndoom', 'cry')"
   },
-    "poses": {
-      "standing": {
-        "poseName": "standing",
-        "transformTicks": 10,
-        "poseTypes": [
-          "STAND",
-          "NONE",
-          "PORTRAIT",
-          "PROFILE",
-          "FLOAT",
-          "SWIM"
-        ],
-        "animations": [
-          "q.look('head_ai')",
-          "bedrock(houndoom, ground_idle)"
-        ],
-        "quirks": [
-            {
-              "name": "blink",
-              "animations": ["bedrock(houndoom, blink)"],
-              "maxSecondsBetweenOccurrences": 60
-            }
-          ]
-      },
-      "walking": {
-        "poseName": "walking",
-        "transformTicks": 10,
-        "poseTypes": [ "WALK" ],
-        "animations": [ "bedrock(houndoom, ground_walk)" ],
-        "quirks": [
-          {
-            "name": "blink",
-            "animations": ["bedrock(houndoom, blink)"]
-          }
-        ]
-        
-      },
-      "sleeping": {
-        "poseName": "sleeping",
-        "transformTicks": 10,
-        "poseTypes": ["SLEEP"],
-        "animations": ["bedrock(houndoom, sleep)"]
-      }
-
+  "rootBone": "houndoom",
+  "poses": {
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "FLOAT",
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('houndoom', 'ground_idle')",
+       {
+          "condition": "q.is_holding_item",
+          "animation": "q.bedrock('houndoom', 'hold_item')"
+       }
+      ],
+      "quirks": [
+        "q.bedrock_quirk('houndoom', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK",
+        "SWIM"
+      ],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('houndoom', 'ground_idle')",
+        "q.quadruped_walk(1, 1, 'leg_front_left', 'leg_front_right', 'leg_back_left', 'leg_back_right')",
+       {
+          "condition": "q.is_holding_item",
+          "animation": "q.bedrock('houndoom', 'hold_item')"
+       }
+      ],
+      "quirks": [
+        "q.bedrock_quirk('houndoom', 'blink')"
+      ]
     }
+  }
 }

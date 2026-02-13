@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isTouchingWater
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PelipperModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, BiWingedFrame {
@@ -25,6 +26,9 @@ class PelipperModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, B
     override val rightWing = getPart("wing_right")
     override val leftLeg = getPart("foot_left")
     override val rightLeg = getPart("foot_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("pelipper", "cry") }
+
 
     override var portraitScale = 1.5F
     override var portraitTranslation = Vec3d(-0.2, 0.0, 0.0)

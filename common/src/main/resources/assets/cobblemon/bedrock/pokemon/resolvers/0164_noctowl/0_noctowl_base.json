@@ -16,10 +16,15 @@
       ]
     },
     {
-      "aspects": [
-        "shiny"
-      ],
-      "texture": "cobblemon:textures/pokemon/0164_noctowl/noctowl_shiny.png"
+      "aspects": ["shiny"],
+      "texture": "cobblemon:textures/pokemon/0164_noctowl/noctowl_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "cobblemon:textures/pokemon/0164_noctowl/noctowl_shiny_emissive.png",
+          "emissive": "true"
+        }
+      ]
     }
   ]
 }

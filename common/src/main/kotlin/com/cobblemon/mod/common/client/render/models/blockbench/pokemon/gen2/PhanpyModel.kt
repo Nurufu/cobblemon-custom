@@ -11,13 +11,12 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PhanpyModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -29,18 +28,19 @@ class PhanpyModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Qu
     override val hindLeftLeg = getPart("leg_back_left")
     override val hindRightLeg = getPart("leg_back_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("phanpy", "cry") }
+
+
     override var portraitScale = 1.8F
     override var portraitTranslation = Vec3d(-0.4, -0.8, 0.0)
 
     override var profileScale = 0.85F
     override var profileTranslation = Vec3d(0.0, 0.4, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var sleep: Pose
-    lateinit var battle_idle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("phanpy", "cry") }
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var sleep: CobblemonPose
+    lateinit var battle_idle: CobblemonPose
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("phanpy", "blink") }

@@ -257,7 +257,33 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "scyther_scizor",
+          "variant": "trade",
+          "result": "scizor",
+          "consumeHeldItem": true,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:metal_coat"
+            }
+          ]
+        },
+        {
+          "id": "scyther_kleavor",
+          "variant": "item_interact",
+          "result": "kleavor",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "stoneaxe"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:black_augurite"
+        }
+      ]
     }
   ]
 }

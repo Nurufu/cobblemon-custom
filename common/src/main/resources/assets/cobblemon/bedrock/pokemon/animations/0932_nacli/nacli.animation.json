@@ -20,8 +20,6 @@
 			}
 		},
 		"animation.nacli.sleep": {
-            "loop": true,
-			"animation_length": 9.33333,
 			"bones": {
 				"eyelid_left": {
 					"position": [0, 0, -0.1]

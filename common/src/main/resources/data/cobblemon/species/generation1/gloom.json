@@ -215,7 +215,29 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "gloom_vileplume",
+          "variant": "item_interact",
+          "result": "vileplume",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "petalblizzard"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:leaf_stone"
+        },
+        {
+          "id": "gloom_bellossom",
+          "variant": "item_interact",
+          "result": "bellossom",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:sun_stone"
+        }
+      ]
     },
     {
       "name": "Valencian",

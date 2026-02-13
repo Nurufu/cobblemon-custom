@@ -12,10 +12,14 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class AlomomolaModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("alomomola")
+
+    override val cryAnimation = CryProvider { bedrockStateful("alomomola", "cry") }
+
 
     override var portraitScale = 1.81F
     override var portraitTranslation = Vec3d(-0.26, -0.38, 0.0)

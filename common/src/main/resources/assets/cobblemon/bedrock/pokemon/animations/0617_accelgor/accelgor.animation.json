@@ -103,6 +103,69 @@
 					}
 				}
 			}
+		},
+		"animation.accelgor.shock": {
+			"loop": true,
+			"bones": {
+				"pupil_left": {
+					"position": [0, -0.25, 0],
+					"scale": [0.7, 0.7, 1]
+				},
+				"pupil_right": {
+					"position": [0, -0.25, 0],
+					"scale": [0.7, 0.7, 1]
+				}
+			}
+		},
+		"animation.accelgor.angry": {
+			"loop": true,
+			"bones": {
+				"eye_angry_left": {
+					"position": [0.1, 0, -0.1]
+				},
+				"pupil_left": {
+					"position": [0, -0.3, 0]
+				},
+				"eye_angry_right": {
+					"position": [-0.1, 0, -0.1]
+				},
+				"pupil_right": {
+					"position": [0, -0.3, 0]
+				}
+			}
+		},
+		"animation.accelgor.sad": {
+			"loop": true,
+			"bones": {
+				"eye_sad_left": {
+					"position": [0.1, 0, -0.1]
+				},
+				"eye_sad_right": {
+					"position": [-0.1, 0, -0.1]
+				}
+			}
+		},
+		"animation.accelgor.happy": {
+			"loop": true,
+			"bones": {
+				"eyelid_happy_left": {
+					"position": [0.1, 0, -0.1]
+				},
+				"eyelid_happy_right": {
+					"position": [-0.1, 0, -0.1]
+				}
+			}
+		},
+		"animation.accelgor.hurt": {
+			"loop": true,
+			"bones": {
+				"eyelid_recoil_left": {
+					"position": [0.1, 0, -0.1]
+				},
+				"eyelid_recoil_right": {
+					"position": [-0.1, 0, -0.1]
+				}
+			}
 		}
 	}
 }

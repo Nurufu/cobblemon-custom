@@ -240,6 +240,11 @@
 		},
 		"animation.comfey.cry": {
 			"animation_length": 1.41667,
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.comfey.cry"
+					}
+				},
 			"bones": {
 				"mouth": {
 					"position": {
@@ -348,11 +353,6 @@
 						},
 						"1.1667": [0, 0, 0]
 					}
-				}
-			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.comfey.cry"
 				}
 			}
 		},

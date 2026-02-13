@@ -17,6 +17,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class KricketuneModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -27,6 +28,9 @@ class KricketuneModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame
     override val rightArm = getPart("arm_right")
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("kricketune", "cry") }
+
 
     override var portraitScale = 2.4F
     override var portraitTranslation = Vec3d(0.0, 0.41, 0.0)

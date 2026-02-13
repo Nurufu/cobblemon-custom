@@ -14,7 +14,6 @@ import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedF
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
@@ -35,9 +34,9 @@ class NidoranfModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Q
     override var profileScale = 1.03F
     override var profileTranslation = Vec3d(0.02, 0.21, 0.0)
 
-    lateinit var sleep: Pose
-    lateinit var standing: Pose
-    lateinit var walk: Pose
+    lateinit var sleep: CobblemonPose
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
     override val cryAnimation = CryProvider { bedrockStateful("nidoranf", "cry") }
 

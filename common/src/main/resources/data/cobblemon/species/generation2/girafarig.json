@@ -270,7 +270,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "girafarig_farigiraf",
+          "variant": "level_up",
+          "result": "farigiraf",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "has_move",
+              "move": "twinbeam"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

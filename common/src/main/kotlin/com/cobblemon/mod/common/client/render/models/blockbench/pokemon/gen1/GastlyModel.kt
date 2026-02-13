@@ -15,10 +15,14 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class GastlyModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("gastly")
+
+    override val cryAnimation = CryProvider { bedrockStateful("gastly", "cry") }
+
 
     override var portraitScale = 2.4F
     override var portraitTranslation = Vec3d(0.0, -2.0, 0.0)

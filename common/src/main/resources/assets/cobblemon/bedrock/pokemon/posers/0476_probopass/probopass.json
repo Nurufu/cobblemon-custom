@@ -1,48 +1,55 @@
 {
-  "portraitScale": 1,
-  "portraitTranslation": [0.0, 0.425, 0.0],
-  "profileScale": 0.59,
-  "profileTranslation": [0, 0.86, 0],
+ "portraitScale": 1,
+ "portraitTranslation": [ 0, 0.425, 0 ],
+ "profileScale": 0.75,
+ "profileTranslation": [ 0, 0.7, 0 ],
+ "rootBone": "probopass",
   "animations": {
+    "faint": "q.bedrock_primary('probopass', 'faint', q.curve('one'))",
     "cry": "q.bedrock_stateful('probopass', 'cry')",
-    "recoil": "q.bredrock_stateful('probopass', 'recoil')",
-    "physical": "q.bredrock_stateful('probopass', 'physical')",
-    "special": "q.bredrock_stateful('probopass', 'special')",
-    "status": "q.bredrock_stateful('probopass', 'status')",
-    "faint": "q.bredrock_stateful('probopass', 'faint')"
+    "recoil": "q.bedrock_stateful('probopass', 'recoil')",
+    "physical": "q.bedrock_primary('probopass', 'physical', 'look', q.curve('symmetrical'))",
+    "special": "q.bedrock_primary('probopass', 'special', 'look', q.curve('symmetrical'))",
+    "status": "q.bedrock_primary('probopass', 'status', q.curve('symmetrical'))"
   },
   "poses": {
-    "standing": {
-      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
+      "namedAnimations": {
+      "cry": "q.bedrock_primary('probopass', 'battle_cry', q.curve('symmetrical'))"
+    },
       "animations": [
-        "q.look('head')",
+        "q.bedrock('probopass', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('probopass', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "FLOAT"],
+      "isBattle": false,
+      "animations": [
         "q.bedrock('probopass', 'ground_idle')"
       ],
       "quirks": [
         "q.bedrock_quirk('probopass', 'blink')"
       ]
     },
-    "battle": {
-      "poseTypes": ["STAND"],
-      "isBattle": true,
-      "namedAnimations": {
-        "cry": "q.bedrock_stateful('probopass', 'battle_cry')"
-      },
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('probopass', 'battle_idle')"
-      ]
-    },
     "walking": {
       "poseTypes": ["WALK"],
       "animations": [
-        "q.look('head')",
         "q.bedrock('probopass', 'ground_walk')"
       ]
     },
-    "sleep": {
+    "sleeping": {
       "poseTypes": ["SLEEP"],
-      "animations": ["q.bedrock('probopass', 'sleep')"]
+      "animations": [
+        "q.bedrock('probopass', 'sleep')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('probopass', 'blink')"
+      ]
     }
   }
 }

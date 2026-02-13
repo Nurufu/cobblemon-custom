@@ -361,7 +361,7 @@
 			},
 			"sound_effects": {
 				"0.2917": {
-					"effect": "wailord_ambient"
+					"effect": "pokemon.wailord.cry"
 				}
 			}
 		},

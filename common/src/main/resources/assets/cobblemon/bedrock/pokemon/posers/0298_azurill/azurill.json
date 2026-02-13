@@ -4,7 +4,7 @@
   "profileScale": 0.89,
   "profileTranslation": [0.0, 0.39, 0.0],
   "rootBone": "azurill",
-  "animations": {
+    "animations": {
     "cry": "q.bedrock_stateful('azurill', 'cry')"
   },
   "poses": {

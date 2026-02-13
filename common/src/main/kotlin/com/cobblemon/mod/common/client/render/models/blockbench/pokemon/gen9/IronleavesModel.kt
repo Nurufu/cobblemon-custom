@@ -10,11 +10,11 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen9
 
 import com.cobblemon.mod.common.client.render.models.blockbench.createTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class IronleavesModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
@@ -23,6 +23,9 @@ class IronleavesModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame
     val neck_sword_left = getPart("neck_sword_left")
     val neck_sword_right = getPart("neck_sword_right")
     val sword_head = getPart("sword_head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("ironleaves", "cry") }
+
 
     override var portraitScale = 3.0F
     override var portraitTranslation = Vec3d(-0.9, 2.2, 0.0)
@@ -33,8 +36,6 @@ class IronleavesModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame
     lateinit var sleep: Pose
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("ironleaves", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("ironleaves", "blink") }

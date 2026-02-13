@@ -12,12 +12,11 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.Bimanu
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class HakamoOModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, BimanualFrame {
@@ -28,16 +27,17 @@ class HakamoOModel (root: ModelPart) : PokemonPosableModel(root), BipedFrame, Bi
     override val leftLeg = getPart("leg_right")
     override val rightLeg = getPart("leg_left")
 
+    override val cryAnimation = CryProvider { bedrockStateful("hakamo-o", "cry") }
+
+
     override var portraitScale = 1.83F
     override var portraitTranslation = Vec3d(-0.38, 1.09, 0.0)
 
     override var profileScale = 0.58F
     override var profileTranslation = Vec3d(0.0, 0.88, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("hakamo-o", "cry") }
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("hakamo-o", "blink") }

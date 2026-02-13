@@ -18,12 +18,16 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class HappinyModel(root: ModelPart) : PokemonPosableModel(root), BipedFrame {
     override val rootPart = root.registerChildWithAllChildren("happiny")
     override val leftLeg = getPart("left_foot")
     override val rightLeg = getPart("right_foot")
+
+    override val cryAnimation = CryProvider { bedrockStateful("happiny", "cry") }
+
 
     override var portraitScale = 2.09F
     override var portraitTranslation = Vec3d(-0.1, -0.8, 0.0)

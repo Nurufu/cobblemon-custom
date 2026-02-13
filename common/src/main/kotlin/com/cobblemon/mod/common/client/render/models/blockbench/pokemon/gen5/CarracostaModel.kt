@@ -22,8 +22,8 @@ class CarracostaModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame
     override val rootPart = root.registerChildWithAllChildren("carracosta")
     override val head = getPart("head")
 
+    override var portraitTranslation = Vec3d(-0.5, 0.47999999999999954, 0.0)
     override var portraitScale = 1.9F
-    override var portraitTranslation = Vec3d(-0.5, 1.0, 0.0)
 
     override var profileScale = 0.8F
     override var profileTranslation = Vec3d(0.0, 0.55, 0.0)

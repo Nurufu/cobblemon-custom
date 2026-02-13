@@ -94,6 +94,72 @@
 					}
 				}
 			}
+		},
+		"animation.dedenne.cry": {
+			"animation_length": 0.95,
+			"bones": {
+				"mouth_closed": {
+					"position": {
+						"0.0": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.2": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [0, 0, 0.2],
+							"lerp_mode": "catmullrom"
+						},
+						"0.55": {
+							"post": [0, 0, 0.2],
+							"lerp_mode": "catmullrom"
+						},
+						"0.6": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.95": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [-15, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.55": {
+							"post": [-15, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.95": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"mouth_open": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.2": [0, 0, -0.1],
+						"0.6": [0, 0, -0.1],
+						"0.95": [0, 0, 0]
+					}
+				}
+			},
+			"sound_effects": {
+				"0.0417": {
+					"effect": "pokemon.dedenne.cry"
+				}
+			}
 		}
 	}
 }

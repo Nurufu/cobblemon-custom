@@ -21,8 +21,8 @@ class AerodactylModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame 
     override val rootPart = root.registerChildWithAllChildren("aerodactyl")
     override val head = getPart("head")
 
-    override var portraitScale = 1.9F
-    override var portraitTranslation = Vec3d(-1.0, -0.65, 0.0)
+    override var portraitScale = 1.04F
+    override var portraitTranslation = Vec3d(-0.45, 1.04, 0.0)
 
     override var profileScale = 0.55F
     override var profileTranslation = Vec3d(0.0, 0.55, 0.0)

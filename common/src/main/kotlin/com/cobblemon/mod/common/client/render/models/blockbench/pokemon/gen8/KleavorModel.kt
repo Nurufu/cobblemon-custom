@@ -15,6 +15,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class KleavorModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -23,6 +24,9 @@ class KleavorModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
 
     override val leftLeg = getPart("left_upper_leg")
     override val rightLeg = getPart("right_upper_leg")
+
+    override val cryAnimation = CryProvider { bedrockStateful("kleavor", "cry") }
+
 
     override var portraitScale = 2.0F
     override var portraitTranslation = Vec3d(-0.85, 1.3, 0.0)

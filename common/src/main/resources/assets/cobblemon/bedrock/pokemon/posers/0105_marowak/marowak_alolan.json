@@ -2,9 +2,11 @@
   "portraitScale": 1.82,
   "portraitTranslation": [-0.01, 0.64, 0],
   "profileScale": 0.84,
-  "profileTranslation": [0.01, 0.51, 0],
+  "profileTranslation": [0, 0.51, 0],
   "rootBone": "marowak_alolan",
-  "animations": {},
+    "animations": {
+    "cry": "q.bedrock_stateful('marowak_alolan', 'cry')"
+  },
   "poses": {
     "battle-standing": {
       "poseTypes": ["STAND"],

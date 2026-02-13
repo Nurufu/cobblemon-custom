@@ -7,7 +7,11 @@
       "poser": "cobblemon:flabebe",
       "model": "cobblemon:flabebe.geo",
       "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe.png",
-      "layers": []
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_red.png"
+        }
+      ]
     },
     {
       "aspects": [
@@ -16,44 +20,9 @@
       "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_shiny.png"
     },
     {
-      "model": "cobblemon:flabebe.geo",
-      "aspects": ["flower-blue"],
-      "layers": [
-        {
-          "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_blue.png"
-        }
-      ]
-    },
-    {
-      "model": "cobblemon:flabebe.geo",
-      "aspects": ["flower-orange"],
-      "layers": [
-        {
-          "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_orange.png"
-        }
-      ]
-    },
-    {
-      "model": "cobblemon:flabebe.geo",
-      "aspects": ["flower-yellow"],
-      "layers": [
-        {
-          "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_yellow.png"
-        }
-      ]
-    },
-    {
-      "model": "cobblemon:flabebe.geo",
-      "aspects": ["flower-white"],
-      "layers": [
-        {
-          "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_white.png"
-        }
-      ]
-    },
-    {
-      "model": "cobblemon:flabebe.geo",
-      "aspects": ["flower-red"],
+      "aspects": [
+        "flower-red"
+      ],
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_red.png"
@@ -61,8 +30,49 @@
       ]
     },
     {
-      "model": "cobblemon:flabebe.geo",
-      "aspects": ["flower-pink"],
+      "aspects": [
+        "flower-blue"
+      ],
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_blue.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "flower-orange"
+      ],
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_orange.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "flower-yellow"
+      ],
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_yellow.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "flower-white"
+      ],
+      "layers": [
+        {
+          "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_white.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "flower-pink"
+      ],
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0669_flabebe/flabebe_flower_pink.png"

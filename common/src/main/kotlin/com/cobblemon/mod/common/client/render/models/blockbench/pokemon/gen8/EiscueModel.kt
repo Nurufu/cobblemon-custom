@@ -8,9 +8,9 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen8
 
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
@@ -22,10 +22,10 @@ class EiscueModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val head = getPart("head")
 
     override var portraitScale = 2.0F
-    override var portraitTranslation = Vec3d(-0.1, -0.2, 0.0)
+    override var portraitTranslation = Vec3d(-0.1, 0.31, 0.0)
 
-    override var profileScale = 1.0F
-    override var profileTranslation = Vec3d(0.0, 0.3, 0.0)
+    override var profileScale = 0.8F
+    override var profileTranslation = Vec3d(0.0, 0.55, 0.0)
 
     lateinit var standing: Pose
     lateinit var walk: Pose

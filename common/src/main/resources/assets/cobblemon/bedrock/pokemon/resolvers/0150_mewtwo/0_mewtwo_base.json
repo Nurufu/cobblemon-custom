@@ -6,14 +6,12 @@
       "aspects": [],
       "poser": "cobblemon:mewtwo",
       "model": "cobblemon:mewtwo.geo",
-      "texture": "cobblemon:textures/pokemon/0150_mewtwo/mewtwo.png",
+      "texture": "cobblemon:textures/pokemon/0150_mewtwo2/mewtwo2.png",
       "layers": []
     },
     {
-      "aspects": [
-        "shiny"
-      ],
-      "texture": "cobblemon:textures/pokemon/0150_mewtwo/mewtwo_shiny.png"
+      "aspects": [ "shiny" ],
+      "texture": "cobblemon:textures/pokemon/0150_mewtwo2/mewtwo2_shiny.png"
     }
   ]
 }

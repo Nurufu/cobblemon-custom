@@ -13,13 +13,13 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class SudowoodoModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -31,6 +31,9 @@ class SudowoodoModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("sudowoodo", "cry") }
+
+
     override var portraitScale = 1.9F
     override var portraitTranslation = Vec3d(-0.7, 1.6, 0.0)
 
@@ -40,14 +43,12 @@ class SudowoodoModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
     lateinit var standing: Pose
     lateinit var walk: Pose
 
-    override val cryAnimation = CryProvider { bedrockStateful("sudowoodo", "cry") }
-
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("sudowoodo", "blink") }
         standing = registerPose(
             poseName = "standing",
             poseTypes = STATIONARY_POSES + UI_POSES,
-            quirks = arrayOf(blink),
+            //quirks = arrayOf(blink),
             animations = arrayOf(
                 singleBoneLook(yawMultiplier = 0F),
                 bedrock("sudowoodo", "ground_idle")
@@ -57,7 +58,7 @@ class SudowoodoModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, 
         walk = registerPose(
             poseName = "walk",
             poseTypes = MOVING_POSES,
-            quirks = arrayOf(blink),
+            //quirks = arrayOf(blink),
             animations = arrayOf(
                 singleBoneLook(yawMultiplier = 0F),
                 bedrock("sudowoodo", "ground_idle"),

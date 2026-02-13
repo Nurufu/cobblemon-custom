@@ -99,6 +99,11 @@
 		},
 		"animation.kricketot.cry": {
 			"animation_length": 1.5,
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.kricketot.cry"
+					}
+				},
 			"bones": {
 				"torso": {
 					"rotation": {

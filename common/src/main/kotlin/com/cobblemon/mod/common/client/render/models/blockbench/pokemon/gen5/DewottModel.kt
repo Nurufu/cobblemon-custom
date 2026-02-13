@@ -34,8 +34,8 @@ class DewottModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
 
     override var portraitScale = 2.0F
     override var portraitTranslation = Vec3d(-0.15, 0.8, 0.0)
-    override var profileScale = 0.66F
-    override var profileTranslation = Vec3d(0.0, 0.79, 0.0)
+    override var profileScale = 0.7F
+    override var profileTranslation = Vec3d(0.0, 0.69, 0.0)
 
     lateinit var battleidle: Pose
     lateinit var sleep: Pose

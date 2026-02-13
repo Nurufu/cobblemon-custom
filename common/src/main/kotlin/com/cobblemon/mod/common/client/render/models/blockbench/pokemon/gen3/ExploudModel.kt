@@ -13,11 +13,11 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class ExploudModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -29,6 +29,9 @@ class ExploudModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("exploud", "cry") }
+
+
     override var portraitScale = 1.0F
     override var portraitTranslation = Vec3d(-0.25, 0.55, 0.0)
 
@@ -37,8 +40,6 @@ class ExploudModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("exploud", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

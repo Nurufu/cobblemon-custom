@@ -4,15 +4,13 @@
   "variations": [
     {
       "aspects": [],
-      "poser": "cobblemon:bulbasaur2",
+      "poser": "cobblemon:bulbasaur",
       "model": "cobblemon:bulbasaur.geo",
       "texture": "cobblemon:textures/pokemon/0001_bulbasaur/bulbasaur.png",
       "layers": []
     },
     {
-      "aspects": [
-        "shiny"
-      ],
+      "aspects": ["shiny"],
       "texture": "cobblemon:textures/pokemon/0001_bulbasaur/bulbasaur_shiny.png"
     }
   ]

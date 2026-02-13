@@ -4,7 +4,7 @@
   "profileScale": 0.47,
   "profileTranslation": [0.00, 1.06, 0],
   "rootBone": "tarountula",
-    "animations": {
+  "animations": {
     "cry": "q.bedrock_stateful('tarountula', 'cry')"
   },
   "poses": {

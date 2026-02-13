@@ -755,8 +755,8 @@
 				}
 			},
 			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.slowking.cry"
+				"0.4167": {
+					"effect": "pokemon.slowking_galarian.cry"
 				}
 			}
 		}

@@ -14,11 +14,15 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class ShuckleModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("shuckle")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("shuckle", "cry") }
+
 
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(-0.7, 0.1, 0.0)
@@ -31,7 +35,7 @@ class ShuckleModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     lateinit var sleep: Pose
 
     override fun registerPoses() {
-        val blink = quirk { bedrockStateful("shuckle", "blink")}
+        val blink = quirk { bedrockStateful("ditto", "blink")}
         standing = registerPose(
             poseName = "standing",
             poseTypes = PoseType.STATIONARY_POSES + PoseType.UI_POSES,

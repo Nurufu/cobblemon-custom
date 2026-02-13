@@ -14,12 +14,11 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.CobblemonPose
-import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MawileModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -30,17 +29,18 @@ class MawileModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
     override val rightLeg = getPart("leg_right")
     override val leftLeg = getPart("leg_left")
 
+    override val cryAnimation = CryProvider { bedrockStateful("mawile", "cry") }
+
+
     override var portraitScale = 2.93F
     override var portraitTranslation = Vec3d(0.2, -1.06, 0.0)
 
     override var profileScale = 0.8F
     override var profileTranslation = Vec3d(0.09, 0.6, 0.0)
 
-    lateinit var standing: Pose
-    lateinit var walk: Pose
-    lateinit var battleidle: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("mawile", "cry") }
+    lateinit var standing: CobblemonPose
+    lateinit var walk: CobblemonPose
+    lateinit var battleidle: CobblemonPose
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("mawile", "blink") }

@@ -12,10 +12,10 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class LuxrayModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -27,6 +27,9 @@ class LuxrayModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Qu
     override val hindLeftLeg = getPart("back_leg_left")
     override val hindRightLeg = getPart("back_leg_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("luxray", "cry") }
+
+
     override var portraitScale = 1.8F
     override var portraitTranslation = Vec3d(-0.9, 0.6, 0.0)
 
@@ -35,8 +38,6 @@ class LuxrayModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Qu
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("luxray", "cry") }
 
     override fun registerPoses() {
 //        val blink = quirk { bedrockStateful("luxray", "blink") }

@@ -2,7 +2,6 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"animation.rayquaza.pose": {
-			"loop": true,
 			"animation_length": 3.5,
 			"bones": {
 				"rayquaza": {
@@ -4921,18 +4920,9 @@
 							"lerp_mode": "catmullrom"
 						},
 						"0.75": [0, -360, 0],
-						"1.0417": {
-							"pre": [0, -360, 0],
-							"post": [0, 0, 0]
-						},
-						"2.0": {
-							"pre": [0, 0, 0],
-							"post": [0, 0, 0]
-						},
-						"2.625": {
-							"pre": [0, 0, 0],
-							"post": [0, 0, 0]
-						},
+						"1.0417": {"pre": [0, -360, 0], "post": [0, 0, 0]},
+						"2.0": {"pre": [0, 0, 0], "post": [0, 0, 0]},
+						"2.625": {"pre": [0, 0, 0], "post": [0, 0, 0]},
 						"3.25": [0, 0, 0]
 					},
 					"position": {
@@ -5026,10 +5016,7 @@
 							"lerp_mode": "catmullrom"
 						},
 						"3.25": [-380, 0, 0],
-						"3.75": {
-							"pre": [-380, 0, 0],
-							"post": [-20, 0, 0]
-						}
+						"3.75": {"pre": [-380, 0, 0], "post": [-20, 0, 0]}
 					},
 					"position": {
 						"0.0": {
@@ -8135,11 +8122,11 @@
 					}
 				}
 			},
-			"sound_effects": {
-				"0.0": {
-					"effect": "pokemon.rayquaza.cry"
+				"sound_effects": {
+					"0.2": {
+						"effect": "pokemon.rayquaza.cry"
+					}
 				}
-			}
 		}
 	}
 }

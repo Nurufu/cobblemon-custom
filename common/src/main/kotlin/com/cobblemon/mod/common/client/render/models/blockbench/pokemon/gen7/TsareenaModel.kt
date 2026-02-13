@@ -11,13 +11,13 @@ package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen7
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class TsareenaModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -27,6 +27,9 @@ class TsareenaModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("tsareena", "cry") }
+
+
     override var portraitScale = 2.6F
     override var portraitTranslation = Vec3d(-0.35, 2.3, 0.0)
 
@@ -35,8 +38,6 @@ class TsareenaModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, B
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("tsareena", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("tsareena", "blink") }

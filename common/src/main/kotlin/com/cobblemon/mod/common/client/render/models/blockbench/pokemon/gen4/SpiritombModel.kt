@@ -8,15 +8,18 @@
 
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen4
 
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class SpiritombModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("spiritomb")
+
+    override val cryAnimation = CryProvider { bedrockStateful("spiritomb", "cry") }
+
 
     override var portraitScale = 1.3F
     override var portraitTranslation = Vec3d(-0.4, 0.3, 0.0)
@@ -26,8 +29,6 @@ class SpiritombModel(root: ModelPart) : PokemonPosableModel(root) {
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("spiritomb", "cry") }
 
     override fun registerPoses() {
 

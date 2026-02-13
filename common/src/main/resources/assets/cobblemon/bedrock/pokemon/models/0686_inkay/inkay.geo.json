@@ -6,7 +6,7 @@
 				"identifier": "geometry.unknown",
 				"texture_width": 128,
 				"texture_height": 64,
-				"visible_bounds_width": 2,
+				"visible_bounds_width": 3,
 				"visible_bounds_height": 2.5,
 				"visible_bounds_offset": [0, 0.75, 0]
 			},
@@ -41,10 +41,10 @@
 				{
 					"name": "beak_bend",
 					"parent": "beak",
-					"pivot": [0, 6.5, -5],
+					"pivot": [0, 7.11603, -4.06699],
 					"rotation": [60, 0, 0],
 					"cubes": [
-						{"origin": [-0.5, 5.5, -5], "size": [1, 1, 1], "inflate": 0.01, "uv": [0, 25]}
+						{"origin": [-0.5, 6.61603, -5.06699], "size": [1, 1, 1], "inflate": 0.01, "uv": [0, 25]}
 					]
 				},
 				{

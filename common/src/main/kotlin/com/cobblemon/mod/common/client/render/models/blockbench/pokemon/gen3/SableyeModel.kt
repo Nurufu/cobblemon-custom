@@ -12,7 +12,6 @@ import com.cobblemon.mod.common.client.render.models.blockbench.createTransforma
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.ModelPartTransformation
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
@@ -21,6 +20,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class SableyeModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -31,6 +31,9 @@ class SableyeModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
     override val rightArm = getPart("arm_right")
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("sableye", "cry") }
+
 
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(-0.15, -0.5, 0.0)
@@ -44,8 +47,6 @@ class SableyeModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
     lateinit var shoulderRight: Pose
 
     val shoulderOffset = 1
-
-    override val cryAnimation = CryProvider { bedrockStateful("sableye", "cry") }
 
     override fun registerPoses() {
         standing = registerPose(

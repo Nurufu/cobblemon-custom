@@ -13,7 +13,6 @@ import com.cobblemon.mod.common.client.render.models.blockbench.animation.BipedW
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BimanualFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.BipedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
@@ -21,6 +20,7 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class EmolgaModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame, BimanualFrame {
@@ -32,6 +32,9 @@ class EmolgaModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bip
     override val leftLeg = getPart("leftfoot")
     override val rightLeg = getPart("rightfoot")
 
+    override val cryAnimation = CryProvider { bedrockStateful("emolga", "cry") }
+
+
     override var portraitScale = 2.2F
     override var portraitTranslation = Vec3d(-0.05, -0.8, 0.0)
 
@@ -42,8 +45,6 @@ class EmolgaModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bip
     lateinit var walk: Pose
     lateinit var hover: Pose
     lateinit var flying: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("emolga", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("emolga", "blink") }

@@ -212,7 +212,24 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "torchic_combusken",
+          "variant": "level_up",
+          "result": "combusken",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "doublekick"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 16
+            }
+          ]
+        }
+      ]
     }
   ]
 }

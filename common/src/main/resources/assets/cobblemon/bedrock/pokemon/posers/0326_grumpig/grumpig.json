@@ -4,7 +4,7 @@
   "profileScale": 0.61,
   "profileTranslation": [0, 0.86, 0],
   "rootBone": "grumpig",
-    "animations": {
+  "animations": {
     "cry": "q.bedrock_stateful('grumpig', 'cry')"
   },
   "poses": {

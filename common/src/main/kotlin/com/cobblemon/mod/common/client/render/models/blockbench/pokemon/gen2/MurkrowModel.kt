@@ -14,6 +14,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MurkrowModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -21,6 +22,9 @@ class MurkrowModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
     override val head = getPart("head")
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("murkrow", "cry") }
+
 
     override var portraitScale = 3.0F
     override var portraitTranslation = Vec3d(-0.1, -1.65, 0.0)

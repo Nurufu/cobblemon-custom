@@ -15,11 +15,15 @@ import com.cobblemon.mod.common.entity.PoseType.Companion.MOVING_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.STATIONARY_POSES
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class MewModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("mew")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("mew", "cry") }
+
 
     override var portraitScale = 2.3F
     override var portraitTranslation = Vec3d(-0.15, 0.4, 0.0)

@@ -14,10 +14,14 @@ import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.util.asExpressionLike
 import com.cobblemon.mod.common.util.isBattling
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class CopperajahModel (root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("copperajah")
+
+    override val cryAnimation = CryProvider { bedrockStateful("copperajah", "cry") }
+
 
     override var portraitScale = 0.6F
     override var portraitTranslation = Vec3d(-0.67, 1.62, 0.0)

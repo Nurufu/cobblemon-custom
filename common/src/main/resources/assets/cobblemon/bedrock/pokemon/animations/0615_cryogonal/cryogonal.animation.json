@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.cryogonal.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.2": {
+					"effect": "pokemon.cryogonal.cry"
+				}
+			}
+		},
 		"animation.cryogonal.ground_idle": {
 			"loop": true,
 			"bones": {
@@ -313,14 +321,6 @@
 						"0.125": [0, 0, 0.1],
 						"0.1667": [0, 0, 0]
 					}
-				}
-			}
-		},
-		"animation.cryogonal.cry": {
-			"animation_length": 3,
-			"sound_effects": {
-				"0.2": {
-					"effect": "pokemon.cryogonal.cry"
 				}
 			}
 		}

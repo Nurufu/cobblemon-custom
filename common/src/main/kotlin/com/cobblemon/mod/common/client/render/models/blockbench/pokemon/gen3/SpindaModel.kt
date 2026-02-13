@@ -15,6 +15,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class SpindaModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, BipedFrame {
@@ -23,6 +24,9 @@ class SpindaModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bi
 
     override val leftLeg = getPart("leg_left")
     override val rightLeg = getPart("leg_right")
+
+    override val cryAnimation = CryProvider { bedrockStateful("spinda", "cry") }
+
 
     override var portraitScale = 1.9F
     override var portraitTranslation = Vec3d(-0.5, -0.1, 0.0)

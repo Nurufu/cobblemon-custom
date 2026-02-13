@@ -16,11 +16,15 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import com.cobblemon.mod.common.entity.PoseType.Companion.UI_POSES
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class KingdraModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame {
     override val rootPart = root.registerChildWithAllChildren("kingdra")
     override val head = getPart("head")
+
+    override val cryAnimation = CryProvider { bedrockStateful("kingdra", "cry") }
+
 
     override var portraitScale = 1.8F
     override var portraitTranslation = Vec3d(-0.4, 1.8, 0.0)

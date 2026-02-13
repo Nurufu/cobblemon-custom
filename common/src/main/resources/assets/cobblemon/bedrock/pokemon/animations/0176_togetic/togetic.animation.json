@@ -2986,7 +2986,7 @@
 				}
 			}
 		},
-		"animation.togetic.cry_placeholder": {
+		"animation.togetic.cry": {
 			"animation_length": 0.75,
 			"bones": {
 				"mouth_closed": {

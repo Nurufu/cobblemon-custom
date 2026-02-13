@@ -221,6 +221,23 @@
   "pokedex": [
     "cobblemon.species.murkrow.desc"
   ],
+  "forms": [
+    {
+      "name": "Female",
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "murkrow_honchkrow",
+          "variant": "item_interact",
+          "result": "honchkrow",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:dusk_stone"
+        }
+      ]
+    }
+  ],
   "evolutions": [
     {
       "id": "murkrow_honchkrow",
@@ -250,11 +267,5 @@
   "height": 5,
   "weight": 21,
   "aspects": [],
-  "cannotDynamax": false,
-  "forms": [
-    {
-      "name": "Female",
-      "aspects": ["female"]
-    }
-  ]
+  "cannotDynamax": false
 }

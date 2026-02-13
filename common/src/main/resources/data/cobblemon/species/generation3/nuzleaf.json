@@ -221,7 +221,20 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "nuzleaf_shiftry",
+          "variant": "item_interact",
+          "result": "shiftry",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "leaftornado"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:leaf_stone"
+        }
+      ]
     }
   ]
 }

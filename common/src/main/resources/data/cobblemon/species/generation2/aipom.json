@@ -269,7 +269,22 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "aipom_ambipom",
+          "variant": "level_up",
+          "result": "ambipom",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "has_move",
+              "move": "doublehit"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

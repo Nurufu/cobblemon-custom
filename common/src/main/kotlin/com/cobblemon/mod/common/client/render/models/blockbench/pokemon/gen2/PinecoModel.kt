@@ -9,15 +9,18 @@
 package com.cobblemon.mod.common.client.render.models.blockbench.pokemon.gen2
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableState
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class PinecoModel(root: ModelPart) : PokemonPosableModel(root) {
     override val rootPart = root.registerChildWithAllChildren("pineco")
+
+    override val cryAnimation = CryProvider { bedrockStateful("pineco", "cry") }
+
 
     override var portraitScale = 1.65F
     override var portraitTranslation = Vec3d(-0.15, -0.6, 0.0)
@@ -28,8 +31,6 @@ class PinecoModel(root: ModelPart) : PokemonPosableModel(root) {
     lateinit var standing: Pose
     lateinit var walk: Pose
     lateinit var sleep: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("pineco", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("pineco", "blink")}

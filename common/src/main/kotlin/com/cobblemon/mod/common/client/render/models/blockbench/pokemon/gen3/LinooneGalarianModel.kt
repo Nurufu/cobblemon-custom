@@ -12,10 +12,10 @@ import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonP
 import com.cobblemon.mod.common.client.render.models.blockbench.animation.QuadrupedWalkAnimation
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.HeadedFrame
 import com.cobblemon.mod.common.client.render.models.blockbench.frame.QuadrupedFrame
-import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Pose
 import com.cobblemon.mod.common.entity.PoseType
 import net.minecraft.client.model.ModelPart
+import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.CryProvider
 import net.minecraft.util.math.Vec3d
 
 class LinooneGalarianModel (root: ModelPart) : PokemonPosableModel(root), HeadedFrame, QuadrupedFrame {
@@ -27,6 +27,9 @@ class LinooneGalarianModel (root: ModelPart) : PokemonPosableModel(root), Headed
     override val hindLeftLeg = getPart("leg_back_left")
     override val hindRightLeg = getPart("leg_back_right")
 
+    override val cryAnimation = CryProvider { bedrockStateful("linoon_galarian", "cry") }
+
+
     override var portraitScale = 2.5F
     override var portraitTranslation = Vec3d(-0.45, -2.02, 0.0)
 
@@ -35,8 +38,6 @@ class LinooneGalarianModel (root: ModelPart) : PokemonPosableModel(root), Headed
 
     lateinit var standing: Pose
     lateinit var walk: Pose
-
-    override val cryAnimation = CryProvider { bedrockStateful("lineoone_galarian", "cry") }
 
     override fun registerPoses() {
         val blink = quirk { bedrockStateful("linoone_galarian", "blink") }

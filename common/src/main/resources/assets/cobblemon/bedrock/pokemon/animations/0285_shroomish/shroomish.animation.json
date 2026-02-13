@@ -257,7 +257,7 @@
 				}
 			},
 			"sound_effects": {
-				"0.3333": {
+				"0.125": {
 					"effect": "pokemon.shroomish.cry"
 				}
 			}

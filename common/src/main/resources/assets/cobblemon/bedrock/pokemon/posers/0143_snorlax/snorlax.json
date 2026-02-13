@@ -6,33 +6,44 @@
   "rootBone": "snorlax",
   "animations": {
     "cry": "q.bedrock_stateful('snorlax', 'cry')",
-    "recoil": "q.bedrock_stateful('snorlax','recoil')"
+    "recoil": "q.bedrock_stateful('snorlax', 'recoil', q.curve('symmetrical_wide'))"
   },
   "poses": {
-    "standing": {
-      "poseName": "standing",
-      "poseTypes": [
-        "STAND",
-        "NONE",
-        "PORTRAIT",
-        "PROFILE",
-        "FLOAT",
-        "HOVER"
-      ],
+    "battle-standing": {
+      "poseTypes": ["STAND"],
+      "isBattle": true,
       "animations": [
         "q.look('head')",
-        "q.bedrock('snorlax', 'ground_idle')"
-      ],
-      "quirks": [
-        "q.bedrock_quirk('snorlax','quirk_idle')"
+        "q.bedrock('snorlax', 'battle_idle')"
       ],
       "transformedParts": [
         {
           "part": "coolhat",
           "isVisible": false
         }
-      ]
+      ],
+      "transitions": {
+        "sleeping": "q.bedrock_primary('snorlax', 'sleep_intro')"
+      }
     },
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('snorlax', 'ground_idle')"
+      ],
+      "quirks": ["q.bedrock_quirk('snorlax', 'quirk_idle')"],
+      "transformedParts": [
+        {
+          "part": "coolhat",
+          "isVisible": false
+        }
+      ],
+      "transitions": {
+        "sleeping": "q.bedrock_primary('snorlax', 'sleep_intro')"
+      }
+      },
     "walking": {
       "poseName": "walking",
       "poseTypes": ["WALK", "SWIM", "FLY"],
@@ -45,16 +56,14 @@
           "part": "coolhat",
           "isVisible": false
         }
-      ]
+      ],
+      "transitions": {
+        "sleeping": "q.bedrock_primary('snorlax', 'sleep_intro')"
+      }
     },
     "sleep": {
       "poseTypes": ["SLEEP"],
-      "namedAnimations": [
-        "q.bedrock_stateful('snorlax','sleep_intro')"
-      ],
-      "animations": [
-        "q.bedrock('snorlax','sleep')"
-      ]
+      "animations": ["q.bedrock('snorlax', 'sleep')"]
     }
   }
 }

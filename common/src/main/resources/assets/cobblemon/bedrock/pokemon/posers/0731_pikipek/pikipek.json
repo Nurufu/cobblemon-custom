@@ -4,12 +4,13 @@
   "profileScale": 1.06,
   "profileTranslation": [-0.02, 0.19, 0],
   "rootBone": "pikipek",
-  "animations": {
+    "animations": {
     "cry": "q.bedrock_stateful('pikipek', 'cry')"
   },
   "poses": {
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
       "animations": ["q.look('head')", "q.bedrock('pikipek', 'ground_idle')"],
       "quirks": ["q.bedrock_quirk('pikipek', 'blink')"],
       "transformedParts": [
