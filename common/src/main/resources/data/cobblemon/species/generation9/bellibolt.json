@@ -83,6 +83,12 @@
   "weight": 1130,
   "preEvolution": "tadbulb",
   "evolutions": [],
+  "baseScale": 1,
+  "hitbox": {
+    "width": 1.0,
+    "height": 1.5,
+    "fixed": false
+  },
   "cannotDynamax": false,
   "pokedex": ["cobblemon.species.bellibolt.desc"],
   "drops": {

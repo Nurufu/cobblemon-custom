@@ -6787,7 +6787,7 @@
     "sounds": [ { "name": "cobblemon:pokemon/milcery/milcery_cry", "volume": 0.6 } ]
   },
   "pokemon.alcremie.cry": {
-    "sounds": [ { "name": "cobblemon:pokemon/alcremie/alcremie_cry", "volume": 0.6 } ]
+    "sounds": [ { "name": "cobblemon:pokemon/alcremie/alcremie_cry", "volume": 0.4 } ]
   },
   "pokemon.falinks.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/falinks/falinks_cry", "volume": 0.6 } ]
