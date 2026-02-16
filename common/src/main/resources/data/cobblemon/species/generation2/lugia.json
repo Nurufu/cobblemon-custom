@@ -232,8 +232,8 @@
   "evolutions": [],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 3,
+    "height": 4.5,
     "fixed": false
   },
   "baseFriendship": 0,
@@ -244,6 +244,17 @@
     "special_attack": 0,
     "special_defence": 3,
     "speed": 0
+  },
+  "behaviour": {
+    "moving": {
+      "fly": {
+        "canFly": true
+      },
+      "swim": {
+        "canSwimInWater": true,
+        "canBreatheUnderwater": true
+      }
+    }
   },
   "height": 52,
   "weight": 2160,

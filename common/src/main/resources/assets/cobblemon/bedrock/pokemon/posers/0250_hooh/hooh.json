@@ -129,6 +129,7 @@
       ],
       "animations": [
         "q.pitch_tilt('body')",
+        "q.sine_wing_flap(1, 1, 0.5, 'z', 'wing_open_left', 'wing_open_right')",
         "q.look('neck', 1, 1, 70, -10, 20, -20)",
         "q.look('head', 1, 1, 20, -90, 60, -37)",
         "q.bedrock('ho_oh', 'air_fly')"

@@ -206,8 +206,8 @@
   "evolutions": [],
   "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 3,
+    "height": 4,
     "fixed": false
   },
   "baseFriendship": 0,
@@ -218,6 +218,13 @@
     "special_attack": 0,
     "special_defence": 3,
     "speed": 0
+  },
+  "behaviour": {
+    "moving": {
+      "fly": {
+        "canFly": true
+      }
+    }
   },
   "height": 38,
   "weight": 1990,
