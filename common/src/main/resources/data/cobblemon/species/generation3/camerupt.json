@@ -91,7 +91,13 @@
             }
           ]
         }
-      ]
+      ],
+      "baseScale": 1.2,
+      "hitbox": {
+        "width": 2,
+        "height": 3.6,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 161,
