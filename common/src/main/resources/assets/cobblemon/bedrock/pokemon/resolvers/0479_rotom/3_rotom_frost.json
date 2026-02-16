@@ -3,7 +3,7 @@
   "order": 3,
   "variations": [
     {
-      "aspects": ["frost-appliance"],
+      "aspects": ["frost"],
       "poser": "cobblemon:rotom_frost",
       "model": "cobblemon:rotom_frost.geo",
       "texture": "cobblemon:textures/pokemon/0479_rotom/frost/rotom_frost.png",
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "aspects": ["frost-appliance","shiny"],
+      "aspects": ["frost","shiny"],
       "texture": "cobblemon:textures/pokemon/0479_rotom/frost/rotom_frost_shiny.png",
       "layers": [
         {

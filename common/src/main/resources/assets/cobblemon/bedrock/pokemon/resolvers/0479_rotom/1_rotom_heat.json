@@ -3,7 +3,7 @@
   "order": 1,
   "variations": [
     {
-      "aspects": ["heat-appliance"],
+      "aspects": ["heat"],
       "poser": "cobblemon:rotom_heat",
       "model": "cobblemon:rotom_heat.geo",
       "texture": "cobblemon:textures/pokemon/0479_rotom/heat/rotom_heat.png",
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "aspects": ["heat-appliance","shiny"],
+      "aspects": ["heat","shiny"],
       "texture": "cobblemon:textures/pokemon/0479_rotom/heat/rotom_heat_shiny.png",
       "layers": [
         {
