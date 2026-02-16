@@ -1899,7 +1899,7 @@
 			},
 			"sound_effects": {
 				"0.125": {
-					"effect": "pokemon.grimer_alolan.cry"
+					"effect": "pokemon.grimer.cry"
 				}
 			},
 			"particle_effects": {}
