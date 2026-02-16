@@ -1,9 +1,27 @@
 {
   "implemented": true,
-  "name": "Unown",
   "nationalPokedexNumber": 201,
+  "name": "Unown",
   "primaryType": "psychic",
-  "abilities": ["levitate"],
+  "maleRatio": -1,
+  "height": 5,
+  "weight": 50,
+  "pokedex": [
+    "cobblemon.species.unown.desc"
+  ],
+  "labels": [
+    "gen2"
+  ],
+  "aspects": [
+    "character-a"
+  ],
+  "abilities": [
+    "levitate",
+    "h:levitate"
+  ],
+  "eggGroups": [
+    "undiscovered"
+  ],
   "baseStats": {
     "hp": 48,
     "attack": 72,
@@ -12,24 +30,6 @@
     "special_defence": 48,
     "speed": 48
   },
-  "catchRate": 225,
-  "maleRatio": -1,
-  "shoulderMountable": false,
-  "baseExperienceYield": 118,
-  "experienceGroup": "medium_fast",
-  "eggCycles": 40,
-  "eggGroups": ["undiscovered"],
-  "moves": ["1:hiddenpower", "tm:hiddenpower", "tutor:hiddenpower"],
-  "labels": ["gen2"],
-  "pokedex": ["cobblemon.species.unown.desc"],
-  "evolutions": [],
-  "baseScale": 1,
-  "hitbox": {
-    "width": 1,
-    "height": 1,
-    "fixed": false
-  },
-  "baseFriendship": 70,
   "evYield": {
     "hp": 0,
     "attack": 1,
@@ -38,10 +38,51 @@
     "special_defence": 0,
     "speed": 0
   },
-  "height": 5,
-  "weight": 50,
-  "aspects": [],
-  "cannotDynamax": false,
+  "baseExperienceYield": 118,
+  "experienceGroup": "medium_fast",
+  "catchRate": 225,
+  "eggCycles": 40,
+  "baseFriendship": 50,
+  "shoulderMountable": true,
+  "baseScale": 1,
+  "hitbox": {
+    "width": 0.6,
+    "height": 0.8,
+    "fixed": false
+  },
+  "behaviour": {
+    "herd": {
+      "maxSize": "9",
+      "toleratedLeaders": [
+        {
+          "pokemon": "unown",
+          "tier": 1
+        }
+      ]
+    },
+    "moving": {
+      "fly": {
+        "canFly": true
+      },
+      "swim": {
+        "avoidsWater": true
+      },
+      "walk": {
+        "canWalk": false
+      }
+    },
+    "resting": {
+      "willSleepOnBed": true,
+      "times": [
+        "any"
+      ],
+      "drowsyChance": 0.0014,
+      "rouseChance": 0.0042
+    },
+    "combat": {
+      "willDefendOwner": true
+    }
+  },
   "drops": {
     "amount": 1,
     "entries": [
@@ -51,114 +92,490 @@
       }
     ]
   },
+  "moves": [
+    "1:hiddenpower"
+  ],
+  "evolutions": [],
   "forms": [
     {
       "name": "B",
-      "aspects": ["letter-b"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-b.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-b"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "C",
-      "aspects": ["letter-c"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-c.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-c"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "D",
-      "aspects": ["letter-d"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-d.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-d"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "E",
-      "aspects": ["letter-e"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-e.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-e"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "F",
-      "aspects": ["letter-f"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-f.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-f"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "G",
-      "aspects": ["letter-g"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-g.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-g"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "H",
-      "aspects": ["letter-h"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-h.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-h"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "I",
-      "aspects": ["letter-i"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-i.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-i"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "J",
-      "aspects": ["letter-j"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-j.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-j"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "K",
-      "aspects": ["letter-k"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-k.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-k"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "L",
-      "aspects": ["letter-l"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-l.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-l"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "M",
-      "aspects": ["letter-m"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-m.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-m"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "N",
-      "aspects": ["letter-n"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-n.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-n"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "O",
-      "aspects": ["letter-o"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-o.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-o"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "P",
-      "aspects": ["letter-p"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-p.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-p"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "Q",
-      "aspects": ["letter-q"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-q.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-q"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "R",
-      "aspects": ["letter-r"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-r.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-r"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "S",
-      "aspects": ["letter-s"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-s.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-s"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "T",
-      "aspects": ["letter-t"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-t.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-t"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "U",
-      "aspects": ["letter-u"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-u.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-u"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "V",
-      "aspects": ["letter-v"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-v.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-v"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "W",
-      "aspects": ["letter-w"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-w.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-w"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "X",
-      "aspects": ["letter-x"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-x.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-x"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "Y",
-      "aspects": ["letter-y"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-y.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-y"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "Z",
-      "aspects": ["letter-z"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "pokedex": [
+        "cobblemon.species.unown-z.desc"
+      ],
+      "labels": [
+        "gen2"
+      ],
+      "aspects": [
+        "character-z"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "!",
-      "aspects": ["letter-exclamation"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "labels": [
+        "gen3"
+      ],
+      "aspects": [
+        "character-!"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     },
     {
       "name": "?",
-      "aspects": ["letter-question"]
+      "primaryType": "psychic",
+      "maleRatio": -1,
+      "height": 5,
+      "weight": 50,
+      "labels": [
+        "gen3"
+      ],
+      "aspects": [
+        "character-?"
+      ],
+      "evolutions": [],
+      "battleOnly": false
     }
   ]
 }

@@ -10,5 +10,5 @@
     "aqua"
   ],
   "isAspect": true,
-  "aspectFormat": "{{choice}}-breed"
+  "aspectFormat": "paldean-breed-{{choice}}"
 }

@@ -17,10 +17,12 @@ import com.cobblemon.mod.common.api.events.fishing.BaitConsumedEvent
 import com.cobblemon.mod.common.api.events.fishing.BaitSetEvent
 import com.cobblemon.mod.common.api.events.fishing.PokerodCastEvent
 import com.cobblemon.mod.common.api.events.fishing.PokerodReelEvent
+import com.cobblemon.mod.common.api.fishing.PokeRod
 import com.cobblemon.mod.common.api.fishing.PokeRods
 import com.cobblemon.mod.common.api.pokeball.PokeBalls
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies
 import com.cobblemon.mod.common.api.pokemon.stats.Stat
+import com.cobblemon.mod.common.api.tags.CobblemonItemTags
 import com.cobblemon.mod.common.api.text.blue
 import com.cobblemon.mod.common.api.text.gray
 import com.cobblemon.mod.common.api.types.ElementalTypes
@@ -28,6 +30,7 @@ import com.cobblemon.mod.common.client.sound.CancellableSoundInstance
 import com.cobblemon.mod.common.duck.SoundManagerDuck
 import com.cobblemon.mod.common.entity.fishing.PokeRodFishingBobberEntity
 import com.cobblemon.mod.common.item.BerryItem
+import com.cobblemon.mod.common.item.CobblemonItem
 import com.cobblemon.mod.common.pokemon.Gender
 import com.cobblemon.mod.common.util.itemRegistry
 import com.cobblemon.mod.common.util.lang
@@ -214,6 +217,8 @@ class PokerodItem(val pokeRodId: Identifier, settings: Settings?) : FishingRodIt
         val itemStack = user.mainHandStack
         val offHandItem = user.offHandStack
         val offHandBait = FishingBaits.getFromBaitItemStack(offHandItem)
+
+        if(offHandItem.isIn(CobblemonItemTags.POKE_RODS)) return TypedActionResult.fail(offHandItem)
 
         // if there already is bait on the bobber then drop it on the ground
         val baitOnRod = getBait(itemStack)
