@@ -75,6 +75,13 @@
   "labels": [
     "gen9"
   ],
+  "baseScale": 0.45,
+  "hitbox": {
+    "width": 0.7,
+    "height": 1.73,
+    "fixed": false
+  },
+
   "aspects": [],
   "height": 6,
   "weight": 119,

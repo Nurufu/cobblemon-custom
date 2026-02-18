@@ -328,7 +328,7 @@
 			},
 			"sound_effects": {
 				"2.25": {
-					"effect": "pokemon.corsola_galarian.cry"
+					"effect": "pokemon.corsola.cry"
 				}
 			}
 		},

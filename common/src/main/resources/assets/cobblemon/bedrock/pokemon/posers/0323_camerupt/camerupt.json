@@ -44,19 +44,6 @@
     "cry": "q.bedrock_stateful('camerupt', 'cry')"
   },
   "poses": {
-    "jump": {
-      "poseTypes": ["STAND", "WALK"],
-      "condition": "q.in_air",
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('camerupt', 'ride_jump')"
-      ],
-      "quirks": [
-        "q.bedrock_quirk('camerupt', 'blink')"
-      ],
-      "transformTicks": 3,
-      "transformToTicks": 3
-    },
     "standing": {
       "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
       "condition": "!q.in_air",
@@ -76,20 +63,6 @@
       "animations": [
         "q.look('head')",
         "q.bedrock('camerupt', 'ground_walk')",
-        {
-          "condition": "q.is_ridden",
-          "animation": "q.bedrock('camerupt', 'ride_ground_run')"
-        }
-      ],
-      "quirks": ["q.bedrock_quirk('camerupt', 'blink')"]
-    },
-    "running": {
-      "poseTypes": ["WALK", "SWIM"],
-      "isBattle": false,
-      "condition": "!q.in_air && q.is_sprinting",
-      "animations": [
-        "q.look('head')",
-        "q.bedrock('camerupt', 'ground_run')",
         {
           "condition": "q.is_ridden",
           "animation": "q.bedrock('camerupt', 'ride_ground_run')"

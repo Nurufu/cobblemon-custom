@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.sceptile.ground_idle": {
+		"animation.sceptile_mega.ground_idle": {
 			"loop": true,
 			"bones": {
 				"torso": {
@@ -138,7 +138,7 @@
 				}
 			}
 		},
-		"animation.sceptile.test2": {
+		"animation.sceptile_mega.test2": {
 			"loop": true,
 			"bones": {
 				"torso": {
@@ -292,7 +292,7 @@
 				}
 			}
 		},
-		"animation.sceptile.test3": {
+		"animation.sceptile_mega.test3": {
 			"loop": true,
 			"bones": {
 				"sceptile": {
@@ -460,7 +460,7 @@
 				}
 			}
 		},
-		"animation.sceptile.blink": {
+		"animation.sceptile_mega.blink": {
 			"animation_length": 0.16667,
 			"bones": {
 				"right_eyelid": {
@@ -483,7 +483,7 @@
 			"animation_length": 1.33333,
 			"sound_effects": {
 				"0.04": {
-					"effect": "pokemon.sceptilem.cry"
+					"effect": "pokemon.sceptile_mega.cry"
 				}
 			}
 		}

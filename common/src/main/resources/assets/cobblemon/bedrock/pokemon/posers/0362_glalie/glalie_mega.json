@@ -5,7 +5,7 @@
   "profileTranslation": [ 0, 1.11, 0],
   "animations": {
     "cry": "q.bedrock_stateful('glalie_mega', 'cry')",
-    "faint": "q.bedrock_primary('glalie', 'faint')"
+    "faint": "q.bedrock_primary('glalie2', 'faint')"
   },
   "poses": {
 	  "battle-idle":{
@@ -18,12 +18,12 @@
 	  "isBattle": true,
 	  "animations": 
     [
-    "bedrock(glalie, battle_idle)","bedrock(glalie, layer_idle)"
+    "bedrock(glalie2, battle_idle)","bedrock(glalie2, layer_idle)"
     ],
 	  "quirks":[
 	  {
 		  "name": "blink",
-          "animations": ["bedrock(glalie, blink)"]
+          "animations": ["bedrock(glalie2, blink)"]
 	  }
 	  ]
 	},
@@ -40,12 +40,12 @@
       ],
       "animations": 
       [
-      "bedrock(glalie, ground_idle)","bedrock(glalie, layer_idle)"
+      "bedrock(glalie2, ground_idle)","bedrock(glalie2, layer_idle)"
       ],  
 	  "quirks": [
           {
             "name": "blink",
-            "animations": ["bedrock(glalie, blink)"]
+            "animations": ["bedrock(glalie2, blink)"]
           }
 	  ]
   },
@@ -57,12 +57,12 @@
         "FLY"
       ],
       "animations": [
-        "bedrock(glalie, ground_walk)"
+        "bedrock(glalie2, ground_walk)"
       ],  
 	  "quirks": [
           {
             "name": "blink",
-            "animations": ["bedrock(glalie, blink)"]
+            "animations": ["bedrock(glalie2, blink)"]
           }
 	  ]
 	},
@@ -73,7 +73,7 @@
         "SLEEP"
       ],
       "animations": [
-        "bedrock(glalie, ground_idle)"
+        "bedrock(glalie2, ground_idle)"
       ]
 	}
 }

@@ -4,8 +4,7 @@
   "variations": [
     {
       "aspects": [
-        "paldean",
-        "blaze-breed"
+        "paldean-breed-blaze"
       ],
       "poser": "cobblemon:tauros_paldean_blaze",
       "model": "cobblemon:tauros_paldean_blaze.geo",
@@ -21,8 +20,7 @@
     },
     {
       "aspects": [
-        "paldean",
-        "blaze-breed",
+        "paldean-breed-blaze",
         "shiny"
       ],
       "texture": "cobblemon:textures/pokemon/0128_tauros/tauros_paldean_blaze_shiny.png",

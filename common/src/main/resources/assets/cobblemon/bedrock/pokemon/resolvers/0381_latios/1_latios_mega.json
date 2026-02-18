@@ -1,0 +1,22 @@
+{
+  "species": "cobblemon:latios",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": ["mega"],
+      "poser": "cobblemon:latios_mega",
+      "model": "cobblemon:latios_mega.geo",
+      "texture": "cobblemon:textures/pokemon/0381_latios/latios_mega.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "mega",
+        "shiny"
+      ],
+      "poser": "cobblemon:latios_mega",
+      "model": "cobblemon:latios_mega.geo",
+      "texture": "cobblemon:textures/pokemon/0381_latios/latios_mega_shiny.png"
+    }
+  ]
+}

@@ -4,11 +4,11 @@
   "profileScale": 0.46,
   "profileTranslation": [0, 1.11, 0],
   "animations": {
-    "faint": "q.bedrock_primary('medicham', 'faint', q.curve('symmetrical_wide'))",
-    "physical": "q.bedrock_primary('medicham', 'physical', q.curve('symmetrical_wide'))",
-    "special": "q.bedrock_primary('medicham', 'special', q.curve('symmetrical_wide'))",
-    "status": "q.bedrock_primary('medicham', 'special', q.curve('symmetrical_wide'))",
-    "recoil": "q.bedrock_primary('medicham', 'recoil', q.curve('symmetrical_wide'))",
+    "faint": "q.bedrock_primary('medicham2', 'faint', q.curve('symmetrical_wide'))",
+    "physical": "q.bedrock_primary('medicham2', 'physical', q.curve('symmetrical_wide'))",
+    "special": "q.bedrock_primary('medicham2', 'special', q.curve('symmetrical_wide'))",
+    "status": "q.bedrock_primary('medicham2', 'special', q.curve('symmetrical_wide'))",
+    "recoil": "q.bedrock_primary('medicham2', 'recoil', q.curve('symmetrical_wide'))",
     "cry": "q.bedrock_stateful('medicham_mega', 'cry')"
   },
   "poses": {
@@ -18,7 +18,7 @@
       "isBattle": true,
       "animations": [
         "q.look('head')",
-        "q.bedrock('medicham', 'battle_idle')"
+        "q.bedrock('medicham2', 'battle_idle')"
       ]
     },
     "standing": {
@@ -27,7 +27,7 @@
       "isBattle": false,
       "animations": [
         "q.look('head')",
-        "q.bedrock('medicham', 'ground_idle')"
+        "q.bedrock('medicham2', 'ground_idle')"
       ]
     },
     "walking": {
@@ -35,7 +35,7 @@
       "poseTypes": ["WALK"],
       "animations": [
         "q.look('head')",
-        "q.bedrock('medicham', 'ground_walk')"
+        "q.bedrock('medicham2', 'ground_walk')"
       ]
     },
     "hover": {
@@ -43,7 +43,7 @@
       "poseTypes": [ "FLY", "HOVER", "FLOAT" ],
       "animations": [
         "q.look('head')",
-        "q.bedrock('medicham', 'ground_walk')"
+        "q.bedrock('medicham2', 'ground_walk')"
        ]
     },
     "float": {
@@ -51,7 +51,7 @@
       "poseTypes": ["FLOAT"],
       "animations": [
         "q.look('head')",
-        "q.bedrock('medicham', 'ground_walk')"
+        "q.bedrock('medicham2', 'ground_walk')"
       ]
     },
     "swim": {
@@ -59,7 +59,7 @@
       "poseTypes": ["SWIM"],
       "animations": [
         "q.look('head')",
-        "q.bedrock('medicham', 'ground_walk')"
+        "q.bedrock('medicham2', 'ground_walk')"
       ]
     }
   }

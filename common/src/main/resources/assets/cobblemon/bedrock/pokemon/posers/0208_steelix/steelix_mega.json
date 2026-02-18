@@ -11,24 +11,24 @@
     "battle-standing": {
       "poseTypes": ["STAND"],
       "isBattle": true,
-      "animations": ["q.bedrock('steelix', 'battle_idle')"],
-      "quirks": ["q.bedrock_quirk('steelix', 'blink')",
+      "animations": ["q.bedrock('steelix2', 'battle_idle')"],
+      "quirks": ["q.bedrock_quirk('steelix2', 'blink')",
       "q.bedrock_quirk('steelix', 'quirk_jawjitter')"]
     },
     "standing": {
       "poseTypes": ["STAND", "FLOAT", "NONE", "PORTRAIT", "PROFILE"],
       "isBattle": false,
-      "animations": ["q.bedrock('steelix', 'ground_idle')"],
-      "quirks": ["q.bedrock_quirk('steelix', 'blink')"]
+      "animations": ["q.bedrock('steelix2', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('steelix2', 'blink')"]
     },
     "walking": {
       "poseTypes": ["WALK", "SWIM"],
-      "animations": ["q.bedrock('steelix', 'ground_walk')"],
-      "quirks": ["q.bedrock_quirk('steelix', 'blink')"]
+      "animations": ["q.bedrock('steelix2', 'ground_walk')"],
+      "quirks": ["q.bedrock_quirk('steelix2', 'blink')"]
     },
     "sleeping": {
       "poseTypes": ["SLEEP"],
-      "animations": ["q.bedrock('steelix', 'sleep')"]
+      "animations": ["q.bedrock('steelix2', 'sleep')"]
     }
   }
 }

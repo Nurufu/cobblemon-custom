@@ -16,7 +16,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -33,7 +33,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -50,7 +50,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -67,7 +67,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -84,7 +84,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -101,7 +101,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -118,7 +118,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -135,7 +135,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -152,7 +152,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -169,7 +169,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -186,7 +186,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -203,7 +203,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -220,7 +220,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -237,7 +237,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -254,7 +254,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -271,7 +271,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -288,7 +288,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -305,7 +305,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -322,7 +322,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -339,7 +339,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -356,7 +356,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -373,7 +373,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -390,7 +390,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -407,7 +407,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -424,7 +424,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -441,7 +441,7 @@
             "weight": 3.769,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -458,7 +458,7 @@
             "weight": 1.0,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -475,7 +475,7 @@
             "weight": 1.0,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_end"
+                    "#minecraft:is_end"
                 ]
             }
         },
@@ -492,7 +492,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -510,7 +510,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -528,7 +528,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -546,7 +546,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -564,7 +564,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -582,7 +582,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -600,7 +600,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -618,7 +618,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -636,7 +636,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -654,7 +654,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -672,7 +672,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -690,7 +690,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -708,7 +708,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -726,7 +726,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -744,7 +744,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -762,7 +762,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -780,7 +780,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -798,7 +798,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -816,7 +816,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -834,7 +834,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -852,7 +852,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -870,7 +870,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -888,7 +888,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -906,7 +906,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -924,7 +924,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -942,7 +942,7 @@
             "weight": 0.754,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -960,7 +960,7 @@
             "weight": 0.2,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
@@ -978,7 +978,7 @@
             "weight": 0.2,
             "condition": {
                 "biomes": [
-                    "#cobblemon:is_overworld"
+                    "#minecraft:is_overworld"
                 ],
                 "minY": 48
             }
