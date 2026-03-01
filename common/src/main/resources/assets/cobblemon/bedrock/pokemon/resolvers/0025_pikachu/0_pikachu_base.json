@@ -160,11 +160,11 @@
     },
     {
       "aspects": ["cosmetic_item-sinister_tea"],
-      "model": "cobblemon:pikachu_detective_male.geo",
+      "model": "cobblemon:pikachu_male_felt.geo",
       "layers": [
         {
-          "name": "detective",
-          "texture": "cobblemon:textures/pokemon/0025_pikachu/pikachu_detective.png"
+          "name": "felt",
+          "texture": "cobblemon:textures/pokemon/0025_pikachu/pikachu_felt.png"
         }
       ]
     },
@@ -284,11 +284,11 @@
     },
     {
       "aspects": ["cosmetic_item-sinister_tea", "female"],
-      "model": "cobblemon:pikachu_detective_female.geo",
+      "model": "cobblemon:pikachu_female_felt.geo",
       "layers": [
         {
-          "name": "detective",
-          "texture": "cobblemon:textures/pokemon/0025_pikachu/pikachu_detective.png"
+          "name": "felt",
+          "texture": "cobblemon:textures/pokemon/0025_pikachu/pikachu_felt.png"
         }
       ]
     },
