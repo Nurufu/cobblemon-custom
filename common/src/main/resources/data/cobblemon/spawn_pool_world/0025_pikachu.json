@@ -424,7 +424,8 @@
           "biomes": [
             "#cobblemon:is_spooky"
           ]
-        },
+        }
+      },
       {
         "id": "pikachu-felt-1",
         "pokemon": "pikachu cosmetic_item=sinister_tea",
