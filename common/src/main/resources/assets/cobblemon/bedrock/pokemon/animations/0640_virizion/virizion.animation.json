@@ -1,0 +1,49 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.virizion.render": {
+			"loop": true,
+			"bones": {
+				"LegRight": {
+					"rotation": [-57.5, 0, 0]
+				},
+				"KneeRight": {
+					"rotation": [67.5, 0, 0],
+					"position": [0, 1.5158, -2.48611]
+				},
+				"FootRight": {
+					"rotation": [20, 0, 0]
+				},
+				"LegLeft": {
+					"rotation": [17.5, 0, 0],
+					"position": [0, -1.04909, 0.33078]
+				},
+				"KneeLeft": {
+					"rotation": [-15, 0, 0]
+				},
+				"Body": {
+					"rotation": [0, -27, 0],
+					"position": [0.98011, 0, 0.49939]
+				},
+				"Torso": {
+					"rotation": [0, -7.5, 0]
+				},
+				"Neck": {
+					"rotation": [15, 0, 0]
+				},
+				"Head": {
+					"rotation": [2.5, -17.5, 7.5]
+				},
+				"EyeRight": {
+					"position": [-0.9, 0, 0.9]
+				}
+			}
+		},
+		"animation.virizion.ground_walk": {
+			"loop": true
+		},
+		"animation.virizion.ground_idle": {
+			"loop": true
+		}
+	}
+}

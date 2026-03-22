@@ -1,38 +1,74 @@
 {
-  "portraitScale": 1.43,
-  "portraitTranslation": [-0.06, 1.07, 0],
-  "profileScale": 0.54,
-  "profileTranslation": [0, 0.86, 0],
-  "rootBone": "froslass",
-  "animations": {
-    "cry": "q.bedrock_stateful('froslass', 'cry')"
-  },
+  "portraitScale": 1.5,
+  "portraitTranslation": [ 0, 1.3, 0],
+  "profileScale": 0.7,
+  "profileTranslation": [ 0, 0.9, 0],
+  "cry": "bedrock(froslass, cry)",
+  "faint": "bedrock(froslass, faint, true)",
   "poses": {
-    "battle-standing": {
-      "poseTypes": ["STAND", "HOVER"],
-      "isBattle": true,
-      "animations": [
-        "q.look('head')", 
-        "q.bedrock('froslass', 'battle_idle')"
-      ],
-      "quirks": ["q.bedrock_quirk('froslass', 'blink')"]
-    },
+	  "battle-idle":{
+	  "poseName": "battle-idle",
+      "transformTicks": 10,
+      "poseTypes": [
+		"STAND", 
+		"HOVER"
+	  ],
+	  "isBattle": true,
+	  "animations": ["bedrock(froslass, battle_idle)"],
+	  "quirks":[
+	  {
+		  "name": "blink",
+          "animations": ["bedrock(froslass, blink)"]
+	  }
+	  ]
+	},
     "standing": {
-      "poseTypes": ["STAND", "HOVER", "NONE", "PORTRAIT", "PROFILE"],
-      "isBattle": false,
-      "animations": [
-        "q.look('head')", 
-        "q.bedrock('froslass', 'ground_idle')"
+      "poseName": "standing",
+      "transformTicks": 10,
+	  "isBattle": false,
+      "poseTypes": [
+        "STAND",
+        "PORTRAIT",
+		    "PROFILE",
+		    "HOVER",
+		    "NONE"
       ],
-      "quirks": ["q.bedrock_quirk('froslass', 'blink')"]
-    },
-    "walking": {
-      "poseTypes": ["WALK", "FLY"],
       "animations": [
-        "q.look('head')", 
-        "q.bedrock('froslass', 'ground_idle')"
+        "bedrock(froslass, ground_idle)"
+      ],  
+	  "quirks": [
+          {
+            "name": "blink",
+            "animations": ["bedrock(froslass, blink)"]
+          }
+	  ]
+  },
+	"moving":{
+		"poseName": "moving",
+		"transformTicks": 10,
+		"poseTypes": [
+        "WALK",
+        "FLY"
       ],
-      "quirks": ["q.bedrock_quirk('froslass', 'blink')"]
-    }
-  }
+      "animations": [
+        "bedrock(froslass, ground_walk)"
+      ],  
+	  "quirks": [
+          {
+            "name": "blink",
+            "animations": ["bedrock(froslass, blink)"]
+          }
+	  ]
+	},
+	"sleeping":{
+		"poseName": "sleeping",
+		"transformTicks": 10,
+		"poseTypes": [
+        "SLEEP"
+      ],
+      "animations": [
+        "bedrock(froslass, ground_idle)"
+      ]
+	}
+}
 }

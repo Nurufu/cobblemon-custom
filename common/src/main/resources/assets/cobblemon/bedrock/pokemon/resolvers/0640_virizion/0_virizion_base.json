@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:virizion",
+  "order": 0,
+  "variations": [
+    {
+      "poser": "cobblemon:virizion",
+      "model": "cobblemon:virizion.geo",
+      "texture": "cobblemon:textures/pokemon/0640_virizion/virizion.png"
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/0640_virizion/virizion_shiny.png"
+    }
+  ]
+}

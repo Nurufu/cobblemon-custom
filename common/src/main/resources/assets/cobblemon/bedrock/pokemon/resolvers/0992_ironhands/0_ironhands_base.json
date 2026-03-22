@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:ironhands",
+  "order": 0,
+  "variations": [
+    {
+      "poser": "cobblemon:ironhands",
+      "model": "cobblemon:ironhands.geo",
+      "texture": "cobblemon:textures/pokemon/0992_ironhands/ironhands.png"
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/0992_ironhands/ironhands_shiny.png"
+    }
+  ]
+}
