@@ -76,7 +76,7 @@
       "name": "Mega-z",
       "primaryType": "dark",
       "secondaryType": "ghost",
-      "abilities": ["pressure", "superluck", "h:justified"]
+      "abilities": ["pressure", "superluck", "h:justified"],
       "baseStats": {
         "hp": 65,
         "attack": 154,
@@ -94,9 +94,9 @@
       ],
       "evolutions": [
         {
-          "id": "starmie_mega_revert",
+          "id": "absol_z_mega_revert",
           "variant": "level_up",
-          "result": "starmie mega=false",
+          "result": "absol mega-z=false",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": [
@@ -290,6 +290,19 @@
       "id": "absol_mega",
       "variant": "level_up",
       "result": "absol mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    },
+    {
+      "id": "absol_z_mega",
+      "variant": "level_up",
+      "result": "absol mega-z=true",
       "consumeHeldItem": false,
       "learnableMoves": [],
       "requirements": [
