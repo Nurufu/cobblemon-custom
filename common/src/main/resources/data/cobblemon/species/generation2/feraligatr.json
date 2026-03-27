@@ -34,6 +34,47 @@
     "monster",
     "water_1"
   ],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "water",
+      "secondaryType": "dragon",
+      "abilities": [
+        "torrent",
+        "h:sheerforce"
+      ],
+      "baseStats": {
+        "hp": 85,
+        "attack": 160,
+        "defence": 125,
+        "special_attack": 89,
+        "special_defence": 93,
+        "speed": 78
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "feraligatr_mega_revert",
+          "variant": "level_up",
+          "result": "feraligatr mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "behaviour": {
     "resting": {
       "canSleep": true,
@@ -236,7 +277,21 @@
     "cobblemon.species.feraligatr.desc"
   ],
   "preEvolution": "croconaw",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "feraligatr_mega",
+      "variant": "level_up",
+      "result": "feraligatr mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1.05,
   "hitbox": {
     "width": 1.2,

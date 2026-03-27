@@ -46,6 +46,46 @@
     "fairy",
     "mineral"
   ],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "fighting",
+      "abilities": [
+        "battlearmor",
+        "h:defiant"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 135,
+        "defence": 135,
+        "special_attack": 70,
+        "special_defence": 65,
+        "speed": 100
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "falinks_mega_revert",
+          "variant": "level_up",
+          "result": "falinks mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:protect",
     "1:tackle",
@@ -120,7 +160,21 @@
   "pokedex": [
     "cobblemon.species.falinks.desc"
   ],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "falinks_mega",
+      "variant": "level_up",
+      "result": "falinks mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 2,

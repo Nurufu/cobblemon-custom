@@ -71,6 +71,42 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Mega-z",
+      "primaryType": "dark",
+      "secondaryType": "ghost",
+      "abilities": ["pressure", "superluck", "h:justified"]
+      "baseStats": {
+        "hp": 65,
+        "attack": 154,
+        "defence": 60,
+        "special_attack": 75,
+        "special_defence": 60,
+        "speed": 151
+      },
+      "labels": [
+        "gen9",
+        "mega-z"
+      ],
+      "aspects": [
+        "mega-z"
+      ],
+      "evolutions": [
+        {
+          "id": "starmie_mega_revert",
+          "variant": "level_up",
+          "result": "starmie mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 163,

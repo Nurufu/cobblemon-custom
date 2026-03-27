@@ -47,6 +47,47 @@
       }
     ]
   },
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "grass",
+      "secondaryType": "fairy",
+      "abilities": [
+        "overgrow",
+        "h:leafguard"
+      ],
+      "baseStats": {
+        "hp": 80,
+        "attack": 92,
+        "defence": 115,
+        "special_attack": 143,
+        "special_defence": 110,
+        "speed": 80
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "meganium_mega_revert",
+          "variant": "level_up",
+          "result": "meganium mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:growl",
     "1:petalblizzard",
@@ -195,7 +236,21 @@
     "cobblemon.species.meganium.desc"
   ],
   "preEvolution": "bayleef",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "meganium_mega",
+      "variant": "level_up",
+      "result": "meganium mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.75,
   "hitbox": {
     "width": 1.6,

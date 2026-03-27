@@ -50,6 +50,48 @@
     "height": 2.5,
     "fixed": false
   },
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "dark",
+      "secondaryType": "psychic",
+      "abilities": [
+        "contrary",
+        "suctioncups",
+        "h:infiltrator"
+      ],
+      "baseStats": {
+        "hp": 86,
+        "attack": 102,
+        "defence": 88,
+        "special_attack": 98,
+        "special_defence": 120,
+        "speed": 88
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "malamar_mega_revert",
+          "variant": "level_up",
+          "result": "malamar mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "behaviour": {
     "moving": {
       "swim": {
@@ -234,5 +276,19 @@
     "special:happyhour"
   ],
   "preEvolution": "inkay",
-  "evolutions": []
+  "evolutions": [
+    {
+      "id": "malamar_mega",
+      "variant": "level_up",
+      "result": "malamar mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ]
 }

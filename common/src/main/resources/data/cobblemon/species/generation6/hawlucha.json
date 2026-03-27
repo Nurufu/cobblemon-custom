@@ -20,6 +20,44 @@
   "experienceGroup": "medium_fast",
   "eggCycles": 20,
   "eggGroups": ["flying", "human_like"],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "fighting",
+      "secondaryType": "flying",
+      "abilities": ["limber", "unburden", "h:moldbreaker"],
+      "baseStats": {
+        "hp": 78,
+        "attack": 137,
+        "defence": 100,
+        "special_attack": 74,
+        "special_defence": 93,
+        "speed": 118
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "hawlucha_mega_revert",
+          "variant": "level_up",
+          "result": "hawlucha mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:honeclaws",
     "1:tackle",
@@ -165,7 +203,21 @@
   ],
   "labels": ["gen6"],
   "pokedex": ["cobblemon.species.hawlucha.desc"],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "hawlucha_mega",
+      "variant": "level_up",
+      "result": "hawlucha mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.8,
   "hitbox": {
     "width": 1,

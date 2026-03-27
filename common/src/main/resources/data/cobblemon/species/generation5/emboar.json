@@ -54,6 +54,47 @@
   "eggGroups": [
     "field"
   ],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "fire",
+      "secondaryType": "fighting",
+      "abilities": [
+        "blaze",
+        "h:reckless"
+      ],
+      "baseStats": {
+        "hp": 110,
+        "attack": 148,
+        "defence": 75,
+        "special_attack": 110,
+        "special_defence": 110,
+        "speed": 75
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "emboar_mega_revert",
+          "variant": "level_up",
+          "result": "emboar mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:armthrust",
     "1:ember",
@@ -188,7 +229,21 @@
     "cobblemon.species.emboar.desc"
   ],
   "preEvolution": "pignite",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "emboar_mega",
+      "variant": "level_up",
+      "result": "emboar mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "standingEyeHeight": 0.9,
   "baseScale": 1.15,
   "hitbox": {

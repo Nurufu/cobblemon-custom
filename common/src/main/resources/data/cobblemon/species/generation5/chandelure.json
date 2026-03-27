@@ -55,6 +55,48 @@
       }
     }
   },
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "ghost",
+      "secondaryType": "fire",
+      "abilities": [
+        "flashfire",
+        "flamebody",
+        "h:infiltrator"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 75,
+        "defence": 110,
+        "special_attack": 175,
+        "special_defence": 110,
+        "speed": 90
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "chandelure_mega_revert",
+          "variant": "level_up",
+          "result": "chandelure mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:astonish",
     "1:confuseray",
@@ -161,7 +203,21 @@
     "cobblemon.species.chandelure.desc"
   ],
   "preEvolution": "lampent",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "chandelure_mega",
+      "variant": "level_up",
+      "result": "chandelure mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

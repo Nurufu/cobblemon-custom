@@ -112,7 +112,21 @@
   "labels": ["gen6"],
   "pokedex": ["cobblemon.species.pyroar.desc"],
   "preEvolution": "litleo",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "pyroar_mega",
+      "variant": "level_up",
+      "result": "pyroar mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,
@@ -131,7 +145,58 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "pyroar_mega_revert",
+          "variant": "level_up",
+          "result": "pyroar mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mega",
+      "primaryType": "fire",
+      "secondaryType": "normal",
+      "abilities": ["rivalry", "unnerve", "h:moxie"],
+      "baseStats": {
+        "hp": 86,
+        "attack": 88,
+        "defence": 92,
+        "special_attack": 129,
+        "special_defence": 86,
+        "speed": 126
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "pyroar_mega_revert",
+          "variant": "level_up",
+          "result": "pyroar mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "height": 15,

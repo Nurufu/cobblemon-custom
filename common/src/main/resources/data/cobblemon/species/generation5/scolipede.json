@@ -52,6 +52,48 @@
   "eggGroups": [
     "bug"
   ],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "bug",
+      "secondaryType": "poison",
+      "abilities": [
+        "poisonpoint",
+        "swarm",
+        "h:speedboost"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 140,
+        "defence": 149,
+        "special_attack": 75,
+        "special_defence": 99,
+        "speed": 62
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "scolipede_mega_revert",
+          "variant": "level_up",
+          "result": "scolipede mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:batonpass",
     "1:defensecurl",
@@ -151,7 +193,21 @@
     "cobblemon.species.scolipede.desc"
   ],
   "preEvolution": "whirlipede",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "scolipede_mega",
+      "variant": "level_up",
+      "result": "scolipede mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1.0,
   "hitbox": {
     "width": 2.5,

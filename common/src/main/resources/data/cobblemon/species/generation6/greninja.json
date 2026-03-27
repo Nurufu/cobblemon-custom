@@ -199,6 +199,44 @@
       "weight": 400,
       "cannotDynamax": false,
       "battleOnly": true
+    },
+    {
+      "name": "Mega",
+      "primaryType": "water",
+      "secondaryType": "dark",
+      "abilities": [
+        "protean"
+      ],
+      "baseStats": {
+        "hp": 72,
+        "attack": 125,
+        "defence": 77,
+        "special_attack": 133,
+        "special_defence": 81,
+        "speed": 142
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "greninja_mega_revert",
+          "variant": "level_up",
+          "result": "greninja mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 239,
@@ -327,7 +365,21 @@
     "cobblemon.species.greninja.desc"
   ],
   "preEvolution": "frogadier",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "greninja_mega",
+      "variant": "level_up",
+      "result": "greninja mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.9,
   "hitbox": {
     "width": 1,

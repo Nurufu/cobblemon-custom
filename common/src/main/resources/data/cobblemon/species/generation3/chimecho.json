@@ -53,6 +53,46 @@
       "light": "0-4"
     }
   },
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "psychic",
+      "secondaryType": "steel",
+      "abilities": [
+        "levitate"
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 50,
+        "defence": 110,
+        "special_attack": 135,
+        "special_defence": 120,
+        "speed": 65
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "chimecho_mega_revert",
+          "variant": "level_up",
+          "result": "chimecho mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:astonish",
     "1:confusion",
@@ -198,7 +238,21 @@
     "cobblemon.species.chimecho.desc"
   ],
   "preEvolution": "chingling",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "chimecho_mega",
+      "variant": "level_up",
+      "result": "chimecho mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.8,
   "hitbox": {
     "width": 0.4,

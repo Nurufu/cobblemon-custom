@@ -40,6 +40,48 @@
     "water_1",
     "dragon"
   ],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "poison",
+      "secondaryType": "dragon",
+      "abilities": [
+        "poisonpoint",
+        "poisontouch",
+        "h:adaptability"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 85,
+        "defence": 105,
+        "special_attack": 132,
+        "special_defence": 163,
+        "speed": 44
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "dragalge_mega_revert",
+          "variant": "level_up",
+          "result": "dragalge mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "behaviour": {
     "moving": {
       "walk": {
@@ -154,7 +196,21 @@
     "cobblemon.species.dragalge.desc"
   ],
   "preEvolution": "skrelp",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "dragalge_mega",
+      "variant": "level_up",
+      "result": "dragalge mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

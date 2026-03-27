@@ -44,6 +44,47 @@
       }
     }
   },
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "dragon",
+      "secondaryType": "water",
+      "abilities": [
+        "commander",
+        "h:stormdrain"
+      ],
+      "baseStats": {
+        "hp": 68,
+        "attack": 65,
+        "defence": 90,
+        "special_attack": 135,
+        "special_defence": 125,
+        "speed": 92
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "tatsugiri_mega_revert",
+          "variant": "level_up",
+          "result": "tatsugiri mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "drops": {
     "amount": 3,
     "entries": [
@@ -111,7 +152,21 @@
   "aspects": [],
   "height": 3,
   "weight": 80,
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "tatsugiri_mega",
+      "variant": "level_up",
+      "result": "tatsugiri mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.65,
   "hitbox": {
     "width": 0.8,

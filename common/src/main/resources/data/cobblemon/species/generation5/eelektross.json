@@ -28,6 +28,45 @@
   "experienceGroup": "slow",
   "eggCycles": 20,
   "eggGroups": ["amorphous"],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "electric",
+      "abilities": [
+        "levitate"
+      ],
+      "baseStats": {
+        "hp": 85,
+        "attack": 145,
+        "defence": 80,
+        "special_attack": 135,
+        "special_defence": 90,
+        "speed": 80
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "eelektross_mega_revert",
+          "variant": "level_up",
+          "result": "eelektross mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:acid",
     "1:coil",
@@ -144,7 +183,21 @@
   "labels": ["gen5"],
   "pokedex": ["cobblemon.species.eelektross.desc"],
   "preEvolution": "eelektrik",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "eelektross_mega",
+      "variant": "level_up",
+      "result": "eelektross mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

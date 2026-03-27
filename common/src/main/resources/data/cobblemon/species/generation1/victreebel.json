@@ -38,6 +38,47 @@
       "light": "0-4"
     }
   },
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "grass",
+      "secondaryType": "poison",
+      "abilities": [
+        "chlorophyll",
+        "h:gluttony"
+      ],
+      "baseStats": {
+        "hp": 80,
+        "attack": 125,
+        "defence": 85,
+        "special_attack": 135,
+        "special_defence": 95,
+        "speed": 70
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "victreebel_mega_revert",
+          "variant": "level_up",
+          "result": "victreebel mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "drops": {
     "amount": 2,
     "entries": [
@@ -180,7 +221,21 @@
     "cobblemon.species.victreebel.desc"
   ],
   "preEvolution": "weepinbell",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "victreebel_mega",
+      "variant": "level_up",
+      "result": "victreebel mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.95,
   "hitbox": {
     "width": 1.15,

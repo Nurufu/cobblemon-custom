@@ -26,6 +26,48 @@
     "water_1",
     "dragon"
   ],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "dragon",
+      "secondaryType": "flying",
+      "abilities": [
+        "innerfocus",
+        "h:multiscale"
+      ],
+      "baseStats": {
+        "hp": 91,
+        "attack": 124,
+        "defence": 115,
+        "special_attack": 145,
+        "special_defence": 125,
+        "speed": 100
+      },
+      "labels": [
+        "gen9",
+        "psuedo_legendary",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "dragonite_mega_revert",
+          "variant": "level_up",
+          "result": "dragonite mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "behaviour": {
     "moving": {
       "swim": {
@@ -296,7 +338,21 @@
     "cobblemon.species.dragonite.desc"
   ],
   "preEvolution": "dragonair",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "dragonite_mega",
+      "variant": "level_up",
+      "result": "dragonite mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.9,
   "hitbox": {
     "width": 1.5,

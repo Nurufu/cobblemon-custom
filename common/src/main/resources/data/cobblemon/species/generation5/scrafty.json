@@ -40,6 +40,48 @@
     "field",
     "dragon"
   ],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "dark",
+      "secondaryType": "fighting",
+      "abilities": [
+        "shedskin",
+        "moxie",
+        "h:intimidate"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 130,
+        "defence": 135,
+        "special_attack": 55,
+        "special_defence": 135,
+        "speed": 68
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "scrafty_mega_revert",
+          "variant": "level_up",
+          "result": "scrafty mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:feintattack",
     "1:headbutt",
@@ -188,7 +230,21 @@
     "cobblemon.species.scrafty.desc"
   ],
   "preEvolution": "scraggy",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "scrafty_mega",
+      "variant": "level_up",
+      "result": "scrafty mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 0.85,

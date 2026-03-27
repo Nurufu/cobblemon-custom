@@ -16,6 +16,47 @@
     "special_defence": 70,
     "speed": 110
   },
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "ice",
+      "secondaryType": "ghost",
+      "abilities": [
+        "snowcloak",
+        "h:cursedbody"
+      ],
+      "baseStats": {
+        "hp": 70,
+        "attack": 80,
+        "defence": 70,
+        "special_attack": 140,
+        "special_defence": 100,
+        "speed": 120
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "froslass_mega_revert",
+          "variant": "level_up",
+          "result": "froslass mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "catchRate": 75,
   "maleRatio": 0,
   "shoulderMountable": false,
@@ -178,7 +219,21 @@
     "cobblemon.species.froslass.desc"
   ],
   "preEvolution": "snorunt",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "froslass_mega",
+      "variant": "level_up",
+      "result": "froslass mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

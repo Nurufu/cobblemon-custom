@@ -42,6 +42,46 @@
       }
     ]
   },
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "grass",
+      "secondaryType": "fighting",
+      "abilities": [
+        "bulletproof"
+      ],
+      "baseStats": {
+        "hp": 88,
+        "attack": 137,
+        "defence": 172,
+        "special_attack": 74,
+        "special_defence": 115,
+        "speed": 44
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "chesnaught_mega_revert",
+          "variant": "level_up",
+          "result": "chesnaught mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:bellydrum",
     "1:feint",
@@ -189,7 +229,21 @@
     "cobblemon.species.chesnaught.desc"
   ],
   "preEvolution": "quilladin",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "chesnaught_mega",
+      "variant": "level_up",
+      "result": "chesnaught mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

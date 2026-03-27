@@ -38,6 +38,48 @@
       }
     }
   },
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "water",
+      "secondaryType": "psychic",
+      "abilities": [
+        "keeneye",
+        "sturdy",
+        "h:weakarmor"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 140,
+        "defence": 110,
+        "special_attack": 40,
+        "special_defence": 100,
+        "speed": 110
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "skarmory_mega_revert",
+          "variant": "level_up",
+          "result": "skarmory mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:leer",
     "1:peck",
@@ -200,7 +242,21 @@
   "pokedex": [
     "cobblemon.species.skarmory.desc"
   ],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "skarmory_mega",
+      "variant": "level_up",
+      "result": "skarmory mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 0.8,
