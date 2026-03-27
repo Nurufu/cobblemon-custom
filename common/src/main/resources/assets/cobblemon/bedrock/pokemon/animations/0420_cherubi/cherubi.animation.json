@@ -222,6 +222,11 @@
 						"1.25": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.5": {
+					"effect": "pokemon.cherubi.cry"
+				}
 			}
 		},
 		"cherubi.animation.blink": {

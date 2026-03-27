@@ -1,1 +1,25 @@
-{"species":"cobblemon:oricorio","order":99,"variations":[{"aspects":["pom_pom-style"],"poser":"cobblemon:pompom_oricorio","model":"cobblemon:pompom_oricorio.geo","texture":"cobblemon:textures/pokemon/oricorio/pompom_oricorio.png","layers":[]},{"aspects":["pom_pom-style","shiny"],"poser":"cobblemon:pompom_oricorio","model":"cobblemon:pompom_oricorio.geo","texture":"cobblemon:textures/pokemon/oricorio/pompom_oricorio_shiny.png","layers":[]}]}
+{
+  "order": 99,
+  "species": "cobblemon:oricorio",
+  "variations": [
+    {
+      "aspects": [
+        "pom_pom-style"
+      ],
+      "poser": "cobblemon:pompom_oricorio",
+      "model": "cobblemon:pompom_oricorio.geo",
+      "texture": "cobblemon:textures/pokemon/oricorio/pompom_oricorio.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "pom_pom-style",
+        "shiny"
+      ],
+      "poser": "cobblemon:pompom_oricorio",
+      "model": "cobblemon:pompom_oricorio.geo",
+      "texture": "cobblemon:textures/pokemon/oricorio/pompom_oricorio_shiny.png",
+      "layers": []
+    }
+  ]
+}

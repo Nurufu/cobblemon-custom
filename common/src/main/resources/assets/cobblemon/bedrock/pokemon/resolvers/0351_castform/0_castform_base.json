@@ -1,1 +1,20 @@
-{"species":"cobblemon:castform","order":0,"variations":[{"aspects":[],"poser":"cobblemon:castform","model":"cobblemon:castform.geo","texture":"cobblemon:textures/pokemon/castform/castform.png","layers":[]},{"aspects":["shiny"],"texture":"cobblemon:textures/pokemon/castform/castform_shiny.png","layers":[]}]}
+{
+  "order": 0,
+  "species": "cobblemon:castform",
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:castform",
+      "model": "cobblemon:castform.geo",
+      "texture": "cobblemon:textures/pokemon/castform/castform.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/castform/castform_shiny.png",
+      "layers": []
+    }
+  ]
+}

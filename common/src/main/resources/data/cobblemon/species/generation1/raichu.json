@@ -48,6 +48,82 @@
   "shoulderMountable": false,
   "forms": [
     {
+      "name": "Mega-X",
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 135,
+        "defence": 95,
+        "special_attack": 90,
+        "special_defence": 95,
+        "speed": 110
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega-x"
+      ],
+      "evolutions": [
+        {
+          "id": "raichu_x_mega_revert",
+          "variant": "level_up",
+          "result": "raichu mega-x=false mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mega-Y",
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 100,
+        "defence": 55,
+        "special_attack": 160,
+        "special_defence": 80,
+        "speed": 130
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega-y"
+      ],
+      "evolutions": [
+        {
+          "id": "raichu_y_mega_revert",
+          "variant": "level_up",
+          "result": "raichu mega-y=false mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Female",
       "aspects": ["female"]
     },
@@ -66,6 +142,34 @@
         "special_defence": 85,
         "speed": 110
       },
+      "evolutions": [
+        {
+          "id": "raichu_x_mega",
+          "variant": "level_up",
+          "result": "raichu mega-x=true mega=true",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        },
+        {
+          "id": "raichu_y_mega",
+          "variant": "level_up",
+          "result": "raichu mega-y=true mega=true",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ],
       "catchRate": 75,
       "maleRatio": 0.5,
       "baseExperienceYield": 243,
@@ -466,7 +570,34 @@
     "cobblemon.species.raichu.desc"
   ],
   "preEvolution": "pikachu",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "raichu_x_mega",
+      "variant": "level_up",
+      "result": "raichu mega-x=true mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    },
+    {
+      "id": "raichu_y_mega",
+      "variant": "level_up",
+      "result": "raichu mega-y=true mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 0.75,
   "hitbox": {
     "width": 0.8,

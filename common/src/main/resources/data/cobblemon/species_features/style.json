@@ -1,0 +1,13 @@
+{
+  "type": "choice",
+  "keys": ["style"],
+  "default": "random",
+  "choices": [
+    "baile",
+    "pa'u",
+    "pom_pom",
+    "sensu"
+  ],
+  "isAspect": true,
+  "aspectFormat": "{{choice}}-form"
+}

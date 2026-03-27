@@ -26,6 +26,48 @@
   "eggGroups": [
     "water_3"
   ],
+  "forms": [
+    {
+      "name": "Mega",
+      "primaryType": "water",
+      "secondaryType": "psychic",
+      "abilities": [
+        "illuminate",
+        "naturalcure",
+        "h:analytic"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 140,
+        "defence": 105,
+        "special_attack": 130,
+        "special_defence": 105,
+        "speed": 120
+      },
+      "labels": [
+        "gen9",
+        "mega"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "evolutions": [
+        {
+          "id": "starmie_mega_revert",
+          "variant": "level_up",
+          "result": "starmie mega=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "behaviour": {
     "moving": {
       "swim": {
@@ -200,7 +242,21 @@
     "cobblemon.species.starmie.desc"
   ],
   "preEvolution": "staryu",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "starmie_mega",
+      "variant": "level_up",
+      "result": "starmie mega=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:mega_stone"
+        }
+      ]
+    }
+  ],
   "baseScale": 1.1,
   "hitbox": {
     "width": 0.8,

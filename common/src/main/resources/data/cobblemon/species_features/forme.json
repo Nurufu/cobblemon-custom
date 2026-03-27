@@ -1,0 +1,11 @@
+{
+  "type": "choice",
+  "keys": ["forme"],
+  "default": "aria",
+  "choices": [
+    "aria",
+    "pirouette"
+  ],
+  "isAspect": true,
+  "aspectFormat": "{{choice}}-forme"
+}

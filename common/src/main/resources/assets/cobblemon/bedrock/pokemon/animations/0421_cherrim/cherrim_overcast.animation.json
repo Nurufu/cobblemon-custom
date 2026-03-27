@@ -445,6 +445,11 @@
 						}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.5": {
+					"effect": "pokemon.cherrim.cry"
+				}
 			}
 		},
 		"cherrim_sunshine.animation.blink": {

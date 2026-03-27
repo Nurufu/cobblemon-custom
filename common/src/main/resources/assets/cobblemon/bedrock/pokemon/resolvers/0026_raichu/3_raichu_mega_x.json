@@ -1,1 +1,37 @@
-{"species":"cobblemon:raichu","order":2,"variations":[{"aspects":["mega_x"],"poser":"cobblemon:raichu_mega_x","model":"cobblemon:raichu_mega_x.geo","texture":"cobblemon:textures/pokemon/raichu_mega/raichu_mega_x.png","layers":[{"name":"glow","texture":"cobblemon:textures/pokemon/raichu_mega/raichu_mega_x_emissive.png","emissive":true,"translucent":true}]},{"aspects":["mega_x","shiny"],"texture":"cobblemon:textures/pokemon/raichu_mega/raichu_mega_x_shiny.png","layers":[{"name":"glow","texture":"cobblemon:textures/pokemon/raichu_mega/raichu_mega_x_emissive.png","emissive":true,"translucent":true}]}]}
+{
+  "order": 2,
+  "species": "cobblemon:raichu",
+  "variations": [
+    {
+      "aspects": [
+        "mega-x"
+      ],
+      "poser": "cobblemon:raichu_mega_x",
+      "model": "cobblemon:raichu_mega_x.geo",
+      "texture": "cobblemon:textures/pokemon/raichu_mega/raichu_mega_x.png",
+      "layers": [
+        {
+          "name": "glow",
+          "texture": "cobblemon:textures/pokemon/raichu_mega/raichu_mega_x_emissive.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "mega-x",
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/raichu_mega/raichu_mega_x_shiny.png",
+      "layers": [
+        {
+          "name": "glow",
+          "texture": "cobblemon:textures/pokemon/raichu_mega/raichu_mega_x_emissive.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    }
+  ]
+}

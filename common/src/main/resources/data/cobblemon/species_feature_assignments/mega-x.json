@@ -1,4 +1,4 @@
 {
-  "pokemon": ["charizard","mewtwo"],
+  "pokemon": ["charizard","mewtwo", "raichu", "tatsugiri"],
   "features": ["mega-x"]
 }
