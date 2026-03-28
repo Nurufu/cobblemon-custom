@@ -151,29 +151,35 @@
     },
     {
       "name": "Female",
-      "aspects": ["female"],
-      "id": "raichu_x_mega",
-      "variant": "level_up",
-      "result": "raichu mega-x=true mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
+      "aspects": [
+        "female"
+      ],
+      "evolutions": [
         {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    },
-    {
-      "id": "raichu_y_mega",
-      "variant": "level_up",
-      "result": "raichu mega-y=true mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
+          "id": "raichu_x_mega",
+          "variant": "level_up",
+          "result": "raichu mega-x=true mega=true",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        },
         {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
+          "id": "raichu_y_mega",
+          "variant": "level_up",
+          "result": "raichu mega-y=true mega=true",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
         }
       ]
     },
