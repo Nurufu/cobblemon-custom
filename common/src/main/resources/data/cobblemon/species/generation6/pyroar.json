@@ -148,9 +148,9 @@
       "aspects": ["female"],
       "evolutions": [
         {
-          "id": "pyroar_mega_revert",
+          "id": "pyroar_mega",
           "variant": "level_up",
-          "result": "pyroar mega=false",
+          "result": "pyroar mega=true",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": [

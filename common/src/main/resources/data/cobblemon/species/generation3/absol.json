@@ -69,6 +69,19 @@
               "itemCondition": "cobblemon:mega_stone"
             }
           ]
+        },
+        {
+          "id": "absol_mega_to_z",
+          "variant": "level_up",
+          "result": "absol mega=false mega-z=true",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
         }
       ]
     },
@@ -97,6 +110,19 @@
           "id": "absol_z_mega_revert",
           "variant": "level_up",
           "result": "absol mega-z=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "held_item",
+              "itemCondition": "cobblemon:mega_stone"
+            }
+          ]
+        },
+        {
+          "id": "absol_z_mega_normal",
+          "variant": "level_up",
+          "result": "absol mega-z=false mega=true",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": [
