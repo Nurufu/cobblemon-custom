@@ -19,7 +19,8 @@
     "dragon",
     "steel",
     "fairy",
-    "dark"
+    "dark",
+    "normal"
   ],
   "isAspect": true,
   "aspectFormat": "{{choice}}-plate"

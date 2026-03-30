@@ -1183,6 +1183,44 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     val STEEL_GEM = noSettingsItem("steel_gem")
     @JvmField
     val FAIRY_GEM = noSettingsItem("fairy_gem")
+
+    // Type Plate
+    @JvmField
+    val NORMAL_PLATE = noSettingsItem("normal_plate")
+    @JvmField
+    val FIRE_PLATE = noSettingsItem("fire_plate")
+    @JvmField
+    val WATER_PLATE = noSettingsItem("water_plate")
+    @JvmField
+    val GRASS_PLATE = noSettingsItem("grass_plate")
+    @JvmField
+    val ELECTRIC_PLATE = noSettingsItem("electric_plate")
+    @JvmField
+    val ICE_PLATE = noSettingsItem("ice_plate")
+    @JvmField
+    val FIGHTING_PLATE = noSettingsItem("fighting_plate")
+    @JvmField
+    val POISON_PLATE = noSettingsItem("poison_plate")
+    @JvmField
+    val GROUND_PLATE = noSettingsItem("ground_plate")
+    @JvmField
+    val FLYING_PLATE = noSettingsItem("flying_plate")
+    @JvmField
+    val PSYCHIC_PLATE = noSettingsItem("psychic_plate")
+    @JvmField
+    val BUG_PLATE = noSettingsItem("bug_plate")
+    @JvmField
+    val ROCK_PLATE = noSettingsItem("rock_plate")
+    @JvmField
+    val GHOST_PLATE = noSettingsItem("ghost_plate")
+    @JvmField
+    val DRAGON_PLATE = noSettingsItem("dragon_plate")
+    @JvmField
+    val DARK_PLATE = noSettingsItem("dark_plate")
+    @JvmField
+    val STEEL_PLATE = noSettingsItem("steel_plate")
+    @JvmField
+    val FAIRY_PLATE = noSettingsItem("fairy_plate")
     //@JvmField
     //val BINDING_SOIL = blockItem("binding_soil", CobblemonBlocks.BINDING_SOIL)
 

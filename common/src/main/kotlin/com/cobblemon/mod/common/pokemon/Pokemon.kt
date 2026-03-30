@@ -66,6 +66,7 @@ import com.cobblemon.mod.common.pokemon.activestate.*
 import com.cobblemon.mod.common.pokemon.evolution.CobblemonEvolutionProxy
 import com.cobblemon.mod.common.pokemon.evolution.progress.DamageTakenEvolutionProgress
 import com.cobblemon.mod.common.pokemon.evolution.progress.RecoilEvolutionProgress
+import com.cobblemon.mod.common.pokemon.feature.PlateFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.SeasonFeatureHandler
 import com.cobblemon.mod.common.pokemon.misc.GimmighoulStashHandler
 import com.cobblemon.mod.common.pokemon.properties.BattleCloneProperty
@@ -501,7 +502,9 @@ open class Pokemon : ShowdownIdentifiable {
 
     fun sendOut(level: ServerWorld, position: Vec3d, illusion: IllusionEffect?, mutation: (PokemonEntity) -> Unit = {}): PokemonEntity? {
         CobblemonEvents.POKEMON_SENT_PRE.postThen(PokemonSentPreEvent(this, level, position)) {
+            Cobblemon.LOGGER.info(this.heldItem().toString())
             SeasonFeatureHandler.updateSeason(this, level, position.toBlockPos())
+            PlateFeatureHandler.updatePlate(this)
             val entity = PokemonEntity(level, this)
             illusion?.start(entity)
             val sentOut = entity.setPositionSafely(position)
