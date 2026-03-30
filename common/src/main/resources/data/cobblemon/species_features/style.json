@@ -9,5 +9,5 @@
     "sensu"
   ],
   "isAspect": true,
-  "aspectFormat": "{{choice}}-form"
+  "aspectFormat": "{{choice}}-style"
 }

@@ -1,0 +1,26 @@
+{
+  "type": "choice",
+  "keys": ["memory"],
+  "default": "choice",
+  "choices": [
+    "fire",
+    "water",
+    "grass",
+    "electric",
+    "ice",
+    "fighting",
+    "poison",
+    "ground",
+    "flying",
+    "psychic",
+    "bug",
+    "rock",
+    "ghost",
+    "dragon",
+    "steel",
+    "fairy",
+    "dark"
+  ],
+  "isAspect": true,
+  "aspectFormat": "{{choice}}-memory"
+}
