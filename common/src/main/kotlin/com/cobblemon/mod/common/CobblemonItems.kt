@@ -1221,6 +1221,46 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     val STEEL_PLATE = noSettingsItem("steel_plate")
     @JvmField
     val FAIRY_PLATE = noSettingsItem("fairy_plate")
+
+    // Type Memory
+    @JvmField
+    val NORMAL_MEMORY = noSettingsItem("normal_memory")
+    @JvmField
+    val FIRE_MEMORY = noSettingsItem("fire_memory")
+    @JvmField
+    val WATER_MEMORY = noSettingsItem("water_memory")
+    @JvmField
+    val GRASS_MEMORY = noSettingsItem("grass_memory")
+    @JvmField
+    val ELECTRIC_MEMORY = noSettingsItem("electric_memory")
+    @JvmField
+    val ICE_MEMORY = noSettingsItem("ice_memory")
+    @JvmField
+    val FIGHTING_MEMORY = noSettingsItem("fighting_memory")
+    @JvmField
+    val POISON_MEMORY = noSettingsItem("poison_memory")
+    @JvmField
+    val GROUND_MEMORY = noSettingsItem("ground_memory")
+    @JvmField
+    val FLYING_MEMORY = noSettingsItem("flying_memory")
+    @JvmField
+    val PSYCHIC_MEMORY = noSettingsItem("psychic_memory")
+    @JvmField
+    val BUG_MEMORY = noSettingsItem("bug_memory")
+    @JvmField
+    val ROCK_MEMORY = noSettingsItem("rock_memory")
+    @JvmField
+    val GHOST_MEMORY = noSettingsItem("ghost_memory")
+    @JvmField
+    val DRAGON_MEMORY = noSettingsItem("dragon_memory")
+    @JvmField
+    val DARK_MEMORY = noSettingsItem("dark_memory")
+    @JvmField
+    val STEEL_MEMORY = noSettingsItem("steel_memory")
+    @JvmField
+    val FAIRY_MEMORY = noSettingsItem("fairy_memory")
+
+
     //@JvmField
     //val BINDING_SOIL = blockItem("binding_soil", CobblemonBlocks.BINDING_SOIL)
 

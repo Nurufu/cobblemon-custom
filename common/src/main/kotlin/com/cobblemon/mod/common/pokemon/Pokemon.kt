@@ -66,6 +66,7 @@ import com.cobblemon.mod.common.pokemon.activestate.*
 import com.cobblemon.mod.common.pokemon.evolution.CobblemonEvolutionProxy
 import com.cobblemon.mod.common.pokemon.evolution.progress.DamageTakenEvolutionProgress
 import com.cobblemon.mod.common.pokemon.evolution.progress.RecoilEvolutionProgress
+import com.cobblemon.mod.common.pokemon.feature.MemoryFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.PlateFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.SeasonFeatureHandler
 import com.cobblemon.mod.common.pokemon.misc.GimmighoulStashHandler
@@ -505,6 +506,7 @@ open class Pokemon : ShowdownIdentifiable {
             Cobblemon.LOGGER.info(this.heldItem().toString())
             SeasonFeatureHandler.updateSeason(this, level, position.toBlockPos())
             PlateFeatureHandler.updatePlate(this)
+            MemoryFeatureHandler.updateMemory(this)
             val entity = PokemonEntity(level, this)
             illusion?.start(entity)
             val sentOut = entity.setPositionSafely(position)
