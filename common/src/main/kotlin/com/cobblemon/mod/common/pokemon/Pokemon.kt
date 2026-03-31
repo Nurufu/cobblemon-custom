@@ -816,6 +816,8 @@ open class Pokemon : ShowdownIdentifiable {
             CobblemonEvents.HELD_ITEM_POST.post(HeldItemEvent.Post(this, this.heldItem(), event.returning.copy(), event.decrement)) {
                 GimmighoulStashHandler.giveHeldItem(it)
             }
+            if(this.species.name == "Arceus") PlateFeatureHandler.updatePlate(this)
+            if(this.species.name == "Silvally") MemoryFeatureHandler.updateMemory(this)
             return event.returning
         })
         return stack
