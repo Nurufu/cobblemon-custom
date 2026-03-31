@@ -1,0 +1,14 @@
+{
+  "type": "choice",
+  "keys": ["drive"],
+  "default": "none",
+  "choices": [
+    "burn",
+    "chill",
+    "douse",
+    "shock"
+  ],
+  "isAspect": true,
+  "visible": true,
+  "aspectFormat": "{{choice}}-drive"
+}

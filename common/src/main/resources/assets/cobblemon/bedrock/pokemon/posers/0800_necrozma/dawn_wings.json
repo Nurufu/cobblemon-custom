@@ -1,0 +1,139 @@
+{
+  "animations": {
+    "faint": "q.bedrock_primary('dawn_wings', 'sleep', q.curve('one'))",
+    "cry": "q.bedrock_stateful('dawn_wings', 'cry')",
+    "recoil": "q.bedrock_stateful('dawn_wings', 'recoil')",
+    "physical": "q.bedrock_primary('dawn_wings', 'physical', q.curve('symmetrical_wide'))",
+    "special": "q.bedrock_primary('dawn_wings', 'special', q.curve('symmetrical_wide'))",
+    "status": "q.bedrock_primary('dawn_wings', 'status', q.curve('symmetrical_wide'))"
+  },
+  "head": "head",
+  "portraitScale": 1.53,
+  "portraitTranslation": [
+    -0.15,
+    5.7,
+    0
+  ],
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "isBattle": false,
+      "transformTicks": 10,
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE",
+        "FLOAT"
+      ],
+      "animations": [
+        "look",
+        "bedrock(dawn_wings, ground_idle2)"
+      ],
+      "quirks": [
+        {
+          "name": "blink",
+          "animations": [
+            "bedrock(dawn_wings, blink)"
+          ]
+        }
+      ]
+    },
+    "battleidle": {
+      "poseName": "battleidle",
+      "isBattle": true,
+      "transformTicks": 10,
+      "poseTypes": [
+        "STAND",
+        "HOVER"
+      ],
+      "animations": [
+        "look",
+        "bedrock(dawn_wings, battle_idle)"
+      ],
+      "quirks": [
+        {
+          "name": "blink",
+          "animations": [
+            "bedrock(dawn_wings, blink)"
+          ]
+        }
+      ]
+    },
+    "walking": {
+      "poseName": "walking",
+      "transformTicks": 10,
+      "poseTypes": [
+        "WALK",
+        "SWIM"
+      ],
+      "animations": [
+        "look",
+        "bedrock(dawn_wings, ground_walk2)"
+      ],
+      "quirks": [
+        {
+          "name": "blink",
+          "animations": [
+            "bedrock(dawn_wings, blink)"
+          ]
+        }
+      ]
+    },
+    "hovering": {
+      "poseName": "hovering",
+      "transformTicks": 10,
+      "poseTypes": [
+        "HOVER"
+      ],
+      "isBattle": false,
+      "animations": [
+        "look",
+        "bedrock(dawn_wings, air_idle)"
+      ],
+      "quirks": [
+        {
+          "name": "blink",
+          "animations": [
+            "bedrock(dawn_wings, blink)"
+          ]
+        }
+      ]
+    },
+    "flying": {
+      "poseName": "flying",
+      "transformTicks": 10,
+      "poseTypes": [
+        "FLY"
+      ],
+      "animations": [
+        "look",
+        "bedrock(dawn_wings, air_fly)"
+      ],
+      "quirks": [
+        {
+          "name": "blink",
+          "animations": [
+            "bedrock(dawn_wings, blink)"
+          ]
+        }
+      ]
+    },
+    "sleeping": {
+      "poseName": "sleeping",
+      "transformTicks": 10,
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "animations": [
+        "bedrock(dawn_wings, sleep)"
+      ]
+    }
+  },
+  "profileScale": 0.2,
+  "profileTranslation": [
+    -0.16,
+    1.4,
+    0
+  ]
+}

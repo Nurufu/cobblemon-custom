@@ -1,0 +1,64 @@
+{
+  "head": "head",
+  "portraitScale": 2,
+  "portraitTranslation": [
+    -1.2,
+    3.6,
+    0
+  ],
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "transformTicks": 10,
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "animations": [
+        "look",
+        "bedrock(landorus_therian, ground_idle)"
+      ]
+    },
+    "walking": {
+      "poseName": "walking",
+      "transformTicks": 10,
+      "poseTypes": [
+        "WALK"
+      ],
+      "animations": [
+        "bedrock(landorus_therian, ground_walk)"
+      ],
+      "quirks": []
+    },
+    "hovering": {
+      "poseName": "hovering",
+      "transformTicks": 10,
+      "poseTypes": [
+        "HOVER"
+      ],
+      "animations": [
+        "bedrock(landorus_therian, air_idle)"
+      ],
+      "quirks": []
+    },
+    "flying": {
+      "poseName": "flying",
+      "transformTicks": 10,
+      "poseTypes": [
+        "FLY"
+      ],
+      "animations": [
+        "bedrock(landorus_therian, air_fly)"
+      ],
+      "quirks": []
+    }
+  },
+  "profileScale": 0.5,
+  "profileTranslation": [
+    0,
+    1.7,
+    0
+  ]
+}

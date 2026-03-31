@@ -1,0 +1,98 @@
+{
+  "order": 99,
+  "species": "cobblemon:genesect",
+  "variations": [
+    {
+      "aspects": [
+        "burn-drive"
+      ],
+      "layers": [
+        {
+          "name": "drive",
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_burn_drive.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "shiny",
+        "burn-drive"
+      ],
+      "layers": [
+        {
+          "name": "drive",
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_burn_drive.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "chill-drive"
+      ],
+      "layers": [
+        {
+          "name": "drive",
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_chill_drive.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "shiny",
+        "chill-drive"
+      ],
+      "layers": [
+        {
+          "name": "drive",
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_chill_drive.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "douse-drive"
+      ],
+      "layers": [
+        {
+          "name": "drive",
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_douse_drive.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "shiny",
+        "douse-drive"
+      ],
+      "layers": [
+        {
+          "name": "drive",
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_douse_drive.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "shock-drive"
+      ],
+      "layers": [
+        {
+          "name": "drive",
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_shock_drive.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "shiny",
+        "shock-drive"
+      ],
+      "layers": [
+        {
+          "name": "drive",
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_shock_drive.png"
+        }
+      ]
+    }
+  ]
+}

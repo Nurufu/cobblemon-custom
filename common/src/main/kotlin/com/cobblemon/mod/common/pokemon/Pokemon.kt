@@ -66,6 +66,7 @@ import com.cobblemon.mod.common.pokemon.activestate.*
 import com.cobblemon.mod.common.pokemon.evolution.CobblemonEvolutionProxy
 import com.cobblemon.mod.common.pokemon.evolution.progress.DamageTakenEvolutionProgress
 import com.cobblemon.mod.common.pokemon.evolution.progress.RecoilEvolutionProgress
+import com.cobblemon.mod.common.pokemon.feature.DriveFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.MemoryFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.PlateFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.SeasonFeatureHandler
@@ -818,6 +819,7 @@ open class Pokemon : ShowdownIdentifiable {
             }
             if(this.species.name == "Arceus") PlateFeatureHandler.updatePlate(this)
             if(this.species.name == "Silvally") MemoryFeatureHandler.updateMemory(this)
+            if(this.species.name == "Genesect") DriveFeatureHandler.updateDrive(this)
             return event.returning
         })
         return stack

@@ -1,0 +1,45 @@
+{
+  "order": 99,
+  "species": "cobblemon:necrozma",
+  "variations": [
+    {
+      "aspects": [
+        "dusk-fusion"
+      ],
+      "poser": "cobblemon:dusk_mane",
+      "model": "cobblemon:dusk_mane.geo",
+      "texture": "cobblemon:textures/pokemon/duskmane/dusk_mane.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "cobblemon:textures/pokemon/duskmane/dusk_mane_emissive.png"
+        },
+        {
+          "name": "translucent",
+          "translucent": true,
+          "texture": "cobblemon:textures/pokemon/duskmane/dusk_mane_transparency.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "shiny",
+        "dusk-fusion"
+      ],
+      "texture": "cobblemon:textures/pokemon/duskmane/dusk_mane_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "cobblemon:textures/pokemon/duskmane/dusk_mane_shiny_emissive.png"
+        },
+        {
+          "name": "translucent",
+          "translucent": true,
+          "texture": "cobblemon:textures/pokemon/duskmane/dusk_mane_shiny_transparency.png"
+        }
+      ]
+    }
+  ]
+}

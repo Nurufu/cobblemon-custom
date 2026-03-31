@@ -57,7 +57,7 @@
           "legendary"
         ],
         "aspects": [
-          "douse"
+          "douse-drive"
         ],
         "height": 15,
         "weight": 825,
@@ -102,7 +102,7 @@
           "legendary"
         ],
         "aspects": [
-          "shock"
+          "shock-drive"
         ],
         "height": 15,
         "weight": 825,
@@ -147,7 +147,7 @@
           "legendary"
         ],
         "aspects": [
-          "burn"
+          "burn-drive"
         ],
         "height": 15,
         "weight": 825,
@@ -192,7 +192,7 @@
           "legendary"
         ],
         "aspects": [
-          "chill"
+          "chill-drive"
         ],
         "height": 15,
         "weight": 825,

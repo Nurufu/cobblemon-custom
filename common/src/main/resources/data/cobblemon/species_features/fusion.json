@@ -1,0 +1,13 @@
+{
+  "type": "choice",
+  "keys": ["fusion"],
+  "default": "none",
+  "choices": [
+    "ultra",
+    "dawn",
+    "dusk"
+  ],
+  "isAspect": true,
+  "visible": true,
+  "aspectFormat": "{{choice}}-fusion"
+}

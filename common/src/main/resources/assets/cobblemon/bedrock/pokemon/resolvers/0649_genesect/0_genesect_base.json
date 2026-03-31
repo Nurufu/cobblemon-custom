@@ -1,19 +1,36 @@
 {
-  "species": "cobblemon:genesect",
   "order": 0,
+  "species": "cobblemon:genesect",
   "variations": [
     {
       "aspects": [],
       "poser": "cobblemon:genesect",
       "model": "cobblemon:genesect.geo",
       "texture": "cobblemon:textures/pokemon/genesect/genesect.png",
-      "layers": []
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_emissive.png"
+        },
+        {
+          "name": "drive",
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_drive.png"
+        }
+      ]
     },
     {
       "aspects": [
         "shiny"
       ],
-      "texture": "cobblemon:textures/pokemon/genesect/genesect_shiny.png"
+      "texture": "cobblemon:textures/pokemon/genesect/genesect_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "cobblemon:textures/pokemon/genesect/genesect_emissive_shiny.png"
+        }
+      ]
     }
   ]
 }

@@ -1,46 +1,80 @@
 {
-    "head": "head",
-	"portraitScale": 1.7,
-    "portraitTranslation": [ -0.2, 1.6, 0 ],
-    "profileScale": 0.52,
-    "profileTranslation": [ 0, 1.02, 0 ],
   "animations": {
-    "cry": "q.bedrock_stateful('genesect', 'cry')"
+    "faint": "q.bedrock_primary('genesect', 'faint', q.curve('one'))"
   },
-    "poses": {
-      "standing": {
-        "poseName": "standing",
-        "transformTicks": 10,
-        "poseTypes": [
-          "STAND",
-          "NONE",
-          "PORTRAIT",
-          "PROFILE"
-        ],
-        "animations": [
-          "bedrock(genesect, ground_idle)"
-        ]
-      },
-      "walking": {
-        "poseName": "walking",
-        "transformTicks": 10,
-        "poseTypes": [ "WALK" ],
-        "animations": [ "bedrock(genesect, ground_walk)" 
-		]
-		},
-    "flying": {
-      "poseName": "flying",
-      "transformTicks": 10,
-      "poseTypes": [ "FLY" ],
-      "animations": [ "bedrock(genesect, air_fly)" 
-	  ]
+  "portraitScale": 1.3,
+  "portraitTranslation": [
+    -0.7,
+    1.45,
+    0
+  ],
+  "poses": {
+    "battle-standing": {
+      "poseTypes": [
+        "STAND",
+        "FLOAT"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('genesect', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_primary_quirk('genesect', q.array('quirk1'), 15, 30, 1)",
+        "q.bedrock_quirk('genesect', q.array('quirk3_overlay'), 5, 30, 1)"
+      ]
     },
-	"hovering": {
-      "poseName": "hovering",
-      "transformTicks": 10,
-      "poseTypes": [ "HOVER" ],
-      "animations": [ "bedrock(genesect, air_fly)" 
-	  ]
-      }
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE",
+        "FLOAT"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('genesect', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_primary_quirk('genesect', q.array('quirk2'), 15, 35, 1)",
+        "q.bedrock_quirk('genesect', q.array('quirk3_overlay'), 5, 30, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK",
+        "SWIM"
+      ],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('genesect', 'ground_walk')"
+      ]
+    },
+    "hovering": {
+      "poseTypes": [
+        "HOVER",
+        "FLY"
+      ],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('genesect', 'ground_run')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "animations": [
+        "q.bedrock('genesect', 'sleep')"
+      ]
     }
-  }
+  },
+  "profileScale": 0.5,
+  "profileTranslation": [
+    -0.1,
+    1,
+    0
+  ]
+}

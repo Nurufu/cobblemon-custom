@@ -1260,6 +1260,15 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     @JvmField
     val FAIRY_MEMORY = noSettingsItem("fairy_memory")
 
+    //Drives
+    @JvmField
+    val BURN_DRIVE = noSettingsItem("burn_drive")
+    @JvmField
+    val CHILL_DRIVE = noSettingsItem("chill_drive")
+    @JvmField
+    val DOUSE_DRIVE = noSettingsItem("douse_drive")
+    @JvmField
+    val SHOCK_DRIVE = noSettingsItem("shock_drive")
 
     //@JvmField
     //val BINDING_SOIL = blockItem("binding_soil", CobblemonBlocks.BINDING_SOIL)

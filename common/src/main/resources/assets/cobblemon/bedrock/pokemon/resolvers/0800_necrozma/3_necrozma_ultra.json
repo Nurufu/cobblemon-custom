@@ -1,0 +1,49 @@
+{
+  "order": 3,
+  "species": "cobblemon:necrozma",
+  "variations": [
+    {
+      "aspects": [
+        "ultra-fusion"
+      ],
+      "poser": "cobblemon:necrozma_ultra",
+      "model": "cobblemon:necrozma_ultra.geo",
+      "texture": "cobblemon:textures/pokemon/necrozma/ultra/necrozma_ultra.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "cobblemon:textures/pokemon/necrozma/ultra/necrozma_ultra_emissive1.png",
+          "translucent": true
+        },
+        {
+          "name": "emissive2",
+          "emissive": true,
+          "texture": "cobblemon:textures/pokemon/necrozma/ultra/necrozma_ultra_emissive2.png",
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "ultra-fusion",
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/necrozma/ultra/necrozma_ultra_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "cobblemon:textures/pokemon/necrozma/ultra/necrozma_ultra_emissive1.png",
+          "translucent": true
+        },
+        {
+          "name": "emissive2",
+          "emissive": true,
+          "texture": "cobblemon:textures/pokemon/necrozma/ultra/necrozma_ultra_emissive2.png",
+          "translucent": true
+        }
+      ]
+    }
+  ]
+}
