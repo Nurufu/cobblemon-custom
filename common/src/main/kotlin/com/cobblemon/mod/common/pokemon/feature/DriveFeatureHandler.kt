@@ -13,7 +13,7 @@ import com.cobblemon.mod.common.api.pokemon.feature.StringSpeciesFeature
 import com.cobblemon.mod.common.pokemon.Pokemon
 import net.minecraft.item.Items
 
-const val DRIVE = "DRIVE"
+const val DRIVE = "drive"
 
 object DriveFeatureHandler {
     fun updateDrive(pokemon: Pokemon) {
