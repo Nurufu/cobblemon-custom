@@ -54,7 +54,7 @@
         "legendary"
       ],
       "aspects": [
-        "bug"
+        "bug-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -97,7 +97,7 @@
         "legendary"
       ],
       "aspects": [
-        "dark"
+        "dark-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -140,7 +140,7 @@
         "legendary"
       ],
       "aspects": [
-        "dragon"
+        "dragon-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -183,7 +183,7 @@
         "legendary"
       ],
       "aspects": [
-        "electric"
+        "electric-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -226,7 +226,7 @@
         "legendary"
       ],
       "aspects": [
-        "fairy"
+        "fairy-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -269,7 +269,7 @@
         "legendary"
       ],
       "aspects": [
-        "fighting"
+        "fighting-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -312,7 +312,7 @@
         "legendary"
       ],
       "aspects": [
-        "fire"
+        "fire-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -355,7 +355,7 @@
         "legendary"
       ],
       "aspects": [
-        "flying"
+        "flying-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -398,7 +398,7 @@
         "legendary"
       ],
       "aspects": [
-        "ghost"
+        "ghost-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -441,7 +441,7 @@
         "legendary"
       ],
       "aspects": [
-        "grass"
+        "grass-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -484,7 +484,7 @@
         "legendary"
       ],
       "aspects": [
-        "ground"
+        "ground-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -527,7 +527,7 @@
         "legendary"
       ],
       "aspects": [
-        "ice"
+        "ice-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -570,7 +570,7 @@
         "legendary"
       ],
       "aspects": [
-        "poison"
+        "poison-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -613,7 +613,7 @@
         "legendary"
       ],
       "aspects": [
-        "psychic"
+        "psychic-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -656,7 +656,7 @@
         "legendary"
       ],
       "aspects": [
-        "rock"
+        "rock-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -699,7 +699,7 @@
         "legendary"
       ],
       "aspects": [
-        "steel"
+        "steel-memory"
       ],
       "height": 23,
       "weight": 1005,
@@ -742,7 +742,7 @@
         "legendary"
       ],
       "aspects": [
-        "water"
+        "water-memory"
       ],
       "height": 23,
       "weight": 1005,

@@ -55,7 +55,7 @@
         "legendary"
       ],
       "aspects": [
-        "bug"
+        "bug-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -99,7 +99,7 @@
         "legendary"
       ],
       "aspects": [
-        "dark"
+        "dark-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -143,7 +143,7 @@
         "legendary"
       ],
       "aspects": [
-        "dragon"
+        "dragon-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -187,7 +187,7 @@
         "legendary"
       ],
       "aspects": [
-        "electric"
+        "electric-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -231,7 +231,7 @@
         "legendary"
       ],
       "aspects": [
-        "fairy"
+        "fairy-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -275,7 +275,7 @@
         "legendary"
       ],
       "aspects": [
-        "fighting"
+        "fighting-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -319,7 +319,7 @@
         "legendary"
       ],
       "aspects": [
-        "fire"
+        "fire-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -363,7 +363,7 @@
         "legendary"
       ],
       "aspects": [
-        "flying"
+        "flying-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -407,7 +407,7 @@
         "legendary"
       ],
       "aspects": [
-        "ghost"
+        "ghost-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -451,7 +451,7 @@
         "legendary"
       ],
       "aspects": [
-        "grass"
+        "grass-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -495,7 +495,7 @@
         "legendary"
       ],
       "aspects": [
-        "ground"
+        "ground-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -539,7 +539,7 @@
         "legendary"
       ],
       "aspects": [
-        "ice"
+        "ice-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -583,7 +583,7 @@
         "legendary"
       ],
       "aspects": [
-        "poison"
+        "poison-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -627,7 +627,7 @@
         "legendary"
       ],
       "aspects": [
-        "psychic"
+        "psychic-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -671,7 +671,7 @@
         "legendary"
       ],
       "aspects": [
-        "rock"
+        "rock-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -715,7 +715,7 @@
         "legendary"
       ],
       "aspects": [
-        "steel"
+        "steel-plate"
       ],
       "height": 32,
       "weight": 3200,
@@ -759,7 +759,7 @@
         "legendary"
       ],
       "aspects": [
-        "water"
+        "water-plate"
       ],
       "height": 32,
       "weight": 3200,

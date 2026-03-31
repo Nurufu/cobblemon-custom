@@ -23,12 +23,12 @@ object PlateFeatureHandler {
                 "normal"
             ))
         val feature = pokemon.getFeature<StringSpeciesFeature>(PLATE) ?: return
-        if(pokemon.heldItem().isOf(Items.AIR)) {
+        //reset if holding air or memory doesn't match current type
+        if(pokemon.heldItem().isOf(Items.AIR) || !comparePlate(pokemon)) {
             feature.value = "normal"
             pokemon.updateAspects()
             pokemon.markFeatureDirty(feature)
         }
-        else {
             if (pokemon.heldItem().isOf(CobblemonItems.FIRE_PLATE)) feature.value = "fire"
             else if (pokemon.heldItem().isOf(CobblemonItems.WATER_PLATE)) feature.value = "water"
             else if (pokemon.heldItem().isOf(CobblemonItems.GRASS_PLATE)) feature.value = "grass"
@@ -48,6 +48,27 @@ object PlateFeatureHandler {
             else if (pokemon.heldItem().isOf(CobblemonItems.DARK_PLATE)) feature.value = "dark"
             pokemon.updateAspects()
             pokemon.markFeatureDirty(feature)
-        }
+    }
+
+    fun comparePlate(pokemon: Pokemon): Boolean{
+        val feature = pokemon.getFeature<StringSpeciesFeature>(PLATE) ?: return false
+        if (pokemon.heldItem().isOf(CobblemonItems.FIRE_PLATE) && feature.value == "fire") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.WATER_PLATE) && feature.value == "water") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.GRASS_PLATE) && feature.value == "grass") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.ELECTRIC_PLATE) && feature.value == "electric") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.ICE_PLATE) && feature.value == "ice") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.FIGHTING_PLATE) && feature.value == "fighting") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.POISON_PLATE) && feature.value == "poison") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.GROUND_PLATE) && feature.value == "ground") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.FLYING_PLATE) && feature.value == "flying") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.PSYCHIC_PLATE) && feature.value == "psychic") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.BUG_PLATE) && feature.value == "bug") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.ROCK_PLATE) && feature.value == "rock") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.GHOST_PLATE) && feature.value == "ghost") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.DRAGON_PLATE) && feature.value == "dragon") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.STEEL_PLATE) && feature.value == "steel") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.FAIRY_PLATE) && feature.value == "fairy") return true
+        else if (pokemon.heldItem().isOf(CobblemonItems.DARK_PLATE) && feature.value == "dark") return true
+        else return false
     }
 }
