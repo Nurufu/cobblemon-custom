@@ -1,0 +1,22 @@
+{
+  "order": 2,
+  "species": "cobblemon:calyrex",
+  "variations": [
+    {
+      "aspects": [
+        "shadow"
+      ],
+      "poser": "cobblemon:calyrex_shadow_rider",
+      "model": "cobblemon:calyrex_shadow_rider.geo",
+      "texture": "cobblemon:textures/pokemon/0898_calyrex/calyrex_shadow_rider.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "shadow",
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/0898_calyrex/calyrex_shadow_rider_shiny.png"
+    }
+  ]
+}
