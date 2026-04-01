@@ -1270,6 +1270,14 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     @JvmField
     val SHOCK_DRIVE = noSettingsItem("shock_drive")
 
+    //Origin Forms
+    @JvmField
+    val ADAMANT_CRYSTAL = noSettingsItem("adamant_crystal")
+    @JvmField
+    val LUSTROUS_GLOBE = noSettingsItem("lustrous_globe")
+    @JvmField
+    val GRISEOUS_CORE = noSettingsItem("griseous_core")
+
     //@JvmField
     //val BINDING_SOIL = blockItem("binding_soil", CobblemonBlocks.BINDING_SOIL)
 

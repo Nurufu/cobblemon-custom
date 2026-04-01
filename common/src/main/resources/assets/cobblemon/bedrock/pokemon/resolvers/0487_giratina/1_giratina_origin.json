@@ -3,14 +3,14 @@
   "order": 1,
   "variations": [
     {
-      "aspects": ["origin-forme"],
+      "aspects": ["origin"],
       "poser": "cobblemon:giratina_origin",
       "model": "cobblemon:giratina_origin.geo",
       "texture": "cobblemon:textures/pokemon/0487_giratina/giratina_origin.png",
-      "layers": [] 
+      "layers": []
     },
     {
-      "aspects": ["origin-forme","shiny"],
+      "aspects": ["origin","shiny"],
       "texture": "cobblemon:textures/pokemon/0487_giratina/giratina_origin_shiny.png",
       "layers": []
     }
