@@ -1,0 +1,36 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "ironboulder-1T",
+      "pokemon": "ironboulder",
+      "presets": [
+        "natural",
+        "wild"
+      ],
+      "type": "pokemon",
+      "context": "grounded",
+      "bucket": "ultra-rare",
+      "level": "60",
+      "weight": 1,
+      "condition": {
+        "time": "night",
+        "biomes": [
+          "#cobblemon:is_forest"
+        ]
+      },
+      "weightMultipliers": [
+        {
+          "multiplier": 1.5,
+          "condition": {
+            "neededNearbyBlocks": [
+              "cobblemon:pc"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

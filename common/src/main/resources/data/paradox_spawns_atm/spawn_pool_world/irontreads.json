@@ -1,0 +1,37 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+        {
+            "id": "irontreads-1T",
+            "pokemon": "irontreads",
+            "presets": [
+                "natural",
+                "wild"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "rare",
+            "level": "40-75",
+            "weight": 3.0,
+            "condition": {
+                "timeRange":"night",
+                "biomes": [
+                    "#cobblemon:is_arid",
+		            "#cobblemon:is_mountain"
+                ]
+            },
+            "weightMultipliers": [
+                {
+                    "multiplier": 1.5,
+                    "condition": {
+                        "neededNearbyBlocks": [
+                            "cobblemon:pc"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

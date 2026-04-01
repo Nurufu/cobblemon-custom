@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "typenull-1T",
+      "pokemon": "typenull",
+      "presets": [],
+      "type": "pokemon",
+      "context": "grounded",
+      "bucket": "ultra-rare",
+      "level": "60",
+      "weight": 0.5,
+      "condition": {
+        "biomes": [
+          "#cobblemon:overworld"
+        ]
+      },
+      "anticondition": {
+        "presets": [
+          "natural"
+        ]
+      }
+    }
+  ]
+}

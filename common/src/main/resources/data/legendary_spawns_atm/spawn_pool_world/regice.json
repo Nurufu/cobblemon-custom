@@ -1,0 +1,21 @@
+{
+    "enabled": true,
+    "spawns": [
+      {
+        "id": "regice-1T",
+        "pokemon": "regice",
+        "type": "pokemon",
+        "context": "grounded",
+        "bucket": "ultra-rare",
+        "level": "70",
+        "weight": 3,
+        "condition": {
+          "biomes": [
+            "#cobblemon:is_freezing"
+          ],
+          "canSeeSky": true,
+          "minLureLevel": 3
+        }
+      }
+    ]
+  }
