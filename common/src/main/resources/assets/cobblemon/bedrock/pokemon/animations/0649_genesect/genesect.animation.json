@@ -7347,16 +7347,6 @@
             -0.1875
           ]
         }
-      },
-      "particle_effects": {
-        "2.625": {
-          "effect": "cobblemon:altered_confetti",
-          "locator": "locator"
-        },
-        "2.8333": {
-          "effect": "cobblemon:smoke",
-          "locator": "locator"
-        }
       }
     },
     "animation.genesect.quirk1": {
