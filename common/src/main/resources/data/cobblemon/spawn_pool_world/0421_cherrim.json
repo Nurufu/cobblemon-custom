@@ -1,0 +1,37 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+        {
+            "id": "cherrim-1",
+            "pokemon": "cherrim",
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "uncommon",
+            "level": "15-30",
+            "weight": 0.3,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_jungle",
+                    "#cobblemon:is_plains"
+                ]
+            }
+        },
+        {
+            "id": "cherrim-1",
+            "pokemon": "cherrim",
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "rare",
+            "level": "15-30",
+            "weight": 0.2,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_jungle",
+                    "#cobblemon:is_plains"
+                ]
+            }
+        }
+    ]
+}

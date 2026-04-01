@@ -167,7 +167,17 @@
     "cobblemon.species.cherrim.desc"
   ],
   "preEvolution": "cherubi",
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "cherrim_sunshine",
+      "variant": "item_interact",
+      "result": "cherrim sunshine=true",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [],
+      "requiredContext": "cobblemon:sun_stone"
+    }
+  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,
