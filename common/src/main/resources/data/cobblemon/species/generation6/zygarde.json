@@ -148,7 +148,30 @@
   ],
   "height": 50,
   "weight": 3050,
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "50p_complete",
+      "variant": "item_interact",
+      "result": "zygarde percent_cells=complete",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [],
+      "requiredContext": "cobblemon:zygarde_cube"
+    }
+  ],
+  "drops": {
+    "amount": 2,
+    "entries": [
+      {
+        "item": "cobblemon:zygarde_cell",
+        "quantityRange": "5-5"
+      },
+      {
+        "item": "cobblemon:zygarde_core",
+        "quantityRange": "0-1"
+      }
+    ]
+  },
   "forms": [
     {
       "name": "10Percent",
@@ -207,7 +230,31 @@
       "height": 12,
       "weight": 335,
       "cannotDynamax": false,
-      "battleOnly": false
+      "battleOnly": false,
+      "evolutions": [
+       {
+        "id": "10p_complete",
+        "variant": "item_interact",
+        "result": "zygarde percent_cells=complete",
+        "consumeHeldItem": false,
+        "learnableMoves": [],
+        "requirements": [],
+        "requiredContext": "cobblemon:zygarde_cube"
+       }
+      ],
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "cobblemon:zygarde_cell",
+            "quantityRange": "1-1"
+          },
+          {
+            "item": "cobblemon:zygarde_core",
+            "quantityRange": "0-1"
+          }
+        ]
+      }
     },
     {
       "name": "Complete",
@@ -252,6 +299,69 @@
       "weight": 6100,
       "cannotDynamax": false,
       "battleOnly": true
+    },
+    {
+      "name": "1Percent",
+      "primaryType": "dragon",
+      "secondaryType": "ground",
+      "abilities": [
+        "aurabreak"
+      ],
+      "baseStats": {
+        "hp": 10,
+        "attack": 10,
+        "defence": 10,
+        "special_attack": 10,
+        "special_defence": 10,
+        "speed": 10
+      },
+      "catchRate": 36,
+      "maleRatio": -1,
+      "baseExperienceYield": 300,
+      "baseFriendship": 0,
+      "evYield": {
+        "hp": 3,
+        "attack": 0,
+        "defence": 0,
+        "special_attack": 0,
+        "special_defence": 0,
+        "speed": 0
+      },
+      "experienceGroup": "slow",
+      "eggCycles": 120,
+      "eggGroups": [
+        "undiscovered"
+      ],
+      "labels": [
+        "gen7",
+        "legendary"
+      ],
+      "aspects": [
+        "percent_cells=1"
+      ],
+      "height": 45,
+      "weight": 6100,
+      "cannotDynamax": false,
+      "evolutions": [
+        {
+          "id": "1p_complete",
+          "variant": "item_interact",
+          "result": "zygarde percent_cells=complete",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:zygarde_cube"
+        }
+      ],
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "cobblemon:zygarde_core",
+            "quantityRange": "0-1"
+          }
+        ]
+      }
     }
   ],
   "aspects": [],

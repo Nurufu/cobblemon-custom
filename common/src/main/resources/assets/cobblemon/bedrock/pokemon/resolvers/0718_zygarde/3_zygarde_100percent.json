@@ -3,7 +3,7 @@
   "order": 3,
   "variations": [
     {
-      "aspects": ["complete-percent"],
+      "aspects": ["percent_cells-complete"],
       "poser": "cobblemon:zygarde_complete",
       "model": "cobblemon:zygarde_complete.geo",
       "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_complete.png",
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "aspects": ["shiny","complete-percent"],
+      "aspects": ["shiny","percent_cells-complete"],
       "texture": "cobblemon:textures/pokemon/0718_zygarde/zygarde_complete_shiny.png",
        "layers": [
         {

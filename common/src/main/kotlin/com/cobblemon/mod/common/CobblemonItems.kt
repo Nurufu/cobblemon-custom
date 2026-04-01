@@ -1278,6 +1278,14 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     @JvmField
     val GRISEOUS_CORE = noSettingsItem("griseous_core")
 
+    //Zygarde
+    @JvmField
+    val ZYGARDE_CELL = noSettingsItem("zygarde_cell")
+    @JvmField
+    val ZYGARDE_CORE = noSettingsItem("zygarde_core")
+    @JvmField
+    val ZYGARDE_CUBE = noSettingsItem("zygarde_cube")
+
     //@JvmField
     //val BINDING_SOIL = blockItem("binding_soil", CobblemonBlocks.BINDING_SOIL)
 

@@ -1,0 +1,13 @@
+{
+  "type": "choice",
+  "keys": ["bagworm_cloak"],
+  "default": "none",
+  "choices": [
+    "plant",
+    "sandy",
+    "trash"
+  ],
+  "isAspect": true,
+  "visible": true,
+  "aspectFormat": "bagworm_cloak-{{choice}}"
+}
