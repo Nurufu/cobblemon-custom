@@ -1,0 +1,35 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+        {
+            "id": "palpitoad-1",
+            "pokemon": "palpitoad",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "uncommon",
+            "level": "25-35",
+            "weight": 0.3,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_river"
+                ]
+            }
+        },
+        {
+            "id": "palpitoad-2",
+            "pokemon": "palpitoad",
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "uncommon",
+            "level": "25-35",
+            "weight": 0.5,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_forest"
+                ]
+            }
+        }
+    ]
+}

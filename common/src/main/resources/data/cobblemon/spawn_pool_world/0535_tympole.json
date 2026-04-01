@@ -1,0 +1,35 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+        {
+            "id": "tympole-1",
+            "pokemon": "tympole",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "common",
+            "level": "15-20",
+            "weight": 0.3,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_river"
+                ]
+            }
+        },
+        {
+            "id": "tympole-2",
+            "pokemon": "tympole",
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "common",
+            "level": "15-20",
+            "weight": 0.5,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_forest"
+                ]
+            }
+        }
+    ]
+}

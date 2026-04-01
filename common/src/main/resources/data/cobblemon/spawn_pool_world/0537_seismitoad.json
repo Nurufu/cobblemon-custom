@@ -1,0 +1,35 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+        {
+            "id": "seismitoad-1",
+            "pokemon": "seismitoad",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "rare",
+            "level": "36-50",
+            "weight": 0.3,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_river"
+                ]
+            }
+        },
+        {
+            "id": "seismitoad-2",
+            "pokemon": "seismitoad",
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "rare",
+            "level": "36-50",
+            "weight": 0.5,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:is_forest"
+                ]
+            }
+        }
+    ]
+}
