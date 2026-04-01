@@ -153,7 +153,20 @@
   ],
   "height": 14,
   "weight": 485,
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "keldeo_resolute",
+      "variant": "level_up",
+      "result": "keldeo resolute=true",
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "has_move",
+          "move": "secretsword"
+        }
+      ]
+    }
+  ],
   "forms": [
     {
       "name": "Resolute",
@@ -198,7 +211,16 @@
       "height": 14,
       "weight": 485,
       "cannotDynamax": false,
-      "battleOnly": false
+      "battleOnly": false,
+      "evolutions": [
+        {
+          "id": "resolute_revert",
+          "variant": "level_up",
+          "result": "keldeo resolute=false",
+          "learnableMoves": [],
+          "requirements": []
+        }
+      ]
     }
   ],
   "aspects": [],

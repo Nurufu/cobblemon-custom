@@ -66,6 +66,7 @@ import com.cobblemon.mod.common.pokemon.activestate.*
 import com.cobblemon.mod.common.pokemon.evolution.CobblemonEvolutionProxy
 import com.cobblemon.mod.common.pokemon.evolution.progress.DamageTakenEvolutionProgress
 import com.cobblemon.mod.common.pokemon.evolution.progress.RecoilEvolutionProgress
+import com.cobblemon.mod.common.pokemon.feature.CrownFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.DriveFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.MemoryFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.OriginFeatureHandler
@@ -822,6 +823,7 @@ open class Pokemon : ShowdownIdentifiable {
             if(this.species.name == "Silvally") MemoryFeatureHandler.updateMemory(this)
             if(this.species.name == "Genesect") DriveFeatureHandler.updateDrive(this)
             if(this.species.name == "Dialga" || this.species.name == "Palkia" || this.species.name == "Giratina") OriginFeatureHandler.updateOrigin(this)
+            if(this.species.name == "Zacian" || this.species.name == "Zamazenta") CrownFeatureHandler.updateCrown(this)
             return event.returning
         })
         return stack

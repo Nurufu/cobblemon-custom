@@ -56,45 +56,93 @@
   "pokedex": [
     "cobblemon.species.burmy.desc"
   ],
+  "forms": [
+    {
+      "name": "Sandy",
+      "aspects": ["sandy"],
+      "evolutions": [
+        {
+          "id": "burmy_wormadam",
+          "variant": "level_up",
+          "result": "wormadam",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            },
+            {
+              "variant": "properties",
+              "target": "gender=female"
+            }
+          ]
+        },
+        {
+          "id": "burmy_mothim",
+          "variant": "level_up",
+          "result": "mothim",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            },
+            {
+              "variant": "properties",
+              "target": "gender=male"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tras",
+      "aspects": ["trash"],
+      "evolutions": [
+        {
+          "id": "burmy_wormadam",
+          "variant": "level_up",
+          "result": "wormadam",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            },
+            {
+              "variant": "properties",
+              "target": "gender=female"
+            }
+          ]
+        },
+        {
+          "id": "burmy_mothim",
+          "variant": "level_up",
+          "result": "mothim",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            },
+            {
+              "variant": "properties",
+              "target": "gender=male"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "evolutions": [
     {
       "id": "burmy_wormadam",
       "variant": "level_up",
       "result": "wormadam",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "level",
-          "minLevel": 20
-        },
-        {
-          "variant": "properties",
-          "target": "gender=female"
-        }
-      ]
-    },
-    {
-      "id": "burmy_wormadam",
-      "variant": "level_up",
-      "result": "wormadam sandy",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "level",
-          "minLevel": 20
-        },
-        {
-          "variant": "properties",
-          "target": "gender=female"
-        }
-      ]
-    },
-    {
-      "id": "burmy_wormadam",
-      "variant": "level_up",
-      "result": "wormadam trash",
       "consumeHeldItem": false,
       "learnableMoves": [],
       "requirements": [

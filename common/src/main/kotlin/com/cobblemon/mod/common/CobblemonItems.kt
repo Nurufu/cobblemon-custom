@@ -1286,6 +1286,12 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     @JvmField
     val ZYGARDE_CUBE = noSettingsItem("zygarde_cube")
 
+    //Sw/Sh box
+    @JvmField
+    val RUSTED_SWORD = noSettingsItem("rusted_sword")
+    @JvmField
+    val RUSTED_SHIELD = noSettingsItem("rusted_shield")
+
     //@JvmField
     //val BINDING_SOIL = blockItem("binding_soil", CobblemonBlocks.BINDING_SOIL)
 

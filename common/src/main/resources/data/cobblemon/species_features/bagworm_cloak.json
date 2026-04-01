@@ -9,5 +9,5 @@
   ],
   "isAspect": true,
   "visible": true,
-  "aspectFormat": "bagworm_cloak-{{choice}}"
+  "aspectFormat": "{{choice}}"
 }

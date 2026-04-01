@@ -4,7 +4,7 @@
   "variations": [
     {
       "aspects": [
-        "trash-cloak"
+        "trash"
       ],
       "poser": "cobblemon:wormadam",
       "model": "cobblemon:wormadam_trash.geo",
@@ -14,7 +14,7 @@
     {
       "aspects": [
         "shiny",
-        "trash-cloak"
+        "trash"
       ],
       "texture": "cobblemon:textures/pokemon/0413_wormadam/wormadam_trash_shiny.png"
     }

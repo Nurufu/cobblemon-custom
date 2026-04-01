@@ -4,7 +4,7 @@
   "variations": [
     {
       "aspects": [
-        "trash-cloak"
+        "trash"
       ],
       "poser": "cobblemon:burmy",
       "model": "cobblemon:burmy_trash.geo",
@@ -14,7 +14,7 @@
     {
       "aspects": [
         "shiny",
-        "trash-cloak"
+        "trash"
       ],
       "texture": "cobblemon:textures/pokemon/0412_burmy/burmy_trash_shiny.png"
     }

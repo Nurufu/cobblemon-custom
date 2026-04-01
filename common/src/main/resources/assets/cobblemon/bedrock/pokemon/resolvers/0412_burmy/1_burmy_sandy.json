@@ -4,7 +4,7 @@
   "variations": [
     {
       "aspects": [
-        "sandy-cloak"
+        "sandy"
       ],
       "poser": "cobblemon:burmy",
       "model": "cobblemon:burmy_sandy.geo",
@@ -14,7 +14,7 @@
     {
       "aspects": [
         "shiny",
-        "sandy-cloak"
+        "sandy"
       ],
       "texture": "cobblemon:textures/pokemon/0412_burmy/burmy_sandy_shiny.png"
     }

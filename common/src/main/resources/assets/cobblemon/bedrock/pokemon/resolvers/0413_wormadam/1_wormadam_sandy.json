@@ -4,7 +4,7 @@
   "variations": [
     {
       "aspects": [
-        "sandy-cloak"
+        "sandy"
       ],
       "poser": "cobblemon:wormadam",
       "model": "cobblemon:wormadam_sandy.geo",
@@ -14,7 +14,7 @@
     {
       "aspects": [
         "shiny",
-        "sandy-cloak"
+        "sandy"
       ],
       "texture": "cobblemon:textures/pokemon/0413_wormadam/wormadam_sandy_shiny.png"
     }
