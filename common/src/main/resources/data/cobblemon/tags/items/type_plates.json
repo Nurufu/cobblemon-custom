@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "cobblemon:normal_plate",
+    "cobblemon:fire_plate",
+    "cobblemon:water_plate",
+    "cobblemon:grass_plate",
+    "cobblemon:electric_plate",
+    "cobblemon:rock_plate",
+    "cobblemon:ground_plate",
+    "cobblemon:bug_plate",
+	"cobblemon:poison_plate",
+	"cobblemon:ghost_plate",
+	"cobblemon:psychic_plate",
+	"cobblemon:dark_plate",
+	"cobblemon:fairy_plate",
+	"cobblemon:dragon_plate",
+	"cobblemon:ice_plate",
+	"cobblemon:fighting_plate",
+	"cobblemon:flying_plate",
+	"cobblemon:steel_plate"
+  ]
+}

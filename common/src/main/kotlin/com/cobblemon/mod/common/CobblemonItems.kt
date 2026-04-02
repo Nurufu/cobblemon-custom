@@ -1292,6 +1292,15 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     @JvmField
     val RUSTED_SHIELD = noSettingsItem("rusted_shield")
 
+    @JvmField
+    val RED_NECTAR = noSettingsItem("red_nectar")
+    @JvmField
+    val PURPLE_NECTAR = noSettingsItem("purple_nectar")
+    @JvmField
+    val YELLOW_NECTAR = noSettingsItem("yellow_nectar")
+    @JvmField
+    val PINK_NECTAR = noSettingsItem("pink_nectar")
+
     //@JvmField
     //val BINDING_SOIL = blockItem("binding_soil", CobblemonBlocks.BINDING_SOIL)
 

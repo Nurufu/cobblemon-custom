@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "cobblemon:normal_memory",
+    "cobblemon:fire_memory",
+    "cobblemon:water_memory",
+    "cobblemon:grass_memory",
+    "cobblemon:electric_memory",
+    "cobblemon:rock_memory",
+    "cobblemon:ground_memory",
+    "cobblemon:bug_memory",
+	"cobblemon:poison_memory",
+	"cobblemon:ghost_memory",
+	"cobblemon:psychic_memory",
+	"cobblemon:dark_memory",
+	"cobblemon:fairy_memory",
+	"cobblemon:dragon_memory",
+	"cobblemon:ice_memory",
+	"cobblemon:fighting_memory",
+	"cobblemon:flying_memory",
+	"cobblemon:steel_memory"
+  ]
+}

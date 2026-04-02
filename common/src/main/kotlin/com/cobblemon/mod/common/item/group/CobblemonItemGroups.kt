@@ -432,6 +432,10 @@ object CobblemonItemGroups {
         entries.add(CobblemonItems.AUSPICIOUS_ARMOR)
         entries.add(CobblemonItems.MALICIOUS_ARMOR)
         entries.add(CobblemonItems.MEGA_STONE)
+        entries.add(CobblemonItems.RED_NECTAR)
+        entries.add(CobblemonItems.PURPLE_NECTAR)
+        entries.add(CobblemonItems.PINK_NECTAR)
+        entries.add(CobblemonItems.YELLOW_NECTAR)
     }
 
     private fun heldItemEntries(displayContext: DisplayContext, entries: Entries) {
@@ -544,6 +548,58 @@ object CobblemonItemGroups {
         entries.add(CobblemonItems.DARK_GEM)
         entries.add(CobblemonItems.STEEL_GEM)
         entries.add(CobblemonItems.FAIRY_GEM)
+
+        entries.add(CobblemonItems.FIRE_PLATE)
+        entries.add(CobblemonItems.WATER_PLATE)
+        entries.add(CobblemonItems.GRASS_PLATE)
+        entries.add(CobblemonItems.ELECTRIC_PLATE)
+        entries.add(CobblemonItems.ICE_PLATE)
+        entries.add(CobblemonItems.FIGHTING_PLATE)
+        entries.add(CobblemonItems.POISON_PLATE)
+        entries.add(CobblemonItems.GROUND_PLATE)
+        entries.add(CobblemonItems.FLYING_PLATE)
+        entries.add(CobblemonItems.PSYCHIC_PLATE)
+        entries.add(CobblemonItems.BUG_PLATE)
+        entries.add(CobblemonItems.ROCK_PLATE)
+        entries.add(CobblemonItems.GHOST_PLATE)
+        entries.add(CobblemonItems.DRAGON_PLATE)
+        entries.add(CobblemonItems.DARK_PLATE)
+        entries.add(CobblemonItems.STEEL_PLATE)
+        entries.add(CobblemonItems.FAIRY_PLATE)
+
+        entries.add(CobblemonItems.FIRE_MEMORY)
+        entries.add(CobblemonItems.WATER_MEMORY)
+        entries.add(CobblemonItems.GRASS_MEMORY)
+        entries.add(CobblemonItems.ELECTRIC_MEMORY)
+        entries.add(CobblemonItems.ICE_MEMORY)
+        entries.add(CobblemonItems.FIGHTING_MEMORY)
+        entries.add(CobblemonItems.POISON_MEMORY)
+        entries.add(CobblemonItems.GROUND_MEMORY)
+        entries.add(CobblemonItems.FLYING_MEMORY)
+        entries.add(CobblemonItems.PSYCHIC_MEMORY)
+        entries.add(CobblemonItems.BUG_MEMORY)
+        entries.add(CobblemonItems.ROCK_MEMORY)
+        entries.add(CobblemonItems.GHOST_MEMORY)
+        entries.add(CobblemonItems.DRAGON_MEMORY)
+        entries.add(CobblemonItems.DARK_MEMORY)
+        entries.add(CobblemonItems.STEEL_MEMORY)
+        entries.add(CobblemonItems.FAIRY_MEMORY)
+
+        entries.add(CobblemonItems.BURN_DRIVE)
+        entries.add(CobblemonItems.SHOCK_DRIVE)
+        entries.add(CobblemonItems.CHILL_DRIVE)
+        entries.add(CobblemonItems.DOUSE_DRIVE)
+
+        entries.add(CobblemonItems.RUSTED_SWORD)
+        entries.add(CobblemonItems.RUSTED_SHIELD)
+
+        entries.add(CobblemonItems.ADAMANT_CRYSTAL)
+        entries.add(CobblemonItems.LUSTROUS_GLOBE)
+        entries.add(CobblemonItems.GRISEOUS_CORE)
+
+        entries.add(CobblemonItems.ZYGARDE_CELL)
+        entries.add(CobblemonItems.ZYGARDE_CORE)
+        entries.add(CobblemonItems.ZYGARDE_CUBE)
     }
 
     private fun pokeballentries(displayContext: DisplayContext, entries: Entries) {

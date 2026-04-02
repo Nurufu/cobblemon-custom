@@ -114,6 +114,24 @@
 	"cobblemon:medicinal_leek",
 	"minecraft:bone",
 	"minecraft:snowball",
-	"#cobblemon:type_gems"
+	"#cobblemon:type_gems",
+	"#cobblemon:type_plates",
+	"#cobblemon:type_memories",
+
+	"cobblemon:burn_drive",
+	"cobblemon:douse_drive",
+	"cobblemon:shock_drive",
+	"cobblemon:chill_drive",
+
+	"cobblemon:rusted_sword",
+	"cobblemon:rused_shield",
+
+	"cobblemon:adamant_crystal",
+	"cobblemon:lustrous_globe",
+	"cobblemon:griseous_core",
+
+	"cobblemon:zygarde_cell",
+	"cobblemon:zygarde_core",
+	"cobblemon:zygarde_cube"
   ]
 }
