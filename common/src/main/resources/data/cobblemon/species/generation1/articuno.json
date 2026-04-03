@@ -340,10 +340,10 @@
     "cobblemon.species.articuno.desc"
   ],
   "evolutions": [],
-  "baseScale": 1.2,
+  "baseScale": 1,
   "hitbox": {
-    "width": 0.7,
-    "height": 1.8,
+    "width": 1.2,
+    "height": 3.2,
     "fixed": false
   },
   "baseFriendship": 35,

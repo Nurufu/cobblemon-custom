@@ -78,7 +78,13 @@
             }
           ]
         }
-      ]
+      ],
+      "baseScale": 1.8,
+      "hitbox": {
+        "width": 1.5,
+        "height": 0.8,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 180,
@@ -309,10 +315,10 @@
       ]
     }
   ],
-  "baseScale": 1.8,
+  "baseScale": 1,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 1.5,
+    "height": 1.6,
     "fixed": false
   },
   "baseFriendship": 50,

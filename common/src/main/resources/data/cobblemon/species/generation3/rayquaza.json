@@ -297,7 +297,7 @@
     "baseScale": 1.5,
     "hitbox": {
       "width": 2.5,
-      "height": 3.8,
+      "height": 4.1,
       "fixed": false
     },
     "baseFriendship": 0,
