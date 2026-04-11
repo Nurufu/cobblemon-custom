@@ -16,7 +16,6 @@
         "PORTRAIT",
         "PROFILE"
       ],
-      "isBattle": false,
       "animations": [
         "q.bedrock('cherubi', 'ground_idle')"
       ]

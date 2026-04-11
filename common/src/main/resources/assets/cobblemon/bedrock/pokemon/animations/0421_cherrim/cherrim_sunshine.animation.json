@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"cherrim_sunshine.animation.test": {
+		"animation.cherrim_sunshine.test": {
 			"loop": true,
 			"bones": {
 				"left_arm": {
@@ -66,7 +66,7 @@
 				}
 			}
 		},
-		"cherrim_sunshine.animation.ground_idle": {
+		"animation.cherrim_sunshine.ground_idle": {
 			"loop": true,
 			"bones": {
 				"main_stem": {
@@ -168,7 +168,7 @@
 				}
 			}
 		},
-		"cherrim_sunshine.animation.ground_walk": {
+		"animation.cherrim_sunshine.ground_walk": {
 			"loop": true,
 			"bones": {
 				"main_stem": {
@@ -287,7 +287,7 @@
 				}
 			}
 		},
-		"cherrim_sunshine.animation.sleep": {
+		"animation.cherrim_sunshine.sleep": {
 			"loop": true,
 			"bones": {
 				"main_stem": {
@@ -390,7 +390,7 @@
 				}
 			}
 		},
-		"cherrim_sunshine.animation.cry": {
+		"animation.cherrim_sunshine.cry": {
 			"animation_length": 1.25,
 			"bones": {
 				"head": {
@@ -434,7 +434,7 @@
 				}
 			}
 		},
-		"cherrim_sunshine.animation.blink": {
+		"animation.cherrim_sunshine.blink": {
 			"animation_length": 0.25,
 			"bones": {
 				"closed": {
