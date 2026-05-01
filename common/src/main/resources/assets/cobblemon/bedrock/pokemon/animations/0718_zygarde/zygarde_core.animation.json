@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.zygarde_core.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.04": {
+					"effect": "pokemon.zygarde_core.cry"
+				}
+			}
+		},
 		"animation.zygarde_core.ground_idle": {
 			"loop": true,
 			"bones": {

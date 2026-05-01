@@ -937,6 +937,12 @@
 						"1.125": [0, 0, 0]
 					}
 				}
+			},
+				"sound_effects": {
+					"0.04": {
+						"effect": "pokemon.cobalion.cry"
+					}
+				}
 			}
 		},
 		"animation.cobalion.blink": {

@@ -876,7 +876,12 @@
 						"1.125": [0, 0, 0]
 					}
 				}
-			}
+			},
+				"sound_effects": {
+					"0.04": {
+						"effect": "pokemon.virizion.cry"
+					}
+				}
 		},
 		"animation.ironcrown.blink": {
 			"animation_length": 0.625,

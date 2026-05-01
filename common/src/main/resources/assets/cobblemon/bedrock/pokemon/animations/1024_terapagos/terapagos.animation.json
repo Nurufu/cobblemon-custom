@@ -503,8 +503,13 @@
 						"0.75": [0, 0, 0]
 					}
 				}
-			}
-		},
+			},
+				"sound_effects": {
+					"0.04": {
+						"effect": "pokemon.terapagos.cry"
+					}
+				}
+			},
 		"animation.terapagos.pose": {
 			"loop": true,
 			"bones": {

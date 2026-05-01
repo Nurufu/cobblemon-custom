@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.mothim.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.04": {
+					"effect": "pokemon.mothim.cry"
+				}
+			}
+		},
 		"animation.mothim.pose": {
 			"loop": true,
 			"bones": {

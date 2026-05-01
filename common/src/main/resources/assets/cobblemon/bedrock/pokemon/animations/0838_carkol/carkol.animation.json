@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.carkoal.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.04": {
+					"effect": "pokemon.carkoal.cry"
+				}
+			}
+		},
 		"animation.carkol.ground_walk": {
 			"loop": true,
 			"bones": {

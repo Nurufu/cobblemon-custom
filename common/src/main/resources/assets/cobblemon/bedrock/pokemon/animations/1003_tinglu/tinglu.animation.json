@@ -1,6 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.tinglu.cry": {
+			"animation_length": 3,
+			"sound_effects": {
+				"0.04": {
+					"effect": "pokemon.tinglu.cry"
+				}
+			}
+		},
 		"animation.tinglu.ground_walk": {
 			"loop": true
 		},
