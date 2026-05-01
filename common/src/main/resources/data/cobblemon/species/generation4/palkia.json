@@ -63,7 +63,13 @@
       "height": 63,
       "weight": 6600,
       "cannotDynamax": false,
-      "battleOnly": false
+      "battleOnly": false,
+      "baseScale": 1,
+      "hitbox": {
+        "width": 3,
+        "height": 4,
+        "fixed": false
+      }
     }
   ],
   "baseExperienceYield": 340,
@@ -227,10 +233,10 @@
     "cobblemon.species.palkia.desc"
   ],
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.6,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 3,
+    "height": 6.5,
     "fixed": false
   },
   "baseFriendship": 0,

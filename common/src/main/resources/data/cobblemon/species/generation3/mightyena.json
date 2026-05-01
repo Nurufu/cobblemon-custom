@@ -177,10 +177,10 @@
   ],
   "preEvolution": "poochyena",
   "evolutions": [],
-  "baseScale": 0.7,
+  "baseScale": 0.85,
   "hitbox": {
     "width": 1,
-    "height": 1,
+    "height": 1.45,
     "fixed": false
   },
   "baseFriendship": 70,

@@ -76,10 +76,10 @@
       "weight": 320,
       "cannotDynamax": false,
       "battleOnly": true,
-      "baseScale": 0.8,
+      "baseScale": 0.7,
       "hitbox": {
         "width": 1,
-        "height": 1,
+        "height": 2,
         "fixed": false
       },
       "evolutions": [
@@ -278,7 +278,7 @@
   "baseScale": 0.7,
   "hitbox": {
     "width": 1,
-    "height": 1,
+    "height": 2,
     "fixed": false
   },
   "baseFriendship": 50,

@@ -26,6 +26,12 @@
     "special_defence": 0,
     "speed": 0
   },
+  "baseScale": 1,
+  "hitbox": {
+    "width": 0.5,
+    "height": 0.6,
+    "fixed": false
+  },
   "experienceGroup": "slow",
   "eggCycles": 5,
   "eggGroups": [

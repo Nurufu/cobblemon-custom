@@ -71,7 +71,13 @@
             }
           ]
         }
-      ]
+      ],
+      "baseScale": 1,
+      "hitbox": {
+        "width": 1.4,
+        "height": 3,
+        "fixed": false
+      }
     }
   ],
   "behaviour": {

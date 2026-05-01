@@ -169,10 +169,10 @@
     "cobblemon.species.oranguru.desc"
   ],
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.7,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 1.1,
+    "height": 2.5,
     "fixed": false
   },
   "baseFriendship": 50,

@@ -28,6 +28,12 @@
     "special_defence": 0,
     "speed": 0
   },
+  "baseScale": 0.9,
+  "hitbox": {
+    "width": 2,
+    "height": 3.55,
+    "fixed": false
+  },
   "experienceGroup": "slow",
   "eggCycles": 120,
   "eggGroups": [
@@ -254,6 +260,12 @@
             "quantityRange": "0-1"
           }
         ]
+      },
+      "baseScale": 0.7,
+      "hitbox": {
+        "width": 0.7,
+        "height": 1.2,
+        "fixed": false
       }
     },
     {
@@ -298,7 +310,13 @@
       "height": 45,
       "weight": 6100,
       "cannotDynamax": false,
-      "battleOnly": true
+      "battleOnly": true,
+      "baseScale": 0.6,
+      "hitbox": {
+        "width": 2.75,
+        "height": 6,
+        "fixed": false
+      }
     },
     {
       "name": "1Percent",
@@ -361,6 +379,12 @@
             "quantityRange": "0-1"
           }
         ]
+      },
+      "baseScale": 0.5,
+      "hitbox": {
+        "width": 0.5,
+        "height": 0.8,
+        "fixed": false
       }
     }
   ],

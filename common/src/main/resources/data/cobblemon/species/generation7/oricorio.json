@@ -35,6 +35,12 @@
     "special_defence": 70,
     "speed": 93
   },
+  "baseScale": 0.6,
+  "hitbox": {
+    "width": 0.7,
+    "height": 1.25,
+    "fixed": false
+  },
   "catchRate": 45,
   "maleRatio": 0.25,
   "shoulderMountable": false,

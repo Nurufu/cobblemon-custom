@@ -229,9 +229,21 @@
       "height": 69,
       "weight": 6500,
       "cannotDynamax": false,
-      "battleOnly": false
+      "battleOnly": false,
+      "baseScale": 0.8,
+      "hitbox": {
+        "width": 3.2,
+        "height": 3.3,
+        "fixed": false
+      }
     }
   ],
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "baseScale": 0.8,
+  "hitbox": {
+    "width": 3.2,
+    "height": 6,
+    "fixed": false
+  }
 }
