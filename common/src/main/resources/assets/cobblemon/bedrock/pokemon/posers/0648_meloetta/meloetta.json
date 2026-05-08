@@ -6,6 +6,9 @@
     0.5,
     0
   ],
+  "animations": {
+    "cry": "q.bedrock_stateful('meloetta', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

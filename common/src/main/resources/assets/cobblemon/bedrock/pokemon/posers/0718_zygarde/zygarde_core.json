@@ -4,7 +4,8 @@
   "profileScale": 0.76,
   "profileTranslation": [ 0, 0.61, 0 ],
   "animations": { 
-    "recoil": "q.bedrock_stateful('zygarde_core', 'recoil')"
+    "recoil": "q.bedrock_stateful('zygarde_core', 'recoil')",
+    "cry": "q.bedrock_stateful('zygarde_core', 'cry')"
   },
   "poses": { 
     "battle-standing": {

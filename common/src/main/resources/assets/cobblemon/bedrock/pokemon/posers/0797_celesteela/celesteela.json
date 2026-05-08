@@ -5,6 +5,9 @@
   "profileScale": 0.8,
   "profileTranslation": [0, 0.4, 0],
   "faint": "bedrock(celesteela, faint)",
+  "animations": {
+    "cry": "q.bedrock_stateful('celesteela', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

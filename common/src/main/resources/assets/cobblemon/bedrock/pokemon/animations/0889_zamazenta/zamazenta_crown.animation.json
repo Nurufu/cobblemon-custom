@@ -666,6 +666,11 @@
 						}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.zamazenta_crowned.cry"
+				}
 			}
 		},
 		"animation.zamazenta_crown.ground_walk": {

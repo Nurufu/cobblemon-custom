@@ -4,7 +4,7 @@
   "profileScale": 0.82,
   "profileTranslation": [0, 0.61, 0],
   "animations": {
-    
+    "cry": "q.bedrock_stateful('burmy', 'cry')"
   },
  "poses": {
     "battle-standing": {

@@ -4,7 +4,10 @@
   "portraitTranslation": [0, 0.5, 0],
   "profileScale": 0.8,
   "profileTranslation": [0, 0.4, 0],
-  "faint": "bedrock(ironboulder, faint)",
+  "animations": {
+    "cry": "q.bedrock_stateful('ironboulder', 'cry')",
+    "faint": "q.bedrock('ironboulder', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

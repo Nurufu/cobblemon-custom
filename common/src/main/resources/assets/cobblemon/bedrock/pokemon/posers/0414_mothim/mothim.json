@@ -4,7 +4,7 @@
   "profileScale": 0.58,
   "profileTranslation": [0, 0.87, 0],
   "animations": {
-    
+    "cry": "q.bedrock_stateful('mothim', 'cry')"
   },
  "poses": {
     "battle-standing": {

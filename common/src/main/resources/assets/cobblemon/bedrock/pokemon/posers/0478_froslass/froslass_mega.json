@@ -1,1 +1,64 @@
-{"portraitScale":1.43,"portraitTranslation":[-0.28,4.86,0],"profileScale":0.31,"profileTranslation":[0.03,1.26,0],"rootBone":"froslass_mega","animations":{"cry":"q.bedrock_stateful('froslass_mega', 'cry')"},"poses":{"battle-standing":{"poseTypes":["STAND","HOVER"],"isBattle":true,"animations":["q.look('head')","q.bedrock('froslass_mega', 'battle_idle')"],"quirks":["q.bedrock_quirk('froslass_mega', 'blink')"]},"standing":{"poseTypes":["STAND","HOVER","NONE","PORTRAIT","PROFILE"],"isBattle":false,"animations":["q.look('head')","q.bedrock('froslass_mega', 'ground_idle')"],"quirks":["q.bedrock_quirk('froslass_mega', 'blink')"]},"walking":{"poseTypes":["WALK","FLY"],"animations":["q.look('head')","q.bedrock('froslass_mega', 'ground_idle')"],"quirks":["q.bedrock_quirk('froslass_mega', 'blink')"]}}}
+{
+  "animations": {
+    "cry": "q.bedrock_stateful('froslass_mega', 'cry')"
+  },
+  "portraitScale": 1.43,
+  "portraitTranslation": [
+    -0.28,
+    4.86,
+    0
+  ],
+  "poses": {
+    "battle-standing": {
+      "poseTypes": [
+        "STAND",
+        "HOVER"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('froslass_mega', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('froslass_mega', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "HOVER",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('froslass_mega', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('froslass_mega', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK",
+        "FLY"
+      ],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('froslass_mega', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('froslass_mega', 'blink')"
+      ]
+    }
+  },
+  "profileScale": 0.31,
+  "profileTranslation": [
+    0.03,
+    1.26,
+    0
+  ],
+  "rootBone": "froslass_mega"
+}

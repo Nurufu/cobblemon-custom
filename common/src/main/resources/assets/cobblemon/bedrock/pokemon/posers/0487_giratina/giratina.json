@@ -42,7 +42,9 @@
       1
     ]
   },
-  "animations": {},
+  "animations": {
+    "cry": "q.bedrock_stateful('giratina', 'cry')"
+  },
   "poses": {
     "battle-standing": {
       "transformTicks": 10,

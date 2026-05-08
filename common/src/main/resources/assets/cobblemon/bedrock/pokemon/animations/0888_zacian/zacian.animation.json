@@ -1154,6 +1154,11 @@
 						}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.zacian.cry"
+				}
 			}
 		},
 		"animation.zacian.faint": {

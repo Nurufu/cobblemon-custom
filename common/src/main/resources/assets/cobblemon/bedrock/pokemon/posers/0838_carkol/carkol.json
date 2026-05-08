@@ -4,7 +4,7 @@
   "profileScale": 1,
   "profileTranslation": [0.08, 0.3, 0],
   "animations": {
-    
+    "cry": "q.bedrock_stateful('carkol', 'cry')"
   },
   "poses": {
     "battle-standing": {

@@ -4,7 +4,8 @@
     "profileScale": 0.7,
     "profileTranslation": [ 0, 0.8, 0 ],
     "animations": {
-      "faint": "q.bedrock_primary('pancham', 'ground_idle', q.curve('one'))"
+      "faint": "q.bedrock_primary('pancham', 'ground_idle', q.curve('one'))",
+      "cry": "q.bedrock_stateful('pancham', 'cry')"
     },
     "poses": {
       "standing": {

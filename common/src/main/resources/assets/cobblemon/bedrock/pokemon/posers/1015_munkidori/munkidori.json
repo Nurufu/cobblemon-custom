@@ -1,5 +1,7 @@
 {
-	
+	"animations": {
+		"cry": "q.bedrock_stateful('munkidori', 'cry')"
+	},
 	"head": "head",
 	"portraitScale": 2,
 	"portraitTranslation": [0, 0.7, 0],

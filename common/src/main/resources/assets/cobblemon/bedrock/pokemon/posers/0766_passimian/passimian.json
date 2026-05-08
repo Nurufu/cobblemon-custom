@@ -4,6 +4,9 @@
     "profileScale":0.6,
     "profileTranslation":[0,0.8,0],
     "head":"head",
+    "animations": {
+        "cry": "q.bedrock_stateful('passimian', 'cry')"
+    },
     "poses":{
         "standing":{
             "poseName":"standing",

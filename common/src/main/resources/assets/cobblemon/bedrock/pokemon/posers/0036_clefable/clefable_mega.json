@@ -1,1 +1,53 @@
-{"portraitScale":1.3,"portraitTranslation":[-0.5,1.52,0],"profileScale":0.5,"profileTranslation":[0,1.2,0],"rootBone":"clefable","animations":{},"poses":{"standing":{"poseName":"standing","poseTypes":["STAND","FLOAT","HOVER","NONE","PROFILE","PORTRAIT"],"animations":["q.look('torso', 1, 1, 20, -9, 6, -6)","q.bedrock('clefable_mega', 'ground_idle')"],"quirks":["q.bedrock_quirk('clefable_mega', 'blink')"]},"walk":{"poseName":"walk","poseTypes":["WALK","SWIM","FLY"],"animations":["q.look('torso', 1, 1, 20, -9, 6, -6)","q.bedrock('clefable_mega', 'ground_idle')"],"quirks":["q.bedrock_quirk('clefable_mega', 'blink')"]}}}
+{
+  "portraitScale": 1.3,
+  "portraitTranslation": [
+    -0.5,
+    1.52,
+    0
+  ],
+  "animations": {
+    "cry": "q.bedrock_stateful('clefable_mega', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseName": "standing",
+      "poseTypes": [
+        "STAND",
+        "FLOAT",
+        "HOVER",
+        "NONE",
+        "PROFILE",
+        "PORTRAIT"
+      ],
+      "animations": [
+        "q.look('torso', 1, 1, 20, -9, 6, -6)",
+        "q.bedrock('clefable_mega', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('clefable_mega', 'blink')"
+      ]
+    },
+    "walk": {
+      "poseName": "walk",
+      "poseTypes": [
+        "WALK",
+        "SWIM",
+        "FLY"
+      ],
+      "animations": [
+        "q.look('torso', 1, 1, 20, -9, 6, -6)",
+        "q.bedrock('clefable_mega', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('clefable_mega', 'blink')"
+      ]
+    }
+  },
+  "profileScale": 0.5,
+  "profileTranslation": [
+    0,
+    1.2,
+    0
+  ],
+  "rootBone": "clefable"
+}

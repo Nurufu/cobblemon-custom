@@ -46,7 +46,8 @@
     "physical": "q.bedrock_primary('giratina_origin', 'physical', q.curve('symmetrical_wide'))",
     "special": "q.bedrock_primary('giratina_origin', 'special', q.curve('symmetrical_wide'))",
     "status": "q.bedrock_primary('giratina_origin', 'special', q.curve('symmetrical_wide'))",
-    "recoil": "q.bedrock_stateful('giratina_origin', 'recoil')"
+    "recoil": "q.bedrock_stateful('giratina_origin', 'recoil')",
+    "cry": "q.bedrock_stateful('giratina_origin', 'cry')"
   },
   "poses": {
     "battle-standing": {

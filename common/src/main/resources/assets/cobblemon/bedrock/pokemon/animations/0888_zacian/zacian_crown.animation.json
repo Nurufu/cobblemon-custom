@@ -1328,6 +1328,11 @@
 				"sword_main_stage6": {
 					"scale": 0
 				}
+			},
+			"sound_effects": {
+				"0.1667": {
+					"effect": "pokemon.zacian_crowned.cry"
+				}
 			}
 		},
 		"animation.zacian_crown.faint": {

@@ -10,7 +10,8 @@
     "faint": "q.bedrock_primary('wochien', 'faint', q.curve('one'))",
     "physical": "q.bedrock_primary('wochien', 'physical', q.curve('symmetrical'))",
     "special": "q.bedrock_primary('wochien', 'special', q.curve('symmetrical'))",
-    "status": "q.bedrock_primary('wochien', 'special', q.curve('symmetrical'))"
+    "status": "q.bedrock_primary('wochien', 'special', q.curve('symmetrical'))",
+    "cry": "q.bedrock_stateful('wochien', 'cry')"
   },
   "poses": {
     "standing": {

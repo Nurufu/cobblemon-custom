@@ -4,7 +4,7 @@
   "profileScale": 0.67,
   "profileTranslation": [0.08, 0.76, 0],
   "animations": {
-    
+    "cry": "q.bedrock_stateful('coalossal', 'cry')"
   },
   "poses": {
     "battle-standing": {

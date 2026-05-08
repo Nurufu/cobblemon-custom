@@ -5,6 +5,10 @@
   "profileScale": 0.8,
   "profileTranslation": [0, 0.4, 0],
   "faint": "bedrock(tinglu, faint)",
+  "animations": {
+    "cry": "q.bedrock_stateful('tinglu', 'cry')",
+    "faint": "q.bedrock('tinglu', 'faint')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",
