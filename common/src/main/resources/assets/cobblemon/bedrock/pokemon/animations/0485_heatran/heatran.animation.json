@@ -422,7 +422,12 @@
 						}
 					}
 				}
-			}
+			},
+          "sound_effects": {
+            "0.0417": {
+              "effect": "pokemon.heatran.cry"
+            }
+          }
 		},
 		"animation.heatran.blink": {
 			"animation_length": 0.1667,

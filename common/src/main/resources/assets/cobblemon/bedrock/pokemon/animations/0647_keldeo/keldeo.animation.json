@@ -563,7 +563,12 @@
 						"1.1667": [0, 0, 0]
 					}
 				}
-			}
+			},
+          "sound_effects": {
+            "0.0417": {
+              "effect": "pokemon.keldeo.cry"
+            }
+          }
 		},
 		"animation.keldeo.ground_idle": {
 			"loop": true,
