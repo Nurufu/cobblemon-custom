@@ -6670,13 +6670,13 @@
     "sounds": [ { "name": "cobblemon:pokemon/blipbug/blipbug_cry", "volume": 0.6 } ]
   },
   "pokemon.dottler.cry": {
-    "sounds": [ { "name": "cobblemon:pokemon/dottler/dottler_cry", "volume": 0.6 } ]
+    "sounds": [ { "name": "cobblemon:pokemon/dottler/dottler_cry", "volume": 0.4 } ]
   },
   "pokemon.orbeetle.cry": {
-    "sounds": [ { "name": "cobblemon:pokemon/orbeetle/orbeetle_cry", "volume": 0.6 } ]
+    "sounds": [ { "name": "cobblemon:pokemon/orbeetle/orbeetle_cry", "volume": 0.4 } ]
   },
   "pokemon.nickit.cry": {
-    "sounds": [ {  "name": "cobblemon:pokemon/nickit/nickit_cry", "volume": 0.6 } ]
+    "sounds": [ {  "name": "cobblemon:pokemon/nickit/nickit_cry", "volume": 0.4 } ]
   },
   "pokemon.thievul.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/thievul/thievul_cry", "volume": 0.6 } ]
@@ -6694,10 +6694,10 @@
     "sounds": [ { "name": "cobblemon:pokemon/dubwool/dubwool_cry", "volume": 0.6 } ]
   },
   "pokemon.chewtle.cry": {
-    "sounds": [ { "name": "cobblemon:pokemon/chewtle/chewtle_cry", "volume": 0.6 } ]
+    "sounds": [ { "name": "cobblemon:pokemon/chewtle/chewtle_cry", "volume": 0.4 } ]
   },
   "pokemon.drednaw.cry": {
-    "sounds": [ { "name": "cobblemon:pokemon/drednaw/drednaw_cry", "volume": 0.6 } ]
+    "sounds": [ { "name": "cobblemon:pokemon/drednaw/drednaw_cry", "volume": 0.4 } ]
   },
   "pokemon.yamper.cry": {
     "sounds": [ {  "name": "cobblemon:pokemon/yamper/yamper_cry", "volume": 0.6 } ]

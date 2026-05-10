@@ -1,9 +1,9 @@
 {
  "head": "neck5",
  "portraitScale": 1,
- "portraitTranslation": [ 0, 1, 0 ],
- "profileScale": 0.7,
- "profileTranslation": [ 0, 1, 0 ],
+ "portraitTranslation": [ 0, 1.57, 0 ],
+ "profileScale": 0.37,
+ "profileTranslation": [ 0, 1.16, 0 ],
  "animations": {
   "faint": "q.bedrock_primary('silvally', 'faint', q.curve('one'))",
   "cry": "q.bedrock_stateful('silvally', 'cry')",

@@ -1,7 +1,7 @@
 {
   "type": "choice",
   "keys": ["percent_cells"],
-  "default": "none",
+  "default": "50",
   "choices": [
     "1",
     "10",

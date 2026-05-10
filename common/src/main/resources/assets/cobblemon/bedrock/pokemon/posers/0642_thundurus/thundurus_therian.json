@@ -2,8 +2,8 @@
   "head": "head",
   "portraitScale": 2,
   "portraitTranslation": [
-    -0.8,
-    3.2,
+    -0.62,
+    1.16,
     0
   ],
   "poses": {
@@ -55,10 +55,10 @@
       "quirks": []
     }
   },
-  "profileScale": 0.8,
+  "profileScale": 0.68,
   "profileTranslation": [
     0,
-    1.6,
+    0.89,
     0
   ]
 }

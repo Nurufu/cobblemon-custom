@@ -177,7 +177,7 @@
   ],
   "preEvolution": "croagunk",
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.7,
   "hitbox": {
     "width": 0.88,
     "height": 1.8,

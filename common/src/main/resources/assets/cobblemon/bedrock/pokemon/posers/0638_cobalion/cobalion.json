@@ -5,7 +5,7 @@
   "profileScale": 0.5,
   "profileTranslation": [0, 1.1, 0],
   "animations": {
-    "cry": "bedrock('cobalion', 'cry')",
+    "cry": "q.bedrock_stateful('cobalion', 'cry')",
     "recoil": "q.bedrock_stateful('cobalion', 'recoil')",
     "status": "q.bedrock_stateful('cobalion', 'cry', q.curve('symmetrical_wide'))"
   },
@@ -15,9 +15,6 @@
       "isBattle": true,
       "animations": [
         "q.bedrock('cobalion', 'battle_idle')"
-      ],
-      "quirks": [
-        "q.bedrock_quirk('cobalion', 'blink')"
       ]
     },
     "standing": {
@@ -25,9 +22,6 @@
       "isBattle": false,
       "animations": [
         "q.bedrock('cobalion', 'ground_idle')"
-      ],
-      "quirks": [
-        "q.bedrock_quirk('cobalion', 'blink')"
       ]
     },
     "walking": {

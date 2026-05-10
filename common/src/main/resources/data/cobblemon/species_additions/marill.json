@@ -1,5 +1,5 @@
 {
-    "target": "cobblemon:marill",
+  "target": "cobblemon:marill",
   "behaviour": {
     "moving": {
       "swim": {
@@ -8,11 +8,5 @@
         "canBreatheUnderwater": true
       }
     }
-},
-  "baseScale": 1,
-  "hitbox": {
-    "width": 0.5,
-    "height": 0.8,
-    "fixed": false
   }
 }

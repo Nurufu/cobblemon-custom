@@ -1,8 +1,8 @@
 {
   "portraitScale": 1.97,
-  "portraitTranslation": [ -0.47, -0.44, 0],
-  "profileScale": 0.47,
-  "profileTranslation": [ 0, 1.04, 0],
+  "portraitTranslation": [ 0.08, -1.12, 0],
+  "profileScale": 1.05,
+  "profileTranslation": [ 0, 0.24, 0],
   "rootBone": "cherubi",
   "animations": {
     "cry": "q.bedrock_stateful('cherubi', 'cry')"

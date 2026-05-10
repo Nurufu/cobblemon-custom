@@ -1571,6 +1571,11 @@
 						"0.375": {"pre": [1, 0, 0], "post": [0, 0, 0]}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.25": {
+					"effect": "pokemon.suicune.cry"
+				}
 			}
 		},
 		"animation.suicune.recoil": {

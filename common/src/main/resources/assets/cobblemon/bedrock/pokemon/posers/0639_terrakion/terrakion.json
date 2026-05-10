@@ -5,7 +5,7 @@
   "profileScale": 0.6,
   "profileTranslation": [0, 0.8, 0],
   "animations": {
-    "cry": "bedrock('terrakion', 'cry')",
+    "cry": "q.bedrock_stateful('terrakion', 'cry')",
     "recoil": "q.bedrock_stateful('terrakion', 'recoil')",
     "status": "q.bedrock_stateful('terrakion', 'cry', q.curve('symmetrical_wide'))"
   },

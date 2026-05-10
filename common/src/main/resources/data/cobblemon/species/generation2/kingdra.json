@@ -185,7 +185,7 @@
   ],
   "preEvolution": "seadra",
   "evolutions": [],
-  "baseScale": 0.9,
+  "baseScale": 0.6,
   "hitbox": {
     "width": 0.9,
     "height": 3,

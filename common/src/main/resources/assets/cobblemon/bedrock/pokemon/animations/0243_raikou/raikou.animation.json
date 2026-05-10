@@ -2332,7 +2332,7 @@
 			},
 			"sound_effects": {
 				"0.5": {
-					"effect": "raikou_cry"
+					"effect": "pokemon.raikou.cry"
 				}
 			}
 		},

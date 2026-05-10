@@ -186,6 +186,12 @@
       "abilities": [
         "aurabreak"
       ],
+      "baseScale": 0.7,
+      "hitbox": {
+        "width": 0.7,
+        "height": 1.2,
+        "fixed": false
+      },
       "baseStats": {
         "hp": 54,
         "attack": 100,
@@ -260,12 +266,6 @@
             "quantityRange": "0-1"
           }
         ]
-      },
-      "baseScale": 0.7,
-      "hitbox": {
-        "width": 0.7,
-        "height": 1.2,
-        "fixed": false
       }
     },
     {
@@ -275,6 +275,12 @@
       "abilities": [
         "powerconstruct"
       ],
+      "baseScale": 0.6,
+      "hitbox": {
+        "width": 2.75,
+        "height": 6,
+        "fixed": false
+      },
       "baseStats": {
         "hp": 216,
         "attack": 100,
@@ -310,13 +316,7 @@
       "height": 45,
       "weight": 6100,
       "cannotDynamax": false,
-      "battleOnly": true,
-      "baseScale": 0.6,
-      "hitbox": {
-        "width": 2.75,
-        "height": 6,
-        "fixed": false
-      }
+      "battleOnly": true
     },
     {
       "name": "1Percent",
@@ -325,6 +325,12 @@
       "abilities": [
         "aurabreak"
       ],
+      "baseScale": 0.5,
+      "hitbox": {
+        "width": 0.5,
+        "height": 0.8,
+        "fixed": false
+      },
       "baseStats": {
         "hp": 10,
         "attack": 10,
@@ -379,12 +385,6 @@
             "quantityRange": "0-1"
           }
         ]
-      },
-      "baseScale": 0.5,
-      "hitbox": {
-        "width": 0.5,
-        "height": 0.8,
-        "fixed": false
       }
     }
   ],

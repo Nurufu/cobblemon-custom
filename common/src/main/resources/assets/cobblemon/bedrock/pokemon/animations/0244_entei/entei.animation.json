@@ -1735,7 +1735,7 @@
 			},
 			"sound_effects": {
 				"0.25": {
-					"effect": "entei_cry"
+					"effect": "pokemon.entei.cry"
 				}
 			}
 		},

@@ -2,12 +2,12 @@
     "implemented": true,
     "target": "cobblemon:purrloin",   
     "shoulderMountable": true,
-    "baseScale": 0.7,
-    "hitbox": {
-      "width": 0.6,
-      "height": 0.8,
-      "fixed": false
-    },
+  "baseScale": 0.55,
+  "hitbox": {
+    "width": 0.8,
+    "height": 1.75,
+    "fixed": false
+  },
     "drops": {
     "amount": "3",
       "entries": [

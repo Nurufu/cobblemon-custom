@@ -1,8 +1,8 @@
 {
   "portraitScale": 1.97,
-  "portraitTranslation": [ -0.47, -0.44, 0],
-  "profileScale": 0.47,
-  "profileTranslation": [ 0, 1.04, 0],
+  "portraitTranslation": [ 3.08, -0.6, 0],
+  "profileScale": 0.84,
+  "profileTranslation": [ 0, 0.53, 0],
   "rootBone": "cherrim_overcast",
   "animations": {
     "cry": "q.bedrock_stateful('cherrim_overcast', 'cry')"

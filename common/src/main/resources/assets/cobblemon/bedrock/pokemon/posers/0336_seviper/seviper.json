@@ -1,9 +1,9 @@
 {
   "head": "head_ai",
   "portraitScale": 2,
-  "portraitTranslation": [ -0.8, -0.2, 0],
-  "profileScale": 0.75,
-  "profileTranslation": [ 0, 0.55, 0],
+  "portraitTranslation": [ -0.47, -0.58, 0],
+  "profileScale": 1.06,
+  "profileTranslation": [ 0, 0.129, 0],
   "animations": {
   "cry": "q.bedrock_stateful('seviper', 'cry')"
   },

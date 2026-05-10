@@ -3,7 +3,7 @@
   "keys": [
     "bull_breed"
   ],
-  "default": "combat",
+  "default": "none",
   "choices": [
     "combat",
     "blaze",
