@@ -479,6 +479,11 @@
 						"1.9167": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.1": {
+					"effect": "pokemon.miraidon.cry"
+				}
 			}
 		}
 	}

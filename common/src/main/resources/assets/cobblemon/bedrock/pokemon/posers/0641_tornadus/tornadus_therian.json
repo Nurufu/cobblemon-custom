@@ -6,6 +6,9 @@
     1,
     0
   ],
+  "animations": {
+    "cry": "q.bedrock_stateful('tornadus_therian', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

@@ -1,9 +1,9 @@
 {
   "head": "head",
   "portraitScale": 1.25,
-  "portraitTranslation": [0, 0.5, 0],
-  "profileScale": 0.8,
-  "profileTranslation": [0, 0.4, 0],
+  "portraitTranslation": [-0.77, 0.81, 0],
+  "profileScale": 0.48,
+  "profileTranslation": [0, 0.99, 0],
   "animations": {
     "cry": "q.bedrock_stateful('ironboulder', 'cry')",
     "faint": "q.bedrock('ironboulder', 'faint')"

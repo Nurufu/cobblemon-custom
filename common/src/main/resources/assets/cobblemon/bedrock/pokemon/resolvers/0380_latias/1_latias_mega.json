@@ -6,7 +6,7 @@
       "aspects": ["mega"],
       "poser": "cobblemon:mega_latias",
       "model": "cobblemon:latias_mega.geo",
-      "texture": "cobblemon:textures/pokemon/0380_latias/latias_mega.png",
+      "texture": "cobblemon:textures/pokemon/0380_latias/mega_latias.png",
       "layers": []
     },
     {
@@ -16,7 +16,7 @@
       ],
       "poser": "cobblemon:mega_latias",
       "model": "cobblemon:latias_mega.geo",
-      "texture": "cobblemon:textures/pokemon/0380_latias/latias_mega_shiny.png"
+      "texture": "cobblemon:textures/pokemon/0380_latias/mega_latias_shiny.png"
     }
   ]
 }

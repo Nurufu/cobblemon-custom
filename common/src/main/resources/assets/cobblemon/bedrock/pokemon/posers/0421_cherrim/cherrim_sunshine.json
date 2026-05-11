@@ -16,7 +16,6 @@
         "PORTRAIT",
         "PROFILE"
       ],
-      "isBattle": true,
       "animations": [
         "q.bedrock('cherrim_sunshine', 'ground_idle')"
       ],

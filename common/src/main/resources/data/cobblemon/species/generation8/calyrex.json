@@ -33,7 +33,7 @@
         {
           "id": "shadow_revert",
           "variant": "level_up",
-          "result": "calyrex shadow=false",
+          "result": "calyrex rider=none",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": []
@@ -41,7 +41,7 @@
         {
           "id": "shadow_ice",
           "variant": "level_up",
-          "result": "calyrex shadow=false ice=true",
+          "result": "calyrex rider=ice",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": [
@@ -151,8 +151,14 @@
         "tutor:psychic"
       ],
       "aspects": [
-        "shadow"
-      ]
+        "shadow-rider"
+      ],
+      "baseScale": 0.7,
+      "hitbox": {
+        "width": 1,
+        "height": 2.1,
+        "fixed": false
+      }
     },
     {
       "name": "Ice",
@@ -162,7 +168,7 @@
         "chillingneigh"
       ],
       "aspects": [
-        "ice"
+        "ice-rider"
       ],
       "baseStats": {
         "hp": 100,
@@ -176,7 +182,7 @@
         {
           "id": "ice_revert",
           "variant": "level_up",
-          "result": "calyrex ice=false",
+          "result": "calyrex rider=none",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": []
@@ -184,7 +190,7 @@
         {
           "id": "ice_shadow",
           "variant": "level_up",
-          "result": "calyrex shadow=true ice=false",
+          "result": "calyrex rider=shadow",
           "consumeHeldItem": false,
           "learnableMoves": [],
           "requirements": [
@@ -292,7 +298,13 @@
         "tutor:expandingforce",
         "tutor:gigadrain",
         "tutor:psychic"
-      ]
+      ],
+      "baseScale": 0.7,
+      "hitbox": {
+        "width": 1,
+        "height": 2.1,
+        "fixed": false
+      }
     }
   ],
   "catchRate": 36,
@@ -391,7 +403,7 @@
     {
       "id": "shadow_rider",
       "variant": "level_up",
-      "result": "calyrex shadow=true",
+      "result": "calyrex rider=shadow",
       "consumeHeldItem": false,
       "learnableMoves": [],
       "requirements": [
@@ -405,7 +417,7 @@
     {
       "id": "ice_rider",
       "variant": "level_up",
-      "result": "calyrex ice=true",
+      "result": "calyrex rider=ice",
       "consumeHeldItem": false,
       "learnableMoves": [],
       "requirements": [
@@ -417,10 +429,10 @@
       ]
     }
   ],
-  "baseScale": 1,
+  "baseScale": 0.5,
   "hitbox": {
-    "width": 1,
-    "height": 1,
+    "width": 0.7,
+    "height": 2,
     "fixed": false
   },
   "baseFriendship": 100,

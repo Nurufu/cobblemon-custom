@@ -88,10 +88,10 @@
   "labels": ["gen8", "legendary"],
   "pokedex": ["cobblemon.species.glastrier.desc"],
   "evolutions": [],
-  "baseScale": 1,
+  "baseScale": 0.7,
   "hitbox": {
     "width": 1,
-    "height": 1,
+    "height": 2.1,
     "fixed": false
   },
   "baseFriendship": 35,

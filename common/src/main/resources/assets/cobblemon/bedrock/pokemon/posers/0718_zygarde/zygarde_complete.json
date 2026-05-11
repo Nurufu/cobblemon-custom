@@ -59,7 +59,7 @@
       "poseTypes": ["FLOAT"],
       "animations": [
         "q.look('head')",
-        "q.bedrock('zygarde_complete', 'battle_idle'')"
+        "q.bedrock('zygarde_complete', 'battle_idle')"
       ]
     },
     "swim": {

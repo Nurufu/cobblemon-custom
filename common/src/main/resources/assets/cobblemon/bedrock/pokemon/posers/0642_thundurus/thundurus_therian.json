@@ -6,6 +6,9 @@
     1.16,
     0
   ],
+  "animations": {
+    "cry": "q.bedrock_stateful('thundurus_therian', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

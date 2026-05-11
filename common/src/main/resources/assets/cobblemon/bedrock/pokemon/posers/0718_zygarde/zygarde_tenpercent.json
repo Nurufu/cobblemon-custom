@@ -54,7 +54,7 @@
       "poseTypes": ["FLOAT"],
       "animations": [
         "q.look('head')",
-        "q.bedrock('zygarde_tenpercent', 'ground_idle'')"
+        "q.bedrock('zygarde_tenpercent', 'ground_idle')"
       ]
     },
     "swim": {

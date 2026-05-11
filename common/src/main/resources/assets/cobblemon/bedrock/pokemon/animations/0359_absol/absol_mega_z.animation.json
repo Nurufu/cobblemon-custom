@@ -472,7 +472,7 @@
       },
         "sound_effects": {
           "0.04": {
-            "effect": "pokemon.absol_mega.cry"
+            "effect": "pokemon.absolm.cry"
           }
         }
       },

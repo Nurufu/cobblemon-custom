@@ -1,10 +1,9 @@
 {
  "target": "cobblemon:houndstone",
- "baseScale": 0.5,
+  "baseScale": 0.5,
   "hitbox": {
-    "width": 1,
-    "height": 1.5,
+    "width": 2.1,
+    "height": 3.1,
     "fixed": false
   }
-
-  }
+}

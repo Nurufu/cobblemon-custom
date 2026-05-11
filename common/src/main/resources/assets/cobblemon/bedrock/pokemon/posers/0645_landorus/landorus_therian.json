@@ -6,6 +6,9 @@
     1.49,
     0
   ],
+  "animations": {
+    "cry": "q.bedrock_stateful('landorus_therian', 'cry')"
+  },
   "poses": {
     "standing": {
       "poseName": "standing",

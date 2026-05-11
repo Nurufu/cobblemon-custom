@@ -391,7 +391,7 @@
 			}
 		},
 		"animation.cherrim_overcast.cry": {
-			"animation_length": 1.25,
+			"animation_length": 3,
 			"bones": {
 				"head": {
 					"rotation": {
@@ -447,7 +447,7 @@
 				}
 			},
 			"sound_effects": {
-				"0.5": {
+				"0.3": {
 					"effect": "pokemon.cherrim.cry"
 				}
 			}

@@ -1,1 +1,22 @@
-{"species":"cobblemon:froslass","order":1,"variations":[{"aspects":["mega"],"poser":"cobblemon:froslass_mega","model":"cobblemon:froslass_mega.geo","texture":"cobblemon:textures/pokemon/froslass_mega/froslass_mega.png","layers":[]},{"aspects":["mega","shiny"],"texture":"cobblemon:textures/pokemon/froslass_mega/froslass_mega_shiny.png"}]}
+{
+  "order": 1,
+  "species": "cobblemon:froslass",
+  "variations": [
+    {
+      "aspects": [
+        "mega"
+      ],
+      "poser": "cobblemon:froslass_mega",
+      "model": "cobblemon:froslass_mega.geo",
+      "texture": "cobblemon:textures/pokemon/froslass_mega/froslass_mega.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "mega",
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/froslass_mega/froslass_mega_shiny.png"
+    }
+  ]
+}

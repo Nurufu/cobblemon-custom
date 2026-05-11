@@ -4866,6 +4866,9 @@
   "pokemon.sceptile.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/sceptile/sceptile_cry", "volume": 0.6 } ]
   },
+  "pokemon.sceptile_mega.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/sceptile/sceptilem_cry", "volume": 0.6 } ]
+  },
   "pokemon.torchic.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/torchic/torchic_cry", "volume": 0.6 } ]
   },
@@ -6075,6 +6078,12 @@
   "pokemon.thundurus.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/thundurus/thundurus_cry", "volume": 0.6 } ]
   },
+  "pokemon.tornadus_therian.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/tornadus/tornadus_therian_cry", "volume": 0.6 } ]
+  },
+  "pokemon.thundurus_therian.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/thundurus/thundurus_therian_cry", "volume": 0.6 } ]
+  },
   "pokemon.reshiram.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/reshiram/reshiram_cry", "volume": 0.6 } ]
   },
@@ -6083,6 +6092,9 @@
   },
   "pokemon.landorus.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/landorus/landorus_cry", "volume": 0.6 } ]
+  },
+  "pokemon.landorus_therian.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/landorus/landorus_therian_cry", "volume": 0.6 } ]
   },
   "pokemon.kyurem.cry": {
     "sounds": [ {  "name": "cobblemon:pokemon/kyurem/kyurem_cry", "volume": 0.6 } ]
@@ -6905,6 +6917,12 @@
   },
   "pokemon.calyrex.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/calyrex/calyrex_cry", "volume": 0.6 } ]
+  },
+  "pokemon.calyrex_shadow.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/calyrex/calyrex_shadow_cry", "volume": 0.6 } ]
+  },
+  "pokemon.calyrex_ice.cry": {
+    "sounds": [ { "name": "cobblemon:pokemon/calyrex/calyrex_ice_cry", "volume": 0.6 } ]
   },
   "pokemon.wyrdeer.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/wyrdeer/wyrdeer_cry", "volume": 0.6 } ]

@@ -1,1 +1,1066 @@
-{"format_version":"1.8.0","animations":{"animation.landorus_therian.ground_idle":{"loop":true,"animation_length":2,"bones":{"landorus_therian":{"position":[0,"3+1*(math.sin(q.anim_time*30*6)*1+0)",0]},"head":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_leg":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_leg":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_backleg":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_backleg":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"tail":{"rotation":["42-math.sin(q.anim_time*90*2)*5","0-math.sin(q.anim_time*90*2-45)*0",0]},"tail2":{"rotation":[37,0,0]},"tail3":{"rotation":[37,0,0]},"tail4":{"rotation":[43,0,0]}}},"animation.landorus_therian.ground_walk":{"loop":true,"animation_length":1,"bones":{"landorus_therian":{"rotation":[6,0,0],"position":[0,"3+1*(math.sin(q.anim_time*30*6)*1+0)",0]},"head":{"position":[0,"0+1*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_leg":{"rotation":{"0.0":[15,0,0],"0.5":[-34,0,0],"1.0":[15,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_leg":{"rotation":{"0.0":[-34,0,0],"0.5":[0,0,0],"1.0":[-34,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_backleg":{"rotation":{"0.0":[-13,0,0],"0.5":[30,0,0],"1.0":[-13,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_backleg":{"rotation":{"0.0":[30,0,0],"0.5":[-13,0,0],"1.0":[30,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"tail":{"rotation":["65-math.sin(q.anim_time*90*2)*5","-math.sin(q.anim_time*90*2-45)*0",0]},"tail2":{"rotation":{"0.0":[37.61026,-2,-2],"0.5":[37.6103,2,2],"1.0":[37.61026,-2,-2]}},"tail3":{"rotation":[37,0,0]},"tail4":{"rotation":[43,0,0]},"body":{"rotation":[-5,0,0]},"right_foot":{"rotation":{"0.0":[-11,0,0],"0.5":[40,0,0],"1.0":[-11,0,0]}},"left_foot":{"rotation":{"0.0":[40,0,0],"0.5":[0,0,0],"1.0":[40,0,0]}},"right_foot2":{"rotation":{"0.0":[14,0,0],"0.5":[0,0,0],"1.0":[14,0,0]}},"right_cloud4":{"rotation":{"0.0":[17,0,0],"1.0":[17,0,0]}},"left_foot2":{"rotation":{"0.0":[0,0,0],"0.5":[14,0,0],"1.0":[0,0,0]}}}},"animation.landorus_therian.air_idle":{"loop":true,"animation_length":2,"bones":{"landorus_therian":{"position":[0,"3+1*(math.sin(q.anim_time*30*6)*1+0)",0]},"head":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_leg":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_leg":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_backleg":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_backleg":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"tail":{"rotation":["42-math.sin(q.anim_time*90*2)*5","0-math.sin(q.anim_time*90*2-45)*0",0]},"tail2":{"rotation":[37,0,0]},"tail3":{"rotation":[37,0,0]},"tail4":{"rotation":[43,0,0]}}},"animation.landorus_therian.air_fly":{"loop":true,"animation_length":1,"bones":{"landorus_therian":{"rotation":[6,0,0],"position":[0,"3+1*(math.sin(q.anim_time*30*6)*1+0)",0]},"head":{"position":[0,"0+1*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_leg":{"rotation":{"0.0":[15,0,0],"0.5":[-34,0,0],"1.0":[15,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_leg":{"rotation":{"0.0":[-34,0,0],"0.5":[0,0,0],"1.0":[-34,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_backleg":{"rotation":{"0.0":[-13,0,0],"0.5":[30,0,0],"1.0":[-13,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_backleg":{"rotation":{"0.0":[30,0,0],"0.5":[-13,0,0],"1.0":[30,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"tail":{"rotation":["65-math.sin(q.anim_time*90*2)*5","-math.sin(q.anim_time*90*2-45)*0",0]},"tail2":{"rotation":{"0.0":[37.61026,-2,-2],"0.5":[37.6103,2,2],"1.0":[37.61026,-2,-2]}},"tail3":{"rotation":[37,0,0]},"tail4":{"rotation":[43,0,0]},"body":{"rotation":[-5,0,0]},"right_foot":{"rotation":{"0.0":[-11,0,0],"0.5":[40,0,0],"1.0":[-11,0,0]}},"left_foot":{"rotation":{"0.0":[40,0,0],"0.5":[0,0,0],"1.0":[40,0,0]}},"right_foot2":{"rotation":{"0.0":[14,0,0],"0.5":[0,0,0],"1.0":[14,0,0]}},"right_cloud4":{"rotation":{"0.0":[17,0,0],"1.0":[17,0,0]}},"left_foot2":{"rotation":{"0.0":[0,0,0],"0.5":[14,0,0],"1.0":[0,0,0]}}}},"animation.landorus_therian.pose":{"loop":true,"bones":{"head":{"rotation":[0,22.5,0]},"right_leg":{"rotation":[-20,0,0]},"right_leg2":{"rotation":[32.5,0,0]},"right_foot":{"rotation":[17.5,0,0]},"body2":{"rotation":[0,-17.5,0]},"left_backleg":{"rotation":[15,0,0]},"left_backleg2":{"rotation":[12.5,0,0]},"left_foot2":{"rotation":[-7.5,0,0]},"tail":{"rotation":[43.49069,-11.00072,-10.26078]},"tail2":{"rotation":[30,0,0]},"tail3":{"rotation":[30,0,0]},"tail4":{"rotation":[25,0,0]}}},"animation.landorus_therian.old_walk":{"loop":true,"animation_length":2,"bones":{"landorus_therian":{"rotation":[6,0,0],"position":{"0.0":[0,"22+8*(math.sin(q.anim_time*30*6)*1+0)",0],"1.0":[0,"22+8*(math.sin(q.anim_time*30*6)*1+0)",0]}},"head":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_leg":{"rotation":{"0.0":[8,0,0],"1.0":[-40,0,0],"2.0":[8,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_leg":{"rotation":{"0.0":[8,0,0],"1.0":[-40,0,0],"2.0":[8,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud3":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_backleg":{"rotation":{"0.0":[-10,0,0],"1.0":[30,0,0],"2.0":[-10,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"right_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_backleg":{"rotation":{"0.0":[-10,0,0],"1.0":[30,0,0],"2.0":[-10,0,0]},"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"left_cloud6":{"position":[0,"0+0.5*(math.sin(q.anim_time*30*6)*1+0)",0]},"tail":{"rotation":["65-math.sin(q.anim_time*90*2)*5","-math.sin(q.anim_time*90*2-45)*0",0]},"tail2":{"rotation":[37,0,0]},"tail3":{"rotation":[37,0,0]},"tail4":{"rotation":[43,0,0]}}}}}
+{
+  "animations": {
+    "animation.landorus_therian.cry": {
+      "animation_length": 3.33333,
+      "sound_effects": {
+        "0.04": {
+          "effect": "pokemon.landorus_therian.cry"
+        }
+      }
+    },
+    "animation.landorus_therian.ground_idle": {
+      "loop": true,
+      "animation_length": 2,
+      "bones": {
+        "landorus_therian": {
+          "position": [
+            0,
+            "3+1*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "head": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_leg": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_leg": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_backleg": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_backleg": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "42-math.sin(q.anim_time*90*2)*5",
+            "0-math.sin(q.anim_time*90*2-45)*0",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            37,
+            0,
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            37,
+            0,
+            0
+          ]
+        },
+        "tail4": {
+          "rotation": [
+            43,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.landorus_therian.ground_walk": {
+      "loop": true,
+      "animation_length": 1,
+      "bones": {
+        "landorus_therian": {
+          "rotation": [
+            6,
+            0,
+            0
+          ],
+          "position": [
+            0,
+            "3+1*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "head": {
+          "position": [
+            0,
+            "0+1*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_leg": {
+          "rotation": {
+            "0.0": [
+              15,
+              0,
+              0
+            ],
+            "0.5": [
+              -34,
+              0,
+              0
+            ],
+            "1.0": [
+              15,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_leg": {
+          "rotation": {
+            "0.0": [
+              -34,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              -34,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_backleg": {
+          "rotation": {
+            "0.0": [
+              -13,
+              0,
+              0
+            ],
+            "0.5": [
+              30,
+              0,
+              0
+            ],
+            "1.0": [
+              -13,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_backleg": {
+          "rotation": {
+            "0.0": [
+              30,
+              0,
+              0
+            ],
+            "0.5": [
+              -13,
+              0,
+              0
+            ],
+            "1.0": [
+              30,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "65-math.sin(q.anim_time*90*2)*5",
+            "-math.sin(q.anim_time*90*2-45)*0",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": {
+            "0.0": [
+              37.61026,
+              -2,
+              -2
+            ],
+            "0.5": [
+              37.6103,
+              2,
+              2
+            ],
+            "1.0": [
+              37.61026,
+              -2,
+              -2
+            ]
+          }
+        },
+        "tail3": {
+          "rotation": [
+            37,
+            0,
+            0
+          ]
+        },
+        "tail4": {
+          "rotation": [
+            43,
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            -5,
+            0,
+            0
+          ]
+        },
+        "right_foot": {
+          "rotation": {
+            "0.0": [
+              -11,
+              0,
+              0
+            ],
+            "0.5": [
+              40,
+              0,
+              0
+            ],
+            "1.0": [
+              -11,
+              0,
+              0
+            ]
+          }
+        },
+        "left_foot": {
+          "rotation": {
+            "0.0": [
+              40,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              40,
+              0,
+              0
+            ]
+          }
+        },
+        "right_foot2": {
+          "rotation": {
+            "0.0": [
+              14,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              14,
+              0,
+              0
+            ]
+          }
+        },
+        "right_cloud4": {
+          "rotation": {
+            "0.0": [
+              17,
+              0,
+              0
+            ],
+            "1.0": [
+              17,
+              0,
+              0
+            ]
+          }
+        },
+        "left_foot2": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              14,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.landorus_therian.air_idle": {
+      "loop": true,
+      "animation_length": 2,
+      "bones": {
+        "landorus_therian": {
+          "position": [
+            0,
+            "3+1*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "head": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_leg": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_leg": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_backleg": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_backleg": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "42-math.sin(q.anim_time*90*2)*5",
+            "0-math.sin(q.anim_time*90*2-45)*0",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            37,
+            0,
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            37,
+            0,
+            0
+          ]
+        },
+        "tail4": {
+          "rotation": [
+            43,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.landorus_therian.air_fly": {
+      "loop": true,
+      "animation_length": 1,
+      "bones": {
+        "landorus_therian": {
+          "rotation": [
+            6,
+            0,
+            0
+          ],
+          "position": [
+            0,
+            "3+1*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "head": {
+          "position": [
+            0,
+            "0+1*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_leg": {
+          "rotation": {
+            "0.0": [
+              15,
+              0,
+              0
+            ],
+            "0.5": [
+              -34,
+              0,
+              0
+            ],
+            "1.0": [
+              15,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_leg": {
+          "rotation": {
+            "0.0": [
+              -34,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              -34,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_backleg": {
+          "rotation": {
+            "0.0": [
+              -13,
+              0,
+              0
+            ],
+            "0.5": [
+              30,
+              0,
+              0
+            ],
+            "1.0": [
+              -13,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_backleg": {
+          "rotation": {
+            "0.0": [
+              30,
+              0,
+              0
+            ],
+            "0.5": [
+              -13,
+              0,
+              0
+            ],
+            "1.0": [
+              30,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "65-math.sin(q.anim_time*90*2)*5",
+            "-math.sin(q.anim_time*90*2-45)*0",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": {
+            "0.0": [
+              37.61026,
+              -2,
+              -2
+            ],
+            "0.5": [
+              37.6103,
+              2,
+              2
+            ],
+            "1.0": [
+              37.61026,
+              -2,
+              -2
+            ]
+          }
+        },
+        "tail3": {
+          "rotation": [
+            37,
+            0,
+            0
+          ]
+        },
+        "tail4": {
+          "rotation": [
+            43,
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            -5,
+            0,
+            0
+          ]
+        },
+        "right_foot": {
+          "rotation": {
+            "0.0": [
+              -11,
+              0,
+              0
+            ],
+            "0.5": [
+              40,
+              0,
+              0
+            ],
+            "1.0": [
+              -11,
+              0,
+              0
+            ]
+          }
+        },
+        "left_foot": {
+          "rotation": {
+            "0.0": [
+              40,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              40,
+              0,
+              0
+            ]
+          }
+        },
+        "right_foot2": {
+          "rotation": {
+            "0.0": [
+              14,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              14,
+              0,
+              0
+            ]
+          }
+        },
+        "right_cloud4": {
+          "rotation": {
+            "0.0": [
+              17,
+              0,
+              0
+            ],
+            "1.0": [
+              17,
+              0,
+              0
+            ]
+          }
+        },
+        "left_foot2": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              14,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.landorus_therian.pose": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            0,
+            22.5,
+            0
+          ]
+        },
+        "right_leg": {
+          "rotation": [
+            -20,
+            0,
+            0
+          ]
+        },
+        "right_leg2": {
+          "rotation": [
+            32.5,
+            0,
+            0
+          ]
+        },
+        "right_foot": {
+          "rotation": [
+            17.5,
+            0,
+            0
+          ]
+        },
+        "body2": {
+          "rotation": [
+            0,
+            -17.5,
+            0
+          ]
+        },
+        "left_backleg": {
+          "rotation": [
+            15,
+            0,
+            0
+          ]
+        },
+        "left_backleg2": {
+          "rotation": [
+            12.5,
+            0,
+            0
+          ]
+        },
+        "left_foot2": {
+          "rotation": [
+            -7.5,
+            0,
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            43.49069,
+            -11.00072,
+            -10.26078
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            30,
+            0,
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            30,
+            0,
+            0
+          ]
+        },
+        "tail4": {
+          "rotation": [
+            25,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.landorus_therian.old_walk": {
+      "loop": true,
+      "animation_length": 2,
+      "bones": {
+        "landorus_therian": {
+          "rotation": [
+            6,
+            0,
+            0
+          ],
+          "position": {
+            "0.0": [
+              0,
+              "22+8*(math.sin(q.anim_time*30*6)*1+0)",
+              0
+            ],
+            "1.0": [
+              0,
+              "22+8*(math.sin(q.anim_time*30*6)*1+0)",
+              0
+            ]
+          }
+        },
+        "head": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_leg": {
+          "rotation": {
+            "0.0": [
+              8,
+              0,
+              0
+            ],
+            "1.0": [
+              -40,
+              0,
+              0
+            ],
+            "2.0": [
+              8,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_leg": {
+          "rotation": {
+            "0.0": [
+              8,
+              0,
+              0
+            ],
+            "1.0": [
+              -40,
+              0,
+              0
+            ],
+            "2.0": [
+              8,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud3": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_backleg": {
+          "rotation": {
+            "0.0": [
+              -10,
+              0,
+              0
+            ],
+            "1.0": [
+              30,
+              0,
+              0
+            ],
+            "2.0": [
+              -10,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "right_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_backleg": {
+          "rotation": {
+            "0.0": [
+              -10,
+              0,
+              0
+            ],
+            "1.0": [
+              30,
+              0,
+              0
+            ],
+            "2.0": [
+              -10,
+              0,
+              0
+            ]
+          },
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "left_cloud6": {
+          "position": [
+            0,
+            "0+0.5*(math.sin(q.anim_time*30*6)*1+0)",
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "65-math.sin(q.anim_time*90*2)*5",
+            "-math.sin(q.anim_time*90*2-45)*0",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            37,
+            0,
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            37,
+            0,
+            0
+          ]
+        },
+        "tail4": {
+          "rotation": [
+            43,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  },
+  "format_version": "1.8.0"
+}

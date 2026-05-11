@@ -480,7 +480,7 @@
 			}
 		},
 		"animation.sceptile_mega.cry": {
-			"animation_length": 1.33333,
+			"animation_length": 3.33333,
 			"sound_effects": {
 				"0.04": {
 					"effect": "pokemon.sceptile_mega.cry"

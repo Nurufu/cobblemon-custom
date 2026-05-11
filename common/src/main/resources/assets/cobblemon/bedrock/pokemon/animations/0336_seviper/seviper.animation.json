@@ -871,6 +871,11 @@
 						"1.0": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.04": {
+					"effect": "pokemon.seviper.cry"
+				}
 			}
 		},
 		"animation.seviper.render": {

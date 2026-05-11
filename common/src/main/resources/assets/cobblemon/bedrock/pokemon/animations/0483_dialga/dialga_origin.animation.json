@@ -1,5 +1,13 @@
 {
   "animations": {
+    "animation.dialga_origin.cry": {
+      "animation_length": 3.33333,
+      "sound_effects": {
+        "0.04": {
+          "effect": "pokemon.dialga.cry"
+        }
+      }
+    },
     "animation.dialga_origin.pose": {
       "loop": true,
       "bones": {

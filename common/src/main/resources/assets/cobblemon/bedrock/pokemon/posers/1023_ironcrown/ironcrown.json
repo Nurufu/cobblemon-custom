@@ -5,7 +5,7 @@
   "profileScale": 0.5,
   "profileTranslation": [0, 1.1, 0],
   "animations": {
-    "cry": "bedrock('ironcrown', 'cry')",
+    "cry": "q.bedrock_stateful('ironcrown', 'cry')",
     "recoil": "q.bedrock_stateful('ironcrown', 'recoil')",
     "status": "q.bedrock_stateful('ironcrown', 'cry', q.curve('symmetrical_wide'))"
   },
