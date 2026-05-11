@@ -73,10 +73,10 @@
       ]
     }
   },
-  "profileScale": 1.1,
+  "profileScale": 0.95,
   "profileTranslation": [
-    -0.1,
-    0.15,
+    0.06,
+    0.40,
     0
   ]
 }

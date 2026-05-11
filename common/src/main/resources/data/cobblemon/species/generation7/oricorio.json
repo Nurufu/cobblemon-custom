@@ -151,7 +151,35 @@
   ],
   "height": 6,
   "weight": 34,
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "baile-sensu",
+      "variant": "item_interact",
+      "result": "oricorio style=sensu",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [],
+      "requiredContext": "cobblemon:purple_nectar"
+    },
+    {
+      "id": "baile-pau",
+      "variant": "item_interact",
+      "result": "oricorio style=pa'u",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [],
+      "requiredContext": "cobblemon:pink_nectar"
+    },
+    {
+      "id": "baile-pom",
+      "variant": "item_interact",
+      "result": "oricorio style=pom_pom",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [],
+      "requiredContext": "cobblemon:yellow_nectar"
+    }
+  ],
   "forms": [
     {
       "name": "Pom-Pom",
@@ -189,12 +217,41 @@
         "gen7"
       ],
       "aspects": [
-        "pom-pom"
+        "pom_pom-style"
       ],
       "height": 6,
       "weight": 34,
       "cannotDynamax": false,
-      "battleOnly": false
+      "battleOnly": false,
+      "evolutions": [
+        {
+          "id": "pom-baile",
+          "variant": "item_interact",
+          "result": "oricorio style=baile",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:red_nectar"
+        },
+        {
+          "id": "pom-sensu",
+          "variant": "item_interact",
+          "result": "oricorio style=sensu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:purple_nectar"
+        },
+        {
+          "id": "pom-pau",
+          "variant": "item_interact",
+          "result": "oricorio style=pa'u",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:pink_nectar"
+        }
+      ]
     },
     {
       "name": "Pa'u",
@@ -232,12 +289,41 @@
         "gen7"
       ],
       "aspects": [
-        "pa'u"
+        "pa'u-style"
       ],
       "height": 6,
       "weight": 34,
       "cannotDynamax": false,
-      "battleOnly": false
+      "battleOnly": false,
+      "evolutions": [
+        {
+          "id": "pau-baile",
+          "variant": "item_interact",
+          "result": "oricorio style=baile",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:red_nectar"
+        },
+        {
+          "id": "pau-sensu",
+          "variant": "item_interact",
+          "result": "oricorio style=sensu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:purple_nectar"
+        },
+        {
+          "id": "pau-pom",
+          "variant": "item_interact",
+          "result": "oricorio style=pom_pom",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:yellow_nectar"
+        }
+      ]
     },
     {
       "name": "Sensu",
@@ -275,12 +361,41 @@
         "gen7"
       ],
       "aspects": [
-        "sensu"
+        "sensu-style"
       ],
       "height": 6,
       "weight": 34,
       "cannotDynamax": false,
-      "battleOnly": false
+      "battleOnly": false,
+      "evolutions": [
+        {
+          "id": "sensu-baile",
+          "variant": "item_interact",
+          "result": "oricorio style=baile",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:red_nectar"
+        },
+        {
+          "id": "sensu-pau",
+          "variant": "item_interact",
+          "result": "oricorio style=pa'u",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:pink_nectar"
+        },
+        {
+          "id": "sensu-pom",
+          "variant": "item_interact",
+          "result": "oricorio style=pom_pom",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:yellow_nectar"
+        }
+      ]
     }
   ],
   "aspects": [],
