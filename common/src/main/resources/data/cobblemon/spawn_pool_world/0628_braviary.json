@@ -47,6 +47,51 @@
                 ],
                 "timeRange": "day"
             }
+        },
+        {
+            "id": "braviaryh-1",
+            "pokemon": "braviary hisuian",
+            "presets": [
+                "natural",
+                "treetop",
+                "wild"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "common",
+            "level": "54-59",
+            "weight": 0.2,
+            "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_badlands",
+                    "#cobblemon:is_hills"
+                ],
+                "timeRange": "day"
+            }
+        },
+        {
+            "id": "braviaryh-2",
+            "pokemon": "braviary hisuian",
+            "presets": [
+                "natural",
+                "treetop",
+                "wild"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "common",
+            "level": "54-59",
+            "weight": 1.0,
+            "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_sky"
+                ],
+                "timeRange": "day"
+            }
         }
     ]
 }

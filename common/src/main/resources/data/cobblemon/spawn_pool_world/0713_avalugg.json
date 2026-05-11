@@ -103,6 +103,107 @@
                     "#cobblemon:is_frozen_ocean"
                 ]
             }
+        },
+        {
+            "id": "avaluggh-1",
+            "pokemon": "avalugg hisuian",
+            "presets": [
+                "natural"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "common",
+            "level": "37-51",
+            "weight": 1.0,
+            "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_frozen_ocean"
+                ]
+            }
+        },
+        {
+            "id": "avaluggh-2",
+            "pokemon": "avalugg hisuian",
+            "presets": [
+                "water"
+            ],
+            "type": "pokemon",
+            "context": "surface",
+            "bucket": "common",
+            "level": "37-51",
+            "weight": 1.0,
+            "condition": {
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_frozen_ocean"
+                ]
+            }
+        },
+        {
+            "id": "avaluggh-3",
+            "pokemon": "avalugg hisuian",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "common",
+            "level": "37-51",
+            "weight": 1.0,
+            "weightMultiplier": {
+                "multiplier": 0.6,
+                "condition": {
+                    "minLureLevel": 0,
+                    "maxLureLevel": 1
+                }
+            },
+            "condition": {
+                "canSeeSky": true,
+                "biomes": [
+                    "#cobblemon:is_frozen_ocean"
+                ]
+            }
+        },
+        {
+            "id": "avaluggh-4",
+            "pokemon": "avalugg hisuian",
+            "presets": [
+                "natural"
+            ],
+            "type": "pokemon",
+            "context": "grounded",
+            "bucket": "common",
+            "level": "37-51",
+            "weight": 1.0,
+            "condition": {
+                "biomes": [
+                    "#cobblemon:nether/is_frozen"
+                ]
+            }
+        },
+        {
+            "id": "avaluggh-5",
+            "pokemon": "avalugg hisuian",
+            "type": "pokemon",
+            "context": "fishing",
+            "bucket": "common",
+            "level": "37-51",
+            "weight": 1.0,
+            "weightMultiplier": {
+                "multiplier": 0.6,
+                "condition": {
+                    "minLureLevel": 0,
+                    "maxLureLevel": 1
+                }
+            },
+            "condition": {
+                "canSeeSky": false,
+                "minSkyLight": 8,
+                "maxSkyLight": 15,
+                "biomes": [
+                    "#cobblemon:is_frozen_ocean"
+                ]
+            }
         }
     ]
 }
