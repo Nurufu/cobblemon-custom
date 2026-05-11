@@ -1,1 +1,37 @@
-{"species":"cobblemon:eelektross","order":2,"variations":[{"aspects":["mega"],"poser":"cobblemon:eelektross_mega","model":"cobblemon:eelektross_mega.geo","texture":"cobblemon:textures/pokemon/eelektross_mega/eelektross_mega.png","layers":[{"name":"glow","texture":"cobblemon:textures/pokemon/eelektross_mega/eelektross_mega_emissive.png","emissive":true,"translucent":true}]},{"aspects":["mega","shiny"],"texture":"cobblemon:textures/pokemon/eelektross_mega/eelektross_mega_shiny.png","layers":[{"name":"glow","texture":"cobblemon:textures/pokemon/eelektross_mega/eelektross_mega_emissive.png","emissive":true,"translucent":true}]}]}
+{
+  "order": 2,
+  "species": "cobblemon:eelektross",
+  "variations": [
+    {
+      "aspects": [
+        "mega"
+      ],
+      "poser": "cobblemon:eelektross_mega",
+      "model": "cobblemon:eelektross_mega.geo",
+      "texture": "cobblemon:textures/pokemon/eelektross_mega/eelektross_mega.png",
+      "layers": [
+        {
+          "name": "glow",
+          "texture": "cobblemon:textures/pokemon/eelektross_mega/eelektross_mega_emissive.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "mega",
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/eelektross_mega/eelektross_mega_shiny.png",
+      "layers": [
+        {
+          "name": "glow",
+          "texture": "cobblemon:textures/pokemon/eelektross_mega/eelektross_mega_emissive.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    }
+  ]
+}

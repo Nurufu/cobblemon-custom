@@ -1,1 +1,37 @@
-{"species":"cobblemon:scolipede","order":1,"variations":[{"aspects":["mega"],"poser":"cobblemon:scolipede_mega","model":"cobblemon:scolipede_mega.geo","texture":"cobblemon:textures/pokemon/scolipede_mega/scolipede_mega.png","layers":[{"name":"emissive","texture":"cobblemon:textures/pokemon/scolipede_mega/scolipede_mega_emissive.png","emissive":true,"translucent":true}]},{"aspects":["mega","shiny"],"texture":"cobblemon:textures/pokemon/scolipede_mega/scolipede_mega_shiny.png","layers":[{"name":"emissive","texture":"cobblemon:textures/pokemon/scolipede_mega/scolipede_mega_shiny_emissive.png","emissive":true,"translucent":true}]}]}
+{
+  "order": 1,
+  "species": "cobblemon:scolipede",
+  "variations": [
+    {
+      "aspects": [
+        "mega"
+      ],
+      "poser": "cobblemon:scolipede_mega",
+      "model": "cobblemon:scolipede_mega.geo",
+      "texture": "cobblemon:textures/pokemon/scolipede_mega/scolipede_mega.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "cobblemon:textures/pokemon/scolipede_mega/scolipede_mega_emissive.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "mega",
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/scolipede_mega/scolipede_mega_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "cobblemon:textures/pokemon/scolipede_mega/scolipede_mega_shiny_emissive.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    }
+  ]
+}

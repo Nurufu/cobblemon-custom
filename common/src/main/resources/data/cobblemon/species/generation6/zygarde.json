@@ -231,7 +231,7 @@
         "legendary"
       ],
       "aspects": [
-        "10percent"
+        "percent_cells-10"
       ],
       "height": 12,
       "weight": 335,
@@ -305,7 +305,7 @@
         "legendary"
       ],
       "aspects": [
-        "complete"
+        "percent_cells-complete"
       ],
       "height": 45,
       "weight": 6100,
@@ -355,7 +355,7 @@
         "legendary"
       ],
       "aspects": [
-        "percent_cells=1"
+        "percent_cells-1"
       ],
       "height": 45,
       "weight": 6100,

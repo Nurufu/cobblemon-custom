@@ -1,1 +1,23 @@
-{"species":"cobblemon:chimecho","order":1,"variations":[{"aspects":["mega"],"poser":"cobblemon:chimecho_mega","model":"cobblemon:chimecho_mega.geo","texture":"cobblemon:textures/pokemon/chimecho_mega/chimecho_mega.png","layers":[]},{"aspects":["mega","shiny"],"texture":"cobblemon:textures/pokemon/chimecho_mega/chimecho_mega_shiny.png","layers":[]}]}
+{
+  "order": 1,
+  "species": "cobblemon:chimecho",
+  "variations": [
+    {
+      "aspects": [
+        "mega"
+      ],
+      "poser": "cobblemon:chimecho_mega",
+      "model": "cobblemon:chimecho_mega.geo",
+      "texture": "cobblemon:textures/pokemon/chimecho_mega/chimecho_mega.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "mega",
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/chimecho_mega/chimecho_mega_shiny.png",
+      "layers": []
+    }
+  ]
+}
