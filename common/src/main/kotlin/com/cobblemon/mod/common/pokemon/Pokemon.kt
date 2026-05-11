@@ -506,7 +506,7 @@ open class Pokemon : ShowdownIdentifiable {
 
     fun sendOut(level: ServerWorld, position: Vec3d, illusion: IllusionEffect?, mutation: (PokemonEntity) -> Unit = {}): PokemonEntity? {
         CobblemonEvents.POKEMON_SENT_PRE.postThen(PokemonSentPreEvent(this, level, position)) {
-            Cobblemon.LOGGER.info(this.heldItem().toString())
+            //Cobblemon.LOGGER.info(this.heldItem().toString())
             SeasonFeatureHandler.updateSeason(this, level, position.toBlockPos())
             PlateFeatureHandler.updatePlate(this)
             MemoryFeatureHandler.updateMemory(this)
