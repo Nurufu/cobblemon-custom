@@ -52,7 +52,7 @@
 			}
 		},
 		"animation.celesteela.ground_walk": {
-			"animation_length": 2.5,
+			"loop": true,
 			"bones": {
 				"body_main": {
 					"rotation": ["20.5+Math.cos((query.anim_time-0.3) * 90 * 1.6*2) * 3", "Math.cos((query.anim_time) * 90 * 1.6) * -3", 0],

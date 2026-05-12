@@ -109,7 +109,7 @@
 			}
 		},
 		"animation.ironboulder.ground_walk": {
-			"animation_length": 2.0417,
+			"loop": true,
 			"bones": {
 				"body": {
 					"rotation": [-6.37, "0+math.cos(q.anim_time*90*2-60)*1", "0+math.cos(q.anim_time*90*2-30)*5/2"],

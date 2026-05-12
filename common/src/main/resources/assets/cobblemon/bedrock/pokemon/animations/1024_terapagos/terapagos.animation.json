@@ -265,7 +265,7 @@
 			}
 		},
 		"animation.terapagos.battle_idle": {
-			"animation_length": 10000,
+			"loop": true,
 			"bones": {
 				"terapagosbaby": {
 					"rotation": [0, 0, 0],

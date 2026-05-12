@@ -28,7 +28,7 @@
 			}
 		},
 		"animation.ironhands.ground_walk": {
-			"animation_length": 2,
+			"loop": true,
 			"bones": {
 				"body": {
 					"rotation": ["7.5-math.cos(q.anim_time*90*2*2-90)*2", "0-math.cos(q.anim_time*90*2+60)*2", "0-math.cos(q.anim_time*90*2-60)*3"]
