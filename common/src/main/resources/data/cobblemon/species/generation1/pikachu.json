@@ -1842,6 +1842,582 @@
           "requiredContext": "cobblemon:thunder_stone"
         }
       ]
+    },
+    {
+      "name": "Ash Cap",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-rage_candy_bar"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Partner Cap",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-pewter_crunchies"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Hoenn Cap",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-lava_cookie"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Sinnoh Cap",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-old_gateau"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Unova Cap",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-casteliacone"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Kalos Cap",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-lumiose_galette"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Alola Cap",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-big_malasada"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "World Cap",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-smoked_tail_curry"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Captain Cap",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-compass"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Fluff",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-shears"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Van Gogh",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-sinister_tea"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
+    },
+    {
+      "name": "Detective",
+      "nationalPokedexNumber": 25,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "cobblemon:light_ball",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:thunder_stone",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:oran_berry",
+            "percentage": 5.0
+          }
+        ]
+      },
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defence": 40,
+        "special_attack": 50,
+        "special_defence": 50,
+        "speed": 90
+      },
+      "aspects": ["cosmetic_item-cocoa_beans"],
+      "evolutions": [
+        {
+          "id": "pikachu_raichu",
+          "variant": "item_interact",
+          "result": "raichu alolan=false",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "thunderpunch"
+          ],
+          "requirements": [],
+          "requiredContext": "cobblemon:thunder_stone"
+        }
+      ]
     }
   ],
   "baseExperienceYield": 112,

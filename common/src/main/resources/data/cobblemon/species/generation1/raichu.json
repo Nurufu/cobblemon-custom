@@ -180,6 +180,391 @@
               "itemCondition": "cobblemon:mega_stone"
             }
           ]
+        },
+        {
+          "name": "Ash Cap",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 35,
+            "attack": 55,
+            "defence": 40,
+            "special_attack": 50,
+            "special_defence": 50,
+            "speed": 90
+          },
+          "aspects": ["cosmetic_item-rage_candy_bar"]
+        },
+        {
+          "name": "Partner Cap",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-pewter_crunchies"]
+        },
+        {
+          "name": "Hoenn Cap",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-lava_cookie"]
+        },
+        {
+          "name": "Sinnoh Cap",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-old_gateau"]
+        },
+        {
+          "name": "Unova Cap",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-casteliacone"]
+        },
+        {
+          "name": "Kalos Cap",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-lumiose_galette"]
+        },
+        {
+          "name": "Alola Cap",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-big_malasada"]
+        },
+        {
+          "name": "World Cap",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-smoked_tail_curry"]
+        },
+        {
+          "name": "Captain Cap",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-compass"]
+        },
+        {
+          "name": "Fluff",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-shears"]
+        },
+        {
+          "name": "Detective",
+          "nationalPokedexNumber": 172,
+          "primaryType": "electric",
+          "abilities": [
+            "static",
+            "h:lightningrod"
+          ],
+          "drops": {
+            "amount": 3,
+            "entries": [
+              {
+                "item": "cobblemon:light_ball",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:thunder_stone",
+                "percentage": 5.0
+              },
+              {
+                "item": "cobblemon:oran_berry",
+                "percentage": 5.0
+              }
+            ]
+          },
+          "baseStats": {
+            "hp": 60,
+            "attack": 100,
+            "defence": 55,
+            "special_attack": 160,
+            "special_defence": 80,
+            "speed": 130
+          },
+          "aspects": ["cosmetic_item-cocoa_beans"]
         }
       ]
     },

@@ -121,6 +121,369 @@
       "weight": 20,
       "cannotDynamax": false,
       "battleOnly": false
+    },
+    {
+      "name": "Ash Cap",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-rage_candy_bar"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Partner Cap",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-pewter_crunchies"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hoenn Cap",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-lava_cookie"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sinnoh Cap",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-old_gateau"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unova Cap",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-casteliacone"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kalos Cap",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-lumiose_galette"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Alola Cap",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-big_malasada"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "World Cap",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-smoked_tail_curry"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Captain Cap",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-compass"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fluff",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-shears"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Detective",
+      "nationalPokedexNumber": 172,
+      "primaryType": "electric",
+      "abilities": [
+        "static",
+        "h:lightningrod"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defence": 15,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 60
+      },
+      "aspects": ["cosmetic_item-cocoa_beans"],
+      "evolutions": [
+        {
+          "id": "pichu_pikachu",
+          "variant": "level_up",
+          "result": "pikachu",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "friendship",
+              "amount": 160
+            }
+          ]
+        }
+      ]
     }
   ],
   "baseExperienceYield": 41,
