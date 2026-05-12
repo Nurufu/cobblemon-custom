@@ -35,6 +35,28 @@
   "eggGroups": [
     "field"
   ],
+  "forms": [
+    {
+      "name": "Basket",
+      "nationalPokedexNumber": 903,
+      "primaryType": "fighting",
+      "secondaryType": "poison",
+      "abilities": [
+        "pressure",
+        "unburden",
+        "h:poisontouch"
+      ],
+      "baseStats": {
+        "hp": 80,
+        "attack": 130,
+        "defence": 60,
+        "special_attack": 40,
+        "special_defence": 80,
+        "speed": 120
+      },
+      "aspects": ["cosmetic_item-composter"]
+    }
+  ],
   "moves": [
     "1:fling",
     "1:leer",

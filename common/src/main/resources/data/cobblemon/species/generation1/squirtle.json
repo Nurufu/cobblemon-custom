@@ -55,6 +55,74 @@
       }
     ]
   },
+  "forms": [
+    {
+      "name": "Nerd",
+      "nationalPokedexNumber": 7,
+      "primaryType": "water",
+      "abilities": [
+        "torrent",
+        "h:raindish"
+      ],
+      "baseStats": {
+        "hp": 44,
+        "attack": 48,
+        "defence": 65,
+        "special_attack": 50,
+        "special_defence": 64,
+        "speed": 43
+      },
+      "aspects": ["cosmetic_item-wise_glasses"],
+      "evolutions": [
+        {
+          "id": "squirtle_wartortle",
+          "variant": "level_up",
+          "result": "wartortle",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Squad",
+      "nationalPokedexNumber": 7,
+      "primaryType": "water",
+      "abilities": [
+        "torrent",
+        "h:raindish"
+      ],
+      "baseStats": {
+        "hp": 44,
+        "attack": 48,
+        "defence": 65,
+        "special_attack": 50,
+        "special_defence": 64,
+        "speed": 43
+      },
+      "aspects": ["cosmetic_item-black_glasses"],
+      "evolutions": [
+        {
+          "id": "squirtle_wartortle",
+          "variant": "level_up",
+          "result": "wartortle",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 16
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:tackle",
     "1:tailwhip",

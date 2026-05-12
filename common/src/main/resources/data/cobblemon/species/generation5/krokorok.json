@@ -51,6 +51,43 @@
   "eggGroups": [
     "field"
   ],
+  "forms": [
+    {
+      "name": "Glasses",
+      "nationalPokedexNumber": 552,
+      "primaryType": "ground",
+      "secondaryType": "dark",
+      "abilities": [
+        "intimidate",
+        "moxie",
+        "h:angerpoint"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 82,
+        "defence": 45,
+        "special_attack": 45,
+        "special_defence": 45,
+        "speed": 74
+      },
+      "aspects": ["cosmetic_item-black_glasses"],
+      "evolutions": [
+        {
+          "id": "krokorok_krookodile",
+          "variant": "level_up",
+          "result": "krookodile",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 40
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:honeclaws",
     "1:leer",

@@ -51,6 +51,28 @@
   "eggGroups": [
     "field"
   ],
+  "forms": [
+    {
+      "name": "Glasses",
+      "nationalPokedexNumber": 553,
+      "primaryType": "ground",
+      "secondaryType": "dark",
+      "abilities": [
+        "intimidate",
+        "moxie",
+        "h:angerpoint"
+      ],
+      "baseStats": {
+        "hp": 95,
+        "attack": 117,
+        "defence": 80,
+        "special_attack": 65,
+        "special_defence": 70,
+        "speed": 92
+      },
+      "aspects": ["cosmetic_item-black_glasses"]
+    }
+  ],
   "moves": [
     "1:honeclaws",
     "1:leer",

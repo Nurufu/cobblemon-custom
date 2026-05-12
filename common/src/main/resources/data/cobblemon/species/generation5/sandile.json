@@ -51,6 +51,43 @@
   "eggGroups": [
     "field"
   ],
+  "forms": [
+    {
+      "name": "Glasses",
+      "nationalPokedexNumber": 551,
+      "primaryType": "ground",
+      "secondaryType": "dark",
+      "abilities": [
+        "intimidate",
+        "moxie",
+        "h:angerpoint"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "attack": 72,
+        "defence": 35,
+        "special_attack": 35,
+        "special_defence": 35,
+        "speed": 65
+      },
+      "aspects": ["cosmetic_item-black_glasses"],
+      "evolutions": [
+        {
+          "id": "sandile_krokorok",
+          "variant": "level_up",
+          "result": "krokorok",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 29
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:leer",
     "1:powertrip",

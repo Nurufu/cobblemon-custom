@@ -54,6 +54,78 @@
       }
     }
   },
+  "forms": [
+    {
+      "name": "Nerd",
+      "nationalPokedexNumber": 8,
+      "primaryType": "water",
+      "abilities": [
+        "torrent",
+        "h:raindish"
+      ],
+      "baseStats": {
+        "hp": 59,
+        "attack": 63,
+        "defence": 80,
+        "special_attack": 65,
+        "special_defence": 80,
+        "speed": 58
+      },
+      "aspects": ["cosmetic_item-wise_glasses"],
+      "evolutions": [
+        {
+          "id": "wartortle_blastoise",
+          "variant": "level_up",
+          "result": "blastoise",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "flashcannon"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Squad",
+      "nationalPokedexNumber": 8,
+      "primaryType": "water",
+      "abilities": [
+        "torrent",
+        "h:raindish"
+      ],
+      "baseStats": {
+        "hp": 59,
+        "attack": 63,
+        "defence": 80,
+        "special_attack": 65,
+        "special_defence": 80,
+        "speed": 58
+      },
+      "aspects": ["cosmetic_item-black_glasses"],
+      "evolutions": [
+        {
+          "id": "wartortle_blastoise",
+          "variant": "level_up",
+          "result": "blastoise",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "flashcannon"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 36
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:tackle",
     "1:tailwhip",

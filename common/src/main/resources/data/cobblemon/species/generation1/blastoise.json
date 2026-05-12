@@ -122,6 +122,42 @@
       "weight": 0,
       "cannotDynamax": false,
       "battleOnly": false
+    },
+    {
+      "name": "Nerd",
+      "nationalPokedexNumber": 9,
+      "primaryType": "water",
+      "abilities": [
+        "torrent",
+        "h:raindish"
+      ],
+      "baseStats": {
+        "hp": 79,
+        "attack": 83,
+        "defence": 100,
+        "special_attack": 85,
+        "special_defence": 105,
+        "speed": 78
+      },
+      "aspects": ["cosmetic_item-wise_glasses"]
+    },
+    {
+      "name": "Squad",
+      "nationalPokedexNumber": 9,
+      "primaryType": "water",
+      "abilities": [
+        "torrent",
+        "h:raindish"
+      ],
+      "baseStats": {
+        "hp": 79,
+        "attack": 83,
+        "defence": 100,
+        "special_attack": 85,
+        "special_defence": 105,
+        "speed": 78
+      },
+      "aspects": ["cosmetic_item-black_glasses"]
     }
   ],
   "baseExperienceYield": 265,

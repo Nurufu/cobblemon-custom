@@ -46,6 +46,12 @@
       }
     ]
   },
+  "forms": [
+    {
+      "name": "Stick",
+      "aspects": ["cosmetic_item-stick"]
+    }
+  ],
   "moves": [
     "1:leer",
     "1:pound",

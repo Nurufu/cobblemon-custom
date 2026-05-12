@@ -180,7 +180,9 @@
               "itemCondition": "cobblemon:mega_stone"
             }
           ]
-        },
+        }
+        ]
+      },
         {
           "name": "Ash Cap",
           "nationalPokedexNumber": 172,
@@ -565,9 +567,7 @@
             "speed": 130
           },
           "aspects": ["cosmetic_item-cocoa_beans"]
-        }
-      ]
-    },
+        },
     {
       "name": "Alola",
       "primaryType": "electric",
