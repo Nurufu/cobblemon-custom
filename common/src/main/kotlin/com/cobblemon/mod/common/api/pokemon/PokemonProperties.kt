@@ -104,7 +104,6 @@ open class PokemonProperties {
             props.tradeable = parseBooleanProperty(keyPairs, listOf("tradeable", "tradable"))
             props.originalTrainerType = OriginalTrainerType.values().toList().parsePropertyOfCollection(keyPairs, listOf("originaltrainertype", "ottype"), labelsOptional = true) { it.name.lowercase() }
             props.originalTrainer = parsePlayerProperty(keyPairs, listOf("originaltrainer", "ot"))
-
             val maybeIVs = IVs()
             val maybeEVs = EVs()
             Stats.PERMANENT.forEach{ stat ->

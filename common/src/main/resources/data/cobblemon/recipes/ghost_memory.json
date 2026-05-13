@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "cobblemon:ghost_gem"
+        },
+        {
+            "item": "cobblemon:upgrade"
+        }
+    ],
+    "result": {
+        "item": "cobblemon:ghost_memory"
+    }
+}

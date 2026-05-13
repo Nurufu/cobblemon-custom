@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "cobblemon:psychic_gem"
+        },
+        {
+            "item": "cobblemon:upgrade"
+        }
+    ],
+    "result": {
+        "item": "cobblemon:psychic_memory"
+    }
+}

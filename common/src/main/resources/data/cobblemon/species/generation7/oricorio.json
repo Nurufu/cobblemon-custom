@@ -24,6 +24,10 @@
       {
         "item": "cobblemon:pinap_berry",
         "percentage": 5.0
+      },
+      {
+        "item": "cobblemon:red_nectar",
+        "quantityRange": "0-1"
       }
     ]
   },
@@ -208,6 +212,30 @@
         "special_defence": 0,
         "speed": 0
       },
+      "drops": {
+        "amount": 5,
+        "entries": [
+          {
+            "item": "minecraft:feather",
+            "quantityRange": "0-2"
+          },
+          {
+            "item": "minecraft:chicken"
+          },
+          {
+            "item": "minecraft:honey_bottle",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:pinap_berry",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:yellow_nectar",
+            "quantityRange": "0-1"
+          }
+        ]
+      },
       "experienceGroup": "medium_fast",
       "eggCycles": 20,
       "eggGroups": [
@@ -291,6 +319,30 @@
       "aspects": [
         "pa'u-style"
       ],
+      "drops": {
+        "amount": 5,
+        "entries": [
+          {
+            "item": "minecraft:feather",
+            "quantityRange": "0-2"
+          },
+          {
+            "item": "minecraft:chicken"
+          },
+          {
+            "item": "minecraft:honey_bottle",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:pinap_berry",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:pink_nectar",
+            "quantityRange": "0-1"
+          }
+        ]
+      },
       "height": 6,
       "weight": 34,
       "cannotDynamax": false,
@@ -351,6 +403,30 @@
         "special_attack": 2,
         "special_defence": 0,
         "speed": 0
+      },
+      "drops": {
+        "amount": 5,
+        "entries": [
+          {
+            "item": "minecraft:feather",
+            "quantityRange": "0-2"
+          },
+          {
+            "item": "minecraft:chicken"
+          },
+          {
+            "item": "minecraft:honey_bottle",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:pinap_berry",
+            "percentage": 5.0
+          },
+          {
+            "item": "cobblemon:purple_nectar",
+            "quantityRange": "0-1"
+          }
+        ]
       },
       "experienceGroup": "medium_fast",
       "eggCycles": 20,
