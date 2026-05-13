@@ -48,7 +48,6 @@ object CobblemonEvolutionAdapter : EvolutionAdapter {
     override fun deserialize(jsonIn: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Evolution {
         val json = jsonIn.asJsonObject
         val variant = json.get(VARIANT).asString.lowercase()
-        Cobblemon.LOGGER.info(json.get("id").asString.lowercase())
         val type = this.types[variant] ?: throw IllegalArgumentException("Cannot resolve type for variant $variant")
         return context.deserialize(json, type.java)
     }

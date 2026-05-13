@@ -146,6 +146,44 @@
           }
         ]
       }
+    },
+    {
+      "name": "Lime Melon",
+      "nationalPokedexNumber": 101,
+      "primaryType": "electric",
+      "abilities": [
+        "soundproof",
+        "static",
+        "h:aftermath"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 50,
+        "defence": 70,
+        "special_attack": 80,
+        "special_defence": 80,
+        "speed": 150
+      },
+      "aspects": ["color-lime"]
+    },
+    {
+      "name": "Green Melon",
+      "nationalPokedexNumber": 101,
+      "primaryType": "electric",
+      "abilities": [
+        "soundproof",
+        "static",
+        "h:aftermath"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 50,
+        "defence": 70,
+        "special_attack": 80,
+        "special_defence": 80,
+        "speed": 150
+      },
+      "aspects": ["color-green"]
     }
   ],
   "baseExperienceYield": 172,

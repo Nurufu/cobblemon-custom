@@ -15,6 +15,7 @@
     },
     {
       "aspects": ["cosmetic_item-bundle"],
+      "model": "cobblemon:dragonite.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0149_dragonite/dragonite_mailbag.png"

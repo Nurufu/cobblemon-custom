@@ -38,6 +38,27 @@
   "eggGroups": [
     "mineral"
   ],
+  "forms": [
+    {
+      "name": "Golden",
+      "nationalPokedexNumber": 185,
+      "primaryType": "rock",
+      "abilities": [
+        "sturdy",
+        "rockhead",
+        "h:rattled"
+      ],
+      "baseStats": {
+        "hp": 70,
+        "attack": 100,
+        "defence": 115,
+        "special_attack": 30,
+        "special_defence": 65,
+        "speed": 30
+      },
+      "aspects": ["cosmetic_item-gold_armor"]
+    }
+  ],
   "moves": [
     "1:copycat",
     "1:faketears",

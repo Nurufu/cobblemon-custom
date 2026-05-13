@@ -66,6 +66,25 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Mailbag",
+      "nationalPokedexNumber": 149,
+      "primaryType": "dragon",
+      "secondaryType": "flying",
+      "abilities": [
+        "innerfocus",
+        "h:multiscale"
+      ],
+      "baseStats": {
+        "hp": 91,
+        "attack": 134,
+        "defence": 95,
+        "special_attack": 100,
+        "special_defence": 100,
+        "speed": 80
+      },
+      "aspects": ["cosmetic_item-bundle"]
     }
   ],
   "behaviour": {

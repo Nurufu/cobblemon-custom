@@ -30,6 +30,7 @@
     },
     {
       "aspects": ["cosmetic_item-silk_scarf"],
+      "model": "cobblemon:delphox.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0655_delphox/delphox_ribbon.png"

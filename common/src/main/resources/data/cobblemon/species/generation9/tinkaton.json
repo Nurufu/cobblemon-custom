@@ -55,6 +55,28 @@
       "light": "0-4"
     }
   },
+  "forms": [
+    {
+      "name": "Dot",
+      "nationalPokedexNumber": 959,
+      "primaryType": "fairy",
+      "secondaryType": "steel",
+      "abilities": [
+        "moldbreaker",
+        "owntempo",
+        "h:pickpocket"
+      ],
+      "baseStats": {
+        "hp": 85,
+        "attack": 75,
+        "defence": 77,
+        "special_attack": 70,
+        "special_defence": 105,
+        "speed": 94
+      },
+      "aspects": ["cosmetic_item-music"]
+    }
+  ],
   "moves": [
     "1:astonish",
     "1:fairywind",

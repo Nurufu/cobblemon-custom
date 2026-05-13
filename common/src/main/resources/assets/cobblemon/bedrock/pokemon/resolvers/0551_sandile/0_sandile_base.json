@@ -15,6 +15,7 @@
     },
     {
       "aspects": ["cosmetic_item-black_glasses"],
+      "model": "cobblemon:sandile.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0551_sandile/sandile_sunglasses.png"

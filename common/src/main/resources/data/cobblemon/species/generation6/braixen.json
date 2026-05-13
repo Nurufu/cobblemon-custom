@@ -47,6 +47,43 @@
       }
     ]
   },
+  "forms": [
+    {
+      "name": "Ribbon",
+      "nationalPokedexNumber": 654,
+      "primaryType": "fire",
+      "abilities": [
+        "blaze",
+        "h:magician"
+      ],
+      "baseStats": {
+        "hp": 59,
+        "attack": 59,
+        "defence": 58,
+        "special_attack": 90,
+        "special_defence": 70,
+        "speed": 73
+      },
+      "evolutions": [
+        {
+          "id": "braixen_delphox",
+          "variant": "level_up",
+          "result": "delphox",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "mysticalfire"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 36
+            }
+          ]
+        }
+      ],
+      "aspects": ["cosmetic_item-silk_scarf"]
+    }
+  ],
   "moves": [
     "1:ember",
     "1:scratch",

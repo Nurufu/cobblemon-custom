@@ -92,6 +92,25 @@
         "height": 4.5,
         "fixed": false
       }
+    },
+    {
+      "name": "Ribbon",
+      "nationalPokedexNumber": 655,
+      "primaryType": "fire",
+      "secondaryType": "psychic",
+      "abilities": [
+        "blaze",
+        "h:magician"
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 69,
+        "defence": 72,
+        "special_attack": 114,
+        "special_defence": 100,
+        "speed": 104
+      },
+      "aspects": ["cosmetic_item-silk_scarf"]
     }
   ],
   "moves": [

@@ -15,6 +15,7 @@
     },
     {
       "aspects": ["cosmetic_item-stick"],
+      "model": "cobblemon:sceptile.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0254_sceptile/sceptile_stick.png"

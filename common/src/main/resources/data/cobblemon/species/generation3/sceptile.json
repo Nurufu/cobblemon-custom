@@ -84,6 +84,24 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Stick",
+      "aspects": ["cosmetic_item-stick"],
+      "nationalPokedexNumber": 254,
+      "primaryType": "grass",
+      "abilities": [
+        "overgrow",
+        "h:unburden"
+      ],
+      "baseStats": {
+        "hp": 70,
+        "attack": 85,
+        "defence": 65,
+        "special_attack": 105,
+        "special_defence": 85,
+        "speed": 120
+      }
     }
   ],
   "baseExperienceYield": 265,

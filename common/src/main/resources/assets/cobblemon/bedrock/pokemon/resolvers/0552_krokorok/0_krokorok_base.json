@@ -15,6 +15,7 @@
     },
     {
       "aspects": ["cosmetic_item-black_glasses"],
+      "model": "cobblemon:krokorok.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0552_krokorok/krokorok_sunglasses.png"

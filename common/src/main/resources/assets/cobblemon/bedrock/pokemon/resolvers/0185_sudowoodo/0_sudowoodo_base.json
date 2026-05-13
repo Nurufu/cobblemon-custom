@@ -15,6 +15,7 @@
     },
     {
       "aspects": ["cosmetic_item-gold_armor"],
+      "model": "cobblemon:sudowoodo.geo",
       "layers": [
         {
           "name": "golden",

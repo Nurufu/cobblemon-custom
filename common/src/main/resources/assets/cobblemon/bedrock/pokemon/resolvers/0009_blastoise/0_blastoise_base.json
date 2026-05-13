@@ -15,6 +15,7 @@
     },
     {
       "aspects": ["cosmetic_item-black_glasses"],
+      "model": "cobblemon:blastoise.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0009_blastoise/blastoise_triangleglasses.png"
@@ -23,6 +24,7 @@
     },
     {
       "aspects": ["cosmetic_item-wise_glasses"],
+      "model": "cobblemon:blastoise.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0009_blastoise/blastoise_circleglasses.png"

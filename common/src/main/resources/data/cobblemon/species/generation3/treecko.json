@@ -49,7 +49,22 @@
   "forms": [
     {
       "name": "Stick",
-      "aspects": ["cosmetic_item-stick"]
+      "aspects": ["cosmetic_item-stick"],
+      "evolutions": [
+        {
+          "id": "treecko_grovyle",
+          "variant": "level_up",
+          "result": "grovyle",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 16
+            }
+          ]
+        }
+      ]
     }
   ],
   "moves": [

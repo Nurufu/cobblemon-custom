@@ -15,6 +15,7 @@
     },
     {
       "aspects": ["cosmetic_item-stick"],
+      "model": "cobblemon:treecko.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0252_treecko/treecko_stick.png"

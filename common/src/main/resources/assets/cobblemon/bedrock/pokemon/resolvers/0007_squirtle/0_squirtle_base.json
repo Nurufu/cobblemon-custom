@@ -15,6 +15,7 @@
     },
     {
       "aspects": ["cosmetic_item-black_glasses"],
+      "model": "cobblemon:squirtle.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0007_squirtle/squirtle_triangleglasses.png"
@@ -23,6 +24,7 @@
     },
     {
       "aspects": ["cosmetic_item-wise_glasses"],
+      "model": "cobblemon:squirtle.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0007_squirtle/squirtle_circleglasses.png"

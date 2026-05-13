@@ -55,6 +55,45 @@
       "light": "0-4"
     }
   },
+  "forms": [
+    {
+      "name": "Dot",
+      "nationalPokedexNumber": 958,
+      "primaryType": "fairy",
+      "secondaryType": "steel",
+      "abilities": [
+        "moldbreaker",
+        "owntempo",
+        "h:pickpocket"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 55,
+        "defence": 55,
+        "special_attack": 45,
+        "special_defence": 82,
+        "speed": 78
+      },
+      "aspects": ["cosmetic_item-music"],
+      "evolutions": [
+        {
+          "id": "tinkatuff_tinkaton",
+          "variant": "level_up",
+          "result": "tinkaton",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "gigatonhammer"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 38
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:astonish",
     "1:fairywind",

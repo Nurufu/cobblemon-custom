@@ -46,6 +46,43 @@
       }
     ]
   },
+  "forms": [
+    {
+      "name": "Stick",
+      "aspects": ["cosmetic_item-stick"],
+      "nationalPokedexNumber": 253,
+      "primaryType": "grass",
+      "abilities": [
+        "overgrow",
+        "h:unburden"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "attack": 65,
+        "defence": 45,
+        "special_attack": 85,
+        "special_defence": 65,
+        "speed": 95
+      },
+      "evolutions": [
+        {
+          "id": "grovyle_sceptile",
+          "variant": "level_up",
+          "result": "sceptile",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "dualchop"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 36
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "moves": [
     "1:absorb",
     "1:energyball",

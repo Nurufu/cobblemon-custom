@@ -15,6 +15,7 @@
     },
     {
       "aspects": ["cosmetic_item-black_glasses"],
+      "model": "cobblemon:krookodile.geo",
       "layers": [
         {
           "texture": "cobblemon:textures/pokemon/0553_krookodile/krookodile_sunglasses.png"

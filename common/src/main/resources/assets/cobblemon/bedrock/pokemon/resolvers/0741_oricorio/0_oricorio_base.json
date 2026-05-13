@@ -3,7 +3,7 @@
   "species": "cobblemon:oricorio",
   "variations": [
     {
-      "aspects": ["baile-style"],
+      "aspects": [],
       "poser": "cobblemon:baile_oricorio",
       "model": "cobblemon:baile_oricorio.geo",
       "texture": "cobblemon:textures/pokemon/oricorio/baile_oricorio.png",
@@ -11,7 +11,6 @@
     },
     {
       "aspects": [
-        "baile-style",
         "shiny"
       ],
       "poser": "cobblemon:baile_oricorio",
