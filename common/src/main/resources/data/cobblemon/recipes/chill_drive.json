@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "cobblemon:upgrade"
+        },
+        {
+            "item": "cobblemon:ice_stone"
+        }
+    ],
+    "result": {
+        "item": "cobblemon:chill_drive"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "cobblemon:upgrade"
+        },
+        {
+            "item": "cobblemon:thunder_stone"
+        }
+    ],
+    "result": {
+        "item": "cobblemon:shock_drive"
+    }
+}
