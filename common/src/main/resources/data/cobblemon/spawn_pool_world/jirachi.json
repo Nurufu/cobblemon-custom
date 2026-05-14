@@ -16,7 +16,8 @@
         "biomes": [ 
           "#cobblemon:is_mountain",
           "#cobblemon:is_hills"
-           ]
+           ],
+        "maxY": 200
       }
     },
     {

@@ -14,7 +14,8 @@
             "#cobblemon:is_freezing"
           ],
           "canSeeSky": true,
-          "minLureLevel": 3
+          "minLureLevel": 3,
+          "maxY": 200
         }
       }
     ]

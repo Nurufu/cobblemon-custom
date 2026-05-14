@@ -18,7 +18,8 @@
                 "structures": [
                     "#cobblemon:ruin"
                 ],
-                "minY": 48
+                "minY": 48,
+                "maxY": 200
             }
         },
         {
@@ -74,7 +75,8 @@
                 "structures": [
                     "#cobblemon:ruin"
                 ],
-                "minY": 48
+                "minY": 48,
+                "maxY": 200
             }
         },
         {

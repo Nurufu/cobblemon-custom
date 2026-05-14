@@ -15,7 +15,8 @@
         "biomes": [ 
           "#cobblemon:is_mountain"
       ],
-      "isRaining": false
+      "isRaining": false,
+        "minY": 260
       }
     }
   ]

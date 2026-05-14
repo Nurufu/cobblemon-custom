@@ -6,10 +6,7 @@
     {
       "id": "palkia-1T",
       "pokemon": "palkia",
-      "presets": [
-        "natural",
-        "wild"
-      ],
+      "presets": [],
       "type": "pokemon",
       "context": "grounded",
       "bucket": "ultra-rare",
@@ -19,16 +16,14 @@
         "canSeeSky": true,
         "biomes": [
           "minecraft:jagged_peaks"
-        ]
+        ],
+        "maxY": 200
       }
     },
     {
       "id": "palkia-2T",
       "pokemon": "palkia",
-      "presets": [
-        "natural",
-        "wild"
-      ],
+      "presets": [],
       "type": "pokemon",
       "context": "grounded",
       "bucket": "ultra-rare",
@@ -38,7 +33,8 @@
         "canSeeSky": true,
         "biomes": [
           "#cobblemon:is_peak"
-        ]
+        ],
+        "maxY": 200
       },
       "anticondition": {
         "biomes": [

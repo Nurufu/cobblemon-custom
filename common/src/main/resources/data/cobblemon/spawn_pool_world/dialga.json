@@ -16,7 +16,8 @@
           "#cobblemon:is_peak"
          ],
          "timeRange": "any",
-          "isRaining": false
+          "isRaining": false,
+        "maxY": 200
       }
     }
   ]
