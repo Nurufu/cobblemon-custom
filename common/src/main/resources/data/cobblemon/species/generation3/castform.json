@@ -54,12 +54,40 @@
         "gen3"
       ],
       "aspects": [
-        "sunny"
+        "sunny-form"
       ],
       "height": 3,
       "weight": 8,
       "cannotDynamax": false,
       "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "snow_base",
+          "variant": "level_up",
+          "result": "castform weather=none",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": []
+        },
+        {
+          "id": "sun_rain",
+          "variant": "item_interact",
+          "result": "castform weather=rainy",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:water_stone"
+        },
+        {
+          "id": "sun_snow",
+          "variant": "item_interact",
+          "result": "castform weather=snowy",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:ice_stone"
+        }
+      ],
       "drops": {
         "amount": 1,
         "entries": [
@@ -106,12 +134,40 @@
         "gen3"
       ],
       "aspects": [
-        "rainy"
+        "rainy-form"
       ],
       "height": 3,
       "weight": 8,
       "cannotDynamax": false,
       "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "rain_base",
+          "variant": "level_up",
+          "result": "castform weather=none",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": []
+        },
+        {
+          "id": "rain_snow",
+          "variant": "item_interact",
+          "result": "castform weather=snowy",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:ice_stone"
+        },
+        {
+          "id": "rain_sunny",
+          "variant": "item_interact",
+          "result": "castform weather=sunny",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:sun_stone"
+        }
+      ],
       "drops": {
         "amount": 1,
         "entries": [
@@ -158,12 +214,40 @@
         "gen3"
       ],
       "aspects": [
-        "snowy"
+        "snowy-form"
       ],
       "height": 3,
       "weight": 8,
       "cannotDynamax": false,
       "battleOnly": true,
+      "evolutions": [
+        {
+          "id": "snow_base",
+          "variant": "level_up",
+          "result": "castform weather=none",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": []
+        },
+        {
+          "id": "snow_rain",
+          "variant": "item_interact",
+          "result": "castform weather=rainy",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:water_stone"
+        },
+        {
+          "id": "snow_sunny",
+          "variant": "item_interact",
+          "result": "castform weather=sunny",
+          "consumeHeldItem": false,
+          "learnableMoves": [],
+          "requirements": [],
+          "requiredContext": "cobblemon:sun_stone"
+        }
+      ],
       "drops": {
         "amount": 1,
         "entries": [
@@ -276,7 +360,35 @@
   "pokedex": [
     "cobblemon.species.castform.desc"
   ],
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id": "castform_sun",
+      "variant": "item_interact",
+      "result": "castform weather=sunny",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [],
+      "requiredContext": "cobblemon:sun_stone"
+    },
+    {
+      "id": "castform_rain",
+      "variant": "item_interact",
+      "result": "castform weather=rainy",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [],
+      "requiredContext": "cobblemon:water_stone"
+    },
+    {
+      "id": "castform_snow",
+      "variant": "item_interact",
+      "result": "castform weather=snowy",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [],
+      "requiredContext": "cobblemon:ice_stone"
+    }
+  ],
   "baseScale": 0.4,
   "hitbox": {
     "width": 0.6,
