@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "cobblemon:block/yellow_apricorn_planks"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "cobblemon:yellow_apricorn_planks"
+    }
+  ],
+  "result": {
+    "item": "cobblemon:yellow_apricorn_button"
+  }
+}

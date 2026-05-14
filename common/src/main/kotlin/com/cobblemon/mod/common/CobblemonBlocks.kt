@@ -223,6 +223,251 @@ object CobblemonBlocks : PlatformRegistry<Registry<Block>, RegistryKey<Registry<
     @JvmField
     val APRICORN_TRAPDOOR = this.create("apricorn_trapdoor", TrapdoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning { _, _, _, _ -> false }, APRICORN_BLOCK_SET_TYPE))
 
+    //Black Apricorn
+    @JvmField
+    val BLACK_APRICORN_LOG = log("black_apricorn_log", arg2 = MapColor.BLACK)
+    @JvmField
+    val STRIPPED_BLACK_APRICORN_LOG = log("stripped_black_apricorn_log")
+    @JvmField
+    val BLACK_APRICORN_WOOD = log("black_apricorn_wood")
+    @JvmField
+    val STRIPPED_BLACK_APRICORN_WOOD = log("stripped_black_apricorn_wood")
+    @JvmField
+    val BLACK_APRICORN_PLANKS = this.create("black_apricorn_planks", Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val BLACK_APRICORN_FENCE = this.create("black_apricorn_fence", FenceBlock(AbstractBlock.Settings.create().mapColor(BLACK_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val BLACK_APRICORN_FENCE_GATE = this.create("black_apricorn_fence_gate", FenceGateBlock(AbstractBlock.Settings.create().mapColor(BLACK_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD), APRICORN_WOOD_TYPE))
+    @JvmField // Note At the time of 1.20.0 we don't need our own BlockSetType for Apricorn wood
+    val BLACK_APRICORN_BUTTON = this.create("black_apricorn_button", BlocksInvoker.createWoodenButtonBlock(BlockSetType.OAK))
+    @JvmField
+    val BLACK_APRICORN_PRESSURE_PLATE = this.create("black_apricorn_pressure_plate", PressurePlateBlockInvoker.`cobblemon$create`(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.create().mapColor(BLACK_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).noCollision().strength(0.5f).sounds(BlockSoundGroup.WOOD), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val BLACK_APRICORN_SIGN = this.create("black_apricorn_sign", CobblemonSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val BLACK_APRICORN_WALL_SIGN = this.create("black_apricorn_wall_sign", CobblemonWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val BLACK_APRICORN_HANGING_SIGN = this.create("black_apricorn_hanging_sign", CobblemonHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val BLACK_APRICORN_WALL_HANGING_SIGN = this.create("black_apricorn_wall_hanging_sign", CobblemonWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val BLACK_APRICORN_SLAB = this.create("black_apricorn_slab", SlabBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val BLACK_APRICORN_STAIRS = this.create("black_apricorn_stairs", StairsBlockInvoker.`cobblemon$create`(BLACK_APRICORN_PLANKS.defaultState, AbstractBlock.Settings.copy(BLACK_APRICORN_PLANKS)))
+    @JvmField
+    val BLACK_APRICORN_DOOR = this.create("black_apricorn_door", DoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(BLACK_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val BLACK_APRICORN_TRAPDOOR = this.create("black_apricorn_trapdoor", TrapdoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning { _, _, _, _ -> false }, APRICORN_BLOCK_SET_TYPE))
+
+    @JvmField
+    val BLUE_APRICORN_LOG = log("blue_apricorn_log", arg2 = MapColor.BLACK)
+    @JvmField
+    val STRIPPED_BLUE_APRICORN_LOG = log("stripped_blue_apricorn_log")
+    @JvmField
+    val BLUE_APRICORN_WOOD = log("blue_apricorn_wood")
+    @JvmField
+    val STRIPPED_BLUE_APRICORN_WOOD = log("stripped_blue_apricorn_wood")
+    @JvmField
+    val BLUE_APRICORN_PLANKS = this.create("blue_apricorn_planks", Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val BLUE_APRICORN_FENCE = this.create("blue_apricorn_fence", FenceBlock(AbstractBlock.Settings.create().mapColor(BLUE_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val BLUE_APRICORN_FENCE_GATE = this.create("blue_apricorn_fence_gate", FenceGateBlock(AbstractBlock.Settings.create().mapColor(BLUE_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD), APRICORN_WOOD_TYPE))
+    @JvmField // Note At the time of 1.20.0 we don't need our own BlockSetType for Apricorn wood
+    val BLUE_APRICORN_BUTTON = this.create("blue_apricorn_button", BlocksInvoker.createWoodenButtonBlock(BlockSetType.OAK))
+    @JvmField
+    val BLUE_APRICORN_PRESSURE_PLATE = this.create("blue_apricorn_pressure_plate", PressurePlateBlockInvoker.`cobblemon$create`(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.create().mapColor(BLUE_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).noCollision().strength(0.5f).sounds(BlockSoundGroup.WOOD), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val BLUE_APRICORN_SIGN = this.create("blue_apricorn_sign", CobblemonSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val BLUE_APRICORN_WALL_SIGN = this.create("blue_apricorn_wall_sign", CobblemonWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val BLUE_APRICORN_HANGING_SIGN = this.create("blue_apricorn_hanging_sign", CobblemonHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val BLUE_APRICORN_WALL_HANGING_SIGN = this.create("blue_apricorn_wall_hanging_sign", CobblemonWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val BLUE_APRICORN_SLAB = this.create("blue_apricorn_slab", SlabBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val BLUE_APRICORN_STAIRS = this.create("blue_apricorn_stairs", StairsBlockInvoker.`cobblemon$create`(BLUE_APRICORN_PLANKS.defaultState, AbstractBlock.Settings.copy(BLUE_APRICORN_PLANKS)))
+    @JvmField
+    val BLUE_APRICORN_DOOR = this.create("blue_apricorn_door", DoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(BLUE_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val BLUE_APRICORN_TRAPDOOR = this.create("blue_apricorn_trapdoor", TrapdoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning { _, _, _, _ -> false }, APRICORN_BLOCK_SET_TYPE))
+
+    @JvmField
+    val GREEN_APRICORN_LOG = log("green_apricorn_log", arg2 = MapColor.BLACK)
+    @JvmField
+    val STRIPPED_GREEN_APRICORN_LOG = log("stripped_green_apricorn_log")
+    @JvmField
+    val GREEN_APRICORN_WOOD = log("green_apricorn_wood")
+    @JvmField
+    val STRIPPED_GREEN_APRICORN_WOOD = log("stripped_green_apricorn_wood")
+    @JvmField
+    val GREEN_APRICORN_PLANKS = this.create("green_apricorn_planks", Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val GREEN_APRICORN_FENCE = this.create("green_apricorn_fence", FenceBlock(AbstractBlock.Settings.create().mapColor(GREEN_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val GREEN_APRICORN_FENCE_GATE = this.create("green_apricorn_fence_gate", FenceGateBlock(AbstractBlock.Settings.create().mapColor(GREEN_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD), APRICORN_WOOD_TYPE))
+    @JvmField // Note At the time of 1.20.0 we don't need our own BlockSetType for Apricorn wood
+    val GREEN_APRICORN_BUTTON = this.create("green_apricorn_button", BlocksInvoker.createWoodenButtonBlock(BlockSetType.OAK))
+    @JvmField
+    val GREEN_APRICORN_PRESSURE_PLATE = this.create("green_apricorn_pressure_plate", PressurePlateBlockInvoker.`cobblemon$create`(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.create().mapColor(GREEN_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).noCollision().strength(0.5f).sounds(BlockSoundGroup.WOOD), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val GREEN_APRICORN_SIGN = this.create("green_apricorn_sign", CobblemonSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val GREEN_APRICORN_WALL_SIGN = this.create("green_apricorn_wall_sign", CobblemonWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val GREEN_APRICORN_HANGING_SIGN = this.create("green_apricorn_hanging_sign", CobblemonHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val GREEN_APRICORN_WALL_HANGING_SIGN = this.create("green_apricorn_wall_hanging_sign", CobblemonWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val GREEN_APRICORN_SLAB = this.create("green_apricorn_slab", SlabBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val GREEN_APRICORN_STAIRS = this.create("green_apricorn_stairs", StairsBlockInvoker.`cobblemon$create`(GREEN_APRICORN_PLANKS.defaultState, AbstractBlock.Settings.copy(GREEN_APRICORN_PLANKS)))
+    @JvmField
+    val GREEN_APRICORN_DOOR = this.create("green_apricorn_door", DoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(GREEN_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val GREEN_APRICORN_TRAPDOOR = this.create("green_apricorn_trapdoor", TrapdoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning { _, _, _, _ -> false }, APRICORN_BLOCK_SET_TYPE))
+
+    @JvmField
+    val PINK_APRICORN_LOG = log("pink_apricorn_log", arg2 = MapColor.BLACK)
+    @JvmField
+    val STRIPPED_PINK_APRICORN_LOG = log("stripped_pink_apricorn_log")
+    @JvmField
+    val PINK_APRICORN_WOOD = log("pink_apricorn_wood")
+    @JvmField
+    val STRIPPED_PINK_APRICORN_WOOD = log("stripped_pink_apricorn_wood")
+    @JvmField
+    val PINK_APRICORN_PLANKS = this.create("pink_apricorn_planks", Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val PINK_APRICORN_FENCE = this.create("pink_apricorn_fence", FenceBlock(AbstractBlock.Settings.create().mapColor(PINK_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val PINK_APRICORN_FENCE_GATE = this.create("pink_apricorn_fence_gate", FenceGateBlock(AbstractBlock.Settings.create().mapColor(PINK_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD), APRICORN_WOOD_TYPE))
+    @JvmField // Note At the time of 1.20.0 we don't need our own BlockSetType for Apricorn wood
+    val PINK_APRICORN_BUTTON = this.create("pink_apricorn_button", BlocksInvoker.createWoodenButtonBlock(BlockSetType.OAK))
+    @JvmField
+    val PINK_APRICORN_PRESSURE_PLATE = this.create("pink_apricorn_pressure_plate", PressurePlateBlockInvoker.`cobblemon$create`(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.create().mapColor(PINK_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).noCollision().strength(0.5f).sounds(BlockSoundGroup.WOOD), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val PINK_APRICORN_SIGN = this.create("pink_apricorn_sign", CobblemonSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val PINK_APRICORN_WALL_SIGN = this.create("pink_apricorn_wall_sign", CobblemonWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val PINK_APRICORN_HANGING_SIGN = this.create("pink_apricorn_hanging_sign", CobblemonHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val PINK_APRICORN_WALL_HANGING_SIGN = this.create("pink_apricorn_wall_hanging_sign", CobblemonWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val PINK_APRICORN_SLAB = this.create("pink_apricorn_slab", SlabBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val PINK_APRICORN_STAIRS = this.create("pink_apricorn_stairs", StairsBlockInvoker.`cobblemon$create`(PINK_APRICORN_PLANKS.defaultState, AbstractBlock.Settings.copy(PINK_APRICORN_PLANKS)))
+    @JvmField
+    val PINK_APRICORN_DOOR = this.create("pink_apricorn_door", DoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(PINK_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val PINK_APRICORN_TRAPDOOR = this.create("pink_apricorn_trapdoor", TrapdoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning { _, _, _, _ -> false }, APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val RED_APRICORN_LOG = log("red_apricorn_log", arg2 = MapColor.BLACK)
+    @JvmField
+    val STRIPPED_RED_APRICORN_LOG = log("stripped_red_apricorn_log")
+    @JvmField
+    val RED_APRICORN_WOOD = log("red_apricorn_wood")
+    @JvmField
+    val STRIPPED_RED_APRICORN_WOOD = log("stripped_red_apricorn_wood")
+    @JvmField
+    val RED_APRICORN_PLANKS = this.create("red_apricorn_planks", Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val RED_APRICORN_FENCE = this.create("red_apricorn_fence", FenceBlock(AbstractBlock.Settings.create().mapColor(RED_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val RED_APRICORN_FENCE_GATE = this.create("red_apricorn_fence_gate", FenceGateBlock(AbstractBlock.Settings.create().mapColor(RED_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD), APRICORN_WOOD_TYPE))
+    @JvmField // Note At the time of 1.20.0 we don't need our own BlockSetType for Apricorn wood
+    val RED_APRICORN_BUTTON = this.create("red_apricorn_button", BlocksInvoker.createWoodenButtonBlock(BlockSetType.OAK))
+    @JvmField
+    val RED_APRICORN_PRESSURE_PLATE = this.create("red_apricorn_pressure_plate", PressurePlateBlockInvoker.`cobblemon$create`(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.create().mapColor(RED_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).noCollision().strength(0.5f).sounds(BlockSoundGroup.WOOD), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val RED_APRICORN_SIGN = this.create("red_apricorn_sign", CobblemonSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val RED_APRICORN_WALL_SIGN = this.create("red_apricorn_wall_sign", CobblemonWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val RED_APRICORN_HANGING_SIGN = this.create("red_apricorn_hanging_sign", CobblemonHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val RED_APRICORN_WALL_HANGING_SIGN = this.create("red_apricorn_wall_hanging_sign", CobblemonWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val RED_APRICORN_SLAB = this.create("red_apricorn_slab", SlabBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val RED_APRICORN_STAIRS = this.create("red_apricorn_stairs", StairsBlockInvoker.`cobblemon$create`(RED_APRICORN_PLANKS.defaultState, AbstractBlock.Settings.copy(RED_APRICORN_PLANKS)))
+    @JvmField
+    val RED_APRICORN_DOOR = this.create("red_apricorn_door", DoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(RED_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val RED_APRICORN_TRAPDOOR = this.create("red_apricorn_trapdoor", TrapdoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning { _, _, _, _ -> false }, APRICORN_BLOCK_SET_TYPE))
+
+    @JvmField
+    val WHITE_APRICORN_LOG = log("white_apricorn_log", arg2 = MapColor.BLACK)
+    @JvmField
+    val STRIPPED_WHITE_APRICORN_LOG = log("stripped_white_apricorn_log")
+    @JvmField
+    val WHITE_APRICORN_WOOD = log("white_apricorn_wood")
+    @JvmField
+    val STRIPPED_WHITE_APRICORN_WOOD = log("stripped_white_apricorn_wood")
+    @JvmField
+    val WHITE_APRICORN_PLANKS = this.create("white_apricorn_planks", Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val WHITE_APRICORN_FENCE = this.create("white_apricorn_fence", FenceBlock(AbstractBlock.Settings.create().mapColor(WHITE_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val WHITE_APRICORN_FENCE_GATE = this.create("white_apricorn_fence_gate", FenceGateBlock(AbstractBlock.Settings.create().mapColor(WHITE_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD), APRICORN_WOOD_TYPE))
+    @JvmField // Note At the time of 1.20.0 we don't need our own BlockSetType for Apricorn wood
+    val WHITE_APRICORN_BUTTON = this.create("white_apricorn_button", BlocksInvoker.createWoodenButtonBlock(BlockSetType.OAK))
+    @JvmField
+    val WHITE_APRICORN_PRESSURE_PLATE = this.create("white_apricorn_pressure_plate", PressurePlateBlockInvoker.`cobblemon$create`(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.create().mapColor(WHITE_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).noCollision().strength(0.5f).sounds(BlockSoundGroup.WOOD), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val WHITE_APRICORN_SIGN = this.create("white_apricorn_sign", CobblemonSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val WHITE_APRICORN_WALL_SIGN = this.create("white_apricorn_wall_sign", CobblemonWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val WHITE_APRICORN_HANGING_SIGN = this.create("white_apricorn_hanging_sign", CobblemonHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val WHITE_APRICORN_WALL_HANGING_SIGN = this.create("white_apricorn_wall_hanging_sign", CobblemonWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val WHITE_APRICORN_SLAB = this.create("white_apricorn_slab", SlabBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val WHITE_APRICORN_STAIRS = this.create("white_apricorn_stairs", StairsBlockInvoker.`cobblemon$create`(WHITE_APRICORN_PLANKS.defaultState, AbstractBlock.Settings.copy(WHITE_APRICORN_PLANKS)))
+    @JvmField
+    val WHITE_APRICORN_DOOR = this.create("white_apricorn_door", DoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(WHITE_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val WHITE_APRICORN_TRAPDOOR = this.create("white_apricorn_trapdoor", TrapdoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning { _, _, _, _ -> false }, APRICORN_BLOCK_SET_TYPE))
+
+    @JvmField
+    val YELLOW_APRICORN_LOG = log("yellow_apricorn_log", arg2 = MapColor.BLACK)
+    @JvmField
+    val STRIPPED_YELLOW_APRICORN_LOG = log("stripped_yellow_apricorn_log")
+    @JvmField
+    val YELLOW_APRICORN_WOOD = log("yellow_apricorn_wood")
+    @JvmField
+    val STRIPPED_YELLOW_APRICORN_WOOD = log("stripped_yellow_apricorn_wood")
+    @JvmField
+    val YELLOW_APRICORN_PLANKS = this.create("yellow_apricorn_planks", Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val YELLOW_APRICORN_FENCE = this.create("yellow_apricorn_fence", FenceBlock(AbstractBlock.Settings.create().mapColor(YELLOW_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val YELLOW_APRICORN_FENCE_GATE = this.create("yellow_apricorn_fence_gate", FenceGateBlock(AbstractBlock.Settings.create().mapColor(YELLOW_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD), APRICORN_WOOD_TYPE))
+    @JvmField // Note At the time of 1.20.0 we don't need our own BlockSetType for Apricorn wood
+    val YELLOW_APRICORN_BUTTON = this.create("yellow_apricorn_button", BlocksInvoker.createWoodenButtonBlock(BlockSetType.OAK))
+    @JvmField
+    val YELLOW_APRICORN_PRESSURE_PLATE = this.create("yellow_apricorn_pressure_plate", PressurePlateBlockInvoker.`cobblemon$create`(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.create().mapColor(YELLOW_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).noCollision().strength(0.5f).sounds(BlockSoundGroup.WOOD), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val YELLOW_APRICORN_SIGN = this.create("yellow_apricorn_sign", CobblemonSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val YELLOW_APRICORN_WALL_SIGN = this.create("yellow_apricorn_wall_sign", CobblemonWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val YELLOW_APRICORN_HANGING_SIGN = this.create("yellow_apricorn_hanging_sign", CobblemonHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val YELLOW_APRICORN_WALL_HANGING_SIGN = this.create("yellow_apricorn_wall_hanging_sign", CobblemonWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN), APRICORN_WOOD_TYPE))
+    @JvmField
+    val YELLOW_APRICORN_SLAB = this.create("yellow_apricorn_slab", SlabBlock(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)))
+    @JvmField
+    val YELLOW_APRICORN_STAIRS = this.create("yellow_apricorn_stairs", StairsBlockInvoker.`cobblemon$create`(YELLOW_APRICORN_PLANKS.defaultState, AbstractBlock.Settings.copy(YELLOW_APRICORN_PLANKS)))
+    @JvmField
+    val YELLOW_APRICORN_DOOR = this.create("yellow_apricorn_door", DoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(YELLOW_APRICORN_PLANKS.defaultMapColor).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), APRICORN_BLOCK_SET_TYPE))
+    @JvmField
+    val YELLOW_APRICORN_TRAPDOOR = this.create("yellow_apricorn_trapdoor", TrapdoorBlockInvoker.`cobblemon$create`(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(Instrument.BASS).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning { _, _, _, _ -> false }, APRICORN_BLOCK_SET_TYPE))
+
     private val PLANT_PROPERTIES = AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY)
     @JvmField
     val BLACK_APRICORN_SAPLING = this.create("black_apricorn_sapling", ApricornSaplingBlock(PLANT_PROPERTIES, Apricorn.BLACK))
@@ -734,7 +979,22 @@ object CobblemonBlocks : PlatformRegistry<Registry<Block>, RegistryKey<Registry<
      */
     fun strippedBlocks(): Map<Block, Block> = mapOf(
         APRICORN_WOOD to STRIPPED_APRICORN_WOOD,
-        APRICORN_LOG to STRIPPED_APRICORN_LOG
+        APRICORN_LOG to STRIPPED_APRICORN_LOG,
+        BLACK_APRICORN_WOOD to STRIPPED_BLACK_APRICORN_WOOD,
+        BLACK_APRICORN_LOG to STRIPPED_BLACK_APRICORN_LOG,
+        RED_APRICORN_WOOD to STRIPPED_RED_APRICORN_WOOD,
+        RED_APRICORN_LOG to STRIPPED_RED_APRICORN_LOG,
+        BLUE_APRICORN_WOOD to STRIPPED_BLUE_APRICORN_WOOD,
+        BLUE_APRICORN_LOG to STRIPPED_BLUE_APRICORN_LOG,
+        GREEN_APRICORN_WOOD to STRIPPED_GREEN_APRICORN_WOOD,
+        GREEN_APRICORN_LOG to STRIPPED_GREEN_APRICORN_LOG,
+        PINK_APRICORN_WOOD to STRIPPED_PINK_APRICORN_WOOD,
+        PINK_APRICORN_LOG to STRIPPED_PINK_APRICORN_LOG,
+        WHITE_APRICORN_WOOD to STRIPPED_WHITE_APRICORN_WOOD,
+        WHITE_APRICORN_LOG to STRIPPED_WHITE_APRICORN_LOG,
+        YELLOW_APRICORN_WOOD to STRIPPED_YELLOW_APRICORN_WOOD,
+        YELLOW_APRICORN_LOG to STRIPPED_YELLOW_APRICORN_LOG
+
     )
 
 

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "cobblemon:blue_apricorn_log",
+    "cobblemon:blue_apricorn_wood",
+    "cobblemon:stripped_blue_apricorn_log",
+    "cobblemon:stripped_blue_apricorn_wood"
+  ]
+}

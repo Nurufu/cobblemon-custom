@@ -229,6 +229,225 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     val APRICORN_SIGN = this.create("apricorn_sign", SignItem(Item.Settings().maxCount(16), CobblemonBlocks.APRICORN_SIGN, CobblemonBlocks.APRICORN_WALL_SIGN))
     @JvmField
     val APRICORN_HANGING_SIGN = this.create("apricorn_hanging_sign", HangingSignItem(CobblemonBlocks.APRICORN_HANGING_SIGN, CobblemonBlocks.APRICORN_WALL_HANGING_SIGN, Item.Settings().maxCount(16)))
+
+    @JvmField
+    val BLACK_APRICORN_LOG = blockItem("black_apricorn_log", CobblemonBlocks.BLACK_APRICORN_LOG)
+    @JvmField
+    val STRIPPED_BLACK_APRICORN_LOG = blockItem("stripped_black_apricorn_log", CobblemonBlocks.STRIPPED_BLACK_APRICORN_LOG)
+    @JvmField
+    val BLACK_APRICORN_WOOD = blockItem("black_apricorn_wood", CobblemonBlocks.BLACK_APRICORN_WOOD)
+    @JvmField
+    val STRIPPED_BLACK_APRICORN_WOOD = blockItem("stripped_black_apricorn_wood", CobblemonBlocks.STRIPPED_BLACK_APRICORN_WOOD)
+    @JvmField
+    val BLACK_APRICORN_PLANKS = blockItem("black_apricorn_planks", CobblemonBlocks.BLACK_APRICORN_PLANKS)
+    @JvmField
+    val BLACK_APRICORN_DOOR = blockItem("black_apricorn_door", CobblemonBlocks.BLACK_APRICORN_DOOR)
+    @JvmField
+    val BLACK_APRICORN_TRAPDOOR = blockItem("black_apricorn_trapdoor", CobblemonBlocks.BLACK_APRICORN_TRAPDOOR)
+    @JvmField
+    val BLACK_APRICORN_FENCE = blockItem("black_apricorn_fence", CobblemonBlocks.BLACK_APRICORN_FENCE)
+    @JvmField
+    val BLACK_APRICORN_FENCE_GATE = blockItem("black_apricorn_fence_gate", CobblemonBlocks.BLACK_APRICORN_FENCE_GATE)
+    @JvmField
+    val BLACK_APRICORN_BUTTON = blockItem("black_apricorn_button", CobblemonBlocks.BLACK_APRICORN_BUTTON)
+    @JvmField
+    val BLACK_APRICORN_PRESSURE_PLATE = blockItem("black_apricorn_pressure_plate", CobblemonBlocks.BLACK_APRICORN_PRESSURE_PLATE)
+    @JvmField
+    val BLACK_APRICORN_SLAB = blockItem("black_apricorn_slab", CobblemonBlocks.BLACK_APRICORN_SLAB)
+    @JvmField
+    val BLACK_APRICORN_STAIRS = blockItem("black_apricorn_stairs", CobblemonBlocks.BLACK_APRICORN_STAIRS)
+    @JvmField
+    val BLACK_APRICORN_SIGN = this.create("black_apricorn_sign", SignItem(Item.Settings().maxCount(16), CobblemonBlocks.BLACK_APRICORN_SIGN, CobblemonBlocks.BLACK_APRICORN_WALL_SIGN))
+    @JvmField
+    val BLACK_APRICORN_HANGING_SIGN = this.create("black_apricorn_hanging_sign", HangingSignItem(CobblemonBlocks.BLACK_APRICORN_HANGING_SIGN, CobblemonBlocks.BLACK_APRICORN_WALL_HANGING_SIGN, Item.Settings().maxCount(16)))
+
+    @JvmField
+    val BLUE_APRICORN_LOG = blockItem("blue_apricorn_log", CobblemonBlocks.BLUE_APRICORN_LOG)
+    @JvmField
+    val STRIPPED_BLUE_APRICORN_LOG = blockItem("stripped_blue_apricorn_log", CobblemonBlocks.STRIPPED_BLUE_APRICORN_LOG)
+    @JvmField
+    val BLUE_APRICORN_WOOD = blockItem("blue_apricorn_wood", CobblemonBlocks.BLUE_APRICORN_WOOD)
+    @JvmField
+    val STRIPPED_BLUE_APRICORN_WOOD = blockItem("stripped_blue_apricorn_wood", CobblemonBlocks.STRIPPED_BLUE_APRICORN_WOOD)
+    @JvmField
+    val BLUE_APRICORN_PLANKS = blockItem("blue_apricorn_planks", CobblemonBlocks.BLUE_APRICORN_PLANKS)
+    @JvmField
+    val BLUE_APRICORN_DOOR = blockItem("blue_apricorn_door", CobblemonBlocks.BLUE_APRICORN_DOOR)
+    @JvmField
+    val BLUE_APRICORN_TRAPDOOR = blockItem("blue_apricorn_trapdoor", CobblemonBlocks.BLUE_APRICORN_TRAPDOOR)
+    @JvmField
+    val BLUE_APRICORN_FENCE = blockItem("blue_apricorn_fence", CobblemonBlocks.BLUE_APRICORN_FENCE)
+    @JvmField
+    val BLUE_APRICORN_FENCE_GATE = blockItem("blue_apricorn_fence_gate", CobblemonBlocks.BLUE_APRICORN_FENCE_GATE)
+    @JvmField
+    val BLUE_APRICORN_BUTTON = blockItem("blue_apricorn_button", CobblemonBlocks.BLUE_APRICORN_BUTTON)
+    @JvmField
+    val BLUE_APRICORN_PRESSURE_PLATE = blockItem("blue_apricorn_pressure_plate", CobblemonBlocks.BLUE_APRICORN_PRESSURE_PLATE)
+    @JvmField
+    val BLUE_APRICORN_SLAB = blockItem("blue_apricorn_slab", CobblemonBlocks.BLUE_APRICORN_SLAB)
+    @JvmField
+    val BLUE_APRICORN_STAIRS = blockItem("blue_apricorn_stairs", CobblemonBlocks.BLUE_APRICORN_STAIRS)
+    @JvmField
+    val BLUE_APRICORN_SIGN = this.create("blue_apricorn_sign", SignItem(Item.Settings().maxCount(16), CobblemonBlocks.BLUE_APRICORN_SIGN, CobblemonBlocks.BLUE_APRICORN_WALL_SIGN))
+    @JvmField
+    val BLUE_APRICORN_HANGING_SIGN = this.create("blue_apricorn_hanging_sign", HangingSignItem(CobblemonBlocks.BLUE_APRICORN_HANGING_SIGN, CobblemonBlocks.BLUE_APRICORN_WALL_HANGING_SIGN, Item.Settings().maxCount(16)))
+
+    @JvmField
+    val GREEN_APRICORN_LOG = blockItem("green_apricorn_log", CobblemonBlocks.GREEN_APRICORN_LOG)
+    @JvmField
+    val STRIPPED_GREEN_APRICORN_LOG = blockItem("stripped_green_apricorn_log", CobblemonBlocks.STRIPPED_GREEN_APRICORN_LOG)
+    @JvmField
+    val GREEN_APRICORN_WOOD = blockItem("green_apricorn_wood", CobblemonBlocks.GREEN_APRICORN_WOOD)
+    @JvmField
+    val STRIPPED_GREEN_APRICORN_WOOD = blockItem("stripped_green_apricorn_wood", CobblemonBlocks.STRIPPED_GREEN_APRICORN_WOOD)
+    @JvmField
+    val GREEN_APRICORN_PLANKS = blockItem("green_apricorn_planks", CobblemonBlocks.GREEN_APRICORN_PLANKS)
+    @JvmField
+    val GREEN_APRICORN_DOOR = blockItem("green_apricorn_door", CobblemonBlocks.GREEN_APRICORN_DOOR)
+    @JvmField
+    val GREEN_APRICORN_TRAPDOOR = blockItem("green_apricorn_trapdoor", CobblemonBlocks.GREEN_APRICORN_TRAPDOOR)
+    @JvmField
+    val GREEN_APRICORN_FENCE = blockItem("green_apricorn_fence", CobblemonBlocks.GREEN_APRICORN_FENCE)
+    @JvmField
+    val GREEN_APRICORN_FENCE_GATE = blockItem("green_apricorn_fence_gate", CobblemonBlocks.GREEN_APRICORN_FENCE_GATE)
+    @JvmField
+    val GREEN_APRICORN_BUTTON = blockItem("green_apricorn_button", CobblemonBlocks.GREEN_APRICORN_BUTTON)
+    @JvmField
+    val GREEN_APRICORN_PRESSURE_PLATE = blockItem("green_apricorn_pressure_plate", CobblemonBlocks.GREEN_APRICORN_PRESSURE_PLATE)
+    @JvmField
+    val GREEN_APRICORN_SLAB = blockItem("green_apricorn_slab", CobblemonBlocks.GREEN_APRICORN_SLAB)
+    @JvmField
+    val GREEN_APRICORN_STAIRS = blockItem("green_apricorn_stairs", CobblemonBlocks.GREEN_APRICORN_STAIRS)
+    @JvmField
+    val GREEN_APRICORN_SIGN = this.create("green_apricorn_sign", SignItem(Item.Settings().maxCount(16), CobblemonBlocks.GREEN_APRICORN_SIGN, CobblemonBlocks.GREEN_APRICORN_WALL_SIGN))
+    @JvmField
+    val GREEN_APRICORN_HANGING_SIGN = this.create("green_apricorn_hanging_sign", HangingSignItem(CobblemonBlocks.GREEN_APRICORN_HANGING_SIGN, CobblemonBlocks.GREEN_APRICORN_WALL_HANGING_SIGN, Item.Settings().maxCount(16)))
+
+    @JvmField
+    val PINK_APRICORN_LOG = blockItem("pink_apricorn_log", CobblemonBlocks.PINK_APRICORN_LOG)
+    @JvmField
+    val STRIPPED_PINK_APRICORN_LOG = blockItem("stripped_pink_apricorn_log", CobblemonBlocks.STRIPPED_PINK_APRICORN_LOG)
+    @JvmField
+    val PINK_APRICORN_WOOD = blockItem("pink_apricorn_wood", CobblemonBlocks.PINK_APRICORN_WOOD)
+    @JvmField
+    val STRIPPED_PINK_APRICORN_WOOD = blockItem("stripped_pink_apricorn_wood", CobblemonBlocks.STRIPPED_PINK_APRICORN_WOOD)
+    @JvmField
+    val PINK_APRICORN_PLANKS = blockItem("pink_apricorn_planks", CobblemonBlocks.PINK_APRICORN_PLANKS)
+    @JvmField
+    val PINK_APRICORN_DOOR = blockItem("pink_apricorn_door", CobblemonBlocks.PINK_APRICORN_DOOR)
+    @JvmField
+    val PINK_APRICORN_TRAPDOOR = blockItem("pink_apricorn_trapdoor", CobblemonBlocks.PINK_APRICORN_TRAPDOOR)
+    @JvmField
+    val PINK_APRICORN_FENCE = blockItem("pink_apricorn_fence", CobblemonBlocks.PINK_APRICORN_FENCE)
+    @JvmField
+    val PINK_APRICORN_FENCE_GATE = blockItem("pink_apricorn_fence_gate", CobblemonBlocks.PINK_APRICORN_FENCE_GATE)
+    @JvmField
+    val PINK_APRICORN_BUTTON = blockItem("pink_apricorn_button", CobblemonBlocks.PINK_APRICORN_BUTTON)
+    @JvmField
+    val PINK_APRICORN_PRESSURE_PLATE = blockItem("pink_apricorn_pressure_plate", CobblemonBlocks.PINK_APRICORN_PRESSURE_PLATE)
+    @JvmField
+    val PINK_APRICORN_SLAB = blockItem("pink_apricorn_slab", CobblemonBlocks.PINK_APRICORN_SLAB)
+    @JvmField
+    val PINK_APRICORN_STAIRS = blockItem("pink_apricorn_stairs", CobblemonBlocks.PINK_APRICORN_STAIRS)
+    @JvmField
+    val PINK_APRICORN_SIGN = this.create("pink_apricorn_sign", SignItem(Item.Settings().maxCount(16), CobblemonBlocks.PINK_APRICORN_SIGN, CobblemonBlocks.PINK_APRICORN_WALL_SIGN))
+    @JvmField
+    val PINK_APRICORN_HANGING_SIGN = this.create("pink_apricorn_hanging_sign", HangingSignItem(CobblemonBlocks.PINK_APRICORN_HANGING_SIGN, CobblemonBlocks.PINK_APRICORN_WALL_HANGING_SIGN, Item.Settings().maxCount(16)))
+
+    @JvmField
+    val RED_APRICORN_LOG = blockItem("red_apricorn_log", CobblemonBlocks.RED_APRICORN_LOG)
+    @JvmField
+    val STRIPPED_RED_APRICORN_LOG = blockItem("stripped_red_apricorn_log", CobblemonBlocks.STRIPPED_RED_APRICORN_LOG)
+    @JvmField
+    val RED_APRICORN_WOOD = blockItem("red_apricorn_wood", CobblemonBlocks.RED_APRICORN_WOOD)
+    @JvmField
+    val STRIPPED_RED_APRICORN_WOOD = blockItem("stripped_red_apricorn_wood", CobblemonBlocks.STRIPPED_RED_APRICORN_WOOD)
+    @JvmField
+    val RED_APRICORN_PLANKS = blockItem("red_apricorn_planks", CobblemonBlocks.RED_APRICORN_PLANKS)
+    @JvmField
+    val RED_APRICORN_DOOR = blockItem("red_apricorn_door", CobblemonBlocks.RED_APRICORN_DOOR)
+    @JvmField
+    val RED_APRICORN_TRAPDOOR = blockItem("red_apricorn_trapdoor", CobblemonBlocks.RED_APRICORN_TRAPDOOR)
+    @JvmField
+    val RED_APRICORN_FENCE = blockItem("red_apricorn_fence", CobblemonBlocks.RED_APRICORN_FENCE)
+    @JvmField
+    val RED_APRICORN_FENCE_GATE = blockItem("red_apricorn_fence_gate", CobblemonBlocks.RED_APRICORN_FENCE_GATE)
+    @JvmField
+    val RED_APRICORN_BUTTON = blockItem("red_apricorn_button", CobblemonBlocks.RED_APRICORN_BUTTON)
+    @JvmField
+    val RED_APRICORN_PRESSURE_PLATE = blockItem("red_apricorn_pressure_plate", CobblemonBlocks.RED_APRICORN_PRESSURE_PLATE)
+    @JvmField
+    val RED_APRICORN_SLAB = blockItem("red_apricorn_slab", CobblemonBlocks.RED_APRICORN_SLAB)
+    @JvmField
+    val RED_APRICORN_STAIRS = blockItem("red_apricorn_stairs", CobblemonBlocks.RED_APRICORN_STAIRS)
+    @JvmField
+    val RED_APRICORN_SIGN = this.create("red_apricorn_sign", SignItem(Item.Settings().maxCount(16), CobblemonBlocks.RED_APRICORN_SIGN, CobblemonBlocks.RED_APRICORN_WALL_SIGN))
+    @JvmField
+    val RED_APRICORN_HANGING_SIGN = this.create("red_apricorn_hanging_sign", HangingSignItem(CobblemonBlocks.RED_APRICORN_HANGING_SIGN, CobblemonBlocks.RED_APRICORN_WALL_HANGING_SIGN, Item.Settings().maxCount(16)))
+
+    @JvmField
+    val WHITE_APRICORN_LOG = blockItem("white_apricorn_log", CobblemonBlocks.WHITE_APRICORN_LOG)
+    @JvmField
+    val STRIPPED_WHITE_APRICORN_LOG = blockItem("stripped_white_apricorn_log", CobblemonBlocks.STRIPPED_WHITE_APRICORN_LOG)
+    @JvmField
+    val WHITE_APRICORN_WOOD = blockItem("white_apricorn_wood", CobblemonBlocks.WHITE_APRICORN_WOOD)
+    @JvmField
+    val STRIPPED_WHITE_APRICORN_WOOD = blockItem("stripped_white_apricorn_wood", CobblemonBlocks.STRIPPED_WHITE_APRICORN_WOOD)
+    @JvmField
+    val WHITE_APRICORN_PLANKS = blockItem("white_apricorn_planks", CobblemonBlocks.WHITE_APRICORN_PLANKS)
+    @JvmField
+    val WHITE_APRICORN_DOOR = blockItem("white_apricorn_door", CobblemonBlocks.WHITE_APRICORN_DOOR)
+    @JvmField
+    val WHITE_APRICORN_TRAPDOOR = blockItem("white_apricorn_trapdoor", CobblemonBlocks.WHITE_APRICORN_TRAPDOOR)
+    @JvmField
+    val WHITE_APRICORN_FENCE = blockItem("white_apricorn_fence", CobblemonBlocks.WHITE_APRICORN_FENCE)
+    @JvmField
+    val WHITE_APRICORN_FENCE_GATE = blockItem("white_apricorn_fence_gate", CobblemonBlocks.WHITE_APRICORN_FENCE_GATE)
+    @JvmField
+    val WHITE_APRICORN_BUTTON = blockItem("white_apricorn_button", CobblemonBlocks.WHITE_APRICORN_BUTTON)
+    @JvmField
+    val WHITE_APRICORN_PRESSURE_PLATE = blockItem("white_apricorn_pressure_plate", CobblemonBlocks.WHITE_APRICORN_PRESSURE_PLATE)
+    @JvmField
+    val WHITE_APRICORN_SLAB = blockItem("white_apricorn_slab", CobblemonBlocks.WHITE_APRICORN_SLAB)
+    @JvmField
+    val WHITE_APRICORN_STAIRS = blockItem("white_apricorn_stairs", CobblemonBlocks.WHITE_APRICORN_STAIRS)
+    @JvmField
+    val WHITE_APRICORN_SIGN = this.create("white_apricorn_sign", SignItem(Item.Settings().maxCount(16), CobblemonBlocks.WHITE_APRICORN_SIGN, CobblemonBlocks.WHITE_APRICORN_WALL_SIGN))
+    @JvmField
+    val WHITE_APRICORN_HANGING_SIGN = this.create("white_apricorn_hanging_sign", HangingSignItem(CobblemonBlocks.WHITE_APRICORN_HANGING_SIGN, CobblemonBlocks.WHITE_APRICORN_WALL_HANGING_SIGN, Item.Settings().maxCount(16)))
+
+    @JvmField
+    val YELLOW_APRICORN_LOG = blockItem("yellow_apricorn_log", CobblemonBlocks.YELLOW_APRICORN_LOG)
+    @JvmField
+    val STRIPPED_YELLOW_APRICORN_LOG = blockItem("stripped_yellow_apricorn_log", CobblemonBlocks.STRIPPED_YELLOW_APRICORN_LOG)
+    @JvmField
+    val YELLOW_APRICORN_WOOD = blockItem("yellow_apricorn_wood", CobblemonBlocks.YELLOW_APRICORN_WOOD)
+    @JvmField
+    val STRIPPED_YELLOW_APRICORN_WOOD = blockItem("stripped_yellow_apricorn_wood", CobblemonBlocks.STRIPPED_YELLOW_APRICORN_WOOD)
+    @JvmField
+    val YELLOW_APRICORN_PLANKS = blockItem("yellow_apricorn_planks", CobblemonBlocks.YELLOW_APRICORN_PLANKS)
+    @JvmField
+    val YELLOW_APRICORN_DOOR = blockItem("yellow_apricorn_door", CobblemonBlocks.YELLOW_APRICORN_DOOR)
+    @JvmField
+    val YELLOW_APRICORN_TRAPDOOR = blockItem("yellow_apricorn_trapdoor", CobblemonBlocks.YELLOW_APRICORN_TRAPDOOR)
+    @JvmField
+    val YELLOW_APRICORN_FENCE = blockItem("yellow_apricorn_fence", CobblemonBlocks.YELLOW_APRICORN_FENCE)
+    @JvmField
+    val YELLOW_APRICORN_FENCE_GATE = blockItem("yellow_apricorn_fence_gate", CobblemonBlocks.YELLOW_APRICORN_FENCE_GATE)
+    @JvmField
+    val YELLOW_APRICORN_BUTTON = blockItem("yellow_apricorn_button", CobblemonBlocks.YELLOW_APRICORN_BUTTON)
+    @JvmField
+    val YELLOW_APRICORN_PRESSURE_PLATE = blockItem("yellow_apricorn_pressure_plate", CobblemonBlocks.YELLOW_APRICORN_PRESSURE_PLATE)
+    @JvmField
+    val YELLOW_APRICORN_SLAB = blockItem("yellow_apricorn_slab", CobblemonBlocks.YELLOW_APRICORN_SLAB)
+    @JvmField
+    val YELLOW_APRICORN_STAIRS = blockItem("yellow_apricorn_stairs", CobblemonBlocks.YELLOW_APRICORN_STAIRS)
+    @JvmField
+    val YELLOW_APRICORN_SIGN = this.create("yellow_apricorn_sign", SignItem(Item.Settings().maxCount(16), CobblemonBlocks.YELLOW_APRICORN_SIGN, CobblemonBlocks.YELLOW_APRICORN_WALL_SIGN))
+    @JvmField
+    val YELLOW_APRICORN_HANGING_SIGN = this.create("yellow_apricorn_hanging_sign", HangingSignItem(CobblemonBlocks.YELLOW_APRICORN_HANGING_SIGN, CobblemonBlocks.YELLOW_APRICORN_WALL_HANGING_SIGN, Item.Settings().maxCount(16)))
+
+
     @JvmField
     val GILDED_CHEST = this.create("gilded_chest", BlockItem(CobblemonBlocks.GILDED_CHEST, Item.Settings()))
     @JvmField

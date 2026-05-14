@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_trapdoor_top",
+  "textures": {
+    "texture": "cobblemon:block/green_apricorn_trapdoor"
+  }
+}

@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "planks",
+	"ingredients": [
+		{
+			"tag": "cobblemon:white_apricorn_logs"
+		}
+	],
+	"result": {
+		"item": "cobblemon:white_apricorn_planks",
+		"count": 4
+	}
+}

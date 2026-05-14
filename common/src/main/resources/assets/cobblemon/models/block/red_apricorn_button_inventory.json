@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "cobblemon:block/red_apricorn_planks"
+  }
+}

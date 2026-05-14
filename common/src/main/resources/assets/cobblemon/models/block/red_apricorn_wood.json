@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "cobblemon:block/red_apricorn_log"
+  }
+}

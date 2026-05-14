@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "cobblemon:apricorn_log"
+		},
+		{
+			"item": "cobblemon:black_apricorn"
+		}
+	],
+	"result": {
+		"item": "cobblemon:black_apricorn_log"
+	}
+}

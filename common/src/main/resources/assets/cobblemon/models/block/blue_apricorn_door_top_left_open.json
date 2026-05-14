@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "cobblemon:block/blue_apricorn_door_bottom",
+    "top": "cobblemon:block/blue_apricorn_door_top"
+  }
+}
