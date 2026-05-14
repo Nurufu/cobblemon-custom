@@ -7475,5 +7475,32 @@
   },
   "pokemon.ironboulder.cry": {
     "sounds": [ { "name": "cobblemon:pokemon/ironboulder/ironboulder_cry", "volume": 0.4 } ]
+  },
+  "pokemon.chatot.nut_quirk": {
+    "sounds": [ { "name": "cobblemon:pokemon/chatot/nut_quirk", "volume": 0.4 } ]
+  },
+  "pokemon.chatot.doug_quirk": {
+    "sounds": [ { "name": "cobblemon:pokemon/chatot/doug_quirk", "volume": 0.4 } ]
+  },
+  "pokemon.chatot.howdy_quirk": {
+    "sounds": [ { "name": "cobblemon:pokemon/chatot/howdy_quirk", "volume": 0.4 } ]
+  },
+  "pokemon.chatot.laugh_quirk": {
+    "sounds": [ { "name": "cobblemon:pokemon/chatot/laugh_quirk", "volume": 0.4 } ]
+  },
+  "pokemon.chatot.help_quirk": {
+    "sounds": [ { "name": "cobblemon:pokemon/chatot/help_quirk", "volume": 0.4 } ]
+  },
+  "pokemon.chatot.bab_leedle_quirk": {
+    "sounds": [ { "name": "cobblemon:pokemon/chatot/bab_leedle", "volume": 0.4 } ]
+  },
+  "pokemon.chatot.ultra_leedle_quirk": {
+    "sounds": [ { "name": "cobblemon:pokemon/chatot/ultra_leedle", "volume": 0.4 } ]
+  },
+  "pokemon.chatot.duck_leedle_quirk": {
+    "sounds": [ { "name": "cobblemon:pokemon/chatot/duck_leedle", "volume": 0.4 } ]
+  },
+  "pokemon.chatot.hnnnnghhh_quirk": {
+    "sounds": [ { "name": "cobblemon:pokemon/chatot/hnnnnghhh_quirk", "volume": 0.4 } ]
   }
 }

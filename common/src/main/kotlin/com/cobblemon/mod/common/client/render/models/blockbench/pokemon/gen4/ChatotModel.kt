@@ -57,12 +57,21 @@ class ChatotModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bip
 //        )
 
         val blink = quirk { bedrockStateful("chatot", "blink") }
+        val nut_quirk = quirk(secondsBetweenOccurrences = 180F to 600F) {bedrockStateful("chatot", "nut_quirk")}
+        val doug_quirk = quirk(secondsBetweenOccurrences = 180F to 600F) {bedrockStateful("chatot", "doug_quirk")}
+        val howdy_quirk = quirk(secondsBetweenOccurrences = 180F to 600F) {bedrockStateful("chatot", "howdy_quirk")}
+        val laugh_quirk = quirk(secondsBetweenOccurrences = 180F to 600F) {bedrockStateful("chatot", "laugh_quirk")}
+        val help_quirk = quirk(secondsBetweenOccurrences = 180F to 600F) {bedrockStateful("chatot", "help_quirk")}
+        val leedlebab_quirk = quirk(secondsBetweenOccurrences = 180F to 600F) {bedrockStateful("chatot", "leedlebab_quirk")}
+        val leedleultra_quirk = quirk(secondsBetweenOccurrences = 180F to 600F) {bedrockStateful("chatot", "leedleultra_quirk")}
+        val leedleduck_quirk = quirk(secondsBetweenOccurrences = 180F to 600F) {bedrockStateful("chatot", "leedleduck_quirk")}
+        val hnnnnghhh_quirk = quirk(secondsBetweenOccurrences = 180F to 600F) {bedrockStateful("chatot", "hnnnnghhh_quirk")}
 
         stand = registerPose(
             poseName = "standing",
             poseTypes = SHOULDER_POSES + UI_POSES + PoseType.STAND,
             transformTicks = 10,
-            quirks = arrayOf(blink),
+            quirks = arrayOf(blink, nut_quirk, doug_quirk, howdy_quirk, laugh_quirk, help_quirk, leedlebab_quirk, leedleduck_quirk, leedleultra_quirk, hnnnnghhh_quirk),
             animations = arrayOf(
                 singleBoneLook(),
                 bedrock("chatot", "ground_idle")
@@ -89,7 +98,7 @@ class ChatotModel(root: ModelPart) : PokemonPosableModel(root), HeadedFrame, Bip
             poseName = "walking",
             poseType = PoseType.WALK,
             transformTicks = 10,
-            quirks = arrayOf(blink),
+            quirks = arrayOf(blink, nut_quirk, doug_quirk, howdy_quirk, laugh_quirk, help_quirk, leedlebab_quirk, leedleduck_quirk, leedleultra_quirk, hnnnnghhh_quirk),
             animations = arrayOf(
                 singleBoneLook(),
                 bedrock("chatot", "ground_idle"),
