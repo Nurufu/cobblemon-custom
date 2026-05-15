@@ -880,6 +880,12 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
 
     @JvmField
     val MEGA_STONE = noSettingsItem("mega_stone")
+    @JvmField
+    val MEGA_STONE_X = noSettingsItem("mega_stone_x")
+    @JvmField
+    val MEGA_STONE_Y = noSettingsItem("mega_stone_y")
+    @JvmField
+    val MEGA_STONE_Z = noSettingsItem("mega_stone_z")
 
     // Held Items
     @JvmField

@@ -1,0 +1,11 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "cobblemon:mega_stone_y"
+        }
+    ],
+    "result": {
+        "item": "cobblemon:mega_stone_z"
+    }
+}
