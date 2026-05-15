@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "III",
+        "ISI",
+        "III"
+    ],
+    "key": {
+        "I": {
+            "item": "cobblemon:zygarde_cell"
+        },
+        "S": {
+            "item": "cobblemon:zygarde_core"
+        }
+    },
+    "result": {
+        "item": "cobblemon:zygarde_cube"
+    }
+}
