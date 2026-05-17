@@ -1411,8 +1411,6 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
 
     // Type Plate
     @JvmField
-    val NORMAL_PLATE = noSettingsItem("normal_plate")
-    @JvmField
     val FIRE_PLATE = noSettingsItem("fire_plate")
     @JvmField
     val WATER_PLATE = noSettingsItem("water_plate")
@@ -1448,8 +1446,6 @@ object CobblemonItems : PlatformRegistry<Registry<Item>, RegistryKey<Registry<It
     val FAIRY_PLATE = noSettingsItem("fairy_plate")
 
     // Type Memory
-    @JvmField
-    val NORMAL_MEMORY = noSettingsItem("normal_memory")
     @JvmField
     val FIRE_MEMORY = noSettingsItem("fire_memory")
     @JvmField

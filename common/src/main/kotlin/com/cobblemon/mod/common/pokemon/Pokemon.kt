@@ -31,6 +31,7 @@ import com.cobblemon.mod.common.api.pokemon.aspect.AspectProvider
 import com.cobblemon.mod.common.api.pokemon.evolution.*
 import com.cobblemon.mod.common.api.pokemon.experience.ExperienceGroup
 import com.cobblemon.mod.common.api.pokemon.experience.ExperienceSource
+import com.cobblemon.mod.common.api.pokemon.feature.FlagSpeciesFeature
 import com.cobblemon.mod.common.api.pokemon.feature.SpeciesFeature
 import com.cobblemon.mod.common.api.pokemon.feature.SpeciesFeatures
 import com.cobblemon.mod.common.api.pokemon.feature.SynchronizedSpeciesFeature
@@ -68,6 +69,10 @@ import com.cobblemon.mod.common.pokemon.evolution.progress.DamageTakenEvolutionP
 import com.cobblemon.mod.common.pokemon.evolution.progress.RecoilEvolutionProgress
 import com.cobblemon.mod.common.pokemon.feature.CrownFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.DriveFeatureHandler
+import com.cobblemon.mod.common.pokemon.feature.MegaFeatureHandler
+import com.cobblemon.mod.common.pokemon.feature.MegaXFeatureHandler
+import com.cobblemon.mod.common.pokemon.feature.MegaYFeatureHandler
+import com.cobblemon.mod.common.pokemon.feature.MegaZFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.MemoryFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.OriginFeatureHandler
 import com.cobblemon.mod.common.pokemon.feature.PlateFeatureHandler
@@ -819,6 +824,10 @@ open class Pokemon : ShowdownIdentifiable {
             CobblemonEvents.HELD_ITEM_POST.post(HeldItemEvent.Post(this, this.heldItem(), event.returning.copy(), event.decrement)) {
                 GimmighoulStashHandler.giveHeldItem(it)
             }
+            MegaFeatureHandler.updateMega(this)
+            MegaXFeatureHandler.updateMega(this)
+            MegaYFeatureHandler.updateMega(this)
+            MegaZFeatureHandler.updateMega(this)
             if(this.species.name == "Arceus") PlateFeatureHandler.updatePlate(this)
             if(this.species.name == "Silvally") MemoryFeatureHandler.updateMemory(this)
             if(this.species.name == "Genesect") DriveFeatureHandler.updateDrive(this)
