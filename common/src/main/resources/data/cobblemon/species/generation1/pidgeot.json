@@ -71,19 +71,7 @@
         "fixed": false
       },
       "evolutions": [
-        {
-          "id": "pidgeot_mega_revert",
-          "variant": "level_up",
-          "result": "pidgeot mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     }
   ],
@@ -235,19 +223,7 @@
   ],
   "preEvolution": "pidgeotto",
   "evolutions": [
-    {
-      "id": "pidgeot_mega",
-      "variant": "level_up",
-      "result": "pidgeot mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 1.2,
   "hitbox": {

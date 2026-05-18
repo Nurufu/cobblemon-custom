@@ -40,21 +40,6 @@
       "aspects": [
         "mega"
       ],
-      "evolutions": [
-        {
-          "id": "froslass_mega_revert",
-          "variant": "level_up",
-          "result": "froslass mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ],
       "baseScale": 1,
       "hitbox": {
         "width": 1,
@@ -225,21 +210,6 @@
     "cobblemon.species.froslass.desc"
   ],
   "preEvolution": "snorunt",
-  "evolutions": [
-    {
-      "id": "froslass_mega",
-      "variant": "level_up",
-      "result": "froslass mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

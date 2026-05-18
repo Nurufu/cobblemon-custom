@@ -76,21 +76,6 @@
       "aspects": [
         "mega"
       ],
-      "evolutions": [
-        {
-          "id": "chimecho_mega_revert",
-          "variant": "level_up",
-          "result": "chimecho mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ],
       "baseScale": 0.8,
       "hitbox": {
         "width": 0.4,
@@ -244,21 +229,6 @@
     "cobblemon.species.chimecho.desc"
   ],
   "preEvolution": "chingling",
-  "evolutions": [
-    {
-      "id": "chimecho_mega",
-      "variant": "level_up",
-      "result": "chimecho mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 0.8,
   "hitbox": {
     "width": 0.4,

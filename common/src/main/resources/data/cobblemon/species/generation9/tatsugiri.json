@@ -67,21 +67,6 @@
       ],
       "aspects": [
         "mega"
-      ],
-      "evolutions": [
-        {
-          "id": "tatsugiri_mega_revert",
-          "variant": "level_up",
-          "result": "tatsugiri mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
       ]
     }
   ],
@@ -152,21 +137,6 @@
   "aspects": [],
   "height": 3,
   "weight": 80,
-  "evolutions": [
-    {
-      "id": "tatsugiri_mega",
-      "variant": "level_up",
-      "result": "tatsugiri mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 0.65,
   "hitbox": {
     "width": 0.8,

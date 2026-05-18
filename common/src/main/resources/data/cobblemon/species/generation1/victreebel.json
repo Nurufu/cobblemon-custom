@@ -63,19 +63,7 @@
         "mega"
       ],
       "evolutions": [
-        {
-          "id": "victreebel_mega_revert",
-          "variant": "level_up",
-          "result": "victreebel mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ],
       "baseScale": 0.95,
       "hitbox": {
@@ -228,19 +216,7 @@
   ],
   "preEvolution": "weepinbell",
   "evolutions": [
-    {
-      "id": "victreebel_mega",
-      "variant": "level_up",
-      "result": "victreebel mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 0.95,
   "hitbox": {

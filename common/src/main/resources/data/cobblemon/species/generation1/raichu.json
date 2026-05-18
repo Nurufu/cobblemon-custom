@@ -52,34 +52,7 @@
       "aspects": [
         "female"
       ],
-      "evolutions": [
-        {
-          "id": "raichu_x_mega",
-          "variant": "level_up",
-          "result": "raichu mega-x=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        },
-        {
-          "id": "raichu_y_mega",
-          "variant": "level_up",
-          "result": "raichu mega-y=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ]
+      "evolutions": [      ]
     },
     {
       "name": "Mega-X",
@@ -103,34 +76,7 @@
       "aspects": [
         "mega-x"
       ],
-      "evolutions": [
-        {
-          "id": "raichu_x_mega_revert",
-          "variant": "level_up",
-          "result": "raichu mega-x=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        },
-        {
-          "id": "raichu_x_mega_y",
-          "variant": "level_up",
-          "result": "raichu mega-x=false mega-y=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ]
+      "evolutions": [      ]
     },
     {
       "name": "Mega-Y",
@@ -154,34 +100,7 @@
       "aspects": [
         "mega-y"
       ],
-      "evolutions": [
-        {
-          "id": "raichu_y_mega_revert",
-          "variant": "level_up",
-          "result": "raichu mega-y=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        },
-        {
-          "id": "raichu_y_mega_x",
-          "variant": "level_up",
-          "result": "raichu mega-y=false mega-x=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-        ]
+      "evolutions": [        ]
       },
         {
           "name": "Ash Cap",
@@ -984,34 +903,7 @@
     "cobblemon.species.raichu.desc"
   ],
   "preEvolution": "pikachu",
-  "evolutions": [
-    {
-      "id": "raichu_x_mega",
-      "variant": "level_up",
-      "result": "raichu mega-x=true mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    },
-    {
-      "id": "raichu_y_mega",
-      "variant": "level_up",
-      "result": "raichu mega-y=true mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
+  "evolutions": [  ],
   "baseScale": 0.75,
   "hitbox": {
     "width": 0.8,

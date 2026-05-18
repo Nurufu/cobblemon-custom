@@ -72,19 +72,7 @@
       "cannotDynamax": false,
       "battleOnly": true,
       "evolutions": [
-        {
-          "id": "kangaskhan_mega_revert",
-          "variant": "level_up",
-          "result": "kangaskhan mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     }
   ],
@@ -308,19 +296,7 @@
     "cobblemon.species.kangaskhan.desc"
   ],
   "evolutions": [
-    {
-      "id": "kangaskhan_mega",
-      "variant": "level_up",
-      "result": "kangaskhan mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 0.9,
   "hitbox": {

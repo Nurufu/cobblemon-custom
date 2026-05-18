@@ -86,19 +86,7 @@
       "cannotDynamax": false,
       "battleOnly": true,
       "evolutions": [
-        {
-          "id": "gardevoir_mega_revert",
-          "variant": "level_up",
-          "result": "gardevoir mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     }
   ],
@@ -299,19 +287,7 @@
   ],
   "preEvolution": "kirlia",
   "evolutions": [
-    {
-      "id": "gardevoir_mega",
-      "variant": "level_up",
-      "result": "gardevoir mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 0.9,
   "hitbox": {

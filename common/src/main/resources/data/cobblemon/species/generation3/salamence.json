@@ -70,22 +70,7 @@
       "height": 18,
       "weight": 1126,
       "cannotDynamax": false,
-      "battleOnly": true,
-      "evolutions": [
-        {
-          "id": "salamence_mega_revert",
-          "variant": "level_up",
-          "result": "salamence mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ]
+      "battleOnly": true
     }
   ],
   "baseExperienceYield": 300,
@@ -255,21 +240,6 @@
     "cobblemon.species.salamence.desc"
   ],
   "preEvolution": "shelgon",
-  "evolutions": [
-    {
-      "id": "salamence_mega",
-      "variant": "level_up",
-      "result": "salamence mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 1,
   "hitbox": {
     "width": 2.7,

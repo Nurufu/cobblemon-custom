@@ -69,21 +69,6 @@
       "aspects": [
         "mega"
       ],
-      "evolutions": [
-        {
-          "id": "falinks_mega_revert",
-          "variant": "level_up",
-          "result": "falinks mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ],
       "baseScale": 1,
       "hitbox": {
         "width": 1,
@@ -165,21 +150,6 @@
   ],
   "pokedex": [
     "cobblemon.species.falinks.desc"
-  ],
-  "evolutions": [
-    {
-      "id": "falinks_mega",
-      "variant": "level_up",
-      "result": "falinks mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
   ],
   "baseScale": 1,
   "hitbox": {

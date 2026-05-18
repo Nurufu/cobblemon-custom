@@ -65,19 +65,7 @@
       "cannotDynamax": false,
       "battleOnly": true,
       "evolutions": [
-        {
-          "id": "aerodactyl_mega_revert",
-          "variant": "level_up",
-          "result": "aerodactyl mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ],
       "baseScale": 1.8,
       "hitbox": {
@@ -301,19 +289,7 @@
     "cobblemon.species.aerodactyl.desc"
   ],
   "evolutions": [
-    {
-      "id": "aerodactyl_mega",
-      "variant": "level_up",
-      "result": "aerodactyl mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 1,
   "hitbox": {

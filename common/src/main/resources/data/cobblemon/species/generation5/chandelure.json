@@ -80,21 +80,6 @@
       "aspects": [
         "mega"
       ],
-      "evolutions": [
-        {
-          "id": "chandelure_mega_revert",
-          "variant": "level_up",
-          "result": "chandelure mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ],
       "baseScale": 0.8,
       "hitbox": {
         "width": 4,
@@ -209,21 +194,6 @@
     "cobblemon.species.chandelure.desc"
   ],
   "preEvolution": "lampent",
-  "evolutions": [
-    {
-      "id": "chandelure_mega",
-      "variant": "level_up",
-      "result": "chandelure mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1.2,

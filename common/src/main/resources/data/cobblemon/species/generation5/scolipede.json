@@ -76,21 +76,6 @@
       ],
       "aspects": [
         "mega"
-      ],
-      "evolutions": [
-        {
-          "id": "scolipede_mega_revert",
-          "variant": "level_up",
-          "result": "scolipede mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
       ]
     }
   ],
@@ -193,21 +178,6 @@
     "cobblemon.species.scolipede.desc"
   ],
   "preEvolution": "whirlipede",
-  "evolutions": [
-    {
-      "id": "scolipede_mega",
-      "variant": "level_up",
-      "result": "scolipede mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 1.0,
   "hitbox": {
     "width": 2.5,

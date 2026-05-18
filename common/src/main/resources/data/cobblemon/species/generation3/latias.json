@@ -63,21 +63,6 @@
         "weight": 520,
         "cannotDynamax": false,
         "battleOnly": true,
-        "evolutions": [
-          {
-            "id": "latias_mega_revert",
-            "variant": "level_up",
-            "result": "latias mega=false",
-            "consumeHeldItem": false,
-            "learnableMoves": [],
-            "requirements": [
-              {
-                "variant": "held_item",
-                "itemCondition": "cobblemon:mega_stone"
-              }
-            ]
-          }
-        ],
         "baseScale":1.0,
         "hitbox": {
           "width": 2,
@@ -271,21 +256,6 @@
     "pokedex": [
       "cobblemon.species.latias.desc"
     ],
-  "evolutions": [
-    {
-      "id": "latias_mega",
-      "variant": "level_up",
-      "result": "latias mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
     "baseScale": 1,
     "hitbox": {
       "width": 1,

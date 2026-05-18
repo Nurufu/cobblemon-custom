@@ -25,19 +25,7 @@
       "name": "Female",
       "aspects": ["female"],
       "evolutions": [
-        {
-          "id": "scizor_mega",
-          "variant": "level_up",
-          "result": "scizor mega=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     },
     {
@@ -90,19 +78,7 @@
         "fixed": false
       },
       "evolutions": [
-        {
-          "id": "scizor_mega_revert",
-          "variant": "level_up",
-          "result": "scizor mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     }
   ],
@@ -296,19 +272,7 @@
   ],
   "preEvolution": "scyther",
   "evolutions": [
-    {
-      "id": "scizor_mega",
-      "variant": "level_up",
-      "result": "scizor mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 0.85,
   "hitbox": {

@@ -71,21 +71,6 @@
       "aspects": [
         "mega"
       ],
-      "evolutions": [
-        {
-          "id": "delphox_mega_revert",
-          "variant": "level_up",
-          "result": "delphox mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ],
       "baseScale": 0.7,
       "hitbox": {
         "width": 1.15,
@@ -249,21 +234,6 @@
     "cobblemon.species.delphox.desc"
   ],
   "preEvolution": "braixen",
-  "evolutions": [
-    {
-      "id": "delphox_mega",
-      "variant": "level_up",
-      "result": "delphox mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 0.7,
   "hitbox": {
     "width": 1.15,

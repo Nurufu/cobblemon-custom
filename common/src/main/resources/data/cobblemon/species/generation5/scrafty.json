@@ -64,21 +64,6 @@
       ],
       "aspects": [
         "mega"
-      ],
-      "evolutions": [
-        {
-          "id": "scrafty_mega_revert",
-          "variant": "level_up",
-          "result": "scrafty mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
       ]
     }
   ],
@@ -230,21 +215,6 @@
     "cobblemon.species.scrafty.desc"
   ],
   "preEvolution": "scraggy",
-  "evolutions": [
-    {
-      "id": "scrafty_mega",
-      "variant": "level_up",
-      "result": "scrafty mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 1,
   "hitbox": {
     "width": 0.85,

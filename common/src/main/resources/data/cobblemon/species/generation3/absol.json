@@ -55,35 +55,7 @@
       "height": 12,
       "weight": 490,
       "cannotDynamax": false,
-      "battleOnly": true,
-      "evolutions": [
-        {
-          "id": "absol_mega_revert",
-          "variant": "level_up",
-          "result": "absol mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        },
-        {
-          "id": "absol_mega_to_z",
-          "variant": "level_up",
-          "result": "absol mega=false mega-z=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ]
+      "battleOnly": true
     },
     {
       "name": "Mega-z",
@@ -104,34 +76,6 @@
       ],
       "aspects": [
         "mega-z"
-      ],
-      "evolutions": [
-        {
-          "id": "absol_z_mega_revert",
-          "variant": "level_up",
-          "result": "absol mega-z=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        },
-        {
-          "id": "absol_z_mega_normal",
-          "variant": "level_up",
-          "result": "absol mega-z=false mega=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
       ]
     }
   ],
@@ -311,34 +255,6 @@
   ],
   "labels": ["gen3"],
   "pokedex": ["cobblemon.species.absol.desc"],
-  "evolutions": [
-    {
-      "id": "absol_mega",
-      "variant": "level_up",
-      "result": "absol mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    },
-    {
-      "id": "absol_z_mega",
-      "variant": "level_up",
-      "result": "absol mega-z=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

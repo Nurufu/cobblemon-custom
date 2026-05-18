@@ -52,19 +52,7 @@
         "mega"
       ],
       "evolutions": [
-        {
-          "id": "dragonite_mega_revert",
-          "variant": "level_up",
-          "result": "dragonite mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     },
     {
@@ -358,19 +346,7 @@
   ],
   "preEvolution": "dragonair",
   "evolutions": [
-    {
-      "id": "dragonite_mega",
-      "variant": "level_up",
-      "result": "dragonite mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 0.9,
   "hitbox": {

@@ -64,21 +64,6 @@
       ],
       "aspects": [
         "mega"
-      ],
-      "evolutions": [
-        {
-          "id": "dragalge_mega_revert",
-          "variant": "level_up",
-          "result": "dragalge mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
       ]
     }
   ],
@@ -196,21 +181,6 @@
     "cobblemon.species.dragalge.desc"
   ],
   "preEvolution": "skrelp",
-  "evolutions": [
-    {
-      "id": "dragalge_mega",
-      "variant": "level_up",
-      "result": "dragalge mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

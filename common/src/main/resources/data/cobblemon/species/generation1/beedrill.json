@@ -64,19 +64,7 @@
       "cannotDynamax": false,
       "battleOnly": true,
       "evolutions": [
-        {
-          "id": "beedrill_mega_revert",
-          "variant": "level_up",
-          "result": "beedrill mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     }
   ],
@@ -244,19 +232,7 @@
   ],
   "preEvolution": "kakuna",
   "evolutions": [
-    {
-      "id": "beedrill_mega",
-      "variant": "level_up",
-      "result": "beedrill mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 0.9,
   "hitbox": {

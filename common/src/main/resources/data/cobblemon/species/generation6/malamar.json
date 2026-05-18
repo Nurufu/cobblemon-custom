@@ -75,21 +75,6 @@
       "aspects": [
         "mega"
       ],
-      "evolutions": [
-        {
-          "id": "malamar_mega_revert",
-          "variant": "level_up",
-          "result": "malamar mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ],
       "baseScale": 0.6,
       "hitbox": {
         "width": 1,
@@ -281,20 +266,5 @@
     "legacy:toxic",
     "special:happyhour"
   ],
-  "preEvolution": "inkay",
-  "evolutions": [
-    {
-      "id": "malamar_mega",
-      "variant": "level_up",
-      "result": "malamar mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ]
+  "preEvolution": "inkay"
 }

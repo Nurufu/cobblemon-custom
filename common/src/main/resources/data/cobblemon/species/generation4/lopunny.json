@@ -87,22 +87,7 @@
       "height": 13,
       "weight": 283,
       "cannotDynamax": false,
-      "battleOnly": true,
-      "evolutions": [
-        {
-          "id": "lopunny_mega_revert",
-          "variant": "level_up",
-          "result": "lopunny mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ]
+      "battleOnly": true
     }
   ],
   "baseExperienceYield": 168,
@@ -273,21 +258,6 @@
     "cobblemon.species.lopunny.desc"
   ],
   "preEvolution": "buneary",
-  "evolutions": [
-    {
-      "id": "lopunny_mega",
-      "variant": "level_up",
-      "result": "lopunny mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 0.5,
   "hitbox": {
     "width": 1.4,

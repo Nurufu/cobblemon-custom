@@ -53,19 +53,7 @@
         "mega"
       ],
       "evolutions": [
-        {
-          "id": "starmie_mega_revert",
-          "variant": "level_up",
-          "result": "starmie mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ],
       "baseScale": 1,
       "hitbox": {
@@ -250,19 +238,7 @@
   ],
   "preEvolution": "staryu",
   "evolutions": [
-    {
-      "id": "starmie_mega",
-      "variant": "level_up",
-      "result": "starmie mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 1.1,
   "hitbox": {

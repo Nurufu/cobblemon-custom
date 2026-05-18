@@ -82,22 +82,7 @@
         "width": 0.8,
         "height": 1.6,
         "fixed": false
-      },
-      "evolutions": [
-        {
-          "id": "diancie_mega_revert",
-          "variant": "level_up",
-          "result": "diancie mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ]
+      }
     }
   ],
   "moves": [
@@ -231,21 +216,6 @@
     "special_defence": 2,
     "speed": 0
   },
-  "evolutions": [
-    {
-      "id": "diancie_mega",
-      "variant": "level_up",
-      "result": "diancie mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "height": 7,
   "weight": 88,
   "aspects": [],

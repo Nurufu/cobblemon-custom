@@ -50,21 +50,6 @@
       "aspects": [
         "mega"
       ],
-      "evolutions": [
-        {
-          "id": "eelektross_mega_revert",
-          "variant": "level_up",
-          "result": "eelektross mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ],
       "baseScale": 0.6,
       "hitbox": {
         "width": 4,
@@ -189,21 +174,6 @@
   "labels": ["gen5"],
   "pokedex": ["cobblemon.species.eelektross.desc"],
   "preEvolution": "eelektrik",
-  "evolutions": [
-    {
-      "id": "eelektross_mega",
-      "variant": "level_up",
-      "result": "eelektross mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,

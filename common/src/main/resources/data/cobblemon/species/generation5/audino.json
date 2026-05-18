@@ -81,22 +81,7 @@
         "width": 1,
         "height": 2,
         "fixed": false
-      },
-      "evolutions": [
-        {
-          "id": "audino_mega_revert",
-          "variant": "level_up",
-          "result": "audino mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ]
+      }
     }
   ],
   "baseExperienceYield": 390,
@@ -259,21 +244,6 @@
   ],
   "pokedex": [
     "cobblemon.species.audino.desc"
-  ],
-  "evolutions": [
-    {
-      "id": "audino_mega",
-      "variant": "level_up",
-      "result": "audino mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
   ],
   "baseScale": 0.7,
   "hitbox": {

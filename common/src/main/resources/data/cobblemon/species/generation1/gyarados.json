@@ -69,19 +69,7 @@
       "cannotDynamax": false,
       "battleOnly": true,
       "evolutions": [
-        {
-          "id": "gyarados_mega_revert",
-          "variant": "level_up",
-          "result": "gyarados mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     },
     {
@@ -463,19 +451,7 @@
   ],
   "preEvolution": "magikarp",
   "evolutions": [
-    {
-      "id": "gyarados_mega",
-      "variant": "level_up",
-      "result": "gyarados mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 1,
   "hitbox": {

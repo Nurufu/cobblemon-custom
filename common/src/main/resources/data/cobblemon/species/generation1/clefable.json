@@ -58,19 +58,7 @@
         "mega"
       ],
       "evolutions": [
-        {
-          "id": "clefable_mega_revert",
-          "variant": "level_up",
-          "result": "clefable mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ],
       "baseScale": 1,
       "hitbox": {
@@ -348,19 +336,7 @@
   ],
   "preEvolution": "clefairy",
   "evolutions": [
-    {
-      "id": "clefable_mega",
-      "variant": "level_up",
-      "result": "clefable mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 1,
   "hitbox": {

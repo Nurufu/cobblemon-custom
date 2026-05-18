@@ -64,19 +64,7 @@
       "cannotDynamax": false,
       "battleOnly": true,
       "evolutions": [
-        {
-          "id": "pinsir_mega_revert",
-          "variant": "level_up",
-          "result": "pinsir mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     }
   ],
@@ -251,19 +239,7 @@
     "cobblemon.species.pinsir.desc"
   ],
   "evolutions": [
-    {
-      "id": "pinsir_mega",
-      "variant": "level_up",
-      "result": "pinsir mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 0.75,
   "hitbox": {

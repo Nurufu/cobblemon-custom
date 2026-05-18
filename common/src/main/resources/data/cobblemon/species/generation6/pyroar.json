@@ -112,21 +112,6 @@
   "labels": ["gen6"],
   "pokedex": ["cobblemon.species.pyroar.desc"],
   "preEvolution": "litleo",
-  "evolutions": [
-    {
-      "id": "pyroar_mega",
-      "variant": "level_up",
-      "result": "pyroar mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
   "baseScale": 1,
   "hitbox": {
     "width": 1,
@@ -145,22 +130,7 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"],
-      "evolutions": [
-        {
-          "id": "pyroar_mega",
-          "variant": "level_up",
-          "result": "pyroar mega=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
-      ]
+      "aspects": ["female"]
     },
     {
       "name": "Mega",
@@ -181,21 +151,6 @@
       ],
       "aspects": [
         "mega"
-      ],
-      "evolutions": [
-        {
-          "id": "pyroar_mega_revert",
-          "variant": "level_up",
-          "result": "pyroar mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
       ]
     }
   ],

@@ -58,19 +58,7 @@
       "cannotDynamax": false,
       "battleOnly": true,
       "evolutions": [
-        {
-          "id": "houndoom_mega_revert",
-          "variant": "level_up",
-          "result": "houndoom mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     }
   ],
@@ -231,19 +219,7 @@
   "pokedex": ["cobblemon.species.houndoom.desc"],
   "preEvolution": "houndour",
   "evolutions": [
-    {
-      "id": "houndoom_mega",
-      "variant": "level_up",
-      "result": "houndoom mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 1,
   "hitbox": {

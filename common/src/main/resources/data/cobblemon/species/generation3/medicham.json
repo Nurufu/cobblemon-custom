@@ -22,22 +22,7 @@
     "forms": [
       {
         "name": "Female",
-        "aspects": ["female"],
-        "evolutions": [
-          {
-            "id": "medicham_mega",
-            "variant": "level_up",
-            "result": "medicham mega=true",
-            "consumeHeldItem": false,
-            "learnableMoves": [],
-            "requirements": [
-              {
-                "variant": "held_item",
-                "itemCondition": "cobblemon:mega_stone"
-              }
-            ]
-          }
-        ]
+        "aspects": ["female"]
       },
       {
         "name": "Mega",
@@ -81,22 +66,7 @@
         "height": 13,
         "weight": 315,
         "cannotDynamax": false,
-        "battleOnly": true,
-        "evolutions": [
-          {
-            "id": "medicham_mega_revert",
-            "variant": "level_up",
-            "result": "medicham mega=false",
-            "consumeHeldItem": false,
-            "learnableMoves": [],
-            "requirements": [
-              {
-                "variant": "held_item",
-                "itemCondition": "cobblemon:mega_stone"
-              }
-            ]
-          }
-        ]
+        "battleOnly": true
       }
     ],
     "baseExperienceYield": 144,
@@ -259,21 +229,6 @@
       "cobblemon.species.medicham.desc"
     ],
     "preEvolution": "meditite",
-  "evolutions": [
-    {
-      "id": "medicham_mega",
-      "variant": "level_up",
-      "result": "medicham mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
-  ],
     "baseScale": 1,
     "hitbox": {
         "width": 1,

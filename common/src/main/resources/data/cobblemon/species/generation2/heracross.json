@@ -25,19 +25,7 @@
       "name": "Female",
       "aspects": ["female"],
       "evolutions": [
-        {
-          "id": "heracross_mega",
-          "variant": "level_up",
-          "result": "heracross mega=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     },
     {
@@ -84,19 +72,7 @@
       "cannotDynamax": false,
       "battleOnly": true,
       "evolutions": [
-        {
-          "id": "heracross_mega_revert",
-          "variant": "level_up",
-          "result": "heracross mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     }
   ],
@@ -289,19 +265,7 @@
     "cobblemon.species.heracross.desc"
   ],
   "evolutions": [
-    {
-      "id": "heracross_mega",
-      "variant": "level_up",
-      "result": "heracross mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 1,
   "hitbox": {

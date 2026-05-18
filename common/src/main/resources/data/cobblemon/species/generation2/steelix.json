@@ -71,19 +71,7 @@
         "fixed": false
       },
       "evolutions": [
-        {
-          "id": "steelix_mega_revert",
-          "variant": "level_up",
-          "result": "steelix mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     }
   ],
@@ -285,19 +273,7 @@
   ],
   "preEvolution": "onix",
   "evolutions": [
-    {
-      "id": "steelix_mega",
-      "variant": "level_up",
-      "result": "steelix mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 1,
   "hitbox": {

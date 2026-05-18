@@ -63,19 +63,7 @@
       "cannotDynamax": false,
       "battleOnly": true,
       "evolutions": [
-        {
-          "id": "blastoise_mega_revert",
-          "variant": "level_up",
-          "result": "blastoise mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
+
       ]
     },
     {
@@ -386,19 +374,7 @@
   ],
   "preEvolution": "wartortle",
   "evolutions": [
-    {
-      "id": "blastoise_mega",
-      "variant": "level_up",
-      "result": "blastoise mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
+
   ],
   "baseScale": 0.8,
   "hitbox": {

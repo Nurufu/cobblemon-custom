@@ -36,19 +36,6 @@
       "name": "Female",
       "aspects": ["female"],
       "evolutions": [
-        {
-          "id": "venusaur_mega",
-          "variant": "level_up",
-          "result": "venusaur mega=true",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
       ]
     },
     {
@@ -102,19 +89,6 @@
         "fixed": false
       },
       "evolutions": [
-        {
-          "id": "venusaur_mega_revert",
-          "variant": "level_up",
-          "result": "venusaur mega=false",
-          "consumeHeldItem": false,
-          "learnableMoves": [],
-          "requirements": [
-            {
-              "variant": "held_item",
-              "itemCondition": "cobblemon:mega_stone"
-            }
-          ]
-        }
       ]
     },
     {
@@ -344,19 +318,6 @@
   ],
   "preEvolution": "ivysaur",
   "evolutions": [
-    {
-      "id": "venusaur_mega",
-      "variant": "level_up",
-      "result": "venusaur mega=true",
-      "consumeHeldItem": false,
-      "learnableMoves": [],
-      "requirements": [
-        {
-          "variant": "held_item",
-          "itemCondition": "cobblemon:mega_stone"
-        }
-      ]
-    }
   ],
   "standingEyeHeight": 0.4,
   "swimmingEyeHeight": 0.4,
