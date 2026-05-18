@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "tag": "cobblemon:evolution_stones"
+        },
+        {
+            "tag": "cobblemon:evolution_stones"
+        },
+        {
+            "tag": "cobblemon:evolution_stones"
+        },
+        {
+            "tag": "cobblemon:evolution_stones"
+        },
+        {
+            "item": "cobblemon:mega_stone"
+        },
+        {
+            "tag": "cobblemon:evolution_stones"
+        },
+        {
+            "tag": "cobblemon:evolution_stones"
+        },
+        {
+            "tag": "cobblemon:evolution_stones"
+        },
+        {
+            "tag": "cobblemon:evolution_stones"
+        }
+    ],
+    "result": {
+        "item": "cobblemon:mega_stone",
+        "count": 2
+    }
+}
