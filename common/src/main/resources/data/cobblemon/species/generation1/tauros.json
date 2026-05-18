@@ -356,7 +356,7 @@
         "paldean_form"
       ],
       "aspects": [
-        "paldean"
+        "paldean-breed-combat"
       ],
       "abilities": [
         "intimidate",
@@ -619,8 +619,7 @@
         "paldean_form"
       ],
       "aspects": [
-        "blaze-breed",
-        "paldean"
+        "paldean-breed-blaze"
       ],
       "abilities": [
         "intimidate",
@@ -870,8 +869,7 @@
         "paldean_form"
       ],
       "aspects": [
-        "paldean",
-        "aqua-breed"
+        "paldean-breed-aqua"
       ],
       "abilities": [
         "intimidate",
@@ -1124,7 +1122,6 @@
     }
   ],
   "features": [
-    "paldean",
-    "bull_breed"
+    "paldean-breed-aqua"
   ]
 }
