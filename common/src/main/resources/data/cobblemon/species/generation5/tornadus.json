@@ -162,7 +162,15 @@
     ],
     "height": 15,
     "weight": 630,
-    "evolutions": [],
+  "evolutions": [
+    {
+      "id":"torn_therian",
+      "variant": "level_up",
+      "result": "tornadus therian=true",
+      "consumeHeldItem": false,
+      "requirements":[]
+    }
+  ],
     "forms": [
       {
         "name": "Therian",
@@ -205,7 +213,16 @@
         "height": 14,
         "weight": 630,
         "cannotDynamax": false,
-        "battleOnly": false
+        "battleOnly": false,
+        "evolutions": [
+          {
+            "id":"torn_incar",
+            "variant": "level_up",
+            "result": "tornadus therian=false",
+            "consumeHeldItem": false,
+            "requirements":[]
+          }
+        ]
       }
     ],
     "aspects": [],

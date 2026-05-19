@@ -108,7 +108,15 @@
   ],
   "height": 16,
   "weight": 480,
-  "evolutions": [],
+  "evolutions": [
+    {
+      "id":"enam_ther",
+      "variant": "level_up",
+      "result": "enamorus therian=true",
+      "consumeHeldItem": false,
+      "requirements":[]
+    }
+  ],
   "forms": [
     {
       "name": "Therian",
@@ -211,7 +219,16 @@
       "height": 16,
       "weight": 480,
       "cannotDynamax": false,
-      "battleOnly": false
+      "battleOnly": false,
+      "evolutions": [
+        {
+          "id":"enam_incar",
+          "variant": "level_up",
+          "result": "enamorus therian=false",
+          "consumeHeldItem": false,
+          "requirements":[]
+        }
+      ]
     }
   ],
   "aspects": [],

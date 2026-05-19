@@ -3,6 +3,13 @@
   "species": "cobblemon:meloetta",
   "variations": [
     {
+      "aspects": [],
+      "poser": "cobblemon:meloetta",
+      "model": "cobblemon:meloetta.geo",
+      "texture": "cobblemon:textures/pokemon/meloetta/meloetta_aria.png",
+      "layers": []
+    },
+    {
       "aspects": ["aria-forme"],
       "poser": "cobblemon:meloetta",
       "model": "cobblemon:meloetta.geo",

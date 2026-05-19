@@ -176,7 +176,15 @@
     ],
     "height": 15,
     "weight": 610,
-    "evolutions": [],
+  "evolutions": [
+    {
+      "id":"thund_therian",
+      "variant": "level_up",
+      "result": "thundurus therian=true",
+      "consumeHeldItem": false,
+      "requirements":[]
+    }
+  ],
     "forms": [
       {
         "name": "Therian",
@@ -220,7 +228,16 @@
         "height": 30,
         "weight": 610,
         "cannotDynamax": false,
-        "battleOnly": false
+        "battleOnly": false,
+        "evolutions": [
+          {
+            "id":"thund_incar",
+            "variant": "level_up",
+            "result": "landorus therian=false",
+            "consumeHeldItem": false,
+            "requirements":[]
+          }
+        ]
       }
     ],
     "aspects": [],
