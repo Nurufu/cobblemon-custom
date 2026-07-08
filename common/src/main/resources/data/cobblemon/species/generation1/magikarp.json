@@ -114,7 +114,24 @@
   "forms": [
     {
       "name": "Female",
-      "aspects": ["female"]
+      "aspects": ["female"],
+      "evolutions": [
+        {
+          "id": "magikarp_gyarados",
+          "variant": "level_up",
+          "result": "gyarados",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "bite"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 20
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "Apricot Stripes",

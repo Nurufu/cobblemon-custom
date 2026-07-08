@@ -3951,6 +3951,8 @@
   "cobblemon.move.terablast.desc": "If the user is Terastallized, this move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes, and this move's type becomes the same as the user's Tera Type.",
   "cobblemon.move.terrainpulse": "Terrain Pulse",
   "cobblemon.move.terrainpulse.desc": "The user utilizes the power of the terrain to attack. This move’s type and power changes depending on the terrain when it’s used.",
+  "cobblemon.move.terastarstorm": "Tera Starstorm",
+  "cobblmeon.move.terstarstorm.desc": "With the power of its crystals, the user bombards and eliminates the target.",
   "cobblemon.move.thief": "Thief",
   "cobblemon.move.thief.desc": "The user attacks and steals the target’s held item simultaneously. The user can’t steal anything if it already holds an item.",
   "cobblemon.move.thousandarrows": "Thousand Arrows",

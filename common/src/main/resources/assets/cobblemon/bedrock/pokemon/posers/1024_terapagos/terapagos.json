@@ -40,6 +40,28 @@
     "sleep": {
       "poseTypes": ["SLEEP"],
       "animations": ["q.bedrock('terapagos', 'sleep')"]
+    },
+    "shoulder_left": {
+      "poseTypes": ["SHOULDER_LEFT"],
+      "animations": ["q.look('head')", "q.bedrock('terapagos', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('terapagos', 'blink')"],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [-7, -4, 0]
+        }
+      ]
+    },
+    "shoulder_right": {
+      "poseTypes": ["SHOULDER_RIGHT"],
+      "animations": ["q.look('head')", "q.bedrock('terapagos', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('terapagos', 'blink')"],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [7, -4, 0]
+        }
+      ]
     }
   }
 }

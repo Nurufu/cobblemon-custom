@@ -5,7 +5,7 @@
   "spawns": [
     {
       "id": "meloetta-1T",
-      "pokemon": "meloetta forme=aria",
+      "pokemon": "meloetta",
       "presets": [
         "natural",
         "wild"

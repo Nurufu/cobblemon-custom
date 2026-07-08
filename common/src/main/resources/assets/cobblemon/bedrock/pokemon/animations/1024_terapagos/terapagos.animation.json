@@ -490,9 +490,18 @@
 				"bone24": {
 					"position": {
 						"0.0": [0, 0, 0],
-						"0.25": {"pre": [0, 0, 0], "post": [0, -0.01, 0]},
-						"0.6667": {"pre": [0, -0.01, 0], "post": [0, -0.01, 0]},
-						"0.75": {"pre": [0, -0.01, 0], "post": [0, 0, 0]}
+						"0.25": {
+							"pre": [0, 0, 0],
+							"post": [0, -0.01, 0]
+						},
+						"0.6667": {
+							"pre": [0, -0.01, 0],
+							"post": [0, -0.01, 0]
+						},
+						"0.75": {
+							"pre": [0, -0.01, 0],
+							"post": [0, 0, 0]
+						}
 					}
 				},
 				"head": {
@@ -504,12 +513,12 @@
 					}
 				}
 			},
-				"sound_effects": {
-					"0.04": {
-						"effect": "pokemon.terapagos.cry"
-					}
+			"sound_effects": {
+				"0.04": {
+					"effect": "pokemon.terapagos.cry"
 				}
-			},
+			}
+		},
 		"animation.terapagos.pose": {
 			"loop": true,
 			"bones": {
